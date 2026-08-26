@@ -1,0 +1,13 @@
+# Working caches for the research pipeline (raw evidence in research/raw/ IS committed)
+research/cache/
+
+# Machine-local agent settings
+.claude/settings.local.json
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.log
+
+# Node (the tooling is zero-dependency; nothing should ever install here)
+node_modules/
