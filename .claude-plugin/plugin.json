@@ -1,0 +1,10 @@
+{
+  "name": "product-design-skills",
+  "version": "0.1.0",
+  "description": "A researched, validated registry of agent skills for agentic product design.",
+  "author": {
+    "name": "Denis Stritar"
+  },
+  "license": "MIT",
+  "skills": []
+}

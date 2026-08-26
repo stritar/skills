@@ -1,0 +1,18 @@
+{
+  "name": "product-design-skills",
+  "owner": {
+    "name": "Denis Stritar"
+  },
+  "metadata": {
+    "description": "Agent skills for agentic product design, organized by category."
+  },
+  "plugins": [
+    {
+      "name": "product-design-all",
+      "source": "./",
+      "description": "Every skill in the product-design skill registry.",
+      "version": "0.1.0",
+      "skills": []
+    }
+  ]
+}
