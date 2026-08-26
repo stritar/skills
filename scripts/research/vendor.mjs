@@ -57,10 +57,17 @@ for (const file of readdirSync(MANIFEST_DIR).sort()) {
   }
 
   try {
+    const clash = index.skills.find((s) => s.id === manifest.id &&
+      s.source?.repository !== manifest.upstream.repository);
+    if (clash) throw new Error(`id "${manifest.id}" already used by ${clash.source?.repository ?? 'an original skill'}`);
+
     const writes = [];
     for (const f of manifest.files) {
       if (f.dest.includes('..') || f.dest.startsWith('/')) throw new Error(`unsafe dest path ${f.dest}`);
-      const buf = await fetchRaw(f.rawUrl);
+      // A file is either fetched SHA-pinned from upstream (rawUrl) or written
+      // from literal content (e.g. canonical license text when upstream only
+      // declares SPDX in package.json).
+      const buf = f.content !== undefined ? Buffer.from(f.content, 'utf8') : await fetchRaw(f.rawUrl);
       if (f.blobSha && gitBlobSha(buf) !== f.blobSha) {
         throw new Error(`blob SHA mismatch for ${f.dest} (${f.rawUrl})`);
       }

@@ -1,0 +1,860 @@
+{
+  "track": "T3",
+  "round": 1,
+  "date": "2026-08-26",
+  "queries": [
+    {
+      "engine": "WebSearch",
+      "query": "Claude Code plugin marketplace design UX plugins 2026",
+      "url": "",
+      "results": 6,
+      "outcome": "found designrevision/claudedirectory listicles; confirmed frontend-design is most-installed official plugin"
+    },
+    {
+      "engine": "WebSearch",
+      "query": "\"claude code\" community marketplace \".claude-plugin/marketplace.json\" design UI accessibility plugins github",
+      "url": "",
+      "results": 9,
+      "outcome": "found anthropics/claude-plugins-community, deepakkamboj/claude-marketplace, ananddtyagi/claude-code-marketplace, claudemarketplaces.com"
+    },
+    {
+      "engine": "WebFetch",
+      "query": "official marketplace.json enumeration",
+      "url": "https://raw.githubusercontent.com/anthropics/claude-plugins-official/main/.claude-plugin/marketplace.json",
+      "results": 300,
+      "outcome": "enumerated ~300 official plugins; design-relevant: frontend-design, figma, canva, adobe-for-creativity, miro, hyperframes, amplitude, fullstory, logrocket, modern-web-guidance, liquid-skills; second pass extracted exact source repos"
+    },
+    {
+      "engine": "local-grep",
+      "query": "regex over anthropics/claude-plugins-community marketplace.json (2282 plugins) for design/ux/a11y/research/prototyping keywords",
+      "url": "https://raw.githubusercontent.com/anthropics/claude-plugins-community/main/.claude-plugin/marketplace.json",
+      "results": 88,
+      "outcome": "88 design-related community plugins extracted with source repos; the single richest source this round"
+    },
+    {
+      "engine": "WebFetch",
+      "query": "grep.app API: marketplace.json design (.claude-plugin path filter)",
+      "url": "https://grep.app/api/search?q=marketplace.json%20design&filter[path][0]=.claude-plugin",
+      "results": 0,
+      "outcome": "HTTP 429 rate-limited"
+    },
+    {
+      "engine": "WebFetch",
+      "query": "grep.app API retry: \"marketplace.json\" design ux",
+      "url": "https://grep.app/api/search?q=%22marketplace.json%22+design+ux",
+      "results": 0,
+      "outcome": "HTTP 429 rate-limited again; grep.app unusable this session"
+    },
+    {
+      "engine": "WebSearch",
+      "query": "claude-plugins.dev design UX skills directory",
+      "url": "",
+      "results": 8,
+      "outcome": "surfaced Owl-Listener/designer-skills, AccessLint, claudemarketplaces.com design-ui category, claudedirectory.org design topic"
+    },
+    {
+      "engine": "WebSearch",
+      "query": "AccessLint claude code accessibility skills plugin github",
+      "url": "",
+      "results": 9,
+      "outcome": "AccessLint/skills confirmed; also masuP9/a11y-specialist-skills, Community-Access/accessibility-agents, airowe/claude-a11y-skill, mgifford/accessibility-skills"
+    },
+    {
+      "engine": "WebSearch",
+      "query": "wondelai claude skills github hooked ux heuristics refactoring-ui",
+      "url": "",
+      "results": 7,
+      "outcome": "wondelai/skills confirmed (50+ book-framework skills incl. Refactoring UI, UX Heuristics); also imkepler/hermes-wondelai-skills fork/companion"
+    },
+    {
+      "engine": "WebSearch",
+      "query": "\"claude code\" plugin marketplace \"design tokens\" OR \"storybook\" OR \"design system\" skills github 2026",
+      "url": "",
+      "results": 10,
+      "outcome": "found hamen/material-3-skill, tekgnosis-net/apple-design-marketplace, murphytrueman/design-system-ops, wilwaldon frontend-design toolkit list, JanSzewczyk + lukaskellerstein marketplaces, github topics pages"
+    },
+    {
+      "engine": "directory-browse",
+      "query": "claudemarketplaces.com marketplace directory",
+      "url": "https://claudemarketplaces.com/marketplaces",
+      "results": 10,
+      "outcome": "surfaced pbakaus/impeccable, Dammyjay93/interface-design, nextlevelbuilder/ui-ux-pro-max-skill as design-focused marketplaces"
+    },
+    {
+      "engine": "directory-browse",
+      "query": "claudemarketplaces.com design-ui skills category",
+      "url": "https://claudemarketplaces.com/skills/category/design-ui",
+      "results": 80,
+      "outcome": "80-row listing of design/UI skills with source repos; mined for candidates and leads (wshobson/agents, nexu-io/open-design, google-labs-code/stitch-skills, lottiefiles, anthropics/knowledge-work-plugins, plugin87/ux-ui-agent-skills, leonxlnx/taste-skill...)"
+    },
+    {
+      "engine": "directory-browse",
+      "query": "claudedirectory.org design topic page",
+      "url": "https://www.claudedirectory.org/plugins/topic/design",
+      "results": 19,
+      "outcome": "confirmed official design plugins + surfaced Wondelai skill family, apple-hig-expert, design-review, kpi-dashboard-design"
+    },
+    {
+      "engine": "directory-browse",
+      "query": "claude-plugins.dev registry",
+      "url": "https://claude-plugins.dev",
+      "results": 4,
+      "outcome": "community CLI registry; surfaced dotclaude/marketplace frontend-excellence, ananddtyagi ui-designer agent; thin design coverage"
+    }
+  ],
+  "urlsOpened": [
+    {
+      "url": "https://raw.githubusercontent.com/anthropics/claude-plugins-official/main/.claude-plugin/marketplace.json",
+      "why": "enumerate official marketplace; then extract exact source fields for design plugins",
+      "outcome": "ok; ~300 plugins; sources recorded for frontend-design, canva, adobe, miro, figma, amplitude, liquid-skills etc."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/anthropics/claude-plugins-community/main/.claude-plugin/marketplace.json",
+      "why": "enumerate community marketplace (downloaded via curl, 1.5MB, 2282 plugins)",
+      "outcome": "ok; 88 design-related entries extracted"
+    },
+    {
+      "url": "https://github.com/anthropics/claude-plugins-public/tree/main/plugins/frontend-design",
+      "why": "verify frontend-design plugin structure",
+      "outcome": "ok; skills/frontend-design + LICENSE present"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/anthropics/claude-plugins-public/main/plugins/frontend-design/skills/frontend-design/SKILL.md",
+      "why": "confirm SKILL.md exists",
+      "outcome": "ok; valid SKILL.md with frontmatter (distinctive visual design guidance)"
+    },
+    {
+      "url": "https://github.com/cookiy-ai/user-research-skill",
+      "why": "verify user-research plugin from community marketplace",
+      "outcome": "ok; MIT, 1.5k stars, plugins/user-research + SKILL.md"
+    },
+    {
+      "url": "https://github.com/imsaif/design-with-claude",
+      "why": "verify 29/48 design specialists plugin",
+      "outcome": "ok; MIT, 11 stars, skills/design-with-claude + commands/ (48 specialists, 8 categories)"
+    },
+    {
+      "url": "https://github.com/zeta92/design-library-plugin",
+      "why": "verify the-design-library plugin",
+      "outcome": "ok; Apache-2.0, 10 stars, skills/ + 58 brand design systems + 7 curated skills"
+    },
+    {
+      "url": "https://github.com/pbakaus/impeccable",
+      "why": "verify impeccable design-language plugin",
+      "outcome": "ok; Apache-2.0, 62.8k stars, skill/ + 23 commands + 59 detector rules"
+    },
+    {
+      "url": "https://github.com/adnanmir123/ux-superpowers",
+      "why": "verify UX discovery plugin",
+      "outcome": "ok; MIT, 0 stars, skills/*/SKILL.md, 5-phase discovery workflow"
+    },
+    {
+      "url": "https://github.com/HDeibler/universal-design-principles",
+      "why": "verify 42-principles plugin",
+      "outcome": "ok; MIT, 8 stars, plugins/*/skills/*/SKILL.md, 137 skills"
+    },
+    {
+      "url": "https://github.com/tarunccet/pm-skills",
+      "why": "verify guided-ai-product-management plugin",
+      "outcome": "ok; MIT, 6 stars, 9 plugins, 93 skills incl. discovery/research/analytics"
+    },
+    {
+      "url": "https://github.com/namht1st/prepkit-product",
+      "why": "verify prepkit-product plugin",
+      "outcome": "ok; MIT, 2 stars, skills/ + agents/ + references/; discovery + JTBD + evidence grading"
+    },
+    {
+      "url": "https://github.com/Shopify/liquid-skills",
+      "why": "verify liquid-theme-a11y skill",
+      "outcome": "ok; 31 stars, 3 skills incl. liquid-theme-a11y (WCAG e-commerce patterns); license not visible"
+    },
+    {
+      "url": "https://github.com/hegemonart/get-design-done",
+      "why": "verify 5-stage design pipeline plugin",
+      "outcome": "ok; MIT, 4 stars, 96+ skills, 64 agents, brief->verify pipeline"
+    },
+    {
+      "url": "https://github.com/felipecabargas/gambit",
+      "why": "verify PM/research skills",
+      "outcome": "ok; MIT, 2 stars, skills/*/SKILL.md incl. synthesize-user-research, build-user-persona"
+    },
+    {
+      "url": "https://claudemarketplaces.com/marketplaces",
+      "why": "third-party marketplace directory",
+      "outcome": "ok; surfaced impeccable, interface-design, ui-ux-pro-max"
+    },
+    {
+      "url": "https://github.com/deepakkamboj/claude-marketplace",
+      "why": "verify accessibility marketplace",
+      "outcome": "ok; MIT, 5 stars, plugins/accessibility with 6 skills + 2 agents (WCAG 2.1 AA + Playwright)"
+    },
+    {
+      "url": "https://github.com/Dammyjay93/interface-design",
+      "why": "verify design-engineering skill",
+      "outcome": "ok; MIT, 5.6k stars, .claude/skills/interface-design + design-review/design-deslop commands"
+    },
+    {
+      "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+      "why": "verify UI/UX Pro Max skill",
+      "outcome": "ok; MIT, 121.2k stars, .claude/skills/ui-ux-pro-max/SKILL.md; 79 styles/192 palettes/119 UX practices"
+    },
+    {
+      "url": "https://github.com/canva-sdks/canva-skills/tree/main/plugins/canva",
+      "why": "verify Canva partner plugin skills",
+      "outcome": "ok; skills/ + inactive-skills/ present; license not visible on page"
+    },
+    {
+      "url": "https://github.com/adobe/skills",
+      "why": "verify Adobe partner skills repo",
+      "outcome": "ok; Apache-2.0, 170 stars, plugins/creative-cloud/adobe-for-creativity + SKILL.md convention"
+    },
+    {
+      "url": "https://github.com/miroapp/miro-ai/tree/main/claude-plugins/miro",
+      "why": "verify Miro partner plugin",
+      "outcome": "ok; MIT, skills/ with 6 skills (miro-diagram, miro-browse, miro-code-spec...)"
+    },
+    {
+      "url": "https://github.com/amplitude/mcp-marketplace",
+      "why": "verify Amplitude analytics plugin",
+      "outcome": "ok; MIT, 34 stars, plugins/amplitude/skills with 25+ skills (instrumentation, experimentation, journeys)"
+    },
+    {
+      "url": "https://github.com/ananddtyagi/claude-code-marketplace",
+      "why": "inspect community marketplace (688 stars)",
+      "outcome": "ok; commands/agents style (ui-designer, accessibility expert); prompt-style, no SKILL.md packages"
+    },
+    {
+      "url": "https://claude-plugins.dev",
+      "why": "community registry",
+      "outcome": "ok; thin design coverage; noted dotclaude frontend-excellence"
+    },
+    {
+      "url": "https://github.com/Owl-Listener/designer-skills",
+      "why": "verify designer-skills mega-collection",
+      "outcome": "ok; MIT, 2.3k stars, 9 plugins / 107 skills across full design cycle"
+    },
+    {
+      "url": "https://claudemarketplaces.com/skills/category/design-ui",
+      "why": "mine design-ui category (80 rows)",
+      "outcome": "ok; many repos recorded as candidates/leads"
+    },
+    {
+      "url": "https://www.claudedirectory.org/plugins/topic/design",
+      "why": "mine claudedirectory design topic",
+      "outcome": "ok; 19 plugins listed incl. Wondelai family"
+    },
+    {
+      "url": "https://github.com/AccessLint/skills",
+      "why": "verify AccessLint a11y plugin",
+      "outcome": "ok; MIT, 91 stars, plugins/accesslint with 5 skills covering WCAG 2.2 audit workflow"
+    },
+    {
+      "url": "https://github.com/Community-Access/accessibility-agents",
+      "why": "verify 11 WCAG specialists",
+      "outcome": "ok; MIT, 401 stars; agents as markdown (no SKILL.md convention) - convertible equivalent"
+    },
+    {
+      "url": "https://github.com/anthropics/knowledge-work-plugins",
+      "why": "official knowledge-work plugin repo (design + product-management plugins)",
+      "outcome": "ok; Apache-2.0, 23.7k stars; design/ plugin found at root"
+    },
+    {
+      "url": "https://github.com/anthropics/knowledge-work-plugins/tree/main/plugins/design",
+      "why": "locate design plugin (first guess)",
+      "outcome": "404 - wrong path; plugin lives at /design"
+    },
+    {
+      "url": "https://github.com/anthropics/knowledge-work-plugins/tree/main/design",
+      "why": "verify official design plugin contents",
+      "outcome": "ok; 6 skills (design-critique, design-system-management, ux-writing, accessibility-review, user-research, design-handoff) + 6 commands"
+    },
+    {
+      "url": "https://github.com/lottiefiles/motion-design-skill",
+      "why": "verify LottieFiles motion skill",
+      "outcome": "ok; MIT, 1.4k stars, SKILL.md + director/ + patterns/ + reference/"
+    },
+    {
+      "url": "https://github.com/google-labs-code/stitch-skills",
+      "why": "verify Google Labs Stitch skills",
+      "outcome": "ok; Apache-2.0, 8.2k stars, 3 plugins / 15 skills incl. taste-design, design-md"
+    },
+    {
+      "url": "https://github.com/nexu-io/open-design",
+      "why": "verify OpenDesign hybrid marketplace",
+      "outcome": "ok; Apache-2.0, 91.7k stars, 100+ SKILL.md skills, 151 brand DESIGN.md packages, 277 plugins"
+    },
+    {
+      "url": "https://github.com/wondelai/skills",
+      "why": "verify Wondel.ai book-framework skills",
+      "outcome": "ok; MIT, 2k stars, 62 skills each with SKILL.md; 10 UX/design frameworks"
+    },
+    {
+      "url": "https://github.com/murphytrueman/design-system-ops",
+      "why": "verify design system ops skills",
+      "outcome": "ok; MIT, 164 stars, skills/ + commands/ + .claude-plugin; audit/governance/docs/validation"
+    },
+    {
+      "url": "https://github.com/tekgnosis-net/apple-design-marketplace",
+      "why": "verify Apple DS marketplace",
+      "outcome": "ok; MIT, 0 stars, 1 commit, skills/apple-design; very young"
+    },
+    {
+      "url": "https://github.com/hamen/material-3-skill",
+      "why": "verify Material 3 skill",
+      "outcome": "ok; MIT, 1.3k stars, skills/material-3/SKILL.md + references/; v1.1.1 June 2026"
+    }
+  ],
+  "candidates": [
+    {
+      "candidateId": "gh:anthropics/knowledge-work-plugins#design",
+      "name": "design (knowledge-work-plugins)",
+      "repoUrl": "https://github.com/anthropics/knowledge-work-plugins",
+      "skillPath": "design/skills",
+      "ref": "main",
+      "categoryGuess": "orchestration",
+      "licenseHint": "Apache-2.0",
+      "stars": 23700,
+      "lastActivity": "active 2026 (734 commits)",
+      "whyRelevant": "Official Anthropic design plugin: 6 skills (design-critique, design-system-management, ux-writing, accessibility-review, user-research, design-handoff) + 6 commands; the closest existing analog to this registry's whole scope",
+      "discoveredVia": "link-from: https://claudemarketplaces.com/skills/category/design-ui",
+      "knowledgeSource": "fresh",
+      "notes": "Repo also has product-management plugin (specs, roadmaps, research synthesis) worth a separate pass. MCP connectors: Figma, Amplitude, Linear, Notion."
+    },
+    {
+      "candidateId": "gh:anthropics/claude-plugins-public#plugins/frontend-design/skills/frontend-design",
+      "name": "frontend-design",
+      "repoUrl": "https://github.com/anthropics/claude-plugins-public",
+      "skillPath": "plugins/frontend-design/skills/frontend-design/SKILL.md",
+      "ref": "main",
+      "categoryGuess": "visual-design",
+      "licenseHint": "unknown (LICENSE file present, type not confirmed)",
+      "stars": 0,
+      "lastActivity": "active 2026",
+      "whyRelevant": "Anthropic's own most-installed plugin (~277k installs per press coverage): distinctive, non-templated visual design guidance; SKILL.md verified directly",
+      "discoveredVia": "query: official marketplace.json enumeration",
+      "knowledgeSource": "remembered-then-verified",
+      "notes": "Star count for claude-plugins-public not captured; listed in official marketplace as ./plugins/frontend-design."
+    },
+    {
+      "candidateId": "gh:nextlevelbuilder/ui-ux-pro-max-skill#.claude/skills/ui-ux-pro-max",
+      "name": "ui-ux-pro-max",
+      "repoUrl": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+      "skillPath": ".claude/skills/ui-ux-pro-max/SKILL.md",
+      "ref": "main",
+      "categoryGuess": "visual-design",
+      "licenseHint": "MIT",
+      "stars": 121200,
+      "lastActivity": "active 2026 (226 commits)",
+      "whyRelevant": "Largest community design skill by stars: 79 UI styles, 192 palettes, 74 font pairings, 119 UX practices, BM25-searched design-system generator; multi-platform templates",
+      "discoveredVia": "link-from: https://claudemarketplaces.com/marketplaces",
+      "knowledgeSource": "fresh",
+      "notes": "Data-driven rather than prose-only; CLI installer generates platform-specific files."
+    },
+    {
+      "candidateId": "gh:nexu-io/open-design#skills",
+      "name": "OpenDesign",
+      "repoUrl": "https://github.com/nexu-io/open-design",
+      "skillPath": "skills/ (100+ SKILL.md dirs)",
+      "ref": "main",
+      "categoryGuess": "orchestration",
+      "licenseHint": "Apache-2.0",
+      "stars": 91700,
+      "lastActivity": "active 2026 (3442 commits)",
+      "whyRelevant": "Hybrid skill collection + plugin marketplace for design: 100+ SKILL.md skills (taste-design, figma-implement-design, high-end-visual-design, brutalist prototypes), 151 brand DESIGN.md packages, 277 plugins, 26 agent-CLI adapters",
+      "discoveredVia": "link-from: https://claudemarketplaces.com/skills/category/design-ui",
+      "knowledgeSource": "fresh",
+      "notes": "Both a source of individual skills and a competing registry model; study its open-design.json plugin manifest."
+    },
+    {
+      "candidateId": "gh:pbakaus/impeccable#skill",
+      "name": "impeccable",
+      "repoUrl": "https://github.com/pbakaus/impeccable",
+      "skillPath": "skill/ (+ 23 /impeccable commands)",
+      "ref": "main",
+      "categoryGuess": "design-qa",
+      "licenseHint": "Apache-2.0",
+      "stars": 62800,
+      "lastActivity": "active 2026 (1641 commits)",
+      "whyRelevant": "Design vocabulary + critique/audit/polish commands + 59 deterministic anti-pattern detector rules; by Paul Bakaus; the strongest design-QA workflow found",
+      "discoveredVia": "link-from: https://claudemarketplaces.com/marketplaces",
+      "knowledgeSource": "fresh",
+      "notes": "Multi-agent-platform folders (.claude/.cursor/.codex); CLI detector is a real executable workflow, not a prompt dump."
+    },
+    {
+      "candidateId": "gh:Dammyjay93/interface-design#.claude/skills/interface-design",
+      "name": "interface-design",
+      "repoUrl": "https://github.com/Dammyjay93/interface-design",
+      "skillPath": ".claude/skills/interface-design/SKILL.md",
+      "ref": "main",
+      "categoryGuess": "design-engineering",
+      "licenseHint": "MIT",
+      "stars": 5600,
+      "lastActivity": "active 2026 (50 commits)",
+      "whyRelevant": "Design engineering with memory + enforcement: direction boards, remembered tokens in .interface-design/system.md, design-review and design-deslop passes",
+      "discoveredVia": "link-from: https://claudemarketplaces.com/marketplaces",
+      "knowledgeSource": "fresh",
+      "notes": "Cross-session design consistency is a differentiator vs one-shot skills."
+    },
+    {
+      "candidateId": "gh:google-labs-code/stitch-skills#plugins/stitch-design",
+      "name": "stitch-skills",
+      "repoUrl": "https://github.com/google-labs-code/stitch-skills",
+      "skillPath": "plugins/stitch-design/skills (+ stitch-build, stitch-utilities)",
+      "ref": "main",
+      "categoryGuess": "design-engineering",
+      "licenseHint": "Apache-2.0",
+      "stars": 8200,
+      "lastActivity": "active 2026 (98 commits)",
+      "whyRelevant": "Google Labs design-to-code skills on the Agent Skills standard: taste-design (anti-generic UI standards), design-md (semantic DESIGN.md generation), 15 skills total",
+      "discoveredVia": "link-from: https://claudemarketplaces.com/skills/category/design-ui",
+      "knowledgeSource": "fresh",
+      "notes": "Consistent SKILL.md + scripts/ + resources/ + examples/ structure."
+    },
+    {
+      "candidateId": "gh:Owl-Listener/designer-skills",
+      "name": "designer-skills",
+      "repoUrl": "https://github.com/Owl-Listener/designer-skills",
+      "skillPath": "9 plugins (design-research, design-systems, ux-strategy, ui-design, interaction-design, prototyping-testing, design-ops, designer-toolkit, visual-critique)",
+      "ref": "main",
+      "categoryGuess": "orchestration",
+      "licenseHint": "MIT",
+      "stars": 2300,
+      "lastActivity": "active 2026 (68 commits)",
+      "whyRelevant": "107 skills spanning the entire design cycle from user research to developer handoff; the broadest designer-first collection found; also ships Gemini extensions",
+      "discoveredVia": "query: claude-plugins.dev design UX skills directory",
+      "knowledgeSource": "fresh",
+      "notes": "INDEX.md organized by design situation; overlaps heavily with this registry's target taxonomy - compare category by category."
+    },
+    {
+      "candidateId": "gh:wondelai/skills",
+      "name": "wondelai-skills",
+      "repoUrl": "https://github.com/wondelai/skills",
+      "skillPath": "per-skill dirs with SKILL.md (refactoring-ui, ux-heuristics, hooked-ux, design-everyday-things, web-typography, ios-hig-design, microinteractions, design-sprint, improve-retention, top-design)",
+      "ref": "main",
+      "categoryGuess": "interaction-design",
+      "licenseHint": "MIT",
+      "stars": 2000,
+      "lastActivity": "active 2026 (73 commits)",
+      "whyRelevant": "62 book-framework skills, 10 dedicated to UX/design (Nielsen+Krug heuristics, Hook Model, Norman, Refactoring UI, GV design sprint); agentskills.io-compatible",
+      "discoveredVia": "query: wondelai claude skills github hooked ux heuristics refactoring-ui",
+      "knowledgeSource": "fresh",
+      "notes": "Framework provenance is clearly attributed; 12 metaskill guided journeys chain them."
+    },
+    {
+      "candidateId": "gh:cookiy-ai/user-research-skill#plugins/user-research",
+      "name": "cookiy user-research",
+      "repoUrl": "https://github.com/cookiy-ai/user-research-skill",
+      "skillPath": "plugins/user-research",
+      "ref": "main",
+      "categoryGuess": "research",
+      "licenseHint": "MIT",
+      "stars": 1500,
+      "lastActivity": "active 2026",
+      "whyRelevant": "End-to-end user research: research plans, screeners, discussion guides, AI-moderated interviews, survey logic, transcript synthesis and reporting",
+      "discoveredVia": "query: local-grep of community marketplace.json",
+      "knowledgeSource": "fresh",
+      "notes": "Backed by the Cookiy web app; check how much works standalone without their service."
+    },
+    {
+      "candidateId": "gh:lottiefiles/motion-design-skill",
+      "name": "motion-design-skill",
+      "repoUrl": "https://github.com/lottiefiles/motion-design-skill",
+      "skillPath": "SKILL.md (+ director/, patterns/, reference/)",
+      "ref": "main",
+      "categoryGuess": "interaction-design",
+      "licenseHint": "MIT",
+      "stars": 1400,
+      "lastActivity": "2026 (4 commits)",
+      "whyRelevant": "Vendor-authored, implementation-agnostic motion design: timing/easing tables, Disney principles for UI, choreography recipes, quality checklists",
+      "discoveredVia": "link-from: https://claudemarketplaces.com/skills/category/design-ui",
+      "knowledgeSource": "fresh",
+      "notes": "Philosophy-first; pairs well with a design-engineering skill for implementation."
+    },
+    {
+      "candidateId": "gh:hamen/material-3-skill#skills/material-3",
+      "name": "material-3-skill",
+      "repoUrl": "https://github.com/hamen/material-3-skill",
+      "skillPath": "skills/material-3/SKILL.md",
+      "ref": "main",
+      "categoryGuess": "design-systems",
+      "licenseHint": "MIT",
+      "stars": 1300,
+      "lastActivity": "v1.1.1 June 2026",
+      "whyRelevant": "Material Design 3 tokens, 30+ components, theming, responsive layout, 10-category MD3 compliance audit; includes I/O 2026 updates",
+      "discoveredVia": "query: plugin marketplace design tokens storybook design system 2026",
+      "knowledgeSource": "fresh",
+      "notes": "Compose-first with Flutter/web secondary; good reference for platform-DS skill shape."
+    },
+    {
+      "candidateId": "gh:Community-Access/accessibility-agents",
+      "name": "accessibility-agents",
+      "repoUrl": "https://github.com/Community-Access/accessibility-agents",
+      "skillPath": "agents as markdown (claude-code-plugin/, .claude-plugin/)",
+      "ref": "main",
+      "categoryGuess": "accessibility",
+      "licenseHint": "MIT",
+      "stars": 401,
+      "lastActivity": "active 2026 (370+ commits)",
+      "whyRelevant": "Eleven WCAG 2.2 AA specialist agents (ARIA, modals, contrast, keyboard, live regions, forms, alt/headings, tables, links, testing, docs) built with blind/low-vision community input",
+      "discoveredVia": "query: AccessLint claude code accessibility skills plugin github",
+      "knowledgeSource": "fresh",
+      "notes": "Agents not SKILL.md - convertible; also ships MCP server and VS Code extension."
+    },
+    {
+      "candidateId": "gh:AccessLint/skills#plugins/accesslint",
+      "name": "AccessLint skills",
+      "repoUrl": "https://github.com/AccessLint/skills",
+      "skillPath": "plugins/accesslint (5 skills: scan, inspect, audit, fix, diff)",
+      "ref": "main",
+      "categoryGuess": "accessibility",
+      "licenseHint": "MIT",
+      "stars": 91,
+      "lastActivity": "active 2026 (91 commits)",
+      "whyRelevant": "Complete WCAG 2.2 audit workflow: automated scan (@accesslint/core), manual keyboard/SR inspection, WCAG-EM conformance audit, remediation, regression diffing",
+      "discoveredVia": "query: claude-plugins.dev design UX skills directory",
+      "knowledgeSource": "fresh",
+      "notes": "Real tooling behind the skills (npm engine + benchmark dir); strongest executable a11y workflow found."
+    },
+    {
+      "candidateId": "gh:murphytrueman/design-system-ops",
+      "name": "design-system-ops",
+      "repoUrl": "https://github.com/murphytrueman/design-system-ops",
+      "skillPath": "skills/ + commands/ + .claude-plugin",
+      "ref": "main",
+      "categoryGuess": "design-systems",
+      "licenseHint": "MIT",
+      "stars": 164,
+      "lastActivity": "2026 (14 commits)",
+      "whyRelevant": "Operational design-systems work: token/component audits, drift detection, deprecation process, decision records, DTCG 2025.10 token compliance, adoption reporting",
+      "discoveredVia": "query: plugin marketplace design tokens storybook design system 2026",
+      "knowledgeSource": "fresh",
+      "notes": "By a design systems practitioner; optional Figma Console MCP integration; sample outputs included."
+    },
+    {
+      "candidateId": "gh:adobe/skills#plugins/creative-cloud/adobe-for-creativity",
+      "name": "adobe-for-creativity",
+      "repoUrl": "https://github.com/adobe/skills",
+      "skillPath": "plugins/creative-cloud/adobe-for-creativity",
+      "ref": "main",
+      "categoryGuess": "visual-design",
+      "licenseHint": "Apache-2.0",
+      "stars": 170,
+      "lastActivity": "active 2026 (731 commits)",
+      "whyRelevant": "Official Adobe creative-workflow plugin in the official marketplace; repo also carries adobe-analytics and adobe-cja plugins relevant to product analytics",
+      "discoveredVia": "query: official marketplace.json enumeration",
+      "knowledgeSource": "fresh",
+      "notes": "SKILL.md convention confirmed across repo; creative-cloud plugin details need one more hop."
+    },
+    {
+      "candidateId": "gh:miroapp/miro-ai#claude-plugins/miro",
+      "name": "miro",
+      "repoUrl": "https://github.com/miroapp/miro-ai",
+      "skillPath": "claude-plugins/miro/skills (miro-browse, miro-code-review, miro-code-spec, miro-diagram, miro-doc, miro-table)",
+      "ref": "main",
+      "categoryGuess": "prototyping",
+      "licenseHint": "MIT",
+      "stars": 0,
+      "lastActivity": "active 2026",
+      "whyRelevant": "Official Miro plugin: board reading, diagramming, spec extraction - collaborative design/workshop tooling",
+      "discoveredVia": "query: official marketplace.json enumeration",
+      "knowledgeSource": "fresh",
+      "notes": "Star count not captured; six skills verified in tree."
+    },
+    {
+      "candidateId": "gh:amplitude/mcp-marketplace#plugins/amplitude",
+      "name": "amplitude",
+      "repoUrl": "https://github.com/amplitude/mcp-marketplace",
+      "skillPath": "plugins/amplitude/skills (25+ skills)",
+      "ref": "main",
+      "categoryGuess": "analytics",
+      "licenseHint": "MIT",
+      "stars": 34,
+      "lastActivity": "active 2026 (66 commits)",
+      "whyRelevant": "Product analytics for design decisions: chart deep-dives, experimentation, feedback synthesis, user journey comparison, full instrumentation planning from code",
+      "discoveredVia": "query: official marketplace.json enumeration",
+      "knowledgeSource": "fresh",
+      "notes": "Requires Amplitude account for live data; instrumentation-plan skill works on code alone."
+    },
+    {
+      "candidateId": "gh:Shopify/liquid-skills#plugins/liquid-skills/skills/liquid-theme-a11y",
+      "name": "liquid-theme-a11y",
+      "repoUrl": "https://github.com/Shopify/liquid-skills",
+      "skillPath": "plugins/liquid-skills/skills/liquid-theme-a11y",
+      "ref": "main",
+      "categoryGuess": "accessibility",
+      "licenseHint": "unknown",
+      "stars": 31,
+      "lastActivity": "2026 (5 commits)",
+      "whyRelevant": "Shopify-official WCAG patterns for e-commerce components; sibling skill liquid-theme-standards covers design tokens and defensive CSS",
+      "discoveredVia": "query: official marketplace.json enumeration",
+      "knowledgeSource": "fresh",
+      "notes": "Platform-scoped (Shopify themes) but the a11y patterns generalize."
+    },
+    {
+      "candidateId": "gh:imsaif/design-with-claude",
+      "name": "design-with-claude",
+      "repoUrl": "https://github.com/imsaif/design-with-claude",
+      "skillPath": "skills/design-with-claude + commands/ (48 specialists)",
+      "ref": "main",
+      "categoryGuess": "orchestration",
+      "licenseHint": "MIT",
+      "stars": 11,
+      "lastActivity": "active 2026 (225 commits)",
+      "whyRelevant": "48 design specialists across core/visual/interaction/product/content-IA domains, plus dwic-audit CLI for WCAG contrast and token-drift checks",
+      "discoveredVia": "query: local-grep of community marketplace.json",
+      "knowledgeSource": "fresh",
+      "notes": "Low stars but unusually complete taxonomy; audit CLI makes it more than a prompt pack."
+    },
+    {
+      "candidateId": "gh:zeta92/design-library-plugin",
+      "name": "the-design-library",
+      "repoUrl": "https://github.com/zeta92/design-library-plugin",
+      "skillPath": "skills/ (7 curated skills + 58 brand design systems)",
+      "ref": "main",
+      "categoryGuess": "visual-design",
+      "licenseHint": "Apache-2.0",
+      "stars": 10,
+      "lastActivity": "2026 (27 commits)",
+      "whyRelevant": "Aggregates UI/UX Pro Max, Web Design Guidelines, motion principles, 11 WCAG 2.2 agents, taste skill, plus 58 brand systems and bundled Playwright MCP verification",
+      "discoveredVia": "query: local-grep of community marketplace.json",
+      "knowledgeSource": "fresh",
+      "notes": "Mostly an aggregator - check per-skill licenses of the upstreams it bundles."
+    },
+    {
+      "candidateId": "gh:HDeibler/universal-design-principles",
+      "name": "universal-design-principles",
+      "repoUrl": "https://github.com/HDeibler/universal-design-principles",
+      "skillPath": "plugins/*/skills/*/SKILL.md (137 skills, 5 plugins)",
+      "ref": "main",
+      "categoryGuess": "interaction-design",
+      "licenseHint": "MIT",
+      "stars": 8,
+      "lastActivity": "2026 (8 commits)",
+      "whyRelevant": "42 principles from Universal Principles of Design + HCI literature as 137 skills across perception, cognition, interaction, aesthetics, robustness",
+      "discoveredVia": "query: local-grep of community marketplace.json",
+      "knowledgeSource": "fresh",
+      "notes": "~35,700 lines of original prose; verify depth vs. prompt-padding on a sample before vendoring."
+    },
+    {
+      "candidateId": "gh:tarunccet/pm-skills",
+      "name": "guided-ai-product-management",
+      "repoUrl": "https://github.com/tarunccet/pm-skills",
+      "skillPath": "9 plugins (pm-product-discovery, pm-product-strategy, pm-data-analytics...)",
+      "ref": "main",
+      "categoryGuess": "strategy",
+      "licenseHint": "MIT",
+      "stars": 6,
+      "lastActivity": "active 2026 (175 commits)",
+      "whyRelevant": "93 skills incl. user interviews, assumption mapping, experimentation, metrics/funnel/cohort design - the discovery and analytics side of product design",
+      "discoveredVia": "query: local-grep of community marketplace.json",
+      "knowledgeSource": "fresh",
+      "notes": "Originally curated by Pawel Huryn; PM-centric, so cherry-pick the discovery/research/analytics plugins."
+    },
+    {
+      "candidateId": "gh:hegemonart/get-design-done",
+      "name": "get-design-done",
+      "repoUrl": "https://github.com/hegemonart/get-design-done",
+      "skillPath": "skills/ (96+), agents/ (64), five-stage pipeline",
+      "ref": "main",
+      "categoryGuess": "orchestration",
+      "licenseHint": "MIT",
+      "stars": 4,
+      "lastActivity": "active 2026 (934 commits)",
+      "whyRelevant": "Brief->Explore->Plan->Design->Verify agent pipeline grounding UI generation in design systems; 39 tool connections incl. Figma and research platforms",
+      "discoveredVia": "query: local-grep of community marketplace.json",
+      "knowledgeSource": "fresh",
+      "notes": "Heavyweight (Node 22+ requirement, hooks); assess maintenance burden before adoption."
+    },
+    {
+      "candidateId": "gh:felipecabargas/gambit",
+      "name": "gambit",
+      "repoUrl": "https://github.com/felipecabargas/gambit",
+      "skillPath": "skills/*/SKILL.md (synthesize-user-research, build-user-persona, ...)",
+      "ref": "main",
+      "categoryGuess": "research",
+      "licenseHint": "MIT",
+      "stars": 2,
+      "lastActivity": "active 2026 (103 commits)",
+      "whyRelevant": "Research synthesis and evidence-backed personas with a discovery-to-feature-request chained agent",
+      "discoveredVia": "query: local-grep of community marketplace.json",
+      "knowledgeSource": "fresh",
+      "notes": "Small but clean SKILL.md-per-skill structure with real example outputs."
+    },
+    {
+      "candidateId": "gh:namht1st/prepkit-product",
+      "name": "prepkit-product",
+      "repoUrl": "https://github.com/namht1st/prepkit-product",
+      "skillPath": "skills/ + agents/ + references/",
+      "ref": "main",
+      "categoryGuess": "discovery",
+      "licenseHint": "MIT",
+      "stars": 2,
+      "lastActivity": "2026 (1 commit)",
+      "whyRelevant": "Discovery skills with A/B/C evidence grading: problem framing, interview design, JTBD synthesis, opportunity mapping, RICE/MoSCoW, counter-metrics",
+      "discoveredVia": "query: local-grep of community marketplace.json",
+      "knowledgeSource": "fresh",
+      "notes": "Single commit - young; evidence-grading gate concept is distinctive."
+    },
+    {
+      "candidateId": "gh:adnanmir123/ux-superpowers",
+      "name": "ux-superpowers",
+      "repoUrl": "https://github.com/adnanmir123/ux-superpowers",
+      "skillPath": "skills/*/SKILL.md (+ evals/ux-discover)",
+      "ref": "main",
+      "categoryGuess": "discovery",
+      "licenseHint": "MIT",
+      "stars": 0,
+      "lastActivity": "2026 (4 commits)",
+      "whyRelevant": "Pre-code UX discovery: personas, JTBD, journey maps, telemetry planning, synthesized UX Discovery Document; ships evals",
+      "discoveredVia": "query: local-grep of community marketplace.json",
+      "knowledgeSource": "fresh",
+      "notes": "Zero stars but has an evals directory - rare quality signal."
+    },
+    {
+      "candidateId": "gh:deepakkamboj/claude-marketplace#plugins/accessibility",
+      "name": "accessibility (deepakkamboj)",
+      "repoUrl": "https://github.com/deepakkamboj/claude-marketplace",
+      "skillPath": "plugins/accessibility (6 skills + tester/reviewer agents)",
+      "ref": "main",
+      "categoryGuess": "accessibility",
+      "licenseHint": "MIT",
+      "stars": 5,
+      "lastActivity": "2026 (4 commits)",
+      "whyRelevant": "WCAG 2.1 AA marketplace: accessible-dev, contrast-checker, refactor, use-of-color, link-purpose, generate-a11y-tests with Playwright and MCP scanning",
+      "discoveredVia": "query: community marketplace json design UI accessibility github",
+      "knowledgeSource": "fresh",
+      "notes": "Skill file format not individually confirmed (page summary ambiguous); re-verify SKILL.md paths before vendoring."
+    },
+    {
+      "candidateId": "gh:canva-sdks/canva-skills#plugins/canva",
+      "name": "canva",
+      "repoUrl": "https://github.com/canva-sdks/canva-skills",
+      "skillPath": "plugins/canva/skills",
+      "ref": "main",
+      "categoryGuess": "visual-design",
+      "licenseHint": "unknown",
+      "stars": 0,
+      "lastActivity": "active 2026",
+      "whyRelevant": "Official Canva plugin (create/edit/resize/brand-check designs) shared across Claude, Cursor, Codex",
+      "discoveredVia": "query: official marketplace.json enumeration",
+      "knowledgeSource": "fresh",
+      "notes": "skills/ dir verified but individual SKILL.md contents and license need one more hop; MCP-dependent."
+    },
+    {
+      "candidateId": "gh:tekgnosis-net/apple-design-marketplace#skills/apple-design",
+      "name": "apple-design",
+      "repoUrl": "https://github.com/tekgnosis-net/apple-design-marketplace",
+      "skillPath": "skills/apple-design",
+      "ref": "main",
+      "categoryGuess": "design-systems",
+      "licenseHint": "MIT",
+      "stars": 0,
+      "lastActivity": "2026 (1 commit)",
+      "whyRelevant": "Apple design-system tokens, layouts, components, animations, dark mode for web + SwiftUI",
+      "discoveredVia": "query: plugin marketplace design tokens storybook design system 2026",
+      "knowledgeSource": "fresh",
+      "notes": "Single commit, zero stars; candidate only if Apple-platform coverage is a gap."
+    }
+  ],
+  "leads": [
+    {
+      "url": "https://github.com/wilwaldon/Claude-Code-Frontend-Design-Toolkit",
+      "kind": "awesome-list",
+      "priority": "high",
+      "note": "Curated 'what actually makes Claude Code frontends better' list - skills, plugins, MCP servers; mine every row"
+    },
+    {
+      "url": "https://claudemarketplaces.com/skills/category/design-ui",
+      "kind": "registry-page",
+      "priority": "high",
+      "note": "80-row design-ui listing; unopened repos remain: wshobson/agents, plugin87/ux-ui-agent-skills, leonxlnx/taste-skill, softaworks/agent-toolkit, secondsky/claude-skills, jezweb/claude-skills, arvindrk/extract-design-system, davila7/claude-code-templates, mastepanoski/claude-skills, dylantarre/animation-principles, kylezantos/design-motion-principles"
+    },
+    {
+      "url": "https://github.com/anthropics/knowledge-work-plugins/tree/main/product-management",
+      "kind": "author-org",
+      "priority": "high",
+      "note": "Official product-management plugin (specs, roadmaps, user research synthesis) - not yet opened skill-by-skill"
+    },
+    {
+      "url": "https://github.com/topics/claude-code-marketplace",
+      "kind": "registry-page",
+      "priority": "medium",
+      "note": "GitHub topic page for marketplaces; systematic sweep not yet done (rate-limit budget)"
+    },
+    {
+      "url": "https://github.com/masuP9/a11y-specialist-skills",
+      "kind": "author-org",
+      "priority": "medium",
+      "note": "Accessibility specialist skills plugin, plus airowe/claude-a11y-skill and mgifford/accessibility-skills from the same search - none opened yet"
+    },
+    {
+      "url": "https://github.com/mohitagw15856/pm-claude-skills",
+      "kind": "author-org",
+      "priority": "medium",
+      "note": "90 skills across 14 professions incl. design + Figma; in community marketplace, repo not opened"
+    },
+    {
+      "url": "https://github.com/bockenstette1/seedflip",
+      "kind": "author-org",
+      "priority": "medium",
+      "note": "100+ design seeds (fonts, colors, chart tokens, shadows, spacing) queried by brand personality; unverified"
+    },
+    {
+      "url": "https://github.com/ihlamury/design-drift",
+      "kind": "author-org",
+      "priority": "medium",
+      "note": "Real-time design-system drift prevention on Write/Edit hooks; unverified; also senlindesign/claude2figma and robukh/figma-suite for Figma DS compliance"
+    },
+    {
+      "url": "https://github.com/lukaskellerstein/claude-my-marketplace",
+      "kind": "registry-page",
+      "priority": "low",
+      "note": "Personal marketplace with figma, design direction, web design plugins; JanSzewczyk/claude-plugins similar (design-system + storybook-tester)"
+    },
+    {
+      "url": "https://github.com/imkepler/hermes-wondelai-skills",
+      "kind": "author-org",
+      "priority": "low",
+      "note": "Companion/fork of wondelai skills for agentskills.io agents; check for divergence"
+    }
+  ],
+  "rejected": [
+    {
+      "target": "community-marketplace entry 'figma-test' (figma/mcp-server-guide fork listing)",
+      "reason": "junk placeholder - description is 'asdfaf'"
+    },
+    {
+      "target": "community-marketplace entry 'james' (tenfoldmarc/website-builder-setup)",
+      "reason": "placeholder - description is just 'UI DESIGN', no discernible skill package"
+    },
+    {
+      "target": "kakarot-dev/deepmiro",
+      "reason": "not-design-related - mass persona reaction simulation for PR/policy, only tangentially research-adjacent; not opened"
+    },
+    {
+      "target": "barnburner121/claude-plugin-marketplace generated-plugins/* (a11y-fixer, accessibility-audit, accessibility-test, animation-helper)",
+      "reason": "appears to be an auto-generated bulk plugin dump ('generated-plugins' path, near-identical one-line descriptions); deprioritized without individual opens - superseded by AccessLint and accessibility-agents"
+    },
+    {
+      "target": "ananddtyagi/claude-code-marketplace ui-designer / accessibility-expert",
+      "reason": "prompt-dump - single-file agent prompts synced from a commands directory, no skill workflow; marketplace itself useful only as a directory"
+    },
+    {
+      "target": "claude-plugins.dev design coverage",
+      "reason": "thin - registry lists mostly non-design plugins; kept as directory only, no unique design candidates"
+    },
+    {
+      "target": "talkstream/ru-text",
+      "reason": "niche-scope - UX-writing rules but Russian-language-only; noted, not a registry candidate this round"
+    },
+    {
+      "target": "AlpacaLabsLLC/skills-for-architects (architecture-studio)",
+      "reason": "not-design-related in our sense - AEC/building architecture, not product design"
+    },
+    {
+      "target": "grep.app code search",
+      "reason": "dead-link/inaccessible this session - HTTP 429 on both API attempts"
+    }
+  ],
+  "logMd": "### Round 1 - Track T3 (Claude Code plugin marketplaces)\n\n**Date:** 2026-08-26. **Method:** live web only; every candidate repo opened this session.\n\n**Platforms searched:** anthropics/claude-plugins-official (marketplace.json, ~300 plugins), anthropics/claude-plugins-community (marketplace.json, 2282 plugins, downloaded and regex-mined locally), anthropics/claude-plugins-public, anthropics/knowledge-work-plugins, claudemarketplaces.com (marketplace directory + design-ui category, 80 rows), claudedirectory.org (design topic), claude-plugins.dev, plus 6 WebSearch query variations. grep.app API was 429-rate-limited on both attempts (listed inaccessible). gh CLI not used per instructions.\n\n**Key queries:** see `queries` array - 14 recorded query actions; the single highest-yield step was downloading the community marketplace.json (1.5MB) and grepping it for design/ux/a11y/research keywords (88 hits).\n\n**URLs opened:** ~40 (see `urlsOpened`). All 30 recorded candidates were opened and verified this session; one official path guess (knowledge-work-plugins/plugins/design) 404'd and was corrected to /design.\n\n**Headline finds:**\n- **anthropics/knowledge-work-plugins `design` plugin** (Apache-2.0, 23.7k stars): 6 skills - design-critique, design-system-management, ux-writing, accessibility-review, user-research, design-handoff. The closest existing analog to this registry.\n- **Mega-star community skills** discovered via marketplace directories: nextlevelbuilder/ui-ux-pro-max-skill (121k), nexu-io/open-design (92k, itself a hybrid design-skill marketplace), pbakaus/impeccable (63k, design-QA with 59 deterministic detectors), google-labs-code/stitch-skills (8.2k), Dammyjay93/interface-design (5.6k).\n- **Full-cycle designer collections:** Owl-Listener/designer-skills (107 skills, 9 plugins), wondelai/skills (10 UX book-framework skills), imsaif/design-with-claude (48 specialists + audit CLI).\n- **Accessibility:** AccessLint/skills (5-skill WCAG 2.2 workflow with real tooling), Community-Access/accessibility-agents (11 specialists, community-built), Shopify liquid-theme-a11y, deepakkamboj marketplace.\n- **Research/discovery/analytics:** cookiy user-research (1.5k stars), gambit, prepkit-product, ux-superpowers, tarunccet/pm-skills, amplitude plugin (25+ analytics skills).\n- **Design systems:** murphytrueman/design-system-ops (DTCG token compliance, drift detection), hamen/material-3-skill, tekgnosis-net/apple-design-marketplace.\n\n**Rejections:** junk community-marketplace entries (figma-test 'asdfaf', james 'UI DESIGN'), auto-generated barnburner121 generated-plugins dump, prompt-style agent files in ananddtyagi marketplace, AEC architecture suite, Russian-only UX-writing plugin, deepmiro (PR simulation).\n\n**Could not verify/access:** grep.app (429 twice); star counts for claude-plugins-public, canva-skills, miro-ai not shown on fetched pages; deepakkamboj skill-file format ambiguous (marked in notes); Canva/Adobe individual SKILL.md contents one hop short of full verification.\n\n**New queries generated from findings (for round 2):** mine wilwaldon/Claude-Code-Frontend-Design-Toolkit; sweep github topics claude-code-marketplace / claude-design / claude-code-plugin; open the ~15 unopened repos from claudemarketplaces design-ui rows (wshobson/agents, plugin87/ux-ui-agent-skills, leonxlnx/taste-skill, davila7/claude-code-templates, softaworks/agent-toolkit...); open anthropics/knowledge-work-plugins product-management skills; verify seedflip, design-drift, claude2figma, figma-suite, blueprint-trigger, mohitagw15856/pm-claude-skills, aiocean aio-design-system, anti-slop-ui; check masuP9/airowe/mgifford a11y skills; retry grep.app for third-party marketplace.json files not in the community registry.\n\n**Saturation:** The two Anthropic marketplaces are effectively exhausted (official fully enumerated; community regex-mined - only non-keyword-matching design plugins could hide). Marketplace *directories* (claudemarketplaces, claudedirectory) are mined but their long tails are not. The unexhausted axis is individual-repo verification of the ~25 named-but-unopened leads and GitHub topic sweeps for marketplaces outside the community registry."
+}
