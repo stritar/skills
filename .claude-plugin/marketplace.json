@@ -12,7 +12,94 @@
       "source": "./",
       "description": "Every skill in the product-design skill registry.",
       "version": "0.1.0",
-      "skills": []
+      "skills": [
+        "./skills/research/service-blueprint",
+        "./skills/research/survey-design",
+        "./skills/strategy/design-negotiation",
+        "./skills/interaction-design/platform-conventions",
+        "./skills/design-systems/design-debt-audit",
+        "./skills/design-systems/design-system-governance",
+        "./skills/design-systems/motion-system",
+        "./skills/content-design/localization-design",
+        "./skills/testing/critique-information-density",
+        "./skills/design-qa/design-details",
+        "./skills/agentic-ui/conversational-ux"
+      ]
+    },
+    {
+      "name": "product-design-research",
+      "source": "./",
+      "description": "User research skills from the product-design skill registry.",
+      "version": "0.1.0",
+      "skills": [
+        "./skills/research/service-blueprint",
+        "./skills/research/survey-design"
+      ]
+    },
+    {
+      "name": "product-design-strategy",
+      "source": "./",
+      "description": "Product strategy skills from the product-design skill registry.",
+      "version": "0.1.0",
+      "skills": [
+        "./skills/strategy/design-negotiation"
+      ]
+    },
+    {
+      "name": "product-design-interaction-design",
+      "source": "./",
+      "description": "Interaction design skills from the product-design skill registry.",
+      "version": "0.1.0",
+      "skills": [
+        "./skills/interaction-design/platform-conventions"
+      ]
+    },
+    {
+      "name": "product-design-design-systems",
+      "source": "./",
+      "description": "Design systems skills from the product-design skill registry.",
+      "version": "0.1.0",
+      "skills": [
+        "./skills/design-systems/design-debt-audit",
+        "./skills/design-systems/design-system-governance",
+        "./skills/design-systems/motion-system"
+      ]
+    },
+    {
+      "name": "product-design-content-design",
+      "source": "./",
+      "description": "Content design skills from the product-design skill registry.",
+      "version": "0.1.0",
+      "skills": [
+        "./skills/content-design/localization-design"
+      ]
+    },
+    {
+      "name": "product-design-testing",
+      "source": "./",
+      "description": "Testing and evaluation skills from the product-design skill registry.",
+      "version": "0.1.0",
+      "skills": [
+        "./skills/testing/critique-information-density"
+      ]
+    },
+    {
+      "name": "product-design-design-qa",
+      "source": "./",
+      "description": "Design QA skills from the product-design skill registry.",
+      "version": "0.1.0",
+      "skills": [
+        "./skills/design-qa/design-details"
+      ]
+    },
+    {
+      "name": "product-design-agentic-ui",
+      "source": "./",
+      "description": "Agentic and AI-native UI skills from the product-design skill registry.",
+      "version": "0.1.0",
+      "skills": [
+        "./skills/agentic-ui/conversational-ux"
+      ]
     }
   ]
 }

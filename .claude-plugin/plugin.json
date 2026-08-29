@@ -6,5 +6,17 @@
     "name": "Denis Stritar"
   },
   "license": "MIT",
-  "skills": []
+  "skills": [
+    "./skills/research/service-blueprint",
+    "./skills/research/survey-design",
+    "./skills/strategy/design-negotiation",
+    "./skills/interaction-design/platform-conventions",
+    "./skills/design-systems/design-debt-audit",
+    "./skills/design-systems/design-system-governance",
+    "./skills/design-systems/motion-system",
+    "./skills/content-design/localization-design",
+    "./skills/testing/critique-information-density",
+    "./skills/design-qa/design-details",
+    "./skills/agentic-ui/conversational-ux"
+  ]
 }

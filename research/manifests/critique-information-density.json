@@ -1,0 +1,92 @@
+{
+  "id": "critique-information-density",
+  "category": "testing",
+  "verdict": "vendor",
+  "rubric": {
+    "relevance": 3,
+    "quality": 3,
+    "conformance": 2,
+    "uniqueness": 2
+  },
+  "upstream": {
+    "repository": "Owl-Listener/designer-skills",
+    "url": "https://github.com/Owl-Listener/designer-skills/tree/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/visual-critique/skills/critique-information-density",
+    "author": "Owl-Listener",
+    "commit": "20e34c4a587e5eb09fcdf8351fa97b3ad761b31e",
+    "path": "visual-critique/skills/critique-information-density",
+    "license": "MIT",
+    "licenseSource": "repo-root:LICENSE"
+  },
+  "files": [
+    {
+      "dest": "SKILL.md",
+      "rawUrl": "https://raw.githubusercontent.com/Owl-Listener/designer-skills/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/visual-critique/skills/critique-information-density/SKILL.md",
+      "blobSha": "d9f3129974a011ec6f09fa898173f2ef9da1feca"
+    },
+    {
+      "dest": "LICENSE.txt",
+      "rawUrl": "https://raw.githubusercontent.com/Owl-Listener/designer-skills/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/LICENSE",
+      "blobSha": "2f3f2b283f2116cf6927b85262269a1960bbff8a"
+    }
+  ],
+  "securityNotes": "Read the full SKILL.md at the pinned commit (local clone at 20e34c4a). Skill directory contains a single SKILL.md - no scripts, no references, no assets. No network calls, no credential access, no download-and-execute, no instructions to bypass user rules. Repo-wide character audit found only typographic non-ASCII (em/en dashes, arrows, math symbols) - no zero-width or bidirectional control characters. Cross-references point only to sibling skills in the same repo, by name, as advisory routing hints.",
+  "overlaps": [],
+  "proposedEntry": {
+    "id": "critique-information-density",
+    "name": "critique-information-density",
+    "description": "Makes the agent critique a rendered screen's information density along four dimensions - cognitive load, content priority, scanning pattern (F/Z-pattern fit, label alignment, chunking), and progressive disclosure - each with pointed evaluation questions; enforces an output format of observation / problem / fix per dimension with a pass / minor issue / major issue rating; and names common failure patterns (every-metric dashboards, 10+ column tables, front-loaded onboarding).",
+    "category": "testing",
+    "tags": [
+      "design-critique",
+      "expert-review",
+      "visual-hierarchy",
+      "dashboards"
+    ],
+    "triggers": [
+      "this screen feels overwhelming",
+      "critique information density",
+      "too much on one screen",
+      "dashboard cluttered",
+      "review cognitive load"
+    ],
+    "inputs": [
+      "screenshot or rendered screen",
+      "primary user task"
+    ],
+    "outputs": [
+      "per-dimension findings with ratings",
+      "specific fixes"
+    ],
+    "path": "skills/testing/critique-information-density",
+    "source": {
+      "type": "third-party",
+      "repository": "Owl-Listener/designer-skills",
+      "url": "https://github.com/Owl-Listener/designer-skills/tree/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/visual-critique/skills/critique-information-density",
+      "author": "Owl-Listener",
+      "license": "MIT",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": "visual-critique/skills/critique-information-density",
+      "upstreamCommit": "20e34c4a587e5eb09fcdf8351fa97b3ad761b31e",
+      "retrievedAt": "2026-08-26",
+      "modified": false,
+      "modifications": []
+    },
+    "compatibility": [
+      "claude-code",
+      "codex",
+      "cursor",
+      "opencode",
+      "amp",
+      "gemini-cli",
+      "copilot",
+      "vs-code",
+      "claude-ai"
+    ],
+    "dependencies": [],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "stable",
+    "status": "draft"
+  },
+  "logMd": "#### Owl-Listener/designer-skills (inspected 2026-08-26)\nPinned HEAD 20e34c4a587e5eb09fcdf8351fa97b3ad761b31e (main; verified via GitHub API and a fresh git clone whose HEAD matched exactly). Stars 2314, last push 2026-08-08. License: MIT at repo-root LICENSE (copyright 2026 MC Dean), read in full at the pinned commit. Skill `critique-information-density` at `visual-critique/skills/critique-information-density` - single SKILL.md (blob d9f3129974a011ec6f09fa898173f2ef9da1feca), frontmatter uses only name+description, name equals dirname. Rubric: relevance 3, quality 3, conformance 2, uniqueness 2 = 10. Defined output format with ratings - the strongest of the repo's seven visual-critique skills; selected as the representative of that family. Security: clean (no scripts, no network, no hidden instructions; repo-wide character audit clean). Verdict: vendor."
+}

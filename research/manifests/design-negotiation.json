@@ -1,0 +1,94 @@
+{
+  "id": "design-negotiation",
+  "category": "strategy",
+  "verdict": "vendor",
+  "rubric": {
+    "relevance": 2,
+    "quality": 3,
+    "conformance": 2,
+    "uniqueness": 2
+  },
+  "upstream": {
+    "repository": "Owl-Listener/designer-skills",
+    "url": "https://github.com/Owl-Listener/designer-skills/tree/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/designer-toolkit/skills/design-negotiation",
+    "author": "Owl-Listener",
+    "commit": "20e34c4a587e5eb09fcdf8351fa97b3ad761b31e",
+    "path": "designer-toolkit/skills/design-negotiation",
+    "license": "MIT",
+    "licenseSource": "repo-root:LICENSE"
+  },
+  "files": [
+    {
+      "dest": "SKILL.md",
+      "rawUrl": "https://raw.githubusercontent.com/Owl-Listener/designer-skills/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/designer-toolkit/skills/design-negotiation/SKILL.md",
+      "blobSha": "17af93f0f02a70d76098ec9c463ad4ea73242ebc"
+    },
+    {
+      "dest": "LICENSE.txt",
+      "rawUrl": "https://raw.githubusercontent.com/Owl-Listener/designer-skills/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/LICENSE",
+      "blobSha": "2f3f2b283f2116cf6927b85262269a1960bbff8a"
+    }
+  ],
+  "securityNotes": "Read the full SKILL.md at the pinned commit (local clone at 20e34c4a). Skill directory contains a single SKILL.md - no scripts, no references, no assets. No network calls, no credential access, no download-and-execute, no instructions to bypass user rules. Repo-wide character audit found only typographic non-ASCII (em/en dashes, arrows, math symbols) - no zero-width or bidirectional control characters. Cross-references point only to sibling skills in the same repo, by name, as advisory routing hints.",
+  "overlaps": [],
+  "proposedEntry": {
+    "id": "design-negotiation",
+    "name": "design-negotiation",
+    "description": "Makes the agent coach a designer through cross-functional negotiations: four scripted contexts (timeline compression, scope cut without review, stakeholder override, resource requests) each with a concrete approach; an evidence hierarchy (research counts, metrics, competitive context, WCAG/legal risk, system precedent) replacing taste and authority arguments; negotiation principles (lead with the user problem, name constraints first, make trade-offs explicit, document decisions that go against design); and long-term credibility building.",
+    "category": "strategy",
+    "tags": [
+      "stakeholders",
+      "prioritization",
+      "decision-records",
+      "metrics"
+    ],
+    "triggers": [
+      "push back on scope cut",
+      "defend a design decision",
+      "stakeholder wants a change",
+      "negotiate design timeline",
+      "argue for design resources"
+    ],
+    "inputs": [
+      "the decision at stake",
+      "available evidence",
+      "stakeholder context"
+    ],
+    "outputs": [
+      "negotiation approach",
+      "evidence-based argument",
+      "documented trade-off"
+    ],
+    "path": "skills/strategy/design-negotiation",
+    "source": {
+      "type": "third-party",
+      "repository": "Owl-Listener/designer-skills",
+      "url": "https://github.com/Owl-Listener/designer-skills/tree/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/designer-toolkit/skills/design-negotiation",
+      "author": "Owl-Listener",
+      "license": "MIT",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": "designer-toolkit/skills/design-negotiation",
+      "upstreamCommit": "20e34c4a587e5eb09fcdf8351fa97b3ad761b31e",
+      "retrievedAt": "2026-08-26",
+      "modified": false,
+      "modifications": []
+    },
+    "compatibility": [
+      "claude-code",
+      "codex",
+      "cursor",
+      "opencode",
+      "amp",
+      "gemini-cli",
+      "copilot",
+      "vs-code",
+      "claude-ai"
+    ],
+    "dependencies": [],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "stable",
+    "status": "draft"
+  },
+  "logMd": "#### Owl-Listener/designer-skills (inspected 2026-08-26)\nPinned HEAD 20e34c4a587e5eb09fcdf8351fa97b3ad761b31e (main; verified via GitHub API and a fresh git clone whose HEAD matched exactly). Stars 2314, last push 2026-08-08. License: MIT at repo-root LICENSE (copyright 2026 MC Dean), read in full at the pinned commit. Skill `design-negotiation` at `designer-toolkit/skills/design-negotiation` - single SKILL.md (blob 17af93f0f02a70d76098ec9c463ad4ea73242ebc), frontmatter uses only name+description, name equals dirname. Rubric: relevance 2, quality 3, conformance 2, uniqueness 2 = 9. Relevance 2 (organizational skill supporting design work rather than a core design activity), but concrete per-scenario scripts make it genuinely behavior-changing; little else in the ecosystem covers this. Security: clean (no scripts, no network, no hidden instructions; repo-wide character audit clean). Verdict: vendor."
+}

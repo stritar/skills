@@ -1,5 +1,663 @@
 {
   "$schema": "./schema.json",
   "version": 1,
-  "skills": []
+  "skills": [
+    {
+      "id": "service-blueprint",
+      "name": "service-blueprint",
+      "description": "Makes the agent map service delivery as a five-lane blueprint (physical evidence, user actions, frontstage, backstage, support processes) separated by lines of interaction, visibility, and internal interaction; a nine-step construction process from scoping one scenario to validation with operations teams; a blueprint-vs-journey-map decision table; and diagnostic reading rules (gaps between lanes, dense backstage clusters, single points of failure, silent user waits).",
+      "category": "research",
+      "tags": [
+        "service-blueprint",
+        "journey-mapping",
+        "stakeholders"
+      ],
+      "triggers": [
+        "service blueprint",
+        "map frontstage and backstage",
+        "diagnose service failures",
+        "multi-channel service design",
+        "operations behind the journey"
+      ],
+      "inputs": [
+        "journey map or research",
+        "process documentation",
+        "stakeholder input"
+      ],
+      "outputs": [
+        "service blueprint",
+        "failure-point findings",
+        "coordination artifact"
+      ],
+      "path": "skills/research/service-blueprint",
+      "source": {
+        "type": "third-party",
+        "repository": "Owl-Listener/designer-skills",
+        "url": "https://github.com/Owl-Listener/designer-skills/tree/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/ux-strategy/skills/service-blueprint",
+        "author": "Owl-Listener",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "ux-strategy/skills/service-blueprint",
+        "upstreamCommit": "20e34c4a587e5eb09fcdf8351fa97b3ad761b31e",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "survey-design",
+      "name": "survey-design",
+      "description": "Makes the agent design survey instruments that produce trustworthy data: when surveys are and are not the right method, question-type selection table with cautions, rewrite patterns for leading/double-barreled/loaded questions, Likert/NPS/SUS scale rules (labelled endpoints, midpoints, verbatim SUS), sample-size guidance (~385 responses for +-5% margin at 95% confidence), and an analysis plan covering distributions, theme coding, and cross-tabulation.",
+      "category": "research",
+      "tags": [
+        "surveys",
+        "quantitative",
+        "user-research",
+        "metrics"
+      ],
+      "triggers": [
+        "write a survey",
+        "design survey questions",
+        "NPS or SUS question",
+        "is this question leading",
+        "quantify research findings",
+        "sample size for a survey"
+      ],
+      "inputs": [
+        "research goals",
+        "draft questions",
+        "target population"
+      ],
+      "outputs": [
+        "survey instrument",
+        "question rewrites",
+        "sampling and analysis plan"
+      ],
+      "path": "skills/research/survey-design",
+      "source": {
+        "type": "third-party",
+        "repository": "Owl-Listener/designer-skills",
+        "url": "https://github.com/Owl-Listener/designer-skills/tree/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/design-research/skills/survey-design",
+        "author": "Owl-Listener",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "design-research/skills/survey-design",
+        "upstreamCommit": "20e34c4a587e5eb09fcdf8351fa97b3ad761b31e",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "design-negotiation",
+      "name": "design-negotiation",
+      "description": "Makes the agent coach a designer through cross-functional negotiations: four scripted contexts (timeline compression, scope cut without review, stakeholder override, resource requests) each with a concrete approach; an evidence hierarchy (research counts, metrics, competitive context, WCAG/legal risk, system precedent) replacing taste and authority arguments; negotiation principles (lead with the user problem, name constraints first, make trade-offs explicit, document decisions that go against design); and long-term credibility building.",
+      "category": "strategy",
+      "tags": [
+        "stakeholders",
+        "prioritization",
+        "decision-records",
+        "metrics"
+      ],
+      "triggers": [
+        "push back on scope cut",
+        "defend a design decision",
+        "stakeholder wants a change",
+        "negotiate design timeline",
+        "argue for design resources"
+      ],
+      "inputs": [
+        "the decision at stake",
+        "available evidence",
+        "stakeholder context"
+      ],
+      "outputs": [
+        "negotiation approach",
+        "evidence-based argument",
+        "documented trade-off"
+      ],
+      "path": "skills/strategy/design-negotiation",
+      "source": {
+        "type": "third-party",
+        "repository": "Owl-Listener/designer-skills",
+        "url": "https://github.com/Owl-Listener/designer-skills/tree/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/designer-toolkit/skills/design-negotiation",
+        "author": "Owl-Listener",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "designer-toolkit/skills/design-negotiation",
+        "upstreamCommit": "20e34c4a587e5eb09fcdf8351fa97b3ad761b31e",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "platform-conventions",
+      "name": "platform-conventions",
+      "description": "Makes the agent design native mobile UI against the actual conventions of iOS (Human Interface Guidelines) and Android (Material Design 3): side-by-side comparison tables for navigation models, controls, typography, gestures, and iconography; a decision framework for when to follow each platform strictly, when to unify cross-platform, and the hybrid middle path; and explicit anti-patterns (suppressing iOS swipe-back, transplanting the FAB to iOS, ignoring Dynamic Type/sp scaling).",
+      "category": "interaction-design",
+      "tags": [
+        "mobile",
+        "ui-design",
+        "interaction-design",
+        "navigation",
+        "adaptive"
+      ],
+      "triggers": [
+        "design an iOS app screen",
+        "Android vs iOS pattern",
+        "Material Design conventions",
+        "native app navigation",
+        "should this app follow platform conventions",
+        "cross-platform design decisions"
+      ],
+      "inputs": [
+        "app screens or mockups",
+        "target platforms",
+        "product context"
+      ],
+      "outputs": [
+        "platform-appropriate design recommendations",
+        "iOS/Android component mapping",
+        "convention-deviation flags"
+      ],
+      "path": "skills/interaction-design/platform-conventions",
+      "source": {
+        "type": "third-party",
+        "repository": "Owl-Listener/designer-skills",
+        "url": "https://github.com/Owl-Listener/designer-skills/tree/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/ui-design/skills/platform-conventions",
+        "author": "Owl-Listener",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "ui-design/skills/platform-conventions",
+        "upstreamCommit": "20e34c4a587e5eb09fcdf8351fa97b3ad761b31e",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "design-debt-audit",
+      "name": "design-debt-audit",
+      "description": "Makes the agent run a structured design debt audit: five debt categories (visual, structural, accessibility, documentation, implementation), a five-step process from screenshot inventory through classification (severity/category/frequency/effort) to a prioritized remediation plan scored as severity x frequency / effort, split into quick wins, structural projects, accessibility fixes, and documented write-offs, plus a living debt register with owners and quarterly review.",
+      "category": "design-systems",
+      "tags": [
+        "audit",
+        "design-system",
+        "remediation",
+        "severity",
+        "prioritization"
+      ],
+      "triggers": [
+        "design debt audit",
+        "UI inconsistency inventory",
+        "prioritise design cleanup",
+        "audit design drift",
+        "remediation plan for design debt"
+      ],
+      "inputs": [
+        "product screens",
+        "design system reference",
+        "engineering effort estimates"
+      ],
+      "outputs": [
+        "classified debt inventory",
+        "prioritized remediation plan",
+        "debt register"
+      ],
+      "path": "skills/design-systems/design-debt-audit",
+      "source": {
+        "type": "third-party",
+        "repository": "Owl-Listener/designer-skills",
+        "url": "https://github.com/Owl-Listener/designer-skills/tree/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/design-ops/skills/design-debt-audit",
+        "author": "Owl-Listener",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "design-ops/skills/design-debt-audit",
+        "upstreamCommit": "20e34c4a587e5eb09fcdf8351fa97b3ad761b31e",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "design-system-governance",
+      "name": "design-system-governance",
+      "description": "Makes the agent define how a design system evolves: seven core governance questions, three ownership models (centralized/federated/hybrid) with trade-offs, a seven-stage contribution lifecycle from proposal to communicated release, semver as the consumer contract with a patch/minor/major table, a deprecation process with timelines and in-product warnings, breaking-change policy (migration guides, codemods, shims), and component quality entry standards.",
+      "category": "design-systems",
+      "tags": [
+        "design-system",
+        "governance",
+        "versioning",
+        "migration",
+        "component-docs"
+      ],
+      "triggers": [
+        "design system governance",
+        "contribution model",
+        "deprecate a component",
+        "design system versioning",
+        "breaking change policy"
+      ],
+      "inputs": [
+        "design system state",
+        "team structure",
+        "change proposals"
+      ],
+      "outputs": [
+        "governance model",
+        "contribution process",
+        "versioning and deprecation policy"
+      ],
+      "path": "skills/design-systems/design-system-governance",
+      "source": {
+        "type": "third-party",
+        "repository": "Owl-Listener/designer-skills",
+        "url": "https://github.com/Owl-Listener/designer-skills/tree/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/design-systems/skills/design-system-governance",
+        "author": "Owl-Listener",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "design-systems/skills/design-system-governance",
+        "upstreamCommit": "20e34c4a587e5eb09fcdf8351fa97b3ad761b31e",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "motion-system",
+      "name": "motion-system",
+      "description": "Makes the agent define motion as a token layer rather than one-off animations: a named duration scale (50-600ms with use cases), easing tokens with actual cubic-bezier values mapped to semantic uses, choreography rules (30-50ms stagger, 500ms sequence cap, direction consistency), a system-level prefers-reduced-motion strategy using a global duration override token, and implementation guidance for CSS custom properties inside the token export pipeline.",
+      "category": "design-systems",
+      "tags": [
+        "motion",
+        "animation",
+        "design-tokens",
+        "design-system",
+        "micro-interactions"
+      ],
+      "triggers": [
+        "motion tokens",
+        "standardise animation durations",
+        "easing system",
+        "reduced motion strategy",
+        "motion design system"
+      ],
+      "inputs": [
+        "existing animations or components",
+        "design token setup"
+      ],
+      "outputs": [
+        "duration and easing token tables",
+        "choreography rules",
+        "reduced-motion overrides"
+      ],
+      "path": "skills/design-systems/motion-system",
+      "source": {
+        "type": "third-party",
+        "repository": "Owl-Listener/designer-skills",
+        "url": "https://github.com/Owl-Listener/designer-skills/tree/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/design-systems/skills/motion-system",
+        "author": "Owl-Listener",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "design-systems/skills/motion-system",
+        "upstreamCommit": "20e34c4a587e5eb09fcdf8351fa97b3ad761b31e",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "localization-design",
+      "name": "localization-design",
+      "description": "Makes the agent design UI that survives localization: text-expansion planning with per-language percentages (German +20-35%, Finnish +30-40%), RTL mirroring rules including what does and does not mirror, CSS logical properties, typography rules for Arabic/CJK/Indic scripts, cultural color and iconography tables, locale-aware date/number/address formats, and design-system implications (semantic 'start/end' token naming, pseudo-localization testing).",
+      "category": "content-design",
+      "tags": [
+        "localization",
+        "internationalization",
+        "layout",
+        "typography",
+        "design-system"
+      ],
+      "triggers": [
+        "localize this UI",
+        "RTL support",
+        "text expansion in translation",
+        "design for multiple languages",
+        "internationalization review",
+        "Arabic or CJK layout"
+      ],
+      "inputs": [
+        "UI designs or components",
+        "target locales",
+        "design tokens"
+      ],
+      "outputs": [
+        "localization-readiness findings",
+        "RTL and expansion fixes",
+        "cultural adaptation guidance"
+      ],
+      "path": "skills/content-design/localization-design",
+      "source": {
+        "type": "third-party",
+        "repository": "Owl-Listener/designer-skills",
+        "url": "https://github.com/Owl-Listener/designer-skills/tree/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/design-systems/skills/localization-design",
+        "author": "Owl-Listener",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "design-systems/skills/localization-design",
+        "upstreamCommit": "20e34c4a587e5eb09fcdf8351fa97b3ad761b31e",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "critique-information-density",
+      "name": "critique-information-density",
+      "description": "Makes the agent critique a rendered screen's information density along four dimensions - cognitive load, content priority, scanning pattern (F/Z-pattern fit, label alignment, chunking), and progressive disclosure - each with pointed evaluation questions; enforces an output format of observation / problem / fix per dimension with a pass / minor issue / major issue rating; and names common failure patterns (every-metric dashboards, 10+ column tables, front-loaded onboarding).",
+      "category": "testing",
+      "tags": [
+        "design-critique",
+        "expert-review",
+        "visual-hierarchy",
+        "dashboards"
+      ],
+      "triggers": [
+        "this screen feels overwhelming",
+        "critique information density",
+        "too much on one screen",
+        "dashboard cluttered",
+        "review cognitive load"
+      ],
+      "inputs": [
+        "screenshot or rendered screen",
+        "primary user task"
+      ],
+      "outputs": [
+        "per-dimension findings with ratings",
+        "specific fixes"
+      ],
+      "path": "skills/testing/critique-information-density",
+      "source": {
+        "type": "third-party",
+        "repository": "Owl-Listener/designer-skills",
+        "url": "https://github.com/Owl-Listener/designer-skills/tree/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/visual-critique/skills/critique-information-density",
+        "author": "Owl-Listener",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "visual-critique/skills/critique-information-density",
+        "upstreamCommit": "20e34c4a587e5eb09fcdf8351fa97b3ad761b31e",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "design-details",
+      "name": "design-details",
+      "description": "Parent router and full-audit contract for a suite of seven UI-craft sub-skills (animation, layout, copy, typography, color, accessibility, analytics). Enforces a Design System Protocol (check for existing tokens/CSS variables/theme objects before proposing any value; propose additions instead of overrides), a Context Gathering Protocol (audience, use cases, tone, platform - stop and ask if missing, with a /design-details init flow that persists answers to .design-details.md so the interview happens once per project), and a full-audit contract: run every applicable sub-skill, cover a named surface checklist (narrow viewport, modals, error/empty/loading states, keyboard traversal, reduced motion, live regions), open with a scope preamble stating what was and was not audited, and present findings as lettered sections of Before | After | Why tables, closing with an optional row-by-row walkthrough mode (Apply / Decline / Discuss / Stop per item).",
+      "category": "design-qa",
+      "tags": [
+        "orchestration",
+        "workflow",
+        "design-review",
+        "design-critique",
+        "review",
+        "visual-polish"
+      ],
+      "triggers": [
+        "review this UI",
+        "polish this screen",
+        "audit this page",
+        "full design audit",
+        "make this feel considered",
+        "design details pass"
+      ],
+      "inputs": [
+        "source code",
+        "project design context (.design-details.md, CLAUDE.md)",
+        "the screen or component under review"
+      ],
+      "outputs": [
+        "scope preamble",
+        "lettered findings as Before/After/Why tables",
+        "interactive row-by-row walkthrough with applied fixes",
+        ".design-details.md project context file (init flow)"
+      ],
+      "path": "skills/design-qa/design-details",
+      "source": {
+        "type": "third-party",
+        "repository": "GeorgeTurp/design-details",
+        "url": "https://github.com/GeorgeTurp/design-details/tree/9e5686b0e1e6fc426c5b2d21280eb76e5b41ed14/skills/design-details",
+        "author": "George Turp",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/design-details",
+        "upstreamCommit": "9e5686b0e1e6fc426c5b2d21280eb76e5b41ed14",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": true,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "conversational-ux",
+      "name": "conversational-ux",
+      "description": "Makes the agent design voice and chat interfaces around the conversation turn: a confirmation-strategy table (explicit/implicit/none by stakes), a three-step error reprompt ladder that never repeats the same prompt, voice-specific writing rules (short sentences, no visual-only references, max three-item lists, sub-8s responses, earcons), multimodal voice+screen rules, text-chat affordances (quick replies, typing indicators, structured cards), persona/tone decisions including no false humanity, and guidance on when conversation is the wrong pattern.",
+      "category": "agentic-ui",
+      "tags": [
+        "conversational-ui",
+        "agentic-ui",
+        "error-recovery",
+        "voice-and-tone"
+      ],
+      "triggers": [
+        "design a chatbot flow",
+        "voice interface script",
+        "conversational UI",
+        "dialog error recovery",
+        "assistant persona",
+        "IVR or smart speaker skill"
+      ],
+      "inputs": [
+        "dialog goals",
+        "sample utterances",
+        "product context"
+      ],
+      "outputs": [
+        "dialog flow with prompts",
+        "error recovery ladder",
+        "persona and tone specification"
+      ],
+      "path": "skills/agentic-ui/conversational-ux",
+      "source": {
+        "type": "third-party",
+        "repository": "Owl-Listener/designer-skills",
+        "url": "https://github.com/Owl-Listener/designer-skills/tree/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/interaction-design/skills/conversational-ux",
+        "author": "Owl-Listener",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "interaction-design/skills/conversational-ux",
+        "upstreamCommit": "20e34c4a587e5eb09fcdf8351fa97b3ad761b31e",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
+    }
+  ]
 }

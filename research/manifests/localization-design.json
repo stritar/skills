@@ -1,0 +1,96 @@
+{
+  "id": "localization-design",
+  "category": "content-design",
+  "verdict": "vendor",
+  "rubric": {
+    "relevance": 3,
+    "quality": 3,
+    "conformance": 2,
+    "uniqueness": 2
+  },
+  "upstream": {
+    "repository": "Owl-Listener/designer-skills",
+    "url": "https://github.com/Owl-Listener/designer-skills/tree/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/design-systems/skills/localization-design",
+    "author": "Owl-Listener",
+    "commit": "20e34c4a587e5eb09fcdf8351fa97b3ad761b31e",
+    "path": "design-systems/skills/localization-design",
+    "license": "MIT",
+    "licenseSource": "repo-root:LICENSE"
+  },
+  "files": [
+    {
+      "dest": "SKILL.md",
+      "rawUrl": "https://raw.githubusercontent.com/Owl-Listener/designer-skills/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/design-systems/skills/localization-design/SKILL.md",
+      "blobSha": "14ddef7f094a3e71383a4f0faa464d2db3a3f7cb"
+    },
+    {
+      "dest": "LICENSE.txt",
+      "rawUrl": "https://raw.githubusercontent.com/Owl-Listener/designer-skills/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/LICENSE",
+      "blobSha": "2f3f2b283f2116cf6927b85262269a1960bbff8a"
+    }
+  ],
+  "securityNotes": "Read the full SKILL.md at the pinned commit (local clone at 20e34c4a). Skill directory contains a single SKILL.md - no scripts, no references, no assets. No network calls, no credential access, no download-and-execute, no instructions to bypass user rules. Repo-wide character audit found only typographic non-ASCII (em/en dashes, arrows, math symbols) - no zero-width or bidirectional control characters. Cross-references point only to sibling skills in the same repo, by name, as advisory routing hints.",
+  "overlaps": [],
+  "proposedEntry": {
+    "id": "localization-design",
+    "name": "localization-design",
+    "description": "Makes the agent design UI that survives localization: text-expansion planning with per-language percentages (German +20-35%, Finnish +30-40%), RTL mirroring rules including what does and does not mirror, CSS logical properties, typography rules for Arabic/CJK/Indic scripts, cultural color and iconography tables, locale-aware date/number/address formats, and design-system implications (semantic 'start/end' token naming, pseudo-localization testing).",
+    "category": "content-design",
+    "tags": [
+      "localization",
+      "internationalization",
+      "layout",
+      "typography",
+      "design-system"
+    ],
+    "triggers": [
+      "localize this UI",
+      "RTL support",
+      "text expansion in translation",
+      "design for multiple languages",
+      "internationalization review",
+      "Arabic or CJK layout"
+    ],
+    "inputs": [
+      "UI designs or components",
+      "target locales",
+      "design tokens"
+    ],
+    "outputs": [
+      "localization-readiness findings",
+      "RTL and expansion fixes",
+      "cultural adaptation guidance"
+    ],
+    "path": "skills/content-design/localization-design",
+    "source": {
+      "type": "third-party",
+      "repository": "Owl-Listener/designer-skills",
+      "url": "https://github.com/Owl-Listener/designer-skills/tree/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/design-systems/skills/localization-design",
+      "author": "Owl-Listener",
+      "license": "MIT",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": "design-systems/skills/localization-design",
+      "upstreamCommit": "20e34c4a587e5eb09fcdf8351fa97b3ad761b31e",
+      "retrievedAt": "2026-08-26",
+      "modified": false,
+      "modifications": []
+    },
+    "compatibility": [
+      "claude-code",
+      "codex",
+      "cursor",
+      "opencode",
+      "amp",
+      "gemini-cli",
+      "copilot",
+      "vs-code",
+      "claude-ai"
+    ],
+    "dependencies": [],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "stable",
+    "status": "draft"
+  },
+  "logMd": "#### Owl-Listener/designer-skills (inspected 2026-08-26)\nPinned HEAD 20e34c4a587e5eb09fcdf8351fa97b3ad761b31e (main; verified via GitHub API and a fresh git clone whose HEAD matched exactly). Stars 2314, last push 2026-08-08. License: MIT at repo-root LICENSE (copyright 2026 MC Dean), read in full at the pinned commit. Skill `localization-design` at `design-systems/skills/localization-design` - single SKILL.md (blob 14ddef7f094a3e71383a4f0faa464d2db3a3f7cb), frontmatter uses only name+description, name equals dirname. Rubric: relevance 3, quality 3, conformance 2, uniqueness 2 = 10. Concrete expansion percentages, explicit mirror/do-not-mirror lists, CSS logical properties, cultural color table, pseudo-localization technique. Security: clean (no scripts, no network, no hidden instructions; repo-wide character audit clean). Verdict: vendor."
+}

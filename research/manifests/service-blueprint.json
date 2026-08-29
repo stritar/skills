@@ -1,0 +1,93 @@
+{
+  "id": "service-blueprint",
+  "category": "research",
+  "verdict": "vendor",
+  "rubric": {
+    "relevance": 3,
+    "quality": 2,
+    "conformance": 2,
+    "uniqueness": 2
+  },
+  "upstream": {
+    "repository": "Owl-Listener/designer-skills",
+    "url": "https://github.com/Owl-Listener/designer-skills/tree/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/ux-strategy/skills/service-blueprint",
+    "author": "Owl-Listener",
+    "commit": "20e34c4a587e5eb09fcdf8351fa97b3ad761b31e",
+    "path": "ux-strategy/skills/service-blueprint",
+    "license": "MIT",
+    "licenseSource": "repo-root:LICENSE"
+  },
+  "files": [
+    {
+      "dest": "SKILL.md",
+      "rawUrl": "https://raw.githubusercontent.com/Owl-Listener/designer-skills/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/ux-strategy/skills/service-blueprint/SKILL.md",
+      "blobSha": "ac925ccea0f988ade625bb224985cfa7b33aa146"
+    },
+    {
+      "dest": "LICENSE.txt",
+      "rawUrl": "https://raw.githubusercontent.com/Owl-Listener/designer-skills/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/LICENSE",
+      "blobSha": "2f3f2b283f2116cf6927b85262269a1960bbff8a"
+    }
+  ],
+  "securityNotes": "Read the full SKILL.md at the pinned commit (local clone at 20e34c4a). Skill directory contains a single SKILL.md - no scripts, no references, no assets. No network calls, no credential access, no download-and-execute, no instructions to bypass user rules. Repo-wide character audit found only typographic non-ASCII (em/en dashes, arrows, math symbols) - no zero-width or bidirectional control characters. Cross-references point only to sibling skills in the same repo, by name, as advisory routing hints.",
+  "overlaps": [],
+  "proposedEntry": {
+    "id": "service-blueprint",
+    "name": "service-blueprint",
+    "description": "Makes the agent map service delivery as a five-lane blueprint (physical evidence, user actions, frontstage, backstage, support processes) separated by lines of interaction, visibility, and internal interaction; a nine-step construction process from scoping one scenario to validation with operations teams; a blueprint-vs-journey-map decision table; and diagnostic reading rules (gaps between lanes, dense backstage clusters, single points of failure, silent user waits).",
+    "category": "research",
+    "tags": [
+      "service-blueprint",
+      "journey-mapping",
+      "stakeholders"
+    ],
+    "triggers": [
+      "service blueprint",
+      "map frontstage and backstage",
+      "diagnose service failures",
+      "multi-channel service design",
+      "operations behind the journey"
+    ],
+    "inputs": [
+      "journey map or research",
+      "process documentation",
+      "stakeholder input"
+    ],
+    "outputs": [
+      "service blueprint",
+      "failure-point findings",
+      "coordination artifact"
+    ],
+    "path": "skills/research/service-blueprint",
+    "source": {
+      "type": "third-party",
+      "repository": "Owl-Listener/designer-skills",
+      "url": "https://github.com/Owl-Listener/designer-skills/tree/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/ux-strategy/skills/service-blueprint",
+      "author": "Owl-Listener",
+      "license": "MIT",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": "ux-strategy/skills/service-blueprint",
+      "upstreamCommit": "20e34c4a587e5eb09fcdf8351fa97b3ad761b31e",
+      "retrievedAt": "2026-08-26",
+      "modified": false,
+      "modifications": []
+    },
+    "compatibility": [
+      "claude-code",
+      "codex",
+      "cursor",
+      "opencode",
+      "amp",
+      "gemini-cli",
+      "copilot",
+      "vs-code",
+      "claude-ai"
+    ],
+    "dependencies": [],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "stable",
+    "status": "draft"
+  },
+  "logMd": "#### Owl-Listener/designer-skills (inspected 2026-08-26)\nPinned HEAD 20e34c4a587e5eb09fcdf8351fa97b3ad761b31e (main; verified via GitHub API and a fresh git clone whose HEAD matched exactly). Stars 2314, last push 2026-08-08. License: MIT at repo-root LICENSE (copyright 2026 MC Dean), read in full at the pinned commit. Skill `service-blueprint` at `ux-strategy/skills/service-blueprint` - single SKILL.md (blob ac925ccea0f988ade625bb224985cfa7b33aa146), frontmatter uses only name+description, name equals dirname. Rubric: relevance 3, quality 2, conformance 2, uniqueness 2 = 9. Complete anatomy plus a diagnostic 'reading the blueprint' section; quality 2 rather than 3 because output format is described, not templated. Security: clean (no scripts, no network, no hidden instructions; repo-wide character audit clean). Verdict: vendor."
+}
