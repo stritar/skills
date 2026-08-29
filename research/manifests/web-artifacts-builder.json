@@ -1,0 +1,108 @@
+{
+  "id": "web-artifacts-builder",
+  "category": "design-engineering",
+  "verdict": "vendor",
+  "rubric": {
+    "relevance": 2,
+    "quality": 3,
+    "conformance": 2,
+    "uniqueness": 2
+  },
+  "upstream": {
+    "repository": "anthropics/skills",
+    "url": "https://github.com/anthropics/skills/tree/3b3fad96af16a10759d930941b4520ba0c40edae/skills/web-artifacts-builder",
+    "author": "Anthropic",
+    "commit": "3b3fad96af16a10759d930941b4520ba0c40edae",
+    "path": "skills/web-artifacts-builder",
+    "license": "Apache-2.0",
+    "licenseSource": "skill-dir:LICENSE.txt"
+  },
+  "files": [
+    {
+      "dest": "SKILL.md",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/web-artifacts-builder/SKILL.md",
+      "blobSha": "8b39b19f259b4216ecb07574741dd8eaa9863a07"
+    },
+    {
+      "dest": "LICENSE.txt",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/web-artifacts-builder/LICENSE.txt",
+      "blobSha": "4f881c52d1f72f4cfb720e339e2d35c3058d01a9"
+    },
+    {
+      "dest": "scripts/bundle-artifact.sh",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/web-artifacts-builder/scripts/bundle-artifact.sh",
+      "blobSha": "c13d229e0523623a23f979771ccf99ac149c8bfb"
+    },
+    {
+      "dest": "scripts/init-artifact.sh",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/web-artifacts-builder/scripts/init-artifact.sh",
+      "blobSha": "7d1022d88bec529f00ef385e10ed6084601d710b"
+    },
+    {
+      "dest": "scripts/shadcn-components.tar.gz",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/web-artifacts-builder/scripts/shadcn-components.tar.gz",
+      "blobSha": "cdbe7cdd1e724a7c9840387e17a6a7f26d3477e1"
+    }
+  ],
+  "securityNotes": "Read SKILL.md, scripts/bundle-artifact.sh, and scripts/init-artifact.sh in full at the pinned SHA, line by line. Both scripts only run standard package-manager installs (pnpm/npm from the public npm registry), scaffold config files (tailwind.config.js, vite.config.ts, tsconfig, .parcelrc) via heredocs, and extract the bundled scripts/shadcn-components.tar.gz into src/ with `tar -xzf` -- no curl|bash, no fetching-and-executing remote scripts, no credential access, no telemetry/exfiltration calls. scripts/shadcn-components.tar.gz is a binary archive, listed in files[] with its blob SHA but not extracted/inspected byte-by-byte in this session; its expected contents (standard shadcn/ui component source files) are declared plainly in SKILL.md and init-artifact.sh's own echo output (accordion, alert, button, card, dialog, etc.), consistent with the shadcn/ui project's own MIT-licensed component templates, and the archive sits inside a directory covered by the skill's own Apache-2.0 LICENSE.txt.",
+  "overlaps": [],
+  "proposedEntry": {
+    "id": "web-artifacts-builder",
+    "name": "web-artifacts-builder",
+    "description": "Scaffolds and bundles a React 18 + TypeScript + Vite + Tailwind CSS + shadcn/ui project into a single self-contained HTML artifact for claude.ai, via two bundled shell scripts: init-artifact.sh (creates the project, configures Tailwind/shadcn theming and path aliases, installs 40+ pre-extracted shadcn/ui components and their Radix UI dependencies) and bundle-artifact.sh (builds with Parcel and inlines all JS/CSS/assets into one bundle.html with html-inline). Instructs the agent to avoid generic 'AI slop' visual patterns (centered layouts, purple gradients, uniform rounded corners, Inter font) while building.",
+    "category": "design-engineering",
+    "tags": [
+      "frontend",
+      "implementation-quality",
+      "design-engineering"
+    ],
+    "triggers": [
+      "build a complex React artifact with shadcn/ui",
+      "create a multi-component claude.ai artifact with state management",
+      "bundle a React app into a single HTML file",
+      "scaffold a Tailwind + shadcn project for an artifact"
+    ],
+    "inputs": [
+      "a project name",
+      "a description of the artifact's required components/state/routing"
+    ],
+    "outputs": [
+      "a scaffolded React+TypeScript+Vite+Tailwind+shadcn project directory",
+      "a single bundle.html artifact with all JS/CSS/dependencies inlined"
+    ],
+    "path": "skills/design-engineering/web-artifacts-builder",
+    "source": {
+      "type": "third-party",
+      "repository": "anthropics/skills",
+      "url": "https://github.com/anthropics/skills/tree/3b3fad96af16a10759d930941b4520ba0c40edae/skills/web-artifacts-builder",
+      "author": "Anthropic",
+      "license": "Apache-2.0",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": "skills/web-artifacts-builder",
+      "upstreamCommit": "3b3fad96af16a10759d930941b4520ba0c40edae",
+      "retrievedAt": "2026-08-26",
+      "modified": false,
+      "modifications": []
+    },
+    "compatibility": [
+      "claude-code",
+      "codex",
+      "cursor",
+      "opencode",
+      "amp",
+      "gemini-cli",
+      "copilot",
+      "vs-code",
+      "claude-ai"
+    ],
+    "dependencies": [
+      "node",
+      "pnpm"
+    ],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "stable",
+    "status": "draft"
+  },
+  "logMd": "#### anthropics/skills (inspected 2026-08-26)\n- Same repo pin: 3b3fad96af16a10759d930941b4520ba0c40edae, 172348 stars.\n- web-artifacts-builder: SKILL.md, scripts/bundle-artifact.sh, and scripts/init-artifact.sh read in full, line by line. scripts/shadcn-components.tar.gz (19967 B) listed via tree API with blob SHA but not extracted -- binary archive of shadcn/ui component sources.\n- Rubric: relevance 2 (frontend implementation quality / design-to-code, design-engineering category), quality 3 (highly specific, fully scripted, exact package versions and config files, explicit anti-'AI slop' visual-quality directive), conformance 2 (valid frontmatter, name=dirname, scripts self-contained and portable), uniqueness 2 (only React/shadcn/Parcel bundling workflow in the registry). Total 9.\n- Security: both scripts reviewed line by line -- only npm-registry installs and local file scaffolding/extraction, no curl|bash or remote script execution, no credentials touched.\n- Verdict: vendor. Category set to design-engineering (frontend implementation quality) rather than visual-design since the skill's primary output is working code/build tooling, not aesthetic direction."
+}

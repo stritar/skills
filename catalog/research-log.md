@@ -182,6 +182,98 @@ notes distilled into the plan and docs):
 
 ## Inspection sessions
 
+#### anthropics/skills (inspected 2026-08-26)
+- Same repo pin: 3b3fad96af16a10759d930941b4520ba0c40edae, 172348 stars.
+- algorithmic-art: SKILL.md, templates/generator_template.js, and templates/viewer.html all read in full. viewer.html loads p5.js from a single pinned cdnjs.cloudflare.com URL as a standard client-side <script> include; no other network calls anywhere in the skill.
+- Rubric: relevance 2 (color/composition/visual-hierarchy design applied through code, adjacent to but not core product-UI work), quality 2 (concrete technical requirements -- seeded randomness, canvas setup, required template reuse -- but large stretches are repetitive craftsmanship-hype language similar to canvas-design), conformance 2 (valid frontmatter, name=dirname, template files resolve), uniqueness 2 (nothing like generative p5.js art vendored elsewhere). Total 8.
+- Security: reviewed both template files line by line; no exfiltration, no credential access, no download-and-execute beyond the pinned p5.js CDN script tag.
+- Verdict: vendor.
+
+#### emilkowalski/skills (inspected 2026-08-26)
+- Same repo pin: d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7, MIT at repo-root LICENSE.
+- animate-expo: both files read in full. Rubric: relevance 3 (mobile interaction/motion design), quality 3 (thread-model explanation, exact Reanimated spring configs, an extensive 'setup that silently breaks motion' section, haptics timing rules, 10 ready recipes), conformance 2 (spec-only frontmatter -> claude-ai appended; RECIPES.md link resolves), uniqueness 2 (no other mobile/React-Native-specific animation skill anywhere in this registry or in this session's other candidates). Total 10.
+- Security: clean.
+- Verdict: vendor.
+
+#### emilkowalski/skills (inspected 2026-08-26)
+- Repo HEAD pinned: d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7. Stars: 33307. Pushed: 2026-08-21T09:32:33Z. License: repo-root LICENSE, full MIT text read, copyright 2026 Emil Kowalski. Note: GitHub API's own license-detection field also reports MIT for this repo, but per pipeline instructions the actual repo-root LICENSE file text was read and verified independently rather than trusting that field.
+- Tree fetched via git/trees recursive at pinned SHA, not truncated; 12 skill dirs under skills/.
+- animate: both files read in full. Rubric: relevance 3 (motion/interaction-design is explicitly in scope for the interaction-design taxonomy category), quality 3 (a strict ordered build sequence, exact cubic-bezier/duration tables, a never-ship checklist mirrored in review-animations' escalation list, 11 ready-to-build recipes), conformance 2 (frontmatter is name+description only, spec six only -> claude-ai appended; name=dirname; RECIPES.md link resolves), uniqueness 1 (better-ui, vendored this same session from jakubkrehel/skills, shares several identical values -- recorded as overlap since animate owns a distinct should-it-animate gate and tool-selection ladder that better-ui lacks). Total 9.
+- Security: clean.
+- Verdict: vendor.
+
+#### emilkowalski/skills (inspected 2026-08-26)
+- Same repo pin: d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7, MIT at repo-root LICENSE.
+- animation-vocabulary: single file read in full (no sibling reference files). Rubric: relevance 2 (a naming/communication aid for design work, not itself a construction or audit activity), quality 3 (a disambiguation algorithm, worked examples, a large well-organized glossary explicitly kept in sync with a live reference page), conformance 2 (spec-only frontmatter -> claude-ai appended; name=dirname), uniqueness 2 (no comparable reverse-lookup glossary anywhere in this registry). Total 9.
+- Security: clean.
+- Verdict: vendor.
+
+#### anthropics/skills (inspected 2026-08-26)
+- Repo pin: 3b3fad96af16a10759d930941b4520ba0c40edae, 172348 stars, pushed 2026-08-21T17:10:55Z, no repo-level LICENSE (per-skill LICENSE.txt only).
+- brand-guidelines: SKILL.md (2235 B) and LICENSE.txt (Apache-2.0) read in full. Rejected for insufficient relevance (rubric relevance=1, below the vendor threshold of relevance>=2) -- the skill hardcodes Anthropic's own specific brand colors/fonts rather than offering a generalizable brand-application technique, unlike the vendored theme-factory (10 selectable generic themes + custom-theme generation) which serves the same broad purpose without being tied to one company's identity.
+
+#### emilkowalski/skills (inspected 2026-08-26)
+- Same repo pin: d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7, MIT at repo-root LICENSE.
+- apple-design: single file read in full (no sibling reference files). Rubric: relevance 3 (core interaction/motion design foundations sourced from a named authoritative reference, WWDC talks), quality 3 (Apple's exact damping/response tables, the projection and rubber-band formulas, a full quick-reference table), conformance 2 (spec-only frontmatter -> claude-ai appended; name=dirname), uniqueness 2 (spring/velocity mechanics overlap animate and animate-expo, but the materials/depth, multimodal-feedback and eight-design-principles content is unique in this registry -- recorded as overlap, not duplicate). Total 10.
+- Security: clean.
+- Verdict: vendor.
+
+#### jakubkrehel/skills (inspected 2026-08-26)
+- Repo HEAD pinned: ca483852de23d48ab4f4ea71da37dad12bd70a95 (author-committed 2026-08-24T22:30:11Z). Stars: 4576. Pushed: 2026-08-27T20:29:31Z. License: repo-root LICENSE, full MIT text read, copyright 2026 Jakub Krehel.
+- Tree fetched via git/trees recursive at pinned SHA, not truncated; 11 skill dirs under skills/, each with SKILL.md + agents/openai.yaml + sibling reference .md files.
+- better-accessibility: all 8 files read in full. Rubric: relevance 3 (core a11y audit/remediation), quality 3 (exact values: 24x24 hit-area floor, sr-only CSS block, roving-tabindex code, live-region politeness table, calibrated HIGH/MEDIUM/LOW severity with a strict output table and Block/Approve gate), conformance 2 (frontmatter is name+description only, spec six only -> claude-ai appended; name equals dirname; all relative links resolve to sibling files in the same dir), uniqueness 2 (no accessibility-category skill vendored yet; design-details covers similar ground far more shallowly in a single generalist file). Total 10.
+- Security: clean, no scripts, no network, no injection language.
+- Verdict: vendor.
+
+#### jakubkrehel/skills (inspected 2026-08-26)
+- Same repo pin as better-accessibility: ca483852de23d48ab4f4ea71da37dad12bd70a95, MIT at repo-root LICENSE, 4576 stars.
+- better-colors: all 8 files read in full. Rubric: relevance 3 (color systems, tokens, contrast are core visual-design work), quality 3 (APCA Lc thresholds table, exact ramp-construction rules, culori code example, report-don't-repaint discipline, calibrated severity format), conformance 2 (frontmatter is name+description only -> claude-ai appended; name=dirname; all sibling links resolve), uniqueness 2 (no color-system skill vendored yet in this registry). Total 10.
+- Security: clean.
+- Verdict: vendor.
+
+#### jakubkrehel/skills (inspected 2026-08-26)
+- Same repo pin: ca483852de23d48ab4f4ea71da37dad12bd70a95, MIT at repo-root LICENSE.
+- better-interface: all 3 files read in full. Rubric: relevance 3 (holistic design review orchestration is core), quality 3 (fixed review order, explicit escalation-trigger list that overrides severity averaging, a five-step fix-preference ladder, strict consolidated output format in review-format.md), conformance 2 (spec-only frontmatter -> claude-ai appended; name=dirname; sibling links resolve within the skill dir), uniqueness 1 (design-details, already accepted in this pipeline as design-qa, covers similar full-audit orchestration ground with a different mechanism -- single-file protocol vs. routing to six sibling skills; recorded as overlap, not near-duplicate, since the routed sub-skills are far more detailed than anything design-details defines inline). Total 9.
+- Security: clean; the skill's own design (mark domains 'Not reviewed' rather than fabricate) reduces hallucination risk.
+- Verdict: vendor.
+
+#### jakubkrehel/skills (inspected 2026-08-26)
+- Same repo pin: ca483852de23d48ab4f4ea71da37dad12bd70a95, MIT at repo-root LICENSE.
+- better-layout: all 5 files read in full. Rubric: relevance 3 (core layout/structure work), quality 3 (concrete pixel starting points for target spacing, exact 2x grouping ratio, logical-property table, container-query recipes, calibrated severity format), conformance 2 (spec-only frontmatter -> claude-ai appended; name=dirname; sibling links resolve), uniqueness 2 (no general web-layout skill vendored; platform-conventions covers mobile HIG/Material conventions, a different scope). Total 10.
+- Security: clean.
+- Verdict: vendor.
+
+#### jakubkrehel/skills (inspected 2026-08-26)
+- Same repo pin: ca483852de23d48ab4f4ea71da37dad12bd70a95, MIT at repo-root LICENSE.
+- better-typography: all 8 files read in full. Rubric: relevance 3 (core typography work), quality 3 (exact line-height/letter-spacing/measure values, a full CSS-to-Tailwind cheat sheet, two documented iOS-zoom fixes with code, calibrated severity format), conformance 2 (spec-only frontmatter -> claude-ai appended; name=dirname; sibling links resolve), uniqueness 2 (no typography skill vendored yet). Total 10.
+- Security: clean.
+- Verdict: vendor.
+
+#### jakubkrehel/skills (inspected 2026-08-26)
+- Same repo pin: ca483852de23d48ab4f4ea71da37dad12bd70a95, MIT at repo-root LICENSE.
+- better-ui: all 8 files read in full. Rubric: relevance 3 (UI polish/motion/icon craft is core visual-design work), quality 3 (exact scale(0.96) press value, spring bounce:0, blur 4px->0px, will-change property table, theme-transition-suppression code), conformance 2 (spec-only frontmatter -> claude-ai appended; name=dirname; sibling links resolve), uniqueness 2 (motion-system defines motion as a design-systems token layer at a different altitude; no implementation-detail UI-polish skill vendored). Total 10.
+- Security: clean.
+- Verdict: vendor.
+
+#### jakubkrehel/skills (inspected 2026-08-26)
+- Same repo pin: ca483852de23d48ab4f4ea71da37dad12bd70a95, MIT at repo-root LICENSE.
+- better-writing: both files read in full (this is the only one of the 11 skills with no sibling reference .md files -- SKILL.md is self-contained). Rubric: relevance 3 (UX writing is core content-design work), quality 3 (concrete before/after error-copy table, tone-by-stakes table, verb-first button rule, calibrated severity format), conformance 2 (spec-only frontmatter -> claude-ai appended; name=dirname), uniqueness 2 (no general UX-writing skill vendored; localization-design covers a narrower text-expansion/RTL scope). Total 10.
+- Security: clean.
+- Verdict: vendor.
+
+#### jakubkrehel/skills (inspected 2026-08-26)
+- Same repo pin: ca483852de23d48ab4f4ea71da37dad12bd70a95, MIT at repo-root LICENSE.
+- break: all 3 files read in full. Frontmatter carries name, description, disable-model-invocation (non-spec) -- claude-ai NOT appended to compatibility per rule. Rubric: relevance 3 (component stress-testing is core testing/design-QA groundwork), quality 3 (a cued scenario-axis table that gates which axes apply and why, a strict build/look-once/report workflow, an explicit no-verdict scope boundary), conformance 2 (name=dirname; description accurate; scenarios.md link resolves; the non-spec field is a hosting flag only, doesn't affect portability of the content itself), uniqueness 2 (no stress-testing/scenario-rendering skill vendored in this registry; the closest, critique-information-density, judges a rendered screen's density rather than rendering scenarios to find breaks). Total 10.
+- Security: clean; harness explicitly never imports production state or lets production import from the harness.
+- Verdict: vendor.
+
+#### anthropics/skills (inspected 2026-08-26)
+- Same repo pin as frontend-design: 3b3fad96af16a10759d930941b4520ba0c40edae, 172348 stars.
+- canvas-design: SKILL.md and LICENSE.txt (Apache-2.0, with 'Copyright 2026 Anthropic, PBC.' appendix, 201 lines -- differs from frontend-design's bare-license copy) read in full. All 84 tree entries under skills/canvas-design/ enumerated (1 dir + 2 skill files + 81 font-related files across 26 families); 3 representative -OFL.txt files read in full to confirm SIL OFL 1.1 licensing with per-family copyright lines; the 26 .ttf binaries were not opened, only listed with blob SHAs. Bundle totals 5.55 MB, under the 10 MB not-vendored-keeper threshold.
+- Rubric: relevance 2 (clear visual-design application -- typography, color, composition -- even though the output is standalone art/poster rather than product UI), quality 2 (concrete two-step process and font-selection instruction, but large stretches are repetitive craftsmanship-hype language rather than calibrated criteria), conformance 2 (valid frontmatter, name=dirname, resources resolve), uniqueness 2 (nothing like this vendored). Total 8.
+- Security: no scripts, no network calls, no credential access. Noted the fabricated 'the user already said' quote in the FINAL STEP section as a prompt-engineering pattern worth flagging, not a disqualifier -- it only forces an extra self-refinement pass and does not touch real user instructions or data.
+- Verdict: vendor.
+
 #### Owl-Listener/designer-skills (inspected 2026-08-26)
 Pinned HEAD 20e34c4a587e5eb09fcdf8351fa97b3ad761b31e (main; verified via GitHub API and a fresh git clone whose HEAD matched exactly). Stars 2314, last push 2026-08-08. License: MIT at repo-root LICENSE (copyright 2026 MC Dean), read in full at the pinned commit. Skill `conversational-ux` at `interaction-design/skills/conversational-ux` - single SKILL.md (blob 17b91a3bccc6b3ff4447e7345c0915fb7f94c2a9), frontmatter uses only name+description, name equals dirname. Rubric: relevance 3, quality 3, conformance 2, uniqueness 2 = 10. Covers both voice and text chat with distinct rules; error reprompt ladder and confirmation table are directly actionable; explicitly scopes when not to use conversation. Security: clean (no scripts, no network, no hidden instructions; repo-wide character audit clean). Verdict: vendor.
 
@@ -213,6 +305,46 @@ Pinned HEAD 20e34c4a587e5eb09fcdf8351fa97b3ad761b31e (main; verified via GitHub 
 #### Owl-Listener/designer-skills (inspected 2026-08-26)
 Pinned HEAD 20e34c4a587e5eb09fcdf8351fa97b3ad761b31e (main; verified via GitHub API and a fresh git clone whose HEAD matched exactly). Stars 2314, last push 2026-08-08. License: MIT at repo-root LICENSE (copyright 2026 MC Dean), read in full at the pinned commit. Skill `design-system-governance` at `design-systems/skills/design-system-governance` - single SKILL.md (blob 8036d59e0d10cdc318f80d64034b7a41063dc068), frontmatter uses only name+description, name equals dirname. Rubric: relevance 3, quality 3, conformance 2, uniqueness 2 = 10. Operational and specific: semver table, deprecation timeline pattern ('Deprecated in 2.3, removed in 3.0'), quality entry checklist. Security: clean (no scripts, no network, no hidden instructions; repo-wide character audit clean). Verdict: vendor.
 
+#### emilkowalski/skills (inspected 2026-08-26)
+- Repo HEAD pinned: d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7. Stars: 33307. Pushed: 2026-08-21T09:32:33Z. License: repo-root LICENSE, full MIT text read, copyright 2026 Emil Kowalski.
+- 12 skill dirs enumerated via recursive tree at the pinned SHA (not truncated): animate, animate-expo, animation-vocabulary, apple-design, ask-sonner, emil-design-eng, find-animation-opportunities, improve-animations, pick-ui-library, prototype, review-animations, write-swift.
+- 9 vendored separately (see animate.json, animate-expo.json, animation-vocabulary.json, apple-design.json, find-animation-opportunities.json, improve-animations.json, review-animations.json, prototype.json, pick-ui-library.json).
+- 3 rejected here: ask-sonner (relevance 1, single-library manual), emil-design-eng (uniqueness 0, near-duplicate of animate+apple-design, plus an embedded self-promotional scripted opener), write-swift (relevance 0, generic Swift programming guide with no design content).
+
+#### jakubkrehel/skills (inspected 2026-08-26)
+- Same repo pin: ca483852de23d48ab4f4ea71da37dad12bd70a95, MIT at repo-root LICENSE.
+- explain-interface: all 6 files read in full. Frontmatter carries name, description, disable-model-invocation (non-spec) -- claude-ai NOT appended. Rubric: relevance 3 (design-to-engineering reading of a live interface, the category's own scope), quality 3 (measured/derived/inferred evidence tiers, a concrete layer-search JS snippet, an explicit reconstruction-vs-reading distinction for screenshots, a built-in prompt-injection safeguard), conformance 2 (name=dirname; all four sibling reference files link and resolve), uniqueness 2 (no design-engineering-category skill vendored yet; this is the first). Total 10.
+- Security: reviewed the curl/grep recipes and every JS snippet line by line -- read-only page inspection, no execution of fetched code, no credential handling; the skill instructs the agent not to follow embedded page instructions, which is a defensive design choice.
+- Verdict: vendor.
+
+#### emilkowalski/skills (inspected 2026-08-26)
+- Same repo pin: d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7, MIT at repo-root LICENSE.
+- find-animation-opportunities: single file read in full. Rubric: relevance 3 (an expert-review/heuristic-evaluation sweep, core testing-category activity), quality 3 (a strict four-question gate applied ruthlessly, a required rejected-candidates section that is what 'separates this skill from a wishlist', a capped, evidence-cited output format), conformance 2 (spec-only frontmatter -> claude-ai appended; name=dirname; no broken links), uniqueness 2 (no comparable read-only animation-opportunity finder anywhere in this registry, including jakubkrehel/skills). Total 10.
+- Security: read-only by design; explicit built-in prompt-injection guard (repository content treated as data, flagged if it tries to steer the agent).
+- Verdict: vendor.
+
+#### microsoft/skills (inspected 2026-08-26)
+- Repo pin: 7066b58141d8cc66f39356b2ee5bb64d428dcf17 (default branch main), 2967 stars, pushed 2026-08-28T23:59:00Z, repo-level LICENSE = MIT (verified by reading the actual license text at the pinned SHA, not just the GitHub API license field).
+- frontend-design-review: SKILL.md and all 4 references/*.md files read in full.
+- Rubric: relevance 3 (core design-QA/review activity -- explicitly PR review, accessibility audits, design-system compliance), quality 3 (calibrated blocking/major/minor severity, structured output template, concrete checklists, WCAG grade thresholds), conformance 2 -- frontmatter uses name/description/acknowledgments; acknowledgments is NOT one of the six spec fields, so claude-ai was NOT appended to compatibility per rule; name=dirname, all reference links resolve. uniqueness 2 (no design-QA/review skill vendored yet in this registry; distinct from the creation-only frontend-design skill it credits). Total 10.
+- Security: clean, prose/checklist only, no scripts.
+- Verdict: vendor.
+
+#### anthropics/skills (inspected 2026-08-26)
+- Repo pin: 3b3fad96af16a10759d930941b4520ba0c40edae (default branch main), 172348 stars, pushed 2026-08-21T17:10:55Z. No repo-level LICENSE (repo license field null in API); each design skill under skills/ ships its own LICENSE.txt, verified individually.
+- frontend-design: SKILL.md (8260 B) and LICENSE.txt (10174 B, Apache-2.0 bare legal text) both read in full at the pinned SHA. Frontmatter uses only name/description/license (three of the six spec fields) -> claude-ai appended to compatibility per rule.
+- Rubric: relevance 3 (core visual/UI design activity), quality 3 (concrete two-pass process, named anti-patterns to avoid, specific CSS-specificity pitfall, calibrated self-critique step), conformance 2 (valid frontmatter, name=dirname, no host-specific magic), uniqueness 2 (nothing like this vendored yet). Total 10.
+- Security: clean, prose-only.
+- Verdict: vendor.
+
+#### microsoft/skills (inspected 2026-08-26)
+- Same repo pin as frontend-design-review: 7066b58141d8cc66f39356b2ee5bb64d428dcf17, MIT at repo-root LICENSE (verified by reading the license text).
+- frontend-ui-dark-ts: SKILL.md and all 3 references/*.md files (design-tokens.md, components.md, patterns.md) read in full. Full tree of the skill directory enumerated: 12 entries including assets/Segoe UI*.ttf (x4) and assets/foundry-logo-*.png (x2).
+- License finding: the 4 Segoe UI font files and 2 Foundry logo PNGs have no verifiable open redistribution license anywhere in this repo or alongside the files themselves -- Segoe UI is Microsoft's proprietary typeface with restrictive EULA terms, and the Foundry logos are brand marks. These 6 binaries are excluded from files[] (disclosed as a 'portability' modification); the remaining MIT-licensed textual/code content (SKILL.md + 3 references) is vendored.
+- Rubric: relevance 3 (this is a design-tokens + component-API system, the rubric's own worked example for a relevance-3 skill), quality 3 (exact hex/HSL values, full Tailwind config, complete TSX component source with variants/sizes/states, concrete typography and color-usage tables), conformance 2 (frontmatter uses only name/description/license/metadata -- all within the six spec fields -- so claude-ai IS appended to compatibility; name=dirname), uniqueness 2 (no dark-theme design-token/component-library skill vendored elsewhere). Total 10.
+- Security: all 4 text files reviewed line by line; TSX/CSS code only, no scripts run by the skill, no network calls, no credential access.
+- Verdict: vendor (with the font/logo asset exclusion noted above).
+
 #### pbakaus/impeccable (inspected 2026-08-26)
 - HEAD of main pinned: 63b04e2530f5c7b41ea83c133daab24f34912456 (committed 2026-08-26T06:02:54Z; repo pushed 2026-08-26T06:04:37Z). Stars verified via API: 62,896. License: Apache-2.0 - full text read at repo-root LICENSE at pinned SHA; package.json license field and SKILL.md frontmatter agree. NOTICE.md: reference/ios.md and reference/android.md distilled from ehmo/platform-design-skills (MIT).
 - Tree: 3,270 blobs (recursive tree API, not truncated; blob SHAs recorded in scratchpad). One skill, materialized into 20 provider directories; canonical Claude Code install is .claude/skills/impeccable/ (153 files, 3.4 MB).
@@ -221,17 +353,71 @@ Pinned HEAD 20e34c4a587e5eb09fcdf8351fa97b3ad761b31e (main; verified via GitHub 
 - Verdict: not-vendored-keeper. Clean license and excellent quality, but automatic disqualifier on reviewability (generated 390 KB browser-detector bundle marked 'do not edit', minified UMD vendor file, 500 KB browser script) plus install/update and staleness machinery that makes a static vendored copy self-degrading. Point users to npx impeccable install / plugin marketplace instead.
 - compatibility note: frontmatter uses fields outside the spec six (version, user-invocable, argument-hint) - claude-ai must NOT be listed if this is ever reconsidered.
 
+#### emilkowalski/skills (inspected 2026-08-26)
+- Same repo pin: d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7, MIT at repo-root LICENSE.
+- improve-animations: all three files read in full. Rubric: relevance 3 (codebase-wide motion audit and remediation planning, core testing-category work), quality 3 (eight-category audit playbook with exact values never to be approximated, a plan template written for a zero-context/zero-taste executor, effort-tiered subagent fan-out), conformance 2 (spec-only frontmatter -> claude-ai appended; both sibling reference files link and resolve), uniqueness 2 (no comparable audit-then-self-contained-plan workflow for animation exists in this registry; design-debt-audit is broader and shallower on motion specifically). Total 10.
+- Security: read-only on source by design, explicit anti-injection guard, only writes plan files under plans/.
+- Verdict: vendor.
+
+#### jakubkrehel/skills (inspected 2026-08-26)
+- Same repo pin: ca483852de23d48ab4f4ea71da37dad12bd70a95, MIT at repo-root LICENSE.
+- interface-review: all 5 files read in full. Frontmatter carries name, disable-model-invocation, description (non-spec field present) -- claude-ai NOT appended. Rubric: relevance 3 (PR/branch interface QA is core design-qa work), quality 3 (a removed-signals table mapping deleted attributes to owning skills, explicit merge-base vs. two-dot-range handling, shallow-clone/mid-rebase/detached-HEAD traps, a strict never-checkout rule with the one permitted git-fetch exception explained), conformance 2 (name=dirname; both sibling reference files link and resolve), uniqueness 2 (no version-control-diff-scoped review skill vendored; design-debt-audit audits current-state debt categories rather than a diff). Total 10.
+- Security: git/gh commands reviewed line by line; read-only except git fetch (writes only under .git); no checkout of untrusted PR code into the working tree.
+- Verdict: vendor.
+
 #### Owl-Listener/designer-skills (inspected 2026-08-26)
 Pinned HEAD 20e34c4a587e5eb09fcdf8351fa97b3ad761b31e (main; verified via GitHub API and a fresh git clone whose HEAD matched exactly). Stars 2314, last push 2026-08-08. License: MIT at repo-root LICENSE (copyright 2026 MC Dean), read in full at the pinned commit. Skill `localization-design` at `design-systems/skills/localization-design` - single SKILL.md (blob 14ddef7f094a3e71383a4f0faa464d2db3a3f7cb), frontmatter uses only name+description, name equals dirname. Rubric: relevance 3, quality 3, conformance 2, uniqueness 2 = 10. Concrete expansion percentages, explicit mirror/do-not-mirror lists, CSS logical properties, cultural color table, pseudo-localization technique. Security: clean (no scripts, no network, no hidden instructions; repo-wide character audit clean). Verdict: vendor.
+
+#### microsoft/skills (inspected 2026-08-26)
+- Same repo pin as frontend-design-review and frontend-ui-dark-ts: 7066b58141d8cc66f39356b2ee5bb64d428dcf17, MIT at repo-root LICENSE.
+- Surveyed the full SKILL.md tree (146 SKILL.md files across .github/plugins/* and .github/skills/*) for any other clearly design-relevant skill beyond the assigned frontend-design-review. Two candidates with UI-adjacent descriptions were opened and read in full: ui-widget-developer (M365 Copilot MCP-server + widget protocol engineering, Fluent UI mandated only as a one-line dependency, hard-wired to Microsoft 365 Copilot's proprietary infrastructure) and react-flow-node-ts (a React Flow node scaffolding template hard-wired to one unnamed host project's file layout). Both rejected: neither teaches design judgment, and both fail the conformance/relevance bar for this registry (react-flow-node-ts also fails portability outright). The remainder of the tree (azure-sdk-* per-language SDK skills, azure-skills infra/ops skills, deep-wiki, azure-kusto-graph-skills, microsoft-365-agents-toolkit's other skills, and the .github/skills/* utility skills) are backend/cloud/infra/tooling skills with no design relevance and were not opened individually beyond confirming their names/descriptions in the tree listing.
 
 #### Owl-Listener/designer-skills (inspected 2026-08-26)
 Pinned HEAD 20e34c4a587e5eb09fcdf8351fa97b3ad761b31e (main; verified via GitHub API and a fresh git clone whose HEAD matched exactly). Stars 2314, last push 2026-08-08. License: MIT at repo-root LICENSE (copyright 2026 MC Dean), read in full at the pinned commit. Skill `motion-system` at `design-systems/skills/motion-system` - single SKILL.md (blob 93b767da3bf1735c18605a623601d08cefd611a6), frontmatter uses only name+description, name equals dirname. Rubric: relevance 3, quality 3, conformance 2, uniqueness 2 = 10. Concrete values throughout (durations, cubic-beziers, stagger timings); reduced-motion handled at system level via tokens - unusual and correct. Overlaps thematically with the repo's own animation-principles (not vendored). Security: clean (no scripts, no network, no hidden instructions; repo-wide character audit clean). Verdict: vendor.
 
+#### emilkowalski/skills (inspected 2026-08-26)
+- Same repo pin: d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7, MIT at repo-root LICENSE.
+- pick-ui-library: single file read in full. Frontmatter carries name, description, disable-model-invocation (non-spec) -- claude-ai NOT appended. Rubric: relevance 2 (a dependency-selection decision that materially supports design-system consistency and pattern-library choice, adjacent to but not itself a core design activity), quality 3 (task-first identification rule, package.json precedence check, a mismatch table naming common hand-rolled anti-patterns), conformance 2 (name=dirname), uniqueness 2 (no comparable curated UI-library picker skill in this registry). Total 9.
+- Security: clean; noted mild conflict of interest (one entry, Sonner, is the author's own library) as a content note, not a disqualifier -- the recommendation sits among independent third-party libraries with stated rationale.
+- Verdict: vendor.
+
 #### Owl-Listener/designer-skills (inspected 2026-08-26)
 Pinned HEAD 20e34c4a587e5eb09fcdf8351fa97b3ad761b31e (main; verified via GitHub API and a fresh git clone whose HEAD matched exactly). Stars 2314, last push 2026-08-08. License: MIT at repo-root LICENSE (copyright 2026 MC Dean), read in full at the pinned commit. Skill `platform-conventions` at `ui-design/skills/platform-conventions` - single SKILL.md (blob d5a024368d46e903ea40b7689f09fefc62389983), frontmatter uses only name+description, name equals dirname. Rubric: relevance 3, quality 3, conformance 2, uniqueness 2 = 10. Detailed HIG vs Material 3 comparison tables (navigation, controls, typography, gestures, visual); decision framework for native vs unified; concrete what-not-to-do list. Security: clean (no scripts, no network, no hidden instructions; repo-wide character audit clean). Verdict: vendor.
+
+#### emilkowalski/skills (inspected 2026-08-26)
+- Same repo pin: d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7, MIT at repo-root LICENSE.
+- prototype: both files read in full. Frontmatter carries name, description, disable-model-invocation (non-spec) -- claude-ai NOT appended. Rubric: relevance 3 (core prototyping/design-exploration work), quality 3 (explicit divergence-axis rule with a completion criterion, a fully-specified verbatim picker component with keyboard nav/URL persistence/replay, invocation variants for iterating and promoting), conformance 2 (name=dirname; PICKER.md link resolves), uniqueness 1 (variant, vendored this same session from jakubkrehel/skills, is a near-identical concept with a different mechanism -- recorded as overlap and flagged for curator attention since both are proposed together). Total 9.
+- Security: clean.
+- Verdict: vendor.
+
+#### emilkowalski/skills (inspected 2026-08-26)
+- Same repo pin: d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7, MIT at repo-root LICENSE.
+- review-animations: both files read in full. Frontmatter carries name, description, disable-model-invocation (non-spec) -- claude-ai NOT appended. Rubric: relevance 3 (motion-specific design-QA review, core to the category), quality 3 (ten non-negotiable standards, an aggressive fixed escalation-trigger list, a nine-step remedial preference hierarchy ordered cheapest-fix-first, a strict two-part required output format), conformance 2 (name=dirname; STANDARDS.md link resolves), uniqueness 1 (better-ui and better-interface, vendored this session from jakubkrehel/skills, share the Block/Approve verdict shape and several identical animation values -- recorded as overlap given review-animations' distinct ten-point standard and remedial ladder). Total 9.
+- Security: clean.
+- Verdict: vendor.
 
 #### Owl-Listener/designer-skills (inspected 2026-08-26)
 Pinned HEAD 20e34c4a587e5eb09fcdf8351fa97b3ad761b31e (main; verified via GitHub API and a fresh git clone whose HEAD matched exactly). Stars 2314, last push 2026-08-08. License: MIT at repo-root LICENSE (copyright 2026 MC Dean), read in full at the pinned commit. Skill `service-blueprint` at `ux-strategy/skills/service-blueprint` - single SKILL.md (blob ac925ccea0f988ade625bb224985cfa7b33aa146), frontmatter uses only name+description, name equals dirname. Rubric: relevance 3, quality 2, conformance 2, uniqueness 2 = 9. Complete anatomy plus a diagnostic 'reading the blueprint' section; quality 2 rather than 3 because output format is described, not templated. Security: clean (no scripts, no network, no hidden instructions; repo-wide character audit clean). Verdict: vendor.
 
 #### Owl-Listener/designer-skills (inspected 2026-08-26)
 Pinned HEAD 20e34c4a587e5eb09fcdf8351fa97b3ad761b31e (main; verified via GitHub API and a fresh git clone whose HEAD matched exactly). Stars 2314, last push 2026-08-08. License: MIT at repo-root LICENSE (copyright 2026 MC Dean), read in full at the pinned commit. Skill `survey-design` at `design-research/skills/survey-design` - single SKILL.md (blob 38bd86a9def20516bd848adc1ccb42ef5ec4f06e), frontmatter uses only name+description, name equals dirname. Rubric: relevance 3, quality 3, conformance 2, uniqueness 2 = 10. Question-writing rewrite patterns, scale rules, real sample-size numbers, pre-registration of analysis plan; clear scope boundary vs qualitative methods. Security: clean (no scripts, no network, no hidden instructions; repo-wide character audit clean). Verdict: vendor.
+
+#### anthropics/skills (inspected 2026-08-26)
+- Same repo pin: 3b3fad96af16a10759d930941b4520ba0c40edae, 172348 stars.
+- theme-factory: SKILL.md and all 10 themes/*.md files read in full (each ~500-560 bytes: 4 named hex colors, 2 font roles, use-case guidance). theme-showcase.pdf listed via tree API (blob SHA recorded) but not opened as it is a binary preview asset the skill instructs the agent to display unmodified.
+- Rubric: relevance 2 (theme/color/typography application, generalizable across artifact types), quality 2 (clear show/ask/confirm/apply workflow, concrete per-theme data, but thin on how to actually author the custom-theme fallback beyond 'use any basic description'), conformance 2 (valid frontmatter, name=dirname, resources resolve), uniqueness 2. Total 8.
+- Security: clean, prose/data only.
+- Verdict: vendor.
+
+#### jakubkrehel/skills (inspected 2026-08-26)
+- Same repo pin: ca483852de23d48ab4f4ea71da37dad12bd70a95, MIT at repo-root LICENSE.
+- variant: all 3 files read in full. Frontmatter carries name, description, disable-model-invocation (non-spec) -- claude-ai NOT appended. Rubric: relevance 3 (design exploration/prototyping is core), quality 3 (a named single-primary-axis rule against unattributable results, an explicit deliberately-outside-the-design-system picker spec with full CSS, a floor-clearing gate against better-interface's escalation triggers before a variant may compete), conformance 2 (name=dirname; picker.md link resolves), uniqueness 2 (no prototyping-category skill vendored yet). Total 10.
+- Security: clean.
+- Verdict: vendor.
+
+#### anthropics/skills (inspected 2026-08-26)
+- Same repo pin: 3b3fad96af16a10759d930941b4520ba0c40edae, 172348 stars.
+- web-artifacts-builder: SKILL.md, scripts/bundle-artifact.sh, and scripts/init-artifact.sh read in full, line by line. scripts/shadcn-components.tar.gz (19967 B) listed via tree API with blob SHA but not extracted -- binary archive of shadcn/ui component sources.
+- Rubric: relevance 2 (frontend implementation quality / design-to-code, design-engineering category), quality 3 (highly specific, fully scripted, exact package versions and config files, explicit anti-'AI slop' visual-quality directive), conformance 2 (valid frontmatter, name=dirname, scripts self-contained and portable), uniqueness 2 (only React/shadcn/Parcel bundling workflow in the registry). Total 9.
+- Security: both scripts reviewed line by line -- only npm-registry installs and local file scaffolding/extraction, no curl|bash or remote script execution, no credentials touched.
+- Verdict: vendor. Category set to design-engineering (frontend implementation quality) rather than visual-design since the skill's primary output is working code/build tooling, not aesthetic direction.

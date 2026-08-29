@@ -1,0 +1,59 @@
+{
+  "id": "better-accessibility",
+  "category": "accessibility",
+  "verdict": "vendor",
+  "rubric": { "relevance": 3, "quality": 3, "conformance": 2, "uniqueness": 2 },
+  "upstream": {
+    "repository": "jakubkrehel/skills",
+    "url": "https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-accessibility",
+    "author": "Jakub Krehel",
+    "commit": "ca483852de23d48ab4f4ea71da37dad12bd70a95",
+    "path": "skills/better-accessibility",
+    "license": "MIT",
+    "licenseSource": "repo-root:LICENSE"
+  },
+  "files": [
+    { "dest": "SKILL.md", "rawUrl": "https://raw.githubusercontent.com/jakubkrehel/skills/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-accessibility/SKILL.md", "blobSha": "11a35deed19c0246a12721e7542b1042a90dde61" },
+    { "dest": "agents/openai.yaml", "rawUrl": "https://raw.githubusercontent.com/jakubkrehel/skills/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-accessibility/agents/openai.yaml", "blobSha": "36b942fb8e5b86916b006c2fe4e07fdbde24a112" },
+    { "dest": "focus-and-keyboard.md", "rawUrl": "https://raw.githubusercontent.com/jakubkrehel/skills/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-accessibility/focus-and-keyboard.md", "blobSha": "6e5c2902dc543d2520730927fc5a8524883964f6" },
+    { "dest": "forms.md", "rawUrl": "https://raw.githubusercontent.com/jakubkrehel/skills/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-accessibility/forms.md", "blobSha": "c0f0dba72346f84b5441efb8747357279f48ac5a" },
+    { "dest": "hit-areas.md", "rawUrl": "https://raw.githubusercontent.com/jakubkrehel/skills/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-accessibility/hit-areas.md", "blobSha": "ab0e061e612582a5dd95d1bf8bbc54d4413a2105" },
+    { "dest": "motion-and-zoom.md", "rawUrl": "https://raw.githubusercontent.com/jakubkrehel/skills/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-accessibility/motion-and-zoom.md", "blobSha": "2101162289302e7daad91d1801270a19ae06cc38" },
+    { "dest": "screen-readers.md", "rawUrl": "https://raw.githubusercontent.com/jakubkrehel/skills/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-accessibility/screen-readers.md", "blobSha": "aaee977357eeeb845022dd5eb5f2f18170b64b30" },
+    { "dest": "semantics-and-aria.md", "rawUrl": "https://raw.githubusercontent.com/jakubkrehel/skills/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-accessibility/semantics-and-aria.md", "blobSha": "0e1ef213f5cfaf4f00c1d12443f81cc6f078be56" },
+    { "dest": "LICENSE.txt", "rawUrl": "https://raw.githubusercontent.com/jakubkrehel/skills/ca483852de23d48ab4f4ea71da37dad12bd70a95/LICENSE", "blobSha": "6a067e906e1346e640a0cda6ed37c5fb793104e4" }
+  ],
+  "securityNotes": "Read all 8 files in full at the pinned SHA (SKILL.md + agents/openai.yaml metadata + 6 reference .md files). Prose and CSS/TSX code snippets only, no executable scripts. No network calls, no credential handling, no hidden instructions or prompt-injection language; imperative-sounding lines are all authored guidance to the agent (e.g. 'never let extended hit areas overlap'), not attempts to override user or system rules. Clean.",
+  "overlaps": ["design-details (design-qa, this pipeline): a general audit orchestrator with a much shallower accessibility section; no accessibility-specific skill is vendored yet"],
+  "proposedEntry": {
+    "id": "better-accessibility",
+    "name": "better-accessibility",
+    "description": "Accessibility engineering guidance for building or reviewing UI components and custom widgets: native-element-first ARIA rules, exact focus-ring and tabindex/roving-tabindex recipes, WCAG 2.5.8 hit-area sizing with pseudo-element expansion, form labeling and error-announcement patterns, prefers-reduced-motion and autoplay/zoom rules, live-region and screen-reader announcement selection, alt-text-by-purpose table, and a calibrated HIGH/MEDIUM/LOW severity report format ending in Block/Approve.",
+    "category": "accessibility",
+    "tags": ["a11y", "wcag", "aria", "screen-reader", "keyboard", "focus-management", "contrast", "forms", "semantic-html", "inclusive-design", "remediation"],
+    "triggers": ["accessibility audit", "a11y review", "keyboard navigation broken", "screen reader not announcing", "focus ring missing", "WCAG compliance check"],
+    "inputs": ["UI component or screen source code", "rendered interface for keyboard/screen-reader walkthrough"],
+    "outputs": ["severity-ranked findings table (Severity | Location | Before | After | Why)", "Block/Approve verdict", "verification checklist with Not verified items flagged"],
+    "path": "skills/accessibility/better-accessibility",
+    "source": {
+      "type": "third-party",
+      "repository": "jakubkrehel/skills",
+      "url": "https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-accessibility",
+      "author": "Jakub Krehel",
+      "license": "MIT",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": "skills/better-accessibility",
+      "upstreamCommit": "ca483852de23d48ab4f4ea71da37dad12bd70a95",
+      "retrievedAt": "2026-08-26",
+      "modified": false,
+      "modifications": []
+    },
+    "compatibility": ["claude-code", "codex", "cursor", "opencode", "amp", "gemini-cli", "copilot", "vs-code", "claude-ai"],
+    "dependencies": [],
+    "relatedSkills": [],
+    "recommended": true,
+    "maturity": "stable",
+    "status": "draft"
+  },
+  "logMd": "#### jakubkrehel/skills (inspected 2026-08-26)\n- Repo HEAD pinned: ca483852de23d48ab4f4ea71da37dad12bd70a95 (author-committed 2026-08-24T22:30:11Z). Stars: 4576. Pushed: 2026-08-27T20:29:31Z. License: repo-root LICENSE, full MIT text read, copyright 2026 Jakub Krehel.\n- Tree fetched via git/trees recursive at pinned SHA, not truncated; 11 skill dirs under skills/, each with SKILL.md + agents/openai.yaml + sibling reference .md files.\n- better-accessibility: all 8 files read in full. Rubric: relevance 3 (core a11y audit/remediation), quality 3 (exact values: 24x24 hit-area floor, sr-only CSS block, roving-tabindex code, live-region politeness table, calibrated HIGH/MEDIUM/LOW severity with a strict output table and Block/Approve gate), conformance 2 (frontmatter is name+description only, spec six only -> claude-ai appended; name equals dirname; all relative links resolve to sibling files in the same dir), uniqueness 2 (no accessibility-category skill vendored yet; design-details covers similar ground far more shallowly in a single generalist file). Total 10.\n- Security: clean, no scripts, no network, no injection language.\n- Verdict: vendor."
+}

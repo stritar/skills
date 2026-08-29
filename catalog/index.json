@@ -180,6 +180,231 @@
       "status": "draft"
     },
     {
+      "id": "animate",
+      "name": "animate",
+      "description": "Builds a web animation from scratch in the order that determines whether it feels right: a frequency-based should-it-animate-at-all gate (100+/day actions never animate), a required one-word purpose (feedback, spatial consistency, state indication, preventing a jarring change, explanation, or delight), a cheapest-tool-first ladder (CSS transition to @starting-style to CSS animation to WAAPI to a motion library), exact easing curves and duration budgets by element type, transform/opacity-only property rules, interruption and exit rules, and mandatory reduced-motion and hover gating -- plus ready-to-build recipes for buttons, dropdowns, modals, drawers, toasts, accordions, stagger, hold-to-confirm, tab indicators, scroll reveal and drag-to-dismiss.",
+      "category": "interaction-design",
+      "tags": [
+        "motion",
+        "animation",
+        "micro-interactions",
+        "interaction-design",
+        "performance"
+      ],
+      "triggers": [
+        "add an animation to this component",
+        "make this feel alive",
+        "build a transition",
+        "animate this modal or dropdown",
+        "should this animate"
+      ],
+      "inputs": [
+        "a request to animate a specific UI element or interaction",
+        "the project's existing motion tokens and libraries, if any"
+      ],
+      "outputs": [
+        "implementation code (CSS, WAAPI, or a motion library call)",
+        "a short rationale: gate result, ingredients (tool/properties/curve/duration), and what to feel-check"
+      ],
+      "path": "skills/interaction-design/animate",
+      "source": {
+        "type": "third-party",
+        "repository": "emilkowalski/skills",
+        "url": "https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/animate",
+        "author": "Emil Kowalski",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/animate",
+        "upstreamCommit": "d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": true,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "animate-expo",
+      "name": "animate-expo",
+      "description": "Builds animations in React Native and Expo apps, applying the same should-it-animate gate and named-purpose requirement as the web animate skill but adapted to mobile's three constraints: no hover, two runtimes (RN vs. UI thread), and a finger on the element. Picks the cheapest tool from Reanimated CSS transitions/animations through layout animations to gesture-driven shared values, gives exact spring configs (Apple's duration+dampingRatio form) and easing curves, enforces keeping motion off the JS thread (never setState in a gesture handler, scheduleOnRN not runOnJS), covers press/haptics/reduced-motion rules specific to touch, and provides ready recipes for sheets, swipe-to-delete, collapsing headers, list entrances, keyboard-synced UI and screen transitions.",
+      "category": "interaction-design",
+      "tags": [
+        "motion",
+        "animation",
+        "micro-interactions",
+        "mobile",
+        "interaction-design",
+        "performance"
+      ],
+      "triggers": [
+        "animate something in this Expo app",
+        "add a gesture-driven bottom sheet",
+        "React Native animation stutters on device",
+        "add haptics to this interaction",
+        "screen transition in Expo Router"
+      ],
+      "inputs": [
+        "a request to animate an Expo/React Native component, gesture, sheet, or screen transition"
+      ],
+      "outputs": [
+        "implementation code using Reanimated, Gesture Handler, Expo Router, and expo-haptics",
+        "a short rationale: gate result, ingredients (tool/properties/spring or curve/thread), and what to feel-check on a real device"
+      ],
+      "path": "skills/interaction-design/animate-expo",
+      "source": {
+        "type": "third-party",
+        "repository": "emilkowalski/skills",
+        "url": "https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/animate-expo",
+        "author": "Emil Kowalski",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/animate-expo",
+        "upstreamCommit": "d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": true,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "animation-vocabulary",
+      "name": "animation-vocabulary",
+      "description": "Reverse-lookup glossary that turns a vague, feel-based description of a web animation or motion effect ('the bouncy thing when a popover opens', 'the iOS rubber-band scroll') into its precise, quotable term, organized into ten categories (entrances/exits, sequencing, transforms, state transitions, scroll, feedback, easing, springs, looping, polish, performance, and design principles) with a disambiguation method for near-synonymous terms like clip-path vs. mask or pop-in vs. bounce.",
+      "category": "interaction-design",
+      "tags": [
+        "motion",
+        "animation",
+        "terminology",
+        "interaction-design"
+      ],
+      "triggers": [
+        "what's this animation called",
+        "name this motion effect",
+        "what's the term for this transition",
+        "how do I describe this effect to an AI"
+      ],
+      "inputs": [
+        "a loose, sensation-based description of an animation or motion effect"
+      ],
+      "outputs": [
+        "the matching glossary term with its definition, plus close alternates and how they differ when ambiguous"
+      ],
+      "path": "skills/interaction-design/animation-vocabulary",
+      "source": {
+        "type": "third-party",
+        "repository": "emilkowalski/skills",
+        "url": "https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/animation-vocabulary",
+        "author": "Emil Kowalski",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/animation-vocabulary",
+        "upstreamCommit": "d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "apple-design",
+      "name": "apple-design",
+      "description": "Apple's approach to fluid, physical interface motion and design foundations, distilled from WWDC design talks (Designing Fluid Interfaces, Designing Audio-Haptic Experiences, The Details of UI Typography, Principles of Great Design) and translated to web APIs (Pointer Events, requestAnimationFrame, spring libraries). Covers response/latency elimination, 1:1 direct manipulation, interruptibility as the core principle, Apple's damping-ratio/response spring parameters with concrete values, velocity handoff and momentum projection formulas, spatial consistency, rubber-banding, translucent materials and depth layering, multimodal (motion+sound+haptic) feedback rules, reduced-motion/transparency/contrast handling, and size-specific typography tracking and leading -- closing with Apple's eight design principles (purpose, agency, responsibility, familiarity, flexibility, simplicity, craft, delight).",
+      "category": "interaction-design",
+      "tags": [
+        "motion",
+        "animation",
+        "interaction-design",
+        "typography"
+      ],
+      "triggers": [
+        "make this drag interaction feel like Apple's",
+        "build a spring-based gesture",
+        "translucent material / glass UI",
+        "Apple-style bottom sheet",
+        "interruptible animation with velocity handoff"
+      ],
+      "inputs": [
+        "a gesture-driven, spring-animated, or materials-heavy UI component to build or review"
+      ],
+      "outputs": [
+        "implementation guidance and code (spring configs, velocity/momentum formulas, backdrop-filter recipes) plus a quick-reference table of technique to concrete value"
+      ],
+      "path": "skills/interaction-design/apple-design",
+      "source": {
+        "type": "third-party",
+        "repository": "emilkowalski/skills",
+        "url": "https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/apple-design",
+        "author": "Emil Kowalski",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/apple-design",
+        "upstreamCommit": "d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
       "id": "platform-conventions",
       "name": "platform-conventions",
       "description": "Makes the agent design native mobile UI against the actual conventions of iOS (Human Interface Guidelines) and Android (Material Design 3): side-by-side comparison tables for navigation models, controls, typography, gestures, and iconography; a decision framework for when to follow each platform strictly, when to unify cross-platform, and the hybrid middle path; and explicit anti-patterns (suppressing iOS swipe-back, transplanting the FAB to iOS, ignoring Dynamic Type/sp scaling).",
@@ -219,6 +444,481 @@
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "ui-design/skills/platform-conventions",
         "upstreamCommit": "20e34c4a587e5eb09fcdf8351fa97b3ad761b31e",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "algorithmic-art",
+      "name": "algorithmic-art",
+      "description": "Directs the agent to create generative p5.js art in two steps: write a named algorithmic-philosophy manifesto (computational process, noise/particle/field approach, seeded variation) as a .md file, then implement it as a single self-contained interactive HTML artifact built from a required starting template that fixes the Anthropic-branded sidebar UI (seed navigation, parameter sliders, color pickers, action buttons) while leaving the p5.js algorithm, parameters, and controls fully custom to the philosophy. Enforces reproducibility via explicit randomSeed/noiseSeed usage.",
+      "category": "visual-design",
+      "tags": [
+        "illustration",
+        "color",
+        "visual-hierarchy",
+        "visual-polish"
+      ],
+      "triggers": [
+        "create generative art",
+        "make algorithmic art with p5.js",
+        "build a flow field or particle system artifact",
+        "create an interactive seeded art piece"
+      ],
+      "inputs": [
+        "a subtle creative brief or theme to interpret",
+        "no real content required -- the skill invents the algorithmic direction"
+      ],
+      "outputs": [
+        "an algorithmic-philosophy .md file (4-6 paragraphs)",
+        "a single self-contained interactive HTML artifact (p5.js algorithm + seed/parameter/color controls) usable directly in a browser or as a claude.ai artifact"
+      ],
+      "path": "skills/visual-design/algorithmic-art",
+      "source": {
+        "type": "third-party",
+        "repository": "anthropics/skills",
+        "url": "https://github.com/anthropics/skills/tree/3b3fad96af16a10759d930941b4520ba0c40edae/skills/algorithmic-art",
+        "author": "Anthropic",
+        "license": "Apache-2.0",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/algorithmic-art",
+        "upstreamCommit": "3b3fad96af16a10759d930941b4520ba0c40edae",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [
+        "browser"
+      ],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "better-colors",
+      "name": "better-colors",
+      "description": "Color-system design and audit guidance: ramps named by role rather than picked by eye (neutral/accent/status), a two-tier primitive-then-semantic token naming grammar, perceptual ramp-generation rules (constant hue, even perceived lightness, vividness peaking mid-ramp), APCA and WCAG 2 contrast thresholds with a report-don't-repaint measurement discipline, gradient interpolation-space choices, P3/sRGB gamut fallbacks, dark-mode derivation rules, and a calibrated severity report format ending in Block/Approve.",
+      "category": "visual-design",
+      "tags": [
+        "color",
+        "design-tokens",
+        "token-naming",
+        "semantic-tokens",
+        "dark-mode",
+        "themes",
+        "contrast"
+      ],
+      "triggers": [
+        "build a color palette",
+        "name design tokens for color",
+        "check contrast ratio",
+        "dark mode colors",
+        "color ramp generation",
+        "audit a codebase's colors"
+      ],
+      "inputs": [
+        "a brand color or existing palette",
+        "UI source code or rendered screens to audit"
+      ],
+      "outputs": [
+        "ramp values in the project's notation",
+        "token naming scheme (primitive + semantic tiers)",
+        "severity-ranked findings table ending in Block/Approve"
+      ],
+      "path": "skills/visual-design/better-colors",
+      "source": {
+        "type": "third-party",
+        "repository": "jakubkrehel/skills",
+        "url": "https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-colors",
+        "author": "Jakub Krehel",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/better-colors",
+        "upstreamCommit": "ca483852de23d48ab4f4ea71da37dad12bd70a95",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": true,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "better-layout",
+      "name": "better-layout",
+      "description": "Layout-structure guidance for web interfaces: grouping by negative space with a 2x inter/intra-group gap ratio, keeping controls visually distinct from static content, shared-edge alignment, logical (RTL-safe) properties over physical left/right, importance-ordered content, progressive-disclosure affordances (peeking scroll items, disclosure controls), breakpoints driven by content rather than device presets, container queries, safe-area-aware full-bleed vs. floating-control layering, and string-growth/clipping resilience, closing with a calibrated severity report ending in Block/Approve.",
+      "category": "visual-design",
+      "tags": [
+        "layout",
+        "spacing",
+        "responsive",
+        "adaptive",
+        "visual-hierarchy"
+      ],
+      "triggers": [
+        "structure this page layout",
+        "review layout spacing and alignment",
+        "what collapses at small sizes",
+        "RTL layout review",
+        "breakpoint strategy"
+      ],
+      "inputs": [
+        "UI component or page source code",
+        "supported viewport list"
+      ],
+      "outputs": [
+        "severity-ranked findings table (Severity | Location | Before | After | Why)",
+        "Block/Approve verdict"
+      ],
+      "path": "skills/visual-design/better-layout",
+      "source": {
+        "type": "third-party",
+        "repository": "jakubkrehel/skills",
+        "url": "https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-layout",
+        "author": "Jakub Krehel",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/better-layout",
+        "upstreamCommit": "ca483852de23d48ab4f4ea71da37dad12bd70a95",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": true,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "better-typography",
+      "name": "better-typography",
+      "description": "Web typography guidance: font-format and weight-loading rules, CSS properties over raw variable-font/OpenType tags, type-scale construction with descending heading steps, line-height and letter-spacing by role, measure capping (60-75 characters), text-wrap balance/pretty usage, tabular numbers, truncation without losing content, smart punctuation, from-font underline metrics, the 16px iOS input-zoom fix (two documented approaches), font-smoothing and bidi/lang/dir handling, closing with a calibrated severity report ending in Block/Approve, plus a CSS-to-Tailwind cheat sheet for every declaration covered.",
+      "category": "visual-design",
+      "tags": [
+        "typography",
+        "spacing",
+        "visual-hierarchy"
+      ],
+      "triggers": [
+        "set up a type scale",
+        "review typography and font choices",
+        "fix text truncation",
+        "iOS input zoom on mobile",
+        "variable font setup"
+      ],
+      "inputs": [
+        "UI component or page source code",
+        "rendered page for wrapping/widow checks"
+      ],
+      "outputs": [
+        "severity-ranked findings table (Severity | Location | Before | After | Why)",
+        "Block/Approve verdict",
+        "CSS-to-Tailwind property lookup"
+      ],
+      "path": "skills/visual-design/better-typography",
+      "source": {
+        "type": "third-party",
+        "repository": "jakubkrehel/skills",
+        "url": "https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-typography",
+        "author": "Jakub Krehel",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/better-typography",
+        "upstreamCommit": "ca483852de23d48ab4f4ea71da37dad12bd70a95",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": true,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "better-ui",
+      "name": "better-ui",
+      "description": "Design-engineering polish guidance for making interfaces feel finished: concentric border-radius math, optical over geometric alignment, shadows-for-elevation vs. borders-for-structure, interruptible CSS transitions vs. one-shot keyframes, split-and-stagger enter animations with subtle exits, exact contextual icon cross-fade values (scale/opacity/blur, spring bounce 0), theme-switch transition suppression, transition-property specificity and will-change usage, icon stroke-weight matching to adjacent text and RTL icon-flip rules, and image-outline recipes, closing with a calibrated severity report ending in Block/Approve.",
+      "category": "visual-design",
+      "tags": [
+        "micro-interactions",
+        "motion",
+        "animation",
+        "visual-polish",
+        "iconography",
+        "performance"
+      ],
+      "triggers": [
+        "polish this UI",
+        "interface feels off",
+        "add enter/exit animation",
+        "icon transition on state change",
+        "border radius mismatch",
+        "theme switch transition"
+      ],
+      "inputs": [
+        "UI component source code",
+        "rendered interface for slow-motion animation review"
+      ],
+      "outputs": [
+        "severity-ranked findings table (Severity | Location | Before | After | Why)",
+        "Block/Approve verdict"
+      ],
+      "path": "skills/visual-design/better-ui",
+      "source": {
+        "type": "third-party",
+        "repository": "jakubkrehel/skills",
+        "url": "https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-ui",
+        "author": "Jakub Krehel",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/better-ui",
+        "upstreamCommit": "ca483852de23d48ab4f4ea71da37dad12bd70a95",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": true,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "canvas-design",
+      "name": "canvas-design",
+      "description": "Directs the agent to create standalone visual art (poster-style .pdf or .png output) in two steps: first write a named visual-philosophy manifesto (color/form/composition direction, explicitly emphasizing craftsmanship language) as a .md file, then express that philosophy on a canvas using minimal, design-forward typography pulled from the bundled canvas-fonts library, with a refinement pass before final output. Ships 26 SIL-OFL-licensed font families for use in the generated artwork.",
+      "category": "visual-design",
+      "tags": [
+        "typography",
+        "color",
+        "layout",
+        "visual-hierarchy",
+        "illustration",
+        "visual-polish"
+      ],
+      "triggers": [
+        "design a poster",
+        "create a piece of visual art",
+        "make a PDF design with a strong aesthetic",
+        "generate a design philosophy and express it visually"
+      ],
+      "inputs": [
+        "a subtle creative brief or theme to interpret",
+        "no real content required -- the skill invents the visual direction"
+      ],
+      "outputs": [
+        "a design-philosophy .md file (4-6 paragraphs)",
+        "a finished .pdf or .png poster/art piece using bundled fonts"
+      ],
+      "path": "skills/visual-design/canvas-design",
+      "source": {
+        "type": "third-party",
+        "repository": "anthropics/skills",
+        "url": "https://github.com/anthropics/skills/tree/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design",
+        "author": "Anthropic",
+        "license": "Apache-2.0",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/canvas-design",
+        "upstreamCommit": "3b3fad96af16a10759d930941b4520ba0c40edae",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "frontend-design",
+      "name": "frontend-design",
+      "description": "Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Directs the agent to work in two passes (a compact color/type/layout/signature token plan, self-critiqued against generic AI-design defaults, then implementation), names three specific overused AI-generated aesthetic clusters to avoid unless the brief calls for them, and gives concrete rules for typography pairing, structural devices, deliberate motion, CSS specificity pitfalls, and end-user-facing UX writing (active voice, consistent verb-to-toast naming, non-apologetic error copy).",
+      "category": "visual-design",
+      "tags": [
+        "typography",
+        "color",
+        "layout",
+        "visual-hierarchy",
+        "ui-design",
+        "interaction-design",
+        "responsive",
+        "motion",
+        "ux-writing",
+        "voice-and-tone"
+      ],
+      "triggers": [
+        "design a landing page",
+        "make this UI look distinctive",
+        "avoid generic AI-generated design",
+        "pick a typography and color direction",
+        "critique my design plan before building",
+        "write UX copy for this interface"
+      ],
+      "inputs": [
+        "a design brief or existing UI to redesign",
+        "any known audience/brand context in memory"
+      ],
+      "outputs": [
+        "a token plan (4-6 named hex colors, 2+ type roles, layout concept, signature element)",
+        "a self-critique noting what was revised and why",
+        "implemented UI code (markup/CSS) following the revised plan",
+        "UX copy for labels, errors, and empty states"
+      ],
+      "path": "skills/visual-design/frontend-design",
+      "source": {
+        "type": "third-party",
+        "repository": "anthropics/skills",
+        "url": "https://github.com/anthropics/skills/tree/3b3fad96af16a10759d930941b4520ba0c40edae/skills/frontend-design",
+        "author": "Anthropic",
+        "license": "Apache-2.0",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/frontend-design",
+        "upstreamCommit": "3b3fad96af16a10759d930941b4520ba0c40edae",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": true,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "theme-factory",
+      "name": "theme-factory",
+      "description": "Applies one of 10 curated color-palette + font-pairing themes (each with named hex colors, header/body font roles, and recommended use cases, shown via a theme-showcase.pdf) to slide decks, documents, or HTML artifacts, or generates a new custom theme on the fly when none of the presets fit, following a show-choices / confirm / apply workflow.",
+      "category": "visual-design",
+      "tags": [
+        "themes",
+        "color",
+        "typography",
+        "visual-polish"
+      ],
+      "triggers": [
+        "apply a theme to this deck",
+        "pick a color and font palette for this document",
+        "show me theme options",
+        "generate a custom theme for this artifact"
+      ],
+      "inputs": [
+        "an existing artifact/deck/document to style",
+        "optional description of desired mood for a custom theme"
+      ],
+      "outputs": [
+        "a styled artifact using the chosen theme's colors and fonts",
+        "for custom themes, a new theme spec (palette + font pairing) shown for confirmation before applying"
+      ],
+      "path": "skills/visual-design/theme-factory",
+      "source": {
+        "type": "third-party",
+        "repository": "anthropics/skills",
+        "url": "https://github.com/anthropics/skills/tree/3b3fad96af16a10759d930941b4520ba0c40edae/skills/theme-factory",
+        "author": "Anthropic",
+        "license": "Apache-2.0",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/theme-factory",
+        "upstreamCommit": "3b3fad96af16a10759d930941b4520ba0c40edae",
         "retrievedAt": "2026-08-26",
         "modified": false,
         "modifications": []
@@ -361,6 +1061,76 @@
       "status": "draft"
     },
     {
+      "id": "frontend-ui-dark-ts",
+      "name": "frontend-ui-dark-ts",
+      "description": "A complete dark-theme design-token and component system for React + Tailwind CSS + Framer Motion applications: CSS custom properties and Tailwind config for brand/neutral/text/border/status/data-viz color scales, spacing/radius/shadow/z-index scales, glassmorphism utility classes, and Framer Motion timing/easing presets, plus ready-to-use TSX source for Button, Input, Card, Badge, Dialog, Tabs, Avatar, Checkbox, Select, and Toast components, and page-layout patterns (app shell, responsive mobile drawer, dashboard, list/tabs/settings-form templates, empty states, skeleton loaders) built for dashboards and admin panels.",
+      "category": "design-systems",
+      "tags": [
+        "design-tokens",
+        "component-api",
+        "component-docs",
+        "pattern-library",
+        "dark-mode",
+        "color",
+        "typography"
+      ],
+      "triggers": [
+        "build a dark-themed React dashboard",
+        "set up design tokens for a dark UI",
+        "need a glassmorphism component library",
+        "create an admin panel with Tailwind and Framer Motion"
+      ],
+      "inputs": [
+        "a React + TypeScript + Vite project to apply the theme to"
+      ],
+      "outputs": [
+        "Tailwind config and CSS custom properties implementing the token system",
+        "reusable TSX UI components (Button, Input, Card, Badge, Dialog, Tabs, Avatar, Checkbox, Select, Toast)",
+        "page-layout templates (app shell, dashboard, list, tabs, settings form, empty/loading states)"
+      ],
+      "path": "skills/design-systems/frontend-ui-dark-ts",
+      "source": {
+        "type": "third-party",
+        "repository": "microsoft/skills",
+        "url": "https://github.com/microsoft/skills/tree/7066b58141d8cc66f39356b2ee5bb64d428dcf17/.github/plugins/azure-sdk-typescript/skills/frontend-ui-dark-ts",
+        "author": "Microsoft",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": ".github/plugins/azure-sdk-typescript/skills/frontend-ui-dark-ts",
+        "upstreamCommit": "7066b58141d8cc66f39356b2ee5bb64d428dcf17",
+        "retrievedAt": "2026-08-26",
+        "modified": true,
+        "modifications": [
+          {
+            "date": "2026-08-26",
+            "reason": "portability",
+            "description": "Excluded four bundled Segoe UI .ttf font files and two Microsoft Foundry brand-logo PNGs from assets/: Microsoft-proprietary assets with no verifiable open redistribution license, unlike the MIT-licensed text and code. Consumers who need them can fetch them from the upstream repository.",
+            "files": [
+              "assets/"
+            ]
+          }
+        ]
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [
+        "node"
+      ],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
       "id": "motion-system",
       "name": "motion-system",
       "description": "Makes the agent define motion as a token layer rather than one-off animations: a named duration scale (50-600ms with use cases), easing tokens with actual cubic-bezier values mapped to semantic uses, choreography rules (30-50ms stagger, 500ms sequence cap, direction consistency), a system-level prefers-reduced-motion strategy using a global duration override token, and implementation guidance for CSS custom properties inside the token export pipeline.",
@@ -416,6 +1186,186 @@
       "dependencies": [],
       "relatedSkills": [],
       "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "pick-ui-library",
+      "name": "pick-ui-library",
+      "description": "Curated, opinionated lookup table matching a frontend UI task (toasts, command menus, OTP inputs, charts, drag and drop, virtualization, state management, conditional styling, theme switching, and more) to one recommended library, with instructions to identify the task rather than the library the user named, check package.json before suggesting a dependency change, and recommend exactly one library with a one-sentence rationale rather than presenting a menu. Includes a table of common mismatches to catch, such as a hand-rolled toast or an unstyled div-based dropdown with manual focus handling.",
+      "category": "design-systems",
+      "tags": [
+        "pattern-library",
+        "component-api",
+        "design-system"
+      ],
+      "triggers": [
+        "what library should I use for toasts",
+        "pick a component library for this dropdown",
+        "which state management library should I use",
+        "recommend a charting library"
+      ],
+      "inputs": [
+        "a frontend UI task description",
+        "the project's package.json for already-installed libraries"
+      ],
+      "outputs": [
+        "one recommended library with a one-sentence rationale, or an explicit note that the task falls outside the curated list"
+      ],
+      "path": "skills/design-systems/pick-ui-library",
+      "source": {
+        "type": "third-party",
+        "repository": "emilkowalski/skills",
+        "url": "https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/pick-ui-library",
+        "author": "Emil Kowalski",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/pick-ui-library",
+        "upstreamCommit": "d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "better-accessibility",
+      "name": "better-accessibility",
+      "description": "Accessibility engineering guidance for building or reviewing UI components and custom widgets: native-element-first ARIA rules, exact focus-ring and tabindex/roving-tabindex recipes, WCAG 2.5.8 hit-area sizing with pseudo-element expansion, form labeling and error-announcement patterns, prefers-reduced-motion and autoplay/zoom rules, live-region and screen-reader announcement selection, alt-text-by-purpose table, and a calibrated HIGH/MEDIUM/LOW severity report format ending in Block/Approve.",
+      "category": "accessibility",
+      "tags": [
+        "a11y",
+        "wcag",
+        "aria",
+        "screen-reader",
+        "keyboard",
+        "focus-management",
+        "contrast",
+        "forms",
+        "semantic-html",
+        "inclusive-design",
+        "remediation"
+      ],
+      "triggers": [
+        "accessibility audit",
+        "a11y review",
+        "keyboard navigation broken",
+        "screen reader not announcing",
+        "focus ring missing",
+        "WCAG compliance check"
+      ],
+      "inputs": [
+        "UI component or screen source code",
+        "rendered interface for keyboard/screen-reader walkthrough"
+      ],
+      "outputs": [
+        "severity-ranked findings table (Severity | Location | Before | After | Why)",
+        "Block/Approve verdict",
+        "verification checklist with Not verified items flagged"
+      ],
+      "path": "skills/accessibility/better-accessibility",
+      "source": {
+        "type": "third-party",
+        "repository": "jakubkrehel/skills",
+        "url": "https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-accessibility",
+        "author": "Jakub Krehel",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/better-accessibility",
+        "upstreamCommit": "ca483852de23d48ab4f4ea71da37dad12bd70a95",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": true,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "better-writing",
+      "name": "better-writing",
+      "description": "UX writing and interface-copy guidance: recon the existing voice before editing, one voice with tone that flexes by stakes (success vs. destructive-confirmation), addressing the reader as 'you' rather than 'the user', verb-first button labels, consistent flow vocabulary across multi-step flows, link text that stands alone out of context, one capitalization policy per element type, toggle labels that describe the ON state, error copy that states the fix beside the failing field with no blame or exclamation marks, forward-pointing empty states, and placeholders as format examples rather than labels, closing with a calibrated severity report ending in Block/Approve.",
+      "category": "content-design",
+      "tags": [
+        "ux-writing",
+        "microcopy",
+        "voice-and-tone",
+        "labels",
+        "error-messages",
+        "help-content",
+        "plain-language",
+        "terminology"
+      ],
+      "triggers": [
+        "write button labels",
+        "review error message copy",
+        "UX writing pass",
+        "empty state copy",
+        "microcopy consistency check"
+      ],
+      "inputs": [
+        "user-facing copy in source code",
+        "existing product copy for voice recon"
+      ],
+      "outputs": [
+        "severity-ranked findings table (Severity | Location | Before | After | Why)",
+        "Block/Approve verdict"
+      ],
+      "path": "skills/content-design/better-writing",
+      "source": {
+        "type": "third-party",
+        "repository": "jakubkrehel/skills",
+        "url": "https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-writing",
+        "author": "Jakub Krehel",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/better-writing",
+        "upstreamCommit": "ca483852de23d48ab4f4ea71da37dad12bd70a95",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": true,
       "maturity": "stable",
       "status": "draft"
     },
@@ -481,6 +1431,171 @@
       "status": "draft"
     },
     {
+      "id": "prototype",
+      "name": "prototype",
+      "description": "Builds several (default three, up to five) genuinely different versions of one described UI piece, each diverging on a named axis (layout, density, personality, motion, interaction model) stated before any code is written, hosted full-size in realistic context behind a visual picker with keyboard navigation, instant switching, and URL-param persistence per a verbatim picker spec. Every variant must independently meet the same motion-craft bar (correct easing, sub-300ms UI motion, transform-origin, reduced-motion) so a sloppy variant never widens the exploration. Presents tradeoffs honestly without marking a favorite, then on selection promotes the winner into the project's conventions and deletes the prototype surface.",
+      "category": "prototyping",
+      "tags": [
+        "prototyping",
+        "interactive-prototype",
+        "high-fidelity",
+        "variants"
+      ],
+      "triggers": [
+        "show me a few different versions of this component",
+        "prototype a few directions for this UI piece",
+        "build variants I can flip through",
+        "explore layout directions live"
+      ],
+      "inputs": [
+        "a one-sentence description of one UI piece to explore"
+      ],
+      "outputs": [
+        "a live picker harness (isolated route or standalone HTML) hosting each variant full-size in realistic context",
+        "a tradeoffs table (Variant | Axis | When it's the right choice | Its cost)"
+      ],
+      "path": "skills/prototyping/prototype",
+      "source": {
+        "type": "third-party",
+        "repository": "emilkowalski/skills",
+        "url": "https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/prototype",
+        "author": "Emil Kowalski",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/prototype",
+        "upstreamCommit": "d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "variant",
+      "name": "variant",
+      "description": "Builds three (up to five) genuinely different versions of one described UI piece, each a different position on a single named axis (structure, density, emphasis, type, or voice) owned by a sibling better-* skill, so secondary choices follow coherently rather than every axis varying at once. Hosts all variants on the real page behind a URL-driven picker deliberately styled outside the project's design system, with realistic content and item counts, clears better-interface's accessibility escalation-trigger floor before any variant enters the picker, then presents axis-position tradeoffs without marking a favorite and hands the decision back. On a choice, promotes the winner into the project's own conventions and deletes the rest.",
+      "category": "prototyping",
+      "tags": [
+        "prototyping",
+        "variants",
+        "high-fidelity",
+        "interactive-prototype"
+      ],
+      "triggers": [
+        "show me a few different versions of this component",
+        "explore layout directions for this UI",
+        "build variants behind a picker",
+        "which design direction should we pick"
+      ],
+      "inputs": [
+        "a one-sentence brief for one piece of UI",
+        "the project's styling system, tokens and component library"
+      ],
+      "outputs": [
+        "a real page hosting each variant behind a URL search-param picker",
+        "a tradeoffs table (Variant | Axis position | Right when | Costs)"
+      ],
+      "path": "skills/prototyping/variant",
+      "source": {
+        "type": "third-party",
+        "repository": "jakubkrehel/skills",
+        "url": "https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/variant",
+        "author": "Jakub Krehel",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/variant",
+        "upstreamCommit": "ca483852de23d48ab4f4ea71da37dad12bd70a95",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "break",
+      "name": "break",
+      "description": "Renders one real component on a throwaway harness page under every content/state/quantity/container/environment scenario its own props and slots can actually reach in production, inferred from a fixed scenario-axis menu with cues that gate which axes apply (content length, content shape, quantity, container width, state, environment). Looks once, marks what visibly broke directly on the page, and reports a table of broken scenarios with the observation and the owning domain skill for the fix -- issuing no verdict itself, since it observes rather than judges.",
+      "category": "testing",
+      "tags": [
+        "stress-testing",
+        "error-states",
+        "empty-states",
+        "loading",
+        "responsive"
+      ],
+      "triggers": [
+        "does this component survive edge cases",
+        "stress test this component",
+        "test with long text and zero items",
+        "render every state of this component"
+      ],
+      "inputs": [
+        "one component's props, slots, and states",
+        "a project route or scratch page to render it in"
+      ],
+      "outputs": [
+        "a harness page rendering every kept scenario side by side",
+        "a findings table (Scenario | Observed | Owner)"
+      ],
+      "path": "skills/testing/break",
+      "source": {
+        "type": "third-party",
+        "repository": "jakubkrehel/skills",
+        "url": "https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/break",
+        "author": "Jakub Krehel",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/break",
+        "upstreamCommit": "ca483852de23d48ab4f4ea71da37dad12bd70a95",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
       "id": "critique-information-density",
       "name": "critique-information-density",
       "description": "Makes the agent critique a rendered screen's information density along four dimensions - cognitive load, content priority, scanning pattern (F/Z-pattern fit, label alignment, chunking), and progressive disclosure - each with pointed evaluation questions; enforces an output format of observation / problem / fix per dimension with a pass / minor issue / major issue rating; and names common failure patterns (every-metric dashboards, 10+ column tables, front-loaded onboarding).",
@@ -534,6 +1649,123 @@
       "dependencies": [],
       "relatedSkills": [],
       "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "find-animation-opportunities",
+      "name": "find-animation-opportunities",
+      "description": "Read-only sweep of a codebase or UI for moments that would genuinely benefit from motion, filtered through a four-question gate (frequency, named purpose, duration budget, function) applied ruthlessly -- most candidates are expected to be rejected. Hunts six known seam classes (feedback gaps, teleporting state, missing spatial story, group entrances, gesture seams, the rare delight budget) with grep patterns, caps output at 5-7 suggestions per app, and requires a companion list of 2-5 explicitly rejected candidates with the gate question that killed each one, closing with a verdict on how much motion the interface actually needs.",
+      "category": "testing",
+      "tags": [
+        "heuristic-evaluation",
+        "expert-review",
+        "motion",
+        "animation",
+        "severity"
+      ],
+      "triggers": [
+        "what could be animated here",
+        "make this feel more alive",
+        "find missing animation opportunities",
+        "where should we add motion"
+      ],
+      "inputs": [
+        "a codebase or a specific UI/view to sweep for motion opportunities"
+      ],
+      "outputs": [
+        "an opportunities table (Location | Today | Purpose | Frequency | Suggested motion) with exact values",
+        "a required rejected-candidates list with the gate question that killed each",
+        "a one-paragraph verdict naming the highest-leverage suggestion"
+      ],
+      "path": "skills/testing/find-animation-opportunities",
+      "source": {
+        "type": "third-party",
+        "repository": "emilkowalski/skills",
+        "url": "https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/find-animation-opportunities",
+        "author": "Emil Kowalski",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/find-animation-opportunities",
+        "upstreamCommit": "d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "improve-animations",
+      "name": "improve-animations",
+      "description": "Surveys a codebase's animation and motion code as a senior motion advisor and produces a prioritized, vetted findings table plus self-contained implementation plans any agent (including a weaker model with zero context) can execute without judgment of its own. Four phases: recon (stack, motion libraries, existing tokens, frequency map), an eight-category parallel audit (purpose/frequency, easing/duration, physicality/origin, interruptibility, performance, accessibility, cohesion, missed opportunities) with three effort levels, re-vetting every finding against its cited file:line before presenting a leverage-ordered severity table, then writing plans with exact target values, repo-convention exemplars, ordered steps, hard scope boundaries and a feel-check verification section. Read-only on source; only writes plan files.",
+      "category": "testing",
+      "tags": [
+        "audit",
+        "heuristic-evaluation",
+        "expert-review",
+        "motion",
+        "animation",
+        "severity",
+        "documentation"
+      ],
+      "triggers": [
+        "improve the animations in this codebase",
+        "audit the motion in this app",
+        "make this app feel better",
+        "give me a roadmap of animation fixes"
+      ],
+      "inputs": [
+        "a codebase to audit for animation/motion quality",
+        "optionally an effort level (quick/standard/deep) or a category focus"
+      ],
+      "outputs": [
+        "a vetted, severity-ranked findings table with leverage ordering",
+        "self-contained implementation plans written to plans/NNN-slug.md",
+        "a plans/README.md with recommended execution order and dependencies"
+      ],
+      "path": "skills/testing/improve-animations",
+      "source": {
+        "type": "third-party",
+        "repository": "emilkowalski/skills",
+        "url": "https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/improve-animations",
+        "author": "Emil Kowalski",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/improve-animations",
+        "upstreamCommit": "d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": true,
       "maturity": "stable",
       "status": "draft"
     },
@@ -600,6 +1832,179 @@
       "status": "draft"
     },
     {
+      "id": "frontend-design-review",
+      "name": "frontend-design-review",
+      "description": "Reviews existing UI implementations against design-system compliance, three quality pillars (frictionless task completion, quality-as-craft including WCAG 2.1 A/AA accessibility grades, and trustworthy AI/error transparency), and aesthetic distinctiveness -- or creates new distinctive frontend interfaces from scratch avoiding generic 'AI slop' aesthetics. Produces a structured review output with a pillar status table, blocking/major/minor severity-ranked issues, and design-system-linked recommendations; provides a pre-approval quick checklist and review-type modifiers (PR review, creative review, design review, accessibility audit, design-system compliance audit) that adjust evaluation focus.",
+      "category": "design-qa",
+      "tags": [
+        "design-qa",
+        "design-review",
+        "pr-review",
+        "a11y",
+        "ui-design"
+      ],
+      "triggers": [
+        "review this UI for design quality",
+        "PR design review",
+        "accessibility audit of this component",
+        "check design system compliance",
+        "critique this frontend implementation",
+        "create a distinctive UI that avoids generic AI design"
+      ],
+      "inputs": [
+        "an existing UI implementation, PR diff, or component to review",
+        "or a brief for a new interface to design",
+        "access to the project's design system / Figma (optional but recommended for compliance checks)"
+      ],
+      "outputs": [
+        "a structured review report (context, pillar assessment table, verdict, blocking/major/minor issues, recommendations)",
+        "or a newly implemented distinctive UI when used in creative mode"
+      ],
+      "path": "skills/design-qa/frontend-design-review",
+      "source": {
+        "type": "third-party",
+        "repository": "microsoft/skills",
+        "url": "https://github.com/microsoft/skills/tree/7066b58141d8cc66f39356b2ee5bb64d428dcf17/.github/skills/frontend-design-review",
+        "author": "Microsoft",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": ".github/skills/frontend-design-review",
+        "upstreamCommit": "7066b58141d8cc66f39356b2ee5bb64d428dcf17",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": true,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "interface-review",
+      "name": "interface-review",
+      "description": "Change-scoped interface review for uncommitted work, a branch, or a pull request: resolves the review target (working tree, staged, branch vs. merge-base, PR fetched by ref, or an explicit range) with documented traps for shallow clones, mid-rebase state and detached HEAD, expands each changed file to its blast radius of importers, reads the removed side of every diff hunk against a table of accessibility/layout/typography/color/writing regression signals, classifies every finding as Introduced, Regression, or Pre-existing, holds the change to its stated PR intent to catch incomplete variants and missing states, and hands the classified findings to better-interface for severity, consolidation and the verdict. Never checks out or mutates the working tree.",
+      "category": "design-qa",
+      "tags": [
+        "design-qa",
+        "design-review",
+        "pr-review",
+        "review",
+        "handoff"
+      ],
+      "triggers": [
+        "review this pull request",
+        "review my branch for interface regressions",
+        "review uncommitted changes",
+        "did this change break accessibility or layout"
+      ],
+      "inputs": [
+        "a git target: working tree, staged, branch, pr <n>, ref, or range",
+        "availability of better-interface for severity and verdict"
+      ],
+      "outputs": [
+        "a scope block (target, base/head ref, commits, files in scope, expanded surfaces)",
+        "a findings table with a Status column (Introduced/Regression/Pre-existing)",
+        "Block/Approve verdict via better-interface"
+      ],
+      "path": "skills/design-qa/interface-review",
+      "source": {
+        "type": "third-party",
+        "repository": "jakubkrehel/skills",
+        "url": "https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/interface-review",
+        "author": "Jakub Krehel",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/interface-review",
+        "upstreamCommit": "ca483852de23d48ab4f4ea71da37dad12bd70a95",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": true,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "review-animations",
+      "name": "review-animations",
+      "description": "Reviews animation and motion code (a diff or a component) against ten non-negotiable standards derived from Emil Kowalski's animation philosophy: justified motion, frequency-appropriate use, responsive easing, sub-300ms UI durations, origin/physical correctness, interruptibility, GPU-only properties, accessibility, asymmetric enter/exit timing, and cohesion. Flags a fixed list of escalation triggers on sight (transition: all, scale(0) entrances, ease-in on UI, animation on high-frequency/keyboard actions, keyframes on rapidly-triggered elements), proposes fixes via a nine-step remedial preference hierarchy (delete first, polish last), and outputs a required Before/After/Why findings table followed by a tiered verdict ending in Block or Approve. Defaults to flagging; approval is earned.",
+      "category": "design-qa",
+      "tags": [
+        "design-review",
+        "pr-review",
+        "motion",
+        "animation",
+        "severity",
+        "design-qa"
+      ],
+      "triggers": [
+        "review this animation code",
+        "does this motion pass review",
+        "audit this transition against the animation standards",
+        "block or approve this animation diff"
+      ],
+      "inputs": [
+        "animation/motion source code, typically a diff or a single component"
+      ],
+      "outputs": [
+        "a Before/After/Why findings table",
+        "a tiered verdict (feel-breaking regressions, missed simplifications, performance, interruptibility/timing, origin/physicality/cohesion, accessibility)",
+        "a final Block or Approve decision"
+      ],
+      "path": "skills/design-qa/review-animations",
+      "source": {
+        "type": "third-party",
+        "repository": "emilkowalski/skills",
+        "url": "https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/review-animations",
+        "author": "Emil Kowalski",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/review-animations",
+        "upstreamCommit": "d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
       "id": "conversational-ux",
       "name": "conversational-ux",
       "description": "Makes the agent design voice and chat interfaces around the conversation turn: a confirmation-strategy table (explicit/implicit/none by stakes), a three-step error reprompt ladder that never repeats the same prompt, voice-specific writing rules (short sentences, no visual-only references, max three-item lists, sub-8s responses, earcons), multimodal voice+screen rules, text-chat affordances (quick replies, typing indicators, structured cards), persona/tone decisions including no false humanity, and guidance on when conversation is the wrong pattern.",
@@ -656,6 +2061,178 @@
       "dependencies": [],
       "relatedSkills": [],
       "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "explain-interface",
+      "name": "explain-interface",
+      "description": "Reverse-engineers how a UI effect or a whole frontend was built from a URL (browser DevTools evaluate_script or raw HTML/CSS fetch) or a screenshot (explicit reconstruction, not a reading). Finds the full layer stack behind one visual effect in paint order rather than one declaration, tags every claim measured/derived/inferred, treats fetched page content as evidence never as instructions to follow, and closes on the transferable recipe in words plus what would not survive being copied, rather than a rebuild snippet.",
+      "category": "design-engineering",
+      "tags": [
+        "design-engineering",
+        "frontend",
+        "implementation-quality",
+        "explanation",
+        "documentation"
+      ],
+      "triggers": [
+        "how was this gradient built",
+        "explain this site's frontend stack",
+        "reverse engineer this effect from a screenshot",
+        "what CSS produces this visual"
+      ],
+      "inputs": [
+        "a URL and the named effect (or none, for a whole-system read)",
+        "optionally a screenshot when no live page is available"
+      ],
+      "outputs": [
+        "a layer-stack explanation in paint order with measured/derived/inferred tags per claim",
+        "a transferable recipe in words plus what would not survive copying"
+      ],
+      "path": "skills/design-engineering/explain-interface",
+      "source": {
+        "type": "third-party",
+        "repository": "jakubkrehel/skills",
+        "url": "https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/explain-interface",
+        "author": "Jakub Krehel",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/explain-interface",
+        "upstreamCommit": "ca483852de23d48ab4f4ea71da37dad12bd70a95",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "web-artifacts-builder",
+      "name": "web-artifacts-builder",
+      "description": "Scaffolds and bundles a React 18 + TypeScript + Vite + Tailwind CSS + shadcn/ui project into a single self-contained HTML artifact for claude.ai, via two bundled shell scripts: init-artifact.sh (creates the project, configures Tailwind/shadcn theming and path aliases, installs 40+ pre-extracted shadcn/ui components and their Radix UI dependencies) and bundle-artifact.sh (builds with Parcel and inlines all JS/CSS/assets into one bundle.html with html-inline). Instructs the agent to avoid generic 'AI slop' visual patterns (centered layouts, purple gradients, uniform rounded corners, Inter font) while building.",
+      "category": "design-engineering",
+      "tags": [
+        "frontend",
+        "implementation-quality",
+        "design-engineering"
+      ],
+      "triggers": [
+        "build a complex React artifact with shadcn/ui",
+        "create a multi-component claude.ai artifact with state management",
+        "bundle a React app into a single HTML file",
+        "scaffold a Tailwind + shadcn project for an artifact"
+      ],
+      "inputs": [
+        "a project name",
+        "a description of the artifact's required components/state/routing"
+      ],
+      "outputs": [
+        "a scaffolded React+TypeScript+Vite+Tailwind+shadcn project directory",
+        "a single bundle.html artifact with all JS/CSS/dependencies inlined"
+      ],
+      "path": "skills/design-engineering/web-artifacts-builder",
+      "source": {
+        "type": "third-party",
+        "repository": "anthropics/skills",
+        "url": "https://github.com/anthropics/skills/tree/3b3fad96af16a10759d930941b4520ba0c40edae/skills/web-artifacts-builder",
+        "author": "Anthropic",
+        "license": "Apache-2.0",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/web-artifacts-builder",
+        "upstreamCommit": "3b3fad96af16a10759d930941b4520ba0c40edae",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [
+        "node",
+        "pnpm"
+      ],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "better-interface",
+      "name": "better-interface",
+      "description": "Cross-discipline interface-review orchestrator: resolves review scope, routes a screen or flow to the sibling better-accessibility, better-layout, better-writing, better-typography, better-colors and better-ui skills in a fixed order, requires evidence (file:line, not visual claims from source alone), applies one shared HIGH/MEDIUM/LOW severity scale with a fixed list of escalation triggers that are always HIGH on sight, prefers the cheapest fix (delete, use the platform, reuse a token, correct the value, add), consolidates systemic findings into one row per root cause with a 15-finding cap, and issues a single Block/Approve verdict. Hands off change-scoped (branch/PR/uncommitted) reviews to interface-review rather than resolving them itself.",
+      "category": "orchestration",
+      "tags": [
+        "orchestration",
+        "workflow",
+        "review",
+        "design-review",
+        "design-critique"
+      ],
+      "triggers": [
+        "holistic interface review",
+        "review the whole screen",
+        "full UI review across accessibility layout color typography",
+        "consolidated design review verdict"
+      ],
+      "inputs": [
+        "a screen, flow, or feature scope",
+        "availability of the better-accessibility/better-layout/better-writing/better-typography/better-colors/better-ui sibling skills"
+      ],
+      "outputs": [
+        "scope and per-domain coverage table",
+        "one consolidated findings table ranked by severity",
+        "Block/Approve verdict"
+      ],
+      "path": "skills/orchestration/better-interface",
+      "source": {
+        "type": "third-party",
+        "repository": "jakubkrehel/skills",
+        "url": "https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-interface",
+        "author": "Jakub Krehel",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/better-interface",
+        "upstreamCommit": "ca483852de23d48ab4f4ea71da37dad12bd70a95",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": true,
       "maturity": "stable",
       "status": "draft"
     }

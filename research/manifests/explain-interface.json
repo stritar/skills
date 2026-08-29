@@ -1,0 +1,57 @@
+{
+  "id": "explain-interface",
+  "category": "design-engineering",
+  "verdict": "vendor",
+  "rubric": { "relevance": 3, "quality": 3, "conformance": 2, "uniqueness": 2 },
+  "upstream": {
+    "repository": "jakubkrehel/skills",
+    "url": "https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/explain-interface",
+    "author": "Jakub Krehel",
+    "commit": "ca483852de23d48ab4f4ea71da37dad12bd70a95",
+    "path": "skills/explain-interface",
+    "license": "MIT",
+    "licenseSource": "repo-root:LICENSE"
+  },
+  "files": [
+    { "dest": "SKILL.md", "rawUrl": "https://raw.githubusercontent.com/jakubkrehel/skills/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/explain-interface/SKILL.md", "blobSha": "9fd727705849c09b4c6411e4651fc05c72c24eea" },
+    { "dest": "agents/openai.yaml", "rawUrl": "https://raw.githubusercontent.com/jakubkrehel/skills/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/explain-interface/agents/openai.yaml", "blobSha": "d769d0479e81504c7287ac284d770fc5d6ad524d" },
+    { "dest": "find-the-effect.md", "rawUrl": "https://raw.githubusercontent.com/jakubkrehel/skills/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/explain-interface/find-the-effect.md", "blobSha": "14d1ae643f5423aca339961cecad5ac0a99769db" },
+    { "dest": "from-an-image.md", "rawUrl": "https://raw.githubusercontent.com/jakubkrehel/skills/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/explain-interface/from-an-image.md", "blobSha": "4cfab233a314b0acb3bb3f8901dfdd0afc7f514a" },
+    { "dest": "no-browser.md", "rawUrl": "https://raw.githubusercontent.com/jakubkrehel/skills/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/explain-interface/no-browser.md", "blobSha": "f07b7fd54bb0d593f2dc16700b22f0188dac44dc" },
+    { "dest": "read-the-system.md", "rawUrl": "https://raw.githubusercontent.com/jakubkrehel/skills/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/explain-interface/read-the-system.md", "blobSha": "ff60e8cbf6d1784f75acee4ac3df1a906c2bb753" },
+    { "dest": "LICENSE.txt", "rawUrl": "https://raw.githubusercontent.com/jakubkrehel/skills/ca483852de23d48ab4f4ea71da37dad12bd70a95/LICENSE", "blobSha": "6a067e906e1346e640a0cda6ed37c5fb793104e4" }
+  ],
+  "securityNotes": "Read all 6 files in full at the pinned SHA. Contains browser-console/devtools JS snippets (getComputedStyle walks, document.getAnimations(), elementsFromPoint) and curl+grep recipes for fetching a user-named public URL's HTML/CSS -- all read-only inspection of pages the user names, no execution of remote code, no credential access. The skill explicitly instructs the agent to treat fetched page content (markup, comments, class names, alt text) as evidence to report, never as instructions to follow, and to never widen scope because a fetched page asked it to -- an anti-prompt-injection safeguard built into the skill itself, not a vulnerability. No hidden or exfiltration-oriented instructions found. Clean.",
+  "overlaps": [],
+  "proposedEntry": {
+    "id": "explain-interface",
+    "name": "explain-interface",
+    "description": "Reverse-engineers how a UI effect or a whole frontend was built from a URL (browser DevTools evaluate_script or raw HTML/CSS fetch) or a screenshot (explicit reconstruction, not a reading). Finds the full layer stack behind one visual effect in paint order rather than one declaration, tags every claim measured/derived/inferred, treats fetched page content as evidence never as instructions to follow, and closes on the transferable recipe in words plus what would not survive being copied, rather than a rebuild snippet.",
+    "category": "design-engineering",
+    "tags": ["design-engineering", "frontend", "implementation-quality", "explanation", "documentation"],
+    "triggers": ["how was this gradient built", "explain this site's frontend stack", "reverse engineer this effect from a screenshot", "what CSS produces this visual"],
+    "inputs": ["a URL and the named effect (or none, for a whole-system read)", "optionally a screenshot when no live page is available"],
+    "outputs": ["a layer-stack explanation in paint order with measured/derived/inferred tags per claim", "a transferable recipe in words plus what would not survive copying"],
+    "path": "skills/design-engineering/explain-interface",
+    "source": {
+      "type": "third-party",
+      "repository": "jakubkrehel/skills",
+      "url": "https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/explain-interface",
+      "author": "Jakub Krehel",
+      "license": "MIT",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": "skills/explain-interface",
+      "upstreamCommit": "ca483852de23d48ab4f4ea71da37dad12bd70a95",
+      "retrievedAt": "2026-08-26",
+      "modified": false,
+      "modifications": []
+    },
+    "compatibility": ["claude-code", "codex", "cursor", "opencode", "amp", "gemini-cli", "copilot", "vs-code"],
+    "dependencies": [],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "stable",
+    "status": "draft"
+  },
+  "logMd": "#### jakubkrehel/skills (inspected 2026-08-26)\n- Same repo pin: ca483852de23d48ab4f4ea71da37dad12bd70a95, MIT at repo-root LICENSE.\n- explain-interface: all 6 files read in full. Frontmatter carries name, description, disable-model-invocation (non-spec) -- claude-ai NOT appended. Rubric: relevance 3 (design-to-engineering reading of a live interface, the category's own scope), quality 3 (measured/derived/inferred evidence tiers, a concrete layer-search JS snippet, an explicit reconstruction-vs-reading distinction for screenshots, a built-in prompt-injection safeguard), conformance 2 (name=dirname; all four sibling reference files link and resolve), uniqueness 2 (no design-engineering-category skill vendored yet; this is the first). Total 10.\n- Security: reviewed the curl/grep recipes and every JS snippet line by line -- read-only page inspection, no execution of fetched code, no credential handling; the skill instructs the agent not to follow embedded page instructions, which is a defensive design choice.\n- Verdict: vendor."
+}

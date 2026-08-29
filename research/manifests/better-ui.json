@@ -1,0 +1,59 @@
+{
+  "id": "better-ui",
+  "category": "visual-design",
+  "verdict": "vendor",
+  "rubric": { "relevance": 3, "quality": 3, "conformance": 2, "uniqueness": 2 },
+  "upstream": {
+    "repository": "jakubkrehel/skills",
+    "url": "https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-ui",
+    "author": "Jakub Krehel",
+    "commit": "ca483852de23d48ab4f4ea71da37dad12bd70a95",
+    "path": "skills/better-ui",
+    "license": "MIT",
+    "licenseSource": "repo-root:LICENSE"
+  },
+  "files": [
+    { "dest": "SKILL.md", "rawUrl": "https://raw.githubusercontent.com/jakubkrehel/skills/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-ui/SKILL.md", "blobSha": "19e278a8e107d9acd346c3d83b1a17cd6904cb00" },
+    { "dest": "agents/openai.yaml", "rawUrl": "https://raw.githubusercontent.com/jakubkrehel/skills/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-ui/agents/openai.yaml", "blobSha": "913f2004ff9dca87bedbf9c6da8922ca8b8b2d79" },
+    { "dest": "animations.md", "rawUrl": "https://raw.githubusercontent.com/jakubkrehel/skills/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-ui/animations.md", "blobSha": "91430e6a9b2bf9e6293d056f2377a154a4efab9f" },
+    { "dest": "enter-exit.md", "rawUrl": "https://raw.githubusercontent.com/jakubkrehel/skills/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-ui/enter-exit.md", "blobSha": "6d353d78e414aed3ebc872612a8dfca609b72f1f" },
+    { "dest": "icon-transitions.md", "rawUrl": "https://raw.githubusercontent.com/jakubkrehel/skills/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-ui/icon-transitions.md", "blobSha": "fe266de59483bcfb433ec7c068f1406e66c6db7a" },
+    { "dest": "icons.md", "rawUrl": "https://raw.githubusercontent.com/jakubkrehel/skills/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-ui/icons.md", "blobSha": "e425fbabec076b1262bc9b5177ffde503e2abbe6" },
+    { "dest": "performance.md", "rawUrl": "https://raw.githubusercontent.com/jakubkrehel/skills/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-ui/performance.md", "blobSha": "e32ce47825b8c266f8274244948f98e56a4daa85" },
+    { "dest": "surfaces.md", "rawUrl": "https://raw.githubusercontent.com/jakubkrehel/skills/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-ui/surfaces.md", "blobSha": "9b22b5c5ca134377435976d8a7a2f1c7277e9f45" },
+    { "dest": "LICENSE.txt", "rawUrl": "https://raw.githubusercontent.com/jakubkrehel/skills/ca483852de23d48ab4f4ea71da37dad12bd70a95/LICENSE", "blobSha": "6a067e906e1346e640a0cda6ed37c5fb793104e4" }
+  ],
+  "securityNotes": "Read all 8 files in full at the pinned SHA. Prose and CSS/TSX/Motion library code snippets only; no executable scripts, no network calls, no hidden instructions. Clean.",
+  "overlaps": ["motion-system (design-systems, already vendored): motion as a token-layer definition (duration/easing scales), a different altitude from better-ui's implementation-detail recipes (concentric radius, scale-on-press, icon cross-fades, will-change usage)"],
+  "proposedEntry": {
+    "id": "better-ui",
+    "name": "better-ui",
+    "description": "Design-engineering polish guidance for making interfaces feel finished: concentric border-radius math, optical over geometric alignment, shadows-for-elevation vs. borders-for-structure, interruptible CSS transitions vs. one-shot keyframes, split-and-stagger enter animations with subtle exits, exact contextual icon cross-fade values (scale/opacity/blur, spring bounce 0), theme-switch transition suppression, transition-property specificity and will-change usage, icon stroke-weight matching to adjacent text and RTL icon-flip rules, and image-outline recipes, closing with a calibrated severity report ending in Block/Approve.",
+    "category": "visual-design",
+    "tags": ["micro-interactions", "motion", "animation", "visual-polish", "iconography", "performance"],
+    "triggers": ["polish this UI", "interface feels off", "add enter/exit animation", "icon transition on state change", "border radius mismatch", "theme switch transition"],
+    "inputs": ["UI component source code", "rendered interface for slow-motion animation review"],
+    "outputs": ["severity-ranked findings table (Severity | Location | Before | After | Why)", "Block/Approve verdict"],
+    "path": "skills/visual-design/better-ui",
+    "source": {
+      "type": "third-party",
+      "repository": "jakubkrehel/skills",
+      "url": "https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-ui",
+      "author": "Jakub Krehel",
+      "license": "MIT",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": "skills/better-ui",
+      "upstreamCommit": "ca483852de23d48ab4f4ea71da37dad12bd70a95",
+      "retrievedAt": "2026-08-26",
+      "modified": false,
+      "modifications": []
+    },
+    "compatibility": ["claude-code", "codex", "cursor", "opencode", "amp", "gemini-cli", "copilot", "vs-code", "claude-ai"],
+    "dependencies": [],
+    "relatedSkills": [],
+    "recommended": true,
+    "maturity": "stable",
+    "status": "draft"
+  },
+  "logMd": "#### jakubkrehel/skills (inspected 2026-08-26)\n- Same repo pin: ca483852de23d48ab4f4ea71da37dad12bd70a95, MIT at repo-root LICENSE.\n- better-ui: all 8 files read in full. Rubric: relevance 3 (UI polish/motion/icon craft is core visual-design work), quality 3 (exact scale(0.96) press value, spring bounce:0, blur 4px->0px, will-change property table, theme-transition-suppression code), conformance 2 (spec-only frontmatter -> claude-ai appended; name=dirname; sibling links resolve), uniqueness 2 (motion-system defines motion as a design-systems token layer at a different altitude; no implementation-detail UI-polish skill vendored). Total 10.\n- Security: clean.\n- Verdict: vendor."
+}

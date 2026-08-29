@@ -1,0 +1,105 @@
+{
+  "id": "algorithmic-art",
+  "category": "visual-design",
+  "verdict": "vendor",
+  "rubric": {
+    "relevance": 2,
+    "quality": 2,
+    "conformance": 2,
+    "uniqueness": 2
+  },
+  "upstream": {
+    "repository": "anthropics/skills",
+    "url": "https://github.com/anthropics/skills/tree/3b3fad96af16a10759d930941b4520ba0c40edae/skills/algorithmic-art",
+    "author": "Anthropic",
+    "commit": "3b3fad96af16a10759d930941b4520ba0c40edae",
+    "path": "skills/algorithmic-art",
+    "license": "Apache-2.0",
+    "licenseSource": "skill-dir:LICENSE.txt"
+  },
+  "files": [
+    {
+      "dest": "SKILL.md",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/algorithmic-art/SKILL.md",
+      "blobSha": "634f6fa42e4e697fa6afd293acd7fb8246574876"
+    },
+    {
+      "dest": "LICENSE.txt",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/algorithmic-art/LICENSE.txt",
+      "blobSha": "4f881c52d1f72f4cfb720e339e2d35c3058d01a9"
+    },
+    {
+      "dest": "templates/generator_template.js",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/algorithmic-art/templates/generator_template.js",
+      "blobSha": "e263fbde985cd4b84b28e6a8eaf07fca3fcd3557"
+    },
+    {
+      "dest": "templates/viewer.html",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/algorithmic-art/templates/viewer.html",
+      "blobSha": "630cc1f62df51deac69b3246b2dfeb1e68dae024"
+    }
+  ],
+  "securityNotes": "Read SKILL.md, templates/generator_template.js, and templates/viewer.html in full at the pinned SHA. generator_template.js is a commented scaffold (parameter organization, seeded randomness, class structure, utility functions) with no actual executable logic filled in -- no network calls, no eval, no data exfiltration. viewer.html is a self-contained HTML/CSS/JS template that loads p5.js from a single pinned CDN URL (cdnjs.cloudflare.com) as a client-side <script> tag, which is standard browser library loading, not a download-and-execute pattern; all other JS is inline and reviewable, only client-side DOM/canvas manipulation, no fetch/XHR, no credential access, no hidden instructions.",
+  "overlaps": [
+    "canvas-design (same repo) shares the two-step 'philosophy then execution' structure and craftsmanship-emphasis prompt style, but algorithmic-art produces code-driven, seeded, parametrically explorable p5.js art rather than a static poster"
+  ],
+  "proposedEntry": {
+    "id": "algorithmic-art",
+    "name": "algorithmic-art",
+    "description": "Directs the agent to create generative p5.js art in two steps: write a named algorithmic-philosophy manifesto (computational process, noise/particle/field approach, seeded variation) as a .md file, then implement it as a single self-contained interactive HTML artifact built from a required starting template that fixes the Anthropic-branded sidebar UI (seed navigation, parameter sliders, color pickers, action buttons) while leaving the p5.js algorithm, parameters, and controls fully custom to the philosophy. Enforces reproducibility via explicit randomSeed/noiseSeed usage.",
+    "category": "visual-design",
+    "tags": [
+      "illustration",
+      "color",
+      "visual-hierarchy",
+      "visual-polish"
+    ],
+    "triggers": [
+      "create generative art",
+      "make algorithmic art with p5.js",
+      "build a flow field or particle system artifact",
+      "create an interactive seeded art piece"
+    ],
+    "inputs": [
+      "a subtle creative brief or theme to interpret",
+      "no real content required -- the skill invents the algorithmic direction"
+    ],
+    "outputs": [
+      "an algorithmic-philosophy .md file (4-6 paragraphs)",
+      "a single self-contained interactive HTML artifact (p5.js algorithm + seed/parameter/color controls) usable directly in a browser or as a claude.ai artifact"
+    ],
+    "path": "skills/visual-design/algorithmic-art",
+    "source": {
+      "type": "third-party",
+      "repository": "anthropics/skills",
+      "url": "https://github.com/anthropics/skills/tree/3b3fad96af16a10759d930941b4520ba0c40edae/skills/algorithmic-art",
+      "author": "Anthropic",
+      "license": "Apache-2.0",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": "skills/algorithmic-art",
+      "upstreamCommit": "3b3fad96af16a10759d930941b4520ba0c40edae",
+      "retrievedAt": "2026-08-26",
+      "modified": false,
+      "modifications": []
+    },
+    "compatibility": [
+      "claude-code",
+      "codex",
+      "cursor",
+      "opencode",
+      "amp",
+      "gemini-cli",
+      "copilot",
+      "vs-code",
+      "claude-ai"
+    ],
+    "dependencies": [
+      "browser"
+    ],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "stable",
+    "status": "draft"
+  },
+  "logMd": "#### anthropics/skills (inspected 2026-08-26)\n- Same repo pin: 3b3fad96af16a10759d930941b4520ba0c40edae, 172348 stars.\n- algorithmic-art: SKILL.md, templates/generator_template.js, and templates/viewer.html all read in full. viewer.html loads p5.js from a single pinned cdnjs.cloudflare.com URL as a standard client-side <script> include; no other network calls anywhere in the skill.\n- Rubric: relevance 2 (color/composition/visual-hierarchy design applied through code, adjacent to but not core product-UI work), quality 2 (concrete technical requirements -- seeded randomness, canvas setup, required template reuse -- but large stretches are repetitive craftsmanship-hype language similar to canvas-design), conformance 2 (valid frontmatter, name=dirname, template files resolve), uniqueness 2 (nothing like generative p5.js art vendored elsewhere). Total 8.\n- Security: reviewed both template files line by line; no exfiltration, no credential access, no download-and-execute beyond the pinned p5.js CDN script tag.\n- Verdict: vendor."
+}

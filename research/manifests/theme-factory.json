@@ -1,0 +1,148 @@
+{
+  "id": "theme-factory",
+  "category": "visual-design",
+  "verdict": "vendor",
+  "rubric": {
+    "relevance": 2,
+    "quality": 2,
+    "conformance": 2,
+    "uniqueness": 2
+  },
+  "upstream": {
+    "repository": "anthropics/skills",
+    "url": "https://github.com/anthropics/skills/tree/3b3fad96af16a10759d930941b4520ba0c40edae/skills/theme-factory",
+    "author": "Anthropic",
+    "commit": "3b3fad96af16a10759d930941b4520ba0c40edae",
+    "path": "skills/theme-factory",
+    "license": "Apache-2.0",
+    "licenseSource": "skill-dir:LICENSE.txt"
+  },
+  "files": [
+    {
+      "dest": "SKILL.md",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/theme-factory/SKILL.md",
+      "blobSha": "90dfceaf2ecdc191a4dcfb0069768a9560638998"
+    },
+    {
+      "dest": "LICENSE.txt",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/theme-factory/LICENSE.txt",
+      "blobSha": "4f881c52d1f72f4cfb720e339e2d35c3058d01a9"
+    },
+    {
+      "dest": "theme-showcase.pdf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/theme-factory/theme-showcase.pdf",
+      "blobSha": "24495d145c95917aba3a3445f7105444b6f7cfcc"
+    },
+    {
+      "dest": "themes/arctic-frost.md",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/theme-factory/themes/arctic-frost.md",
+      "blobSha": "e9f1eb0574e377ec8be59a71a1c206958f8b253e"
+    },
+    {
+      "dest": "themes/botanical-garden.md",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/theme-factory/themes/botanical-garden.md",
+      "blobSha": "0c95bf7349c26996c7d43d6c0276a285287a9ffe"
+    },
+    {
+      "dest": "themes/desert-rose.md",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/theme-factory/themes/desert-rose.md",
+      "blobSha": "ea7c74eb80794fe15f870e12c5588b2a988f77a1"
+    },
+    {
+      "dest": "themes/forest-canopy.md",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/theme-factory/themes/forest-canopy.md",
+      "blobSha": "90c2b26518d8d7ff1d58981def5e93e2eca01780"
+    },
+    {
+      "dest": "themes/golden-hour.md",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/theme-factory/themes/golden-hour.md",
+      "blobSha": "ed8fc256f4e9b2dfffd46e82fdc451c32f87dbb1"
+    },
+    {
+      "dest": "themes/midnight-galaxy.md",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/theme-factory/themes/midnight-galaxy.md",
+      "blobSha": "97e1c5f380eba51cd8956ec96114629c6540b76e"
+    },
+    {
+      "dest": "themes/modern-minimalist.md",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/theme-factory/themes/modern-minimalist.md",
+      "blobSha": "6bd26a29beb09e663a1c049f5f8ec86189ae2db2"
+    },
+    {
+      "dest": "themes/ocean-depths.md",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/theme-factory/themes/ocean-depths.md",
+      "blobSha": "b675126f53c49af7b6c3e00793a6d4773fb77af6"
+    },
+    {
+      "dest": "themes/sunset-boulevard.md",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/theme-factory/themes/sunset-boulevard.md",
+      "blobSha": "df799a0cc0e61c9226e52725afb45a1c6388f242"
+    },
+    {
+      "dest": "themes/tech-innovation.md",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/theme-factory/themes/tech-innovation.md",
+      "blobSha": "e029a435fb02647e6fd0b440618ae21f326d35e1"
+    }
+  ],
+  "securityNotes": "Read SKILL.md and all 10 themes/*.md files in full at the pinned SHA. Each theme file is a short, self-contained color-palette + font-pairing spec (hex codes, 2 font roles, use-case guidance) -- pure data/prose, no scripts, no network calls, no credential access, no hidden instructions. theme-showcase.pdf is a binary preview asset, listed in files[] with its blob SHA but not opened (not a text file); the skill instructs the agent to display it unmodified, which is consistent with its role as a visual reference, not executable content.",
+  "overlaps": [
+    "brand-guidelines (same repo, rejected) covers a single hardcoded brand's colors/fonts; theme-factory instead offers 10 selectable generic themes plus a 'create your own theme' fallback, making it the more broadly reusable of the two"
+  ],
+  "proposedEntry": {
+    "id": "theme-factory",
+    "name": "theme-factory",
+    "description": "Applies one of 10 curated color-palette + font-pairing themes (each with named hex colors, header/body font roles, and recommended use cases, shown via a theme-showcase.pdf) to slide decks, documents, or HTML artifacts, or generates a new custom theme on the fly when none of the presets fit, following a show-choices / confirm / apply workflow.",
+    "category": "visual-design",
+    "tags": [
+      "themes",
+      "color",
+      "typography",
+      "visual-polish"
+    ],
+    "triggers": [
+      "apply a theme to this deck",
+      "pick a color and font palette for this document",
+      "show me theme options",
+      "generate a custom theme for this artifact"
+    ],
+    "inputs": [
+      "an existing artifact/deck/document to style",
+      "optional description of desired mood for a custom theme"
+    ],
+    "outputs": [
+      "a styled artifact using the chosen theme's colors and fonts",
+      "for custom themes, a new theme spec (palette + font pairing) shown for confirmation before applying"
+    ],
+    "path": "skills/visual-design/theme-factory",
+    "source": {
+      "type": "third-party",
+      "repository": "anthropics/skills",
+      "url": "https://github.com/anthropics/skills/tree/3b3fad96af16a10759d930941b4520ba0c40edae/skills/theme-factory",
+      "author": "Anthropic",
+      "license": "Apache-2.0",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": "skills/theme-factory",
+      "upstreamCommit": "3b3fad96af16a10759d930941b4520ba0c40edae",
+      "retrievedAt": "2026-08-26",
+      "modified": false,
+      "modifications": []
+    },
+    "compatibility": [
+      "claude-code",
+      "codex",
+      "cursor",
+      "opencode",
+      "amp",
+      "gemini-cli",
+      "copilot",
+      "vs-code",
+      "claude-ai"
+    ],
+    "dependencies": [],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "stable",
+    "status": "draft"
+  },
+  "logMd": "#### anthropics/skills (inspected 2026-08-26)\n- Same repo pin: 3b3fad96af16a10759d930941b4520ba0c40edae, 172348 stars.\n- theme-factory: SKILL.md and all 10 themes/*.md files read in full (each ~500-560 bytes: 4 named hex colors, 2 font roles, use-case guidance). theme-showcase.pdf listed via tree API (blob SHA recorded) but not opened as it is a binary preview asset the skill instructs the agent to display unmodified.\n- Rubric: relevance 2 (theme/color/typography application, generalizable across artifact types), quality 2 (clear show/ask/confirm/apply workflow, concrete per-theme data, but thin on how to actually author the custom-theme fallback beyond 'use any basic description'), conformance 2 (valid frontmatter, name=dirname, resources resolve), uniqueness 2. Total 8.\n- Security: clean, prose/data only.\n- Verdict: vendor."
+}

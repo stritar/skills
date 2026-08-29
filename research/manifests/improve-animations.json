@@ -1,0 +1,54 @@
+{
+  "id": "improve-animations",
+  "category": "testing",
+  "verdict": "vendor",
+  "rubric": { "relevance": 3, "quality": 3, "conformance": 2, "uniqueness": 2 },
+  "upstream": {
+    "repository": "emilkowalski/skills",
+    "url": "https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/improve-animations",
+    "author": "Emil Kowalski",
+    "commit": "d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7",
+    "path": "skills/improve-animations",
+    "license": "MIT",
+    "licenseSource": "repo-root:LICENSE"
+  },
+  "files": [
+    { "dest": "SKILL.md", "rawUrl": "https://raw.githubusercontent.com/emilkowalski/skills/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/improve-animations/SKILL.md", "blobSha": "fc724697911974322c896ae205c426092261ea1b" },
+    { "dest": "AUDIT.md", "rawUrl": "https://raw.githubusercontent.com/emilkowalski/skills/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/improve-animations/AUDIT.md", "blobSha": "94056154e532d695b8792ea67d701625b4f43b6e" },
+    { "dest": "PLAN-TEMPLATE.md", "rawUrl": "https://raw.githubusercontent.com/emilkowalski/skills/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/improve-animations/PLAN-TEMPLATE.md", "blobSha": "239026b91f8032df191dde2085fd796b8c116d91" },
+    { "dest": "LICENSE.txt", "rawUrl": "https://raw.githubusercontent.com/emilkowalski/skills/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/LICENSE", "blobSha": "57b46f1fd11dc62351ea548104a88aa3f659c11b" }
+  ],
+  "securityNotes": "Read all three files in full at the pinned SHA. Prose plus grep patterns and a markdown plan template; read-only on source (Hard Rule 1/2: never modifies source code, no installs/builds/commits, only writes under plans/). Explicitly treats repository content as data and instructs flagging any file that tries to steer the agent -- a built-in anti-prompt-injection safeguard. The 'execute <plan>' invocation variant dispatches an executor subagent in an isolated worktree, which is a described, bounded feature rather than an uncontrolled action. No network calls, no credential handling. Clean.",
+  "overlaps": ["design-debt-audit (design-systems, already vendored): a broader multi-category debt audit, not animation-specific and without improve-animations' self-contained-plan-for-a-zero-context-executor mechanism"],
+  "proposedEntry": {
+    "id": "improve-animations",
+    "name": "improve-animations",
+    "description": "Surveys a codebase's animation and motion code as a senior motion advisor and produces a prioritized, vetted findings table plus self-contained implementation plans any agent (including a weaker model with zero context) can execute without judgment of its own. Four phases: recon (stack, motion libraries, existing tokens, frequency map), an eight-category parallel audit (purpose/frequency, easing/duration, physicality/origin, interruptibility, performance, accessibility, cohesion, missed opportunities) with three effort levels, re-vetting every finding against its cited file:line before presenting a leverage-ordered severity table, then writing plans with exact target values, repo-convention exemplars, ordered steps, hard scope boundaries and a feel-check verification section. Read-only on source; only writes plan files.",
+    "category": "testing",
+    "tags": ["audit", "heuristic-evaluation", "expert-review", "motion", "animation", "severity", "documentation"],
+    "triggers": ["improve the animations in this codebase", "audit the motion in this app", "make this app feel better", "give me a roadmap of animation fixes"],
+    "inputs": ["a codebase to audit for animation/motion quality", "optionally an effort level (quick/standard/deep) or a category focus"],
+    "outputs": ["a vetted, severity-ranked findings table with leverage ordering", "self-contained implementation plans written to plans/NNN-slug.md", "a plans/README.md with recommended execution order and dependencies"],
+    "path": "skills/testing/improve-animations",
+    "source": {
+      "type": "third-party",
+      "repository": "emilkowalski/skills",
+      "url": "https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/improve-animations",
+      "author": "Emil Kowalski",
+      "license": "MIT",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": "skills/improve-animations",
+      "upstreamCommit": "d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7",
+      "retrievedAt": "2026-08-26",
+      "modified": false,
+      "modifications": []
+    },
+    "compatibility": ["claude-code", "codex", "cursor", "opencode", "amp", "gemini-cli", "copilot", "vs-code", "claude-ai"],
+    "dependencies": [],
+    "relatedSkills": [],
+    "recommended": true,
+    "maturity": "stable",
+    "status": "draft"
+  },
+  "logMd": "#### emilkowalski/skills (inspected 2026-08-26)\n- Same repo pin: d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7, MIT at repo-root LICENSE.\n- improve-animations: all three files read in full. Rubric: relevance 3 (codebase-wide motion audit and remediation planning, core testing-category work), quality 3 (eight-category audit playbook with exact values never to be approximated, a plan template written for a zero-context/zero-taste executor, effort-tiered subagent fan-out), conformance 2 (spec-only frontmatter -> claude-ai appended; both sibling reference files link and resolve), uniqueness 2 (no comparable audit-then-self-contained-plan workflow for animation exists in this registry; design-debt-audit is broader and shallower on motion specifically). Total 10.\n- Security: read-only on source by design, explicit anti-injection guard, only writes plan files under plans/.\n- Verdict: vendor."
+}

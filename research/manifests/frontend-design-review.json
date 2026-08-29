@@ -1,0 +1,116 @@
+{
+  "id": "frontend-design-review",
+  "category": "design-qa",
+  "verdict": "vendor",
+  "rubric": {
+    "relevance": 3,
+    "quality": 3,
+    "conformance": 2,
+    "uniqueness": 2
+  },
+  "upstream": {
+    "repository": "microsoft/skills",
+    "url": "https://github.com/microsoft/skills/tree/7066b58141d8cc66f39356b2ee5bb64d428dcf17/.github/skills/frontend-design-review",
+    "author": "Microsoft",
+    "commit": "7066b58141d8cc66f39356b2ee5bb64d428dcf17",
+    "path": ".github/skills/frontend-design-review",
+    "license": "MIT",
+    "licenseSource": "repo-root:LICENSE"
+  },
+  "files": [
+    {
+      "dest": "SKILL.md",
+      "rawUrl": "https://raw.githubusercontent.com/microsoft/skills/7066b58141d8cc66f39356b2ee5bb64d428dcf17/.github/skills/frontend-design-review/SKILL.md",
+      "blobSha": "6fd8fe378026252e3810eae36844704f3c684fe3"
+    },
+    {
+      "dest": "references/pattern-examples.md",
+      "rawUrl": "https://raw.githubusercontent.com/microsoft/skills/7066b58141d8cc66f39356b2ee5bb64d428dcf17/.github/skills/frontend-design-review/references/pattern-examples.md",
+      "blobSha": "e2133bbe0cd409cca9dfc47efcca033630488151"
+    },
+    {
+      "dest": "references/quick-checklist.md",
+      "rawUrl": "https://raw.githubusercontent.com/microsoft/skills/7066b58141d8cc66f39356b2ee5bb64d428dcf17/.github/skills/frontend-design-review/references/quick-checklist.md",
+      "blobSha": "7c29054b2f307d76b71ac54a2da81edcf3014d09"
+    },
+    {
+      "dest": "references/review-output-format.md",
+      "rawUrl": "https://raw.githubusercontent.com/microsoft/skills/7066b58141d8cc66f39356b2ee5bb64d428dcf17/.github/skills/frontend-design-review/references/review-output-format.md",
+      "blobSha": "065f3cef3e43ea5ac2b1727a9ffcbcaa4639216b"
+    },
+    {
+      "dest": "references/review-type-modifiers.md",
+      "rawUrl": "https://raw.githubusercontent.com/microsoft/skills/7066b58141d8cc66f39356b2ee5bb64d428dcf17/.github/skills/frontend-design-review/references/review-type-modifiers.md",
+      "blobSha": "d3f94c042bd2baf133e8970037595849357d96d3"
+    },
+    {
+      "dest": "LICENSE.txt",
+      "rawUrl": "https://raw.githubusercontent.com/microsoft/skills/7066b58141d8cc66f39356b2ee5bb64d428dcf17/LICENSE",
+      "blobSha": "79656060de00aa4659ad2c276d5be8830664d544"
+    }
+  ],
+  "securityNotes": "Read SKILL.md and all 4 references/*.md files in full at the pinned SHA. Entirely prose: a two-mode (review / creative-design) workflow, a three-pillar evaluation rubric (Frictionless, Quality Craft, Trustworthy), a Figma-Dev-Mode-based design-system compliance checklist, a structured review output template with blocking/major/minor severity, and good/bad pattern examples. No scripts, no network calls, no credential access, no hidden or injected instructions. The skill's own frontmatter openly discloses its acknowledged influences (design-review pillar framework credited to a named GitHub contributor; creative-frontend guidance explicitly credited as inspired by anthropics/skills' frontend-design skill) -- transparent attribution, not a license concern since this skill's own text is original MIT-licensed work.",
+  "overlaps": [
+    "frontend-design (anthropics/skills, vendored) -- this skill's own acknowledgments explicitly credit frontend-design as inspiration for its creative-frontend aesthetic guidance, but frontend-design-review adds a distinct and substantial review/QA workflow (severity-scored PR/accessibility/design-system-compliance review with a structured output template) not present in frontend-design, which is purely a creation-time skill"
+  ],
+  "proposedEntry": {
+    "id": "frontend-design-review",
+    "name": "frontend-design-review",
+    "description": "Reviews existing UI implementations against design-system compliance, three quality pillars (frictionless task completion, quality-as-craft including WCAG 2.1 A/AA accessibility grades, and trustworthy AI/error transparency), and aesthetic distinctiveness -- or creates new distinctive frontend interfaces from scratch avoiding generic 'AI slop' aesthetics. Produces a structured review output with a pillar status table, blocking/major/minor severity-ranked issues, and design-system-linked recommendations; provides a pre-approval quick checklist and review-type modifiers (PR review, creative review, design review, accessibility audit, design-system compliance audit) that adjust evaluation focus.",
+    "category": "design-qa",
+    "tags": [
+      "design-qa",
+      "design-review",
+      "pr-review",
+      "a11y",
+      "ui-design"
+    ],
+    "triggers": [
+      "review this UI for design quality",
+      "PR design review",
+      "accessibility audit of this component",
+      "check design system compliance",
+      "critique this frontend implementation",
+      "create a distinctive UI that avoids generic AI design"
+    ],
+    "inputs": [
+      "an existing UI implementation, PR diff, or component to review",
+      "or a brief for a new interface to design",
+      "access to the project's design system / Figma (optional but recommended for compliance checks)"
+    ],
+    "outputs": [
+      "a structured review report (context, pillar assessment table, verdict, blocking/major/minor issues, recommendations)",
+      "or a newly implemented distinctive UI when used in creative mode"
+    ],
+    "path": "skills/design-qa/frontend-design-review",
+    "source": {
+      "type": "third-party",
+      "repository": "microsoft/skills",
+      "url": "https://github.com/microsoft/skills/tree/7066b58141d8cc66f39356b2ee5bb64d428dcf17/.github/skills/frontend-design-review",
+      "author": "Microsoft",
+      "license": "MIT",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": ".github/skills/frontend-design-review",
+      "upstreamCommit": "7066b58141d8cc66f39356b2ee5bb64d428dcf17",
+      "retrievedAt": "2026-08-26",
+      "modified": false,
+      "modifications": []
+    },
+    "compatibility": [
+      "claude-code",
+      "codex",
+      "cursor",
+      "opencode",
+      "amp",
+      "gemini-cli",
+      "copilot",
+      "vs-code"
+    ],
+    "dependencies": [],
+    "relatedSkills": [],
+    "recommended": true,
+    "maturity": "stable",
+    "status": "draft"
+  },
+  "logMd": "#### microsoft/skills (inspected 2026-08-26)\n- Repo pin: 7066b58141d8cc66f39356b2ee5bb64d428dcf17 (default branch main), 2967 stars, pushed 2026-08-28T23:59:00Z, repo-level LICENSE = MIT (verified by reading the actual license text at the pinned SHA, not just the GitHub API license field).\n- frontend-design-review: SKILL.md and all 4 references/*.md files read in full.\n- Rubric: relevance 3 (core design-QA/review activity -- explicitly PR review, accessibility audits, design-system compliance), quality 3 (calibrated blocking/major/minor severity, structured output template, concrete checklists, WCAG grade thresholds), conformance 2 -- frontmatter uses name/description/acknowledgments; acknowledgments is NOT one of the six spec fields, so claude-ai was NOT appended to compatibility per rule; name=dirname, all reference links resolve. uniqueness 2 (no design-QA/review skill vendored yet in this registry; distinct from the creation-only frontend-design skill it credits). Total 10.\n- Security: clean, prose/checklist only, no scripts.\n- Verdict: vendor."
+}

@@ -1,0 +1,500 @@
+{
+  "id": "canvas-design",
+  "category": "visual-design",
+  "verdict": "vendor",
+  "rubric": {
+    "relevance": 2,
+    "quality": 2,
+    "conformance": 2,
+    "uniqueness": 2
+  },
+  "upstream": {
+    "repository": "anthropics/skills",
+    "url": "https://github.com/anthropics/skills/tree/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design",
+    "author": "Anthropic",
+    "commit": "3b3fad96af16a10759d930941b4520ba0c40edae",
+    "path": "skills/canvas-design",
+    "license": "Apache-2.0",
+    "licenseSource": "skill-dir:LICENSE.txt"
+  },
+  "files": [
+    {
+      "dest": "SKILL.md",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/SKILL.md",
+      "blobSha": "9f63fee82de84cd4230e1d0e322247b61eb4c94c"
+    },
+    {
+      "dest": "LICENSE.txt",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/LICENSE.txt",
+      "blobSha": "4f881c52d1f72f4cfb720e339e2d35c3058d01a9"
+    },
+    {
+      "dest": "canvas-fonts/ArsenalSC-OFL.txt",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/ArsenalSC-OFL.txt",
+      "blobSha": "1dad6ca6de2b041ef35c0f5009239ede4567e1f4"
+    },
+    {
+      "dest": "canvas-fonts/ArsenalSC-Regular.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/ArsenalSC-Regular.ttf",
+      "blobSha": "fe5409b22e6b22a0ce80c65bdbb333d7d96e7a6a"
+    },
+    {
+      "dest": "canvas-fonts/BigShoulders-Bold.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/BigShoulders-Bold.ttf",
+      "blobSha": "fc5f8fddee4c9e5810b1ab0e518a69acee3d2c50"
+    },
+    {
+      "dest": "canvas-fonts/BigShoulders-OFL.txt",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/BigShoulders-OFL.txt",
+      "blobSha": "b220280e780d0b52a1efb259f44f332cfa9dcab4"
+    },
+    {
+      "dest": "canvas-fonts/BigShoulders-Regular.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/BigShoulders-Regular.ttf",
+      "blobSha": "de8308ce32f3d6759e491dcdce37f65f538d6ac7"
+    },
+    {
+      "dest": "canvas-fonts/Boldonse-OFL.txt",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/Boldonse-OFL.txt",
+      "blobSha": "1890cb1c226f32e581a9ca30cb06e01f2d251168"
+    },
+    {
+      "dest": "canvas-fonts/Boldonse-Regular.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/Boldonse-Regular.ttf",
+      "blobSha": "43fa30affce39b3649e6e94122fbe17cc5536dd2"
+    },
+    {
+      "dest": "canvas-fonts/BricolageGrotesque-Bold.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/BricolageGrotesque-Bold.ttf",
+      "blobSha": "f3b1deda1c594859a1f5197644142f73e2a85868"
+    },
+    {
+      "dest": "canvas-fonts/BricolageGrotesque-OFL.txt",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/BricolageGrotesque-OFL.txt",
+      "blobSha": "fc2b2167c3ccc6fa6f41ab38cb5bde9b3b808769"
+    },
+    {
+      "dest": "canvas-fonts/BricolageGrotesque-Regular.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/BricolageGrotesque-Regular.ttf",
+      "blobSha": "0674ae3e4fc8c3f7baa53dbb582dd420ea73f224"
+    },
+    {
+      "dest": "canvas-fonts/CrimsonPro-Bold.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/CrimsonPro-Bold.ttf",
+      "blobSha": "58730fb4c7b999b46537d613ab629b8e465251ad"
+    },
+    {
+      "dest": "canvas-fonts/CrimsonPro-Italic.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/CrimsonPro-Italic.ttf",
+      "blobSha": "786a1bd66d38006d94a7cb96db1f93a2f439b08e"
+    },
+    {
+      "dest": "canvas-fonts/CrimsonPro-OFL.txt",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/CrimsonPro-OFL.txt",
+      "blobSha": "f976fdc910257e3de8f4b24475963edb81b6ba46"
+    },
+    {
+      "dest": "canvas-fonts/CrimsonPro-Regular.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/CrimsonPro-Regular.ttf",
+      "blobSha": "f5666b9beb8fb808ee56e78726a5b754e67d1ae7"
+    },
+    {
+      "dest": "canvas-fonts/DMMono-OFL.txt",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/DMMono-OFL.txt",
+      "blobSha": "5b17f0c628c0a76ceb057e1b44d0112ab9a63ad2"
+    },
+    {
+      "dest": "canvas-fonts/DMMono-Regular.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/DMMono-Regular.ttf",
+      "blobSha": "7efe813da72c7b1c0294cae782e88f262ecb75be"
+    },
+    {
+      "dest": "canvas-fonts/EricaOne-OFL.txt",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/EricaOne-OFL.txt",
+      "blobSha": "490d012017f42bee136a3d3cb0d79ef9c3ba4561"
+    },
+    {
+      "dest": "canvas-fonts/EricaOne-Regular.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/EricaOne-Regular.ttf",
+      "blobSha": "8bd91d11773f5b035a9e6b6d1bab2e59b08051e3"
+    },
+    {
+      "dest": "canvas-fonts/GeistMono-Bold.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/GeistMono-Bold.ttf",
+      "blobSha": "736ff7c3b1483081322cacc7c64e0995b52d8af6"
+    },
+    {
+      "dest": "canvas-fonts/GeistMono-OFL.txt",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/GeistMono-OFL.txt",
+      "blobSha": "679a685a2343079632b0dd836fecb7cefbea6f0d"
+    },
+    {
+      "dest": "canvas-fonts/GeistMono-Regular.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/GeistMono-Regular.ttf",
+      "blobSha": "1a30262ab749ea7a56aedd91410d8be3787db548"
+    },
+    {
+      "dest": "canvas-fonts/Gloock-OFL.txt",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/Gloock-OFL.txt",
+      "blobSha": "363acd33d9e37e60b9941229448244b6a2d22461"
+    },
+    {
+      "dest": "canvas-fonts/Gloock-Regular.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/Gloock-Regular.ttf",
+      "blobSha": "3e58c4e455cc143e9b02d05fdcb054fac62ed7ab"
+    },
+    {
+      "dest": "canvas-fonts/IBMPlexMono-Bold.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/IBMPlexMono-Bold.ttf",
+      "blobSha": "247979caeb26c286a33cfd33234188d370c1c0ff"
+    },
+    {
+      "dest": "canvas-fonts/IBMPlexMono-OFL.txt",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/IBMPlexMono-OFL.txt",
+      "blobSha": "e423b74780b16934a073769bd147d46479ceb8b2"
+    },
+    {
+      "dest": "canvas-fonts/IBMPlexMono-Regular.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/IBMPlexMono-Regular.ttf",
+      "blobSha": "601ae945ebe1a717ac3ab7ed393288975da83b32"
+    },
+    {
+      "dest": "canvas-fonts/IBMPlexSerif-Bold.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/IBMPlexSerif-Bold.ttf",
+      "blobSha": "78f6e500de7faaec05bbbc60ccfc81083440b1c8"
+    },
+    {
+      "dest": "canvas-fonts/IBMPlexSerif-BoldItalic.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/IBMPlexSerif-BoldItalic.ttf",
+      "blobSha": "369b89d261b2d6d186e46b49a5b1959d9e95b5d4"
+    },
+    {
+      "dest": "canvas-fonts/IBMPlexSerif-Italic.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/IBMPlexSerif-Italic.ttf",
+      "blobSha": "a4d859a77f0e52e36bf699cf55469c31a4664c18"
+    },
+    {
+      "dest": "canvas-fonts/IBMPlexSerif-Regular.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/IBMPlexSerif-Regular.ttf",
+      "blobSha": "35f454ceac6b101ea3f9bed9f57a68a61519b401"
+    },
+    {
+      "dest": "canvas-fonts/InstrumentSans-Bold.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/InstrumentSans-Bold.ttf",
+      "blobSha": "f602dcef23bb96d8d2f5c74c595ecf400c5ec722"
+    },
+    {
+      "dest": "canvas-fonts/InstrumentSans-BoldItalic.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/InstrumentSans-BoldItalic.ttf",
+      "blobSha": "122b27305b6de88f6946bb171c055bd428124fc3"
+    },
+    {
+      "dest": "canvas-fonts/InstrumentSans-Italic.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/InstrumentSans-Italic.ttf",
+      "blobSha": "4b98fb8dd753453f6e355a6dd1d4f483961c4017"
+    },
+    {
+      "dest": "canvas-fonts/InstrumentSans-OFL.txt",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/InstrumentSans-OFL.txt",
+      "blobSha": "4bb99142f612dfaa0053377934b47e466800b20e"
+    },
+    {
+      "dest": "canvas-fonts/InstrumentSans-Regular.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/InstrumentSans-Regular.ttf",
+      "blobSha": "14c6113cdd3abcfa360f8d27bb42034aa91accc0"
+    },
+    {
+      "dest": "canvas-fonts/InstrumentSerif-Italic.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/InstrumentSerif-Italic.ttf",
+      "blobSha": "8fa958d9baf94bdf86c45d5340dc2ba171e2eb2c"
+    },
+    {
+      "dest": "canvas-fonts/InstrumentSerif-Regular.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/InstrumentSerif-Regular.ttf",
+      "blobSha": "976303184a522174d92bc8d1a82d7960850a94b0"
+    },
+    {
+      "dest": "canvas-fonts/Italiana-OFL.txt",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/Italiana-OFL.txt",
+      "blobSha": "ba8af215bb486cc7f3f9acfa5df895d5ba2d89ae"
+    },
+    {
+      "dest": "canvas-fonts/Italiana-Regular.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/Italiana-Regular.ttf",
+      "blobSha": "a9b828c0f308eaf07a172cbf2aae823e0f762210"
+    },
+    {
+      "dest": "canvas-fonts/JetBrainsMono-Bold.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/JetBrainsMono-Bold.ttf",
+      "blobSha": "1926c804b95bcd44835689b0ddf1ac10d0b7a805"
+    },
+    {
+      "dest": "canvas-fonts/JetBrainsMono-OFL.txt",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/JetBrainsMono-OFL.txt",
+      "blobSha": "5ceee0025da23d2cd5fd14b28569708a8db4db2b"
+    },
+    {
+      "dest": "canvas-fonts/JetBrainsMono-Regular.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/JetBrainsMono-Regular.ttf",
+      "blobSha": "436c982ff3209357305892181e61565d1e01d439"
+    },
+    {
+      "dest": "canvas-fonts/Jura-Light.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/Jura-Light.ttf",
+      "blobSha": "dffbb3397409ebc91d53f4c4b29b7988c26a49f6"
+    },
+    {
+      "dest": "canvas-fonts/Jura-Medium.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/Jura-Medium.ttf",
+      "blobSha": "4bf91a33951b960e4d579eb2e57cce624e4aec0a"
+    },
+    {
+      "dest": "canvas-fonts/Jura-OFL.txt",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/Jura-OFL.txt",
+      "blobSha": "64ad4c67d29fb44d037a400881c3c7a3d227cacf"
+    },
+    {
+      "dest": "canvas-fonts/LibreBaskerville-OFL.txt",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/LibreBaskerville-OFL.txt",
+      "blobSha": "8c531fa56848a48577f9aa3b3e8051f3682e87f4"
+    },
+    {
+      "dest": "canvas-fonts/LibreBaskerville-Regular.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/LibreBaskerville-Regular.ttf",
+      "blobSha": "c1abc2645f623b8ab8d71724df32746b1aa627aa"
+    },
+    {
+      "dest": "canvas-fonts/Lora-Bold.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/Lora-Bold.ttf",
+      "blobSha": "edae21eb689cda1c1a7b7b1a69277b3c01112a4c"
+    },
+    {
+      "dest": "canvas-fonts/Lora-BoldItalic.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/Lora-BoldItalic.ttf",
+      "blobSha": "12dea8c6f5f3af6c7e066b9c6ae5c8b33741e45e"
+    },
+    {
+      "dest": "canvas-fonts/Lora-Italic.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/Lora-Italic.ttf",
+      "blobSha": "e24b69b26b0e14a48fdbb65fd29db51ce1e95aad"
+    },
+    {
+      "dest": "canvas-fonts/Lora-OFL.txt",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/Lora-OFL.txt",
+      "blobSha": "4cf1b950d308edaee72401989e45410ea99e76a4"
+    },
+    {
+      "dest": "canvas-fonts/Lora-Regular.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/Lora-Regular.ttf",
+      "blobSha": "dc751db00dc171fc19737d9da800d7a583bb2c6d"
+    },
+    {
+      "dest": "canvas-fonts/NationalPark-Bold.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/NationalPark-Bold.ttf",
+      "blobSha": "f4d7c021b6e0edd88bb152d8cee73154efa086c1"
+    },
+    {
+      "dest": "canvas-fonts/NationalPark-OFL.txt",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/NationalPark-OFL.txt",
+      "blobSha": "f4ec3fba915df6e072b72fed691f1032d440544d"
+    },
+    {
+      "dest": "canvas-fonts/NationalPark-Regular.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/NationalPark-Regular.ttf",
+      "blobSha": "e4cbfbf5eb9569b2f0bcfe2f55ea1625123fc14c"
+    },
+    {
+      "dest": "canvas-fonts/NothingYouCouldDo-OFL.txt",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/NothingYouCouldDo-OFL.txt",
+      "blobSha": "c81eccdee9a75cebdd400cc39ff5a0bb7bd1eaa3"
+    },
+    {
+      "dest": "canvas-fonts/NothingYouCouldDo-Regular.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/NothingYouCouldDo-Regular.ttf",
+      "blobSha": "b086bced91e7b587e8cbe5d7e13e3363e18bc812"
+    },
+    {
+      "dest": "canvas-fonts/Outfit-Bold.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/Outfit-Bold.ttf",
+      "blobSha": "f9f2f72afdee8011d61048072576ceee2f95ea60"
+    },
+    {
+      "dest": "canvas-fonts/Outfit-OFL.txt",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/Outfit-OFL.txt",
+      "blobSha": "fd0cb995c0cadfa28394e7f9b88b7e43c783b453"
+    },
+    {
+      "dest": "canvas-fonts/Outfit-Regular.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/Outfit-Regular.ttf",
+      "blobSha": "3939ab246e0736f7283a571a458db274088ed7b6"
+    },
+    {
+      "dest": "canvas-fonts/PixelifySans-Medium.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/PixelifySans-Medium.ttf",
+      "blobSha": "95cd372534b533c9cb7ce35b782f0623ecb4de00"
+    },
+    {
+      "dest": "canvas-fonts/PixelifySans-OFL.txt",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/PixelifySans-OFL.txt",
+      "blobSha": "b02d1b6767c0cd44a3a3afeddef03778f10e6ad2"
+    },
+    {
+      "dest": "canvas-fonts/PoiretOne-OFL.txt",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/PoiretOne-OFL.txt",
+      "blobSha": "607bdad3fd41bf7915b74271cd4c67f3319c00e6"
+    },
+    {
+      "dest": "canvas-fonts/PoiretOne-Regular.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/PoiretOne-Regular.ttf",
+      "blobSha": "b339511b02ea2c25722c8c975e7018e8efcaa217"
+    },
+    {
+      "dest": "canvas-fonts/RedHatMono-Bold.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/RedHatMono-Bold.ttf",
+      "blobSha": "a6e3cf157ad71c0620620c9da48a8c8d0ca26cdf"
+    },
+    {
+      "dest": "canvas-fonts/RedHatMono-OFL.txt",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/RedHatMono-OFL.txt",
+      "blobSha": "16cf394bb1bd5100686703ebc4a3772a568e0e6a"
+    },
+    {
+      "dest": "canvas-fonts/RedHatMono-Regular.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/RedHatMono-Regular.ttf",
+      "blobSha": "3bf6a698bbb3ab2caefdd2cd0456fc08b35ecf1d"
+    },
+    {
+      "dest": "canvas-fonts/Silkscreen-OFL.txt",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/Silkscreen-OFL.txt",
+      "blobSha": "a1fe7d5fbe4182d1071a23f8a8c46b9766eec81c"
+    },
+    {
+      "dest": "canvas-fonts/Silkscreen-Regular.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/Silkscreen-Regular.ttf",
+      "blobSha": "8abaa7c500d4555073f9e303ec2e5e343d3b8f3f"
+    },
+    {
+      "dest": "canvas-fonts/SmoochSans-Medium.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/SmoochSans-Medium.ttf",
+      "blobSha": "0af9ead07bc2b95a691a63c72d328595b93183a0"
+    },
+    {
+      "dest": "canvas-fonts/SmoochSans-OFL.txt",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/SmoochSans-OFL.txt",
+      "blobSha": "4c2f033ac0e041f61d88d255c4bb02ee28b6f3cb"
+    },
+    {
+      "dest": "canvas-fonts/Tektur-Medium.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/Tektur-Medium.ttf",
+      "blobSha": "34fc797195169923bad8e76181d60ae02019fef0"
+    },
+    {
+      "dest": "canvas-fonts/Tektur-OFL.txt",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/Tektur-OFL.txt",
+      "blobSha": "2cad55f1b2d239571560773c92801166cb2be635"
+    },
+    {
+      "dest": "canvas-fonts/Tektur-Regular.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/Tektur-Regular.ttf",
+      "blobSha": "f280fba407441453779b16f7021a286219421486"
+    },
+    {
+      "dest": "canvas-fonts/WorkSans-Bold.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/WorkSans-Bold.ttf",
+      "blobSha": "5c97989292020632435b96e6622c74b1f1c6e5cd"
+    },
+    {
+      "dest": "canvas-fonts/WorkSans-BoldItalic.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/WorkSans-BoldItalic.ttf",
+      "blobSha": "54418b8a6303d1b0cd6b6a206ca3014eba71bc3a"
+    },
+    {
+      "dest": "canvas-fonts/WorkSans-Italic.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/WorkSans-Italic.ttf",
+      "blobSha": "40529b68f7784c96872fa7ed9bfb46d72bf699e2"
+    },
+    {
+      "dest": "canvas-fonts/WorkSans-OFL.txt",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/WorkSans-OFL.txt",
+      "blobSha": "070f3416c4767c3396120b5942627f6d3d5bab10"
+    },
+    {
+      "dest": "canvas-fonts/WorkSans-Regular.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/WorkSans-Regular.ttf",
+      "blobSha": "d24586cc0336949d49a1c2bf3fb3b306c47b431e"
+    },
+    {
+      "dest": "canvas-fonts/YoungSerif-OFL.txt",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/YoungSerif-OFL.txt",
+      "blobSha": "f09443cbe4dfca41153edf6f9dd8fd63138a24b3"
+    },
+    {
+      "dest": "canvas-fonts/YoungSerif-Regular.ttf",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design/canvas-fonts/YoungSerif-Regular.ttf",
+      "blobSha": "f454fbedd4c8b00833d17fffa1f89acb5149b02c"
+    }
+  ],
+  "securityNotes": "Read SKILL.md and LICENSE.txt in full at the pinned SHA; the 26 bundled font families (81 files: one Regular/style .ttf set plus one -OFL.txt per family, listed from the tree API without reading binary .ttf content) were spot-checked by reading 3 representative -OFL.txt files in full (ArsenalSC, WorkSans, YoungSerif) -- all three are the standard SIL Open Font License 1.1 boilerplate with a distinct per-family copyright line (e.g. 'Copyright 2019 The Work Sans Project Authors'), confirming free redistribution rights; every other OFL.txt file's presence and per-family naming was verified via the tree listing but not individually opened. Total bundle size 5.55 MB (< 10 MB threshold), so this does not trigger the size-based not-vendored-keeper rule. SKILL.md content is prose/process instructions for generating static art (.md philosophy + .pdf/.png output); no scripts, no network calls, no credential access. One notable prompt-engineering pattern: the 'FINAL STEP' section has the skill assert as fact that 'The user ALREADY said' a specific quoted critique ('It isn't perfect enough...') to trigger an extra refinement pass -- this is a fabricated user statement baked into the skill rather than an actual message from whoever installs it. It does not ask the agent to exfiltrate data, access credentials, or override the real user's actual instructions; it only self-triggers one more polish iteration on the artifact being built. Flagged here for visibility, not treated as a disqualifying hidden instruction.",
+  "overlaps": [
+    "algorithmic-art (same repo, same craftsmanship-emphasis prompt style, but produces code-driven generative art rather than a static philosophy-driven poster/PDF)"
+  ],
+  "proposedEntry": {
+    "id": "canvas-design",
+    "name": "canvas-design",
+    "description": "Directs the agent to create standalone visual art (poster-style .pdf or .png output) in two steps: first write a named visual-philosophy manifesto (color/form/composition direction, explicitly emphasizing craftsmanship language) as a .md file, then express that philosophy on a canvas using minimal, design-forward typography pulled from the bundled canvas-fonts library, with a refinement pass before final output. Ships 26 SIL-OFL-licensed font families for use in the generated artwork.",
+    "category": "visual-design",
+    "tags": [
+      "typography",
+      "color",
+      "layout",
+      "visual-hierarchy",
+      "illustration",
+      "visual-polish"
+    ],
+    "triggers": [
+      "design a poster",
+      "create a piece of visual art",
+      "make a PDF design with a strong aesthetic",
+      "generate a design philosophy and express it visually"
+    ],
+    "inputs": [
+      "a subtle creative brief or theme to interpret",
+      "no real content required -- the skill invents the visual direction"
+    ],
+    "outputs": [
+      "a design-philosophy .md file (4-6 paragraphs)",
+      "a finished .pdf or .png poster/art piece using bundled fonts"
+    ],
+    "path": "skills/visual-design/canvas-design",
+    "source": {
+      "type": "third-party",
+      "repository": "anthropics/skills",
+      "url": "https://github.com/anthropics/skills/tree/3b3fad96af16a10759d930941b4520ba0c40edae/skills/canvas-design",
+      "author": "Anthropic",
+      "license": "Apache-2.0",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": "skills/canvas-design",
+      "upstreamCommit": "3b3fad96af16a10759d930941b4520ba0c40edae",
+      "retrievedAt": "2026-08-26",
+      "modified": false,
+      "modifications": []
+    },
+    "compatibility": [
+      "claude-code",
+      "codex",
+      "cursor",
+      "opencode",
+      "amp",
+      "gemini-cli",
+      "copilot",
+      "vs-code",
+      "claude-ai"
+    ],
+    "dependencies": [],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "stable",
+    "status": "draft"
+  },
+  "logMd": "#### anthropics/skills (inspected 2026-08-26)\n- Same repo pin as frontend-design: 3b3fad96af16a10759d930941b4520ba0c40edae, 172348 stars.\n- canvas-design: SKILL.md and LICENSE.txt (Apache-2.0, with 'Copyright 2026 Anthropic, PBC.' appendix, 201 lines -- differs from frontend-design's bare-license copy) read in full. All 84 tree entries under skills/canvas-design/ enumerated (1 dir + 2 skill files + 81 font-related files across 26 families); 3 representative -OFL.txt files read in full to confirm SIL OFL 1.1 licensing with per-family copyright lines; the 26 .ttf binaries were not opened, only listed with blob SHAs. Bundle totals 5.55 MB, under the 10 MB not-vendored-keeper threshold.\n- Rubric: relevance 2 (clear visual-design application -- typography, color, composition -- even though the output is standalone art/poster rather than product UI), quality 2 (concrete two-step process and font-selection instruction, but large stretches are repetitive craftsmanship-hype language rather than calibrated criteria), conformance 2 (valid frontmatter, name=dirname, resources resolve), uniqueness 2 (nothing like this vendored). Total 8.\n- Security: no scripts, no network calls, no credential access. Noted the fabricated 'the user already said' quote in the FINAL STEP section as a prompt-engineering pattern worth flagging, not a disqualifier -- it only forces an extra self-refinement pass and does not touch real user instructions or data.\n- Verdict: vendor."
+}

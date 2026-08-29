@@ -1,0 +1,52 @@
+{
+  "id": "frontend-design",
+  "category": "visual-design",
+  "verdict": "vendor",
+  "rubric": { "relevance": 3, "quality": 3, "conformance": 2, "uniqueness": 2 },
+  "upstream": {
+    "repository": "anthropics/skills",
+    "url": "https://github.com/anthropics/skills/tree/3b3fad96af16a10759d930941b4520ba0c40edae/skills/frontend-design",
+    "author": "Anthropic",
+    "commit": "3b3fad96af16a10759d930941b4520ba0c40edae",
+    "path": "skills/frontend-design",
+    "license": "Apache-2.0",
+    "licenseSource": "skill-dir:LICENSE.txt"
+  },
+  "files": [
+    { "dest": "SKILL.md", "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/frontend-design/SKILL.md", "blobSha": "decdff43d05908b4c1fc2cfd2d80fc5743440934" },
+    { "dest": "LICENSE.txt", "rawUrl": "https://raw.githubusercontent.com/anthropics/skills/3b3fad96af16a10759d930941b4520ba0c40edae/skills/frontend-design/LICENSE.txt", "blobSha": "f433b1a53f5b830a205fd2df78e2b34974656c7b" }
+  ],
+  "securityNotes": "Read SKILL.md and LICENSE.txt in full at the pinned SHA. Pure prose guidance (aesthetic direction, typography, layout, motion, UX writing); no scripts, no network calls, no credential handling, no hidden or injected instructions. LICENSE.txt is the bare Apache-2.0 legal text (177 lines, no APPENDIX/copyright block) rather than the copy in the sibling skills that includes a 'Copyright 2026 Anthropic, PBC.' notice -- still the valid, complete Apache-2.0 license text, just without the optional attribution appendix. Clean.",
+  "overlaps": ["frontend-design-review (microsoft/skills) explicitly credits this skill as inspiration for its creative-frontend section but adds a distinct design-system-compliance review workflow on top"],
+  "proposedEntry": {
+    "id": "frontend-design",
+    "name": "frontend-design",
+    "description": "Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Directs the agent to work in two passes (a compact color/type/layout/signature token plan, self-critiqued against generic AI-design defaults, then implementation), names three specific overused AI-generated aesthetic clusters to avoid unless the brief calls for them, and gives concrete rules for typography pairing, structural devices, deliberate motion, CSS specificity pitfalls, and end-user-facing UX writing (active voice, consistent verb-to-toast naming, non-apologetic error copy).",
+    "category": "visual-design",
+    "tags": ["typography", "color", "layout", "visual-hierarchy", "ui-design", "interaction-design", "responsive", "motion", "ux-writing", "voice-and-tone"],
+    "triggers": ["design a landing page", "make this UI look distinctive", "avoid generic AI-generated design", "pick a typography and color direction", "critique my design plan before building", "write UX copy for this interface"],
+    "inputs": ["a design brief or existing UI to redesign", "any known audience/brand context in memory"],
+    "outputs": ["a token plan (4-6 named hex colors, 2+ type roles, layout concept, signature element)", "a self-critique noting what was revised and why", "implemented UI code (markup/CSS) following the revised plan", "UX copy for labels, errors, and empty states"],
+    "path": "skills/visual-design/frontend-design",
+    "source": {
+      "type": "third-party",
+      "repository": "anthropics/skills",
+      "url": "https://github.com/anthropics/skills/tree/3b3fad96af16a10759d930941b4520ba0c40edae/skills/frontend-design",
+      "author": "Anthropic",
+      "license": "Apache-2.0",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": "skills/frontend-design",
+      "upstreamCommit": "3b3fad96af16a10759d930941b4520ba0c40edae",
+      "retrievedAt": "2026-08-26",
+      "modified": false,
+      "modifications": []
+    },
+    "compatibility": ["claude-code", "codex", "cursor", "opencode", "amp", "gemini-cli", "copilot", "vs-code", "claude-ai"],
+    "dependencies": [],
+    "relatedSkills": [],
+    "recommended": true,
+    "maturity": "stable",
+    "status": "draft"
+  },
+  "logMd": "#### anthropics/skills (inspected 2026-08-26)\n- Repo pin: 3b3fad96af16a10759d930941b4520ba0c40edae (default branch main), 172348 stars, pushed 2026-08-21T17:10:55Z. No repo-level LICENSE (repo license field null in API); each design skill under skills/ ships its own LICENSE.txt, verified individually.\n- frontend-design: SKILL.md (8260 B) and LICENSE.txt (10174 B, Apache-2.0 bare legal text) both read in full at the pinned SHA. Frontmatter uses only name/description/license (three of the six spec fields) -> claude-ai appended to compatibility per rule.\n- Rubric: relevance 3 (core visual/UI design activity), quality 3 (concrete two-pass process, named anti-patterns to avoid, specific CSS-specificity pitfall, calibrated self-critique step), conformance 2 (valid frontmatter, name=dirname, no host-specific magic), uniqueness 2 (nothing like this vendored yet). Total 10.\n- Security: clean, prose-only.\n- Verdict: vendor."
+}

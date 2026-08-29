@@ -1,0 +1,120 @@
+{
+  "id": "frontend-ui-dark-ts",
+  "category": "design-systems",
+  "verdict": "vendor",
+  "rubric": {
+    "relevance": 3,
+    "quality": 3,
+    "conformance": 2,
+    "uniqueness": 2
+  },
+  "upstream": {
+    "repository": "microsoft/skills",
+    "url": "https://github.com/microsoft/skills/tree/7066b58141d8cc66f39356b2ee5bb64d428dcf17/.github/plugins/azure-sdk-typescript/skills/frontend-ui-dark-ts",
+    "author": "Microsoft",
+    "commit": "7066b58141d8cc66f39356b2ee5bb64d428dcf17",
+    "path": ".github/plugins/azure-sdk-typescript/skills/frontend-ui-dark-ts",
+    "license": "MIT",
+    "licenseSource": "repo-root:LICENSE"
+  },
+  "files": [
+    {
+      "dest": "SKILL.md",
+      "rawUrl": "https://raw.githubusercontent.com/microsoft/skills/7066b58141d8cc66f39356b2ee5bb64d428dcf17/.github/plugins/azure-sdk-typescript/skills/frontend-ui-dark-ts/SKILL.md",
+      "blobSha": "4ff865e3c1cc60d8e5999cf950a016d7c9f019d2"
+    },
+    {
+      "dest": "references/components.md",
+      "rawUrl": "https://raw.githubusercontent.com/microsoft/skills/7066b58141d8cc66f39356b2ee5bb64d428dcf17/.github/plugins/azure-sdk-typescript/skills/frontend-ui-dark-ts/references/components.md",
+      "blobSha": "838246ec6bf35db8372097643c31834cb10a9fc8"
+    },
+    {
+      "dest": "references/design-tokens.md",
+      "rawUrl": "https://raw.githubusercontent.com/microsoft/skills/7066b58141d8cc66f39356b2ee5bb64d428dcf17/.github/plugins/azure-sdk-typescript/skills/frontend-ui-dark-ts/references/design-tokens.md",
+      "blobSha": "41e4d5379865543ee2db62cb3b069da937844604"
+    },
+    {
+      "dest": "references/patterns.md",
+      "rawUrl": "https://raw.githubusercontent.com/microsoft/skills/7066b58141d8cc66f39356b2ee5bb64d428dcf17/.github/plugins/azure-sdk-typescript/skills/frontend-ui-dark-ts/references/patterns.md",
+      "blobSha": "e237e409b6cbb7cfe4afce4c0821f7574926e0de"
+    },
+    {
+      "dest": "LICENSE.txt",
+      "rawUrl": "https://raw.githubusercontent.com/microsoft/skills/7066b58141d8cc66f39356b2ee5bb64d428dcf17/LICENSE",
+      "blobSha": "79656060de00aa4659ad2c276d5be8830664d544"
+    }
+  ],
+  "securityNotes": "Read SKILL.md and all 3 references/*.md files in full at the pinned SHA. Entirely design-token/component/pattern documentation in prose and TSX/CSS code blocks (Tailwind config, CSS custom properties, React component source for Button/Input/Card/Badge/Dialog/Tabs/Avatar/Checkbox/Select/Toast, page-layout templates); no scripts are shipped or run by the skill itself, no network calls, no credential access, no hidden instructions. IMPORTANT LICENSE EXCLUSION: the upstream skill directory also bundles assets/Segoe UI.ttf, 'Segoe UI Bold.ttf', 'Segoe UI Italic.ttf', 'Segoe UI Bold Italic.ttf' (Microsoft's proprietary Segoe UI typeface, not freely redistributable under any license found in the repo) and assets/foundry-logo-dark.png + foundry-logo-light.png (Microsoft Foundry brand-mark assets). None of these 6 files have a verifiable open redistribution license in this repository (no font-specific LICENSE file ships alongside them, and Segoe UI's standard EULA restricts redistribution). Per the vendoring rubric's license-disqualifier rule, these 6 binary assets are EXCLUDED from files[] and will not be vendored; only the MIT-licensed textual/code content (SKILL.md + 3 references, all original documentation by this repo's authors) is included. This is recorded as a disclosed modification below.",
+  "overlaps": [],
+  "proposedEntry": {
+    "id": "frontend-ui-dark-ts",
+    "name": "frontend-ui-dark-ts",
+    "description": "A complete dark-theme design-token and component system for React + Tailwind CSS + Framer Motion applications: CSS custom properties and Tailwind config for brand/neutral/text/border/status/data-viz color scales, spacing/radius/shadow/z-index scales, glassmorphism utility classes, and Framer Motion timing/easing presets, plus ready-to-use TSX source for Button, Input, Card, Badge, Dialog, Tabs, Avatar, Checkbox, Select, and Toast components, and page-layout patterns (app shell, responsive mobile drawer, dashboard, list/tabs/settings-form templates, empty states, skeleton loaders) built for dashboards and admin panels.",
+    "category": "design-systems",
+    "tags": [
+      "design-tokens",
+      "component-api",
+      "component-docs",
+      "pattern-library",
+      "dark-mode",
+      "color",
+      "typography"
+    ],
+    "triggers": [
+      "build a dark-themed React dashboard",
+      "set up design tokens for a dark UI",
+      "need a glassmorphism component library",
+      "create an admin panel with Tailwind and Framer Motion"
+    ],
+    "inputs": [
+      "a React + TypeScript + Vite project to apply the theme to"
+    ],
+    "outputs": [
+      "Tailwind config and CSS custom properties implementing the token system",
+      "reusable TSX UI components (Button, Input, Card, Badge, Dialog, Tabs, Avatar, Checkbox, Select, Toast)",
+      "page-layout templates (app shell, dashboard, list, tabs, settings form, empty/loading states)"
+    ],
+    "path": "skills/design-systems/frontend-ui-dark-ts",
+    "source": {
+      "type": "third-party",
+      "repository": "microsoft/skills",
+      "url": "https://github.com/microsoft/skills/tree/7066b58141d8cc66f39356b2ee5bb64d428dcf17/.github/plugins/azure-sdk-typescript/skills/frontend-ui-dark-ts",
+      "author": "Microsoft",
+      "license": "MIT",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": ".github/plugins/azure-sdk-typescript/skills/frontend-ui-dark-ts",
+      "upstreamCommit": "7066b58141d8cc66f39356b2ee5bb64d428dcf17",
+      "retrievedAt": "2026-08-26",
+      "modified": true,
+      "modifications": [
+        {
+          "date": "2026-08-26",
+          "reason": "portability",
+          "description": "Excluded four bundled Segoe UI .ttf font files and two Microsoft Foundry brand-logo PNGs from assets/: Microsoft-proprietary assets with no verifiable open redistribution license, unlike the MIT-licensed text and code. Consumers who need them can fetch them from the upstream repository.",
+          "files": [
+            "assets/"
+          ]
+        }
+      ]
+    },
+    "compatibility": [
+      "claude-code",
+      "codex",
+      "cursor",
+      "opencode",
+      "amp",
+      "gemini-cli",
+      "copilot",
+      "vs-code",
+      "claude-ai"
+    ],
+    "dependencies": [
+      "node"
+    ],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "stable",
+    "status": "draft"
+  },
+  "logMd": "#### microsoft/skills (inspected 2026-08-26)\n- Same repo pin as frontend-design-review: 7066b58141d8cc66f39356b2ee5bb64d428dcf17, MIT at repo-root LICENSE (verified by reading the license text).\n- frontend-ui-dark-ts: SKILL.md and all 3 references/*.md files (design-tokens.md, components.md, patterns.md) read in full. Full tree of the skill directory enumerated: 12 entries including assets/Segoe UI*.ttf (x4) and assets/foundry-logo-*.png (x2).\n- License finding: the 4 Segoe UI font files and 2 Foundry logo PNGs have no verifiable open redistribution license anywhere in this repo or alongside the files themselves -- Segoe UI is Microsoft's proprietary typeface with restrictive EULA terms, and the Foundry logos are brand marks. These 6 binaries are excluded from files[] (disclosed as a 'portability' modification); the remaining MIT-licensed textual/code content (SKILL.md + 3 references) is vendored.\n- Rubric: relevance 3 (this is a design-tokens + component-API system, the rubric's own worked example for a relevance-3 skill), quality 3 (exact hex/HSL values, full Tailwind config, complete TSX component source with variants/sizes/states, concrete typography and color-usage tables), conformance 2 (frontmatter uses only name/description/license/metadata -- all within the six spec fields -- so claude-ai IS appended to compatibility; name=dirname), uniqueness 2 (no dark-theme design-token/component-library skill vendored elsewhere). Total 10.\n- Security: all 4 text files reviewed line by line; TSX/CSS code only, no scripts run by the skill, no network calls, no credential access.\n- Verdict: vendor (with the font/logo asset exclusion noted above)."
+}
