@@ -1,0 +1,152 @@
+{
+  "repo": "its-thepoe/skills",
+  "verdict": "reject",
+  "upstream": {
+    "repository": "its-thepoe/skills",
+    "commit": "3172de431451bbad2958b1fd87a79d1ccd39b0e3",
+    "license": "MIT",
+    "licenseSource": "repo-root:LICENSE"
+  },
+  "rejectedSkills": [
+    {
+      "id": "better-colors",
+      "path": "design/better-colors",
+      "rubric": { "relevance": 3, "quality": 2, "conformance": 2, "uniqueness": 0 },
+      "reason": "Exact id collision with the already-vendored 'better-colors' skill and covers the same ground (OKLCH conversion, palette generation, contrast checking, gamut/Tailwind theming). Near-duplicate of a better-established registry entry; record as overlap rather than vendor."
+    },
+    {
+      "id": "better-typography",
+      "path": "design/better-typography",
+      "rubric": { "relevance": 3, "quality": 2, "conformance": 2, "uniqueness": 0 },
+      "reason": "Exact id collision with the already-vendored 'better-typography' skill and covers the same ground (font choice, variable fonts/OpenType, type scale, wrapping/punctuation, accessibility). Near-duplicate; record as overlap."
+    },
+    {
+      "id": "better-ui",
+      "path": "design/better-ui",
+      "rubric": { "relevance": 3, "quality": 2, "conformance": 2, "uniqueness": 0 },
+      "reason": "Exact id collision with the already-vendored 'better-ui' skill and covers the same ground (surfaces, animations, performance polish). Near-duplicate; record as overlap."
+    },
+    {
+      "id": "design-engineering",
+      "path": "design/design-engineering",
+      "rubric": { "relevance": 3, "quality": 3, "conformance": 2, "uniqueness": 0 },
+      "reason": "Explicitly adapts emilkowalski/skill (craft/motion/component-feel review output). Its content (interruptible animations, spring physics, clip-path, optical alignment) is already fully covered by the vendored design-motion-principles skill's references/emil-kowalski.md, plus the existing better-ui and design-details entries. Near-duplicate; record as overlap of design-motion-principles and better-ui rather than vendor separately."
+    },
+    {
+      "id": "design-first-ui-prompting",
+      "path": "design/design-first-ui-prompting",
+      "rubric": { "relevance": 1, "quality": 2, "conformance": 2, "uniqueness": 1 },
+      "reason": "Fails the relevance >= 2 gate. This teaches prompt structure for text-to-image generators producing static graphics/posters (aspect ratios like 1080x1350, a 'generate without text, then typeset in Figma' two-pass workflow, negative prompts against watermarks/gibberish typography) -- image-generation prompt engineering, not UI or product design judgment. Adjacent at best."
+    },
+    {
+      "id": "design-taste-frontend",
+      "path": "design/design-taste-frontend",
+      "rubric": { "relevance": 2, "quality": 1, "conformance": 2, "uniqueness": 0 },
+      "reason": "One of seven near-identical 'opinionated aesthetic persona' skills in this repo (with family-taste, gpt-taste, high-end-visual-design, industrial-brutalist-ui, minimalist-ui, stitch-design-taste). Uses numeric 'DESIGN_VARIANCE/MOTION_INTENSITY/VISUAL_DENSITY' dials as a roleplay device rather than calibrated design judgment. Overlaps the already-vendored frontend-design and better-ui far more than it adds; record as overlap."
+    },
+    {
+      "id": "family-taste",
+      "path": "design/family-taste",
+      "rubric": { "relevance": 2, "quality": 2, "conformance": 2, "uniqueness": 0 },
+      "reason": "Reproduces one external designer's (Benji Taylor / Family.co, via cristicretu/family-taste-skill) specific brand philosophy as generic-sounding guidance. Overlaps the other six 'taste' skills in this repo and the already-vendored frontend-design; near-duplicate, record as overlap."
+    },
+    {
+      "id": "frontend-design",
+      "path": "design/frontend-design",
+      "rubric": { "relevance": 3, "quality": 2, "conformance": 2, "uniqueness": 0 },
+      "reason": "Exact id collision with the already-vendored 'frontend-design' skill and covers the same ground (bold aesthetic direction, avoiding generic AI output). Near-duplicate; record as overlap."
+    },
+    {
+      "id": "full-output-enforcement",
+      "path": "design/full-output-enforcement",
+      "rubric": { "relevance": 0, "quality": 2, "conformance": 2, "uniqueness": 1 },
+      "reason": "Automatic reject per rubric: generic output-completeness/anti-truncation instruction with no design content whatsoever. Applies to any coding task, not product-design work."
+    },
+    {
+      "id": "gpt-taste",
+      "path": "design/gpt-taste",
+      "rubric": { "relevance": 2, "quality": 1, "conformance": 2, "uniqueness": 0 },
+      "reason": "Another of the seven 'taste' persona skills; instructs the agent to simulate Python randomization inside its reasoning and enforces a fixed banned-fonts/banned-layouts list under an 'elite Awwwards-tier' framing. Gimmicky prompt-engineering rather than transferable design judgment; near-duplicate of the other taste skills and frontend-design. Record as overlap."
+    },
+    {
+      "id": "high-end-visual-design",
+      "path": "design/high-end-visual-design",
+      "rubric": { "relevance": 2, "quality": 1, "conformance": 2, "uniqueness": 0 },
+      "reason": "Another of the seven 'taste' persona skills (a '$150k+ agency' persona with hard-coded banned-fonts/banned-icons lists). Near-duplicate of the other taste skills and frontend-design; record as overlap."
+    },
+    {
+      "id": "hugeicons",
+      "path": "design/hugeicons",
+      "rubric": { "relevance": 1, "quality": 1, "conformance": 2, "uniqueness": 1 },
+      "reason": "Below the total >= 6 threshold. A narrow package-name/import-correctness helper for one specific icon library (avoiding hallucinated hugeicons imports) -- not design judgment, closer to a dependency-usage cheat sheet."
+    },
+    {
+      "id": "iconsax",
+      "path": "design/iconsax",
+      "rubric": { "relevance": 1, "quality": 1, "conformance": 2, "uniqueness": 1 },
+      "reason": "Below the total >= 6 threshold. Same pattern as hugeicons but for the Iconsax icon library -- a narrow import-correctness helper, not design guidance."
+    },
+    {
+      "id": "industrial-brutalist-ui",
+      "path": "design/industrial-brutalist-ui",
+      "rubric": { "relevance": 2, "quality": 1, "conformance": 2, "uniqueness": 0 },
+      "reason": "Another of the seven 'taste' persona skills, locking the agent into one specific aesthetic (Swiss-industrial/CRT-terminal). Near-duplicate pattern of the other taste skills; record as overlap."
+    },
+    {
+      "id": "minimalist-ui",
+      "path": "design/minimalist-ui",
+      "rubric": { "relevance": 2, "quality": 1, "conformance": 2, "uniqueness": 0 },
+      "reason": "Another of the seven 'taste' persona skills, locking the agent into one specific aesthetic (warm-monochrome editorial minimalism). Near-duplicate pattern of the other taste skills; record as overlap."
+    },
+    {
+      "id": "prototype",
+      "path": "design/prototype",
+      "rubric": { "relevance": 3, "quality": 3, "conformance": 2, "uniqueness": 0 },
+      "reason": "Exact id collision with the already-vendored 'prototype' skill (per the task brief, use-upstream-name-and-flag applies if vendored). Content is functionally the same idea -- five genuinely different variants of one UI piece in a single self-contained document -- as the existing prototype skill. Near-duplicate; not vendored, recorded as overlap instead of creating a same-name conflicting directory."
+    },
+    {
+      "id": "seo-audit",
+      "path": "design/seo-audit",
+      "rubric": { "relevance": 0, "quality": 2, "conformance": 2, "uniqueness": 1 },
+      "reason": "Automatic reject per rubric: technical SEO / search-ranking audit content, generic marketing work with no design judgment."
+    },
+    {
+      "id": "stitch-design-taste",
+      "path": "design/stitch-design-taste",
+      "rubric": { "relevance": 1, "quality": 2, "conformance": 1, "uniqueness": 1 },
+      "reason": "Below the total >= 6 threshold and relevance too low. Generates DESIGN.md files specifically for Google Stitch (labs.google.com/stitch) -- hard-wired to one external commercial tool's semantic design language, and otherwise a restatement of the same anti-generic taste directives as the other six taste skills in this repo."
+    },
+    {
+      "id": "codebase-content-ideas",
+      "path": "writing/codebase-content-ideas",
+      "rubric": { "relevance": 0, "quality": 2, "conformance": 2, "uniqueness": 1 },
+      "reason": "Automatic reject per rubric: generates blog-post/thread/social-content ideas from a codebase's commit history and notes. Content marketing, not design work."
+    },
+    {
+      "id": "copywriting",
+      "path": "writing/copywriting",
+      "rubric": { "relevance": 2, "quality": 2, "conformance": 2, "uniqueness": 0 },
+      "reason": "Overlaps the already-vendored ux-writing and better-writing skills (voice/tone, microcopy, error/empty/success states) without adding a meaningfully different approach or depth. Near-duplicate; record as overlap."
+    },
+    {
+      "id": "customer-email-draft-threads",
+      "path": "writing/customer-email-draft-threads",
+      "rubric": { "relevance": 0, "quality": 2, "conformance": 1, "uniqueness": 1 },
+      "reason": "Automatic reject per rubric: Gmail customer-support triage automation (drafting replies, creating Codex project threads). Customer-support ops, not design work; also hard-coupled to Gmail plus a Codex-specific project-thread integration."
+    },
+    {
+      "id": "pr-tldr",
+      "path": "writing/pr-tldr",
+      "rubric": { "relevance": 0, "quality": 2, "conformance": 2, "uniqueness": 1 },
+      "reason": "Automatic reject per rubric: generic pull-request/branch summary generator for engineering review, no design content."
+    },
+    {
+      "id": "x-bookmark-quote-posts",
+      "path": "writing/x-bookmark-quote-posts",
+      "rubric": { "relevance": 0, "quality": 1, "conformance": 1, "uniqueness": 1 },
+      "reason": "Automatic reject per rubric: turns a user's X/Twitter bookmarks into quote-post drafts for that person's social media presence. Social-media content operations, not design work."
+    }
+  ],
+  "securityNotes": "All 24 rejected skills' SKILL.md files were read in full (frontmatter plus body) at the pinned commit; the full-content candidates that came closest to the bar (design-engineering, prototype, copywriting) were read completely, the rest were read in full as single-file SKILL.md skills with no bundled references. No scripts, no network calls, no credential access, no download-and-execute, and no hidden or exfiltration-style instructions found in any of the 24. None attempt to override user instructions or safety behavior.",
+  "logMd": "#### its-thepoe/skills (inspected 2026-08-29)\nPinned HEAD 3172de431451bbad2958b1fd87a79d1ccd39b0e3 (main; verified via GitHub API commits endpoint). Stars 1, last push 2026-08-24T18:56:27Z. Repo-root LICENSE read in full: MIT, copyright (c) 2026 Oladipupo Ayoola. Enumerated the complete design/ (23 skill directories) and writing/ (5 skill directories) tree via the recursive git trees API at the pinned SHA -- no truncation. Read every SKILL.md in both directories (frontmatter and body); for the 5 strongest candidates additionally read every bundled README/reference/package.json file in full before deciding. 5 vendored (design-and-refine, design-motion-principles, redesign-existing-projects, market-command-matrix, image-to-code -- see their individual manifests), 23 rejected here. Rejection pattern: 5 exact-id collisions with skills already in the registry that also turned out to be near-duplicates in content (better-colors, better-typography, better-ui, frontend-design, prototype); 7 near-identical 'opinionated aesthetic persona' skills that mutually overlap and mostly restate the already-vendored frontend-design under a different forced style (design-taste-frontend, family-taste, gpt-taste, high-end-visual-design, industrial-brutalist-ui, minimalist-ui, stitch-design-taste); 2 narrow icon-package import helpers (hugeicons, iconsax); 1 near-duplicate of design-motion-principles' own bundled Emil Kowalski content (design-engineering); 1 low-relevance image-generation-prompting skill (design-first-ui-prompting); 2 automatic relevance-0 rejects (full-output-enforcement, seo-audit); and 5 total writing/ skills (all of them: writing/ has 5 skill dirs, not 6) of which 4 are relevance-0 (codebase-content-ideas, customer-email-draft-threads, pr-tldr, x-bookmark-quote-posts) and 1 (copywriting) is a near-duplicate of the already-vendored ux-writing/better-writing."
+}

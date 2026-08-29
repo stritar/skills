@@ -1,0 +1,121 @@
+{
+  "id": "wp-block-themes",
+  "category": "visual-design",
+  "verdict": "vendor",
+  "rubric": {
+    "relevance": 3,
+    "quality": 3,
+    "conformance": 1,
+    "uniqueness": 2
+  },
+  "upstream": {
+    "repository": "WordPress/agent-skills",
+    "url": "https://github.com/WordPress/agent-skills/tree/d87ee6916e740c7960b6959220c0481a41b320c7/skills/wp-block-themes",
+    "author": "WordPress",
+    "commit": "d87ee6916e740c7960b6959220c0481a41b320c7",
+    "path": "skills/wp-block-themes",
+    "license": "GPL-2.0-or-later",
+    "licenseSource": "repo-root:LICENSE"
+  },
+  "files": [
+    {
+      "dest": "SKILL.md",
+      "content": "---\nname: wp-block-themes\ndescription: \"Use when developing WordPress block themes: theme.json (global settings/styles), templates and template parts, patterns, style variations, and Site Editor troubleshooting (style hierarchy, overrides, caching).\"\ncompatibility: \"Targets WordPress 7.0+ (PHP 7.4.0+). Filesystem-based agent with bash + node. Some workflows require WP-CLI.\"\n---\n\n# WP Block Themes\n\n## When to use\n\nUse this skill for block theme work such as:\n\n- editing `theme.json` (presets, settings, styles, per-block styles)\n- adding or changing templates (`templates/*.html`) and template parts (`parts/*.html`)\n- adding patterns (`patterns/*.php`) and controlling what appears in the inserter\n- adding style variations (`styles/*.json`)\n- debugging \"styles not applying\" / \"editor doesn't reflect theme.json\"\n\n## Inputs required\n\n- Repo root and which theme is targeted (theme directory if multiple exist).\n- Target WordPress version range (theme.json version and features vary by core version).\n- Where the issue manifests: Site Editor, post editor, frontend, or all.\n\n## Procedure\n\n### 0) Triage and locate block theme roots\n\n1. Run triage:\n   - `node scripts/detect_wp_project.mjs`\n2. Detect theme roots + key folders:\n   - `node scripts/detect_block_themes.mjs`\n\nIf multiple themes exist, pick one and scope all changes to that theme root.\n\n### 1) Create a new block theme (if needed)\n\nIf you are creating a new block theme from scratch (or converting a classic theme):\n\n- Prefer starting from a known-good scaffold (or exporting from a WP environment) rather than guessing file layout.\n- Be explicit about the minimum supported WordPress version because `theme.json` schema versions differ.\n\nRead:\n- `references/creating-new-block-theme.md`\n\nAfter creating the theme root, re-run `detect_block_themes` and continue below.\n\n### 2) Confirm theme type and override expectations\n\n- Block theme indicators:\n  - `theme.json` present\n  - `templates/` and/or `parts/` present\n- Remember the style hierarchy:\n  - core defaults → theme.json → child theme → user customizations\n  - user customizations can make theme.json edits appear \"ignored\"\n\nRead:\n- `references/debugging.md` (style hierarchy + fastest checks)\n\n### 3) Make `theme.json` changes safely\n\nDecide whether you are changing:\n\n- **settings** (what the UI allows): presets, typography scale, colors, layout, spacing\n- **styles** (how it looks by default): CSS-like rules for elements/blocks\n\nRead:\n- `references/theme-json.md`\n\n### 4) Templates and template parts\n\n- Templates live under `templates/` and are HTML.\n- Template parts live under `parts/` and must not be nested in subdirectories.\n\nRead:\n- `references/templates-and-parts.md`\n\n### 5) Patterns\n\nPrefer filesystem patterns under `patterns/` when you want theme-owned patterns.\n\nRead:\n- `references/patterns.md`\n\n### 6) Style variations\n\nStyle variations are JSON files under `styles/`. Note: once a user picks a style variation, that selection is stored in the DB, so changing the file may not \"update what the user sees\" automatically.\n\nRead:\n- `references/style-variations.md`\n\n## Verification\n\n- Site Editor reflects changes where expected (Styles UI, templates, patterns).\n- Frontend renders with expected styles.\n- If styles aren't changing, confirm whether user customizations override theme defaults.\n- Run the repo's build/lint scripts if assets are involved (fonts, custom JS/CSS build).\n\n## Failure modes / debugging\n\nStart with:\n\n- `references/debugging.md`\n\nCommon issues:\n\n- wrong theme root (editing an inactive theme)\n- user customizations override your defaults\n- invalid `theme.json` shape/typos prevent application\n- templates/parts in wrong folders (or nested parts)\n\n## Escalation\n\nIf upstream behavior is unclear, consult canonical docs:\n\n- Theme Handbook and Block Editor Handbook for `theme.json`, templates, patterns, and style variations.\n"
+    },
+    {
+      "dest": "references/creating-new-block-theme.md",
+      "rawUrl": "https://raw.githubusercontent.com/WordPress/agent-skills/d87ee6916e740c7960b6959220c0481a41b320c7/skills/wp-block-themes/references/creating-new-block-theme.md"
+    },
+    {
+      "dest": "references/debugging.md",
+      "rawUrl": "https://raw.githubusercontent.com/WordPress/agent-skills/d87ee6916e740c7960b6959220c0481a41b320c7/skills/wp-block-themes/references/debugging.md"
+    },
+    {
+      "dest": "references/patterns.md",
+      "rawUrl": "https://raw.githubusercontent.com/WordPress/agent-skills/d87ee6916e740c7960b6959220c0481a41b320c7/skills/wp-block-themes/references/patterns.md"
+    },
+    {
+      "dest": "references/style-variations.md",
+      "rawUrl": "https://raw.githubusercontent.com/WordPress/agent-skills/d87ee6916e740c7960b6959220c0481a41b320c7/skills/wp-block-themes/references/style-variations.md"
+    },
+    {
+      "dest": "references/templates-and-parts.md",
+      "rawUrl": "https://raw.githubusercontent.com/WordPress/agent-skills/d87ee6916e740c7960b6959220c0481a41b320c7/skills/wp-block-themes/references/templates-and-parts.md"
+    },
+    {
+      "dest": "references/theme-json.md",
+      "rawUrl": "https://raw.githubusercontent.com/WordPress/agent-skills/d87ee6916e740c7960b6959220c0481a41b320c7/skills/wp-block-themes/references/theme-json.md"
+    },
+    {
+      "dest": "scripts/detect_block_themes.mjs",
+      "rawUrl": "https://raw.githubusercontent.com/WordPress/agent-skills/d87ee6916e740c7960b6959220c0481a41b320c7/skills/wp-block-themes/scripts/detect_block_themes.mjs"
+    },
+    {
+      "dest": "scripts/detect_wp_project.mjs",
+      "rawUrl": "https://raw.githubusercontent.com/WordPress/agent-skills/d87ee6916e740c7960b6959220c0481a41b320c7/skills/wp-project-triage/scripts/detect_wp_project.mjs"
+    },
+    {
+      "dest": "LICENSE.txt",
+      "rawUrl": "https://raw.githubusercontent.com/WordPress/agent-skills/d87ee6916e740c7960b6959220c0481a41b320c7/LICENSE"
+    }
+  ],
+  "securityNotes": "Read every file in the skill directory in full: SKILL.md, all 6 references/*.md, and scripts/detect_block_themes.mjs, plus the bundled scripts/detect_wp_project.mjs (originally at skills/wp-project-triage/scripts/detect_wp_project.mjs). Both scripts are Node ESM using only built-in fs/path/process, perform exclusively local read-only filesystem operations (statSync/readdirSync/readFileSync), cap file counts and recursion depth, and write a JSON report to stdout -- no network calls, no child_process/exec, no download-and-execute, no env var or credential access beyond process.cwd(). The 6 reference docs are prose; every outbound link in them points to developer.wordpress.org/make.wordpress.org (external documentation, not repo files) except one internal cross-reference (debugging.md -> theme-json.md) which is within the same references/ folder and already resolves correctly. No hidden instructions or prompt injection found in any file.",
+  "overlaps": ["design-tokens", "theme-factory"],
+  "proposedEntry": {
+    "id": "wp-block-themes",
+    "name": "wp-block-themes",
+    "description": "Guides an agent through WordPress block theme visual-design work: editing theme.json global settings and styles (color, typography, spacing, layout presets), adding or changing templates and template parts, filesystem patterns, and style variations, plus diagnosing why the Site Editor or frontend is not reflecting a style change by walking the override hierarchy (core defaults, theme.json, child theme, stored user customizations).",
+    "category": "visual-design",
+    "tags": ["design-tokens", "themes", "typography", "color", "layout"],
+    "triggers": [
+      "edit this WordPress block theme's theme.json",
+      "why isn't my WordPress theme style applying",
+      "add a style variation to this block theme",
+      "scaffold a new WordPress block theme",
+      "add a template part to this theme"
+    ],
+    "inputs": [
+      "Repo root and which theme is targeted",
+      "Target WordPress version range",
+      "Where the styling issue manifests (Site Editor, post editor, frontend)"
+    ],
+    "outputs": [
+      "Edited theme.json, templates/*.html, parts/*.html, patterns/*.php, or styles/*.json files",
+      "A diagnosis identifying which layer of the style-override hierarchy is responsible when a style change is not visible"
+    ],
+    "path": "skills/visual-design/wp-block-themes",
+    "source": {
+      "type": "third-party",
+      "repository": "WordPress/agent-skills",
+      "url": "https://github.com/WordPress/agent-skills/tree/d87ee6916e740c7960b6959220c0481a41b320c7/skills/wp-block-themes",
+      "author": "WordPress",
+      "license": "GPL-2.0-or-later",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": "skills/wp-block-themes",
+      "upstreamCommit": "d87ee6916e740c7960b6959220c0481a41b320c7",
+      "retrievedAt": "2026-08-29",
+      "modified": true,
+      "modifications": [
+        {
+          "date": "2026-08-29",
+          "reason": "broken-reference",
+          "description": "Upstream SKILL.md step 0 instructed running `node skills/wp-project-triage/scripts/detect_wp_project.mjs`, a script that lives in a sibling skill's directory and does not exist once only skills/wp-block-themes/ is copied. Rewrote both triage-step commands in SKILL.md to reference local `scripts/` paths (`node scripts/detect_wp_project.mjs` and `node scripts/detect_block_themes.mjs`) so the instructions resolve inside the vendored directory.",
+          "files": ["SKILL.md"]
+        },
+        {
+          "date": "2026-08-29",
+          "reason": "portability",
+          "description": "Bundled a copy of skills/wp-project-triage/scripts/detect_wp_project.mjs (read in full; local-filesystem-only, no network calls) at scripts/detect_wp_project.mjs so the rewritten SKILL.md reference resolves inside this skill directory, matching the path the link now points to.",
+          "files": ["scripts/detect_wp_project.mjs"]
+        }
+      ]
+    },
+    "compatibility": ["claude-code", "codex", "cursor", "opencode", "amp", "gemini-cli", "copilot", "vs-code", "claude-ai"],
+    "dependencies": ["node"],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "stable",
+    "status": "draft"
+  },
+  "logMd": "#### WordPress/agent-skills :: wp-block-themes (inspected 2026-08-29, same pin d87ee6916e740c7960b6959220c0481a41b320c7 as wpds -- see wpds.json logMd for repo-level license/commit evidence)\n- Directory listing: SKILL.md, references/ (6 files: creating-new-block-theme.md, debugging.md, patterns.md, style-variations.md, templates-and-parts.md, theme-json.md), scripts/ (1 file: detect_block_themes.mjs). All 8 files plus the bundled triage script read in full.\n- SKILL.md frontmatter: `name: wp-block-themes` (= dirname), `description`, `compatibility` -- only spec fields, so `claude-ai` appended to compatibility.\n- Self-containment check found ONE broken relative reference: `node skills/wp-project-triage/scripts/detect_wp_project.mjs` in the step-0 triage instructions, pointing outside this skill's directory into a sibling skill (wp-project-triage). Fixed by rewriting the SKILL.md line to `node scripts/detect_wp_project.mjs` (broken-reference modification) and bundling that script's actual content at `scripts/detect_wp_project.mjs` (portability modification). Read the bundled script in full: pure Node fs/path project-type detector, no network/exec/credential access.\n- All 6 reference docs read in full: creating-new-block-theme.md, debugging.md, patterns.md, style-variations.md, templates-and-parts.md, theme-json.md. Only external links are to developer.wordpress.org / make.wordpress.org (documentation, not repo files); debugging.md's one internal cross-reference to theme-json.md is within the same references/ folder and needs no fix. No hidden instructions, no prompt injection, no credential requests found in any file.\n- Rubric: relevance 3 (theme.json is literally the WordPress design-token/global-styles file; this is core visual-design work, not incidental), quality 3 (numbered 0-6 procedure, each step gated by a specific reference doc, explicit style-override hierarchy, dedicated verification and failure-mode sections), conformance 1 (the upstream cross-skill script reference was a genuine broken-reference issue, fixed here rather than being inherently clean), uniqueness 2 (no vendored skill covers WordPress theme.json / block-theme styling specifically). Total 9, relevance>=2, GPL-2.0-or-later license clean, security clean -> **vendor**."
+}

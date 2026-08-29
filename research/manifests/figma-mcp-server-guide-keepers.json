@@ -1,0 +1,69 @@
+{
+  "id": "figma-mcp-server-guide-keepers",
+  "verdict": "not-vendored-keeper",
+  "repository": "figma/mcp-server-guide",
+  "commit": "7f6562c4900fafb46e5e8fd3cc8ced954779bab3",
+  "keeperSkills": [
+    {
+      "id": "figma-code-connect",
+      "purpose": "Creates and maintains Figma Code Connect `.figma.ts` template files that map Figma components to code snippets, using the `figma.code` tagged-template pattern (never `.figma.tsx`/`figma.connect()`).",
+      "reason": "no license found at commit 7f6562c4900fafb46e5e8fd3cc8ced954779bab3"
+    },
+    {
+      "id": "figma-create-new-file",
+      "purpose": "Mandatory prerequisite skill for creating a blank Figma file (design, FigJam, or Slides) via the `create_new_file` MCP tool, resolving plan keys and editor type first.",
+      "reason": "no license found at commit 7f6562c4900fafb46e5e8fd3cc8ced954779bab3"
+    },
+    {
+      "id": "figma-design-to-code",
+      "purpose": "Mandatory prerequisite before calling `get_design_context`; governs how an agent turns a Figma design into implementation code (asset handling, hint priority hierarchy, adapting reference React/Tailwind output to the target stack).",
+      "reason": "no license found at commit 7f6562c4900fafb46e5e8fd3cc8ced954779bab3"
+    },
+    {
+      "id": "figma-generate-design",
+      "purpose": "Structured six-step workflow for translating an application page/view/multi-section layout into a Figma file built from a published design system (components, bound variables, styles) rather than hardcoded values.",
+      "reason": "no license found at commit 7f6562c4900fafb46e5e8fd3cc8ced954779bab3"
+    },
+    {
+      "id": "figma-generate-diagram",
+      "purpose": "Mandatory prerequisite before calling `generate_diagram`; routes to type-specific Mermaid guidance for flowcharts, sequence/state/ER diagrams and Gantt charts rendered into FigJam, and tells the agent when to skip the tool.",
+      "reason": "no license found at commit 7f6562c4900fafb46e5e8fd3cc8ced954779bab3"
+    },
+    {
+      "id": "figma-generate-library",
+      "purpose": "Five-phase (discovery, foundations, structure, components, integration/QA), non-one-shot workflow for building or updating a production-grade design system in Figma from a codebase, with a persistent state ledger for long-running runs.",
+      "reason": "no license found at commit 7f6562c4900fafb46e5e8fd3cc8ced954779bab3"
+    },
+    {
+      "id": "figma-implement-motion",
+      "purpose": "Translates Figma motion/animation data (from `get_motion_context`, paired with `get_design_context`) into production animation code in the codebase's existing motion library, preserving transform origins and respecting `prefers-reduced-motion`.",
+      "reason": "no license found at commit 7f6562c4900fafb46e5e8fd3cc8ced954779bab3"
+    },
+    {
+      "id": "figma-swiftui",
+      "purpose": "Bidirectional SwiftUI <-> Figma translation skill: implementing a Figma design in SwiftUI, or pushing SwiftUI views/tokens back into a Figma file, including iOS semantic color and SF Symbol mapping.",
+      "reason": "no license found at commit 7f6562c4900fafb46e5e8fd3cc8ced954779bab3"
+    },
+    {
+      "id": "figma-use-figjam",
+      "purpose": "FigJam-specific context and rules for agents calling the `use_figma` MCP tool inside a FigJam file, loaded alongside the base `figma-use` skill.",
+      "reason": "no license found at commit 7f6562c4900fafb46e5e8fd3cc8ced954779bab3"
+    },
+    {
+      "id": "figma-use-motion",
+      "purpose": "Motion/animation extension to `use_figma` covering manual keyframe tracks, animation styles, easing and timeline duration on Figma nodes, gated behind a `metronome` feature flag.",
+      "reason": "no license found at commit 7f6562c4900fafb46e5e8fd3cc8ced954779bab3"
+    },
+    {
+      "id": "figma-use-slides",
+      "purpose": "Slides-specific context and rules for agents calling `use_figma` to build or edit Figma Slides decks (design-thinking-first workflow, slide-grid quirks, append-before-position rule).",
+      "reason": "no license found at commit 7f6562c4900fafb46e5e8fd3cc8ced954779bab3"
+    },
+    {
+      "id": "figma-use",
+      "purpose": "Foundational, mandatory-prerequisite skill for every `use_figma` MCP tool call: how to execute JavaScript against the Figma Plugin API correctly (data flow, page-context rules, common pitfalls, efficient batch APIs).",
+      "reason": "no license found at commit 7f6562c4900fafb46e5e8fd3cc8ced954779bab3"
+    }
+  ],
+  "logMd": "#### figma/mcp-server-guide (inspected 2026-08-29)\n- Repo pin: HEAD commit 7f6562c4900fafb46e5e8fd3cc8ced954779bab3 on branch `main` (cross-verified via GET /commits?per_page=1 and GET /branches/main -- both returned the same 40-hex sha). Stars 1932, pushed_at 2026-08-20T20:45:04Z. `license` field on the repo API object is null.\n- Root contents at the pin (via Contents API): directories `.claude-plugin`, `.cursor-plugin`, `.github`, `figma-power`, `skills`, `workflow-skills`; files `.mcp.json`, two SVG icons, `README.md`, `gemini-extension.json`, `server.json`. No `LICENSE`, `LICENSE.md`, `LICENSE.txt`, or `COPYING` at the root.\n- `.claude-plugin/plugin.json` read in full: `{name, description, version, author}` -- no `license` field.\n- `.claude-plugin` directory listing shows only a `plugin` subdirectory, no LICENSE file there.\n- `gemini-extension.json` and `server.json` read in full: neither has a `license` field.\n- `README.md` read in full: describes setup/rate-limiting/best-practices for the Figma MCP server; no license section, no SPDX mention, no copyright statement.\n- No repo-root `package.json` exists (not listed at root), so no package.json SPDX declaration is possible.\n- Conclusion: exhaustive search across every location named in the assignment (LICENSE*, COPYING, package.json, .claude-plugin/plugin.json, per-skill dirs implied by the flat `skills/<name>/SKILL.md` listing with no LICENSE files present, README) found no license anywhere in the pinned tree.\n- `skills/` contains exactly 12 directories (matches the reported count): figma-code-connect, figma-create-new-file, figma-design-to-code, figma-generate-design, figma-generate-diagram, figma-generate-library, figma-implement-motion, figma-swiftui, figma-use-figjam, figma-use-motion, figma-use-slides, figma-use. Each `SKILL.md` was fetched and read (frontmatter + body) to extract name/description/purpose for this keeper record; none were vendored per the assignment's explicit instruction that an unlicensed repo yields verdict not-vendored-keeper for every skill.\n- Security scan was not performed beyond the license check since verdict is not-vendored-keeper regardless (automatic disqualifier: no verifiable license). No files were bundled or copied.\n- Dependency note for the record: all 12 skills require the Figma MCP server (`figma-mcp`) at runtime; several are explicitly gated as mandatory prerequisites to specific MCP tool calls (`use_figma`, `get_design_context`, `get_motion_context`, `generate_diagram`, `create_new_file`)."
+}

@@ -1,0 +1,118 @@
+{
+  "id": "market-command-matrix",
+  "category": "strategy",
+  "verdict": "vendor",
+  "rubric": {
+    "relevance": 2,
+    "quality": 3,
+    "conformance": 2,
+    "uniqueness": 2
+  },
+  "upstream": {
+    "repository": "its-thepoe/skills",
+    "url": "https://github.com/its-thepoe/skills/tree/3172de431451bbad2958b1fd87a79d1ccd39b0e3/design/market-command-matrix",
+    "author": "Oladipupo Ayoola (its-thepoe)",
+    "commit": "3172de431451bbad2958b1fd87a79d1ccd39b0e3",
+    "path": "design/market-command-matrix",
+    "license": "MIT",
+    "licenseSource": "repo-root:LICENSE"
+  },
+  "files": [
+    {
+      "dest": "SKILL.md",
+      "rawUrl": "https://raw.githubusercontent.com/its-thepoe/skills/3172de431451bbad2958b1fd87a79d1ccd39b0e3/design/market-command-matrix/SKILL.md",
+      "blobSha": "4e7c37b82647db232e1f7e124eb061e13ac39e15"
+    },
+    {
+      "dest": "README.md",
+      "rawUrl": "https://raw.githubusercontent.com/its-thepoe/skills/3172de431451bbad2958b1fd87a79d1ccd39b0e3/design/market-command-matrix/README.md",
+      "blobSha": "f21add06c5cbb7351c7d19759f9bbb7e7b9491a9"
+    },
+    {
+      "dest": "reference.md",
+      "rawUrl": "https://raw.githubusercontent.com/its-thepoe/skills/3172de431451bbad2958b1fd87a79d1ccd39b0e3/design/market-command-matrix/reference.md",
+      "blobSha": "6174313479bdc98536a167fb5a0f9f2b19f272d5"
+    },
+    {
+      "dest": "package.json",
+      "rawUrl": "https://raw.githubusercontent.com/its-thepoe/skills/3172de431451bbad2958b1fd87a79d1ccd39b0e3/design/market-command-matrix/package.json",
+      "blobSha": "07751b294eb7f0d60196e4cb1a2b00b05bd89a90"
+    },
+    {
+      "dest": "LICENSE.txt",
+      "rawUrl": "https://raw.githubusercontent.com/its-thepoe/skills/3172de431451bbad2958b1fd87a79d1ccd39b0e3/LICENSE",
+      "blobSha": "8f62ebbd8b041f7e1f204cc9bfef089fef28ef12"
+    }
+  ],
+  "securityNotes": "Read SKILL.md, README.md, reference.md and package.json in full at the pinned commit. No scripts, no network calls, no credential access, no download-and-execute, no hidden or exfiltration-style instructions. reference.md credits the framework narrative to a named external source (Patrick Campbell / Patticus, 'Competitor Research and Strategy', 2023) and links a sibling repo (kastrah/market-command-matrix) purely as attribution, not as a fetch target.",
+  "overlaps": [],
+  "proposedEntry": {
+    "id": "market-command-matrix",
+    "name": "market-command-matrix",
+    "description": "Turns competitor research into a decision, not a summary: classifies each priority competitor on two axes (market mindshare and resource strength dedicated to the market) into one of five categories -- all-out attack, monitor, harvest, ignore, or partner -- each mapped to a specific playbook of moves, then names one primary motion, an owner, and a trigger per player. Runs reconnaissance (unaided-before-aided customer-view signal collection across messaging, pricing, hiring/funding, SEO, and reviews), extraction questions per competitor, matrix placement with rationale and confidence, playbook selection, and an optional market-shape read (fragmented/challenger/ancient/mature). Includes a completion gate that blocks a 'research only' handoff with no attached decision.",
+    "category": "strategy",
+    "tags": [
+      "competitive-analysis",
+      "market-research",
+      "prioritization",
+      "roadmapping",
+      "stakeholders"
+    ],
+    "triggers": [
+      "competitor analysis",
+      "market mapping",
+      "GTM prioritisation",
+      "build a battlecard",
+      "market intelligence review"
+    ],
+    "inputs": [
+      "a market/category and the priority competitors to evaluate",
+      "publicly observable competitor signals (site messaging, pricing, ads, reviews, hiring/funding, SEO)"
+    ],
+    "outputs": [
+      "a competitor map (direct/adjacent/substitute/ecosystem)",
+      "a matrix placement per competitor with rationale and confidence",
+      "one primary playbook motion, owner, and trigger per priority competitor",
+      "an optional market-shape read and whitespace/positioning notes"
+    ],
+    "path": "skills/strategy/market-command-matrix",
+    "source": {
+      "type": "third-party",
+      "repository": "its-thepoe/skills",
+      "url": "https://github.com/its-thepoe/skills/tree/3172de431451bbad2958b1fd87a79d1ccd39b0e3/design/market-command-matrix",
+      "author": "Oladipupo Ayoola (its-thepoe)",
+      "license": "MIT",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": "design/market-command-matrix",
+      "upstreamCommit": "3172de431451bbad2958b1fd87a79d1ccd39b0e3",
+      "retrievedAt": "2026-08-29",
+      "modified": true,
+      "modifications": [
+        {
+          "date": "2026-08-29",
+          "reason": "portability",
+          "description": "Repository license lives only at repo root (LICENSE), not inside the skill directory. Bundled a copy as LICENSE.txt inside the skill directory so the vendored directory is self-contained.",
+          "files": [
+            "LICENSE.txt"
+          ]
+        }
+      ]
+    },
+    "compatibility": [
+      "claude-code",
+      "codex",
+      "cursor",
+      "opencode",
+      "amp",
+      "gemini-cli",
+      "copilot",
+      "vs-code"
+    ],
+    "dependencies": [],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "experimental",
+    "status": "draft"
+  },
+  "logMd": "#### its-thepoe/skills (inspected 2026-08-29)\nPinned HEAD 3172de431451bbad2958b1fd87a79d1ccd39b0e3. market-command-matrix: read SKILL.md, README.md, reference.md and package.json in full. Filed under design/ in the upstream repo despite being a competitive-strategy skill; evaluated against this registry's own taxonomy, which defines a 'strategy' category explicitly scoped to 'competitive analysis, JTBD, value propositions, prioritization, roadmaps' -- this places it in scope even though it is not visual/UI design work. Rubric: relevance 2 (clear strategy-category application per this registry's own taxonomy, not core visual/UX design), quality 3 (concrete two-axis model, five decision categories each with a named playbook menu, a numbered six-step workflow, an explicit completion gate that blocks research-only output, full-analysis and one-page-memo templates), conformance 2 (valid SKILL.md, name equals dirname, its one relative link -- reference.md -- resolves inside the directory), uniqueness 2 (no competitive-analysis or GTM-prioritization skill exists anywhere in the current registry). Total 9. License MIT confirmed at repo-root LICENSE, bundled as LICENSE.txt (portability modification). Security: no scripts, no network calls, no hidden instructions; framework narrative is attributed to a named external source (Patrick Campbell / Patticus) in reference.md, consistent with the repo's MIT declaration for the packaging. Verdict: vendor -- flagged for maintainer judgment given the marketing/strategy flavor despite fitting the taxonomy's 'strategy' category on paper."
+}

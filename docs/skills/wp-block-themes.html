@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>wp-block-themes — Product design skills</title>
+<meta name="description" content="Guides an agent through WordPress block theme visual-design work: editing theme.json global settings and styles (color, typography, spacing, layout presets), adding or changing templates and template parts, filesystem patterns, and style variations, plus diagnosing why the Site Editor or frontend…">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="page-head">
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=visual-design">Visual design</a></nav>
+<h1>wp-block-themes</h1>
+<p class="badges"><span class="il badge badge-dep"><span class="il-label">Needs Node</span></span></p>
+<p class="lede">Guides an agent through WordPress block theme visual-design work.</p>
+</header>
+
+<div class="layout">
+<nav class="sidebar" aria-labelledby="contents">
+<h2 id="contents" class="label-caps">On this page</h2>
+<ul class="toc">
+<li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
+
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#wp-block-themes">WP Block Themes</a></li>
+<li class="toc-sub"><a href="#when-to-use">When to use</a></li>
+<li class="toc-sub"><a href="#inputs-required">Inputs required</a></li>
+<li class="toc-sub"><a href="#procedure">Procedure</a></li>
+<li class="toc-sub"><a href="#verification">Verification</a></li>
+<li class="toc-sub"><a href="#failure-modes-debugging">Failure modes / debugging</a></li>
+<li class="toc-sub"><a href="#escalation">Escalation</a></li>
+</ul>
+</nav>
+
+<main id="main">
+<section id="install">
+<h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill wp-block-themes</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill wp-block-themes"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
+<ul class="install">
+<li>
+<h3>Claude Code, as a plugin</h3>
+<div class="cmd"><pre><code>/plugin marketplace add stritar/skills
+/plugin install product-design-visual-design@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-visual-design@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Installs the whole <code>visual-design</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
+</li>
+<li>
+<h3>From a clone, copied by hand</h3>
+<div class="cmd"><pre><code>cp -r skills/visual-design/wp-block-themes ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/visual-design/wp-block-themes ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
+</li>
+</ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Guides an agent through WordPress block theme visual-design work: editing theme.json global settings and styles (color, typography, spacing, layout presets), adding or changing templates and template parts, filesystem patterns, and style variations, plus diagnosing why the Site Editor or frontend is not reflecting a style change by walking the override hierarchy (core defaults, theme.json, child theme, stored user customizations).</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>edit this WordPress block theme's theme.json</li><li>why isn't my WordPress theme style applying</li><li>add a style variation to this block theme</li><li>scaffold a new WordPress block theme</li><li>add a template part to this theme</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>Repo root and which theme is targeted</li><li>Target WordPress version range</li><li>Where the styling issue manifests (Site Editor, post editor, frontend)</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>Edited theme.json, templates/*.html, parts/*.html, patterns/*.php, or styles/*.json files</li><li>A diagnosis identifying which layer of the style-override hierarchy is responsible when a style change is not visible</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=design-tokens">design-tokens</a></li><li><a class="tag" href="../index.html?tag=themes">themes</a></li><li><a class="tag" href="../index.html?tag=typography">typography</a></li><li><a class="tag" href="../index.html?tag=color">color</a></li><li><a class="tag" href="../index.html?tag=layout">layout</a></li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Requires</h3><ul><li><code>node</code></li></ul></div>
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/WordPress/agent-skills/tree/d87ee6916e740c7960b6959220c0481a41b320c7/skills/wp-block-themes">WordPress/agent-skills</a> by WordPress at <code>d87ee69</code>, licence <code>GPL-2.0-or-later</code>. Modified when vendored: broken-reference, portability.</p>
+</details>
+</section>
+
+
+
+<article class="skill-body" id="instructions">
+<h2 class="body-head">Instructions</h2>
+<p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/visual-design/wp-block-themes/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
+<h2 id="wp-block-themes">WP Block Themes</h2>
+<h3 id="when-to-use">When to use</h3>
+<p>Use this skill for block theme work such as:</p>
+<ul>
+<li>editing <code>theme.json</code> (presets, settings, styles, per-block styles)</li>
+<li>adding or changing templates (<code>templates/*.html</code>) and template parts (<code>parts/*.html</code>)</li>
+<li>adding patterns (<code>patterns/*.php</code>) and controlling what appears in the inserter</li>
+<li>adding style variations (<code>styles/*.json</code>)</li>
+<li>debugging &quot;styles not applying&quot; / &quot;editor doesn't reflect theme.json&quot;</li>
+</ul>
+<h3 id="inputs-required">Inputs required</h3>
+<ul>
+<li>Repo root and which theme is targeted (theme directory if multiple exist).</li>
+<li>Target WordPress version range (theme.json version and features vary by core version).</li>
+<li>Where the issue manifests: Site Editor, post editor, frontend, or all.</li>
+</ul>
+<h3 id="procedure">Procedure</h3>
+<h4 id="0-triage-and-locate-block-theme-roots">0) Triage and locate block theme roots</h4>
+<ol>
+<li>Run triage:
+<ul>
+<li><code>node scripts/detect_wp_project.mjs</code></li>
+</ul></li>
+<li>Detect theme roots + key folders:
+<ul>
+<li><code>node scripts/detect_block_themes.mjs</code></li>
+</ul></li>
+</ol>
+<p>If multiple themes exist, pick one and scope all changes to that theme root.</p>
+<h4 id="1-create-a-new-block-theme-if-needed">1) Create a new block theme (if needed)</h4>
+<p>If you are creating a new block theme from scratch (or converting a classic theme):</p>
+<ul>
+<li>Prefer starting from a known-good scaffold (or exporting from a WP environment) rather than guessing file layout.</li>
+<li>Be explicit about the minimum supported WordPress version because <code>theme.json</code> schema versions differ.</li>
+</ul>
+<p>Read:</p>
+<ul>
+<li><code>references/creating-new-block-theme.md</code></li>
+</ul>
+<p>After creating the theme root, re-run <code>detect_block_themes</code> and continue below.</p>
+<h4 id="2-confirm-theme-type-and-override-expectations">2) Confirm theme type and override expectations</h4>
+<ul>
+<li>Block theme indicators:
+<ul>
+<li><code>theme.json</code> present</li>
+<li><code>templates/</code> and/or <code>parts/</code> present</li>
+</ul></li>
+<li>Remember the style hierarchy:
+<ul>
+<li>core defaults → theme.json → child theme → user customizations</li>
+<li>user customizations can make theme.json edits appear &quot;ignored&quot;</li>
+</ul></li>
+</ul>
+<p>Read:</p>
+<ul>
+<li><code>references/debugging.md</code> (style hierarchy + fastest checks)</li>
+</ul>
+<h4 id="3-make-themejson-changes-safely">3) Make <code>theme.json</code> changes safely</h4>
+<p>Decide whether you are changing:</p>
+<ul>
+<li><strong>settings</strong> (what the UI allows): presets, typography scale, colors, layout, spacing</li>
+<li><strong>styles</strong> (how it looks by default): CSS-like rules for elements/blocks</li>
+</ul>
+<p>Read:</p>
+<ul>
+<li><code>references/theme-json.md</code></li>
+</ul>
+<h4 id="4-templates-and-template-parts">4) Templates and template parts</h4>
+<ul>
+<li>Templates live under <code>templates/</code> and are HTML.</li>
+<li>Template parts live under <code>parts/</code> and must not be nested in subdirectories.</li>
+</ul>
+<p>Read:</p>
+<ul>
+<li><code>references/templates-and-parts.md</code></li>
+</ul>
+<h4 id="5-patterns">5) Patterns</h4>
+<p>Prefer filesystem patterns under <code>patterns/</code> when you want theme-owned patterns.</p>
+<p>Read:</p>
+<ul>
+<li><code>references/patterns.md</code></li>
+</ul>
+<h4 id="6-style-variations">6) Style variations</h4>
+<p>Style variations are JSON files under <code>styles/</code>. Note: once a user picks a style variation, that selection is stored in the DB, so changing the file may not &quot;update what the user sees&quot; automatically.</p>
+<p>Read:</p>
+<ul>
+<li><code>references/style-variations.md</code></li>
+</ul>
+<h3 id="verification">Verification</h3>
+<ul>
+<li>Site Editor reflects changes where expected (Styles UI, templates, patterns).</li>
+<li>Frontend renders with expected styles.</li>
+<li>If styles aren't changing, confirm whether user customizations override theme defaults.</li>
+<li>Run the repo's build/lint scripts if assets are involved (fonts, custom JS/CSS build).</li>
+</ul>
+<h3 id="failure-modes-debugging">Failure modes / debugging</h3>
+<p>Start with:</p>
+<ul>
+<li><code>references/debugging.md</code></li>
+</ul>
+<p>Common issues:</p>
+<ul>
+<li>wrong theme root (editing an inactive theme)</li>
+<li>user customizations override your defaults</li>
+<li>invalid <code>theme.json</code> shape/typos prevent application</li>
+<li>templates/parts in wrong folders (or nested parts)</li>
+</ul>
+<h3 id="escalation">Escalation</h3>
+<p>If upstream behavior is unclear, consult canonical docs:</p>
+<ul>
+<li>Theme Handbook and Block Editor Handbook for <code>theme.json</code>, templates, patterns, and style variations.</li>
+</ul>
+</article>
+</main>
+</div>
+
+<footer class="site-foot">
+<p><a href="../index.html">Back to all skills</a></p>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

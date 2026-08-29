@@ -1,0 +1,121 @@
+{
+  "id": "onboarding",
+  "category": "interaction-design",
+  "verdict": "vendor",
+  "rubric": {
+    "relevance": 3,
+    "quality": 3,
+    "conformance": 2,
+    "uniqueness": 2
+  },
+  "upstream": {
+    "repository": "coreyhaines31/marketingskills",
+    "url": "https://github.com/coreyhaines31/marketingskills/tree/e55de886fe7580ec75cdb7ded5092b33f7d4ed58/skills/onboarding",
+    "author": "Corey Haines",
+    "commit": "e55de886fe7580ec75cdb7ded5092b33f7d4ed58",
+    "path": "skills/onboarding",
+    "license": "MIT",
+    "licenseSource": "repo-root:LICENSE"
+  },
+  "files": [
+    {
+      "dest": "SKILL.md",
+      "rawUrl": "https://raw.githubusercontent.com/coreyhaines31/marketingskills/e55de886fe7580ec75cdb7ded5092b33f7d4ed58/skills/onboarding/SKILL.md"
+    },
+    {
+      "dest": "evals/evals.json",
+      "rawUrl": "https://raw.githubusercontent.com/coreyhaines31/marketingskills/e55de886fe7580ec75cdb7ded5092b33f7d4ed58/skills/onboarding/evals/evals.json"
+    },
+    {
+      "dest": "references/activation-models.md",
+      "rawUrl": "https://raw.githubusercontent.com/coreyhaines31/marketingskills/e55de886fe7580ec75cdb7ded5092b33f7d4ed58/skills/onboarding/references/activation-models.md"
+    },
+    {
+      "dest": "references/experiments.md",
+      "rawUrl": "https://raw.githubusercontent.com/coreyhaines31/marketingskills/e55de886fe7580ec75cdb7ded5092b33f7d4ed58/skills/onboarding/references/experiments.md"
+    },
+    {
+      "dest": "references/minimum-path-to-value.md",
+      "rawUrl": "https://raw.githubusercontent.com/coreyhaines31/marketingskills/e55de886fe7580ec75cdb7ded5092b33f7d4ed58/skills/onboarding/references/minimum-path-to-value.md"
+    },
+    {
+      "dest": "LICENSE.txt",
+      "rawUrl": "https://raw.githubusercontent.com/coreyhaines31/marketingskills/e55de886fe7580ec75cdb7ded5092b33f7d4ed58/LICENSE"
+    }
+  ],
+  "securityNotes": "Read SKILL.md, evals/evals.json, and all 3 references/*.md files in full at the pinned commit. No scripts, no network calls, no credential access, no download-and-execute, no hidden or exfiltration-style instructions. evals/evals.json is a benign prompt/expected-output eval fixture (2 keys: skill_name, evals array), not executable code. The only relative links (references/*.md, including one cross-link from activation-models.md to minimum-path-to-value.md within the same references/ folder) resolve inside the skill directory. The 'check for .agents/product-marketing.md or .claude/product-marketing.md' instruction reads an optional local project file for context, not a network or credential source.",
+  "overlaps": [
+    "laws-of-ux",
+    "ux-writing"
+  ],
+  "proposedEntry": {
+    "id": "onboarding",
+    "name": "onboarding",
+    "description": "Designs and audits post-signup onboarding and activation: picks an activation model (freemium, free trial, paid trial, money-back, consultation) using Model-Market Fit before shaping the flow, defines the product's activation event (the action most correlated with retention), and strips the path to it down to a Minimum Path to Value using an inventory-remove-reconstruct process grounded in Hick's Law and real abandonment benchmarks (40-60% single-session drop-off, 75-80% within day one). Applies five behavior-design mechanisms (Endowed Progress Effect, Peak-End Rule, Goldilocks Rule, BJ Fogg Behavior Model, boosters/blockers) to a 10-component onboarding toolkit (checklists, empty states, tooltips, welcome forms, drip emails), and outputs either a Finding/Impact/Recommendation/Priority audit or a full flow design with checklist items, empty-state copy, and a measurement plan.",
+    "category": "interaction-design",
+    "tags": [
+      "onboarding",
+      "empty-states",
+      "activation",
+      "retention",
+      "state-design"
+    ],
+    "triggers": [
+      "design an onboarding flow",
+      "users sign up but don't activate",
+      "what's our aha moment",
+      "audit our onboarding checklist",
+      "reduce time to value"
+    ],
+    "inputs": [
+      "product type and core value proposition (B2B/B2C)",
+      "current post-signup flow and where users drop off",
+      "an activation definition or retention data to infer one"
+    ],
+    "outputs": [
+      "a chosen activation model with rationale",
+      "a defined activation event and Minimum Path to Value",
+      "an onboarding flow design or Finding/Impact/Recommendation/Priority audit",
+      "a measurement plan (activation rate, time to activation, funnel drop-off)"
+    ],
+    "path": "skills/interaction-design/onboarding",
+    "source": {
+      "type": "third-party",
+      "repository": "coreyhaines31/marketingskills",
+      "url": "https://github.com/coreyhaines31/marketingskills/tree/e55de886fe7580ec75cdb7ded5092b33f7d4ed58/skills/onboarding",
+      "author": "Corey Haines",
+      "license": "MIT",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": "skills/onboarding",
+      "upstreamCommit": "e55de886fe7580ec75cdb7ded5092b33f7d4ed58",
+      "retrievedAt": "2026-08-29",
+      "modified": true,
+      "modifications": [
+        {
+          "date": "2026-08-29",
+          "reason": "portability",
+          "description": "Repository license lives only at repo root (LICENSE), not inside the skill directory. Bundled a copy as LICENSE.txt inside the skill directory so the vendored directory is self-contained.",
+          "files": [
+            "LICENSE.txt"
+          ]
+        }
+      ]
+    },
+    "compatibility": [
+      "claude-code",
+      "codex",
+      "cursor",
+      "opencode",
+      "amp",
+      "gemini-cli",
+      "copilot",
+      "vs-code"
+    ],
+    "dependencies": [],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "stable",
+    "status": "draft"
+  },
+  "logMd": "#### coreyhaines31/marketingskills (inspected 2026-08-29)\nPinned HEAD e55de886fe7580ec75cdb7ded5092b33f7d4ed58 (main, verified via GitHub API commits endpoint). Stars 46033, last push 2026-08-28T22:23:47Z. Repo-root LICENSE read in full: MIT, copyright (c) 2025 Corey Haines. Enumerated the full skills/ tree (60+ skill directories) via the recursive git trees API; scoped inspection to the design-relevant subset per the task brief (analytics, ab-testing, and any onboarding/UX-copy/CRO skill that is design work rather than marketing). Read SKILL.md in full for analytics, ab-testing, cro, onboarding, signup, copywriting, copy-editing, pricing, paywalls, popups to triage; read all bundled reference files and evals.json in full for the two skills carried forward. onboarding: rubric relevance 3 (core interaction-design activity -- activation/first-run UX, empty states, checklists), quality 3 (five named behavior-design mechanisms each cited to a source (Fogg, Ramli John, etc.), a concrete inventory-remove-reconstruct MPTV process with real abandonment-rate benchmarks and named product examples, a 10-component onboarding toolkit), conformance 2 (valid SKILL.md, name equals dirname, all relative links resolve inside the skill directory), uniqueness 2 (no existing registry skill focuses on onboarding/activation flow design specifically -- laws-of-ux and ux-writing only touch onboarding as one of many tags). Total 10. License MIT confirmed at repo-root LICENSE, bundled as LICENSE.txt (portability modification). Security: no scripts, no network calls, no hidden instructions; evals/evals.json is a static prompt/expected-output fixture. Verdict: vendor.\n\nRejected from this repo in the same pass: analytics (near-duplicate of the already-vendored instrumentation-plan, which covers the same event-taxonomy/naming-convention ground with cross-vendor grounding) and ab-testing (near-duplicate of the already-vendored experiment-designer, which covers the same hypothesis/ICE/sample-size ground with a bundled Python calculator vs. this skill's static lookup tables) -- both scored uniqueness 0 despite strong quality, per rubric 'record as overlap' rather than vendor. cro was excluded per the task's own filter: its CRO Analysis Framework leads with objection-handling-for-sales and cold-traffic headline patterns -- marketing conversion work, not design work, despite touching visual hierarchy and CTA placement. signup was vendored separately (see signup.json) as the one CRO-adjacent skill whose content is genuinely form/interaction design rather than marketing. See coreyhaines31-marketingskills-rejections.json for the full rejected list with per-skill rubric scores."
+}

@@ -2,7 +2,7 @@
 
 <!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
 
-85 skills (78 vendored third-party, 7 original).
+97 skills (90 vendored third-party, 7 original).
 
 Search locally instead of reading this whole file: `npm run search -- "your query"`. The machine-readable index is [catalog/index.json](catalog/index.json).
 
@@ -11,21 +11,21 @@ Search locally instead of reading this whole file: `npm run search -- "your quer
 - [Start here](#start-here)
 - [Suggested bundles](#suggested-bundles)
 - [Discovery](#discovery) (2)
-- [User research](#user-research) (9)
-- [Product strategy](#product-strategy) (1)
+- [User research](#user-research) (11)
+- [Product strategy](#product-strategy) (2)
 - [Information architecture](#information-architecture) (2)
-- [Interaction design](#interaction-design) (7)
-- [Visual design](#visual-design) (9)
-- [Design systems](#design-systems) (11)
+- [Interaction design](#interaction-design) (10)
+- [Visual design](#visual-design) (12)
+- [Design systems](#design-systems) (12)
 - [Accessibility](#accessibility) (11)
 - [Content design](#content-design) (4)
-- [Prototyping](#prototyping) (2)
+- [Prototyping](#prototyping) (3)
 - [Testing and evaluation](#testing-and-evaluation) (8)
 - [Design QA](#design-qa) (4)
 - [Product analytics](#product-analytics) (4)
 - [Agentic and AI-native UI](#agentic-and-ai-native-ui) (2)
 - [Ethics and safety](#ethics-and-safety) (1)
-- [Design engineering](#design-engineering) (4)
+- [Design engineering](#design-engineering) (5)
 - [Orchestration](#orchestration) (4)
 - [Recommended defaults](#recommended-defaults)
 - [Alphabetical index](#alphabetical-index)
@@ -83,6 +83,19 @@ Generates meaningfully distinct product-design concepts and testable hypotheses 
 
 ## User research
 
+### `customer-journey-mapper`
+
+Produces a customer-journey.md report spanning all seven canonical customer-lifecycle stages (Awareness, Consideration, Decision, Onboarding, Retention, Expansion, Advocacy) for a given product/service and target persona: uses WebSearch to ground the map in real reviews, complaints, and competitor comparisons when the product is known, and documents assumptions when it is not. For each stage it covers touchpoints, customer actions and thoughts, emotional state, pain points, and opportunities, then adds cross-stage analysis (emotional arc, critical moments of truth, handoff points, drop-off risk), two Mermaid journey diagrams with 1-5 satisfaction scoring, a three-horizon improvement roadmap (quick wins/medium-term/strategic), and a stage-level and journey-wide metrics dashboard, enforced to a minimum 400-line, no-emoji, no-generic-filler quality bar.
+
+- **Path**: [skills/research/customer-journey-mapper/SKILL.md](skills/research/customer-journey-mapper/SKILL.md)
+- **Use when**: map the customer journey for this product; customer journey mapper; identify churn risks across the customer lifecycle; design an onboarding flow for this persona; customer experience audit from awareness to advocacy
+- **Inputs**: product or service description, target persona, known touchpoints and active channels (optional -- inferred if missing)
+- **Outputs**: customer-journey.md covering all seven lifecycle stages, two Mermaid journey diagrams (overview and full-detail with satisfaction scores), cross-stage emotional arc, moments-of-truth, and drop-off risk analysis, a prioritized three-horizon improvement roadmap and metrics dashboard
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code
+- **Source**: third-party — [OneWave-AI/claude-skills](https://github.com/OneWave-AI/claude-skills/tree/82859c0ebaff803889be6ca2efa0834ba8787773/customer-journey-mapper) @ `82859c0` by OneWave AI, MIT (modified — see THIRD_PARTY_NOTICES.md)
+- **Status**: draft, experimental
+- **Tags**: journey-mapping, personas, market-research, metrics
+
 ### `inclusive-personas`
 
 Builds personas that represent the full ability spectrum from the start rather than retrofitting accessibility later. Maps permanent conditions (vision, hearing, motor, cognitive, speech), temporary conditions (broken arm, concussion, medication effects), and situational conditions (bright sunlight, noisy environment, one hand occupied, unfamiliar language) relevant to the project. Selects 4-6 personas covering 2-3 primary users, 1-2 edge-case users, and one stress-case user; documents each with context, abilities/conditions, technology and assistive-tech use, goals, frustrations, and environment; writes standard, assisted, and stress-path user stories per persona; and maps scenario intersections where different personas share the same underlying need (e.g. a sighted user in bright sunlight and a low-vision user). Ends with a validation prompt (who's missing, do these feel real) and a table of persona anti-patterns to avoid.
@@ -95,6 +108,19 @@ Builds personas that represent the full ability spectrum from the start rather t
 - **Source**: third-party — [Owl-Listener/designpowers](https://github.com/Owl-Listener/designpowers/tree/cb00757da9d554591fa78d27aa1854d60a05c4f7/skills/inclusive-personas) @ `cb00757` by MC Dean, MIT
 - **Status**: draft, stable
 - **Tags**: personas, inclusive-design, segmentation, user-research
+
+### `journey-mapper`
+
+Scans a codebase (routes, components, auth roles, API calls, email templates, error/empty states) and generates a single self-contained, browser-ready HTML file combining an NN/g-format customer journey map and service blueprint. Infers 2-5 actors, 3-6 categories, and 4-12 journeys each broken into stages and moments, filling Doing/Frontstage/Backstage/Support factually from code evidence while prefixing every inferred Thinking/Feeling/Pain/Opportunity value with [Assumption] for a human to validate against real research. The output HTML has a sticky journey rail, an emotion curve that renders once feelings are set, JSON export/import for team annotation sharing, and localStorage autosave -- no server or build step required to view or edit it.
+
+- **Path**: [skills/research/journey-mapper/SKILL.md](skills/research/journey-mapper/SKILL.md)
+- **Use when**: map the user journey for this codebase; generate a service blueprint from our code; build a customer journey map; journey mapper; understand our user flows from the code
+- **Inputs**: a codebase to scan (path or subdirectory), optional product name and extra context (design docs, research, README)
+- **Outputs**: a single self-contained journey-map.html file, actor, category, and journey counts with coverage-gap notes, 2-3 standout pain points inferred from error states and friction-heavy flows
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code
+- **Source**: third-party — [joeyvansommeren/journey-mapper](https://github.com/joeyvansommeren/journey-mapper/tree/bbb316a4c0a13d2f843c328f3a5fa94f64b82ff4/skills/journey-mapper) @ `bbb316a` by Joey van Sommeren, Apache-2.0 (modified — see THIRD_PARTY_NOTICES.md)
+- **Status**: draft, stable
+- **Tags**: journey-mapping, service-blueprint, user-research, assumption-mapping
 
 ### `research-planning`
 
@@ -225,6 +251,19 @@ Makes the agent coach a designer through cross-functional negotiations: four scr
 - **Tags**: stakeholders, prioritization, decision-records, metrics
 - **Related**: `silver-ideate`
 
+### `market-command-matrix`
+
+Turns competitor research into a decision, not a summary: classifies each priority competitor on two axes (market mindshare and resource strength dedicated to the market) into one of five categories -- all-out attack, monitor, harvest, ignore, or partner -- each mapped to a specific playbook of moves, then names one primary motion, an owner, and a trigger per player. Runs reconnaissance (unaided-before-aided customer-view signal collection across messaging, pricing, hiring/funding, SEO, and reviews), extraction questions per competitor, matrix placement with rationale and confidence, playbook selection, and an optional market-shape read (fragmented/challenger/ancient/mature). Includes a completion gate that blocks a 'research only' handoff with no attached decision.
+
+- **Path**: [skills/strategy/market-command-matrix/SKILL.md](skills/strategy/market-command-matrix/SKILL.md)
+- **Use when**: competitor analysis; market mapping; GTM prioritisation; build a battlecard; market intelligence review
+- **Inputs**: a market/category and the priority competitors to evaluate, publicly observable competitor signals (site messaging, pricing, ads, reviews, hiring/funding, SEO)
+- **Outputs**: a competitor map (direct/adjacent/substitute/ecosystem), a matrix placement per competitor with rationale and confidence, one primary playbook motion, owner, and trigger per priority competitor, an optional market-shape read and whitespace/positioning notes
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code
+- **Source**: third-party — [its-thepoe/skills](https://github.com/its-thepoe/skills/tree/3172de431451bbad2958b1fd87a79d1ccd39b0e3/design/market-command-matrix) @ `3172de4` by Oladipupo Ayoola (its-thepoe), MIT (modified — see THIRD_PARTY_NOTICES.md)
+- **Status**: draft, experimental
+- **Tags**: competitive-analysis, market-research, prioritization, roadmapping, stakeholders
+
 ## Information architecture
 
 ### `ia-evaluation` ⭐
@@ -328,6 +367,19 @@ Audits and designs iOS/macOS/watchOS/visionOS interfaces against the Apple Human
 - **Status**: draft, experimental
 - **Tags**: a11y, wcag, contrast, mobile, desktop, ui-design, interaction-design, audit, design-review
 
+### `design-motion-principles`
+
+Runs a context-weighted motion and interaction design audit through three named designer lenses (Emil Kowalski's restraint/speed rules, Jakub Krehel's production-polish recipes, Jhey Tompkins' playful CSS experimentation), starting with reconnaissance of the project's type and existing animation patterns, a mandatory motion-gap analysis that greps for conditional renders and ternary UI swaps lacking AnimatePresence or CSS transitions, and a proposed per-designer weighting the user confirms before the full audit runs. Produces a severity-scored audit (critical/important/opportunities) with per-designer findings, cubic-bezier and duration values, and a mandatory prefers-reduced-motion check.
+
+- **Path**: [skills/interaction-design/design-motion-principles/SKILL.md](skills/interaction-design/design-motion-principles/SKILL.md)
+- **Use when**: motion audit; review these animations; interaction design audit; why does this transition feel off; check for missing animations
+- **Inputs**: a codebase or component to audit for motion, project context (CLAUDE.md/AGENTS.md, package.json, existing animation code), user confirmation of the proposed designer-perspective weighting
+- **Outputs**: a reconnaissance summary with a proposed perspective weighting, a motion-gap list (conditional renders lacking transitions), a per-designer audit with severity-scored findings and specific fixes
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code
+- **Source**: third-party — [its-thepoe/skills](https://github.com/its-thepoe/skills/tree/3172de431451bbad2958b1fd87a79d1ccd39b0e3/design/design-motion-principles) @ `3172de4` by Oladipupo Ayoola (its-thepoe), MIT (modified — see THIRD_PARTY_NOTICES.md)
+- **Status**: draft, experimental
+- **Tags**: micro-interactions, motion, animation, interaction-design, a11y, performance
+
 ### `laws-of-ux` ⭐
 
 Improves or critiques any user interface using 30 evidence-based UX principles drawn from cognitive psychology and perception research (Gestalt grouping, Hick's Law, Fitts's Law, Jakob's Law, Miller's Law, aesthetic-usability effect, cognitive load, and more). Provides a 5-step procedure for running a UX pass on a screen: name the symptom, pull the relevant principles, propose a concrete change citing the principle by name, check for conflicts between principles, and flag when testing with real users is still required. reference/laws.md gives each principle's mechanism, concrete application, pitfalls, and a real-world example.
@@ -342,6 +394,19 @@ Improves or critiques any user interface using 30 evidence-based UX principles d
 - **Tags**: ui-design, interaction-design, visual-hierarchy, design-critique, onboarding, forms
 - **Related**: `design-review`, `better-layout`
 
+### `onboarding`
+
+Designs and audits post-signup onboarding and activation: picks an activation model (freemium, free trial, paid trial, money-back, consultation) using Model-Market Fit before shaping the flow, defines the product's activation event (the action most correlated with retention), and strips the path to it down to a Minimum Path to Value using an inventory-remove-reconstruct process grounded in Hick's Law and real abandonment benchmarks (40-60% single-session drop-off, 75-80% within day one). Applies five behavior-design mechanisms (Endowed Progress Effect, Peak-End Rule, Goldilocks Rule, BJ Fogg Behavior Model, boosters/blockers) to a 10-component onboarding toolkit (checklists, empty states, tooltips, welcome forms, drip emails), and outputs either a Finding/Impact/Recommendation/Priority audit or a full flow design with checklist items, empty-state copy, and a measurement plan.
+
+- **Path**: [skills/interaction-design/onboarding/SKILL.md](skills/interaction-design/onboarding/SKILL.md)
+- **Use when**: design an onboarding flow; users sign up but don't activate; what's our aha moment; audit our onboarding checklist; reduce time to value
+- **Inputs**: product type and core value proposition (B2B/B2C), current post-signup flow and where users drop off, an activation definition or retention data to infer one
+- **Outputs**: a chosen activation model with rationale, a defined activation event and Minimum Path to Value, an onboarding flow design or Finding/Impact/Recommendation/Priority audit, a measurement plan (activation rate, time to activation, funnel drop-off)
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code
+- **Source**: third-party — [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills/tree/e55de886fe7580ec75cdb7ded5092b33f7d4ed58/skills/onboarding) @ `e55de88` by Corey Haines, MIT (modified — see THIRD_PARTY_NOTICES.md)
+- **Status**: draft, stable
+- **Tags**: onboarding, empty-states, activation, retention, state-design
+
 ### `platform-conventions` ⭐
 
 Makes the agent design native mobile UI against the actual conventions of iOS (Human Interface Guidelines) and Android (Material Design 3): side-by-side comparison tables for navigation models, controls, typography, gestures, and iconography; a decision framework for when to follow each platform strictly, when to unify cross-platform, and the hybrid middle path; and explicit anti-patterns (suppressing iOS swipe-back, transplanting the FAB to iOS, ignoring Dynamic Type/sp scaling).
@@ -355,6 +420,19 @@ Makes the agent design native mobile UI against the actual conventions of iOS (H
 - **Status**: verified, stable, recommended default
 - **Tags**: mobile, ui-design, interaction-design, navigation, adaptive
 - **Related**: `apple-design`, `better-layout`
+
+### `signup`
+
+Audits and redesigns signup/registration/account-creation flows for friction: a field-by-field pass (email, password, name, social auth, phone, company, use-case questions) with a keep-defer-infer test for every field, concrete password-UX rules (allow paste, strength meter over rigid rules, show requirements upfront), single-step vs. multi-step decision criteria with a progressive-commitment field ordering, mobile-specific rules (44px+ touch targets, correct keyboard types, single column), and microcopy rules for labels vs. placeholders and inline error handling. Outputs a Finding/Impact/Fix/Priority audit or a full form redesign with field set, copy, and layout, plus a categorized bank of signup-flow experiment ideas.
+
+- **Path**: [skills/interaction-design/signup/SKILL.md](skills/interaction-design/signup/SKILL.md)
+- **Use when**: audit our signup flow; reduce signup form friction; should this be single-step or multi-step signup; review our registration form fields; improve signup completion rate
+- **Inputs**: the current signup/registration flow (steps, fields, screenshots), current completion rate and field-level drop-off data if available, business constraints on what data must be collected at signup
+- **Outputs**: a Finding/Impact/Fix/Priority audit of the signup flow, a recommended field set with rationale and field order, copy for labels, placeholders, buttons, and error messages, a bank of signup-flow experiment ideas by category
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code
+- **Source**: third-party — [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills/tree/e55de886fe7580ec75cdb7ded5092b33f7d4ed58/skills/signup) @ `e55de88` by Corey Haines, MIT (modified — see THIRD_PARTY_NOTICES.md)
+- **Status**: draft, stable
+- **Tags**: forms, onboarding, state-design, error-messages, mobile
 
 ## Visual design
 
@@ -471,6 +549,19 @@ Guidance for distinctive, intentional visual design when building new UI or resh
 - **Tags**: typography, color, layout, visual-hierarchy, ui-design, interaction-design, responsive, motion, ux-writing, voice-and-tone
 - **Related**: `frontend-design-review`, `theme-factory`, `better-ui`, `pick-ui-library`
 
+### `redesign-existing-projects`
+
+Upgrades an existing website or app to premium visual quality without breaking functionality or migrating frameworks: scans the codebase for its styling system, then runs a scan/diagnose/fix sequence against a long, concrete checklist of generic-AI-output patterns across typography, color and surfaces, layout, interactivity and states, copy, component patterns, iconography, code quality, and commonly-omitted pages (404, legal links, form validation), each paired with a specific replacement technique. Ends with a fix-priority order (font swap, color cleanup, hover/active states, layout and spacing, component swaps, state coverage, typography polish) so improvements land highest-impact-first.
+
+- **Path**: [skills/visual-design/redesign-existing-projects/SKILL.md](skills/visual-design/redesign-existing-projects/SKILL.md)
+- **Use when**: redesign this project; make this look less generic; upgrade the visual design of this app; fix these AI design patterns; audit and improve this existing UI
+- **Inputs**: an existing website or app codebase, its current styling system (Tailwind, vanilla CSS, styled-components, etc.)
+- **Outputs**: a diagnosed list of generic/weak design patterns found, targeted upgrades applied in priority order within the existing stack
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code
+- **Source**: third-party — [its-thepoe/skills](https://github.com/its-thepoe/skills/tree/3172de431451bbad2958b1fd87a79d1ccd39b0e3/design/redesign-existing-projects) @ `3172de4` by Oladipupo Ayoola (its-thepoe), MIT (modified — see THIRD_PARTY_NOTICES.md)
+- **Status**: draft, experimental
+- **Tags**: visual-polish, typography, color, layout, audit, ui-design
+
 ### `theme-factory` ⭐
 
 Applies one of 10 curated color-palette + font-pairing themes (each with named hex colors, header/body font roles, and recommended use cases, shown via a theme-showcase.pdf) to slide decks, documents, or HTML artifacts, or generates a new custom theme on the fly when none of the presets fit, following a show-choices / confirm / apply workflow.
@@ -484,6 +575,34 @@ Applies one of 10 curated color-palette + font-pairing themes (each with named h
 - **Status**: verified, stable, recommended default
 - **Tags**: themes, color, typography, visual-polish
 - **Related**: `frontend-design`, `better-colors`
+
+### `wp-block-themes`
+
+Guides an agent through WordPress block theme visual-design work: editing theme.json global settings and styles (color, typography, spacing, layout presets), adding or changing templates and template parts, filesystem patterns, and style variations, plus diagnosing why the Site Editor or frontend is not reflecting a style change by walking the override hierarchy (core defaults, theme.json, child theme, stored user customizations).
+
+- **Path**: [skills/visual-design/wp-block-themes/SKILL.md](skills/visual-design/wp-block-themes/SKILL.md)
+- **Use when**: edit this WordPress block theme's theme.json; why isn't my WordPress theme style applying; add a style variation to this block theme; scaffold a new WordPress block theme; add a template part to this theme
+- **Inputs**: Repo root and which theme is targeted, Target WordPress version range, Where the styling issue manifests (Site Editor, post editor, frontend)
+- **Outputs**: Edited theme.json, templates/*.html, parts/*.html, patterns/*.php, or styles/*.json files, A diagnosis identifying which layer of the style-override hierarchy is responsible when a style change is not visible
+- **Dependencies**: node
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
+- **Source**: third-party — [WordPress/agent-skills](https://github.com/WordPress/agent-skills/tree/d87ee6916e740c7960b6959220c0481a41b320c7/skills/wp-block-themes) @ `d87ee69` by WordPress, GPL-2.0-or-later (modified — see THIRD_PARTY_NOTICES.md)
+- **Status**: draft, stable
+- **Tags**: design-tokens, themes, typography, color, layout
+
+### `wp-patterns`
+
+Guides an agent through designing and building WordPress block patterns (starter pages, templates, template parts, Query Loop layouts): five deliberate design decisions (purpose, tone, spatial composition, typography hierarchy, color strategy) using theme.json presets, a sketched nesting tree, static JavaScript-free block-markup assembly with a registration-time-only PHP header, then a design-quality checklist and a technical/accessibility validation checklist that both must fully pass before the pattern is considered done.
+
+- **Path**: [skills/visual-design/wp-patterns/SKILL.md](skills/visual-design/wp-patterns/SKILL.md)
+- **Use when**: create a WordPress block pattern for this section; design a hero or CTA pattern using theme presets; review this block pattern for design quality and accessibility; build a Query Loop pattern for this listing; register this pattern with the right categories
+- **Inputs**: Repo root, target theme/plugin directory, and pattern type, Pattern slug, title, categories, keywords, and text domain, Available theme.json presets for color, typography, spacing, layout, and gradients
+- **Outputs**: A registered .php pattern file containing a PHP header and static block markup only, Confirmation that every item on the Design Quality and Technical Validation checklists passes
+- **Dependencies**: node
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
+- **Source**: third-party — [WordPress/agent-skills](https://github.com/WordPress/agent-skills/tree/d87ee6916e740c7960b6959220c0481a41b320c7/skills/wp-patterns) @ `d87ee69` by WordPress, GPL-2.0-or-later (modified — see THIRD_PARTY_NOTICES.md)
+- **Status**: draft, stable
+- **Tags**: ui-design, visual-hierarchy, typography, color, a11y
 
 ## Design systems
 
@@ -643,6 +762,20 @@ Generates a complete design-token system (colors, typography, spacing, borders, 
 - **Source**: third-party — [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills/tree/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/ui-design-system) @ `19392f7` by Alireza Rezvani, MIT
 - **Status**: draft, experimental
 - **Tags**: design-tokens, design-system, component-api, component-docs, responsive, typography, color, layout, spacing, handoff, figma
+
+### `wpds`
+
+Guides an agent building or reviewing UI in a WordPress-related codebase (Gutenberg, WooCommerce, WordPress.com, Jetpack) to use the WordPress Design System (WPDS): treat the WPDS MCP server's reference site, component list and design-token list as the canonical, authoritative source (never the open web) for @wordpress/components-era UI work, apply the closest-fitting WPDS components/tokens/patterns instead of ad hoc values, skip non-UI concerns such as data-fetching or string localization, assume a TypeScript/React/CSS stack unless told otherwise, run any available lint scripts to validate output, and close with a recap of what was built, why, and what was intentionally left out as non-UI.
+
+- **Path**: [skills/design-systems/wpds/SKILL.md](skills/design-systems/wpds/SKILL.md)
+- **Use when**: build this UI using the WordPress Design System; review this Gutenberg UI for WPDS compliance; which WPDS component or token should I use here; apply WordPress Design System tokens to this component; use @wordpress/components the WPDS way
+- **Inputs**: A UI-building or UI-review task in a WordPress-related codebase (Gutenberg, WooCommerce, WordPress.com, Jetpack), A running WPDS MCP server exposing wpds://pages, wpds://components, wpds://components/:name and wpds://design-tokens
+- **Outputs**: Working TypeScript/React/CSS code that uses WPDS components and design tokens, A closing recap of the solution, the reasoning behind each decision, and what was explicitly left out as non-UI
+- **Dependencies**: wpds-mcp
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
+- **Source**: third-party — [WordPress/agent-skills](https://github.com/WordPress/agent-skills/tree/d87ee6916e740c7960b6959220c0481a41b320c7/skills/wpds) @ `d87ee69` by WordPress, GPL-2.0-or-later
+- **Status**: draft, experimental
+- **Tags**: design-system, design-tokens, component-api, ui-design
 
 ## Accessibility
 
@@ -862,6 +995,19 @@ Writes and edits user-centered, accessible interface copy (buttons, labels, erro
 - **Related**: `better-writing`
 
 ## Prototyping
+
+### `design-and-refine`
+
+Runs a Design & Refine workflow that explores a UI concept as several genuinely different, runnable code implementations (not static mockups) rendered side by side at a dev-server comparison route, then folds in the user's per-variant feedback through iterative synthesis rounds, and finalizes into persistent DESIGN_PLAN.md (implementation steps, accessibility checks, testing notes) and DESIGN_MEMORY.md (style decisions for future sessions) while cleaning up temporary lab routes and files. Offers a Claude Code plugin path and a self-contained manual playbook for Cursor or other IDEs that detects the project's framework and styling system before generating variants.
+
+- **Path**: [skills/prototyping/design-and-refine/SKILL.md](skills/prototyping/design-and-refine/SKILL.md)
+- **Use when**: design lab; UI variations; design and refine; explore layout options for this page; compare a few directions for this component
+- **Inputs**: component or page to design or redesign, a running dev server on a supported web stack, user feedback on generated variants
+- **Outputs**: several distinct runnable UI variant implementations, a side-by-side comparison route in the dev server, DESIGN_PLAN.md, DESIGN_MEMORY.md
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code
+- **Source**: third-party — [its-thepoe/skills](https://github.com/its-thepoe/skills/tree/3172de431451bbad2958b1fd87a79d1ccd39b0e3/design/design-and-refine) @ `3172de4` by Oladipupo Ayoola (its-thepoe), MIT (modified — see THIRD_PARTY_NOTICES.md)
+- **Status**: draft, experimental
+- **Tags**: prototyping, interactive-prototype, ui-design, design-critique, variants
 
 ### `prototype`
 
@@ -1212,6 +1358,19 @@ Produces a single self-contained static HTML file from a rendered web page or ap
 - **Tags**: frontend, handoff, documentation, implementation-quality
 - **Related**: `extract-design-md`
 
+### `image-to-code`
+
+For visually-important website tasks, directs the agent to generate its own design reference image(s) first, deeply analyze them (text, typography, spacing, buttons, colors, layout logic), and only then implement the frontend to match -- reversing the usual code-first default. Prefers one large, readable image per section over a single compressed multi-section board, requires fresh regeneration instead of cropping when a section needs more detail, and gives concrete hero-cleanliness, anti-nested-box, and anti-AI-slop rules (banned filler copy, banned fake brand names, banned generic gradients) to keep the coded output faithful to the generated references instead of drifting into generic templates.
+
+- **Path**: [skills/design-engineering/image-to-code/SKILL.md](skills/design-engineering/image-to-code/SKILL.md)
+- **Use when**: image to code; build this from a generated design reference; image-first website design; generate then implement this landing page; design-to-code for a marketing site
+- **Inputs**: a description of the website or section to build, an environment with image-generation capability available to the agent
+- **Outputs**: one or more generated section-reference images, a deep visual analysis (typography, spacing, color, components) of those images, frontend code implemented to match the generated references
+- **Verified compatible with**: codex, claude-code, cursor, opencode, amp, gemini-cli, copilot, vs-code
+- **Source**: third-party — [its-thepoe/skills](https://github.com/its-thepoe/skills/tree/3172de431451bbad2958b1fd87a79d1ccd39b0e3/design/image-to-code) @ `3172de4` by Oladipupo Ayoola (its-thepoe), MIT (modified — see THIRD_PARTY_NOTICES.md)
+- **Status**: draft, experimental
+- **Tags**: frontend, handoff, implementation-quality, ui-design, visual-hierarchy
+
 ### `web-artifacts-builder`
 
 Scaffolds and bundles a React 18 + TypeScript + Vite + Tailwind CSS + shadcn/ui project into a single self-contained HTML artifact for claude.ai, via two bundled shell scripts: init-artifact.sh (creates the project, configures Tailwind/shadcn theming and path aliases, installs 40+ pre-extracted shadcn/ui components and their Radix UI dependencies) and bundle-artifact.sh (builds with Parcel and inlines all JS/CSS/assets into one bundle.html with html-inline). Instructs the agent to avoid generic 'AI slop' visual patterns (centered layouts, purple gradients, uniform rounded corners, Inter font) while building.
@@ -1358,10 +1517,13 @@ Orchestrates a research effort from the decision it must inform to a recommendat
 | [`cognitive-accessibility`](skills/accessibility/cognitive-accessibility/SKILL.md) | accessibility | third-party | draft |
 | [`conversational-ux`](skills/agentic-ui/conversational-ux/SKILL.md) | agentic-ui | third-party | verified |
 | [`critique-information-density`](skills/testing/critique-information-density/SKILL.md) | testing | third-party | verified |
+| [`customer-journey-mapper`](skills/research/customer-journey-mapper/SKILL.md) | research | third-party | draft |
 | [`dark-pattern-review`](skills/ethics-and-safety/dark-pattern-review/SKILL.md) | ethics-and-safety | original | verified |
+| [`design-and-refine`](skills/prototyping/design-and-refine/SKILL.md) | prototyping | third-party | draft |
 | [`design-debt-audit`](skills/design-systems/design-debt-audit/SKILL.md) | design-systems | third-party | verified |
 | [`design-details`](skills/design-qa/design-details/SKILL.md) | design-qa | third-party | verified |
 | [`design-handoff`](skills/design-engineering/design-handoff/SKILL.md) | design-engineering | third-party | draft |
+| [`design-motion-principles`](skills/interaction-design/design-motion-principles/SKILL.md) | interaction-design | third-party | draft |
 | [`design-negotiation`](skills/strategy/design-negotiation/SKILL.md) | strategy | third-party | verified |
 | [`design-review`](skills/testing/design-review/SKILL.md) | testing | third-party | verified |
 | [`design-system`](skills/design-systems/design-system/SKILL.md) | design-systems | third-party | draft |
@@ -1378,13 +1540,17 @@ Orchestrates a research effort from the decision it must inform to a recommendat
 | [`frontend-design-review`](skills/design-qa/frontend-design-review/SKILL.md) | design-qa | third-party | verified |
 | [`frontend-ui-dark-ts`](skills/design-systems/frontend-ui-dark-ts/SKILL.md) | design-systems | third-party | verified |
 | [`ia-evaluation`](skills/information-architecture/ia-evaluation/SKILL.md) | information-architecture | original | verified |
+| [`image-to-code`](skills/design-engineering/image-to-code/SKILL.md) | design-engineering | third-party | draft |
 | [`improve-animations`](skills/testing/improve-animations/SKILL.md) | testing | third-party | verified |
 | [`inclusive-personas`](skills/research/inclusive-personas/SKILL.md) | research | third-party | draft |
 | [`instrumentation-plan`](skills/analytics/instrumentation-plan/SKILL.md) | analytics | original | verified |
 | [`interface-review`](skills/design-qa/interface-review/SKILL.md) | design-qa | third-party | verified |
+| [`journey-mapper`](skills/research/journey-mapper/SKILL.md) | research | third-party | draft |
 | [`laws-of-ux`](skills/interaction-design/laws-of-ux/SKILL.md) | interaction-design | third-party | verified |
 | [`localization-design`](skills/content-design/localization-design/SKILL.md) | content-design | third-party | verified |
+| [`market-command-matrix`](skills/strategy/market-command-matrix/SKILL.md) | strategy | third-party | draft |
 | [`motion-system`](skills/design-systems/motion-system/SKILL.md) | design-systems | third-party | verified |
+| [`onboarding`](skills/interaction-design/onboarding/SKILL.md) | interaction-design | third-party | draft |
 | [`perspective-audit`](skills/accessibility/perspective-audit/SKILL.md) | accessibility | third-party | verified |
 | [`pick-ui-library`](skills/design-systems/pick-ui-library/SKILL.md) | design-systems | third-party | verified |
 | [`platform-conventions`](skills/interaction-design/platform-conventions/SKILL.md) | interaction-design | third-party | verified |
@@ -1393,11 +1559,13 @@ Orchestrates a research effort from the decision it must inform to a recommendat
 | [`product-design-review`](skills/orchestration/product-design-review/SKILL.md) | orchestration | original | verified |
 | [`product-discovery`](skills/discovery/product-discovery/SKILL.md) | discovery | third-party | draft |
 | [`prototype`](skills/prototyping/prototype/SKILL.md) | prototyping | third-party | verified |
+| [`redesign-existing-projects`](skills/visual-design/redesign-existing-projects/SKILL.md) | visual-design | third-party | draft |
 | [`research-planning`](skills/research/research-planning/SKILL.md) | research | third-party | draft |
 | [`research-synthesis`](skills/research/research-synthesis/SKILL.md) | research | third-party | draft |
 | [`review-a11y`](skills/accessibility/review-a11y/SKILL.md) | accessibility | third-party | draft |
 | [`review-animations`](skills/design-qa/review-animations/SKILL.md) | design-qa | third-party | verified |
 | [`service-blueprint`](skills/research/service-blueprint/SKILL.md) | research | third-party | verified |
+| [`signup`](skills/interaction-design/signup/SKILL.md) | interaction-design | third-party | draft |
 | [`silver-evaluate`](skills/testing/silver-evaluate/SKILL.md) | testing | third-party | verified |
 | [`silver-ideate`](skills/discovery/silver-ideate/SKILL.md) | discovery | third-party | verified |
 | [`silver-measure`](skills/analytics/silver-measure/SKILL.md) | analytics | third-party | verified |
@@ -1417,3 +1585,6 @@ Orchestrates a research effort from the decision it must inform to a recommendat
 | [`ux-writing`](skills/content-design/ux-writing/SKILL.md) | content-design | third-party | verified |
 | [`variant`](skills/prototyping/variant/SKILL.md) | prototyping | third-party | verified |
 | [`web-artifacts-builder`](skills/design-engineering/web-artifacts-builder/SKILL.md) | design-engineering | third-party | verified |
+| [`wp-block-themes`](skills/visual-design/wp-block-themes/SKILL.md) | visual-design | third-party | draft |
+| [`wp-patterns`](skills/visual-design/wp-patterns/SKILL.md) | visual-design | third-party | draft |
+| [`wpds`](skills/design-systems/wpds/SKILL.md) | design-systems | third-party | draft |

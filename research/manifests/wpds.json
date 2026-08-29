@@ -1,0 +1,75 @@
+{
+  "id": "wpds",
+  "category": "design-systems",
+  "verdict": "vendor",
+  "rubric": {
+    "relevance": 3,
+    "quality": 2,
+    "conformance": 2,
+    "uniqueness": 2
+  },
+  "upstream": {
+    "repository": "WordPress/agent-skills",
+    "url": "https://github.com/WordPress/agent-skills/tree/d87ee6916e740c7960b6959220c0481a41b320c7/skills/wpds",
+    "author": "WordPress",
+    "commit": "d87ee6916e740c7960b6959220c0481a41b320c7",
+    "path": "skills/wpds",
+    "license": "GPL-2.0-or-later",
+    "licenseSource": "repo-root:LICENSE"
+  },
+  "files": [
+    {
+      "dest": "SKILL.md",
+      "rawUrl": "https://raw.githubusercontent.com/WordPress/agent-skills/d87ee6916e740c7960b6959220c0481a41b320c7/skills/wpds/SKILL.md"
+    },
+    {
+      "dest": "LICENSE.txt",
+      "rawUrl": "https://raw.githubusercontent.com/WordPress/agent-skills/d87ee6916e740c7960b6959220c0481a41b320c7/LICENSE"
+    }
+  ],
+  "securityNotes": "Read the full SKILL.md (only file in the skill directory -- Contents API confirms skills/wpds/ contains just SKILL.md). Pure prose/instructions: prerequisites, when-to-use triggers, rules for consulting the WPDS MCP server's wpds:// resources, boundaries (skip non-UI concerns), assumed tech stack, and an output/recap format. No scripts, no shell/network calls, no credential access, no hidden or injected instructions, no download-and-execute pattern. Its only external dependency is a WPDS MCP server at runtime (declared in dependencies[], the same pattern used for figma-mcp in the Figma skills), not a repo file reference, so it does not trigger the self-containment rule.",
+  "overlaps": ["design-tokens", "design-system", "ui-design-system"],
+  "proposedEntry": {
+    "id": "wpds",
+    "name": "wpds",
+    "description": "Guides an agent building or reviewing UI in a WordPress-related codebase (Gutenberg, WooCommerce, WordPress.com, Jetpack) to use the WordPress Design System (WPDS): treat the WPDS MCP server's reference site, component list and design-token list as the canonical, authoritative source (never the open web) for @wordpress/components-era UI work, apply the closest-fitting WPDS components/tokens/patterns instead of ad hoc values, skip non-UI concerns such as data-fetching or string localization, assume a TypeScript/React/CSS stack unless told otherwise, run any available lint scripts to validate output, and close with a recap of what was built, why, and what was intentionally left out as non-UI.",
+    "category": "design-systems",
+    "tags": ["design-system", "design-tokens", "component-api", "ui-design"],
+    "triggers": [
+      "build this UI using the WordPress Design System",
+      "review this Gutenberg UI for WPDS compliance",
+      "which WPDS component or token should I use here",
+      "apply WordPress Design System tokens to this component",
+      "use @wordpress/components the WPDS way"
+    ],
+    "inputs": [
+      "A UI-building or UI-review task in a WordPress-related codebase (Gutenberg, WooCommerce, WordPress.com, Jetpack)",
+      "A running WPDS MCP server exposing wpds://pages, wpds://components, wpds://components/:name and wpds://design-tokens"
+    ],
+    "outputs": [
+      "Working TypeScript/React/CSS code that uses WPDS components and design tokens",
+      "A closing recap of the solution, the reasoning behind each decision, and what was explicitly left out as non-UI"
+    ],
+    "path": "skills/design-systems/wpds",
+    "source": {
+      "type": "third-party",
+      "repository": "WordPress/agent-skills",
+      "url": "https://github.com/WordPress/agent-skills/tree/d87ee6916e740c7960b6959220c0481a41b320c7/skills/wpds",
+      "author": "WordPress",
+      "license": "GPL-2.0-or-later",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": "skills/wpds",
+      "upstreamCommit": "d87ee6916e740c7960b6959220c0481a41b320c7",
+      "retrievedAt": "2026-08-29",
+      "modified": false,
+      "modifications": []
+    },
+    "compatibility": ["claude-code", "codex", "cursor", "opencode", "amp", "gemini-cli", "copilot", "vs-code", "claude-ai"],
+    "dependencies": ["wpds-mcp"],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "experimental",
+    "status": "draft"
+  },
+  "logMd": "#### WordPress/agent-skills (inspected 2026-08-29)\n- Repo pin: HEAD commit d87ee6916e740c7960b6959220c0481a41b320c7 on default branch `trunk` (cross-verified via GET /commits?per_page=1 and GET /branches/trunk, identical 40-hex sha both times). Stars 2072, pushed_at 2026-08-24T04:29:56Z. Repo API `license` field reports \"Other (NOASSERTION)\" -- verified directly instead of trusting that classification.\n- Root contents at the pin: `.github/`, `docs/`, `eval/`, `shared/`, `skills/`, plus `.gitignore`, `CONTRIBUTING.md`, `LICENSE`, `README.md`.\n- `LICENSE` read at the pin: GNU General Public License, \"either version 2 of the License, or (at your option) any later version\", copyright WordPress Contributors 2026, standard GPL no-warranty and redistribution text. This is the canonical GPL-2.0-or-later dual clause -> SPDX id **GPL-2.0-or-later** (copyleft, redistributable). README.md's own License section independently states \"GPL-2.0-or-later\", corroborating the LICENSE file text.\n- `skills/` contains 18 directories: blueprint, wordpress-router, wp-abilities-api, wp-abilities-audit, wp-abilities-verify, wp-block-development, wp-block-themes, wp-interactivity-api, wp-patterns, wp-performance, wp-phpstan, wp-playground, wp-plugin-development, wp-plugin-directory-guidelines, wp-project-triage, wp-rest-api, wp-wpcli-and-ops, wpds.\n- wpds: Contents API confirms the directory holds only `SKILL.md`. Read in full. Frontmatter: `name: wpds`, `description`, `compatibility` (\"Requires WPDS MCP server configured and running...\") -- only spec-recognized frontmatter fields are used, so `claude-ai` is appended to proposedEntry.compatibility per the naming rule. Fully self-contained (no relative links to other files at all); its only dependency is a runtime MCP server, declared as `wpds-mcp` in dependencies[], mirroring how figma-mcp is declared for the Figma skills. Rubric: relevance 3 (WPDS is literally a WordPress-context design-system skill -- core design-systems activity), quality 2 (actionable rules and an output/recap format, but light on concrete criteria/values since it delegates specifics to the external MCP server rather than embedding them), conformance 2 (valid frontmatter, name=dirname, zero broken links since there are no other files), uniqueness 2 (no vendored skill targets the WordPress Design System specifically; the closest registry entries -- design-system, design-tokens, ui-design-system -- are platform-agnostic). Total 9, relevance>=2, clean license, clean security -> **vendor**.\n- wp-block-themes and wp-patterns: see their own manifest logMd entries (also vendored from this repo, at the same pinned commit). wp-block-themes and wp-patterns each contained one relative reference to a script living in a *different* skill's directory (`skills/wp-project-triage/scripts/detect_wp_project.mjs`, and wp-patterns additionally to `skills/wp-block-themes/scripts/detect_block_themes.mjs`), which cannot resolve after copying only the target skill directory. Per the self-containment rule these were fixed by rewriting the SKILL.md instructions to a local `scripts/` path and bundling the actual referenced script(s) at that path (recorded as broken-reference + portability modifications respectively), rather than being demoted to not-vendored-keeper, since the fix was straightforward and the scripts themselves are small, read-only, network-free local-filesystem detectors (verified by reading their full source).\n- Remaining 15 skills (blueprint, wordpress-router, wp-abilities-api, wp-abilities-audit, wp-abilities-verify, wp-block-development, wp-interactivity-api, wp-performance, wp-phpstan, wp-playground, wp-plugin-development, wp-plugin-directory-guidelines, wp-project-triage, wp-rest-api, wp-wpcli-and-ops) are recorded in wordpress-agent-skills-rejections.json -- generic WordPress backend/dev-ops/tooling content (REST API schemas, WP-CLI, PHPStan, plugin architecture/hooks/security, capability permissions, project detection, Playground automation) outside product-design scope, per rubric relevance=0 (\"Generic coding ... content. Reject regardless of quality\"), with wp-block-development and wp-interactivity-api scored relevance=1 (adjacent -- they shape UI behavior but are fundamentally engineering APIs, not design decisions) since they at least touch block/frontend UI surfaces. This repo's design-relevant vendor budget (3) is used by wpds, wp-block-themes and wp-patterns."
+}

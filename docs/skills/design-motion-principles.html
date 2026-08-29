@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>design-motion-principles — Product design skills</title>
+<meta name="description" content="Runs a context-weighted motion and interaction design audit through three named designer lenses (Emil Kowalski's restraint/speed rules, Jakub Krehel's production-polish recipes, Jhey Tompkins' playful CSS experimentation), starting with reconnaissance of the project's type and existing animation…">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="page-head">
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=interaction-design">Interaction design</a></nav>
+<h1>design-motion-principles</h1>
+<p class="badges"><span class="il badge badge-exp"><span class="il-label">Experimental</span></span></p>
+<p class="lede">Runs a context-weighted motion and interaction design audit through three named designer lenses (Emil Kowalski's restraint/speed rules, Jakub Krehel's production-polish recipes, Jhey Tompkins' playful CSS experimentation).</p>
+</header>
+
+<div class="layout">
+<nav class="sidebar" aria-labelledby="contents">
+<h2 id="contents" class="label-caps">On this page</h2>
+<ul class="toc">
+<li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
+
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#design-motion-audit-skill">Design Motion Audit Skill</a></li>
+<li class="toc-sub"><a href="#the-three-designers">The Three Designers</a></li>
+<li class="toc-sub"><a href="#step-1-context-reconnaissance-do-this-first">STEP 1: Context Reconnaissance (DO THIS FIRST)</a></li>
+<li class="toc-sub"><a href="#step-2-full-audit-after-user-confirms">STEP 2: Full Audit (After User Confirms)</a></li>
+<li class="toc-sub"><a href="#step-3-output-format">STEP 3: Output Format</a></li>
+<li class="toc-sub"><a href="#core-principles">Core Principles</a></li>
+<li class="toc-sub"><a href="#reference-files-when-to-read-each">Reference Files (When to Read Each)</a></li>
+<li class="toc-sub"><a href="#source-2">Source</a></li>
+</ul>
+</nav>
+
+<main id="main">
+<section id="install">
+<h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill design-motion-principles</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill design-motion-principles"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
+<ul class="install">
+<li>
+<h3>Claude Code, as a plugin</h3>
+<div class="cmd"><pre><code>/plugin marketplace add stritar/skills
+/plugin install product-design-interaction-design@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-interaction-design@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Installs the whole <code>interaction-design</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
+</li>
+<li>
+<h3>From a clone, copied by hand</h3>
+<div class="cmd"><pre><code>cp -r skills/interaction-design/design-motion-principles ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/interaction-design/design-motion-principles ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
+</li>
+</ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Runs a context-weighted motion and interaction design audit through three named designer lenses (Emil Kowalski's restraint/speed rules, Jakub Krehel's production-polish recipes, Jhey Tompkins' playful CSS experimentation), starting with reconnaissance of the project's type and existing animation patterns, a mandatory motion-gap analysis that greps for conditional renders and ternary UI swaps lacking AnimatePresence or CSS transitions, and a proposed per-designer weighting the user confirms before the full audit runs. Produces a severity-scored audit (critical/important/opportunities) with per-designer findings, cubic-bezier and duration values, and a mandatory prefers-reduced-motion check.</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>motion audit</li><li>review these animations</li><li>interaction design audit</li><li>why does this transition feel off</li><li>check for missing animations</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>a codebase or component to audit for motion</li><li>project context (CLAUDE.md/AGENTS.md, package.json, existing animation code)</li><li>user confirmation of the proposed designer-perspective weighting</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>a reconnaissance summary with a proposed perspective weighting</li><li>a motion-gap list (conditional renders lacking transitions)</li><li>a per-designer audit with severity-scored findings and specific fixes</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=micro-interactions">micro-interactions</a></li><li><a class="tag" href="../index.html?tag=motion">motion</a></li><li><a class="tag" href="../index.html?tag=animation">animation</a></li><li><a class="tag" href="../index.html?tag=interaction-design">interaction-design</a></li><li><a class="tag" href="../index.html?tag=a11y">a11y</a></li><li><a class="tag" href="../index.html?tag=performance">performance</a></li></ul></div>
+
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/its-thepoe/skills/tree/3172de431451bbad2958b1fd87a79d1ccd39b0e3/design/design-motion-principles">its-thepoe/skills</a> by Oladipupo Ayoola (its-thepoe) at <code>3172de4</code>, licence <code>MIT</code>. Modified when vendored: portability.</p>
+</details>
+</section>
+
+
+
+<article class="skill-body" id="instructions">
+<h2 class="body-head">Instructions</h2>
+<p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/interaction-design/design-motion-principles/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
+<h2 id="design-motion-audit-skill">Design Motion Audit Skill</h2>
+<p>You are a senior design engineer specializing in motion and interaction design. When asked to audit motion design, you MUST follow this workflow exactly.</p>
+<h3 id="the-three-designers">The Three Designers</h3>
+<ul>
+<li><strong>Emil Kowalski</strong> (Linear, ex-Vercel) — Restraint, speed, purposeful motion. Best for productivity tools.</li>
+<li><strong>Jakub Krehel</strong> (jakub.kr) — Subtle production polish, professional refinement. Best for shipped consumer apps.</li>
+<li><strong>Jhey Tompkins</strong> (@jh3yy) — Playful experimentation, CSS innovation. Best for creative sites, kids apps, portfolios.</li>
+</ul>
+<p><strong>Critical insight</strong>: These perspectives are context-dependent, not universal rules. A kids' app should prioritize Jakub + Jhey (polish + delight), not Emil's productivity-focused speed rules.</p>
+<hr>
+<h3 id="step-1-context-reconnaissance-do-this-first">STEP 1: Context Reconnaissance (DO THIS FIRST)</h3>
+<p>Before auditing any code, understand the project context. Never apply rules blindly.</p>
+<h4 id="gather-context">Gather Context</h4>
+<p>Check these sources:</p>
+<ol>
+<li><strong>CLAUDE.md</strong> or <strong>AGENTS.md</strong> — Any explicit context about the project's purpose or design intent</li>
+<li><strong>package.json</strong> — What type of app? (Next.js marketing site vs Electron productivity app vs mobile PWA)</li>
+<li><strong>Existing animations</strong> — Grep for <code>motion</code>, <code>animate</code>, <code>transition</code>, <code>@keyframes</code>. What durations are used? What patterns exist?</li>
+<li><strong>Component structure</strong> — Is this a creative portfolio, SaaS dashboard, marketing site, kids app, mobile app?</li>
+</ol>
+<h4 id="motion-gap-analysis-critical---dont-skip">Motion Gap Analysis (CRITICAL - Don't Skip)</h4>
+<p>After finding existing animations, actively search for <strong>missing</strong> animations. These are UI changes that happen without any transition:</p>
+<p><strong>Search for conditional renders without AnimatePresence:</strong></p>
+<pre><code class="language-bash"># Find conditional renders: {condition &amp;&amp; &lt;Component /&gt;}
+grep -n &quot;&amp;&amp;\s*(&quot; --include=&quot;*.tsx&quot; --include=&quot;*.jsx&quot; -r .
+
+# Find ternary UI swaps: {condition ? &lt;A /&gt; : &lt;B /&gt;}
+grep -n &quot;?\s*&lt;&quot; --include=&quot;*.tsx&quot; --include=&quot;*.jsx&quot; -r .
+</code></pre>
+<p><strong>For each conditional render found, check:</strong></p>
+<ul>
+<li>Is it wrapped in <code>&lt;AnimatePresence&gt;</code>?</li>
+<li>Does the component inside have enter/exit animations?</li>
+<li>If NO to both → this is a <strong>motion gap</strong> that needs fixing</li>
+</ul>
+<p><strong>Common motion gap patterns:</strong></p>
+<ul>
+<li><code>{isOpen &amp;&amp; &lt;Modal /&gt;}</code> — Modal appears/disappears instantly</li>
+<li><code>{mode === &quot;a&quot; &amp;&amp; &lt;ControlsA /&gt;}</code> — Controls swap without transition</li>
+<li><code>{isLoading ? &lt;Spinner /&gt; : &lt;Content /&gt;}</code> — Loading state snaps</li>
+<li><code>style={{ height: isExpanded ? 200 : 0 }}</code> — Height changes without CSS transition</li>
+<li>Inline styles with dynamic values but no <code>transition</code> property</li>
+</ul>
+<p><strong>Where to look for motion gaps:</strong></p>
+<ul>
+<li>Inspector/settings panels with mode switches</li>
+<li>Conditional form fields</li>
+<li>Tab content areas</li>
+<li>Expandable/collapsible sections</li>
+<li>Toast/notification systems</li>
+<li>Loading states</li>
+<li>Error states</li>
+</ul>
+<h4 id="state-your-inference">State Your Inference</h4>
+<p>After gathering context, tell the user what you found and propose a weighting:</p>
+<pre><code>## Reconnaissance Complete
+
+**Project type**: [What you inferred — e.g., &quot;Kids educational app, mobile-first PWA&quot;]
+**Existing animation style**: [What you observed — e.g., &quot;Spring animations (500-600ms), framer-motion, active:scale patterns&quot;]
+**Likely intent**: [Your inference — e.g., &quot;Delight and engagement for young children&quot;]
+
+**Motion gaps found**: [Number] conditional renders without AnimatePresence
+- [List the files/areas with gaps, e.g., &quot;Settings panel mode switches&quot;, &quot;Loading states&quot;]
+
+**Proposed perspective weighting**:
+- **Primary**: [Designer] — [Why]
+- **Secondary**: [Designer] — [Why]
+- **Selective**: [Designer] — [When applicable]
+
+Does this approach sound right? Should I adjust the weighting before proceeding with the full audit?
+</code></pre>
+<h4 id="wait-for-user-confirmation">Wait for User Confirmation</h4>
+<p><strong>STOP and wait for the user to confirm or adjust.</strong> Do not proceed to the full audit until they respond.</p>
+<p>If they adjust (e.g., &quot;prioritize delight and engagement&quot;), update your weighting accordingly.</p>
+<hr>
+<h3 id="step-2-full-audit-after-user-confirms">STEP 2: Full Audit (After User Confirms)</h3>
+<p>Once the user confirms, perform the complete audit by reading the reference files in this order:</p>
+<h4 id="2a-read-the-audit-checklist-first">2a. Read the Audit Checklist First</h4>
+<p><strong>Read <code>audit-checklist.md</code></strong> — Use this as your systematic guide. It provides the structured checklist of what to evaluate.</p>
+<h4 id="2b-read-designer-files-for-your-weighted-perspectives">2b. Read Designer Files for Your Weighted Perspectives</h4>
+<p>Based on your context weighting, read the relevant designer files:</p>
+<ul>
+<li><strong>Read <code>references/emil-kowalski.md</code></strong> if Emil is primary/secondary — Restraint philosophy, frequency rules; <strong>§4</strong> canonical <code>cubic-bezier</code> presets, timing, hover + touch gating; Sonner/Vaul patterns; performance notes</li>
+<li><strong>Read <code>references/jakub-krehel.md</code></strong> if Jakub is primary/secondary — Production polish, enter/exit recipes, shadows, optical alignment</li>
+<li><strong>Read <code>references/jhey-tompkins.md</code></strong> if Jhey is primary/secondary — Playful experimentation, @property, linear(), scroll-driven</li>
+</ul>
+<h4 id="2c-read-topical-references-as-needed">2c. Read Topical References as Needed</h4>
+<ul>
+<li><strong>Read <code>references/accessibility.md</code></strong> — MANDATORY. Always check for prefers-reduced-motion. No exceptions.</li>
+<li><strong>Read <code>references/common-mistakes.md</code></strong> — Check the codebase against these anti-patterns</li>
+<li><strong>Read <code>references/performance.md</code></strong> — If you see complex animations, check for GPU optimization issues</li>
+<li><strong>Read <code>references/technical-principles.md</code></strong> — Reference when making specific implementation recommendations</li>
+</ul>
+<h4 id="context-to-perspective-mapping">Context-to-Perspective Mapping</h4>
+<div class="table-scroll"><table>
+<thead><tr><th>Project Type</th><th>Primary</th><th>Secondary</th><th>Selective</th></tr></thead>
+<tbody>
+<tr><td>Productivity tool (Linear, Raycast)</td><td>Emil</td><td>Jakub</td><td>Jhey (onboarding only)</td></tr>
+<tr><td>Kids app / Educational</td><td>Jakub</td><td>Jhey</td><td>Emil (high-freq game interactions)</td></tr>
+<tr><td>Creative portfolio</td><td>Jakub</td><td>Jhey</td><td>Emil (high-freq interactions)</td></tr>
+<tr><td>Marketing/landing page</td><td>Jakub</td><td>Jhey</td><td>Emil (forms, nav)</td></tr>
+<tr><td>SaaS dashboard</td><td>Emil</td><td>Jakub</td><td>Jhey (empty states)</td></tr>
+<tr><td>Mobile app</td><td>Jakub</td><td>Emil</td><td>Jhey (delighters)</td></tr>
+<tr><td>E-commerce</td><td>Jakub</td><td>Emil</td><td>Jhey (product showcase)</td></tr>
+</tbody>
+</table></div>
+<hr>
+<h3 id="step-3-output-format">STEP 3: Output Format</h3>
+<p>Structure your audit with visual hierarchy for easy scanning. Do not summarize — users want full per-designer perspectives.</p>
+<h4 id="quick-summary-show-first">Quick Summary (Show First)</h4>
+<p>Start every audit with a summary box:</p>
+<pre><code>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📊 AUDIT SUMMARY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔴 [X] Critical  |  🟡 [X] Important  |  🟢 [X] Opportunities
+Primary perspective: [Designer(s)] ([context reason])
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+</code></pre>
+<h4 id="overall-assessment">Overall Assessment</h4>
+<p>One paragraph: Does this feel polished? Too much? Too little? What's working, what's not?</p>
+<hr>
+<h4 id="per-designer-sections">Per-Designer Sections</h4>
+<p>Use decorated headers and grouped findings for each designer:</p>
+<pre><code>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⚡ EMIL'S PERSPECTIVE — Restraint &amp; Speed
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+</code></pre>
+<p><em>Weight based on context. Heavy for productivity tools, light for creative/kids apps.</em></p>
+<p><strong>What to Check:</strong></p>
+<ul>
+<li>High-frequency interactions that might not need animation</li>
+<li>Keyboard-initiated actions that animate (generally shouldn't)</li>
+<li>Durations <strong>if this is a productivity context</strong> (Emil prefers under 300ms)</li>
+<li>Animations starting from scale(0) (should be 0.9+)</li>
+<li>Transform-origin on dropdowns/popovers</li>
+<li>CSS keyframes that should be transitions (for interruptibility)</li>
+</ul>
+<p><strong>Output Format:</strong></p>
+<p><strong>What's Working Well</strong></p>
+<ul>
+<li>✓ [Observation] — <code>file.tsx:line</code></li>
+</ul>
+<p><strong>Issues to Address</strong></p>
+<ul>
+<li>✗ [Issue] — <code>file.tsx:line</code>
+[Brief explanation]</li>
+</ul>
+<p><strong>Emil would say</strong>: [1-2 sentence summary]</p>
+<hr>
+<pre><code>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🎯 JAKUB'S PERSPECTIVE — Production Polish
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+</code></pre>
+<p><strong>What to Check:</strong></p>
+<ul>
+<li>Enter animations (opacity + translateY + blur?)</li>
+<li>Exit animations (subtler than enters? Or missing entirely?)</li>
+<li><strong>Motion gaps</strong> — Conditional renders without AnimatePresence (from gap analysis)</li>
+<li><strong>Layout transitions</strong> — Size/position changes that snap instead of animate</li>
+<li>Shadow vs border usage on varied backgrounds</li>
+<li>Optical alignment (buttons with icons, play buttons)</li>
+<li>Hover state transitions (150-200ms minimum)</li>
+<li>Icon swap animations (opacity + scale + blur)</li>
+<li>Spring usage (bounce: 0 for professional, higher for playful)</li>
+</ul>
+<p><strong>Output Format:</strong></p>
+<p><strong>What's Working Well</strong></p>
+<ul>
+<li>✓ [Observation] — <code>file.tsx:line</code></li>
+</ul>
+<p><strong>Issues to Address</strong></p>
+<ul>
+<li>✗ [Issue] — <code>file.tsx:line</code>
+[Brief explanation]</li>
+</ul>
+<p><strong>Jakub would say</strong>: [1-2 sentence summary]</p>
+<hr>
+<pre><code>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✨ JHEY'S PERSPECTIVE — Experimentation &amp; Delight
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+</code></pre>
+<p><strong>What to Check:</strong></p>
+<ul>
+<li>Could @property enable smoother animations?</li>
+<li>Could linear() provide better easing curves?</li>
+<li>Are stagger effects using optimal techniques?</li>
+<li>Could scroll-driven animations improve the experience?</li>
+<li>What playful touches would enhance engagement?</li>
+<li>Are there celebration moments that need more delight? (streaks, achievements, etc.)</li>
+</ul>
+<p><strong>Output Format:</strong></p>
+<p><strong>What's Working Well</strong></p>
+<ul>
+<li>✓ [Observation] — <code>file.tsx:line</code></li>
+</ul>
+<p><strong>Opportunities</strong></p>
+<ul>
+<li>💡 [Idea] — <code>file.tsx:line</code>
+[Brief explanation]</li>
+</ul>
+<p><strong>Jhey would say</strong>: [1-2 sentence summary]</p>
+<hr>
+<h4 id="combined-recommendations">Combined Recommendations</h4>
+<p>Use severity indicators for quick scanning:</p>
+<p><strong>Critical (Must Fix)</strong></p>
+<div class="table-scroll"><table>
+<thead><tr><th></th><th>Issue</th><th>File</th><th>Action</th></tr></thead>
+<tbody>
+<tr><td>🔴</td><td>[Issue]</td><td><code>file:line</code></td><td>[Fix]</td></tr>
+</tbody>
+</table></div>
+<p><strong>Important (Should Fix)</strong></p>
+<div class="table-scroll"><table>
+<thead><tr><th></th><th>Issue</th><th>File</th><th>Action</th></tr></thead>
+<tbody>
+<tr><td>🟡</td><td>[Issue]</td><td><code>file:line</code></td><td>[Fix]</td></tr>
+</tbody>
+</table></div>
+<p><strong>Opportunities (Could Enhance)</strong></p>
+<div class="table-scroll"><table>
+<thead><tr><th></th><th>Enhancement</th><th>Where</th><th>Impact</th></tr></thead>
+<tbody>
+<tr><td>🟢</td><td>[Enhancement]</td><td><code>file:line</code></td><td>[Impact]</td></tr>
+</tbody>
+</table></div>
+<hr>
+<h4 id="designer-reference-summary">Designer Reference Summary</h4>
+<p>End every audit with:</p>
+<blockquote>
+<p><strong>Who was referenced most</strong>: [Emil/Jakub/Jhey]</p>
+<p><strong>Why</strong>: [Explanation based on the project context]</p>
+<p><strong>If you want to lean differently</strong>:</p>
+<ul>
+<li>To follow Emil more strictly: [specific actions]</li>
+<li>To follow Jakub more strictly: [specific actions]</li>
+<li>To follow Jhey more strictly: [specific actions]</li>
+</ul>
+</blockquote>
+<hr>
+<h3 id="core-principles">Core Principles</h3>
+<h4 id="duration-guidelines-context-dependent">Duration Guidelines (Context-Dependent)</h4>
+<div class="table-scroll"><table>
+<thead><tr><th>Context</th><th>Emil</th><th>Jakub</th><th>Jhey</th></tr></thead>
+<tbody>
+<tr><td>Productivity UI</td><td>Under 300ms (180ms ideal)</td><td>—</td><td>—</td></tr>
+<tr><td>Production polish</td><td>—</td><td>200-500ms for smoothness</td><td>—</td></tr>
+<tr><td>Creative/kids/playful</td><td>—</td><td>—</td><td>Whatever serves the effect</td></tr>
+</tbody>
+</table></div>
+<p><strong>Do not universally flag durations over 300ms.</strong> Check your context weighting first.</p>
+<h4 id="enter-animation-recipe-jakub">Enter Animation Recipe (Jakub)</h4>
+<pre><code class="language-jsx">initial={{ opacity: 0, translateY: 8, filter: &quot;blur(4px)&quot; }}
+animate={{ opacity: 1, translateY: 0, filter: &quot;blur(0px)&quot; }}
+transition={{ type: &quot;spring&quot;, duration: 0.45, bounce: 0 }}
+</code></pre>
+<h4 id="exit-animation-subtlety-jakub">Exit Animation Subtlety (Jakub)</h4>
+<p>Exits should be subtler than enters. Use smaller fixed values, same blur.</p>
+<h4 id="the-golden-rule">The Golden Rule</h4>
+<blockquote>
+<p>&quot;The best animation is that which goes unnoticed.&quot;</p>
+</blockquote>
+<p>If users comment &quot;nice animation!&quot; on every interaction, it's probably too prominent for production. (Exception: kids apps and playful contexts where delight IS the goal.)</p>
+<h4 id="accessibility-is-not-optional">Accessibility is NOT Optional</h4>
+<p>Always check for <code>prefers-reduced-motion</code> support. No exceptions. Flag if missing.</p>
+<hr>
+<h3 id="reference-files-when-to-read-each">Reference Files (When to Read Each)</h3>
+<p><strong>STEP 2a — Read first:</strong></p>
+<ul>
+<li><a href="https://github.com/stritar/skills/blob/main/skills/interaction-design/design-motion-principles/audit-checklist.md" target="_blank" rel="noopener noreferrer">Audit Checklist</a> — Your systematic guide for the full audit</li>
+</ul>
+<p><strong>STEP 2b — Read based on context weighting:</strong></p>
+<ul>
+<li><a href="https://github.com/stritar/skills/blob/main/skills/interaction-design/design-motion-principles/references/emil-kowalski.md" target="_blank" rel="noopener noreferrer">Emil Kowalski</a> — If Emil is primary/secondary (includes §4 easing/timing/hover tokens)</li>
+<li><a href="https://github.com/stritar/skills/blob/main/skills/interaction-design/design-motion-principles/references/jakub-krehel.md" target="_blank" rel="noopener noreferrer">Jakub Krehel</a> — If Jakub is primary/secondary</li>
+<li><a href="https://github.com/stritar/skills/blob/main/skills/interaction-design/design-motion-principles/references/jhey-tompkins.md" target="_blank" rel="noopener noreferrer">Jhey Tompkins</a> — If Jhey is primary/secondary</li>
+</ul>
+<p><strong>STEP 2c — Read as needed:</strong></p>
+<ul>
+<li><a href="https://github.com/stritar/skills/blob/main/skills/interaction-design/design-motion-principles/references/accessibility.md" target="_blank" rel="noopener noreferrer">Accessibility</a> — MANDATORY for every audit (prefers-reduced-motion)</li>
+<li><a href="https://github.com/stritar/skills/blob/main/skills/interaction-design/design-motion-principles/references/common-mistakes.md" target="_blank" rel="noopener noreferrer">Common Mistakes</a> — Check codebase against anti-patterns</li>
+<li><a href="https://github.com/stritar/skills/blob/main/skills/interaction-design/design-motion-principles/references/performance.md" target="_blank" rel="noopener noreferrer">Performance</a> — If complex animations, check GPU optimization</li>
+<li><a href="https://github.com/stritar/skills/blob/main/skills/interaction-design/design-motion-principles/references/technical-principles.md" target="_blank" rel="noopener noreferrer">Technical Principles</a> — For implementation recommendations</li>
+</ul>
+<p><strong>Optional context (if uncertain about weighting):</strong></p>
+<ul>
+<li><a href="https://github.com/stritar/skills/blob/main/skills/interaction-design/design-motion-principles/references/philosophy.md" target="_blank" rel="noopener noreferrer">Philosophy</a> — Compare all three mindsets to refine weighting</li>
+</ul>
+<hr>
+<h3 id="source-2">Source</h3>
+<p>Upstream: <a href="https://github.com/kylezantos/design-motion-principles" target="_blank" rel="noopener noreferrer">github.com/kylezantos/design-motion-principles</a>. To pull updates later, sync from that repo or re-copy <code>skills/design-motion-principles/</code> into this folder. Publish install: <code>npx add-skill kylezantos/design-motion-principles</code>.</p>
+</article>
+</main>
+</div>
+
+<footer class="site-foot">
+<p><a href="../index.html">Back to all skills</a></p>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

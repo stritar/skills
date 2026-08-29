@@ -15,7 +15,9 @@
       "skills": [
         "./skills/discovery/product-discovery",
         "./skills/discovery/silver-ideate",
+        "./skills/research/customer-journey-mapper",
         "./skills/research/inclusive-personas",
+        "./skills/research/journey-mapper",
         "./skills/research/research-planning",
         "./skills/research/research-synthesis",
         "./skills/research/service-blueprint",
@@ -25,6 +27,7 @@
         "./skills/research/user-research-cookiy",
         "./skills/research/ux-researcher-designer",
         "./skills/strategy/design-negotiation",
+        "./skills/strategy/market-command-matrix",
         "./skills/information-architecture/ia-evaluation",
         "./skills/information-architecture/silver-structure",
         "./skills/interaction-design/animate",
@@ -32,8 +35,11 @@
         "./skills/interaction-design/animation-vocabulary",
         "./skills/interaction-design/apple-design",
         "./skills/interaction-design/apple-hig-expert",
+        "./skills/interaction-design/design-motion-principles",
         "./skills/interaction-design/laws-of-ux",
+        "./skills/interaction-design/onboarding",
         "./skills/interaction-design/platform-conventions",
+        "./skills/interaction-design/signup",
         "./skills/visual-design/algorithmic-art",
         "./skills/visual-design/better-colors",
         "./skills/visual-design/better-layout",
@@ -42,7 +48,10 @@
         "./skills/visual-design/canvas-design",
         "./skills/visual-design/diagram-design",
         "./skills/visual-design/frontend-design",
+        "./skills/visual-design/redesign-existing-projects",
         "./skills/visual-design/theme-factory",
+        "./skills/visual-design/wp-block-themes",
+        "./skills/visual-design/wp-patterns",
         "./skills/design-systems/design-debt-audit",
         "./skills/design-systems/design-system",
         "./skills/design-systems/design-system-governance",
@@ -54,6 +63,7 @@
         "./skills/design-systems/pick-ui-library",
         "./skills/design-systems/token-build",
         "./skills/design-systems/ui-design-system",
+        "./skills/design-systems/wpds",
         "./skills/accessibility/a11y-audit",
         "./skills/accessibility/a11y-check-code",
         "./skills/accessibility/a11y-check-page",
@@ -69,6 +79,7 @@
         "./skills/content-design/better-writing",
         "./skills/content-design/localization-design",
         "./skills/content-design/ux-writing",
+        "./skills/prototyping/design-and-refine",
         "./skills/prototyping/prototype",
         "./skills/prototyping/variant",
         "./skills/testing/break",
@@ -93,6 +104,7 @@
         "./skills/design-engineering/design-handoff",
         "./skills/design-engineering/explain-interface",
         "./skills/design-engineering/extract-static-html",
+        "./skills/design-engineering/image-to-code",
         "./skills/design-engineering/web-artifacts-builder",
         "./skills/orchestration/better-interface",
         "./skills/orchestration/pre-handoff-review",
@@ -116,7 +128,9 @@
       "description": "User research skills from the product-design skill registry.",
       "version": "0.1.0",
       "skills": [
+        "./skills/research/customer-journey-mapper",
         "./skills/research/inclusive-personas",
+        "./skills/research/journey-mapper",
         "./skills/research/research-planning",
         "./skills/research/research-synthesis",
         "./skills/research/service-blueprint",
@@ -133,7 +147,8 @@
       "description": "Product strategy skills from the product-design skill registry.",
       "version": "0.1.0",
       "skills": [
-        "./skills/strategy/design-negotiation"
+        "./skills/strategy/design-negotiation",
+        "./skills/strategy/market-command-matrix"
       ]
     },
     {
@@ -157,8 +172,11 @@
         "./skills/interaction-design/animation-vocabulary",
         "./skills/interaction-design/apple-design",
         "./skills/interaction-design/apple-hig-expert",
+        "./skills/interaction-design/design-motion-principles",
         "./skills/interaction-design/laws-of-ux",
-        "./skills/interaction-design/platform-conventions"
+        "./skills/interaction-design/onboarding",
+        "./skills/interaction-design/platform-conventions",
+        "./skills/interaction-design/signup"
       ]
     },
     {
@@ -175,7 +193,10 @@
         "./skills/visual-design/canvas-design",
         "./skills/visual-design/diagram-design",
         "./skills/visual-design/frontend-design",
-        "./skills/visual-design/theme-factory"
+        "./skills/visual-design/redesign-existing-projects",
+        "./skills/visual-design/theme-factory",
+        "./skills/visual-design/wp-block-themes",
+        "./skills/visual-design/wp-patterns"
       ]
     },
     {
@@ -194,7 +215,8 @@
         "./skills/design-systems/motion-system",
         "./skills/design-systems/pick-ui-library",
         "./skills/design-systems/token-build",
-        "./skills/design-systems/ui-design-system"
+        "./skills/design-systems/ui-design-system",
+        "./skills/design-systems/wpds"
       ]
     },
     {
@@ -234,6 +256,7 @@
       "description": "Prototyping skills from the product-design skill registry.",
       "version": "0.1.0",
       "skills": [
+        "./skills/prototyping/design-and-refine",
         "./skills/prototyping/prototype",
         "./skills/prototyping/variant"
       ]
@@ -306,6 +329,7 @@
         "./skills/design-engineering/design-handoff",
         "./skills/design-engineering/explain-interface",
         "./skills/design-engineering/extract-static-html",
+        "./skills/design-engineering/image-to-code",
         "./skills/design-engineering/web-artifacts-builder"
       ]
     },

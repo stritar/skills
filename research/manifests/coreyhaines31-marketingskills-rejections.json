@@ -1,0 +1,62 @@
+{
+  "repo": "coreyhaines31/marketingskills",
+  "verdict": "reject",
+  "upstream": {
+    "repository": "coreyhaines31/marketingskills",
+    "commit": "e55de886fe7580ec75cdb7ded5092b33f7d4ed58",
+    "license": "MIT",
+    "licenseSource": "repo-root:LICENSE"
+  },
+  "rejectedSkills": [
+    {
+      "id": "analytics",
+      "path": "skills/analytics",
+      "rubric": { "relevance": 2, "quality": 3, "conformance": 1, "uniqueness": 0 },
+      "reason": "Near-duplicate of the already-vendored instrumentation-plan skill: both define an object_action-style event naming convention, event properties, a tracking-plan document format, and privacy/consent rules; instrumentation-plan additionally grounds itself across Segment/Amplitude/GA4/PostHog conventions. Read in full (SKILL.md plus references/event-library.md, ga4-implementation.md, gtm-implementation.md). Also has a conformance issue independent of the duplication call: SKILL.md's 'Tool Integrations' section links out of the skill directory to ../../tools/REGISTRY.md and 5 files under ../../tools/integrations/ -- would need those 6 files bundled or the links rewritten to vendor at all. Per rubric, uniqueness 0 near-duplicates are recorded as overlaps rather than vendored."
+    },
+    {
+      "id": "ab-testing",
+      "path": "skills/ab-testing",
+      "rubric": { "relevance": 2, "quality": 3, "conformance": 2, "uniqueness": 0 },
+      "reason": "Near-duplicate of the already-vendored experiment-designer skill: both use a structured hypothesis format, separate primary/secondary/guardrail metrics, ICE-score and prioritize experiments, and warn against the same pitfalls (peeking, underpowered tests, simultaneous changes). experiment-designer additionally ships a bundled Python sample-size calculator versus this skill's static lookup table. Read in full (SKILL.md plus references/sample-size-guide.md, test-templates.md). Uniqueness 0 near-duplicate; recorded as overlap rather than vendored."
+    },
+    {
+      "id": "cro",
+      "path": "skills/cro",
+      "rubric": { "relevance": 1, "quality": 2, "conformance": 2, "uniqueness": 1 },
+      "reason": "Excluded per the task's own filter ('CRO that is design work rather than marketing'). Read in full: the CRO Analysis Framework does include visual-hierarchy and CTA-placement checks, but leads with objection-handling for a sales funnel, cold-traffic headline patterns ('outcome-focused', 'social proof: Join 10,000+ teams'), and trust-signal placement to drive purchase decisions -- this is a marketing conversion audit, not a UX/interaction design review. Relevance capped at 1 (adjacent, not core design work)."
+    },
+    {
+      "id": "copywriting",
+      "path": "skills/copywriting",
+      "rubric": { "relevance": 1, "quality": 2, "conformance": 2, "uniqueness": 0 },
+      "reason": "Frontmatter and body read: explicitly scoped to marketing/sales copy for homepage, landing, pricing, and feature pages (headlines, taglines, CTA copy meant to persuade and convert), distinct from the interface microcopy (buttons, forms, error/empty/success states) that the already-vendored ux-writing and better-writing skills cover. Excluded per the task's design-vs-marketing filter; also near-duplicate in spirit of the marketing side of already-vendored writing skills."
+    },
+    {
+      "id": "copy-editing",
+      "path": "skills/copy-editing",
+      "rubric": { "relevance": 1, "quality": 2, "conformance": 2, "uniqueness": 1 },
+      "reason": "Frontmatter and body read: an editing pass over existing marketing copy ('marketing and conversion copy' per its own SKILL.md), not interface microcopy. Adjacent at best; excluded per the task's design-vs-marketing filter."
+    },
+    {
+      "id": "pricing",
+      "path": "skills/pricing",
+      "rubric": { "relevance": 1, "quality": 2, "conformance": 2, "uniqueness": 1 },
+      "reason": "Frontmatter read: SaaS pricing strategy and monetization (tier structure, willingness-to-pay research, Van Westendorp) -- business/pricing strategy work, not UI/UX design, though it touches a 'pricing page teardown'. Out of scope per the task's explicit design-relevant filter for this repo (analytics, ab-testing, onboarding/UX-copy/CRO design work only)."
+    },
+    {
+      "id": "paywalls",
+      "path": "skills/paywalls",
+      "rubric": { "relevance": 1, "quality": 2, "conformance": 2, "uniqueness": 1 },
+      "reason": "Frontmatter read: in-app upgrade-screen and paywall conversion optimization -- framed around converting free users to paid rather than interaction-design craft. Out of scope per the task's filter for this repo; not one of the explicitly named categories (analytics, ab-testing, onboarding, UX copy, CRO)."
+    },
+    {
+      "id": "popups",
+      "path": "skills/popups",
+      "rubric": { "relevance": 1, "quality": 2, "conformance": 2, "uniqueness": 1 },
+      "reason": "Frontmatter read: exit-intent popups, email-capture modals, and promotional overlays for lead generation -- marketing conversion tactics. Out of scope per the task's filter for this repo."
+    }
+  ],
+  "securityNotes": "analytics and ab-testing were read in full (SKILL.md plus all bundled references/*.md). cro was read in full (single-file SKILL.md). copywriting, copy-editing, pricing, paywalls, and popups were read at the frontmatter-plus-body level (single SKILL.md each) sufficient to confirm they fall outside the task's explicit design-relevant scope for this repo (analytics, ab-testing, and onboarding/UX-copy/CRO skills that are design rather than marketing work); none showed scripts, network calls, credential access, or hidden/exfiltration-style instructions in the portions read. No further bundled files were fetched for these five since none met the relevance bar to proceed to a full vendor-candidate review.",
+  "logMd": "#### coreyhaines31/marketingskills (inspected 2026-08-29)\nPinned HEAD e55de886fe7580ec75cdb7ded5092b33f7d4ed58 (main). Stars 46033, last push 2026-08-28T22:23:47Z. Repo-root LICENSE read in full: MIT, copyright (c) 2025 Corey Haines. This is a large (60+ skill) marketing-agent repo; per the task brief, inspection was scoped to skills/analytics, skills/ab-testing, and any onboarding/UX-copy/CRO skill that reads as design work rather than marketing, plus enough of the surrounding CRO-family skills (copywriting, copy-editing, pricing, paywalls, popups) to confirm the design/marketing boundary. 2 vendored (onboarding, signup -- see their individual manifests). 7 rejected here: analytics and ab-testing are near-duplicates of the already-vendored instrumentation-plan and experiment-designer respectively (uniqueness 0, same core mechanisms, the existing registry entries are at least as rigorous); analytics additionally has an out-of-directory link problem (../../tools/... paths) that would need fixing to vendor regardless. cro, copywriting, copy-editing, pricing, paywalls, and popups were excluded as marketing-conversion work rather than design work per the task's own filter, despite cro and copywriting touching visual hierarchy and interface text respectively."
+}

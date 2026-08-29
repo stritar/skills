@@ -1,0 +1,125 @@
+{
+  "id": "wp-patterns",
+  "category": "visual-design",
+  "verdict": "vendor",
+  "rubric": {
+    "relevance": 3,
+    "quality": 3,
+    "conformance": 1,
+    "uniqueness": 2
+  },
+  "upstream": {
+    "repository": "WordPress/agent-skills",
+    "url": "https://github.com/WordPress/agent-skills/tree/d87ee6916e740c7960b6959220c0481a41b320c7/skills/wp-patterns",
+    "author": "WordPress",
+    "commit": "d87ee6916e740c7960b6959220c0481a41b320c7",
+    "path": "skills/wp-patterns",
+    "license": "GPL-2.0-or-later",
+    "licenseSource": "repo-root:LICENSE"
+  },
+  "files": [
+    {
+      "dest": "SKILL.md",
+      "content": "---\nname: wp-patterns\ndescription: \"Pattern: create or update WordPress block patterns (starter pages, templates, template parts, Query Loop layouts), review pattern registration, block markup, categories, accessibility, or i18n/escaping, or improve pattern design quality. Route custom blocks to wp-block-development; route frontend interactivity to wp-interactivity-api.\"\ncompatibility: \"Targets WordPress 7.0+ (PHP 7.4.0+). Filesystem-based agent with bash + node. Some workflows require WP-CLI.\"\n---\n\n# WordPress Block Patterns\n\n## Inputs required\n\n- Repo root and target theme/plugin directory.\n- Pattern type: section, starter page, template, template part, or manually registered plugin pattern.\n- Theme/plugin slug, pattern slug, and text domain.\n- Pattern title, categories, keywords, block types, template types, and inserter visibility.\n- Target WordPress version if it differs from this repo's compatibility contract.\n- Available `theme.json` presets for colors, typography, spacing, layout, and gradients.\n- Asset paths for images/icons, including whether assets are decorative or informational.\n- Verification environment: WordPress Playground, wp-env, local WordPress, or manual Code Editor check.\n- If updating an existing pattern: current slug, current file path, and whether existing inserted content must remain compatible.\n- For child themes: child theme slug, text domain, and asset root; do not reuse the parent namespace unless explicitly intended.\n\n## Guardrails\n\n1. **Block markup only** — express all visual design through block comment attributes and `preset` slugs. No inline `<style>` tags, no custom CSS classes, no arbitrary HTML outside of block wrappers. Read `references/design-with-tokens.md` for the core principle.\n\n2. **No JavaScript** — patterns are static `block markup`. For interactivity, use blocks that natively support it (Navigation, Search, Query Loop).\n\n3. **Registration-time PHP** — pattern files execute PHP once during registration, not at render. Read `references/pattern-registration.md` for safe output functions, i18n, and functions to avoid.\n\n4. **Valid nesting** — read `references/block-markup-reference.md` for comment syntax and nesting rules.\n\n5. **Native blocks for behavior** — use Query Loop, Search, Navigation, Social Icons, or an existing form block instead of custom PHP/HTML behavior. For newsletter, donation, payment, or map behavior, create a CTA/placeholder or use an existing block/plugin.\n\n6. **Local assets** — use `get_theme_file_uri()` with `esc_url()`; no external placeholder URLs unless the user approves. Read `references/pattern-registration.md` and `references/anti-patterns.md` for examples.\n\n## Procedure\n\n### 0) Triage and locate the pattern target\n\n1. Run triage when working in a repository:\n   - `node scripts/detect_wp_project.mjs`\n2. For block themes, locate the target theme root:\n   - `node scripts/detect_block_themes.mjs`\n3. Confirm the pattern belongs in a theme `patterns/` directory or needs manual plugin registration.\n4. If multiple themes/plugins exist, scope all changes to the requested target.\n\nIf the user did not provide required inputs, infer only low-risk defaults. Ask before inventing a theme slug, text domain, asset path, custom post type, taxonomy, event date field, or theme-specific `preset`. If `theme.json` is missing or presets cannot be verified, use conservative core presets or ask before using theme-specific slugs.\n\n**Done when:** target theme/plugin root, pattern type, and registration path are confirmed.\n\n### 1) Design thinking\n\nMake five deliberate design decisions — purpose, tone, spatial composition, typography hierarchy, and color strategy — before writing `block markup`.\n\nRead `references/design-with-tokens.md` for the decision framework and `preset` mapping.\n\nFor pattern-type metadata (starter pages, template patterns, template parts, query loops, forms/CTAs, comparison/pricing, social/navigation/search, 404), read `references/pattern-categories-and-types.md` — including the Query Loop patterns section when using `core/query`.\n\nWhen the request calls for a visually _distinctive_ composition, read `references/visual-composition.md`.\n\n**Done when:** all five design decisions are made and recorded before markup.\n\n### 2) Plan block structure\n\nSketch the nesting tree before writing markup. Example for a hero pattern:\n\n```\nGroup (full-width, constrained layout, dark bg, vertical padding 80)\n  Group (constrained inner, flex vertical, center align)\n    Paragraph (uppercase label, small, letter-spacing, accent color)\n    Heading (h2, xx-large, heading font, tight line-height)\n    Paragraph (lead text, large, secondary color)\n    Buttons (flex, center)\n      Button (primary bg, base text)\n      Button (outline style)\n```\n\n**Done when:** nesting tree is sketched and hierarchy is intentional before writing comment tags.\n\n### 3) Write the pattern file\n\nAssemble the PHP header and `block markup`. Read `references/pattern-registration.md` for header fields, PHP rules, manual registration, and file examples.\n\nUse categories and template types from step 1. Read `references/pattern-categories-and-types.md` when header metadata was not decided in step 1.\n\n**Block markup body:**\n- Follow the nesting tree from step 2\n- Use `preset` slugs for colors, font sizes, spacing\n- Use placeholder text that reflects real content — not \"Lorem ipsum\"\n\n**Done when:** PHP header and block markup file are written.\n\n### 4) Design quality check\n\nReview against the Design Quality Checklist in `references/anti-patterns.md`. Every item must pass.\n\n**Done when:** every Design Quality Checklist item passes.\n\n### 5) Technical validation\n\nReview against the Technical Validation Checklist in `references/anti-patterns.md`. Every item must pass.\n\n**Done when:** every Technical Validation Checklist item passes.\n\n## Verification\n\nTest the pattern in a real WordPress environment:\n\n**Using WordPress Playground (recommended):**\n```bash\nnpx @wp-playground/cli@latest server --auto-mount\n```\nMount the theme directory and verify:\n- Pattern appears in inserter under specified categories\n- Pattern inserts without block validation errors\n- Layout renders correctly at desktop and mobile widths\n- Content is editable (text, images, buttons)\n- If `templateLock` is used, locked elements resist editing\n\nFor template patterns, verify the Site Editor offers the pattern in the expected template replacement flow. If `Inserter: no` is used, confirm it is hidden from the general inserter but still available where intended.\n\n**Manual check:**\n- Paste block markup into the Code Editor view in WordPress\n- Switch to Visual Editor — blocks should parse without \"Attempt Block Recovery\" prompts\n- If recovery is needed, the markup has syntax errors\n\nRun the repo's existing lint, build, or test commands if the pattern change touches assets, generated files, or registration code.\n\nWhen updating an existing pattern, remember that inserted pattern content is copied into posts/templates. Changing the pattern file does not retroactively update already inserted content, and changing block names or saved markup can create recovery prompts for newly inserted content.\n\nFor PR or package review, confirm the diff is scoped to the intended pattern files, references, scripts, and eval scenarios. Do not mix unrelated repo updates into a pattern change.\n\n## Failure modes / debugging\n\nStart with `references/block-markup-reference.md`, `references/pattern-registration.md`, and `references/anti-patterns.md`.\n\nCommon failures:\n\n- **Pattern missing from inserter**: check required `Title`, `Slug`, and `Categories` headers; confirm the file is under `patterns/*.php`; confirm `Inserter: no` is not hiding it.\n- **Wrong pattern shown or overwritten**: check for slug collisions and ensure the slug is namespaced as `theme-slug/pattern-name` or `plugin-slug/pattern-name`.\n- **Block recovery prompt appears**: validate block comment nesting, JSON syntax, and closing comments.\n- **Strings are not translated or escaped**: replace raw text/PHP output with `esc_html_e()`, `esc_html__()`, `esc_attr_e()`, `esc_attr__()`, or `esc_url()` as appropriate.\n- **Translations do not load**: verify the text domain matches the target theme/plugin.\n- **Dynamic content is stale or unavailable**: remove query-dependent PHP (`get_posts()`, `the_title()`, `wp_get_current_user()`) and use blocks such as Query Loop instead.\n- **Query Loop output is incomplete**: check for `core/post-template`, post title/excerpt/date/image blocks, pagination when needed, and `core/query-no-results` fallback.\n- **Archive/search/category/author context is wrong**: use inherited query context instead of hardcoded runtime PHP.\n- **CPT or event listings are wrong**: confirm post type slugs, taxonomy/date fields, and plugin-provided blocks before generating the pattern.\n- **Styles do not match the theme**: confirm `preset` slugs exist in `theme.json`; avoid unsupported theme-specific slugs unless documented.\n- **Accessibility issues**: fix skipped heading levels, empty alt text for informational images, low-contrast preset combinations, vague button/link text, social icon labels, search labels, and color-only emphasis.\n- **Manual registration fails**: confirm the code runs on `init`, categories are registered before patterns, and pattern content remains static block markup.\n\n## Escalation\n\nStop and ask for help or consult canonical docs when:\n\n- Theme-specific `preset` slugs, text domains, asset paths, or pattern categories cannot be verified.\n- Color contrast, image meaning, or content hierarchy needs human design/accessibility judgment.\n- Behavior depends on a WordPress/Gutenberg version not covered by this repo's compatibility contract.\n\n## Example prompts\n\nRead `references/example-prompts.md`.\n"
+    },
+    {
+      "dest": "references/anti-patterns.md",
+      "rawUrl": "https://raw.githubusercontent.com/WordPress/agent-skills/d87ee6916e740c7960b6959220c0481a41b320c7/skills/wp-patterns/references/anti-patterns.md"
+    },
+    {
+      "dest": "references/block-markup-reference.md",
+      "rawUrl": "https://raw.githubusercontent.com/WordPress/agent-skills/d87ee6916e740c7960b6959220c0481a41b320c7/skills/wp-patterns/references/block-markup-reference.md"
+    },
+    {
+      "dest": "references/design-with-tokens.md",
+      "rawUrl": "https://raw.githubusercontent.com/WordPress/agent-skills/d87ee6916e740c7960b6959220c0481a41b320c7/skills/wp-patterns/references/design-with-tokens.md"
+    },
+    {
+      "dest": "references/example-prompts.md",
+      "rawUrl": "https://raw.githubusercontent.com/WordPress/agent-skills/d87ee6916e740c7960b6959220c0481a41b320c7/skills/wp-patterns/references/example-prompts.md"
+    },
+    {
+      "dest": "references/pattern-categories-and-types.md",
+      "rawUrl": "https://raw.githubusercontent.com/WordPress/agent-skills/d87ee6916e740c7960b6959220c0481a41b320c7/skills/wp-patterns/references/pattern-categories-and-types.md"
+    },
+    {
+      "dest": "references/pattern-registration.md",
+      "rawUrl": "https://raw.githubusercontent.com/WordPress/agent-skills/d87ee6916e740c7960b6959220c0481a41b320c7/skills/wp-patterns/references/pattern-registration.md"
+    },
+    {
+      "dest": "references/visual-composition.md",
+      "rawUrl": "https://raw.githubusercontent.com/WordPress/agent-skills/d87ee6916e740c7960b6959220c0481a41b320c7/skills/wp-patterns/references/visual-composition.md"
+    },
+    {
+      "dest": "scripts/detect_wp_project.mjs",
+      "rawUrl": "https://raw.githubusercontent.com/WordPress/agent-skills/d87ee6916e740c7960b6959220c0481a41b320c7/skills/wp-project-triage/scripts/detect_wp_project.mjs"
+    },
+    {
+      "dest": "scripts/detect_block_themes.mjs",
+      "rawUrl": "https://raw.githubusercontent.com/WordPress/agent-skills/d87ee6916e740c7960b6959220c0481a41b320c7/skills/wp-block-themes/scripts/detect_block_themes.mjs"
+    },
+    {
+      "dest": "LICENSE.txt",
+      "rawUrl": "https://raw.githubusercontent.com/WordPress/agent-skills/d87ee6916e740c7960b6959220c0481a41b320c7/LICENSE"
+    }
+  ],
+  "securityNotes": "Read every file in the skill directory in full: SKILL.md and all 7 references/*.md, plus both bundled scripts (originally at skills/wp-project-triage/scripts/detect_wp_project.mjs and skills/wp-block-themes/scripts/detect_block_themes.mjs). Both scripts are read-only local-filesystem Node ESM utilities (fs/path/process only) with file-count and depth caps; no network calls, no child_process/exec, no download-and-execute, no credential or env-var access. The reference docs are prose design/technical/accessibility guidance; no outside-directory file links found beyond the two triage-script mentions fixed below, and no hidden instructions, prompt injection, or credential requests in any file.",
+  "overlaps": ["design-system"],
+  "proposedEntry": {
+    "id": "wp-patterns",
+    "name": "wp-patterns",
+    "description": "Guides an agent through designing and building WordPress block patterns (starter pages, templates, template parts, Query Loop layouts): five deliberate design decisions (purpose, tone, spatial composition, typography hierarchy, color strategy) using theme.json presets, a sketched nesting tree, static JavaScript-free block-markup assembly with a registration-time-only PHP header, then a design-quality checklist and a technical/accessibility validation checklist that both must fully pass before the pattern is considered done.",
+    "category": "visual-design",
+    "tags": ["ui-design", "visual-hierarchy", "typography", "color", "a11y"],
+    "triggers": [
+      "create a WordPress block pattern for this section",
+      "design a hero or CTA pattern using theme presets",
+      "review this block pattern for design quality and accessibility",
+      "build a Query Loop pattern for this listing",
+      "register this pattern with the right categories"
+    ],
+    "inputs": [
+      "Repo root, target theme/plugin directory, and pattern type",
+      "Pattern slug, title, categories, keywords, and text domain",
+      "Available theme.json presets for color, typography, spacing, layout, and gradients"
+    ],
+    "outputs": [
+      "A registered .php pattern file containing a PHP header and static block markup only",
+      "Confirmation that every item on the Design Quality and Technical Validation checklists passes"
+    ],
+    "path": "skills/visual-design/wp-patterns",
+    "source": {
+      "type": "third-party",
+      "repository": "WordPress/agent-skills",
+      "url": "https://github.com/WordPress/agent-skills/tree/d87ee6916e740c7960b6959220c0481a41b320c7/skills/wp-patterns",
+      "author": "WordPress",
+      "license": "GPL-2.0-or-later",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": "skills/wp-patterns",
+      "upstreamCommit": "d87ee6916e740c7960b6959220c0481a41b320c7",
+      "retrievedAt": "2026-08-29",
+      "modified": true,
+      "modifications": [
+        {
+          "date": "2026-08-29",
+          "reason": "broken-reference",
+          "description": "Upstream SKILL.md step 0 instructed running `node skills/wp-project-triage/scripts/detect_wp_project.mjs` and `node skills/wp-block-themes/scripts/detect_block_themes.mjs`, both in sibling skills' directories that do not exist once only skills/wp-patterns/ is copied. Rewrote both commands in SKILL.md to local `scripts/` paths so the instructions resolve inside the vendored directory.",
+          "files": ["SKILL.md"]
+        },
+        {
+          "date": "2026-08-29",
+          "reason": "portability",
+          "description": "Bundled copies of skills/wp-project-triage/scripts/detect_wp_project.mjs and skills/wp-block-themes/scripts/detect_block_themes.mjs (both read in full; local-filesystem-only, no network calls) at scripts/detect_wp_project.mjs and scripts/detect_block_themes.mjs so the rewritten SKILL.md references resolve inside this skill directory.",
+          "files": ["scripts/detect_wp_project.mjs", "scripts/detect_block_themes.mjs"]
+        }
+      ]
+    },
+    "compatibility": ["claude-code", "codex", "cursor", "opencode", "amp", "gemini-cli", "copilot", "vs-code", "claude-ai"],
+    "dependencies": ["node"],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "stable",
+    "status": "draft"
+  },
+  "logMd": "#### WordPress/agent-skills :: wp-patterns (inspected 2026-08-29, same pin d87ee6916e740c7960b6959220c0481a41b320c7 as wpds -- see wpds.json logMd for repo-level license/commit evidence)\n- Directory listing: SKILL.md, references/ (7 files: anti-patterns.md, block-markup-reference.md, design-with-tokens.md, example-prompts.md, pattern-categories-and-types.md, pattern-registration.md, visual-composition.md). No scripts/ subdirectory of its own. All 8 files read in full.\n- SKILL.md frontmatter: `name: wp-patterns` (= dirname), `description`, `compatibility` -- only spec fields, so `claude-ai` appended to compatibility.\n- Self-containment check found TWO broken relative references in the step-0 triage instructions: `node skills/wp-project-triage/scripts/detect_wp_project.mjs` and `node skills/wp-block-themes/scripts/detect_block_themes.mjs`, both pointing into sibling skills' directories. Fixed by rewriting both lines in SKILL.md to local `scripts/` paths (broken-reference modification) and bundling both scripts' actual content at `scripts/detect_wp_project.mjs` and `scripts/detect_block_themes.mjs` (portability modification, shared with the wp-block-themes manifest which bundles the same detect_wp_project.mjs independently since each vendored skill directory must be complete on its own). Both scripts read in full: pure Node fs/path project/theme detectors, no network/exec/credential access.\n- All 7 reference docs read in full: anti-patterns.md (Design Quality + Technical Validation + Accessibility checklists), block-markup-reference.md, design-with-tokens.md, example-prompts.md, pattern-categories-and-types.md, pattern-registration.md, visual-composition.md. visual-composition.md's one internal cross-reference to `references/anti-patterns.md` is within the same skill directory and needs no fix; all other outbound references are to developer.wordpress.org (external docs, not repo files). No hidden instructions, prompt injection, or credential requests found.\n- Rubric: relevance 3 (a dedicated \"design thinking\" step -- purpose, tone, composition, typography, color -- plus a mandatory Design Quality checklist and an accessibility checklist make this a core visual/interaction design activity, not incidental to the PHP/registration mechanics), quality 3 (five numbered phases each with an explicit \"Done when\" exit gate, worked nesting-tree example, and a detailed failure-mode/debugging table), conformance 1 (two genuine broken cross-skill references existed upstream, fixed here), uniqueness 2 (no vendored skill covers WordPress block-pattern design specifically). Total 9, relevance>=2, GPL-2.0-or-later license clean, security clean -> **vendor**."
+}

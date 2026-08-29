@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>wp-patterns — Product design skills</title>
+<meta name="description" content="Guides an agent through designing and building WordPress block patterns (starter pages, templates, template parts, Query Loop layouts): five deliberate design decisions (purpose, tone, spatial composition, typography hierarchy, color strategy) using theme.json presets, a sketched nesting tree,…">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="page-head">
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=visual-design">Visual design</a></nav>
+<h1>wp-patterns</h1>
+<p class="badges"><span class="il badge badge-dep"><span class="il-label">Needs Node</span></span></p>
+<p class="lede">Guides an agent through designing and building WordPress block patterns (starter pages, templates, template parts, Query Loop layouts).</p>
+</header>
+
+<div class="layout">
+<nav class="sidebar" aria-labelledby="contents">
+<h2 id="contents" class="label-caps">On this page</h2>
+<ul class="toc">
+<li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
+
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#wordpress-block-patterns">WordPress Block Patterns</a></li>
+<li class="toc-sub"><a href="#inputs-required">Inputs required</a></li>
+<li class="toc-sub"><a href="#guardrails">Guardrails</a></li>
+<li class="toc-sub"><a href="#procedure">Procedure</a></li>
+<li class="toc-sub"><a href="#verification">Verification</a></li>
+<li class="toc-sub"><a href="#failure-modes-debugging">Failure modes / debugging</a></li>
+<li class="toc-sub"><a href="#escalation">Escalation</a></li>
+<li class="toc-sub"><a href="#example-prompts">Example prompts</a></li>
+</ul>
+</nav>
+
+<main id="main">
+<section id="install">
+<h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill wp-patterns</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill wp-patterns"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
+<ul class="install">
+<li>
+<h3>Claude Code, as a plugin</h3>
+<div class="cmd"><pre><code>/plugin marketplace add stritar/skills
+/plugin install product-design-visual-design@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-visual-design@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Installs the whole <code>visual-design</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
+</li>
+<li>
+<h3>From a clone, copied by hand</h3>
+<div class="cmd"><pre><code>cp -r skills/visual-design/wp-patterns ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/visual-design/wp-patterns ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
+</li>
+</ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Guides an agent through designing and building WordPress block patterns (starter pages, templates, template parts, Query Loop layouts): five deliberate design decisions (purpose, tone, spatial composition, typography hierarchy, color strategy) using theme.json presets, a sketched nesting tree, static JavaScript-free block-markup assembly with a registration-time-only PHP header, then a design-quality checklist and a technical/accessibility validation checklist that both must fully pass before the pattern is considered done.</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>create a WordPress block pattern for this section</li><li>design a hero or CTA pattern using theme presets</li><li>review this block pattern for design quality and accessibility</li><li>build a Query Loop pattern for this listing</li><li>register this pattern with the right categories</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>Repo root, target theme/plugin directory, and pattern type</li><li>Pattern slug, title, categories, keywords, and text domain</li><li>Available theme.json presets for color, typography, spacing, layout, and gradients</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>A registered .php pattern file containing a PHP header and static block markup only</li><li>Confirmation that every item on the Design Quality and Technical Validation checklists passes</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=ui-design">ui-design</a></li><li><a class="tag" href="../index.html?tag=visual-hierarchy">visual-hierarchy</a></li><li><a class="tag" href="../index.html?tag=typography">typography</a></li><li><a class="tag" href="../index.html?tag=color">color</a></li><li><a class="tag" href="../index.html?tag=a11y">a11y</a></li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Requires</h3><ul><li><code>node</code></li></ul></div>
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/WordPress/agent-skills/tree/d87ee6916e740c7960b6959220c0481a41b320c7/skills/wp-patterns">WordPress/agent-skills</a> by WordPress at <code>d87ee69</code>, licence <code>GPL-2.0-or-later</code>. Modified when vendored: broken-reference, portability.</p>
+</details>
+</section>
+
+
+
+<article class="skill-body" id="instructions">
+<h2 class="body-head">Instructions</h2>
+<p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/visual-design/wp-patterns/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
+<h2 id="wordpress-block-patterns">WordPress Block Patterns</h2>
+<h3 id="inputs-required">Inputs required</h3>
+<ul>
+<li>Repo root and target theme/plugin directory.</li>
+<li>Pattern type: section, starter page, template, template part, or manually registered plugin pattern.</li>
+<li>Theme/plugin slug, pattern slug, and text domain.</li>
+<li>Pattern title, categories, keywords, block types, template types, and inserter visibility.</li>
+<li>Target WordPress version if it differs from this repo's compatibility contract.</li>
+<li>Available <code>theme.json</code> presets for colors, typography, spacing, layout, and gradients.</li>
+<li>Asset paths for images/icons, including whether assets are decorative or informational.</li>
+<li>Verification environment: WordPress Playground, wp-env, local WordPress, or manual Code Editor check.</li>
+<li>If updating an existing pattern: current slug, current file path, and whether existing inserted content must remain compatible.</li>
+<li>For child themes: child theme slug, text domain, and asset root; do not reuse the parent namespace unless explicitly intended.</li>
+</ul>
+<h3 id="guardrails">Guardrails</h3>
+<ol>
+<li><strong>Block markup only</strong> — express all visual design through block comment attributes and <code>preset</code> slugs. No inline <code>&lt;style&gt;</code> tags, no custom CSS classes, no arbitrary HTML outside of block wrappers. Read <code>references/design-with-tokens.md</code> for the core principle.</li>
+<li><strong>No JavaScript</strong> — patterns are static <code>block markup</code>. For interactivity, use blocks that natively support it (Navigation, Search, Query Loop).</li>
+<li><strong>Registration-time PHP</strong> — pattern files execute PHP once during registration, not at render. Read <code>references/pattern-registration.md</code> for safe output functions, i18n, and functions to avoid.</li>
+<li><strong>Valid nesting</strong> — read <code>references/block-markup-reference.md</code> for comment syntax and nesting rules.</li>
+<li><strong>Native blocks for behavior</strong> — use Query Loop, Search, Navigation, Social Icons, or an existing form block instead of custom PHP/HTML behavior. For newsletter, donation, payment, or map behavior, create a CTA/placeholder or use an existing block/plugin.</li>
+<li><strong>Local assets</strong> — use <code>get_theme_file_uri()</code> with <code>esc_url()</code>; no external placeholder URLs unless the user approves. Read <code>references/pattern-registration.md</code> and <code>references/anti-patterns.md</code> for examples.</li>
+</ol>
+<h3 id="procedure">Procedure</h3>
+<h4 id="0-triage-and-locate-the-pattern-target">0) Triage and locate the pattern target</h4>
+<ol>
+<li>Run triage when working in a repository:
+<ul>
+<li><code>node scripts/detect_wp_project.mjs</code></li>
+</ul></li>
+<li>For block themes, locate the target theme root:
+<ul>
+<li><code>node scripts/detect_block_themes.mjs</code></li>
+</ul></li>
+<li>Confirm the pattern belongs in a theme <code>patterns/</code> directory or needs manual plugin registration.</li>
+<li>If multiple themes/plugins exist, scope all changes to the requested target.</li>
+</ol>
+<p>If the user did not provide required inputs, infer only low-risk defaults. Ask before inventing a theme slug, text domain, asset path, custom post type, taxonomy, event date field, or theme-specific <code>preset</code>. If <code>theme.json</code> is missing or presets cannot be verified, use conservative core presets or ask before using theme-specific slugs.</p>
+<p><strong>Done when:</strong> target theme/plugin root, pattern type, and registration path are confirmed.</p>
+<h4 id="1-design-thinking">1) Design thinking</h4>
+<p>Make five deliberate design decisions — purpose, tone, spatial composition, typography hierarchy, and color strategy — before writing <code>block markup</code>.</p>
+<p>Read <code>references/design-with-tokens.md</code> for the decision framework and <code>preset</code> mapping.</p>
+<p>For pattern-type metadata (starter pages, template patterns, template parts, query loops, forms/CTAs, comparison/pricing, social/navigation/search, 404), read <code>references/pattern-categories-and-types.md</code> — including the Query Loop patterns section when using <code>core/query</code>.</p>
+<p>When the request calls for a visually <em>distinctive</em> composition, read <code>references/visual-composition.md</code>.</p>
+<p><strong>Done when:</strong> all five design decisions are made and recorded before markup.</p>
+<h4 id="2-plan-block-structure">2) Plan block structure</h4>
+<p>Sketch the nesting tree before writing markup. Example for a hero pattern:</p>
+<pre><code>Group (full-width, constrained layout, dark bg, vertical padding 80)
+  Group (constrained inner, flex vertical, center align)
+    Paragraph (uppercase label, small, letter-spacing, accent color)
+    Heading (h2, xx-large, heading font, tight line-height)
+    Paragraph (lead text, large, secondary color)
+    Buttons (flex, center)
+      Button (primary bg, base text)
+      Button (outline style)
+</code></pre>
+<p><strong>Done when:</strong> nesting tree is sketched and hierarchy is intentional before writing comment tags.</p>
+<h4 id="3-write-the-pattern-file">3) Write the pattern file</h4>
+<p>Assemble the PHP header and <code>block markup</code>. Read <code>references/pattern-registration.md</code> for header fields, PHP rules, manual registration, and file examples.</p>
+<p>Use categories and template types from step 1. Read <code>references/pattern-categories-and-types.md</code> when header metadata was not decided in step 1.</p>
+<p><strong>Block markup body:</strong></p>
+<ul>
+<li>Follow the nesting tree from step 2</li>
+<li>Use <code>preset</code> slugs for colors, font sizes, spacing</li>
+<li>Use placeholder text that reflects real content — not &quot;Lorem ipsum&quot;</li>
+</ul>
+<p><strong>Done when:</strong> PHP header and block markup file are written.</p>
+<h4 id="4-design-quality-check">4) Design quality check</h4>
+<p>Review against the Design Quality Checklist in <code>references/anti-patterns.md</code>. Every item must pass.</p>
+<p><strong>Done when:</strong> every Design Quality Checklist item passes.</p>
+<h4 id="5-technical-validation">5) Technical validation</h4>
+<p>Review against the Technical Validation Checklist in <code>references/anti-patterns.md</code>. Every item must pass.</p>
+<p><strong>Done when:</strong> every Technical Validation Checklist item passes.</p>
+<h3 id="verification">Verification</h3>
+<p>Test the pattern in a real WordPress environment:</p>
+<p><strong>Using WordPress Playground (recommended):</strong></p>
+<pre><code class="language-bash">npx @wp-playground/cli@latest server --auto-mount
+</code></pre>
+<p>Mount the theme directory and verify:</p>
+<ul>
+<li>Pattern appears in inserter under specified categories</li>
+<li>Pattern inserts without block validation errors</li>
+<li>Layout renders correctly at desktop and mobile widths</li>
+<li>Content is editable (text, images, buttons)</li>
+<li>If <code>templateLock</code> is used, locked elements resist editing</li>
+</ul>
+<p>For template patterns, verify the Site Editor offers the pattern in the expected template replacement flow. If <code>Inserter: no</code> is used, confirm it is hidden from the general inserter but still available where intended.</p>
+<p><strong>Manual check:</strong></p>
+<ul>
+<li>Paste block markup into the Code Editor view in WordPress</li>
+<li>Switch to Visual Editor — blocks should parse without &quot;Attempt Block Recovery&quot; prompts</li>
+<li>If recovery is needed, the markup has syntax errors</li>
+</ul>
+<p>Run the repo's existing lint, build, or test commands if the pattern change touches assets, generated files, or registration code.</p>
+<p>When updating an existing pattern, remember that inserted pattern content is copied into posts/templates. Changing the pattern file does not retroactively update already inserted content, and changing block names or saved markup can create recovery prompts for newly inserted content.</p>
+<p>For PR or package review, confirm the diff is scoped to the intended pattern files, references, scripts, and eval scenarios. Do not mix unrelated repo updates into a pattern change.</p>
+<h3 id="failure-modes-debugging">Failure modes / debugging</h3>
+<p>Start with <code>references/block-markup-reference.md</code>, <code>references/pattern-registration.md</code>, and <code>references/anti-patterns.md</code>.</p>
+<p>Common failures:</p>
+<ul>
+<li><strong>Pattern missing from inserter</strong>: check required <code>Title</code>, <code>Slug</code>, and <code>Categories</code> headers; confirm the file is under <code>patterns/*.php</code>; confirm <code>Inserter: no</code> is not hiding it.</li>
+<li><strong>Wrong pattern shown or overwritten</strong>: check for slug collisions and ensure the slug is namespaced as <code>theme-slug/pattern-name</code> or <code>plugin-slug/pattern-name</code>.</li>
+<li><strong>Block recovery prompt appears</strong>: validate block comment nesting, JSON syntax, and closing comments.</li>
+<li><strong>Strings are not translated or escaped</strong>: replace raw text/PHP output with <code>esc_html_e()</code>, <code>esc_html__()</code>, <code>esc_attr_e()</code>, <code>esc_attr__()</code>, or <code>esc_url()</code> as appropriate.</li>
+<li><strong>Translations do not load</strong>: verify the text domain matches the target theme/plugin.</li>
+<li><strong>Dynamic content is stale or unavailable</strong>: remove query-dependent PHP (<code>get_posts()</code>, <code>the_title()</code>, <code>wp_get_current_user()</code>) and use blocks such as Query Loop instead.</li>
+<li><strong>Query Loop output is incomplete</strong>: check for <code>core/post-template</code>, post title/excerpt/date/image blocks, pagination when needed, and <code>core/query-no-results</code> fallback.</li>
+<li><strong>Archive/search/category/author context is wrong</strong>: use inherited query context instead of hardcoded runtime PHP.</li>
+<li><strong>CPT or event listings are wrong</strong>: confirm post type slugs, taxonomy/date fields, and plugin-provided blocks before generating the pattern.</li>
+<li><strong>Styles do not match the theme</strong>: confirm <code>preset</code> slugs exist in <code>theme.json</code>; avoid unsupported theme-specific slugs unless documented.</li>
+<li><strong>Accessibility issues</strong>: fix skipped heading levels, empty alt text for informational images, low-contrast preset combinations, vague button/link text, social icon labels, search labels, and color-only emphasis.</li>
+<li><strong>Manual registration fails</strong>: confirm the code runs on <code>init</code>, categories are registered before patterns, and pattern content remains static block markup.</li>
+</ul>
+<h3 id="escalation">Escalation</h3>
+<p>Stop and ask for help or consult canonical docs when:</p>
+<ul>
+<li>Theme-specific <code>preset</code> slugs, text domains, asset paths, or pattern categories cannot be verified.</li>
+<li>Color contrast, image meaning, or content hierarchy needs human design/accessibility judgment.</li>
+<li>Behavior depends on a WordPress/Gutenberg version not covered by this repo's compatibility contract.</li>
+</ul>
+<h3 id="example-prompts">Example prompts</h3>
+<p>Read <code>references/example-prompts.md</code>.</p>
+</article>
+</main>
+</div>
+
+<footer class="site-foot">
+<p><a href="../index.html">Back to all skills</a></p>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

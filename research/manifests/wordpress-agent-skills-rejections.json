@@ -1,0 +1,84 @@
+{
+  "id": "wordpress-agent-skills-rejections",
+  "verdict": "reject",
+  "repository": "WordPress/agent-skills",
+  "commit": "d87ee6916e740c7960b6959220c0481a41b320c7",
+  "rejectedSkills": [
+    {
+      "id": "blueprint",
+      "reason": "\"WordPress Playground Blueprints for declarative environment setup\" (per repo README skill table). Environment/CI provisioning tooling, not a design activity.",
+      "rubric": {"relevance": 0, "quality": 2, "conformance": 2, "uniqueness": 2}
+    },
+    {
+      "id": "wordpress-router",
+      "reason": "\"Classifies WordPress repos and routes to the right workflow\" -- an internal meta-router for this skill collection itself, not a design activity and not independently useful once copied out of the collection.",
+      "rubric": {"relevance": 0, "quality": 1, "conformance": 1, "uniqueness": 2}
+    },
+    {
+      "id": "wp-abilities-api",
+      "reason": "\"Capability-based permissions and REST API authentication\" -- backend authorization/API architecture, not design.",
+      "rubric": {"relevance": 0, "quality": 2, "conformance": 2, "uniqueness": 2}
+    },
+    {
+      "id": "wp-abilities-audit",
+      "reason": "\"Audit a plugin's REST surface and propose Abilities API registrations\" -- backend security/API audit, not a design or UX audit.",
+      "rubric": {"relevance": 0, "quality": 2, "conformance": 2, "uniqueness": 2}
+    },
+    {
+      "id": "wp-abilities-verify",
+      "reason": "\"Verify a plugin's Abilities API registrations against declarations\" -- backend API conformance checking, not design.",
+      "rubric": {"relevance": 0, "quality": 2, "conformance": 2, "uniqueness": 2}
+    },
+    {
+      "id": "wp-block-development",
+      "reason": "\"Gutenberg blocks: block.json, attributes, rendering, deprecations\" -- block engineering (schema, PHP/JS rendering, deprecation handling) rather than visual/interaction design decisions; adjacent to design in that it ships block UI, but the skill's own scope is implementation mechanics. Registry budget for this repo (3 vendor slots) was spent on wpds, wp-block-themes and wp-patterns, which are more directly design-centric.",
+      "rubric": {"relevance": 1, "quality": 2, "conformance": 2, "uniqueness": 1}
+    },
+    {
+      "id": "wp-interactivity-api",
+      "reason": "\"Frontend interactivity with data-wp-* directives and stores\" -- a JavaScript state/directive framework for wiring behavior, not an interaction-design skill about what the behavior should be; adjacent but implementation-focused.",
+      "rubric": {"relevance": 1, "quality": 2, "conformance": 2, "uniqueness": 1}
+    },
+    {
+      "id": "wp-performance",
+      "reason": "\"Profiling, caching, database optimization, Server-Timing\" -- backend performance engineering, not design (perceived-performance-as-UX is covered by the registry's existing design-engineering category via other vendored skills, not by this WordPress-specific profiling skill).",
+      "rubric": {"relevance": 0, "quality": 2, "conformance": 2, "uniqueness": 2}
+    },
+    {
+      "id": "wp-phpstan",
+      "reason": "\"PHPStan static analysis for WordPress projects\" -- pure code-quality tooling, not design.",
+      "rubric": {"relevance": 0, "quality": 2, "conformance": 2, "uniqueness": 2}
+    },
+    {
+      "id": "wp-playground",
+      "reason": "\"WordPress Playground routing, CLI runs, browser previews, snapshots\" -- dev-environment/CI tooling, not design.",
+      "rubric": {"relevance": 0, "quality": 2, "conformance": 2, "uniqueness": 2}
+    },
+    {
+      "id": "wp-plugin-development",
+      "reason": "\"Plugin architecture, hooks, settings API, security\" -- backend plugin engineering, not design.",
+      "rubric": {"relevance": 0, "quality": 2, "conformance": 2, "uniqueness": 2}
+    },
+    {
+      "id": "wp-plugin-directory-guidelines",
+      "reason": "\"WordPress Plugin Directory Guidelines\" -- marketplace policy/compliance checklist, not a design activity.",
+      "rubric": {"relevance": 0, "quality": 1, "conformance": 2, "uniqueness": 2}
+    },
+    {
+      "id": "wp-project-triage",
+      "reason": "\"Detects project type, tooling, and versions automatically\" -- a filesystem-detection utility (its script is bundled into the vendored wp-block-themes and wp-patterns manifests as a dependency, per the self-containment rule) with no design content of its own.",
+      "rubric": {"relevance": 0, "quality": 1, "conformance": 2, "uniqueness": 2}
+    },
+    {
+      "id": "wp-rest-api",
+      "reason": "\"REST API routes/endpoints, schema, auth, and response shaping\" -- backend API design (in the software-architecture sense, not product/UX design), not in scope.",
+      "rubric": {"relevance": 0, "quality": 2, "conformance": 2, "uniqueness": 2}
+    },
+    {
+      "id": "wp-wpcli-and-ops",
+      "reason": "\"WP-CLI commands, automation, multisite, search-replace\" -- ops/automation tooling, not design.",
+      "rubric": {"relevance": 0, "quality": 1, "conformance": 2, "uniqueness": 2}
+    }
+  ],
+  "logMd": "#### WordPress/agent-skills -- non-vendored skills (inspected 2026-08-29, pin d87ee6916e740c7960b6959220c0481a41b320c7)\nScored from the repo's own README skill-description table (each is a one-line, repo-maintained summary of that skill's SKILL.md description) plus the skills/ directory listing, rather than a full per-file read, since the assignment set an explicit budget of at most 3 vendored skills for this repo and instructed staying economical; a deep read was reserved for the 3 candidates that passed the initial relevance screen (wpds, wp-block-themes, wp-patterns -- see their own manifests). All 15 skills here are WordPress backend/platform engineering, dev-ops, or compliance tooling (REST API schemas and auth, capability/Abilities-API permissions and audits, WP-CLI automation, PHPStan static analysis, Playground/Blueprint environment provisioning, plugin directory policy, and an internal project-classification router), scoring relevance 0 per the rubric's explicit rule (\"Generic coding/marketing/PM content. Reject regardless of quality\"). wp-block-development and wp-interactivity-api are scored relevance 1 (adjacent) since they shape block/frontend UI surfaces even though their own scope is implementation mechanics (block.json/rendering/deprecations; data-wp-* directives and stores) rather than design decisions -- with only 3 vendor slots available for this repo, the budget went to the three skills whose primary subject is a design decision (WPDS component/token usage, theme.json visual styling, block-pattern composition) rather than an engineering API."
+}

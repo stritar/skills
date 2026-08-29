@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>wpds — Product design skills</title>
+<meta name="description" content="Guides an agent building or reviewing UI in a WordPress-related codebase (Gutenberg, WooCommerce, WordPress.com, Jetpack) to use the WordPress Design System (WPDS): treat the WPDS MCP server's reference site, component list and design-token list as the canonical, authoritative source (never the…">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="page-head">
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=design-systems">Design systems</a></nav>
+<h1>wpds</h1>
+<p class="badges"><span class="il badge badge-dep"><span class="il-label">Other tooling</span></span><span class="il badge badge-exp"><span class="il-label">Experimental</span></span></p>
+<p class="lede">Guides an agent building or reviewing UI in a WordPress-related codebase (Gutenberg, WooCommerce, WordPress.com, Jetpack) to use the WordPress Design System (WPDS).</p>
+</header>
+
+<div class="layout">
+<nav class="sidebar" aria-labelledby="contents">
+<h2 id="contents" class="label-caps">On this page</h2>
+<ul class="toc">
+<li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
+
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#wordpress-design-system-wpds">WordPress Design System (WPDS)</a></li>
+<li class="toc-sub"><a href="#prerequisites">Prerequisites</a></li>
+<li class="toc-sub"><a href="#when-to-use">When to use</a></li>
+<li class="toc-sub"><a href="#rules">Rules</a></li>
+<li class="toc-sub"><a href="#output">Output</a></li>
+</ul>
+</nav>
+
+<main id="main">
+<section id="install">
+<h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill wpds</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill wpds"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
+<ul class="install">
+<li>
+<h3>Claude Code, as a plugin</h3>
+<div class="cmd"><pre><code>/plugin marketplace add stritar/skills
+/plugin install product-design-design-systems@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-design-systems@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Installs the whole <code>design-systems</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
+</li>
+<li>
+<h3>From a clone, copied by hand</h3>
+<div class="cmd"><pre><code>cp -r skills/design-systems/wpds ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/design-systems/wpds ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
+</li>
+</ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Guides an agent building or reviewing UI in a WordPress-related codebase (Gutenberg, WooCommerce, WordPress.com, Jetpack) to use the WordPress Design System (WPDS): treat the WPDS MCP server's reference site, component list and design-token list as the canonical, authoritative source (never the open web) for @wordpress/components-era UI work, apply the closest-fitting WPDS components/tokens/patterns instead of ad hoc values, skip non-UI concerns such as data-fetching or string localization, assume a TypeScript/React/CSS stack unless told otherwise, run any available lint scripts to validate output, and close with a recap of what was built, why, and what was intentionally left out as non-UI.</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>build this UI using the WordPress Design System</li><li>review this Gutenberg UI for WPDS compliance</li><li>which WPDS component or token should I use here</li><li>apply WordPress Design System tokens to this component</li><li>use @wordpress/components the WPDS way</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>A UI-building or UI-review task in a WordPress-related codebase (Gutenberg, WooCommerce, WordPress.com, Jetpack)</li><li>A running WPDS MCP server exposing wpds://pages, wpds://components, wpds://components/:name and wpds://design-tokens</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>Working TypeScript/React/CSS code that uses WPDS components and design tokens</li><li>A closing recap of the solution, the reasoning behind each decision, and what was explicitly left out as non-UI</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=design-system">design-system</a></li><li><a class="tag" href="../index.html?tag=design-tokens">design-tokens</a></li><li><a class="tag" href="../index.html?tag=component-api">component-api</a></li><li><a class="tag" href="../index.html?tag=ui-design">ui-design</a></li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Requires</h3><ul><li><code>wpds-mcp</code></li></ul></div>
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/WordPress/agent-skills/tree/d87ee6916e740c7960b6959220c0481a41b320c7/skills/wpds">WordPress/agent-skills</a> by WordPress at <code>d87ee69</code>, licence <code>GPL-2.0-or-later</code>. Vendored byte-identical to upstream.</p>
+</details>
+</section>
+
+
+
+<article class="skill-body" id="instructions">
+<h2 class="body-head">Instructions</h2>
+<p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/design-systems/wpds/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
+<h2 id="wordpress-design-system-wpds">WordPress Design System (WPDS)</h2>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>This skill works best with the <strong>WPDS MCP server</strong> installed. The MCP provides access to WordPress Design System documentation and resources, such as components and DS token lists.</p>
+<p>The following terms should be treated as synonyms:</p>
+<ul>
+<li>&quot;WordPress&quot; and &quot;WP&quot;;</li>
+<li>&quot;Design System&quot; and &quot;DS&quot;;</li>
+<li>&quot;WordPress Design System&quot; and &quot;WPDS&quot;.</li>
+</ul>
+<h3 id="when-to-use">When to use</h3>
+<p>Use this skill when the user mentions:</p>
+<ul>
+<li>building and/or reviewing any UI in a WordPress-related context (for example, Gutenberg, WooCommerce, WordPress.com, Jetpack, etc etc);</li>
+<li>WordPress Design System, WPDS, Design System;</li>
+<li>UI components, Design tokens, color primitives, spacing scales, typography variables and presets;</li>
+<li>Specific component packages such as @wordpress/components or @wordpress/ui;</li>
+</ul>
+<h3 id="rules">Rules</h3>
+<h4 id="use-the-wpds-mcp-server-to-access-wpds-related-documentation">Use the WPDS MCP server to access WPDS-related documentation</h4>
+<ul>
+<li>Use the WPDS MCP server to retrieve the canonical, authoritative documentation:
+<ul>
+<li>reference site (<code>wpds://pages</code>)</li>
+<li>list of available components (<code>wpds://components</code>) and specific component information (<code>wpds://components/:name</code>)</li>
+<li>list of available tokens (<code>wpds://design-tokens</code>)</li>
+</ul></li>
+<li>DO NOT search the web for canonical documentation about the WordPress Design System. If asked by the user, push back and ask for confirmation, warning them that the MCP server is the best place to provide information</li>
+</ul>
+<h4 id="required-documentation">Required documentation</h4>
+<p>Before working on any WPDS-related tasks, make sure you read relevant documentation on the reference site. This documentation should take the absolute precedence when evaluating the best course of action for any given tasks.</p>
+<h4 id="boundaries">Boundaries</h4>
+<ul>
+<li>Skip non-UI related aspects of an answer (for example, fetching data from stores, or localizing strings of text).</li>
+<li>Focus on building UI that adheres as much as possible to the WPDS best practices, uses the most fitting WPDS components/tokens/patterns.</li>
+</ul>
+<h4 id="tech-stack">Tech stack</h4>
+<ul>
+<li>Unless you are told otherwise (or gathered specific information from the local context of the request), assume the following tech stack: TypeScript, React, CSS.</li>
+</ul>
+<h4 id="validation">Validation</h4>
+<ul>
+<li>If the local context in which a task is running provide lint scripts, use them to validate the proposed code output when possible.</li>
+</ul>
+<h3 id="output">Output</h3>
+<ul>
+<li>As a recap at the end of your response, provide a clear and concise explanation of what the solution does, and add context to why each decision was made.</li>
+<li>Be explicit about the boundaries, ie. what was explicitly left out of the task because not relevant (eg non-ui related).</li>
+<li>Provide working code snippets</li>
+</ul>
+</article>
+</main>
+</div>
+
+<footer class="site-foot">
+<p><a href="../index.html">Back to all skills</a></p>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

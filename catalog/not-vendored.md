@@ -43,6 +43,20 @@ Candidates awaiting license clarification stay here until resolved.
   skills, or tools work"), which is an automatic disqualifier under
   `research/rubric.md`. Not a quality judgment; flagged for human review.
 
+### figma/mcp-server-guide (12 official Figma skills)
+
+- URL: https://github.com/figma/mcp-server-guide (inspected 2026-08-29 at
+  commit `7f6562c4900fafb46e5e8fd3cc8ced954779bab3`; 1.9k stars)
+- Purpose: Figma's own skills for its MCP server — figma-use,
+  figma-generate-design, figma-generate-library, figma-design-to-code,
+  figma-implement-motion, figma-use-motion, figma-code-connect,
+  figma-generate-diagram, figma-use-figjam, figma-use-slides, figma-swiftui,
+  figma-create-new-file.
+- Reason not vendored: no license anywhere at the pinned commit (no LICENSE
+  file, no SPDX declaration in package or plugin manifests, no README
+  license section). Use them from Figma's repository or the Figma plugin
+  directly. Action: ask Figma to add a license; re-inspect.
+
 ## Provenance not verifiable from the source found
 
 ### designers-eye and macos-hig-designer (leoyeai/openclaw-master-skills)
@@ -60,6 +74,20 @@ Candidates awaiting license clarification stay here until resolved.
   authors' repositories.
 
 ## Better installed from source
+
+### chrome-design-system skills (chromium/chromium)
+
+- URL: https://github.com/chromium/chromium/tree/main/agents/projects/chrome-design-system/skills
+  (BSD-3-Clause; inspected 2026-08-29 at commit
+  `347790368025dc5659bd8c1c73fd7983b5e5268e`)
+- Purpose: six skills bridging the Chrome Design System in Figma to
+  Chromium code — figma-design-review, figma-to-views, figma-to-views-json,
+  figma-to-webui, generate-component-spec, generate-token-map, plus a
+  project-knowledge data bridge.
+- Reason not vendored: every skill is hard-wired to a Chromium checkout
+  (Views framework, WebUI pipeline, color_id.h/typography.h) and to an
+  internal Figma library, with cross-skill dependencies on generated
+  artifacts. Clean license, no standalone use.
 
 ### dashboard-design (mckinsey/vizro)
 

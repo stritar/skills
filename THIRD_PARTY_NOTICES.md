@@ -234,6 +234,26 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 - License: MIT (license file: `skills/testing/critique-information-density/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
+## customer-journey-mapper
+
+- Upstream: [OneWave-AI/claude-skills](https://github.com/OneWave-AI/claude-skills/tree/82859c0ebaff803889be6ca2efa0834ba8787773/customer-journey-mapper)
+- Author: OneWave AI
+- Upstream path: `customer-journey-mapper` at commit `82859c0ebaff803889be6ca2efa0834ba8787773`
+- Retrieved: 2026-08-29
+- License: MIT (license file: `skills/research/customer-journey-mapper/LICENSE.txt`)
+- Local modifications:
+  - 2026-08-29 (portability): Repository license lives only at repo root (LICENSE), not inside the skill directory. Bundled a copy as LICENSE.txt inside the skill directory so the vendored directory is self-contained. [LICENSE.txt]
+
+## design-and-refine
+
+- Upstream: [its-thepoe/skills](https://github.com/its-thepoe/skills/tree/3172de431451bbad2958b1fd87a79d1ccd39b0e3/design/design-and-refine)
+- Author: Oladipupo Ayoola (its-thepoe)
+- Upstream path: `design/design-and-refine` at commit `3172de431451bbad2958b1fd87a79d1ccd39b0e3`
+- Retrieved: 2026-08-29
+- License: MIT (license file: `skills/prototyping/design-and-refine/LICENSE.txt`)
+- Local modifications:
+  - 2026-08-29 (portability): Repository license lives only at repo root (LICENSE), not inside the skill directory. Bundled a copy as LICENSE.txt inside the skill directory so the vendored directory is self-contained. [LICENSE.txt]
+
 ## design-debt-audit
 
 - Upstream: [Owl-Listener/designer-skills](https://github.com/Owl-Listener/designer-skills/tree/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/design-ops/skills/design-debt-audit)
@@ -261,6 +281,16 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 - License: Apache-2.0 (license file: `skills/design-engineering/design-handoff/LICENSE.txt`)
 - Local modifications:
   - 2026-08-29 (broken-reference): Upstream SKILL.md links CONNECTORS.md as ../../CONNECTORS.md, resolving two directories above the plugin's per-skill folder (design/CONNECTORS.md, shared across all six design/ skills) — a path that falls outside any single vendored skill directory. Rewrote the link to a same-directory relative path (CONNECTORS.md) and bundled a copy of design/CONNECTORS.md into this skill's own directory so it resolves after vendoring. [SKILL.md, CONNECTORS.md]
+
+## design-motion-principles
+
+- Upstream: [its-thepoe/skills](https://github.com/its-thepoe/skills/tree/3172de431451bbad2958b1fd87a79d1ccd39b0e3/design/design-motion-principles)
+- Author: Oladipupo Ayoola (its-thepoe)
+- Upstream path: `design/design-motion-principles` at commit `3172de431451bbad2958b1fd87a79d1ccd39b0e3`
+- Retrieved: 2026-08-29
+- License: MIT (license file: `skills/interaction-design/design-motion-principles/LICENSE.txt`)
+- Local modifications:
+  - 2026-08-29 (portability): Repository license lives only at repo root (LICENSE), not inside the skill directory. Bundled a copy as LICENSE.txt inside the skill directory so the vendored directory is self-contained. [LICENSE.txt]
 
 ## design-negotiation
 
@@ -407,6 +437,16 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 - Local modifications:
   - 2026-08-26 (portability): Excluded four bundled Segoe UI .ttf font files and two Microsoft Foundry brand-logo PNGs from assets/: Microsoft-proprietary assets with no verifiable open redistribution license, unlike the MIT-licensed text and code. Consumers who need them can fetch them from the upstream repository. [assets/]
 
+## image-to-code
+
+- Upstream: [its-thepoe/skills](https://github.com/its-thepoe/skills/tree/3172de431451bbad2958b1fd87a79d1ccd39b0e3/design/image-to-code)
+- Author: Oladipupo Ayoola (its-thepoe)
+- Upstream path: `design/image-to-code` at commit `3172de431451bbad2958b1fd87a79d1ccd39b0e3`
+- Retrieved: 2026-08-29
+- License: MIT (license file: `skills/design-engineering/image-to-code/LICENSE.txt`)
+- Local modifications:
+  - 2026-08-29 (portability): Repository license lives only at repo root (LICENSE), not inside the skill directory. Bundled a copy as LICENSE.txt inside the skill directory so the vendored directory is self-contained. [LICENSE.txt]
+
 ## improve-animations
 
 - Upstream: [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/improve-animations)
@@ -434,6 +474,16 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 - License: MIT (license file: `skills/design-qa/interface-review/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
+## journey-mapper
+
+- Upstream: [joeyvansommeren/journey-mapper](https://github.com/joeyvansommeren/journey-mapper/tree/bbb316a4c0a13d2f843c328f3a5fa94f64b82ff4/skills/journey-mapper)
+- Author: Joey van Sommeren
+- Upstream path: `skills/journey-mapper` at commit `bbb316a4c0a13d2f843c328f3a5fa94f64b82ff4`
+- Retrieved: 2026-08-29
+- License: Apache-2.0 (license file: `skills/research/journey-mapper/LICENSE.txt`)
+- Local modifications:
+  - 2026-08-29 (portability): Repository license lives only at repo root (LICENSE), not inside the skill directory. Bundled a copy as LICENSE.txt inside the skill directory so the vendored directory is self-contained. [LICENSE.txt]
+
 ## laws-of-ux
 
 - Upstream: [ali-kk/uxlaws](https://github.com/ali-kk/uxlaws/tree/4defa957c3058b89f4a53dc794865602313c6d97/skills/laws-of-ux)
@@ -452,6 +502,16 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 - License: MIT (license file: `skills/content-design/localization-design/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
+## market-command-matrix
+
+- Upstream: [its-thepoe/skills](https://github.com/its-thepoe/skills/tree/3172de431451bbad2958b1fd87a79d1ccd39b0e3/design/market-command-matrix)
+- Author: Oladipupo Ayoola (its-thepoe)
+- Upstream path: `design/market-command-matrix` at commit `3172de431451bbad2958b1fd87a79d1ccd39b0e3`
+- Retrieved: 2026-08-29
+- License: MIT (license file: `skills/strategy/market-command-matrix/LICENSE.txt`)
+- Local modifications:
+  - 2026-08-29 (portability): Repository license lives only at repo root (LICENSE), not inside the skill directory. Bundled a copy as LICENSE.txt inside the skill directory so the vendored directory is self-contained. [LICENSE.txt]
+
 ## motion-system
 
 - Upstream: [Owl-Listener/designer-skills](https://github.com/Owl-Listener/designer-skills/tree/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/design-systems/skills/motion-system)
@@ -460,6 +520,16 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 - Retrieved: 2026-08-26
 - License: MIT (license file: `skills/design-systems/motion-system/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
+
+## onboarding
+
+- Upstream: [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills/tree/e55de886fe7580ec75cdb7ded5092b33f7d4ed58/skills/onboarding)
+- Author: Corey Haines
+- Upstream path: `skills/onboarding` at commit `e55de886fe7580ec75cdb7ded5092b33f7d4ed58`
+- Retrieved: 2026-08-29
+- License: MIT (license file: `skills/interaction-design/onboarding/LICENSE.txt`)
+- Local modifications:
+  - 2026-08-29 (portability): Repository license lives only at repo root (LICENSE), not inside the skill directory. Bundled a copy as LICENSE.txt inside the skill directory so the vendored directory is self-contained. [LICENSE.txt]
 
 ## perspective-audit
 
@@ -515,6 +585,16 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 - License: MIT (license file: `skills/prototyping/prototype/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
+## redesign-existing-projects
+
+- Upstream: [its-thepoe/skills](https://github.com/its-thepoe/skills/tree/3172de431451bbad2958b1fd87a79d1ccd39b0e3/design/redesign-existing-projects)
+- Author: Oladipupo Ayoola (its-thepoe)
+- Upstream path: `design/redesign-existing-projects` at commit `3172de431451bbad2958b1fd87a79d1ccd39b0e3`
+- Retrieved: 2026-08-29
+- License: MIT (license file: `skills/visual-design/redesign-existing-projects/LICENSE.txt`)
+- Local modifications:
+  - 2026-08-29 (portability): Repository license lives only at repo root (LICENSE), not inside the skill directory. Bundled a copy as LICENSE.txt inside the skill directory so the vendored directory is self-contained. [LICENSE.txt]
+
 ## research-planning
 
 - Upstream: [Owl-Listener/designpowers](https://github.com/Owl-Listener/designpowers/tree/cb00757da9d554591fa78d27aa1854d60a05c4f7/skills/research-planning)
@@ -560,6 +640,16 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 - Retrieved: 2026-08-26
 - License: MIT (license file: `skills/research/service-blueprint/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
+
+## signup
+
+- Upstream: [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills/tree/e55de886fe7580ec75cdb7ded5092b33f7d4ed58/skills/signup)
+- Author: Corey Haines
+- Upstream path: `skills/signup` at commit `e55de886fe7580ec75cdb7ded5092b33f7d4ed58`
+- Retrieved: 2026-08-29
+- License: MIT (license file: `skills/interaction-design/signup/LICENSE.txt`)
+- Local modifications:
+  - 2026-08-29 (portability): Repository license lives only at repo root (LICENSE), not inside the skill directory. Bundled a copy as LICENSE.txt inside the skill directory so the vendored directory is self-contained. [LICENSE.txt]
 
 ## silver-evaluate
 
@@ -724,4 +814,35 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 - Upstream path: `skills/web-artifacts-builder` at commit `3b3fad96af16a10759d930941b4520ba0c40edae`
 - Retrieved: 2026-08-26
 - License: Apache-2.0 (license file: `skills/design-engineering/web-artifacts-builder/LICENSE.txt`)
+- Local modifications: none (byte-identical to upstream)
+
+## wp-block-themes
+
+- Upstream: [WordPress/agent-skills](https://github.com/WordPress/agent-skills/tree/d87ee6916e740c7960b6959220c0481a41b320c7/skills/wp-block-themes)
+- Author: WordPress
+- Upstream path: `skills/wp-block-themes` at commit `d87ee6916e740c7960b6959220c0481a41b320c7`
+- Retrieved: 2026-08-29
+- License: GPL-2.0-or-later (license file: `skills/visual-design/wp-block-themes/LICENSE.txt`)
+- Local modifications:
+  - 2026-08-29 (broken-reference): Upstream SKILL.md step 0 instructed running `node skills/wp-project-triage/scripts/detect_wp_project.mjs`, a script that lives in a sibling skill's directory and does not exist once only skills/wp-block-themes/ is copied. Rewrote both triage-step commands in SKILL.md to reference local `scripts/` paths (`node scripts/detect_wp_project.mjs` and `node scripts/detect_block_themes.mjs`) so the instructions resolve inside the vendored directory. [SKILL.md]
+  - 2026-08-29 (portability): Bundled a copy of skills/wp-project-triage/scripts/detect_wp_project.mjs (read in full; local-filesystem-only, no network calls) at scripts/detect_wp_project.mjs so the rewritten SKILL.md reference resolves inside this skill directory, matching the path the link now points to. [scripts/detect_wp_project.mjs]
+
+## wp-patterns
+
+- Upstream: [WordPress/agent-skills](https://github.com/WordPress/agent-skills/tree/d87ee6916e740c7960b6959220c0481a41b320c7/skills/wp-patterns)
+- Author: WordPress
+- Upstream path: `skills/wp-patterns` at commit `d87ee6916e740c7960b6959220c0481a41b320c7`
+- Retrieved: 2026-08-29
+- License: GPL-2.0-or-later (license file: `skills/visual-design/wp-patterns/LICENSE.txt`)
+- Local modifications:
+  - 2026-08-29 (broken-reference): Upstream SKILL.md step 0 instructed running `node skills/wp-project-triage/scripts/detect_wp_project.mjs` and `node skills/wp-block-themes/scripts/detect_block_themes.mjs`, both in sibling skills' directories that do not exist once only skills/wp-patterns/ is copied. Rewrote both commands in SKILL.md to local `scripts/` paths so the instructions resolve inside the vendored directory. [SKILL.md]
+  - 2026-08-29 (portability): Bundled copies of skills/wp-project-triage/scripts/detect_wp_project.mjs and skills/wp-block-themes/scripts/detect_block_themes.mjs (both read in full; local-filesystem-only, no network calls) at scripts/detect_wp_project.mjs and scripts/detect_block_themes.mjs so the rewritten SKILL.md references resolve inside this skill directory. [scripts/detect_wp_project.mjs, scripts/detect_block_themes.mjs]
+
+## wpds
+
+- Upstream: [WordPress/agent-skills](https://github.com/WordPress/agent-skills/tree/d87ee6916e740c7960b6959220c0481a41b320c7/skills/wpds)
+- Author: WordPress
+- Upstream path: `skills/wpds` at commit `d87ee6916e740c7960b6959220c0481a41b320c7`
+- Retrieved: 2026-08-29
+- License: GPL-2.0-or-later (license file: `skills/design-systems/wpds/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)

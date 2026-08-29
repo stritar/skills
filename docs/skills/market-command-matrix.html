@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>market-command-matrix — Product design skills</title>
+<meta name="description" content="Turns competitor research into a decision, not a summary: classifies each priority competitor on two axes (market mindshare and resource strength dedicated to the market) into one of five categories -- all-out attack, monitor, harvest, ignore, or partner -- each mapped to a specific playbook of…">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="page-head">
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=strategy">Product strategy</a></nav>
+<h1>market-command-matrix</h1>
+<p class="badges"><span class="il badge badge-exp"><span class="il-label">Experimental</span></span></p>
+<p class="lede">Turns competitor research into a decision, not a summary.</p>
+</header>
+
+<div class="layout">
+<nav class="sidebar" aria-labelledby="contents">
+<h2 id="contents" class="label-caps">On this page</h2>
+<ul class="toc">
+<li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
+
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#market-command-matrix">Market Command Matrix</a></li>
+<li class="toc-sub"><a href="#the-model-two-axes">The model (two axes)</a></li>
+<li class="toc-sub"><a href="#decision-categories">Decision categories</a></li>
+<li class="toc-sub"><a href="#competitor-set-before-matrix-placement">Competitor set (before matrix placement)</a></li>
+<li class="toc-sub"><a href="#workflow-run-in-order">Workflow (run in order)</a></li>
+<li class="toc-sub"><a href="#output-formats">Output formats</a></li>
+<li class="toc-sub"><a href="#completion-gate-do-not-finalize-without">Completion gate (do not “finalize” without)</a></li>
+<li class="toc-sub"><a href="#more-detail">More detail</a></li>
+</ul>
+</nav>
+
+<main id="main">
+<section id="install">
+<h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill market-command-matrix</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill market-command-matrix"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
+<ul class="install">
+<li>
+<h3>Claude Code, as a plugin</h3>
+<div class="cmd"><pre><code>/plugin marketplace add stritar/skills
+/plugin install product-design-strategy@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-strategy@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Installs the whole <code>strategy</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
+</li>
+<li>
+<h3>From a clone, copied by hand</h3>
+<div class="cmd"><pre><code>cp -r skills/strategy/market-command-matrix ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/strategy/market-command-matrix ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
+</li>
+</ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Turns competitor research into a decision, not a summary: classifies each priority competitor on two axes (market mindshare and resource strength dedicated to the market) into one of five categories -- all-out attack, monitor, harvest, ignore, or partner -- each mapped to a specific playbook of moves, then names one primary motion, an owner, and a trigger per player. Runs reconnaissance (unaided-before-aided customer-view signal collection across messaging, pricing, hiring/funding, SEO, and reviews), extraction questions per competitor, matrix placement with rationale and confidence, playbook selection, and an optional market-shape read (fragmented/challenger/ancient/mature). Includes a completion gate that blocks a 'research only' handoff with no attached decision.</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>competitor analysis</li><li>market mapping</li><li>GTM prioritisation</li><li>build a battlecard</li><li>market intelligence review</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>a market/category and the priority competitors to evaluate</li><li>publicly observable competitor signals (site messaging, pricing, ads, reviews, hiring/funding, SEO)</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>a competitor map (direct/adjacent/substitute/ecosystem)</li><li>a matrix placement per competitor with rationale and confidence</li><li>one primary playbook motion, owner, and trigger per priority competitor</li><li>an optional market-shape read and whitespace/positioning notes</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=competitive-analysis">competitive-analysis</a></li><li><a class="tag" href="../index.html?tag=market-research">market-research</a></li><li><a class="tag" href="../index.html?tag=prioritization">prioritization</a></li><li><a class="tag" href="../index.html?tag=roadmapping">roadmapping</a></li><li><a class="tag" href="../index.html?tag=stakeholders">stakeholders</a></li></ul></div>
+
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/its-thepoe/skills/tree/3172de431451bbad2958b1fd87a79d1ccd39b0e3/design/market-command-matrix">its-thepoe/skills</a> by Oladipupo Ayoola (its-thepoe) at <code>3172de4</code>, licence <code>MIT</code>. Modified when vendored: portability.</p>
+</details>
+</section>
+
+
+
+<article class="skill-body" id="instructions">
+<h2 class="body-head">Instructions</h2>
+<p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/strategy/market-command-matrix/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
+<h2 id="market-command-matrix">Market Command Matrix</h2>
+<p>Goal: <strong>intelligence upstream of action</strong>—not competitor summaries for their own sake. Classify players, decide <strong>what to do</strong>, assign <strong>owners and triggers</strong>.</p>
+<h3 id="the-model-two-axes">The model (two axes)</h3>
+<p><strong>Market mindshare</strong> — awareness, conversation, category association, unprompted recall, default comparisons when buyers think about the problem.</p>
+<p><strong>Resource strength</strong> — capacity and focus <strong>dedicated to winning this market</strong> (funding, team, distribution, tech, partnerships, operational depth). Score <strong>relative to market dedication</strong>, not raw company size. Practical approach: score <strong>your own</strong> company 1–5 on focus and execution in this market, then score others <strong>relative to you</strong>.</p>
+<p>Each axis: <strong>high / medium / low</strong> (justify with evidence).</p>
+<h3 id="decision-categories">Decision categories</h3>
+<div class="table-scroll"><table>
+<thead><tr><th>Category</th><th>Typical placement</th><th>One-line intent</th></tr></thead>
+<tbody>
+<tr><td><strong>All-out attack</strong></td><td>High mindshare + high resources</td><td>Sharp wedge, proof, channel discipline; expect retaliation.</td></tr>
+<tr><td><strong>Monitor</strong></td><td>Low mindshare + high resources</td><td>Watch capacity; triggers before overreacting.</td></tr>
+<tr><td><strong>Harvest</strong></td><td>High mindshare + low resources</td><td>Use their awareness; win on fulfilment, trust, depth, migration paths.</td></tr>
+<tr><td><strong>Ignore</strong></td><td>Low mindshare + low resources</td><td>No strategic energy; note customer signals only.</td></tr>
+<tr><td><strong>Partner</strong></td><td>Complementary / ecosystem</td><td>Integration, referral, co-marketing, bundling—define value exchange; watch channel conflict.</td></tr>
+</tbody>
+</table></div>
+<p><strong>Partner</strong> is orthogonal to the 2×2; label when beating them is not required to win.</p>
+<h3 id="competitor-set-before-matrix-placement">Competitor set (before matrix placement)</h3>
+<p>Classify the <strong>map</strong> from the <strong>customer view</strong> of the market (buckets inform discovery; matrix uses mindshare + resources):</p>
+<ol>
+<li><strong>Direct</strong> — same buyer, same JTBD, comparable promise; same budget or decision.</li>
+<li><strong>Adjacent</strong> — overlapping workflow; could expand into your lane; partner and/or threat.</li>
+<li><strong>Substitute behaviours</strong> — manual, informal, “good enough” habits instead of buying.</li>
+<li><strong>Ecosystem</strong> — media, communities, platforms, agencies, infra that shape trust and access.</li>
+</ol>
+<h3 id="workflow-run-in-order">Workflow (run in order)</h3>
+<h4 id="1-reconnaissance">1. Reconnaissance</h4>
+<ul>
+<li>Prefer <strong>customer-led</strong> signals: core <strong>unaided</strong> question first: <em>When you think of [CATEGORY], what is the first product that comes to mind?</em> Then aided recognition, usage, recommendation, value/friction.</li>
+<li>Bias controls: unaided before aided; neutral framing where possible; separate <strong>verified</strong> evidence from assumptions.</li>
+<li>Collect <strong>current signals</strong> per priority player (site messaging, product claims, social themes, ads, reviews, pricing/onboarding, press/partnerships, hiring/funding, SEO topics, FAQs/objections). Full list: <a href="https://github.com/stritar/skills/blob/main/skills/strategy/market-command-matrix/reference.md#signal-checklist" target="_blank" rel="noopener noreferrer">reference.md</a>.</li>
+</ul>
+<h4 id="2-monitoring-and-extraction">2. Monitoring and extraction</h4>
+<p>For each priority player, extract meaning: promise, ICP, lead pain, proof, CTA, strongest channel, what they avoid saying, visible operational weakness, behaviour they try to change. Questions: <a href="https://github.com/stritar/skills/blob/main/skills/strategy/market-command-matrix/reference.md#extraction-questions" target="_blank" rel="noopener noreferrer">reference.md</a>.</p>
+<h4 id="3-matrix-placement">3. Matrix placement</h4>
+<p>For each player: <strong>category</strong>, <strong>rationale</strong>, <strong>confidence</strong> (high/medium/low), <strong>evidence used</strong>, <strong>what would change the placement</strong>.</p>
+<h4 id="4-playbook-selection">4. Playbook selection</h4>
+<p><strong>One primary motion per priority player.</strong> Do not output a dump without decisions. Playbook menus: <a href="https://github.com/stritar/skills/blob/main/skills/strategy/market-command-matrix/reference.md#playbooks-by-category" target="_blank" rel="noopener noreferrer">reference.md</a>.</p>
+<h4 id="5-market-shape">5. Market shape</h4>
+<p>With enough coverage: <strong>fragmented</strong> | <strong>challenger</strong> | <strong>ancient</strong> | <strong>mature</strong>—and what that implies for offence vs defence. Definitions: <a href="https://github.com/stritar/skills/blob/main/skills/strategy/market-command-matrix/reference.md#market-shapes" target="_blank" rel="noopener noreferrer">reference.md</a>.</p>
+<h4 id="6-whitespace-and-positioning">6. Whitespace and positioning</h4>
+<p>Turn gaps into actions: underserved audience, weak promise, missing proof, poor follow-through, trust gap, channel mismatch, etc.</p>
+<h3 id="output-formats">Output formats</h3>
+<ul>
+<li><strong>Full analysis:</strong> strategic thesis, competitor map, evidence table, matrix placement, whitespace, recommended actions (owner, dependency, output, deadline), market shape, milestones/triggers. Skeleton: <a href="https://github.com/stritar/skills/blob/main/skills/strategy/market-command-matrix/reference.md#full-analysis-template" target="_blank" rel="noopener noreferrer">reference.md</a>.</li>
+<li><strong>One-page memo</strong> (compressed): Player → Placement → Evidence (1–2 signals) → Meaning → Action → Trigger.</li>
+</ul>
+<p>Use <code>format:one-page</code> in the user request when they need the short memo only.</p>
+<h3 id="completion-gate-do-not-finalize-without">Completion gate (do not “finalize” without)</h3>
+<ul class="task-list">
+<li class="task"><input type="checkbox" disabled> Competitor set classified (direct / adjacent / substitute / ecosystem as relevant).</li>
+<li class="task"><input type="checkbox" disabled> Matrix category per <strong>priority</strong> player + rationale + confidence.</li>
+<li class="task"><input type="checkbox" disabled> Evidence vs assumptions separated.</li>
+<li class="task"><input type="checkbox" disabled> <strong>One</strong> selected primary playbook motion per priority player + <strong>next action</strong> + <strong>checkpoint or trigger</strong>.</li>
+<li class="task"><input type="checkbox" disabled> Market-shape interpretation <strong>if</strong> enough players/data exist.</li>
+<li class="task"><input type="checkbox" disabled> No “research only” handoff—every section ties to a <strong>decision or motion</strong>.</li>
+</ul>
+<h3 id="more-detail">More detail</h3>
+<p>Playbooks, market shapes, survey bias notes, Hermes install hint, sources: <a href="https://github.com/stritar/skills/blob/main/skills/strategy/market-command-matrix/reference.md" target="_blank" rel="noopener noreferrer">reference.md</a>.</p>
+</article>
+</main>
+</div>
+
+<footer class="site-foot">
+<p><a href="../index.html">Back to all skills</a></p>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>
