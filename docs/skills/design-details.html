@@ -11,64 +11,69 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="page-head">
-<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-design-qa">Design QA</a></nav>
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=design-qa">Design QA</a></nav>
 <h1>design-details</h1>
 <p class="badges"></p>
-<p class="lede">Parent router and full-audit contract for a suite of seven UI-craft sub-skills (animation, layout, copy, typography, color, accessibility, analytics). Enforces a Design System Protocol (check for existing tokens/CSS variables/theme objects before proposing any value; propose additions instead of overrides), a Context Gathering Protocol (audience, use cases, tone, platform - stop and ask if missing, with a /design-details init flow that persists answers to .design-details.md so the interview happens once per project), and a full-audit contract: run every applicable sub-skill, cover a named surface checklist (narrow viewport, modals, error/empty/loading states, keyboard traversal, reduced motion, live regions), open with a scope preamble stating what was and was not audited, and present findings as lettered sections of Before | After | Why tables, closing with an optional row-by-row walkthrough mode (Apply / Decline / Discuss / Stop per item).</p>
+<p class="lede">Parent router and full-audit contract for a suite of seven UI-craft sub-skills (animation, layout, copy, typography, color, accessibility, analytics).</p>
 </header>
 
 <div class="layout">
 <nav class="sidebar" aria-labelledby="contents">
-<h2 id="contents">On this page</h2>
+<h2 id="contents" class="label-caps">On this page</h2>
 <ul class="toc">
-<li><a href="#about">About this skill</a></li>
 <li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
 <li><a href="#related">Works with</a></li>
-<li><a href="#design-details">design-details</a></li>
-<li><a href="#design-system-protocol">Design System Protocol</a></li>
-<li><a href="#context-gathering-protocol">Context Gathering Protocol</a></li>
-<li><a href="#init-flow-design-details-init">Init Flow — /design-details init</a></li>
-<li><a href="#sub-skills">Sub-Skills</a></li>
-<li><a href="#full-audit-contract">Full Audit Contract</a></li>
-<li><a href="#core-principles">Core Principles</a></li>
-<li><a href="#review-output-format">Review Output Format</a></li>
-<li><a href="#meta">Meta</a></li>
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#design-details">design-details</a></li>
+<li class="toc-sub"><a href="#design-system-protocol">Design System Protocol</a></li>
+<li class="toc-sub"><a href="#context-gathering-protocol">Context Gathering Protocol</a></li>
+<li class="toc-sub"><a href="#init-flow-design-details-init">Init Flow — /design-details init</a></li>
+<li class="toc-sub"><a href="#sub-skills">Sub-Skills</a></li>
+<li class="toc-sub"><a href="#full-audit-contract">Full Audit Contract</a></li>
+<li class="toc-sub"><a href="#core-principles">Core Principles</a></li>
+<li class="toc-sub"><a href="#review-output-format">Review Output Format</a></li>
+<li class="toc-sub"><a href="#meta">Meta</a></li>
 </ul>
 </nav>
 
 <main id="main">
-<section id="about" class="meta">
-<h2>About this skill</h2>
-<div class="meta-row"><h3>Use when</h3><ul><li>review this UI</li><li>polish this screen</li><li>audit this page</li><li>full design audit</li><li>make this feel considered</li><li>design details pass</li></ul></div>
-<div class="meta-row"><h3>Works on</h3><ul><li>source code</li><li>project design context (.design-details.md, CLAUDE.md)</li><li>the screen or component under review</li></ul></div>
-<div class="meta-row"><h3>Produces</h3><ul><li>scope preamble</li><li>lettered findings as Before/After/Why tables</li><li>interactive row-by-row walkthrough with applied fixes</li><li>.design-details.md project context file (init flow)</li></ul></div>
-<div class="meta-row"><h3>Tags</h3>
-<ul class="tags"><li><a class="tag" href="../index.html?tag=orchestration">orchestration</a></li><li><a class="tag" href="../index.html?tag=workflow">workflow</a></li><li><a class="tag" href="../index.html?tag=design-review">design-review</a></li><li><a class="tag" href="../index.html?tag=design-critique">design-critique</a></li><li><a class="tag" href="../index.html?tag=review">review</a></li><li><a class="tag" href="../index.html?tag=visual-polish">visual-polish</a></li></ul></div>
-
-<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/GeorgeTurp/design-details/tree/9e5686b0e1e6fc426c5b2d21280eb76e5b41ed14/skills/design-details">GeorgeTurp/design-details</a> by George Turp at <code>9e5686b</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p></div>
-</section>
-
 <section id="install">
 <h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill design-details</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill design-details"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
 <ul class="install">
-<li>
-<h3>Any agent, via the skills CLI</h3>
-<div class="cmd"><pre><code>npx skills add stritar/skills --skill design-details</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill design-details"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Installs into whichever agents it finds on your machine.</p>
-</li>
 <li>
 <h3>Claude Code, as a plugin</h3>
 <div class="cmd"><pre><code>/plugin marketplace add stritar/skills
-/plugin install product-design-design-qa@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-design-qa@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
 /plugin install product-design-design-qa@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Brings the whole design-qa bundle. Use <code>product-design-all</code> for everything.</p>
+<p class="note">Installs the whole <code>design-qa</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
 </li>
 <li>
 <h3>From a clone, copied by hand</h3>
-<div class="cmd"><pre><code>cp -r skills/design-qa/design-details ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/design-qa/design-details ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<div class="cmd"><pre><code>cp -r skills/design-qa/design-details ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/design-qa/design-details ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
 <p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
 </li>
 </ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Parent router and full-audit contract for a suite of seven UI-craft sub-skills (animation, layout, copy, typography, color, accessibility, analytics). Enforces a Design System Protocol (check for existing tokens/CSS variables/theme objects before proposing any value; propose additions instead of overrides), a Context Gathering Protocol (audience, use cases, tone, platform - stop and ask if missing, with a /design-details init flow that persists answers to .design-details.md so the interview happens once per project), and a full-audit contract: run every applicable sub-skill, cover a named surface checklist (narrow viewport, modals, error/empty/loading states, keyboard traversal, reduced motion, live regions), open with a scope preamble stating what was and was not audited, and present findings as lettered sections of Before | After | Why tables, closing with an optional row-by-row walkthrough mode (Apply / Decline / Discuss / Stop per item).</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>review this UI</li><li>polish this screen</li><li>audit this page</li><li>full design audit</li><li>make this feel considered</li><li>design details pass</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>source code</li><li>project design context (.design-details.md, CLAUDE.md)</li><li>the screen or component under review</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>scope preamble</li><li>lettered findings as Before/After/Why tables</li><li>interactive row-by-row walkthrough with applied fixes</li><li>.design-details.md project context file (init flow)</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=orchestration">orchestration</a></li><li><a class="tag" href="../index.html?tag=workflow">workflow</a></li><li><a class="tag" href="../index.html?tag=design-review">design-review</a></li><li><a class="tag" href="../index.html?tag=design-critique">design-critique</a></li><li><a class="tag" href="../index.html?tag=review">review</a></li><li><a class="tag" href="../index.html?tag=visual-polish">visual-polish</a></li></ul></div>
+
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/GeorgeTurp/design-details/tree/9e5686b0e1e6fc426c5b2d21280eb76e5b41ed14/skills/design-details">GeorgeTurp/design-details</a> by George Turp at <code>9e5686b</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p>
+</details>
 </section>
 
 <section id="related">
@@ -81,7 +86,7 @@
 </ul>
 </section>
 
-<article class="skill-body">
+<article class="skill-body" id="instructions">
 <h2 class="body-head">Instructions</h2>
 <p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/design-qa/design-details/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
 <h2 id="design-details">design-details</h2>

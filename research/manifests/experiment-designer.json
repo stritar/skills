@@ -1,0 +1,55 @@
+{
+  "id": "experiment-designer",
+  "category": "analytics",
+  "verdict": "vendor",
+  "rubric": { "relevance": 3, "quality": 3, "conformance": 2, "uniqueness": 2 },
+  "upstream": {
+    "repository": "alirezarezvani/claude-skills",
+    "url": "https://github.com/alirezarezvani/claude-skills/tree/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/experiment-designer",
+    "author": "Alireza Rezvani",
+    "commit": "19392f7a08264ed00486a251f5b2098321771f94",
+    "path": "product-team/skills/experiment-designer",
+    "license": "MIT",
+    "licenseSource": "repo-root:LICENSE"
+  },
+  "files": [
+    { "dest": "SKILL.md", "rawUrl": "https://raw.githubusercontent.com/alirezarezvani/claude-skills/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/experiment-designer/SKILL.md", "blobSha": "b74e59bf3b0e77dacb788f10dbc43eca16e9b4f9" },
+    { "dest": "references/experiment-playbook.md", "rawUrl": "https://raw.githubusercontent.com/alirezarezvani/claude-skills/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/experiment-designer/references/experiment-playbook.md", "blobSha": "07b2cc9e16a32e3834665bb89586eece8ac21a24" },
+    { "dest": "references/statistics-reference.md", "rawUrl": "https://raw.githubusercontent.com/alirezarezvani/claude-skills/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/experiment-designer/references/statistics-reference.md", "blobSha": "b933863c337610f7ae54063f17de7dbbdbf29d23" },
+    { "dest": "scripts/sample_size_calculator.py", "rawUrl": "https://raw.githubusercontent.com/alirezarezvani/claude-skills/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/experiment-designer/scripts/sample_size_calculator.py", "blobSha": "69bd483edc35b23b62ab694740b06de279fc8184" },
+    { "dest": "LICENSE.txt", "rawUrl": "https://raw.githubusercontent.com/alirezarezvani/claude-skills/19392f7a08264ed00486a251f5b2098321771f94/LICENSE", "blobSha": "c3e30bcc287d6a1ebdb4ab29c10d344fd1053639" }
+  ],
+  "securityNotes": "Read SKILL.md, both reference files, and scripts/sample_size_calculator.py (100 lines) in full at the pinned SHA. Script is pure-math (stdlib argparse/math) computing two-proportion sample size from baseline rate, MDE, alpha and power; no network calls, no subprocess, no eval/exec. Clean.",
+  "overlaps": ["instrumentation-plan", "silver-measure"],
+  "proposedEntry": {
+    "id": "experiment-designer",
+    "name": "experiment-designer",
+    "description": "Designs, prioritizes and evaluates product experiments: writes hypotheses in If/Then/Because format, separates primary/guardrail/secondary metrics, computes required sample size per variant via a bundled Python calculator (baseline rate, minimum detectable effect, alpha, power), scores and ranks experiment ideas with ICE (Impact x Confidence x Ease / 10), and defines stopping rules before launch. Includes a hypothesis-quality checklist, a table of common experiment pitfalls (underpowered tests, simultaneous changes, mid-test edits, early stopping, instrumentation drift), and statistical-interpretation guardrails distinguishing statistical from business significance.",
+    "category": "analytics",
+    "tags": ["experimentation", "ab-testing", "hypothesis", "metrics", "analytics"],
+    "triggers": ["design an A/B test for this change", "write a testable hypothesis", "calculate sample size for an experiment", "prioritize these experiment ideas with ICE", "interpret these A/B test results"],
+    "inputs": ["a proposed product change and the metric it's expected to move", "baseline rate, minimum detectable effect, and desired power/significance for sample-size calculation", "a list of candidate experiments for ICE prioritization"],
+    "outputs": ["an If/Then/Because hypothesis with primary and guardrail metrics", "a required sample size per variant and total", "an ICE-ranked experiment priority list", "a statistically-grounded read of experiment results"],
+    "path": "skills/analytics/experiment-designer",
+    "source": {
+      "type": "third-party",
+      "repository": "alirezarezvani/claude-skills",
+      "url": "https://github.com/alirezarezvani/claude-skills/tree/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/experiment-designer",
+      "author": "Alireza Rezvani",
+      "license": "MIT",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": "product-team/skills/experiment-designer",
+      "upstreamCommit": "19392f7a08264ed00486a251f5b2098321771f94",
+      "retrievedAt": "2026-08-29",
+      "modified": false,
+      "modifications": []
+    },
+    "compatibility": ["claude-code", "codex", "cursor", "opencode", "amp", "gemini-cli", "copilot", "vs-code", "claude-ai"],
+    "dependencies": ["python3"],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "experimental",
+    "status": "draft"
+  },
+  "logMd": "#### alirezarezvani/claude-skills (inspected 2026-08-29)\n- Same repo pin: 19392f7a08264ed00486a251f5b2098321771f94, MIT at repo-root LICENSE.\n- Read SKILL.md, both reference files, and the 100-line sample_size_calculator.py script in full.\n- Rubric: relevance 3 (experiment design is explicitly listed under the analytics category's scope), quality 3 (If/Then/Because hypothesis format, a runnable sample-size calculator, an ICE scoring formula, a named pitfalls table), conformance 2 (frontmatter is name+description only -> claude-ai appended; name equals dirname), uniqueness 2 (instrumentation-plan and silver-measure cover pre-launch instrumentation and post-launch measurement respectively; hypothesis writing, sample-size math and ICE prioritization for experiments are not covered elsewhere in the registry). Total 10.\n- Security: clean, pure-math stdlib script.\n- Verdict: vendor."
+}

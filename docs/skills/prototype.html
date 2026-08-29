@@ -11,61 +11,66 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="page-head">
-<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-prototyping">Prototyping</a></nav>
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=prototyping">Prototyping</a></nav>
 <h1>prototype</h1>
 <p class="badges"></p>
-<p class="lede">Builds several (default three, up to five) genuinely different versions of one described UI piece, each diverging on a named axis (layout, density, personality, motion, interaction model) stated before any code is written, hosted full-size in realistic context behind a visual picker with keyboard navigation, instant switching, and URL-param persistence per a verbatim picker spec. Every variant must independently meet the same motion-craft bar (correct easing, sub-300ms UI motion, transform-origin, reduced-motion) so a sloppy variant never widens the exploration. Presents tradeoffs honestly without marking a favorite, then on selection promotes the winner into the project's conventions and deletes the prototype surface.</p>
+<p class="lede">Builds several (default three, up to five) genuinely different versions of one described UI piece, each diverging on a named axis.</p>
 </header>
 
 <div class="layout">
 <nav class="sidebar" aria-labelledby="contents">
-<h2 id="contents">On this page</h2>
+<h2 id="contents" class="label-caps">On this page</h2>
 <ul class="toc">
-<li><a href="#about">About this skill</a></li>
 <li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
 <li><a href="#related">Works with</a></li>
-<li><a href="#prototyping-variants">Prototyping Variants</a></li>
-<li><a href="#operating-posture">Operating Posture</a></li>
-<li><a href="#hard-rules">Hard Rules</a></li>
-<li><a href="#workflow">Workflow</a></li>
-<li><a href="#invocation-variants">Invocation Variants</a></li>
-<li><a href="#tone">Tone</a></li>
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#prototyping-variants">Prototyping Variants</a></li>
+<li class="toc-sub"><a href="#operating-posture">Operating Posture</a></li>
+<li class="toc-sub"><a href="#hard-rules">Hard Rules</a></li>
+<li class="toc-sub"><a href="#workflow">Workflow</a></li>
+<li class="toc-sub"><a href="#invocation-variants">Invocation Variants</a></li>
+<li class="toc-sub"><a href="#tone">Tone</a></li>
 </ul>
 </nav>
 
 <main id="main">
-<section id="about" class="meta">
-<h2>About this skill</h2>
-<div class="meta-row"><h3>Use when</h3><ul><li>show me a few different versions of this component</li><li>prototype a few directions for this UI piece</li><li>build variants I can flip through</li><li>explore layout directions live</li></ul></div>
-<div class="meta-row"><h3>Works on</h3><ul><li>a one-sentence description of one UI piece to explore</li></ul></div>
-<div class="meta-row"><h3>Produces</h3><ul><li>a live picker harness (isolated route or standalone HTML) hosting each variant full-size in realistic context</li><li>a tradeoffs table (Variant | Axis | When it's the right choice | Its cost)</li></ul></div>
-<div class="meta-row"><h3>Tags</h3>
-<ul class="tags"><li><a class="tag" href="../index.html?tag=prototyping">prototyping</a></li><li><a class="tag" href="../index.html?tag=interactive-prototype">interactive-prototype</a></li><li><a class="tag" href="../index.html?tag=high-fidelity">high-fidelity</a></li><li><a class="tag" href="../index.html?tag=variants">variants</a></li></ul></div>
-
-<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/prototype">emilkowalski/skills</a> by Emil Kowalski at <code>d23d7f8</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p></div>
-</section>
-
 <section id="install">
 <h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill prototype</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill prototype"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
 <ul class="install">
-<li>
-<h3>Any agent, via the skills CLI</h3>
-<div class="cmd"><pre><code>npx skills add stritar/skills --skill prototype</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill prototype"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Installs into whichever agents it finds on your machine.</p>
-</li>
 <li>
 <h3>Claude Code, as a plugin</h3>
 <div class="cmd"><pre><code>/plugin marketplace add stritar/skills
-/plugin install product-design-prototyping@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-prototyping@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
 /plugin install product-design-prototyping@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Brings the whole prototyping bundle. Use <code>product-design-all</code> for everything.</p>
+<p class="note">Installs the whole <code>prototyping</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
 </li>
 <li>
 <h3>From a clone, copied by hand</h3>
-<div class="cmd"><pre><code>cp -r skills/prototyping/prototype ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/prototyping/prototype ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<div class="cmd"><pre><code>cp -r skills/prototyping/prototype ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/prototyping/prototype ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
 <p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
 </li>
 </ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Builds several (default three, up to five) genuinely different versions of one described UI piece, each diverging on a named axis (layout, density, personality, motion, interaction model) stated before any code is written, hosted full-size in realistic context behind a visual picker with keyboard navigation, instant switching, and URL-param persistence per a verbatim picker spec. Every variant must independently meet the same motion-craft bar (correct easing, sub-300ms UI motion, transform-origin, reduced-motion) so a sloppy variant never widens the exploration. Presents tradeoffs honestly without marking a favorite, then on selection promotes the winner into the project's conventions and deletes the prototype surface.</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>show me a few different versions of this component</li><li>prototype a few directions for this UI piece</li><li>build variants I can flip through</li><li>explore layout directions live</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>a one-sentence description of one UI piece to explore</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>a live picker harness (isolated route or standalone HTML) hosting each variant full-size in realistic context</li><li>a tradeoffs table (Variant | Axis | When it's the right choice | Its cost)</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=prototyping">prototyping</a></li><li><a class="tag" href="../index.html?tag=interactive-prototype">interactive-prototype</a></li><li><a class="tag" href="../index.html?tag=high-fidelity">high-fidelity</a></li><li><a class="tag" href="../index.html?tag=variants">variants</a></li></ul></div>
+
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/prototype">emilkowalski/skills</a> by Emil Kowalski at <code>d23d7f8</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p>
+</details>
 </section>
 
 <section id="related">
@@ -75,7 +80,7 @@
 </ul>
 </section>
 
-<article class="skill-body">
+<article class="skill-body" id="instructions">
 <h2 class="body-head">Instructions</h2>
 <p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/prototyping/prototype/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
 <h2 id="prototyping-variants">Prototyping Variants</h2>

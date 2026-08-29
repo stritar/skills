@@ -11,59 +11,64 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="page-head">
-<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-information-architecture">Information architecture</a></nav>
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=information-architecture">Information architecture</a></nav>
 <h1>silver-structure</h1>
 <p class="badges"><span class="il badge badge-dep"><span class="il-label">Needs Node</span></span><span class="il badge badge-exp"><span class="il-label">Experimental</span></span></p>
-<p class="lede">Defines and refines information architecture: navigation structure, taxonomy, content models and object models (what exists, how it is organized, how things relate), explicitly distinct from flows (sequences over time) and journey or service maps. Workflow: name the question and structure type; define entities, attributes and parent/child relationships; define relationships between entities with cardinality where known; record structural rules, leaving genuine ambiguity recorded rather than resolved by assumption. Hands off flows, journey maps, components and tokens to sibling skills. Includes a dependency-free Node script (scripts/check-structure.mjs) that validates a structure JSON file for duplicate entity ids, missing parents, parent cycles and dangling relationships. Upstream emits its record through the Silver Design Framework CLI (.silver/bin/silver invoke), which is not bundled; used standalone, follow the workflow and boundaries and write the artifact directly.</p>
+<p class="lede">Defines and refines information architecture.</p>
 </header>
 
 <div class="layout">
 <nav class="sidebar" aria-labelledby="contents">
-<h2 id="contents">On this page</h2>
+<h2 id="contents" class="label-caps">On this page</h2>
 <ul class="toc">
-<li><a href="#about">About this skill</a></li>
 <li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
 <li><a href="#related">Works with</a></li>
-<li><a href="#structure-information-architecture">Structure information architecture</a></li>
-<li><a href="#workflow">Workflow</a></li>
-<li><a href="#done">Done</a></li>
-<li><a href="#boundaries">Boundaries</a></li>
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#structure-information-architecture">Structure information architecture</a></li>
+<li class="toc-sub"><a href="#workflow">Workflow</a></li>
+<li class="toc-sub"><a href="#done">Done</a></li>
+<li class="toc-sub"><a href="#boundaries">Boundaries</a></li>
 </ul>
 </nav>
 
 <main id="main">
-<section id="about" class="meta">
-<h2>About this skill</h2>
-<div class="meta-row"><h3>Use when</h3><ul><li>define the information architecture for this product</li><li>model entities and relationships</li><li>build a taxonomy or content model</li><li>distinguish structure from flow and from journey maps</li><li>check a structure definition for cycles or missing references</li></ul></div>
-<div class="meta-row"><h3>Works on</h3><ul><li>a product or design-specification context needing structural definition</li><li>optionally, existing findings or maps that inform the structure</li></ul></div>
-<div class="meta-row"><h3>Produces</h3><ul><li>named entities, attributes, and parent/child relationships; explicit relationships with cardinality where known; and structural rules, with genuine ambiguity recorded rather than assumed</li></ul></div>
-<div class="meta-row"><h3>Tags</h3>
-<ul class="tags"><li><a class="tag" href="../index.html?tag=information-architecture">information-architecture</a></li><li><a class="tag" href="../index.html?tag=taxonomy">taxonomy</a></li><li><a class="tag" href="../index.html?tag=content-hierarchy">content-hierarchy</a></li><li><a class="tag" href="../index.html?tag=mental-models">mental-models</a></li></ul></div>
-<div class="meta-row"><h3>Requires</h3><ul><li><code>node</code></li></ul></div>
-<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/structure">thejparsenault/silver-design-framework</a> by JP Arsenault at <code>317ede0</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p></div>
-</section>
-
 <section id="install">
 <h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill silver-structure</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill silver-structure"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
 <ul class="install">
-<li>
-<h3>Any agent, via the skills CLI</h3>
-<div class="cmd"><pre><code>npx skills add stritar/skills --skill silver-structure</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill silver-structure"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Installs into whichever agents it finds on your machine.</p>
-</li>
 <li>
 <h3>Claude Code, as a plugin</h3>
 <div class="cmd"><pre><code>/plugin marketplace add stritar/skills
-/plugin install product-design-information-architecture@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-information-architecture@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
 /plugin install product-design-information-architecture@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Brings the whole information-architecture bundle. Use <code>product-design-all</code> for everything.</p>
+<p class="note">Installs the whole <code>information-architecture</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
 </li>
 <li>
 <h3>From a clone, copied by hand</h3>
-<div class="cmd"><pre><code>cp -r skills/information-architecture/silver-structure ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/information-architecture/silver-structure ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<div class="cmd"><pre><code>cp -r skills/information-architecture/silver-structure ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/information-architecture/silver-structure ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
 <p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
 </li>
 </ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Defines and refines information architecture: navigation structure, taxonomy, content models and object models (what exists, how it is organized, how things relate), explicitly distinct from flows (sequences over time) and journey or service maps. Workflow: name the question and structure type; define entities, attributes and parent/child relationships; define relationships between entities with cardinality where known; record structural rules, leaving genuine ambiguity recorded rather than resolved by assumption. Hands off flows, journey maps, components and tokens to sibling skills. Includes a dependency-free Node script (scripts/check-structure.mjs) that validates a structure JSON file for duplicate entity ids, missing parents, parent cycles and dangling relationships. Upstream emits its record through the Silver Design Framework CLI (.silver/bin/silver invoke), which is not bundled; used standalone, follow the workflow and boundaries and write the artifact directly.</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>define the information architecture for this product</li><li>model entities and relationships</li><li>build a taxonomy or content model</li><li>distinguish structure from flow and from journey maps</li><li>check a structure definition for cycles or missing references</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>a product or design-specification context needing structural definition</li><li>optionally, existing findings or maps that inform the structure</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>named entities, attributes, and parent/child relationships; explicit relationships with cardinality where known; and structural rules, with genuine ambiguity recorded rather than assumed</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=information-architecture">information-architecture</a></li><li><a class="tag" href="../index.html?tag=taxonomy">taxonomy</a></li><li><a class="tag" href="../index.html?tag=content-hierarchy">content-hierarchy</a></li><li><a class="tag" href="../index.html?tag=mental-models">mental-models</a></li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Requires</h3><ul><li><code>node</code></li></ul></div>
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/structure">thejparsenault/silver-design-framework</a> by JP Arsenault at <code>317ede0</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p>
+</details>
 </section>
 
 <section id="related">
@@ -74,7 +79,7 @@
 </ul>
 </section>
 
-<article class="skill-body">
+<article class="skill-body" id="instructions">
 <h2 class="body-head">Instructions</h2>
 <p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/information-architecture/silver-structure/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
 <h2 id="structure-information-architecture">Structure information architecture</h2>

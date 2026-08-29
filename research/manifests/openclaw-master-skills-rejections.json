@@ -1,0 +1,67 @@
+{
+  "verdict": "reject",
+  "repository": "leoyeai/openclaw-master-skills",
+  "commit": "e5199b56ae1ff72e141586c17695563486c46702",
+  "rejectedSkills": [
+    {
+      "id": "product-analytics",
+      "reason": "skills/product-analytics -- _meta.json owner field is 'alirezarezvani'; file-for-file mirror of product-team/skills/product-analytics in alirezarezvani/claude-skills (same SKILL.md content, same metrics_calculator.py). Vendored once from the true origin repo instead (see research/manifests/product-analytics.json) to avoid double-vendoring identical content under two different upstream attributions.",
+      "rubric": { "relevance": 3, "quality": 3, "conformance": 2, "uniqueness": 0 }
+    },
+    {
+      "id": "ui-design-system",
+      "reason": "skills/ui-design-system -- _meta.json owner field is 'alirezarezvani'; mirror of product-team/skills/ui-design-system in alirezarezvani/claude-skills. Vendored from the true origin instead (see research/manifests/ui-design-system.json).",
+      "rubric": { "relevance": 3, "quality": 3, "conformance": 2, "uniqueness": 0 }
+    },
+    {
+      "id": "ux-researcher-designer",
+      "reason": "skills/ux-researcher-designer -- _meta.json owner field is 'alirezarezvani'; mirror of product-team/skills/ux-researcher-designer in alirezarezvani/claude-skills. Vendored from the true origin instead (see research/manifests/ux-researcher-designer.json).",
+      "rubric": { "relevance": 3, "quality": 3, "conformance": 2, "uniqueness": 0 }
+    },
+    {
+      "id": "accessibility",
+      "reason": "skills/accessibility -- read SKILL.md in full: a well-built WCAG 2.1 AA implementation guide (semantic HTML decision tree, ARIA patterns, focus-trap code, contrast rules, 12 documented issue-preventions). Strong quality (3) but near-duplicate of the a11y family already vendored in this registry (a11y-audit, a11y-check-code, a11y-check-page, a11y-critic, a11y-planner, a11y-role-audit, better-accessibility, ultra11y, review-a11y) which covers the same WCAG/ARIA/focus/contrast ground with comparable or greater depth; uniqueness 0 per the rubric's 'near-duplicate of a better skill already vendored' rule, disqualifying regardless of the other scores.",
+      "rubric": { "relevance": 3, "quality": 3, "conformance": 2, "uniqueness": 0 }
+    },
+    {
+      "id": "api-design-principles",
+      "reason": "skills/api-design-principles -- backend/API design (REST/GraphQL conventions), not product/UX design. Relevance 0 per the rubric's generic-coding-content disqualifier; not deep-inspected.",
+      "rubric": { "relevance": 0, "quality": null, "conformance": null, "uniqueness": null }
+    },
+    {
+      "id": "api-design-reviewer",
+      "reason": "skills/api-design-reviewer -- same as above, backend API review, not design; relevance 0; not deep-inspected.",
+      "rubric": { "relevance": 0, "quality": null, "conformance": null, "uniqueness": null }
+    },
+    {
+      "id": "database-designer",
+      "reason": "skills/database-designer and skills/database-schema-designer -- database/schema design, software engineering not product design; relevance 0; not deep-inspected.",
+      "rubric": { "relevance": 0, "quality": null, "conformance": null, "uniqueness": null }
+    },
+    {
+      "id": "variant-design-skill",
+      "reason": "skills/variant-design-skill -- name suggests UI-variant generation, directly overlapping the registry's existing 'variant' skill; not deep-inspected given the near-certain name collision in scope, flagged for a future pass if variant-design-skill is ever prioritized.",
+      "rubric": { "relevance": 2, "quality": null, "conformance": null, "uniqueness": null }
+    },
+    {
+      "id": "extract-design",
+      "reason": "skills/extract-design -- name suggests overlap with the registry's existing 'extract-design-md'; not deep-inspected given the likely near-duplicate scope.",
+      "rubric": { "relevance": 2, "quality": null, "conformance": null, "uniqueness": null }
+    },
+    {
+      "id": "open-persona",
+      "reason": "skills/open-persona -- read the file list only (references/ARCHITECTURE.md, AVATAR.md, ECONOMY.md, EVOLUTION.md, FACULTIES.md, HEARTBEAT.md, PRESETS.md, CONTRIBUTE.md): this is an AI-agent-personality/economy framework ('faculties', 'heartbeat', in-world economy), not a UX-persona research tool despite the name. Off-topic for product design; relevance 0; not deep-inspected beyond the file list.",
+      "rubric": { "relevance": 0, "quality": null, "conformance": null, "uniqueness": null }
+    },
+    {
+      "id": "web-design-guidelines",
+      "reason": "skills/web-design-guidelines -- single-file skill; name-matched via keyword search but not opened given the repo3 vendor quota (2) was already filled by stronger, more differentiated candidates (designers-eye, macos-hig-designer). Not scored.",
+      "rubric": { "relevance": null, "quality": null, "conformance": null, "uniqueness": null }
+    },
+    {
+      "id": "responsive-design",
+      "reason": "skills/responsive-design -- likely overlaps the registry's responsive/adaptive coverage inside frontend-design and ui-design-system (vendored this batch); not opened given the repo's vendor quota was already filled. Not scored.",
+      "rubric": { "relevance": null, "quality": null, "conformance": null, "uniqueness": null }
+    }
+  ]
+}

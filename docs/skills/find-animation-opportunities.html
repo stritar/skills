@@ -11,63 +11,68 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="page-head">
-<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-testing">Testing and evaluation</a></nav>
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=testing">Testing and evaluation</a></nav>
 <h1>find-animation-opportunities</h1>
 <p class="badges"></p>
-<p class="lede">Read-only sweep of a codebase or UI for moments that would genuinely benefit from motion, filtered through a four-question gate (frequency, named purpose, duration budget, function) applied ruthlessly -- most candidates are expected to be rejected. Hunts six known seam classes (feedback gaps, teleporting state, missing spatial story, group entrances, gesture seams, the rare delight budget) with grep patterns, caps output at 5-7 suggestions per app, and requires a companion list of 2-5 explicitly rejected candidates with the gate question that killed each one, closing with a verdict on how much motion the interface actually needs.</p>
+<p class="lede">Read-only sweep of a codebase or UI for moments that would genuinely benefit from motion, filtered through a four-question gate.</p>
 </header>
 
 <div class="layout">
 <nav class="sidebar" aria-labelledby="contents">
-<h2 id="contents">On this page</h2>
+<h2 id="contents" class="label-caps">On this page</h2>
 <ul class="toc">
-<li><a href="#about">About this skill</a></li>
 <li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
 <li><a href="#related">Works with</a></li>
-<li><a href="#finding-animation-opportunities">Finding Animation Opportunities</a></li>
-<li><a href="#operating-posture">Operating Posture</a></li>
-<li><a href="#hard-rules">Hard Rules</a></li>
-<li><a href="#the-gate">The Gate</a></li>
-<li><a href="#where-to-hunt">Where to Hunt</a></li>
-<li><a href="#workflow">Workflow</a></li>
-<li><a href="#required-output-format">Required Output Format</a></li>
-<li><a href="#tone">Tone</a></li>
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#finding-animation-opportunities">Finding Animation Opportunities</a></li>
+<li class="toc-sub"><a href="#operating-posture">Operating Posture</a></li>
+<li class="toc-sub"><a href="#hard-rules">Hard Rules</a></li>
+<li class="toc-sub"><a href="#the-gate">The Gate</a></li>
+<li class="toc-sub"><a href="#where-to-hunt">Where to Hunt</a></li>
+<li class="toc-sub"><a href="#workflow">Workflow</a></li>
+<li class="toc-sub"><a href="#required-output-format">Required Output Format</a></li>
+<li class="toc-sub"><a href="#tone">Tone</a></li>
 </ul>
 </nav>
 
 <main id="main">
-<section id="about" class="meta">
-<h2>About this skill</h2>
-<div class="meta-row"><h3>Use when</h3><ul><li>what could be animated here</li><li>make this feel more alive</li><li>find missing animation opportunities</li><li>where should we add motion</li></ul></div>
-<div class="meta-row"><h3>Works on</h3><ul><li>a codebase or a specific UI/view to sweep for motion opportunities</li></ul></div>
-<div class="meta-row"><h3>Produces</h3><ul><li>an opportunities table (Location | Today | Purpose | Frequency | Suggested motion) with exact values</li><li>a required rejected-candidates list with the gate question that killed each</li><li>a one-paragraph verdict naming the highest-leverage suggestion</li></ul></div>
-<div class="meta-row"><h3>Tags</h3>
-<ul class="tags"><li><a class="tag" href="../index.html?tag=heuristic-evaluation">heuristic-evaluation</a></li><li><a class="tag" href="../index.html?tag=expert-review">expert-review</a></li><li><a class="tag" href="../index.html?tag=motion">motion</a></li><li><a class="tag" href="../index.html?tag=animation">animation</a></li><li><a class="tag" href="../index.html?tag=severity">severity</a></li></ul></div>
-
-<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/find-animation-opportunities">emilkowalski/skills</a> by Emil Kowalski at <code>d23d7f8</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p></div>
-</section>
-
 <section id="install">
 <h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill find-animation-opportunities</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill find-animation-opportunities"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
 <ul class="install">
-<li>
-<h3>Any agent, via the skills CLI</h3>
-<div class="cmd"><pre><code>npx skills add stritar/skills --skill find-animation-opportunities</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill find-animation-opportunities"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Installs into whichever agents it finds on your machine.</p>
-</li>
 <li>
 <h3>Claude Code, as a plugin</h3>
 <div class="cmd"><pre><code>/plugin marketplace add stritar/skills
-/plugin install product-design-testing@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-testing@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
 /plugin install product-design-testing@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Brings the whole testing bundle. Use <code>product-design-all</code> for everything.</p>
+<p class="note">Installs the whole <code>testing</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
 </li>
 <li>
 <h3>From a clone, copied by hand</h3>
-<div class="cmd"><pre><code>cp -r skills/testing/find-animation-opportunities ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/testing/find-animation-opportunities ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<div class="cmd"><pre><code>cp -r skills/testing/find-animation-opportunities ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/testing/find-animation-opportunities ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
 <p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
 </li>
 </ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Read-only sweep of a codebase or UI for moments that would genuinely benefit from motion, filtered through a four-question gate (frequency, named purpose, duration budget, function) applied ruthlessly -- most candidates are expected to be rejected. Hunts six known seam classes (feedback gaps, teleporting state, missing spatial story, group entrances, gesture seams, the rare delight budget) with grep patterns, caps output at 5-7 suggestions per app, and requires a companion list of 2-5 explicitly rejected candidates with the gate question that killed each one, closing with a verdict on how much motion the interface actually needs.</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>what could be animated here</li><li>make this feel more alive</li><li>find missing animation opportunities</li><li>where should we add motion</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>a codebase or a specific UI/view to sweep for motion opportunities</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>an opportunities table (Location | Today | Purpose | Frequency | Suggested motion) with exact values</li><li>a required rejected-candidates list with the gate question that killed each</li><li>a one-paragraph verdict naming the highest-leverage suggestion</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=heuristic-evaluation">heuristic-evaluation</a></li><li><a class="tag" href="../index.html?tag=expert-review">expert-review</a></li><li><a class="tag" href="../index.html?tag=motion">motion</a></li><li><a class="tag" href="../index.html?tag=animation">animation</a></li><li><a class="tag" href="../index.html?tag=severity">severity</a></li></ul></div>
+
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/find-animation-opportunities">emilkowalski/skills</a> by Emil Kowalski at <code>d23d7f8</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p>
+</details>
 </section>
 
 <section id="related">
@@ -78,7 +83,7 @@
 </ul>
 </section>
 
-<article class="skill-body">
+<article class="skill-body" id="instructions">
 <h2 class="body-head">Instructions</h2>
 <p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/testing/find-animation-opportunities/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
 <h2 id="finding-animation-opportunities">Finding Animation Opportunities</h2>

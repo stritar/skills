@@ -11,77 +11,82 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="page-head">
-<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-visual-design">Visual design</a></nav>
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=visual-design">Visual design</a></nav>
 <h1>better-typography</h1>
 <p class="badges"><span class="il badge badge-rec"><span class="il-icon" aria-hidden="true">★</span><span class="il-label">Recommended</span></span></p>
-<p class="lede">Web typography guidance: font-format and weight-loading rules, CSS properties over raw variable-font/OpenType tags, type-scale construction with descending heading steps, line-height and letter-spacing by role, measure capping (60-75 characters), text-wrap balance/pretty usage, tabular numbers, truncation without losing content, smart punctuation, from-font underline metrics, the 16px iOS input-zoom fix (two documented approaches), font-smoothing and bidi/lang/dir handling, closing with a calibrated severity report ending in Block/Approve, plus a CSS-to-Tailwind cheat sheet for every declaration covered.</p>
+<p class="lede">Web typography guidance.</p>
 </header>
 
 <div class="layout">
 <nav class="sidebar" aria-labelledby="contents">
-<h2 id="contents">On this page</h2>
+<h2 id="contents" class="label-caps">On this page</h2>
 <ul class="toc">
-<li><a href="#about">About this skill</a></li>
 <li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
 <li><a href="#related">Works with</a></li>
-<li><a href="#typography">Typography</a></li>
-<li><a href="#serve-the-right-format">Serve the right format</a></li>
-<li><a href="#properties-over-raw-tags">Properties over raw tags</a></li>
-<li><a href="#load-intended-weights-and-styles">Load intended weights and styles</a></li>
-<li><a href="#fewer-fonts-sizes-and-weights">Fewer fonts, sizes and weights</a></li>
-<li><a href="#use-a-type-scale-with-semantic-names">Use a type scale with semantic names</a></li>
-<li><a href="#heading-sizes-descend-with-level">Heading sizes descend with level</a></li>
-<li><a href="#line-height-by-role">Line-height by role</a></li>
-<li><a href="#letter-spacing-by-size">Letter-spacing by size</a></li>
-<li><a href="#cap-the-measure">Cap the measure</a></li>
-<li><a href="#wrap-deliberately">Wrap deliberately</a></li>
-<li><a href="#tabular-numbers-on-changing-values">Tabular numbers on changing values</a></li>
-<li><a href="#truncate-without-losing-content">Truncate without losing content</a></li>
-<li><a href="#write-copy-naturally-style-with-css">Write copy naturally, style with CSS</a></li>
-<li><a href="#underlines-from-the-font">Underlines from the font</a></li>
-<li><a href="#inputs-at-16px-on-mobile">Inputs at 16px on mobile</a></li>
-<li><a href="#size-and-contrast-floors">Size and contrast floors</a></li>
-<li><a href="#font-smoothing-on-the-root">Font smoothing on the root</a></li>
-<li><a href="#language-and-bidi-behavior">Language and bidi behavior</a></li>
-<li><a href="#keep-useful-text-selectable">Keep useful text selectable</a></li>
-<li><a href="#before-you-finish">Before you finish</a></li>
-<li><a href="#reporting">Reporting</a></li>
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#typography">Typography</a></li>
+<li class="toc-sub"><a href="#serve-the-right-format">Serve the right format</a></li>
+<li class="toc-sub"><a href="#properties-over-raw-tags">Properties over raw tags</a></li>
+<li class="toc-sub"><a href="#load-intended-weights-and-styles">Load intended weights and styles</a></li>
+<li class="toc-sub"><a href="#fewer-fonts-sizes-and-weights">Fewer fonts, sizes and weights</a></li>
+<li class="toc-sub"><a href="#use-a-type-scale-with-semantic-names">Use a type scale with semantic names</a></li>
+<li class="toc-sub"><a href="#heading-sizes-descend-with-level">Heading sizes descend with level</a></li>
+<li class="toc-sub"><a href="#line-height-by-role">Line-height by role</a></li>
+<li class="toc-sub"><a href="#letter-spacing-by-size">Letter-spacing by size</a></li>
+<li class="toc-sub"><a href="#cap-the-measure">Cap the measure</a></li>
+<li class="toc-sub"><a href="#wrap-deliberately">Wrap deliberately</a></li>
+<li class="toc-sub"><a href="#tabular-numbers-on-changing-values">Tabular numbers on changing values</a></li>
+<li class="toc-sub"><a href="#truncate-without-losing-content">Truncate without losing content</a></li>
+<li class="toc-sub"><a href="#write-copy-naturally-style-with-css">Write copy naturally, style with CSS</a></li>
+<li class="toc-sub"><a href="#underlines-from-the-font">Underlines from the font</a></li>
+<li class="toc-sub"><a href="#inputs-at-16px-on-mobile">Inputs at 16px on mobile</a></li>
+<li class="toc-sub"><a href="#size-and-contrast-floors">Size and contrast floors</a></li>
+<li class="toc-sub"><a href="#font-smoothing-on-the-root">Font smoothing on the root</a></li>
+<li class="toc-sub"><a href="#language-and-bidi-behavior">Language and bidi behavior</a></li>
+<li class="toc-sub"><a href="#keep-useful-text-selectable">Keep useful text selectable</a></li>
+<li class="toc-sub"><a href="#before-you-finish">Before you finish</a></li>
+<li class="toc-sub"><a href="#reporting">Reporting</a></li>
 </ul>
 </nav>
 
 <main id="main">
-<section id="about" class="meta">
-<h2>About this skill</h2>
-<div class="meta-row"><h3>Use when</h3><ul><li>set up a type scale</li><li>review typography and font choices</li><li>fix text truncation</li><li>iOS input zoom on mobile</li><li>variable font setup</li></ul></div>
-<div class="meta-row"><h3>Works on</h3><ul><li>UI component or page source code</li><li>rendered page for wrapping/widow checks</li></ul></div>
-<div class="meta-row"><h3>Produces</h3><ul><li>severity-ranked findings table (Severity | Location | Before | After | Why)</li><li>Block/Approve verdict</li><li>CSS-to-Tailwind property lookup</li></ul></div>
-<div class="meta-row"><h3>Tags</h3>
-<ul class="tags"><li><a class="tag" href="../index.html?tag=typography">typography</a></li><li><a class="tag" href="../index.html?tag=spacing">spacing</a></li><li><a class="tag" href="../index.html?tag=visual-hierarchy">visual-hierarchy</a></li></ul></div>
-
-<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-typography">jakubkrehel/skills</a> by Jakub Krehel at <code>ca48385</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p></div>
-</section>
-
 <section id="install">
 <h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill better-typography</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill better-typography"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
 <ul class="install">
-<li>
-<h3>Any agent, via the skills CLI</h3>
-<div class="cmd"><pre><code>npx skills add stritar/skills --skill better-typography</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill better-typography"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Installs into whichever agents it finds on your machine.</p>
-</li>
 <li>
 <h3>Claude Code, as a plugin</h3>
 <div class="cmd"><pre><code>/plugin marketplace add stritar/skills
-/plugin install product-design-visual-design@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-visual-design@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
 /plugin install product-design-visual-design@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Brings the whole visual-design bundle. Use <code>product-design-all</code> for everything.</p>
+<p class="note">Installs the whole <code>visual-design</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
 </li>
 <li>
 <h3>From a clone, copied by hand</h3>
-<div class="cmd"><pre><code>cp -r skills/visual-design/better-typography ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/visual-design/better-typography ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<div class="cmd"><pre><code>cp -r skills/visual-design/better-typography ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/visual-design/better-typography ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
 <p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
 </li>
 </ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Web typography guidance: font-format and weight-loading rules, CSS properties over raw variable-font/OpenType tags, type-scale construction with descending heading steps, line-height and letter-spacing by role, measure capping (60-75 characters), text-wrap balance/pretty usage, tabular numbers, truncation without losing content, smart punctuation, from-font underline metrics, the 16px iOS input-zoom fix (two documented approaches), font-smoothing and bidi/lang/dir handling, closing with a calibrated severity report ending in Block/Approve, plus a CSS-to-Tailwind cheat sheet for every declaration covered.</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>set up a type scale</li><li>review typography and font choices</li><li>fix text truncation</li><li>iOS input zoom on mobile</li><li>variable font setup</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>UI component or page source code</li><li>rendered page for wrapping/widow checks</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>severity-ranked findings table (Severity | Location | Before | After | Why)</li><li>Block/Approve verdict</li><li>CSS-to-Tailwind property lookup</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=typography">typography</a></li><li><a class="tag" href="../index.html?tag=spacing">spacing</a></li><li><a class="tag" href="../index.html?tag=visual-hierarchy">visual-hierarchy</a></li></ul></div>
+
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-typography">jakubkrehel/skills</a> by Jakub Krehel at <code>ca48385</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p>
+</details>
 </section>
 
 <section id="related">
@@ -92,7 +97,7 @@
 </ul>
 </section>
 
-<article class="skill-body">
+<article class="skill-body" id="instructions">
 <h2 class="body-head">Instructions</h2>
 <p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/visual-design/better-typography/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
 <h2 id="typography">Typography</h2>

@@ -11,72 +11,77 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="page-head">
-<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-accessibility">Accessibility</a></nav>
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=accessibility">Accessibility</a></nav>
 <h1>better-accessibility</h1>
 <p class="badges"><span class="il badge badge-rec"><span class="il-icon" aria-hidden="true">★</span><span class="il-label">Recommended</span></span></p>
-<p class="lede">Accessibility engineering guidance for building or reviewing UI components and custom widgets: native-element-first ARIA rules, exact focus-ring and tabindex/roving-tabindex recipes, WCAG 2.5.8 hit-area sizing with pseudo-element expansion, form labeling and error-announcement patterns, prefers-reduced-motion and autoplay/zoom rules, live-region and screen-reader announcement selection, alt-text-by-purpose table, and a calibrated HIGH/MEDIUM/LOW severity report format ending in Block/Approve.</p>
+<p class="lede">Accessibility engineering guidance for building or reviewing UI components and custom widgets.</p>
 </header>
 
 <div class="layout">
 <nav class="sidebar" aria-labelledby="contents">
-<h2 id="contents">On this page</h2>
+<h2 id="contents" class="label-caps">On this page</h2>
 <ul class="toc">
-<li><a href="#about">About this skill</a></li>
 <li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
 <li><a href="#related">Works with</a></li>
-<li><a href="#accessibility">Accessibility</a></li>
-<li><a href="#native-elements-first">Native elements first</a></li>
-<li><a href="#visible-focus-rings">Visible focus rings</a></li>
-<li><a href="#full-keyboard-support">Full keyboard support</a></li>
-<li><a href="#trap-and-restore-focus">Trap and restore focus</a></li>
-<li><a href="#minimum-hit-area">Minimum hit area</a></li>
-<li><a href="#label-and-type-every-control">Label and type every control</a></li>
-<li><a href="#errors-that-announce">Errors that announce</a></li>
-<li><a href="#accessible-names-everywhere">Accessible names everywhere</a></li>
-<li><a href="#dont-rely-on-color-alone">Don't rely on color alone</a></li>
-<li><a href="#honor-prefers-reduced-motion">Honor prefers-reduced-motion</a></li>
-<li><a href="#announce-dynamic-content">Announce dynamic content</a></li>
-<li><a href="#alt-text-by-purpose">Alt text by purpose</a></li>
-<li><a href="#structure-is-navigation">Structure is navigation</a></li>
-<li><a href="#survive-zoom-and-text-resize">Survive zoom and text resize</a></li>
-<li><a href="#before-you-finish">Before you finish</a></li>
-<li><a href="#reporting">Reporting</a></li>
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#accessibility">Accessibility</a></li>
+<li class="toc-sub"><a href="#native-elements-first">Native elements first</a></li>
+<li class="toc-sub"><a href="#visible-focus-rings">Visible focus rings</a></li>
+<li class="toc-sub"><a href="#full-keyboard-support">Full keyboard support</a></li>
+<li class="toc-sub"><a href="#trap-and-restore-focus">Trap and restore focus</a></li>
+<li class="toc-sub"><a href="#minimum-hit-area">Minimum hit area</a></li>
+<li class="toc-sub"><a href="#label-and-type-every-control">Label and type every control</a></li>
+<li class="toc-sub"><a href="#errors-that-announce">Errors that announce</a></li>
+<li class="toc-sub"><a href="#accessible-names-everywhere">Accessible names everywhere</a></li>
+<li class="toc-sub"><a href="#dont-rely-on-color-alone">Don't rely on color alone</a></li>
+<li class="toc-sub"><a href="#honor-prefers-reduced-motion">Honor prefers-reduced-motion</a></li>
+<li class="toc-sub"><a href="#announce-dynamic-content">Announce dynamic content</a></li>
+<li class="toc-sub"><a href="#alt-text-by-purpose">Alt text by purpose</a></li>
+<li class="toc-sub"><a href="#structure-is-navigation">Structure is navigation</a></li>
+<li class="toc-sub"><a href="#survive-zoom-and-text-resize">Survive zoom and text resize</a></li>
+<li class="toc-sub"><a href="#before-you-finish">Before you finish</a></li>
+<li class="toc-sub"><a href="#reporting">Reporting</a></li>
 </ul>
 </nav>
 
 <main id="main">
-<section id="about" class="meta">
-<h2>About this skill</h2>
-<div class="meta-row"><h3>Use when</h3><ul><li>accessibility audit</li><li>a11y review</li><li>keyboard navigation broken</li><li>screen reader not announcing</li><li>focus ring missing</li><li>WCAG compliance check</li></ul></div>
-<div class="meta-row"><h3>Works on</h3><ul><li>UI component or screen source code</li><li>rendered interface for keyboard/screen-reader walkthrough</li></ul></div>
-<div class="meta-row"><h3>Produces</h3><ul><li>severity-ranked findings table (Severity | Location | Before | After | Why)</li><li>Block/Approve verdict</li><li>verification checklist with Not verified items flagged</li></ul></div>
-<div class="meta-row"><h3>Tags</h3>
-<ul class="tags"><li><a class="tag" href="../index.html?tag=a11y">a11y</a></li><li><a class="tag" href="../index.html?tag=wcag">wcag</a></li><li><a class="tag" href="../index.html?tag=aria">aria</a></li><li><a class="tag" href="../index.html?tag=screen-reader">screen-reader</a></li><li><a class="tag" href="../index.html?tag=keyboard">keyboard</a></li><li><a class="tag" href="../index.html?tag=focus-management">focus-management</a></li><li><a class="tag" href="../index.html?tag=contrast">contrast</a></li><li><a class="tag" href="../index.html?tag=forms">forms</a></li><li><a class="tag" href="../index.html?tag=semantic-html">semantic-html</a></li><li><a class="tag" href="../index.html?tag=inclusive-design">inclusive-design</a></li><li><a class="tag" href="../index.html?tag=remediation">remediation</a></li></ul></div>
-
-<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-accessibility">jakubkrehel/skills</a> by Jakub Krehel at <code>ca48385</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p></div>
-</section>
-
 <section id="install">
 <h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill better-accessibility</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill better-accessibility"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
 <ul class="install">
-<li>
-<h3>Any agent, via the skills CLI</h3>
-<div class="cmd"><pre><code>npx skills add stritar/skills --skill better-accessibility</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill better-accessibility"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Installs into whichever agents it finds on your machine.</p>
-</li>
 <li>
 <h3>Claude Code, as a plugin</h3>
 <div class="cmd"><pre><code>/plugin marketplace add stritar/skills
-/plugin install product-design-accessibility@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-accessibility@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
 /plugin install product-design-accessibility@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Brings the whole accessibility bundle. Use <code>product-design-all</code> for everything.</p>
+<p class="note">Installs the whole <code>accessibility</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
 </li>
 <li>
 <h3>From a clone, copied by hand</h3>
-<div class="cmd"><pre><code>cp -r skills/accessibility/better-accessibility ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/accessibility/better-accessibility ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<div class="cmd"><pre><code>cp -r skills/accessibility/better-accessibility ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/accessibility/better-accessibility ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
 <p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
 </li>
 </ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Accessibility engineering guidance for building or reviewing UI components and custom widgets: native-element-first ARIA rules, exact focus-ring and tabindex/roving-tabindex recipes, WCAG 2.5.8 hit-area sizing with pseudo-element expansion, form labeling and error-announcement patterns, prefers-reduced-motion and autoplay/zoom rules, live-region and screen-reader announcement selection, alt-text-by-purpose table, and a calibrated HIGH/MEDIUM/LOW severity report format ending in Block/Approve.</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>accessibility audit</li><li>a11y review</li><li>keyboard navigation broken</li><li>screen reader not announcing</li><li>focus ring missing</li><li>WCAG compliance check</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>UI component or screen source code</li><li>rendered interface for keyboard/screen-reader walkthrough</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>severity-ranked findings table (Severity | Location | Before | After | Why)</li><li>Block/Approve verdict</li><li>verification checklist with Not verified items flagged</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=a11y">a11y</a></li><li><a class="tag" href="../index.html?tag=wcag">wcag</a></li><li><a class="tag" href="../index.html?tag=aria">aria</a></li><li><a class="tag" href="../index.html?tag=screen-reader">screen-reader</a></li><li><a class="tag" href="../index.html?tag=keyboard">keyboard</a></li><li><a class="tag" href="../index.html?tag=focus-management">focus-management</a></li><li><a class="tag" href="../index.html?tag=contrast">contrast</a></li><li><a class="tag" href="../index.html?tag=forms">forms</a></li><li><a class="tag" href="../index.html?tag=semantic-html">semantic-html</a></li><li><a class="tag" href="../index.html?tag=inclusive-design">inclusive-design</a></li><li><a class="tag" href="../index.html?tag=remediation">remediation</a></li></ul></div>
+
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-accessibility">jakubkrehel/skills</a> by Jakub Krehel at <code>ca48385</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p>
+</details>
 </section>
 
 <section id="related">
@@ -92,7 +97,7 @@
 </ul>
 </section>
 
-<article class="skill-body">
+<article class="skill-body" id="instructions">
 <h2 class="body-head">Instructions</h2>
 <p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/accessibility/better-accessibility/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
 <h2 id="accessibility">Accessibility</h2>

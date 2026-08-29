@@ -11,59 +11,64 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="page-head">
-<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-orchestration">Orchestration</a></nav>
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=orchestration">Orchestration</a></nav>
 <h1>product-design-review</h1>
 <p class="badges"><span class="il badge badge-rec"><span class="il-icon" aria-hidden="true">★</span><span class="il-label">Recommended</span></span><span class="il badge badge-exp"><span class="il-label">Experimental</span></span></p>
-<p class="lede">Orchestrates a complete product-design review: selects the smallest set of specialist lenses the input needs (accessibility for source or live page, layout, platform conventions, copy, typography, color, UI polish, animation, agentic interface, deceptive patterns, design-system compliance, diff scoping), confirms each is installed or marks it Not reviewed, runs them foundations-first, merges duplicate findings under the owning skill with a shared severity ladder and a 20-finding cap, and produces one report with a Block or Approve verdict and the list of skills used.</p>
+<p class="lede">Orchestrates a complete product-design review.</p>
 </header>
 
 <div class="layout">
 <nav class="sidebar" aria-labelledby="contents">
-<h2 id="contents">On this page</h2>
+<h2 id="contents" class="label-caps">On this page</h2>
 <ul class="toc">
-<li><a href="#about">About this skill</a></li>
 <li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
 <li><a href="#related">Works with</a></li>
-<li><a href="#product-design-review">Product design review</a></li>
-<li><a href="#inputs">Inputs</a></li>
-<li><a href="#workflow">Workflow</a></li>
-<li><a href="#before-you-finish">Before you finish</a></li>
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#product-design-review">Product design review</a></li>
+<li class="toc-sub"><a href="#inputs">Inputs</a></li>
+<li class="toc-sub"><a href="#workflow">Workflow</a></li>
+<li class="toc-sub"><a href="#before-you-finish">Before you finish</a></li>
 </ul>
 </nav>
 
 <main id="main">
-<section id="about" class="meta">
-<h2>About this skill</h2>
-<div class="meta-row"><h3>Use when</h3><ul><li>full design review</li><li>pre-launch review of this feature</li><li>review this whole flow</li><li>holistic UX review</li><li>design audit before shipping</li></ul></div>
-<div class="meta-row"><h3>Works on</h3><ul><li>source, URL, screenshots, prototype or diff</li><li>product context: platform, AI agent presence, money or consent steps, design system</li></ul></div>
-<div class="meta-row"><h3>Produces</h3><ul><li>consolidated severity-ranked findings</li><li>Block/Approve verdict</li><li>skills used</li></ul></div>
-<div class="meta-row"><h3>Tags</h3>
-<ul class="tags"><li><a class="tag" href="../index.html?tag=orchestration">orchestration</a></li><li><a class="tag" href="../index.html?tag=review">review</a></li><li><a class="tag" href="../index.html?tag=design-review">design-review</a></li><li><a class="tag" href="../index.html?tag=workflow">workflow</a></li><li><a class="tag" href="../index.html?tag=severity">severity</a></li></ul></div>
-
-<div class="meta-row"><h3>Source</h3><p>Written for this library. Licence <code>MIT</code>.</p></div>
-</section>
-
 <section id="install">
 <h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill product-design-review</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill product-design-review"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
 <ul class="install">
-<li>
-<h3>Any agent, via the skills CLI</h3>
-<div class="cmd"><pre><code>npx skills add stritar/skills --skill product-design-review</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill product-design-review"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Installs into whichever agents it finds on your machine.</p>
-</li>
 <li>
 <h3>Claude Code, as a plugin</h3>
 <div class="cmd"><pre><code>/plugin marketplace add stritar/skills
-/plugin install product-design-orchestration@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-orchestration@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
 /plugin install product-design-orchestration@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Brings the whole orchestration bundle. Use <code>product-design-all</code> for everything.</p>
+<p class="note">Installs the whole <code>orchestration</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
 </li>
 <li>
 <h3>From a clone, copied by hand</h3>
-<div class="cmd"><pre><code>cp -r skills/orchestration/product-design-review ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/orchestration/product-design-review ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<div class="cmd"><pre><code>cp -r skills/orchestration/product-design-review ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/orchestration/product-design-review ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
 <p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
 </li>
 </ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Orchestrates a complete product-design review: selects the smallest set of specialist lenses the input needs (accessibility for source or live page, layout, platform conventions, copy, typography, color, UI polish, animation, agentic interface, deceptive patterns, design-system compliance, diff scoping), confirms each is installed or marks it Not reviewed, runs them foundations-first, merges duplicate findings under the owning skill with a shared severity ladder and a 20-finding cap, and produces one report with a Block or Approve verdict and the list of skills used.</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>full design review</li><li>pre-launch review of this feature</li><li>review this whole flow</li><li>holistic UX review</li><li>design audit before shipping</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>source, URL, screenshots, prototype or diff</li><li>product context: platform, AI agent presence, money or consent steps, design system</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>consolidated severity-ranked findings</li><li>Block/Approve verdict</li><li>skills used</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=orchestration">orchestration</a></li><li><a class="tag" href="../index.html?tag=review">review</a></li><li><a class="tag" href="../index.html?tag=design-review">design-review</a></li><li><a class="tag" href="../index.html?tag=workflow">workflow</a></li><li><a class="tag" href="../index.html?tag=severity">severity</a></li></ul></div>
+
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Written for this library. Licence <code>MIT</code>.</p>
+</details>
 </section>
 
 <section id="related">
@@ -86,7 +91,7 @@
 </ul>
 </section>
 
-<article class="skill-body">
+<article class="skill-body" id="instructions">
 <h2 class="body-head">Instructions</h2>
 <p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/orchestration/product-design-review/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
 <h2 id="product-design-review">Product design review</h2>

@@ -13,12 +13,17 @@
       "description": "Every skill in the product-design skill registry.",
       "version": "0.1.0",
       "skills": [
+        "./skills/discovery/product-discovery",
         "./skills/discovery/silver-ideate",
+        "./skills/research/inclusive-personas",
+        "./skills/research/research-planning",
+        "./skills/research/research-synthesis",
         "./skills/research/service-blueprint",
         "./skills/research/silver-research",
         "./skills/research/silver-synthesize",
         "./skills/research/survey-design",
         "./skills/research/user-research-cookiy",
+        "./skills/research/ux-researcher-designer",
         "./skills/strategy/design-negotiation",
         "./skills/information-architecture/ia-evaluation",
         "./skills/information-architecture/silver-structure",
@@ -26,6 +31,7 @@
         "./skills/interaction-design/animate-expo",
         "./skills/interaction-design/animation-vocabulary",
         "./skills/interaction-design/apple-design",
+        "./skills/interaction-design/apple-hig-expert",
         "./skills/interaction-design/laws-of-ux",
         "./skills/interaction-design/platform-conventions",
         "./skills/visual-design/algorithmic-art",
@@ -38,6 +44,7 @@
         "./skills/visual-design/frontend-design",
         "./skills/visual-design/theme-factory",
         "./skills/design-systems/design-debt-audit",
+        "./skills/design-systems/design-system",
         "./skills/design-systems/design-system-governance",
         "./skills/design-systems/design-tokens",
         "./skills/design-systems/extract-design-md",
@@ -46,6 +53,7 @@
         "./skills/design-systems/motion-system",
         "./skills/design-systems/pick-ui-library",
         "./skills/design-systems/token-build",
+        "./skills/design-systems/ui-design-system",
         "./skills/accessibility/a11y-audit",
         "./skills/accessibility/a11y-check-code",
         "./skills/accessibility/a11y-check-page",
@@ -53,9 +61,11 @@
         "./skills/accessibility/a11y-planner",
         "./skills/accessibility/a11y-role-audit",
         "./skills/accessibility/better-accessibility",
+        "./skills/accessibility/cognitive-accessibility",
         "./skills/accessibility/perspective-audit",
         "./skills/accessibility/review-a11y",
         "./skills/accessibility/ultra11y",
+        "./skills/content-design/accessible-content",
         "./skills/content-design/better-writing",
         "./skills/content-design/localization-design",
         "./skills/content-design/ux-writing",
@@ -67,15 +77,20 @@
         "./skills/testing/find-animation-opportunities",
         "./skills/testing/improve-animations",
         "./skills/testing/silver-evaluate",
+        "./skills/testing/synthetic-user-testing",
+        "./skills/testing/usability-testing",
         "./skills/design-qa/design-details",
         "./skills/design-qa/frontend-design-review",
         "./skills/design-qa/interface-review",
         "./skills/design-qa/review-animations",
+        "./skills/analytics/experiment-designer",
         "./skills/analytics/instrumentation-plan",
+        "./skills/analytics/product-analytics",
         "./skills/analytics/silver-measure",
         "./skills/agentic-ui/agentic-ui-review",
         "./skills/agentic-ui/conversational-ux",
         "./skills/ethics-and-safety/dark-pattern-review",
+        "./skills/design-engineering/design-handoff",
         "./skills/design-engineering/explain-interface",
         "./skills/design-engineering/extract-static-html",
         "./skills/design-engineering/web-artifacts-builder",
@@ -91,6 +106,7 @@
       "description": "Discovery skills from the product-design skill registry.",
       "version": "0.1.0",
       "skills": [
+        "./skills/discovery/product-discovery",
         "./skills/discovery/silver-ideate"
       ]
     },
@@ -100,11 +116,15 @@
       "description": "User research skills from the product-design skill registry.",
       "version": "0.1.0",
       "skills": [
+        "./skills/research/inclusive-personas",
+        "./skills/research/research-planning",
+        "./skills/research/research-synthesis",
         "./skills/research/service-blueprint",
         "./skills/research/silver-research",
         "./skills/research/silver-synthesize",
         "./skills/research/survey-design",
-        "./skills/research/user-research-cookiy"
+        "./skills/research/user-research-cookiy",
+        "./skills/research/ux-researcher-designer"
       ]
     },
     {
@@ -136,6 +156,7 @@
         "./skills/interaction-design/animate-expo",
         "./skills/interaction-design/animation-vocabulary",
         "./skills/interaction-design/apple-design",
+        "./skills/interaction-design/apple-hig-expert",
         "./skills/interaction-design/laws-of-ux",
         "./skills/interaction-design/platform-conventions"
       ]
@@ -164,6 +185,7 @@
       "version": "0.1.0",
       "skills": [
         "./skills/design-systems/design-debt-audit",
+        "./skills/design-systems/design-system",
         "./skills/design-systems/design-system-governance",
         "./skills/design-systems/design-tokens",
         "./skills/design-systems/extract-design-md",
@@ -171,7 +193,8 @@
         "./skills/design-systems/frontend-ui-dark-ts",
         "./skills/design-systems/motion-system",
         "./skills/design-systems/pick-ui-library",
-        "./skills/design-systems/token-build"
+        "./skills/design-systems/token-build",
+        "./skills/design-systems/ui-design-system"
       ]
     },
     {
@@ -187,6 +210,7 @@
         "./skills/accessibility/a11y-planner",
         "./skills/accessibility/a11y-role-audit",
         "./skills/accessibility/better-accessibility",
+        "./skills/accessibility/cognitive-accessibility",
         "./skills/accessibility/perspective-audit",
         "./skills/accessibility/review-a11y",
         "./skills/accessibility/ultra11y"
@@ -198,6 +222,7 @@
       "description": "Content design skills from the product-design skill registry.",
       "version": "0.1.0",
       "skills": [
+        "./skills/content-design/accessible-content",
         "./skills/content-design/better-writing",
         "./skills/content-design/localization-design",
         "./skills/content-design/ux-writing"
@@ -224,7 +249,9 @@
         "./skills/testing/design-review",
         "./skills/testing/find-animation-opportunities",
         "./skills/testing/improve-animations",
-        "./skills/testing/silver-evaluate"
+        "./skills/testing/silver-evaluate",
+        "./skills/testing/synthetic-user-testing",
+        "./skills/testing/usability-testing"
       ]
     },
     {
@@ -245,7 +272,9 @@
       "description": "Product analytics skills from the product-design skill registry.",
       "version": "0.1.0",
       "skills": [
+        "./skills/analytics/experiment-designer",
         "./skills/analytics/instrumentation-plan",
+        "./skills/analytics/product-analytics",
         "./skills/analytics/silver-measure"
       ]
     },
@@ -274,6 +303,7 @@
       "description": "Design engineering skills from the product-design skill registry.",
       "version": "0.1.0",
       "skills": [
+        "./skills/design-engineering/design-handoff",
         "./skills/design-engineering/explain-interface",
         "./skills/design-engineering/extract-static-html",
         "./skills/design-engineering/web-artifacts-builder"

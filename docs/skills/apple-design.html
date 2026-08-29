@@ -11,75 +11,80 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="page-head">
-<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-interaction-design">Interaction design</a></nav>
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=interaction-design">Interaction design</a></nav>
 <h1>apple-design</h1>
 <p class="badges"><span class="il badge badge-rec"><span class="il-icon" aria-hidden="true">★</span><span class="il-label">Recommended</span></span></p>
-<p class="lede">Apple's approach to fluid, physical interface motion and design foundations, distilled from WWDC design talks (Designing Fluid Interfaces, Designing Audio-Haptic Experiences, The Details of UI Typography, Principles of Great Design) and translated to web APIs (Pointer Events, requestAnimationFrame, spring libraries). Covers response/latency elimination, 1:1 direct manipulation, interruptibility as the core principle, Apple's damping-ratio/response spring parameters with concrete values, velocity handoff and momentum projection formulas, spatial consistency, rubber-banding, translucent materials and depth layering, multimodal (motion+sound+haptic) feedback rules, reduced-motion/transparency/contrast handling, and size-specific typography tracking and leading -- closing with Apple's eight design principles (purpose, agency, responsibility, familiarity, flexibility, simplicity, craft, delight).</p>
+<p class="lede">Apple's approach to fluid, physical interface motion and design foundations, distilled from WWDC design talks.</p>
 </header>
 
 <div class="layout">
 <nav class="sidebar" aria-labelledby="contents">
-<h2 id="contents">On this page</h2>
+<h2 id="contents" class="label-caps">On this page</h2>
 <ul class="toc">
-<li><a href="#about">About this skill</a></li>
 <li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
 <li><a href="#related">Works with</a></li>
-<li><a href="#apple-design">Apple Design</a></li>
-<li><a href="#the-core-idea">The Core Idea</a></li>
-<li><a href="#1-response-kill-latency">1. Response — kill latency</a></li>
-<li><a href="#2-direct-manipulation-11-tracking">2. Direct manipulation — 1:1 tracking</a></li>
-<li><a href="#3-interruptibility-the-single-most-important-principle">3. Interruptibility — the single most important principle</a></li>
-<li><a href="#4-behavior-over-animation-use-springs">4. Behavior over animation — use springs</a></li>
-<li><a href="#5-velocity-handoff-the-seam-between-drag-and-animation">5. Velocity handoff — the seam between drag and animation</a></li>
-<li><a href="#6-momentum-projection-animate-to-where-the-gesture-is-going">6. Momentum projection — animate to where the gesture is *going*</a></li>
-<li><a href="#7-spatial-consistency-symmetric-paths-anchored-origins">7. Spatial consistency — symmetric paths, anchored origins</a></li>
-<li><a href="#8-hint-in-the-direction-of-the-gesture">8. Hint in the direction of the gesture</a></li>
-<li><a href="#9-rubber-banding-soft-boundaries">9. Rubber-banding — soft boundaries</a></li>
-<li><a href="#10-gesture-design-details-the-feel-checklist">10. Gesture design details (the &quot;feel&quot; checklist)</a></li>
-<li><a href="#11-frame-level-smoothness">11. Frame-level smoothness</a></li>
-<li><a href="#12-materials-depth-translucency-conveys-hierarchy">12. Materials &amp; depth — translucency conveys hierarchy</a></li>
-<li><a href="#13-multimodal-feedback-motion-sound-haptics">13. Multimodal feedback — motion + sound + haptics</a></li>
-<li><a href="#14-reduced-motion-accessibility">14. Reduced motion &amp; accessibility</a></li>
-<li><a href="#15-typography-optical-sizing-tracking-leading">15. Typography — optical sizing, tracking, leading</a></li>
-<li><a href="#16-design-foundations-the-eight-principles">16. Design foundations — the eight principles</a></li>
-<li><a href="#17-process">17. Process</a></li>
-<li><a href="#quick-reference">Quick Reference</a></li>
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#apple-design">Apple Design</a></li>
+<li class="toc-sub"><a href="#the-core-idea">The Core Idea</a></li>
+<li class="toc-sub"><a href="#1-response-kill-latency">1. Response — kill latency</a></li>
+<li class="toc-sub"><a href="#2-direct-manipulation-11-tracking">2. Direct manipulation — 1:1 tracking</a></li>
+<li class="toc-sub"><a href="#3-interruptibility-the-single-most-important-principle">3. Interruptibility — the single most important principle</a></li>
+<li class="toc-sub"><a href="#4-behavior-over-animation-use-springs">4. Behavior over animation — use springs</a></li>
+<li class="toc-sub"><a href="#5-velocity-handoff-the-seam-between-drag-and-animation">5. Velocity handoff — the seam between drag and animation</a></li>
+<li class="toc-sub"><a href="#6-momentum-projection-animate-to-where-the-gesture-is-going">6. Momentum projection — animate to where the gesture is *going*</a></li>
+<li class="toc-sub"><a href="#7-spatial-consistency-symmetric-paths-anchored-origins">7. Spatial consistency — symmetric paths, anchored origins</a></li>
+<li class="toc-sub"><a href="#8-hint-in-the-direction-of-the-gesture">8. Hint in the direction of the gesture</a></li>
+<li class="toc-sub"><a href="#9-rubber-banding-soft-boundaries">9. Rubber-banding — soft boundaries</a></li>
+<li class="toc-sub"><a href="#10-gesture-design-details-the-feel-checklist">10. Gesture design details (the &quot;feel&quot; checklist)</a></li>
+<li class="toc-sub"><a href="#11-frame-level-smoothness">11. Frame-level smoothness</a></li>
+<li class="toc-sub"><a href="#12-materials-depth-translucency-conveys-hierarchy">12. Materials &amp; depth — translucency conveys hierarchy</a></li>
+<li class="toc-sub"><a href="#13-multimodal-feedback-motion-sound-haptics">13. Multimodal feedback — motion + sound + haptics</a></li>
+<li class="toc-sub"><a href="#14-reduced-motion-accessibility">14. Reduced motion &amp; accessibility</a></li>
+<li class="toc-sub"><a href="#15-typography-optical-sizing-tracking-leading">15. Typography — optical sizing, tracking, leading</a></li>
+<li class="toc-sub"><a href="#16-design-foundations-the-eight-principles">16. Design foundations — the eight principles</a></li>
+<li class="toc-sub"><a href="#17-process">17. Process</a></li>
+<li class="toc-sub"><a href="#quick-reference">Quick Reference</a></li>
 </ul>
 </nav>
 
 <main id="main">
-<section id="about" class="meta">
-<h2>About this skill</h2>
-<div class="meta-row"><h3>Use when</h3><ul><li>make this drag interaction feel like Apple's</li><li>build a spring-based gesture</li><li>translucent material / glass UI</li><li>Apple-style bottom sheet</li><li>interruptible animation with velocity handoff</li></ul></div>
-<div class="meta-row"><h3>Works on</h3><ul><li>a gesture-driven, spring-animated, or materials-heavy UI component to build or review</li></ul></div>
-<div class="meta-row"><h3>Produces</h3><ul><li>implementation guidance and code (spring configs, velocity/momentum formulas, backdrop-filter recipes) plus a quick-reference table of technique to concrete value</li></ul></div>
-<div class="meta-row"><h3>Tags</h3>
-<ul class="tags"><li><a class="tag" href="../index.html?tag=motion">motion</a></li><li><a class="tag" href="../index.html?tag=animation">animation</a></li><li><a class="tag" href="../index.html?tag=interaction-design">interaction-design</a></li><li><a class="tag" href="../index.html?tag=typography">typography</a></li></ul></div>
-
-<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/apple-design">emilkowalski/skills</a> by Emil Kowalski at <code>d23d7f8</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p></div>
-</section>
-
 <section id="install">
 <h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill apple-design</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill apple-design"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
 <ul class="install">
-<li>
-<h3>Any agent, via the skills CLI</h3>
-<div class="cmd"><pre><code>npx skills add stritar/skills --skill apple-design</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill apple-design"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Installs into whichever agents it finds on your machine.</p>
-</li>
 <li>
 <h3>Claude Code, as a plugin</h3>
 <div class="cmd"><pre><code>/plugin marketplace add stritar/skills
-/plugin install product-design-interaction-design@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-interaction-design@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
 /plugin install product-design-interaction-design@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Brings the whole interaction-design bundle. Use <code>product-design-all</code> for everything.</p>
+<p class="note">Installs the whole <code>interaction-design</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
 </li>
 <li>
 <h3>From a clone, copied by hand</h3>
-<div class="cmd"><pre><code>cp -r skills/interaction-design/apple-design ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/interaction-design/apple-design ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<div class="cmd"><pre><code>cp -r skills/interaction-design/apple-design ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/interaction-design/apple-design ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
 <p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
 </li>
 </ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Apple's approach to fluid, physical interface motion and design foundations, distilled from WWDC design talks (Designing Fluid Interfaces, Designing Audio-Haptic Experiences, The Details of UI Typography, Principles of Great Design) and translated to web APIs (Pointer Events, requestAnimationFrame, spring libraries). Covers response/latency elimination, 1:1 direct manipulation, interruptibility as the core principle, Apple's damping-ratio/response spring parameters with concrete values, velocity handoff and momentum projection formulas, spatial consistency, rubber-banding, translucent materials and depth layering, multimodal (motion+sound+haptic) feedback rules, reduced-motion/transparency/contrast handling, and size-specific typography tracking and leading -- closing with Apple's eight design principles (purpose, agency, responsibility, familiarity, flexibility, simplicity, craft, delight).</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>make this drag interaction feel like Apple's</li><li>build a spring-based gesture</li><li>translucent material / glass UI</li><li>Apple-style bottom sheet</li><li>interruptible animation with velocity handoff</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>a gesture-driven, spring-animated, or materials-heavy UI component to build or review</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>implementation guidance and code (spring configs, velocity/momentum formulas, backdrop-filter recipes) plus a quick-reference table of technique to concrete value</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=motion">motion</a></li><li><a class="tag" href="../index.html?tag=animation">animation</a></li><li><a class="tag" href="../index.html?tag=interaction-design">interaction-design</a></li><li><a class="tag" href="../index.html?tag=typography">typography</a></li></ul></div>
+
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/apple-design">emilkowalski/skills</a> by Emil Kowalski at <code>d23d7f8</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p>
+</details>
 </section>
 
 <section id="related">
@@ -91,7 +96,7 @@
 </ul>
 </section>
 
-<article class="skill-body">
+<article class="skill-body" id="instructions">
 <h2 class="body-head">Instructions</h2>
 <p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/interaction-design/apple-design/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
 <h2 id="apple-design">Apple Design</h2>

@@ -11,63 +11,68 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="page-head">
-<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-interaction-design">Interaction design</a></nav>
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=interaction-design">Interaction design</a></nav>
 <h1>animate</h1>
 <p class="badges"><span class="il badge badge-rec"><span class="il-icon" aria-hidden="true">★</span><span class="il-label">Recommended</span></span></p>
-<p class="lede">Builds a web animation from scratch in the order that determines whether it feels right: a frequency-based should-it-animate-at-all gate (100+/day actions never animate), a required one-word purpose (feedback, spatial consistency, state indication, preventing a jarring change, explanation, or delight), a cheapest-tool-first ladder (CSS transition to @starting-style to CSS animation to WAAPI to a motion library), exact easing curves and duration budgets by element type, transform/opacity-only property rules, interruption and exit rules, and mandatory reduced-motion and hover gating -- plus ready-to-build recipes for buttons, dropdowns, modals, drawers, toasts, accordions, stagger, hold-to-confirm, tab indicators, scroll reveal and drag-to-dismiss.</p>
+<p class="lede">Builds a web animation from scratch in the order that determines whether it feels right.</p>
 </header>
 
 <div class="layout">
 <nav class="sidebar" aria-labelledby="contents">
-<h2 id="contents">On this page</h2>
+<h2 id="contents" class="label-caps">On this page</h2>
 <ul class="toc">
-<li><a href="#about">About this skill</a></li>
 <li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
 <li><a href="#related">Works with</a></li>
-<li><a href="#building-animations">Building Animations</a></li>
-<li><a href="#operating-posture">Operating Posture</a></li>
-<li><a href="#hard-rules">Hard Rules</a></li>
-<li><a href="#the-build-sequence">The Build Sequence</a></li>
-<li><a href="#recipes">Recipes</a></li>
-<li><a href="#never-ship">Never Ship</a></li>
-<li><a href="#output">Output</a></li>
-<li><a href="#tone">Tone</a></li>
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#building-animations">Building Animations</a></li>
+<li class="toc-sub"><a href="#operating-posture">Operating Posture</a></li>
+<li class="toc-sub"><a href="#hard-rules">Hard Rules</a></li>
+<li class="toc-sub"><a href="#the-build-sequence">The Build Sequence</a></li>
+<li class="toc-sub"><a href="#recipes">Recipes</a></li>
+<li class="toc-sub"><a href="#never-ship">Never Ship</a></li>
+<li class="toc-sub"><a href="#output">Output</a></li>
+<li class="toc-sub"><a href="#tone">Tone</a></li>
 </ul>
 </nav>
 
 <main id="main">
-<section id="about" class="meta">
-<h2>About this skill</h2>
-<div class="meta-row"><h3>Use when</h3><ul><li>add an animation to this component</li><li>make this feel alive</li><li>build a transition</li><li>animate this modal or dropdown</li><li>should this animate</li></ul></div>
-<div class="meta-row"><h3>Works on</h3><ul><li>a request to animate a specific UI element or interaction</li><li>the project's existing motion tokens and libraries, if any</li></ul></div>
-<div class="meta-row"><h3>Produces</h3><ul><li>implementation code (CSS, WAAPI, or a motion library call)</li><li>a short rationale: gate result, ingredients (tool/properties/curve/duration), and what to feel-check</li></ul></div>
-<div class="meta-row"><h3>Tags</h3>
-<ul class="tags"><li><a class="tag" href="../index.html?tag=motion">motion</a></li><li><a class="tag" href="../index.html?tag=animation">animation</a></li><li><a class="tag" href="../index.html?tag=micro-interactions">micro-interactions</a></li><li><a class="tag" href="../index.html?tag=interaction-design">interaction-design</a></li><li><a class="tag" href="../index.html?tag=performance">performance</a></li></ul></div>
-
-<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/animate">emilkowalski/skills</a> by Emil Kowalski at <code>d23d7f8</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p></div>
-</section>
-
 <section id="install">
 <h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill animate</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill animate"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
 <ul class="install">
-<li>
-<h3>Any agent, via the skills CLI</h3>
-<div class="cmd"><pre><code>npx skills add stritar/skills --skill animate</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill animate"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Installs into whichever agents it finds on your machine.</p>
-</li>
 <li>
 <h3>Claude Code, as a plugin</h3>
 <div class="cmd"><pre><code>/plugin marketplace add stritar/skills
-/plugin install product-design-interaction-design@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-interaction-design@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
 /plugin install product-design-interaction-design@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Brings the whole interaction-design bundle. Use <code>product-design-all</code> for everything.</p>
+<p class="note">Installs the whole <code>interaction-design</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
 </li>
 <li>
 <h3>From a clone, copied by hand</h3>
-<div class="cmd"><pre><code>cp -r skills/interaction-design/animate ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/interaction-design/animate ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<div class="cmd"><pre><code>cp -r skills/interaction-design/animate ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/interaction-design/animate ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
 <p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
 </li>
 </ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Builds a web animation from scratch in the order that determines whether it feels right: a frequency-based should-it-animate-at-all gate (100+/day actions never animate), a required one-word purpose (feedback, spatial consistency, state indication, preventing a jarring change, explanation, or delight), a cheapest-tool-first ladder (CSS transition to @starting-style to CSS animation to WAAPI to a motion library), exact easing curves and duration budgets by element type, transform/opacity-only property rules, interruption and exit rules, and mandatory reduced-motion and hover gating -- plus ready-to-build recipes for buttons, dropdowns, modals, drawers, toasts, accordions, stagger, hold-to-confirm, tab indicators, scroll reveal and drag-to-dismiss.</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>add an animation to this component</li><li>make this feel alive</li><li>build a transition</li><li>animate this modal or dropdown</li><li>should this animate</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>a request to animate a specific UI element or interaction</li><li>the project's existing motion tokens and libraries, if any</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>implementation code (CSS, WAAPI, or a motion library call)</li><li>a short rationale: gate result, ingredients (tool/properties/curve/duration), and what to feel-check</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=motion">motion</a></li><li><a class="tag" href="../index.html?tag=animation">animation</a></li><li><a class="tag" href="../index.html?tag=micro-interactions">micro-interactions</a></li><li><a class="tag" href="../index.html?tag=interaction-design">interaction-design</a></li><li><a class="tag" href="../index.html?tag=performance">performance</a></li></ul></div>
+
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/animate">emilkowalski/skills</a> by Emil Kowalski at <code>d23d7f8</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p>
+</details>
 </section>
 
 <section id="related">
@@ -82,7 +87,7 @@
 </ul>
 </section>
 
-<article class="skill-body">
+<article class="skill-body" id="instructions">
 <h2 class="body-head">Instructions</h2>
 <p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/interaction-design/animate/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
 <h2 id="building-animations">Building Animations</h2>

@@ -11,61 +11,66 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="page-head">
-<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-accessibility">Accessibility</a></nav>
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=accessibility">Accessibility</a></nav>
 <h1>review-a11y</h1>
 <p class="badges"><span class="il badge badge-dep"><span class="il-label">Needs Node</span></span><span class="il badge badge-exp"><span class="il-label">Experimental</span></span></p>
-<p class="lede">Reviews changed frontend code (staged files, a working diff, a branch, or a PR) for WCAG 2.2 AA accessibility using a bundled, install-free static engine with cross-file JSX/TSX AST analysis. Treats engine findings as candidates, not verdicts: confirms each occurrence in the actual code, flags preliminary findings from framework templates or library-rendered markup that need rendered-DOM verification, adjudicates judgment criteria (alt-text relevance, link purpose, focus logic) from visible evidence, and refutes false positives with cited code. Returns a severity-ranked WCAG 2.2 AA review scoped only to the change, with file:line fixes, explicitly named residual rendering risks (contrast, focus visibility, zoom) that require a browser scan, and a pass/fail verdict.</p>
+<p class="lede">Reviews changed frontend code (staged files, a working diff, a branch, or a PR) for WCAG 2.2 AA accessibility using a bundled, install-free static engine with cross-file JSX/TSX AST analysis.</p>
 </header>
 
 <div class="layout">
 <nav class="sidebar" aria-labelledby="contents">
-<h2 id="contents">On this page</h2>
+<h2 id="contents" class="label-caps">On this page</h2>
 <ul class="toc">
-<li><a href="#about">About this skill</a></li>
 <li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
 <li><a href="#related">Works with</a></li>
-<li><a href="#review-a11y-accessibility-review-of-changed-code">review-a11y — accessibility review of changed code</a></li>
-<li><a href="#1-scope-review-what-changed">1. Scope — review what changed</a></li>
-<li><a href="#2-judge-the-engines-findings-are-candidates-not-verdicts">2. Judge — the engine's findings are candidates, not verdicts</a></li>
-<li><a href="#3-report-a-review-not-a-compliance-document">3. Report — a review, not a compliance document</a></li>
-<li><a href="#4-after-the-review-opt-in">4. After the review (opt-in)</a></li>
-<li><a href="#do-not">Do not</a></li>
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#review-a11y-accessibility-review-of-changed-code">review-a11y — accessibility review of changed code</a></li>
+<li class="toc-sub"><a href="#1-scope-review-what-changed">1. Scope — review what changed</a></li>
+<li class="toc-sub"><a href="#2-judge-the-engines-findings-are-candidates-not-verdicts">2. Judge — the engine's findings are candidates, not verdicts</a></li>
+<li class="toc-sub"><a href="#3-report-a-review-not-a-compliance-document">3. Report — a review, not a compliance document</a></li>
+<li class="toc-sub"><a href="#4-after-the-review-opt-in">4. After the review (opt-in)</a></li>
+<li class="toc-sub"><a href="#do-not">Do not</a></li>
 </ul>
 </nav>
 
 <main id="main">
-<section id="about" class="meta">
-<h2>About this skill</h2>
-<div class="meta-row"><h3>Use when</h3><ul><li>review a11y</li><li>is this accessible?</li><li>anything to fix before merge?</li><li>accessibility review of this diff</li><li>check staged files for accessibility</li></ul></div>
-<div class="meta-row"><h3>Works on</h3><ul><li>staged files, a working diff, a branch, or a PR diff</li><li>the bundled engine's candidate findings from `node scripts/ultra11y.mjs audit`</li></ul></div>
-<div class="meta-row"><h3>Produces</h3><ul><li>severity-ranked WCAG 2.2 AA review scoped to the change, with file:line fixes</li><li>list of residual rendering risks requiring a browser scan</li><li>pass/fail verdict for the change</li></ul></div>
-<div class="meta-row"><h3>Tags</h3>
-<ul class="tags"><li><a class="tag" href="../index.html?tag=a11y">a11y</a></li><li><a class="tag" href="../index.html?tag=wcag">wcag</a></li><li><a class="tag" href="../index.html?tag=aria">aria</a></li><li><a class="tag" href="../index.html?tag=keyboard">keyboard</a></li><li><a class="tag" href="../index.html?tag=focus-management">focus-management</a></li><li><a class="tag" href="../index.html?tag=contrast">contrast</a></li><li><a class="tag" href="../index.html?tag=semantic-html">semantic-html</a></li><li><a class="tag" href="../index.html?tag=severity">severity</a></li><li><a class="tag" href="../index.html?tag=remediation">remediation</a></li><li><a class="tag" href="../index.html?tag=pr-review">pr-review</a></li></ul></div>
-<div class="meta-row"><h3>Requires</h3><ul><li><code>node</code></li></ul></div>
-<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/maxgfr/ultra11y/tree/d1cd14792f3bd1b9ab15958bc4e72081375514dc/skills/review-a11y">maxgfr/ultra11y</a> by maxgfr at <code>d1cd147</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p></div>
-</section>
-
 <section id="install">
 <h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill review-a11y</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill review-a11y"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
 <ul class="install">
-<li>
-<h3>Any agent, via the skills CLI</h3>
-<div class="cmd"><pre><code>npx skills add stritar/skills --skill review-a11y</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill review-a11y"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Installs into whichever agents it finds on your machine.</p>
-</li>
 <li>
 <h3>Claude Code, as a plugin</h3>
 <div class="cmd"><pre><code>/plugin marketplace add stritar/skills
-/plugin install product-design-accessibility@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-accessibility@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
 /plugin install product-design-accessibility@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Brings the whole accessibility bundle. Use <code>product-design-all</code> for everything.</p>
+<p class="note">Installs the whole <code>accessibility</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
 </li>
 <li>
 <h3>From a clone, copied by hand</h3>
-<div class="cmd"><pre><code>cp -r skills/accessibility/review-a11y ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/accessibility/review-a11y ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<div class="cmd"><pre><code>cp -r skills/accessibility/review-a11y ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/accessibility/review-a11y ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
 <p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
 </li>
 </ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Reviews changed frontend code (staged files, a working diff, a branch, or a PR) for WCAG 2.2 AA accessibility using a bundled, install-free static engine with cross-file JSX/TSX AST analysis. Treats engine findings as candidates, not verdicts: confirms each occurrence in the actual code, flags preliminary findings from framework templates or library-rendered markup that need rendered-DOM verification, adjudicates judgment criteria (alt-text relevance, link purpose, focus logic) from visible evidence, and refutes false positives with cited code. Returns a severity-ranked WCAG 2.2 AA review scoped only to the change, with file:line fixes, explicitly named residual rendering risks (contrast, focus visibility, zoom) that require a browser scan, and a pass/fail verdict.</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>review a11y</li><li>is this accessible?</li><li>anything to fix before merge?</li><li>accessibility review of this diff</li><li>check staged files for accessibility</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>staged files, a working diff, a branch, or a PR diff</li><li>the bundled engine's candidate findings from `node scripts/ultra11y.mjs audit`</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>severity-ranked WCAG 2.2 AA review scoped to the change, with file:line fixes</li><li>list of residual rendering risks requiring a browser scan</li><li>pass/fail verdict for the change</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=a11y">a11y</a></li><li><a class="tag" href="../index.html?tag=wcag">wcag</a></li><li><a class="tag" href="../index.html?tag=aria">aria</a></li><li><a class="tag" href="../index.html?tag=keyboard">keyboard</a></li><li><a class="tag" href="../index.html?tag=focus-management">focus-management</a></li><li><a class="tag" href="../index.html?tag=contrast">contrast</a></li><li><a class="tag" href="../index.html?tag=semantic-html">semantic-html</a></li><li><a class="tag" href="../index.html?tag=severity">severity</a></li><li><a class="tag" href="../index.html?tag=remediation">remediation</a></li><li><a class="tag" href="../index.html?tag=pr-review">pr-review</a></li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Requires</h3><ul><li><code>node</code></li></ul></div>
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/maxgfr/ultra11y/tree/d1cd14792f3bd1b9ab15958bc4e72081375514dc/skills/review-a11y">maxgfr/ultra11y</a> by maxgfr at <code>d1cd147</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p>
+</details>
 </section>
 
 <section id="related">
@@ -77,7 +82,7 @@
 </ul>
 </section>
 
-<article class="skill-body">
+<article class="skill-body" id="instructions">
 <h2 class="body-head">Instructions</h2>
 <p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/accessibility/review-a11y/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
 <h2 id="review-a11y-accessibility-review-of-changed-code">review-a11y — accessibility review of changed code</h2>

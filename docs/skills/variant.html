@@ -11,65 +11,70 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="page-head">
-<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-prototyping">Prototyping</a></nav>
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=prototyping">Prototyping</a></nav>
 <h1>variant</h1>
 <p class="badges"><span class="il badge badge-rec"><span class="il-icon" aria-hidden="true">★</span><span class="il-label">Recommended</span></span></p>
-<p class="lede">Builds three (up to five) genuinely different versions of one described UI piece, each a different position on a single named axis (structure, density, emphasis, type, or voice) owned by a sibling better-* skill, so secondary choices follow coherently rather than every axis varying at once. Hosts all variants on the real page behind a URL-driven picker deliberately styled outside the project's design system, with realistic content and item counts, clears better-interface's accessibility escalation-trigger floor before any variant enters the picker, then presents axis-position tradeoffs without marking a favorite and hands the decision back. On a choice, promotes the winner into the project's own conventions and deletes the rest.</p>
+<p class="lede">Builds three (up to five) genuinely different versions of one described UI piece, each a different position on a single named axis (structure, density, emphasis, type, or voice) owned by a sibling better-* skill.</p>
 </header>
 
 <div class="layout">
 <nav class="sidebar" aria-labelledby="contents">
-<h2 id="contents">On this page</h2>
+<h2 id="contents" class="label-caps">On this page</h2>
 <ul class="toc">
-<li><a href="#about">About this skill</a></li>
 <li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
 <li><a href="#related">Works with</a></li>
-<li><a href="#variants">Variants</a></li>
-<li><a href="#different-answers-not-different-tints">Different answers, not different tints</a></li>
-<li><a href="#the-floor-every-variant-clears">The floor every variant clears</a></li>
-<li><a href="#1-scope-one-piece">1. Scope one piece</a></li>
-<li><a href="#2-learn-the-ground">2. Learn the ground</a></li>
-<li><a href="#3-name-the-axis-before-writing-code">3. Name the axis before writing code</a></li>
-<li><a href="#4-build-it-into-the-real-page">4. Build it into the real page</a></li>
-<li><a href="#5-present-the-tradeoffs-and-stop">5. Present the tradeoffs and stop</a></li>
-<li><a href="#6-promote-one-delete-the-rest">6. Promote one, delete the rest</a></li>
-<li><a href="#before-you-finish">Before you finish</a></li>
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#variants">Variants</a></li>
+<li class="toc-sub"><a href="#different-answers-not-different-tints">Different answers, not different tints</a></li>
+<li class="toc-sub"><a href="#the-floor-every-variant-clears">The floor every variant clears</a></li>
+<li class="toc-sub"><a href="#1-scope-one-piece">1. Scope one piece</a></li>
+<li class="toc-sub"><a href="#2-learn-the-ground">2. Learn the ground</a></li>
+<li class="toc-sub"><a href="#3-name-the-axis-before-writing-code">3. Name the axis before writing code</a></li>
+<li class="toc-sub"><a href="#4-build-it-into-the-real-page">4. Build it into the real page</a></li>
+<li class="toc-sub"><a href="#5-present-the-tradeoffs-and-stop">5. Present the tradeoffs and stop</a></li>
+<li class="toc-sub"><a href="#6-promote-one-delete-the-rest">6. Promote one, delete the rest</a></li>
+<li class="toc-sub"><a href="#before-you-finish">Before you finish</a></li>
 </ul>
 </nav>
 
 <main id="main">
-<section id="about" class="meta">
-<h2>About this skill</h2>
-<div class="meta-row"><h3>Use when</h3><ul><li>show me a few different versions of this component</li><li>explore layout directions for this UI</li><li>build variants behind a picker</li><li>which design direction should we pick</li></ul></div>
-<div class="meta-row"><h3>Works on</h3><ul><li>a one-sentence brief for one piece of UI</li><li>the project's styling system, tokens and component library</li></ul></div>
-<div class="meta-row"><h3>Produces</h3><ul><li>a real page hosting each variant behind a URL search-param picker</li><li>a tradeoffs table (Variant | Axis position | Right when | Costs)</li></ul></div>
-<div class="meta-row"><h3>Tags</h3>
-<ul class="tags"><li><a class="tag" href="../index.html?tag=prototyping">prototyping</a></li><li><a class="tag" href="../index.html?tag=variants">variants</a></li><li><a class="tag" href="../index.html?tag=high-fidelity">high-fidelity</a></li><li><a class="tag" href="../index.html?tag=interactive-prototype">interactive-prototype</a></li></ul></div>
-
-<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/variant">jakubkrehel/skills</a> by Jakub Krehel at <code>ca48385</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p></div>
-</section>
-
 <section id="install">
 <h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill variant</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill variant"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
 <ul class="install">
-<li>
-<h3>Any agent, via the skills CLI</h3>
-<div class="cmd"><pre><code>npx skills add stritar/skills --skill variant</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill variant"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Installs into whichever agents it finds on your machine.</p>
-</li>
 <li>
 <h3>Claude Code, as a plugin</h3>
 <div class="cmd"><pre><code>/plugin marketplace add stritar/skills
-/plugin install product-design-prototyping@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-prototyping@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
 /plugin install product-design-prototyping@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Brings the whole prototyping bundle. Use <code>product-design-all</code> for everything.</p>
+<p class="note">Installs the whole <code>prototyping</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
 </li>
 <li>
 <h3>From a clone, copied by hand</h3>
-<div class="cmd"><pre><code>cp -r skills/prototyping/variant ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/prototyping/variant ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<div class="cmd"><pre><code>cp -r skills/prototyping/variant ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/prototyping/variant ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
 <p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
 </li>
 </ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Builds three (up to five) genuinely different versions of one described UI piece, each a different position on a single named axis (structure, density, emphasis, type, or voice) owned by a sibling better-* skill, so secondary choices follow coherently rather than every axis varying at once. Hosts all variants on the real page behind a URL-driven picker deliberately styled outside the project's design system, with realistic content and item counts, clears better-interface's accessibility escalation-trigger floor before any variant enters the picker, then presents axis-position tradeoffs without marking a favorite and hands the decision back. On a choice, promotes the winner into the project's own conventions and deletes the rest.</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>show me a few different versions of this component</li><li>explore layout directions for this UI</li><li>build variants behind a picker</li><li>which design direction should we pick</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>a one-sentence brief for one piece of UI</li><li>the project's styling system, tokens and component library</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>a real page hosting each variant behind a URL search-param picker</li><li>a tradeoffs table (Variant | Axis position | Right when | Costs)</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=prototyping">prototyping</a></li><li><a class="tag" href="../index.html?tag=variants">variants</a></li><li><a class="tag" href="../index.html?tag=high-fidelity">high-fidelity</a></li><li><a class="tag" href="../index.html?tag=interactive-prototype">interactive-prototype</a></li></ul></div>
+
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/variant">jakubkrehel/skills</a> by Jakub Krehel at <code>ca48385</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p>
+</details>
 </section>
 
 <section id="related">
@@ -80,7 +85,7 @@
 </ul>
 </section>
 
-<article class="skill-body">
+<article class="skill-body" id="instructions">
 <h2 class="body-head">Instructions</h2>
 <p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/prototyping/variant/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
 <h2 id="variants">Variants</h2>

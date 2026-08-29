@@ -11,69 +11,74 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="page-head">
-<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-content-design">Content design</a></nav>
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=content-design">Content design</a></nav>
 <h1>better-writing</h1>
 <p class="badges"><span class="il badge badge-rec"><span class="il-icon" aria-hidden="true">★</span><span class="il-label">Recommended</span></span></p>
-<p class="lede">UX writing and interface-copy guidance: recon the existing voice before editing, one voice with tone that flexes by stakes (success vs. destructive-confirmation), addressing the reader as 'you' rather than 'the user', verb-first button labels, consistent flow vocabulary across multi-step flows, link text that stands alone out of context, one capitalization policy per element type, toggle labels that describe the ON state, error copy that states the fix beside the failing field with no blame or exclamation marks, forward-pointing empty states, and placeholders as format examples rather than labels, closing with a calibrated severity report ending in Block/Approve.</p>
+<p class="lede">UX writing and interface-copy guidance.</p>
 </header>
 
 <div class="layout">
 <nav class="sidebar" aria-labelledby="contents">
-<h2 id="contents">On this page</h2>
+<h2 id="contents" class="label-caps">On this page</h2>
 <ul class="toc">
-<li><a href="#about">About this skill</a></li>
 <li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
 <li><a href="#related">Works with</a></li>
-<li><a href="#interface-writing">Interface writing</a></li>
-<li><a href="#recon-the-existing-voice">Recon the existing voice</a></li>
-<li><a href="#one-voice-flexible-tone">One voice, flexible tone</a></li>
-<li><a href="#address-the-reader-directly">Address the reader directly</a></li>
-<li><a href="#plain-words-over-clever-ones">Plain words over clever ones</a></li>
-<li><a href="#verb-first-buttons">Verb-first buttons</a></li>
-<li><a href="#consistent-flow-vocabulary">Consistent flow vocabulary</a></li>
-<li><a href="#links-describe-their-destination">Links describe their destination</a></li>
-<li><a href="#one-capitalization-policy">One capitalization policy</a></li>
-<li><a href="#settings-describe-the-on-state">Settings describe the ON state</a></li>
-<li><a href="#errors-say-how-to-fix-next-to-where-it-broke">Errors say how to fix, next to where it broke</a></li>
-<li><a href="#empty-states-point-forward">Empty states point forward</a></li>
-<li><a href="#placeholders-are-examples-not-labels">Placeholders are examples, not labels</a></li>
-<li><a href="#reporting">Reporting</a></li>
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#interface-writing">Interface writing</a></li>
+<li class="toc-sub"><a href="#recon-the-existing-voice">Recon the existing voice</a></li>
+<li class="toc-sub"><a href="#one-voice-flexible-tone">One voice, flexible tone</a></li>
+<li class="toc-sub"><a href="#address-the-reader-directly">Address the reader directly</a></li>
+<li class="toc-sub"><a href="#plain-words-over-clever-ones">Plain words over clever ones</a></li>
+<li class="toc-sub"><a href="#verb-first-buttons">Verb-first buttons</a></li>
+<li class="toc-sub"><a href="#consistent-flow-vocabulary">Consistent flow vocabulary</a></li>
+<li class="toc-sub"><a href="#links-describe-their-destination">Links describe their destination</a></li>
+<li class="toc-sub"><a href="#one-capitalization-policy">One capitalization policy</a></li>
+<li class="toc-sub"><a href="#settings-describe-the-on-state">Settings describe the ON state</a></li>
+<li class="toc-sub"><a href="#errors-say-how-to-fix-next-to-where-it-broke">Errors say how to fix, next to where it broke</a></li>
+<li class="toc-sub"><a href="#empty-states-point-forward">Empty states point forward</a></li>
+<li class="toc-sub"><a href="#placeholders-are-examples-not-labels">Placeholders are examples, not labels</a></li>
+<li class="toc-sub"><a href="#reporting">Reporting</a></li>
 </ul>
 </nav>
 
 <main id="main">
-<section id="about" class="meta">
-<h2>About this skill</h2>
-<div class="meta-row"><h3>Use when</h3><ul><li>write button labels</li><li>review error message copy</li><li>UX writing pass</li><li>empty state copy</li><li>microcopy consistency check</li></ul></div>
-<div class="meta-row"><h3>Works on</h3><ul><li>user-facing copy in source code</li><li>existing product copy for voice recon</li></ul></div>
-<div class="meta-row"><h3>Produces</h3><ul><li>severity-ranked findings table (Severity | Location | Before | After | Why)</li><li>Block/Approve verdict</li></ul></div>
-<div class="meta-row"><h3>Tags</h3>
-<ul class="tags"><li><a class="tag" href="../index.html?tag=ux-writing">ux-writing</a></li><li><a class="tag" href="../index.html?tag=microcopy">microcopy</a></li><li><a class="tag" href="../index.html?tag=voice-and-tone">voice-and-tone</a></li><li><a class="tag" href="../index.html?tag=labels">labels</a></li><li><a class="tag" href="../index.html?tag=error-messages">error-messages</a></li><li><a class="tag" href="../index.html?tag=help-content">help-content</a></li><li><a class="tag" href="../index.html?tag=plain-language">plain-language</a></li><li><a class="tag" href="../index.html?tag=terminology">terminology</a></li></ul></div>
-
-<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-writing">jakubkrehel/skills</a> by Jakub Krehel at <code>ca48385</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p></div>
-</section>
-
 <section id="install">
 <h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill better-writing</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill better-writing"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
 <ul class="install">
-<li>
-<h3>Any agent, via the skills CLI</h3>
-<div class="cmd"><pre><code>npx skills add stritar/skills --skill better-writing</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill better-writing"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Installs into whichever agents it finds on your machine.</p>
-</li>
 <li>
 <h3>Claude Code, as a plugin</h3>
 <div class="cmd"><pre><code>/plugin marketplace add stritar/skills
-/plugin install product-design-content-design@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-content-design@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
 /plugin install product-design-content-design@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Brings the whole content-design bundle. Use <code>product-design-all</code> for everything.</p>
+<p class="note">Installs the whole <code>content-design</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
 </li>
 <li>
 <h3>From a clone, copied by hand</h3>
-<div class="cmd"><pre><code>cp -r skills/content-design/better-writing ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/content-design/better-writing ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<div class="cmd"><pre><code>cp -r skills/content-design/better-writing ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/content-design/better-writing ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
 <p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
 </li>
 </ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>UX writing and interface-copy guidance: recon the existing voice before editing, one voice with tone that flexes by stakes (success vs. destructive-confirmation), addressing the reader as 'you' rather than 'the user', verb-first button labels, consistent flow vocabulary across multi-step flows, link text that stands alone out of context, one capitalization policy per element type, toggle labels that describe the ON state, error copy that states the fix beside the failing field with no blame or exclamation marks, forward-pointing empty states, and placeholders as format examples rather than labels, closing with a calibrated severity report ending in Block/Approve.</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>write button labels</li><li>review error message copy</li><li>UX writing pass</li><li>empty state copy</li><li>microcopy consistency check</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>user-facing copy in source code</li><li>existing product copy for voice recon</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>severity-ranked findings table (Severity | Location | Before | After | Why)</li><li>Block/Approve verdict</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=ux-writing">ux-writing</a></li><li><a class="tag" href="../index.html?tag=microcopy">microcopy</a></li><li><a class="tag" href="../index.html?tag=voice-and-tone">voice-and-tone</a></li><li><a class="tag" href="../index.html?tag=labels">labels</a></li><li><a class="tag" href="../index.html?tag=error-messages">error-messages</a></li><li><a class="tag" href="../index.html?tag=help-content">help-content</a></li><li><a class="tag" href="../index.html?tag=plain-language">plain-language</a></li><li><a class="tag" href="../index.html?tag=terminology">terminology</a></li></ul></div>
+
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-writing">jakubkrehel/skills</a> by Jakub Krehel at <code>ca48385</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p>
+</details>
 </section>
 
 <section id="related">
@@ -86,7 +91,7 @@
 </ul>
 </section>
 
-<article class="skill-body">
+<article class="skill-body" id="instructions">
 <h2 class="body-head">Instructions</h2>
 <p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/content-design/better-writing/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
 <h2 id="interface-writing">Interface writing</h2>

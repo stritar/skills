@@ -1,0 +1,58 @@
+{
+  "id": "ux-researcher-designer",
+  "category": "research",
+  "verdict": "vendor",
+  "rubric": { "relevance": 3, "quality": 3, "conformance": 2, "uniqueness": 1 },
+  "upstream": {
+    "repository": "alirezarezvani/claude-skills",
+    "url": "https://github.com/alirezarezvani/claude-skills/tree/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/ux-researcher-designer",
+    "author": "Alireza Rezvani",
+    "commit": "19392f7a08264ed00486a251f5b2098321771f94",
+    "path": "product-team/skills/ux-researcher-designer",
+    "license": "MIT",
+    "licenseSource": "repo-root:LICENSE"
+  },
+  "files": [
+    { "dest": "SKILL.md", "rawUrl": "https://raw.githubusercontent.com/alirezarezvani/claude-skills/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/ux-researcher-designer/SKILL.md", "blobSha": "b68b9cad5bc65cb88073b58f4b87023545367c70" },
+    { "dest": "assets/research_plan_template.md", "rawUrl": "https://raw.githubusercontent.com/alirezarezvani/claude-skills/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/ux-researcher-designer/assets/research_plan_template.md", "blobSha": "edc6c14eb6a9e2ae5b0ac66a04e1e35c1891e321" },
+    { "dest": "references/example-personas.md", "rawUrl": "https://raw.githubusercontent.com/alirezarezvani/claude-skills/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/ux-researcher-designer/references/example-personas.md", "blobSha": "594c939eb47e11a5cfccd5e6d0f7663ca431d601" },
+    { "dest": "references/journey-mapping-guide.md", "rawUrl": "https://raw.githubusercontent.com/alirezarezvani/claude-skills/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/ux-researcher-designer/references/journey-mapping-guide.md", "blobSha": "d415156a5b0da8442d731dbe208c09d386d0a4ff" },
+    { "dest": "references/persona-methodology.md", "rawUrl": "https://raw.githubusercontent.com/alirezarezvani/claude-skills/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/ux-researcher-designer/references/persona-methodology.md", "blobSha": "7befd2a4f235f4df9b63ffc073f5cc37bb87ec2d" },
+    { "dest": "references/usability-testing-frameworks.md", "rawUrl": "https://raw.githubusercontent.com/alirezarezvani/claude-skills/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/ux-researcher-designer/references/usability-testing-frameworks.md", "blobSha": "8b469fa3aa00f08c19efa41a3c075bec2da07c37" },
+    { "dest": "scripts/persona_generator.py", "rawUrl": "https://raw.githubusercontent.com/alirezarezvani/claude-skills/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/ux-researcher-designer/scripts/persona_generator.py", "blobSha": "5da461f16288f384a4427e3b84aa685d9e72e622" },
+    { "dest": "LICENSE.txt", "rawUrl": "https://raw.githubusercontent.com/alirezarezvani/claude-skills/19392f7a08264ed00486a251f5b2098321771f94/LICENSE", "blobSha": "c3e30bcc287d6a1ebdb4ab29c10d344fd1053639" }
+  ],
+  "securityNotes": "Read SKILL.md, all 4 references/*.md, the research-plan asset, and scripts/persona_generator.py (585 lines) in full at the pinned SHA. Script is stdlib-only Python that clusters supplied user-data records into archetypes and prints/serializes a persona; no network calls, no subprocess, no eval/exec. One benign string match on 'password' inside references/example-personas.md ('No SSO - team has to manage passwords', a persona pain-point line, not a credential/secret). Clean.",
+  "overlaps": ["user-research-cookiy", "silver-research", "service-blueprint", "survey-design"],
+  "proposedEntry": {
+    "id": "ux-researcher-designer",
+    "name": "ux-researcher-designer",
+    "description": "Generates data-driven user personas from structured user-data JSON (usage frequency, features used, device, tech proficiency, pain points) via a bundled Python script that clusters records into archetypes (power_user, casual_user, business_user, mobile_first) with demographics, goals, frustrations and design implications. Also gives workflows for building customer journey maps (stage-by-stage actions/touchpoints/emotions/pain-points/opportunities, B2B SaaS stage template, opportunity priority scoring), planning usability tests (research-question framing, method-selection table, task design, success-metric targets, moderator-guide checklist), and synthesizing raw research into clustered, evidence-cited findings with prioritized opportunities. Includes reference tables for research-method selection, persona confidence levels by sample size, and usability-issue severity ratings.",
+    "category": "research",
+    "tags": ["user-research", "personas", "journey-mapping", "usability-testing", "synthesis", "interviews", "qualitative", "quantitative"],
+    "triggers": ["generate a user persona from research data", "build a customer journey map", "plan a usability test", "synthesize interview or survey findings into insights", "define user archetypes from analytics data"],
+    "inputs": ["user data as JSON (demographics, usage patterns, pain points) for persona generation", "a persona, goal and timeframe for journey mapping", "a design or prototype to validate for usability-test planning", "raw interview/survey/observation notes for synthesis"],
+    "outputs": ["a data-driven persona (archetype, demographics, goals, frustrations, design implications, confidence level)", "a journey map with per-stage actions, emotions, pain points and prioritized opportunities", "a usability-test plan (method, tasks, success metrics, moderator guide)", "a research synthesis brief with coded findings, cluster sizes and prioritized recommendations"],
+    "path": "skills/research/ux-researcher-designer",
+    "source": {
+      "type": "third-party",
+      "repository": "alirezarezvani/claude-skills",
+      "url": "https://github.com/alirezarezvani/claude-skills/tree/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/ux-researcher-designer",
+      "author": "Alireza Rezvani",
+      "license": "MIT",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": "product-team/skills/ux-researcher-designer",
+      "upstreamCommit": "19392f7a08264ed00486a251f5b2098321771f94",
+      "retrievedAt": "2026-08-29",
+      "modified": false,
+      "modifications": []
+    },
+    "compatibility": ["claude-code", "codex", "cursor", "opencode", "amp", "gemini-cli", "copilot", "vs-code", "claude-ai"],
+    "dependencies": ["python3"],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "experimental",
+    "status": "draft"
+  },
+  "logMd": "#### alirezarezvani/claude-skills (inspected 2026-08-29)\n- Same repo pin as ui-design-system: 19392f7a08264ed00486a251f5b2098321771f94, MIT at repo-root LICENSE, copyright Alireza Rezvani 2025.\n- Read SKILL.md, all 4 reference files, the research-plan template, and the 585-line persona_generator.py script in full.\n- Rubric: relevance 3 (persona generation, journey mapping and usability-test planning are core research/design activities), quality 3 (a runnable clustering script, concrete task-design templates, severity/confidence tables, per-workflow validation checklists), conformance 2 (frontmatter is name+description only -> claude-ai appended; name equals dirname), uniqueness 1 (user-research-cookiy, silver-research, service-blueprint and survey-design already cover research planning, journey mapping and instrument design in this registry; this skill's differentiator is the bundled script that turns raw tabular user data directly into a scored, evidence-cited persona, and the combination of persona+journey+usability-test+synthesis in one skill, not a clean superset of the existing coverage). Total 9.\n- Security: clean; one benign 'password' string hit in an example persona (UX pain-point description, not a credential).\n- Verdict: vendor."
+}

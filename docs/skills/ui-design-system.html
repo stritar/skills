@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ui-design-system — Product design skills</title>
+<meta name="description" content="Generates a complete design-token system (colors, typography, spacing, borders, shadows, animation, breakpoints, z-index) from one brand hex color and a style preset (modern/classic/playful) via a bundled Python script, exporting JSON, CSS custom properties, or SCSS. Also gives workflows and…">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="page-head">
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=design-systems">Design systems</a></nav>
+<h1>ui-design-system</h1>
+<p class="badges"><span class="il badge badge-dep"><span class="il-label">Other tooling</span></span><span class="il badge badge-exp"><span class="il-label">Experimental</span></span></p>
+<p class="lede">Generates a complete design-token system (colors, typography, spacing, borders, shadows, animation, breakpoints, z-index) from one brand hex color and a style preset (modern/classic/playful) via a bundled Python script.</p>
+</header>
+
+<div class="layout">
+<nav class="sidebar" aria-labelledby="contents">
+<h2 id="contents" class="label-caps">On this page</h2>
+<ul class="toc">
+<li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
+
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#ui-design-system">UI Design System</a></li>
+<li class="toc-sub"><a href="#table-of-contents">Table of Contents</a></li>
+<li class="toc-sub"><a href="#trigger-terms">Trigger Terms</a></li>
+<li class="toc-sub"><a href="#workflows">Workflows</a></li>
+<li class="toc-sub"><a href="#tool-reference">Tool Reference</a></li>
+<li class="toc-sub"><a href="#quick-reference-tables">Quick Reference Tables</a></li>
+<li class="toc-sub"><a href="#knowledge-base">Knowledge Base</a></li>
+<li class="toc-sub"><a href="#validation-checklist">Validation Checklist</a></li>
+</ul>
+</nav>
+
+<main id="main">
+<section id="install">
+<h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill ui-design-system</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill ui-design-system"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
+<ul class="install">
+<li>
+<h3>Claude Code, as a plugin</h3>
+<div class="cmd"><pre><code>/plugin marketplace add stritar/skills
+/plugin install product-design-design-systems@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-design-systems@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Installs the whole <code>design-systems</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
+</li>
+<li>
+<h3>From a clone, copied by hand</h3>
+<div class="cmd"><pre><code>cp -r skills/design-systems/ui-design-system ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/design-systems/ui-design-system ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
+</li>
+</ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Generates a complete design-token system (colors, typography, spacing, borders, shadows, animation, breakpoints, z-index) from one brand hex color and a style preset (modern/classic/playful) via a bundled Python script, exporting JSON, CSS custom properties, or SCSS. Also gives workflows and reference tables for structuring a component system (atoms/molecules/organisms/templates, token-to-component mapping, size and color variant patterns), calculating responsive breakpoints and fluid typography (clamp formulas), and preparing developer handoff (framework integration snippets for React/Tailwind/styled-components, a Figma Tokens Studio sync note, and a handoff checklist). Includes WCAG AA/AAA contrast reference tables and a color-scale (50-900) generation formula.</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>generate design tokens from a brand color</li><li>build a component system on top of tokens</li><li>calculate responsive breakpoints and fluid typography</li><li>prepare developer handoff for a design system</li><li>export design tokens as CSS/SCSS/JSON</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>a brand hex color and a style preset (modern/classic/playful)</li><li>optionally an existing component inventory or breakpoint set to extend</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>a design-token file in JSON, CSS custom properties, or SCSS</li><li>component architecture and variant documentation</li><li>responsive breakpoint and fluid-typography values</li><li>a developer-handoff checklist with framework integration snippets</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=design-tokens">design-tokens</a></li><li><a class="tag" href="../index.html?tag=design-system">design-system</a></li><li><a class="tag" href="../index.html?tag=component-api">component-api</a></li><li><a class="tag" href="../index.html?tag=component-docs">component-docs</a></li><li><a class="tag" href="../index.html?tag=responsive">responsive</a></li><li><a class="tag" href="../index.html?tag=typography">typography</a></li><li><a class="tag" href="../index.html?tag=color">color</a></li><li><a class="tag" href="../index.html?tag=layout">layout</a></li><li><a class="tag" href="../index.html?tag=spacing">spacing</a></li><li><a class="tag" href="../index.html?tag=handoff">handoff</a></li><li><a class="tag" href="../index.html?tag=figma">figma</a></li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Requires</h3><ul><li><code>python3</code></li></ul></div>
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/alirezarezvani/claude-skills/tree/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/ui-design-system">alirezarezvani/claude-skills</a> by Alireza Rezvani at <code>19392f7</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p>
+</details>
+</section>
+
+
+
+<article class="skill-body" id="instructions">
+<h2 class="body-head">Instructions</h2>
+<p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/design-systems/ui-design-system/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
+<h2 id="ui-design-system">UI Design System</h2>
+<p>Generate design tokens, create color palettes, calculate typography scales, build component systems, and prepare developer handoff documentation.</p>
+<hr>
+<h3 id="table-of-contents">Table of Contents</h3>
+<ul>
+<li><a href="#trigger-terms">Trigger Terms</a></li>
+<li><a href="#workflows">Workflows</a>
+<ul>
+<li><a href="#workflow-1-generate-design-tokens">Workflow 1: Generate Design Tokens</a></li>
+<li><a href="#workflow-2-create-component-system">Workflow 2: Create Component System</a></li>
+<li><a href="#workflow-3-responsive-design">Workflow 3: Responsive Design</a></li>
+<li><a href="#workflow-4-developer-handoff">Workflow 4: Developer Handoff</a></li>
+</ul></li>
+<li><a href="#tool-reference">Tool Reference</a></li>
+<li><a href="#quick-reference-tables">Quick Reference Tables</a></li>
+<li><a href="#knowledge-base">Knowledge Base</a></li>
+</ul>
+<hr>
+<h3 id="trigger-terms">Trigger Terms</h3>
+<p>Use this skill when you need to:</p>
+<ul>
+<li>&quot;generate design tokens&quot;</li>
+<li>&quot;create color palette&quot;</li>
+<li>&quot;build typography scale&quot;</li>
+<li>&quot;calculate spacing system&quot;</li>
+<li>&quot;create design system&quot;</li>
+<li>&quot;generate CSS variables&quot;</li>
+<li>&quot;export SCSS tokens&quot;</li>
+<li>&quot;set up component architecture&quot;</li>
+<li>&quot;document component library&quot;</li>
+<li>&quot;calculate responsive breakpoints&quot;</li>
+<li>&quot;prepare developer handoff&quot;</li>
+<li>&quot;convert brand color to palette&quot;</li>
+<li>&quot;check WCAG contrast&quot;</li>
+<li>&quot;build 8pt grid system&quot;</li>
+</ul>
+<hr>
+<h3 id="workflows">Workflows</h3>
+<h4 id="workflow-1-generate-design-tokens">Workflow 1: Generate Design Tokens</h4>
+<p><strong>Situation:</strong> You have a brand color and need a complete design token system.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li><strong>Identify brand color and style</strong>
+<ul>
+<li>Brand primary color (hex format)</li>
+<li>Style preference: <code>modern</code> | <code>classic</code> | <code>playful</code></li>
+</ul></li>
+<li><strong>Generate tokens using script</strong>
+<pre><code class="language-bash"> python scripts/design_token_generator.py &quot;#0066CC&quot; modern json
+</code></pre></li>
+<li><strong>Review generated categories</strong>
+<ul>
+<li>Colors: primary, secondary, neutral, semantic, surface</li>
+<li>Typography: fontFamily, fontSize, fontWeight, lineHeight</li>
+<li>Spacing: 8pt grid-based scale (0-64)</li>
+<li>Borders: radius, width</li>
+<li>Shadows: none through 2xl</li>
+<li>Animation: duration, easing</li>
+<li>Breakpoints: xs through 2xl</li>
+</ul></li>
+<li><strong>Export in target format</strong>
+<pre><code class="language-bash"> # CSS custom properties
+ python scripts/design_token_generator.py &quot;#0066CC&quot; modern css &gt; design-tokens.css
+ # SCSS variables
+ python scripts/design_token_generator.py &quot;#0066CC&quot; modern scss &gt; _design-tokens.scss
+ # JSON for Figma/tooling
+ python scripts/design_token_generator.py &quot;#0066CC&quot; modern json &gt; design-tokens.json
+</code></pre></li>
+<li><strong>Validate accessibility</strong>
+<ul>
+<li>Check color contrast meets WCAG AA (4.5:1 normal, 3:1 large text)</li>
+<li>Verify semantic colors have contrast colors defined</li>
+</ul></li>
+</ol>
+<hr>
+<h4 id="workflow-2-create-component-system">Workflow 2: Create Component System</h4>
+<p><strong>Situation:</strong> You need to structure a component library using design tokens.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li><strong>Define component hierarchy</strong>
+<ul>
+<li>Atoms: Button, Input, Icon, Label, Badge</li>
+<li>Molecules: FormField, SearchBar, Card, ListItem</li>
+<li>Organisms: Header, Footer, DataTable, Modal</li>
+<li>Templates: DashboardLayout, AuthLayout</li>
+</ul></li>
+<li><strong>Map tokens to components</strong>
+<div class="table-scroll"><table>
+<thead><tr><th>Component</th><th>Tokens Used</th></tr></thead>
+<tbody>
+<tr><td>Button</td><td>colors, sizing, borders, shadows, typography</td></tr>
+<tr><td>Input</td><td>colors, sizing, borders, spacing</td></tr>
+<tr><td>Card</td><td>colors, borders, shadows, spacing</td></tr>
+<tr><td>Modal</td><td>colors, shadows, spacing, z-index, animation</td></tr>
+</tbody>
+</table></div></li>
+<li><strong>Define variant patterns</strong>
+<p>Size variants:</p>
+<pre><code> sm: height 32px, paddingX 12px, fontSize 14px
+ md: height 40px, paddingX 16px, fontSize 16px
+ lg: height 48px, paddingX 20px, fontSize 18px
+</code></pre>
+<p>Color variants:</p>
+<pre><code> primary: background primary-500, text white
+ secondary: background neutral-100, text neutral-900
+ ghost: background transparent, text neutral-700
+</code></pre></li>
+<li><strong>Document component API</strong>
+<ul>
+<li>Props interface with types</li>
+<li>Variant options</li>
+<li>State handling (hover, active, focus, disabled)</li>
+<li>Accessibility requirements</li>
+</ul></li>
+<li><strong>Reference:</strong> See <code>references/component-architecture.md</code></li>
+</ol>
+<hr>
+<h4 id="workflow-3-responsive-design">Workflow 3: Responsive Design</h4>
+<p><strong>Situation:</strong> You need breakpoints, fluid typography, or responsive spacing.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li><strong>Define breakpoints</strong>
+<div class="table-scroll"><table>
+<thead><tr><th>Name</th><th>Width</th><th>Target</th></tr></thead>
+<tbody>
+<tr><td>xs</td><td>0</td><td>Small phones</td></tr>
+<tr><td>sm</td><td>480px</td><td>Large phones</td></tr>
+<tr><td>md</td><td>640px</td><td>Tablets</td></tr>
+<tr><td>lg</td><td>768px</td><td>Small laptops</td></tr>
+<tr><td>xl</td><td>1024px</td><td>Desktops</td></tr>
+<tr><td>2xl</td><td>1280px</td><td>Large screens</td></tr>
+</tbody>
+</table></div></li>
+<li><strong>Calculate fluid typography</strong>
+<p>Formula: <code>clamp(min, preferred, max)</code></p>
+<pre><code class="language-css"> /* 16px to 24px between 320px and 1200px viewport */
+ font-size: clamp(1rem, 0.5rem + 2vw, 1.5rem);
+</code></pre>
+<p>Pre-calculated scales:</p>
+<pre><code class="language-css"> --fluid-h1: clamp(2rem, 1rem + 3.6vw, 4rem);
+ --fluid-h2: clamp(1.75rem, 1rem + 2.3vw, 3rem);
+ --fluid-h3: clamp(1.5rem, 1rem + 1.4vw, 2.25rem);
+ --fluid-body: clamp(1rem, 0.95rem + 0.2vw, 1.125rem);
+</code></pre></li>
+<li><strong>Set up responsive spacing</strong>
+<div class="table-scroll"><table>
+<thead><tr><th>Token</th><th>Mobile</th><th>Tablet</th><th>Desktop</th></tr></thead>
+<tbody>
+<tr><td>--space-md</td><td>12px</td><td>16px</td><td>16px</td></tr>
+<tr><td>--space-lg</td><td>16px</td><td>24px</td><td>32px</td></tr>
+<tr><td>--space-xl</td><td>24px</td><td>32px</td><td>48px</td></tr>
+<tr><td>--space-section</td><td>48px</td><td>80px</td><td>120px</td></tr>
+</tbody>
+</table></div></li>
+<li><strong>Reference:</strong> See <code>references/responsive-calculations.md</code></li>
+</ol>
+<hr>
+<h4 id="workflow-4-developer-handoff">Workflow 4: Developer Handoff</h4>
+<p><strong>Situation:</strong> You need to hand off design tokens to development team.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li><strong>Export tokens in required formats</strong>
+<pre><code class="language-bash"> # For CSS projects
+ python scripts/design_token_generator.py &quot;#0066CC&quot; modern css
+ # For SCSS projects
+ python scripts/design_token_generator.py &quot;#0066CC&quot; modern scss
+ # For JavaScript/TypeScript
+ python scripts/design_token_generator.py &quot;#0066CC&quot; modern json
+</code></pre></li>
+<li><strong>Prepare framework integration</strong>
+<p><strong>React + CSS Variables:</strong></p>
+<pre><code class="language-tsx"> import './design-tokens.css';
+ &lt;button className=&quot;btn btn-primary&quot;&gt;Click&lt;/button&gt;
+</code></pre>
+<p><strong>Tailwind Config:</strong></p>
+<pre><code class="language-javascript"> const tokens = require('./design-tokens.json');
+ module.exports = {
+   theme: {
+     colors: tokens.colors,
+     fontFamily: tokens.typography.fontFamily
+   }
+ };
+</code></pre>
+<p><strong>styled-components:</strong></p>
+<pre><code class="language-typescript"> import tokens from './design-tokens.json';
+ const Button = styled.button`
+   background: ${tokens.colors.primary['500']};
+   padding: ${tokens.spacing['2']} ${tokens.spacing['4']};
+ `;
+</code></pre></li>
+<li><strong>Sync with Figma</strong>
+<ul>
+<li>Install Tokens Studio plugin</li>
+<li>Import design-tokens.json</li>
+<li>Tokens sync automatically with Figma styles</li>
+</ul></li>
+<li><strong>Handoff checklist</strong>
+<ul class="task-list">
+<li class="task"><input type="checkbox" disabled> Token files added to project</li>
+<li class="task"><input type="checkbox" disabled> Build pipeline configured</li>
+<li class="task"><input type="checkbox" disabled> Theme/CSS variables imported</li>
+<li class="task"><input type="checkbox" disabled> Component library aligned</li>
+<li class="task"><input type="checkbox" disabled> Documentation generated</li>
+</ul></li>
+<li><strong>Reference:</strong> See <code>references/developer-handoff.md</code></li>
+</ol>
+<hr>
+<h3 id="tool-reference">Tool Reference</h3>
+<h4 id="design_token_generatorpy">design_token_generator.py</h4>
+<p>Generates complete design token system from brand color.</p>
+<div class="table-scroll"><table>
+<thead><tr><th>Argument</th><th>Values</th><th>Default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>brand_color</td><td>Hex color</td><td>#0066CC</td><td>Primary brand color</td></tr>
+<tr><td>style</td><td>modern, classic, playful</td><td>modern</td><td>Design style preset</td></tr>
+<tr><td>format</td><td>json, css, scss, summary</td><td>json</td><td>Output format</td></tr>
+</tbody>
+</table></div>
+<p><strong>Examples:</strong></p>
+<pre><code class="language-bash"># Generate JSON tokens (default)
+python scripts/design_token_generator.py &quot;#0066CC&quot;
+
+# Classic style with CSS output
+python scripts/design_token_generator.py &quot;#8B4513&quot; classic css
+
+# Playful style summary view
+python scripts/design_token_generator.py &quot;#FF6B6B&quot; playful summary
+</code></pre>
+<p><strong>Output Categories:</strong></p>
+<div class="table-scroll"><table>
+<thead><tr><th>Category</th><th>Description</th><th>Key Values</th></tr></thead>
+<tbody>
+<tr><td>colors</td><td>Color palettes</td><td>primary, secondary, neutral, semantic, surface</td></tr>
+<tr><td>typography</td><td>Font system</td><td>fontFamily, fontSize, fontWeight, lineHeight</td></tr>
+<tr><td>spacing</td><td>8pt grid</td><td>0-64 scale, semantic (xs-3xl)</td></tr>
+<tr><td>sizing</td><td>Component sizes</td><td>container, button, input, icon</td></tr>
+<tr><td>borders</td><td>Border values</td><td>radius (per style), width</td></tr>
+<tr><td>shadows</td><td>Shadow styles</td><td>none through 2xl, inner</td></tr>
+<tr><td>animation</td><td>Motion tokens</td><td>duration, easing, keyframes</td></tr>
+<tr><td>breakpoints</td><td>Responsive</td><td>xs, sm, md, lg, xl, 2xl</td></tr>
+<tr><td>z-index</td><td>Layer system</td><td>base through notification</td></tr>
+</tbody>
+</table></div>
+<hr>
+<h3 id="quick-reference-tables">Quick Reference Tables</h3>
+<h4 id="color-scale-generation">Color Scale Generation</h4>
+<div class="table-scroll"><table>
+<thead><tr><th>Step</th><th>Brightness</th><th>Saturation</th><th>Use Case</th></tr></thead>
+<tbody>
+<tr><td>50</td><td>95% fixed</td><td>30%</td><td>Subtle backgrounds</td></tr>
+<tr><td>100</td><td>95% fixed</td><td>38%</td><td>Light backgrounds</td></tr>
+<tr><td>200</td><td>95% fixed</td><td>46%</td><td>Hover states</td></tr>
+<tr><td>300</td><td>95% fixed</td><td>54%</td><td>Borders</td></tr>
+<tr><td>400</td><td>95% fixed</td><td>62%</td><td>Disabled states</td></tr>
+<tr><td>500</td><td>Original</td><td>70%</td><td>Base/default color</td></tr>
+<tr><td>600</td><td>Original × 0.8</td><td>78%</td><td>Hover (dark)</td></tr>
+<tr><td>700</td><td>Original × 0.6</td><td>86%</td><td>Active states</td></tr>
+<tr><td>800</td><td>Original × 0.4</td><td>94%</td><td>Text</td></tr>
+<tr><td>900</td><td>Original × 0.2</td><td>100%</td><td>Headings</td></tr>
+</tbody>
+</table></div>
+<h4 id="typography-scale-125x-ratio">Typography Scale (1.25x Ratio)</h4>
+<div class="table-scroll"><table>
+<thead><tr><th>Size</th><th>Value</th><th>Calculation</th></tr></thead>
+<tbody>
+<tr><td>xs</td><td>10px</td><td>16 ÷ 1.25²</td></tr>
+<tr><td>sm</td><td>13px</td><td>16 ÷ 1.25¹</td></tr>
+<tr><td>base</td><td>16px</td><td>Base</td></tr>
+<tr><td>lg</td><td>20px</td><td>16 × 1.25¹</td></tr>
+<tr><td>xl</td><td>25px</td><td>16 × 1.25²</td></tr>
+<tr><td>2xl</td><td>31px</td><td>16 × 1.25³</td></tr>
+<tr><td>3xl</td><td>39px</td><td>16 × 1.25⁴</td></tr>
+<tr><td>4xl</td><td>49px</td><td>16 × 1.25⁵</td></tr>
+<tr><td>5xl</td><td>61px</td><td>16 × 1.25⁶</td></tr>
+</tbody>
+</table></div>
+<h4 id="wcag-contrast-requirements">WCAG Contrast Requirements</h4>
+<div class="table-scroll"><table>
+<thead><tr><th>Level</th><th>Normal Text</th><th>Large Text</th></tr></thead>
+<tbody>
+<tr><td>AA</td><td>4.5:1</td><td>3:1</td></tr>
+<tr><td>AAA</td><td>7:1</td><td>4.5:1</td></tr>
+</tbody>
+</table></div>
+<p>Large text: ≥18pt regular or ≥14pt bold</p>
+<h4 id="style-presets">Style Presets</h4>
+<div class="table-scroll"><table>
+<thead><tr><th>Aspect</th><th>Modern</th><th>Classic</th><th>Playful</th></tr></thead>
+<tbody>
+<tr><td>Font Sans</td><td>Inter</td><td>Helvetica</td><td>Poppins</td></tr>
+<tr><td>Font Mono</td><td>Fira Code</td><td>Courier</td><td>Source Code Pro</td></tr>
+<tr><td>Radius Default</td><td>8px</td><td>4px</td><td>16px</td></tr>
+<tr><td>Shadows</td><td>Layered, subtle</td><td>Single layer</td><td>Soft, pronounced</td></tr>
+</tbody>
+</table></div>
+<hr>
+<h3 id="knowledge-base">Knowledge Base</h3>
+<p>Detailed reference guides in <code>references/</code>:</p>
+<div class="table-scroll"><table>
+<thead><tr><th>File</th><th>Content</th></tr></thead>
+<tbody>
+<tr><td><code>token-generation.md</code></td><td>Color algorithms, HSV space, WCAG contrast, type scales</td></tr>
+<tr><td><code>component-architecture.md</code></td><td>Atomic design, naming conventions, props patterns</td></tr>
+<tr><td><code>responsive-calculations.md</code></td><td>Breakpoints, fluid typography, grid systems</td></tr>
+<tr><td><code>developer-handoff.md</code></td><td>Export formats, framework setup, Figma sync</td></tr>
+</tbody>
+</table></div>
+<hr>
+<h3 id="validation-checklist">Validation Checklist</h3>
+<h4 id="token-generation">Token Generation</h4>
+<ul class="task-list">
+<li class="task"><input type="checkbox" disabled> Brand color provided in hex format</li>
+<li class="task"><input type="checkbox" disabled> Style matches project requirements</li>
+<li class="task"><input type="checkbox" disabled> All token categories generated</li>
+<li class="task"><input type="checkbox" disabled> Semantic colors include contrast values</li>
+</ul>
+<h4 id="component-system">Component System</h4>
+<ul class="task-list">
+<li class="task"><input type="checkbox" disabled> All sizes implemented (sm, md, lg)</li>
+<li class="task"><input type="checkbox" disabled> All variants implemented (primary, secondary, ghost)</li>
+<li class="task"><input type="checkbox" disabled> All states working (hover, active, focus, disabled)</li>
+<li class="task"><input type="checkbox" disabled> Uses only design tokens (no hardcoded values)</li>
+</ul>
+<h4 id="accessibility">Accessibility</h4>
+<ul class="task-list">
+<li class="task"><input type="checkbox" disabled> Color contrast meets WCAG AA</li>
+<li class="task"><input type="checkbox" disabled> Focus indicators visible</li>
+<li class="task"><input type="checkbox" disabled> Touch targets ≥ 44×44px</li>
+<li class="task"><input type="checkbox" disabled> Semantic HTML elements used</li>
+</ul>
+<h4 id="developer-handoff">Developer Handoff</h4>
+<ul class="task-list">
+<li class="task"><input type="checkbox" disabled> Tokens exported in required format</li>
+<li class="task"><input type="checkbox" disabled> Framework integration documented</li>
+<li class="task"><input type="checkbox" disabled> Design tool synced</li>
+<li class="task"><input type="checkbox" disabled> Component documentation complete</li>
+</ul>
+</article>
+</main>
+</div>
+
+<footer class="site-foot">
+<p><a href="../index.html">Back to all skills</a></p>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

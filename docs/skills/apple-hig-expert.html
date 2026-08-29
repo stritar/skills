@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>apple-hig-expert — Product design skills</title>
+<meta name="description" content="Audits and designs iOS/macOS/watchOS/visionOS interfaces against the Apple Human Interface Guidelines including Liquid Glass (shipped iOS 26/macOS Tahoe, Sept 2025). Two modes: design-from-scratch (platform navigation paradigm and layout primitives, then typography and semantic color) or HIG audit…">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="page-head">
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=interaction-design">Interaction design</a></nav>
+<h1>apple-hig-expert</h1>
+<p class="badges"><span class="il badge badge-dep"><span class="il-label">Other tooling</span></span><span class="il badge badge-exp"><span class="il-label">Experimental</span></span></p>
+<p class="lede">Audits and designs iOS/macOS/watchOS/visionOS interfaces against the Apple Human Interface Guidelines including Liquid Glass (shipped iOS 26/macOS Tahoe, Sept 2025).</p>
+</header>
+
+<div class="layout">
+<nav class="sidebar" aria-labelledby="contents">
+<h2 id="contents" class="label-caps">On this page</h2>
+<ul class="toc">
+<li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
+
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#apple-hig-expert">Apple HIG Expert</a></li>
+<li class="toc-sub"><a href="#before-starting">Before Starting</a></li>
+<li class="toc-sub"><a href="#modes">Modes</a></li>
+<li class="toc-sub"><a href="#the-compliance-tool">The Compliance Tool</a></li>
+<li class="toc-sub"><a href="#worked-example-ios-settings-screen-audit">Worked example: iOS settings-screen audit</a></li>
+<li class="toc-sub"><a href="#core-design-principles">Core Design Principles</a></li>
+<li class="toc-sub"><a href="#proactive-triggers">Proactive Triggers</a></li>
+<li class="toc-sub"><a href="#communication">Communication</a></li>
+<li class="toc-sub"><a href="#related-skills">Related Skills</a></li>
+</ul>
+</nav>
+
+<main id="main">
+<section id="install">
+<h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill apple-hig-expert</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill apple-hig-expert"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
+<ul class="install">
+<li>
+<h3>Claude Code, as a plugin</h3>
+<div class="cmd"><pre><code>/plugin marketplace add stritar/skills
+/plugin install product-design-interaction-design@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-interaction-design@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Installs the whole <code>interaction-design</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
+</li>
+<li>
+<h3>From a clone, copied by hand</h3>
+<div class="cmd"><pre><code>cp -r skills/interaction-design/apple-hig-expert ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/interaction-design/apple-hig-expert ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
+</li>
+</ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Audits and designs iOS/macOS/watchOS/visionOS interfaces against the Apple Human Interface Guidelines including Liquid Glass (shipped iOS 26/macOS Tahoe, Sept 2025). Two modes: design-from-scratch (platform navigation paradigm and layout primitives, then typography and semantic color) or HIG audit (fill an audit template, run the bundled Python compliance tool -- contrast-ratio, tap-target-size, and batch JSON-to-scorecard subcommands -- and deliver a scored report starting at 100 with -10 per violation). Covers accessibility (VoiceOver labels, 44x44pt minimum targets, 4.5:1/3:1 contrast, Dynamic Type) and platform ergonomics per device (tab bars/thumb reach on iOS, sidebars/menu bar on macOS, ornaments/gaze on visionOS, glanceable layouts on watchOS), with a worked audit example and confidence-tagged findings (tool-verified / needs device test / assumed).</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>audit my iOS app against the HIG</li><li>is this text readable on Liquid Glass?</li><li>design a native-feeling macOS or visionOS UI</li><li>check contrast or tap-target sizes for an Apple platform</li><li>review this mockup for Apple platform compliance</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>a mockup, screenshot, or code for an iOS/macOS/watchOS/visionOS app to audit or design</li><li>a JSON batch file of contrast and tap-target checks for the compliance script</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>a scored HIG-compliance report (0-100) with named violations and fixes, confidence-tagged</li><li>design guidance keyed to the target platform's navigation and layout conventions</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=a11y">a11y</a></li><li><a class="tag" href="../index.html?tag=wcag">wcag</a></li><li><a class="tag" href="../index.html?tag=contrast">contrast</a></li><li><a class="tag" href="../index.html?tag=mobile">mobile</a></li><li><a class="tag" href="../index.html?tag=desktop">desktop</a></li><li><a class="tag" href="../index.html?tag=ui-design">ui-design</a></li><li><a class="tag" href="../index.html?tag=interaction-design">interaction-design</a></li><li><a class="tag" href="../index.html?tag=audit">audit</a></li><li><a class="tag" href="../index.html?tag=design-review">design-review</a></li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Requires</h3><ul><li><code>python3</code></li></ul></div>
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/alirezarezvani/claude-skills/tree/19392f7a08264ed00486a251f5b2098321771f94/product-team/apple-hig-expert/skills/apple-hig-expert">alirezarezvani/claude-skills</a> by Alireza Rezvani at <code>19392f7</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p>
+</details>
+</section>
+
+
+
+<article class="skill-body" id="instructions">
+<h2 class="body-head">Instructions</h2>
+<p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/interaction-design/apple-hig-expert/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
+<h2 id="apple-hig-expert">Apple HIG Expert</h2>
+<p>Design and audit apps against the Apple Human Interface Guidelines (HIG, <a href="https://developer.apple.com/design/human-interface-guidelines" target="_blank" rel="noopener noreferrer">developer.apple.com/design/human-interface-guidelines</a>), including the <strong>Liquid Glass</strong> design language. HIG content evolves with each OS release — when a claim matters, verify against the live HIG pages cited in <code>references/</code>.</p>
+<h3 id="before-starting">Before Starting</h3>
+<p>If <code>product-context.md</code> or <code>ios-design-context.md</code> exists, read it before asking questions. Then gather:</p>
+<ol>
+<li><strong>Platform target</strong>: iOS, macOS, watchOS, or visionOS?</li>
+<li><strong>Current state</strong>: new design or auditing an existing mockup/code?</li>
+<li><strong>App category</strong>: utility, productivity, game, social, etc.</li>
+</ol>
+<h3 id="modes">Modes</h3>
+<ul>
+<li><strong>Mode 1 — Design from scratch</strong>: pick the platform navigation paradigm and layout primitives first (see <code>references/platform-specifics.md</code>), then apply typography and semantic color (<code>references/visual-design.md</code>).</li>
+<li><strong>Mode 2 — HIG audit</strong>: fill in <code>templates/hig-audit-template.md</code>, run <code>scripts/hig_checker.py</code> on every measurable element, and deliver a scored report (see Worked example below).</li>
+</ul>
+<h3 id="the-compliance-tool">The Compliance Tool</h3>
+<p><code>scripts/hig_checker.py</code> (stdlib-only) has three subcommands:</p>
+<pre><code class="language-bash"># 1. Contrast ratio (WCAG formula; pass &gt;= 4.5:1 for normal text)
+python3 scripts/hig_checker.py contrast &quot;#8E8E93&quot; &quot;#FFFFFF&quot;
+# -&gt; Contrast Ratio: 3.26 [FAILED]
+
+# 2. Tap-target size (pass &gt;= 44x44 pt per HIG)
+python3 scripts/hig_checker.py target 32 32
+# -&gt; Tap Target: 32x32 [FAILED]
+
+# 3. Batch audit from JSON -&gt; scorecard (starts at 100, -10 per violation)
+python3 scripts/hig_checker.py batch audit.json
+</code></pre>
+<p>Batch input shape:</p>
+<pre><code class="language-json">{
+  &quot;checks&quot;: [
+    {&quot;type&quot;: &quot;contrast&quot;, &quot;name&quot;: &quot;caption-on-card&quot;, &quot;fg&quot;: &quot;#8E8E93&quot;, &quot;bg&quot;: &quot;#FFFFFF&quot;},
+    {&quot;type&quot;: &quot;target&quot;, &quot;name&quot;: &quot;close-button&quot;, &quot;w&quot;: 32, &quot;h&quot;: 32}
+  ]
+}
+</code></pre>
+<p><strong>Scorecard rubric:</strong> the batch score starts at 100 and subtracts 10 per failed check; violations are listed by element name. 90-100 = ship, 70-80 = fix before release, below 70 = systematic rework. Checks the tool cannot measure (VoiceOver labels, Dynamic Type behavior, Reduce Transparency) are assessed manually via the audit template and tagged with confidence.</p>
+<h3 id="worked-example-ios-settings-screen-audit">Worked example: iOS settings-screen audit</h3>
+<p><strong>Input:</strong> mockup with body text <code>#1C1C1E</code> and captions <code>#8E8E93</code> on white cards, a 32x32 pt close button, and a 343x50 pt primary CTA.</p>
+<p><strong>Run:</strong></p>
+<pre><code class="language-bash">python3 scripts/hig_checker.py batch audit.json
+</code></pre>
+<p><strong>Output (real):</strong></p>
+<pre><code class="language-json">{
+  &quot;score&quot;: 80,
+  &quot;violations&quot;: [
+    &quot;Contrast 3.26 fails for caption-on-card&quot;,
+    &quot;Target 32x32 small for close-button&quot;
+  ]
+}
+</code></pre>
+<p><strong>Findings → fixes (bottom line first):</strong></p>
+<blockquote>
+<p><strong>HIG score 80/100 — two fixes before release.</strong></p>
+<ol>
+<li>Captions fail contrast (3.26 &lt; 4.5). Use <code>.secondaryLabel</code> (semantic color) instead of hardcoded <code>#8E8E93</code>, or darken to ≥ <code>#6E6E73</code> on white. 🟢 verified by tool.</li>
+<li>Close button is 32x32 pt (&lt; 44x44 minimum). Keep the glyph small but expand the hit region to 44x44 with padding/<code>contentShape</code>. 🟢 verified by tool.</li>
+<li>Manual check: the card uses an ultra-thin material over a photo background — re-test caption contrast against the <em>busiest</em> underlying region and with Reduce Transparency on. 🟡 needs device test.</li>
+</ol>
+</blockquote>
+<h3 id="core-design-principles">Core Design Principles</h3>
+<ol>
+<li><strong>Liquid Glass</strong> — translucent material hierarchy (announced at WWDC25, June 2025; shipped Sept 2025 across iOS 26, iPadOS 26, macOS Tahoe, watchOS 26, tvOS 26, visionOS 26). In SwiftUI, apply it via the <code>glassEffect</code> view modifier; keep hierarchy between content and controls. See <code>references/visual-design.md</code>.</li>
+<li><strong>Accessibility first</strong> — VoiceOver labels on every element, 44x44 pt minimum targets, 4.5:1 contrast for normal text (3:1 large text), Dynamic Type support. See <code>references/accessibility.md</code>.</li>
+<li><strong>Platform ergonomics</strong> — tab bars/thumb reach on iOS, sidebars + menu bar + shortcuts on macOS, ornaments + gaze states on visionOS, glanceable vertical layouts on watchOS. See <code>references/platform-specifics.md</code>.</li>
+</ol>
+<h3 id="proactive-triggers">Proactive Triggers</h3>
+<p>Surface these WITHOUT being asked: low contrast over translucent layers; interactive elements under 44 pt; icon buttons with no accessibility label; density overload (no breathing room between glass layers).</p>
+<h3 id="communication">Communication</h3>
+<ul>
+<li><strong>Bottom line first</strong> — compliance status before details.</li>
+<li><strong>What + Why + How</strong> — &quot;Expand the hit region (What) because 32 pt targets fail the HIG minimum (Why); pad to 44x44 via contentShape (How).&quot;</li>
+<li><strong>Confidence tagging</strong> — 🟢 tool-verified / 🟡 needs device test / 🔴 assumed.</li>
+</ul>
+<h3 id="related-skills">Related Skills</h3>
+<ul>
+<li><strong>ui-design-system</strong>: token-based component systems (not platform HIG rules).</li>
+<li><strong>ux-researcher-designer</strong>: persona/research validation (not visual styling).</li>
+<li><strong>landing-page-generator</strong>: web marketing pages, not native apps.</li>
+</ul>
+</article>
+</main>
+</div>
+
+<footer class="site-foot">
+<p><a href="../index.html">Back to all skills</a></p>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

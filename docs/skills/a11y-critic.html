@@ -11,64 +11,69 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="page-head">
-<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-accessibility">Accessibility</a></nav>
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=accessibility">Accessibility</a></nav>
 <h1>a11y-critic</h1>
 <p class="badges"></p>
-<p class="lede">Reviews accessibility design decisions in an existing component, flow, or interface after automated compliance checks already pass — catching what axe-core/Pa11y miss: incomplete ARIA patterns, incoherent focus management, and state-communication gaps. Runs a 10-phase protocol (pre-commitment predictions, semantic HTML audit, ARIA pattern compliance, focus management analysis, state communication audit, multi-perspective review across screen-reader/keyboard-only/low-vision/cognitive users) and produces findings with severity (CRITICAL/MAJOR/MINOR/ENHANCEMENT), file:line evidence, affected user group, and a WCAG 2.2 or WAI-ARIA APG citation, ending in a verdict of ACCEPT, ACCEPT-WITH-RESERVATIONS, REVISE, or REJECT.</p>
+<p class="lede">Reviews accessibility design decisions in an existing component, flow, or interface after automated compliance checks already pass — catching what axe-core/Pa11y miss.</p>
 </header>
 
 <div class="layout">
 <nav class="sidebar" aria-labelledby="contents">
-<h2 id="contents">On this page</h2>
+<h2 id="contents" class="label-caps">On this page</h2>
 <ul class="toc">
-<li><a href="#about">About this skill</a></li>
 <li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
 <li><a href="#related">Works with</a></li>
-<li><a href="#accessibility-design-critic">Accessibility Design Critic</a></li>
-<li><a href="#jtbd-jobs-to-be-done">JTBD (Jobs To Be Done)</a></li>
-<li><a href="#purpose">Purpose</a></li>
-<li><a href="#use_when">Use_When</a></li>
-<li><a href="#do_not_use_when">Do_Not_Use_When</a></li>
-<li><a href="#why_this_exists">Why_This_Exists</a></li>
-<li><a href="#companion_skills">Companion_Skills</a></li>
-<li><a href="#steps">Steps</a></li>
-<li><a href="#full_a11y_review_protocol">Full_A11y_Review_Protocol</a></li>
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#accessibility-design-critic">Accessibility Design Critic</a></li>
+<li class="toc-sub"><a href="#jtbd-jobs-to-be-done">JTBD (Jobs To Be Done)</a></li>
+<li class="toc-sub"><a href="#purpose">Purpose</a></li>
+<li class="toc-sub"><a href="#use_when">Use_When</a></li>
+<li class="toc-sub"><a href="#do_not_use_when">Do_Not_Use_When</a></li>
+<li class="toc-sub"><a href="#why_this_exists">Why_This_Exists</a></li>
+<li class="toc-sub"><a href="#companion_skills">Companion_Skills</a></li>
+<li class="toc-sub"><a href="#steps">Steps</a></li>
+<li class="toc-sub"><a href="#full_a11y_review_protocol">Full_A11y_Review_Protocol</a></li>
 </ul>
 </nav>
 
 <main id="main">
-<section id="about" class="meta">
-<h2>About this skill</h2>
-<div class="meta-row"><h3>Use when</h3><ul><li>critique this accessibility plan</li><li>review this component's accessibility design</li><li>is this ready to ship accessibility-wise?</li><li>check ARIA pattern completeness</li><li>review focus management before merge</li></ul></div>
-<div class="meta-row"><h3>Works on</h3><ul><li>an existing component, flow, or interface (code or a written accessibility plan) that has already passed automated accessibility checks</li></ul></div>
-<div class="meta-row"><h3>Produces</h3><ul><li>findings list with severity, file:line evidence, affected user group, and WCAG/APG citation</li><li>a verdict: ACCEPT / ACCEPT-WITH-RESERVATIONS / REVISE / REJECT</li></ul></div>
-<div class="meta-row"><h3>Tags</h3>
-<ul class="tags"><li><a class="tag" href="../index.html?tag=a11y">a11y</a></li><li><a class="tag" href="../index.html?tag=wcag">wcag</a></li><li><a class="tag" href="../index.html?tag=aria">aria</a></li><li><a class="tag" href="../index.html?tag=keyboard">keyboard</a></li><li><a class="tag" href="../index.html?tag=focus-management">focus-management</a></li><li><a class="tag" href="../index.html?tag=screen-reader">screen-reader</a></li><li><a class="tag" href="../index.html?tag=semantic-html">semantic-html</a></li><li><a class="tag" href="../index.html?tag=severity">severity</a></li><li><a class="tag" href="../index.html?tag=design-critique">design-critique</a></li><li><a class="tag" href="../index.html?tag=expert-review">expert-review</a></li></ul></div>
-
-<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/zivtech/accessibility-skills/tree/817dedeae90324017ece2d2b104332aec9d20656/.claude/skills/a11y-critic">zivtech/accessibility-skills</a> by zivtech at <code>817dede</code>, licence <code>GPL-3.0-or-later</code>. Vendored byte-identical to upstream.</p></div>
-</section>
-
 <section id="install">
 <h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill a11y-critic</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill a11y-critic"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
 <ul class="install">
-<li>
-<h3>Any agent, via the skills CLI</h3>
-<div class="cmd"><pre><code>npx skills add stritar/skills --skill a11y-critic</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill a11y-critic"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Installs into whichever agents it finds on your machine.</p>
-</li>
 <li>
 <h3>Claude Code, as a plugin</h3>
 <div class="cmd"><pre><code>/plugin marketplace add stritar/skills
-/plugin install product-design-accessibility@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-accessibility@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
 /plugin install product-design-accessibility@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Brings the whole accessibility bundle. Use <code>product-design-all</code> for everything.</p>
+<p class="note">Installs the whole <code>accessibility</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
 </li>
 <li>
 <h3>From a clone, copied by hand</h3>
-<div class="cmd"><pre><code>cp -r skills/accessibility/a11y-critic ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/accessibility/a11y-critic ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<div class="cmd"><pre><code>cp -r skills/accessibility/a11y-critic ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/accessibility/a11y-critic ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
 <p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
 </li>
 </ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Reviews accessibility design decisions in an existing component, flow, or interface after automated compliance checks already pass — catching what axe-core/Pa11y miss: incomplete ARIA patterns, incoherent focus management, and state-communication gaps. Runs a 10-phase protocol (pre-commitment predictions, semantic HTML audit, ARIA pattern compliance, focus management analysis, state communication audit, multi-perspective review across screen-reader/keyboard-only/low-vision/cognitive users) and produces findings with severity (CRITICAL/MAJOR/MINOR/ENHANCEMENT), file:line evidence, affected user group, and a WCAG 2.2 or WAI-ARIA APG citation, ending in a verdict of ACCEPT, ACCEPT-WITH-RESERVATIONS, REVISE, or REJECT.</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>critique this accessibility plan</li><li>review this component's accessibility design</li><li>is this ready to ship accessibility-wise?</li><li>check ARIA pattern completeness</li><li>review focus management before merge</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>an existing component, flow, or interface (code or a written accessibility plan) that has already passed automated accessibility checks</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>findings list with severity, file:line evidence, affected user group, and WCAG/APG citation</li><li>a verdict: ACCEPT / ACCEPT-WITH-RESERVATIONS / REVISE / REJECT</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=a11y">a11y</a></li><li><a class="tag" href="../index.html?tag=wcag">wcag</a></li><li><a class="tag" href="../index.html?tag=aria">aria</a></li><li><a class="tag" href="../index.html?tag=keyboard">keyboard</a></li><li><a class="tag" href="../index.html?tag=focus-management">focus-management</a></li><li><a class="tag" href="../index.html?tag=screen-reader">screen-reader</a></li><li><a class="tag" href="../index.html?tag=semantic-html">semantic-html</a></li><li><a class="tag" href="../index.html?tag=severity">severity</a></li><li><a class="tag" href="../index.html?tag=design-critique">design-critique</a></li><li><a class="tag" href="../index.html?tag=expert-review">expert-review</a></li></ul></div>
+
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/zivtech/accessibility-skills/tree/817dedeae90324017ece2d2b104332aec9d20656/.claude/skills/a11y-critic">zivtech/accessibility-skills</a> by zivtech at <code>817dede</code>, licence <code>GPL-3.0-or-later</code>. Vendored byte-identical to upstream.</p>
+</details>
 </section>
 
 <section id="related">
@@ -80,7 +85,7 @@
 </ul>
 </section>
 
-<article class="skill-body">
+<article class="skill-body" id="instructions">
 <h2 class="body-head">Instructions</h2>
 <p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/accessibility/a11y-critic/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
 <h2 id="accessibility-design-critic">Accessibility Design Critic</h2>

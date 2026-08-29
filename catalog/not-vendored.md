@@ -43,7 +43,33 @@ Candidates awaiting license clarification stay here until resolved.
   skills, or tools work"), which is an automatic disqualifier under
   `research/rubric.md`. Not a quality judgment; flagged for human review.
 
+## Provenance not verifiable from the source found
+
+### designers-eye and macos-hig-designer (leoyeai/openclaw-master-skills)
+
+- URL: https://github.com/leoyeai/openclaw-master-skills (inspected
+  2026-08-29 at commit `e5199b56ae1ff72e141586c17695563486c46702`; repo
+  declares MIT)
+- Purpose: a designer's-eye critique skill (author Chris Couriard) and a
+  macOS Human Interface Guidelines skill (author soponcd, whose SKILL.md
+  points at soponcd/timeflow-skills as its home).
+- Reason not vendored: the repository is an aggregation hub that accepts
+  third-party submissions ("a skill I found and recommend"), so its
+  repository license does not establish that each re-hosted skill was
+  licensed by its author. Both scored well; re-inspect from the original
+  authors' repositories.
+
 ## Better installed from source
+
+### dashboard-design (mckinsey/vizro)
+
+- URL: https://github.com/mckinsey/vizro (Apache-2.0, commit
+  `a12d760aa45233d68f4ef3f1cec9cc8b5fcda48f`, inspected 2026-08-29)
+- Purpose: dashboard design guidance inside Vizro's end-to-end workflow.
+- Reason not vendored: its mandated steps delegate to three sibling skills
+  outside the directory (Vizro layouts, actions, chart selection), so alone
+  it is incomplete and bundled it becomes a Vizro API manual. Use it from the
+  Vizro repository with its siblings.
 
 ### brandkit and migrate-design-system (plugin87/ux-ui-agent-skills)
 

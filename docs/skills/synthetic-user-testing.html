@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>synthetic-user-testing — Product design skills</title>
+<meta name="description" content="Validates a build by having the agent walk through each key task in character as each defined persona (e.g. a low-vision user at 200% zoom and high contrast, a non-native speaker, someone with a motor impairment) rather than evaluating the interface generically. For each scenario it documents what…">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="page-head">
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=testing">Testing and evaluation</a></nav>
+<h1>synthetic-user-testing</h1>
+<p class="badges"></p>
+<p class="lede">Validates a build by having the agent walk through each key task in character as each defined persona.</p>
+</header>
+
+<div class="layout">
+<nav class="sidebar" aria-labelledby="contents">
+<h2 id="contents" class="label-caps">On this page</h2>
+<ul class="toc">
+<li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
+
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#synthetic-user-testing">Synthetic User Testing</a></li>
+<li class="toc-sub"><a href="#when-to-use">When to Use</a></li>
+<li class="toc-sub"><a href="#process">Process</a></li>
+<li class="toc-sub"><a href="#what-you-deliver">What You Deliver</a></li>
+<li class="toc-sub"><a href="#integration">Integration</a></li>
+<li class="toc-sub"><a href="#the-difference-from-usability-testing">The Difference from Usability Testing</a></li>
+</ul>
+</nav>
+
+<main id="main">
+<section id="install">
+<h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill synthetic-user-testing</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill synthetic-user-testing"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
+<ul class="install">
+<li>
+<h3>Claude Code, as a plugin</h3>
+<div class="cmd"><pre><code>/plugin marketplace add stritar/skills
+/plugin install product-design-testing@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-testing@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Installs the whole <code>testing</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
+</li>
+<li>
+<h3>From a clone, copied by hand</h3>
+<div class="cmd"><pre><code>cp -r skills/testing/synthetic-user-testing ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/testing/synthetic-user-testing ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
+</li>
+</ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Validates a build by having the agent walk through each key task in character as each defined persona (e.g. a low-vision user at 200% zoom and high contrast, a non-native speaker, someone with a motor impairment) rather than evaluating the interface generically. For each scenario it documents what the persona does, which input method they use, what they perceive at their actual settings, what they would think, and whether the step succeeds, succeeds with difficulty, fails, or is unclear -- then compiles a cross-persona barrier matrix to separate universal barriers from persona-specific ones and friction hotspots. Classifies every finding as Critical (task impossible), Major (significant difficulty), or Minor (rough but doable), and produces a structured report with a ship / fix-and-retest / rethink recommendation. Explicitly positioned as a fast pre-check that surfaces predictable barriers before real usability testing, not a replacement for it.</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>walk through this as each persona</li><li>synthetic usability test</li><li>would a screen reader user get stuck here</li><li>validate this build against our personas</li><li>simulate testing before real usability testing</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>The built interface (running app, prototype, or screenshots)</li><li>A set of personas with ability/context details</li><li>The key tasks each persona needs to accomplish</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>Per-scenario step-by-step persona walkthroughs with pass/fail results</li><li>Cross-persona barrier matrix</li><li>Findings by severity (Critical/Major/Minor) with fixes</li><li>Ship / fix-and-retest / rethink recommendation</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=usability-testing">usability-testing</a></li><li><a class="tag" href="../index.html?tag=personas">personas</a></li><li><a class="tag" href="../index.html?tag=severity">severity</a></li><li><a class="tag" href="../index.html?tag=ai-evaluation">ai-evaluation</a></li><li><a class="tag" href="../index.html?tag=qualitative">qualitative</a></li></ul></div>
+
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/Owl-Listener/designpowers/tree/cb00757da9d554591fa78d27aa1854d60a05c4f7/skills/synthetic-user-testing">Owl-Listener/designpowers</a> by MC Dean at <code>cb00757</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p>
+</details>
+</section>
+
+
+
+<article class="skill-body" id="instructions">
+<h2 class="body-head">Instructions</h2>
+<p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/testing/synthetic-user-testing/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
+<h2 id="synthetic-user-testing">Synthetic User Testing</h2>
+<p>Synthetic user testing is the closest thing to putting the design in front of real people without leaving the pipeline. You walk through the interface as each persona, attempting real tasks, and report what works, what breaks, and what feels wrong — from their perspective, not yours.</p>
+<p>This is not a checklist exercise. It is an act of empathy disciplined by specifics. When you test as Jordan (low-vision, uses 200% zoom and high contrast), you don't ask &quot;is contrast sufficient?&quot; — you ask &quot;can Jordan find the 'continue reading' button at 200% zoom when three articles are competing for attention?&quot;</p>
+<h3 id="when-to-use">When to Use</h3>
+<ul>
+<li><strong>After the fix round</strong> — the design-builder has addressed findings from critic, accessibility-reviewer, and heuristic-evaluator. Now validate that the fixes work and no new issues were introduced</li>
+<li><strong>Before verification-before-shipping</strong> — synthetic testing feeds directly into the persona walkthrough in the verification report</li>
+<li><strong>When the design-critic flags persona coverage gaps</strong> — if the critique says &quot;unclear whether Persona X can complete Task Y,&quot; run a synthetic test to find out</li>
+<li><strong>When the team is unsure about a flow</strong> — synthetic testing turns &quot;I think this works for screen reader users&quot; into &quot;here's exactly where a screen reader user would get stuck&quot;</li>
+</ul>
+<h3 id="process">Process</h3>
+<h4 id="step-1-gather-test-context">Step 1: Gather Test Context</h4>
+<p>Before testing, assemble:</p>
+<ul>
+<li><strong>Personas</strong> from <code>inclusive-personas</code> (via <code>design-state.md</code>)</li>
+<li><strong>Key tasks</strong> from the design brief — the things the design must enable</li>
+<li><strong>The build</strong> — test the actual implementation, not the spec</li>
+<li><strong>Assistive technology context</strong> — for each persona, what tools they use and how (zoom level, screen reader, keyboard-only, switch access, etc.)</li>
+</ul>
+<h4 id="step-2-define-test-scenarios">Step 2: Define Test Scenarios</h4>
+<p>For each key task in the brief, write a scenario that a persona would actually encounter. Scenarios are not &quot;test case 1&quot; — they are moments:</p>
+<p><strong>Format:</strong></p>
+<pre><code>SCENARIO: [Natural situation trigger]
+TASK: [What the persona is trying to accomplish]
+PERSONA: [Name] — [key ability context]
+SUCCESS: [What &quot;done&quot; looks like for this persona]
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre><code>SCENARIO: Jordan is on the train home and wants to finish an article
+          they started yesterday.
+TASK: Find and continue a partially-read article.
+PERSONA: Jordan — low vision, uses 200% zoom, high contrast mode,
+         reads on a phone with one hand.
+SUCCESS: Jordan locates the article, picks up where they left off,
+         and the progress updates when they finish.
+</code></pre>
+<h4 id="step-3-walk-through-as-each-persona">Step 3: Walk Through as Each Persona</h4>
+<p>For each scenario, simulate the persona's experience step by step. This is not &quot;would this work?&quot; — it is &quot;let me try to do this the way [Persona] would.&quot;</p>
+<p><strong>For each step, document:</strong></p>
+<pre><code>STEP [N]: [What the persona does]
+USING: [Input method — touch, keyboard, screen reader, switch, etc.]
+SEES: [What the interface presents — at their zoom level, contrast
+       setting, screen size]
+THINKS: [What the persona would likely think or feel]
+RESULT: ✓ succeeds / ⚠ succeeds with difficulty / ✗ fails / ? unclear
+
+FINDING: [If ⚠, ✗, or ? — what went wrong and why]
+WHO IS AFFECTED: [This persona, and any others with similar needs]
+</code></pre>
+<p><strong>Critical rules for walking through:</strong></p>
+<ol>
+<li><strong>Stay in character</strong> — if the persona uses a screen reader, evaluate what the screen reader would announce, not what the sighted experience looks like</li>
+<li><strong>Use their device</strong> — if the persona reads on a phone at 200% zoom, evaluate at that zoom on a phone viewport</li>
+<li><strong>Include emotional state</strong> — a stressed parent and a relaxed commuter approach the same interface differently. The scenario sets the emotional context</li>
+<li><strong>Test error paths</strong> — what happens if the persona makes a mistake? Can they recover? How much does recovery cost them?</li>
+<li><strong>Note friction, not just failure</strong> — a task that technically succeeds but requires 8 taps and 3 scrolls has a friction problem even if it &quot;works&quot;</li>
+</ol>
+<h4 id="step-4-cross-persona-analysis">Step 4: Cross-Persona Analysis</h4>
+<p>After walking through all scenarios, look for patterns across personas:</p>
+<p><strong>Barrier matrix:</strong></p>
+<pre><code>| Task              | Jordan    | Priya     | Marcus    | [Persona] |
+|                   | (low vis) | (ESL)     | (motor)   |           |
+|-------------------|-----------|-----------|-----------|-----------|
+| Find article      | ⚠ zoom    | ✓         | ✗ target  | ...       |
+| Continue reading  | ✓         | ⚠ jargon  | ✓         | ...       |
+| Mark complete     | ✗ no fbk  | ✓         | ⚠ gesture | ...       |
+</code></pre>
+<p><strong>Pattern analysis:</strong></p>
+<ul>
+<li><strong>Universal barriers</strong> — issues that affect 2+ personas → likely a design problem, not an edge case</li>
+<li><strong>Persona-specific barriers</strong> — issues that affect only one persona → may need targeted fix or alternative path</li>
+<li><strong>Friction hotspots</strong> — steps where multiple personas struggle, even if they eventually succeed</li>
+<li><strong>Emotional patterns</strong> — where do personas feel confused, frustrated, or lost?</li>
+</ul>
+<h4 id="step-5-synthesise-findings">Step 5: Synthesise Findings</h4>
+<p>Compile findings into a structured report (see &quot;What You Deliver&quot; below). Every finding must:</p>
+<ul>
+<li>Name the specific persona affected</li>
+<li>Describe the exact step where the issue occurs</li>
+<li>Explain why it's a problem from the persona's perspective</li>
+<li>Suggest a fix</li>
+<li>Classify severity (Critical / Major / Minor)</li>
+</ul>
+<p><strong>Severity in synthetic testing:</strong></p>
+<div class="table-scroll"><table>
+<thead><tr><th>Severity</th><th>Definition</th></tr></thead>
+<tbody>
+<tr><td><strong>Critical</strong></td><td>Persona cannot complete the task at all</td></tr>
+<tr><td><strong>Major</strong></td><td>Persona completes the task but with significant difficulty, confusion, or emotional friction</td></tr>
+<tr><td><strong>Minor</strong></td><td>Persona completes the task but the experience is rougher than it should be</td></tr>
+</tbody>
+</table></div>
+<h4 id="step-6-feed-results-forward">Step 6: Feed Results Forward</h4>
+<p>Synthetic testing results feed into two places:</p>
+<ol>
+<li><strong>design-builder</strong> — if fixes are needed, dispatch the builder with specific findings</li>
+<li><strong>verification-before-shipping</strong> — the persona walkthrough section of the verification report should reference synthetic test results, not guesswork</li>
+</ol>
+<h3 id="what-you-deliver">What You Deliver</h3>
+<pre><code class="language-markdown"># Synthetic User Test Results: [Project Name]
+
+**Date:** [YYYY-MM-DD]
+**Build tested:** [what was tested]
+**Personas tested:** [list]
+**Tasks tested:** [list]
+
+## Summary
+[2-3 sentences: overall findings — who can use this, who can't,
+ and the biggest gap]
+
+## Scenario Results
+
+### Scenario 1: [Scenario name]
+**Persona:** [Name] — [context]
+**Task:** [what they're trying to do]
+**Result:** ✓ / ⚠ / ✗
+
+[Step-by-step walkthrough with findings]
+
+### Scenario 2: ...
+
+## Barrier Matrix
+
+| Task | [Persona 1] | [Persona 2] | [Persona 3] | ... |
+|------|-------------|-------------|-------------|-----|
+| ...  | ✓/⚠/✗      | ✓/⚠/✗      | ✓/⚠/✗      | ... |
+
+## Cross-Persona Patterns
+- **Universal barriers:** [issues affecting 2+ personas]
+- **Friction hotspots:** [steps with clustered difficulty]
+- **Emotional patterns:** [where confusion/frustration clusters]
+
+## Findings by Severity
+
+### Critical
+- [Persona] cannot [task] because [specific reason] → [Fix]
+
+### Major
+- [Persona] struggles with [task] at [step] because [reason] → [Fix]
+
+### Minor
+- [Persona] experiences friction at [step] because [reason] → [Fix]
+
+## Comparison: Pre-Fix vs Post-Fix
+[If this is a re-test after fixes, show what improved and what didn't]
+
+## Recommendation
+[Ship / Fix and re-test / Rethink flow for [persona]]
+</code></pre>
+<h3 id="integration">Integration</h3>
+<ul>
+<li><strong>Runs after:</strong> Fix round (design-builder has addressed critic, accessibility-reviewer, and heuristic-evaluator findings)</li>
+<li><strong>Runs before:</strong> <code>verification-before-shipping</code></li>
+<li><strong>Informed by:</strong> <code>inclusive-personas</code>, <code>design-discovery</code> (brief), <code>design-state</code> (all decisions)</li>
+<li><strong>Feeds into:</strong> <code>verification-before-shipping</code> (persona walkthrough evidence), <code>design-builder</code> (if fixes needed), <code>design-debt-tracker</code> (deferred findings)</li>
+<li><strong>Complements:</strong> <code>usability-testing</code> (which plans tests with real people — synthetic testing validates before real testing begins)</li>
+</ul>
+<h3 id="the-difference-from-usability-testing">The Difference from Usability Testing</h3>
+<div class="table-scroll"><table>
+<thead><tr><th></th><th>Synthetic User Testing</th><th>Usability Testing</th></tr></thead>
+<tbody>
+<tr><td><strong>Who</strong></td><td>AI walks through as each persona</td><td>Real people use the interface</td></tr>
+<tr><td><strong>When</strong></td><td>After fix round, inside the pipeline</td><td>After shipping or during user research</td></tr>
+<tr><td><strong>Speed</strong></td><td>Minutes</td><td>Days to weeks</td></tr>
+<tr><td><strong>Catches</strong></td><td>Predictable barriers, flow breaks, friction</td><td>Unexpected behaviour, mental model mismatches, emotional reactions</td></tr>
+<tr><td><strong>Misses</strong></td><td>True surprises — things no persona model predicts</td><td>Nothing (but expensive and slow)</td></tr>
+<tr><td><strong>Value</strong></td><td>Closes the gap between build and validation without leaving the pipeline</td><td>Ground truth</td></tr>
+</tbody>
+</table></div>
+<p>Synthetic testing does not replace real usability testing. It makes real testing more efficient by catching the obvious issues first, so real participants encounter the design at its best — and surface the surprises only humans can find.</p>
+</article>
+</main>
+</div>
+
+<footer class="site-foot">
+<p><a href="../index.html">Back to all skills</a></p>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

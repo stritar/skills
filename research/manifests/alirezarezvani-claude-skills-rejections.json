@@ -1,0 +1,62 @@
+{
+  "verdict": "reject",
+  "repository": "alirezarezvani/claude-skills",
+  "commit": "19392f7a08264ed00486a251f5b2098321771f94",
+  "rejectedSkills": [
+    {
+      "id": "competitive-teardown",
+      "reason": "Read product-team/skills/competitive-teardown/SKILL.md in full. Genuinely strong (12-dimension scoring rubric, feature-matrix/SWOT/positioning-map/pricing templates, a 7-slide stakeholder-deck structure) and would clear the vendor bar on its own (relevance 2 -- competitive analysis is explicitly in the strategy category's scope, but this skill's centre of gravity is pricing/SEO/job-postings/sales-battlecard intelligence rather than product design; quality 3; conformance 2; uniqueness 2; total 9). Dropped only to stay within the repo's 'at most 6' cap: of the 7 candidates that cleared the bar, this had the lowest relevance score and the most PM/marketing-flavored scope, so it was the one cut.",
+      "rubric": { "relevance": 2, "quality": 3, "conformance": 2, "uniqueness": 2 }
+    },
+    {
+      "id": "product-manager-toolkit",
+      "reason": "product-team/skills/product-manager-toolkit -- PRD templates, RICE prioritization, customer-interview-to-RICE-input analysis. Core product-management tooling, not design; relevance 1.",
+      "rubric": { "relevance": 1, "quality": 3, "conformance": 2, "uniqueness": 1 }
+    },
+    {
+      "id": "product-strategist",
+      "reason": "product-team/skills/product-strategist -- OKR cascading and generic strategy-type selection. Business strategy, not design-specific; relevance 1.",
+      "rubric": { "relevance": 1, "quality": 3, "conformance": 2, "uniqueness": 1 }
+    },
+    {
+      "id": "roadmap-communicator",
+      "reason": "product-team/skills/roadmap-communicator (per plugin.json description: stakeholder roadmap communication). PM communication tooling, not design; relevance 0-1, not deep-inspected beyond the plugin manifest given the clear PM scope.",
+      "rubric": { "relevance": 1, "quality": null, "conformance": null, "uniqueness": null }
+    },
+    {
+      "id": "saas-scaffolder",
+      "reason": "product-team/skills/saas-scaffolder -- codebase/app scaffolding (per plugin.json). Generic coding content per the rubric's automatic disqualifier; relevance 0.",
+      "rubric": { "relevance": 0, "quality": null, "conformance": null, "uniqueness": null }
+    },
+    {
+      "id": "spec-to-repo",
+      "reason": "product-team/skills/spec-to-repo -- turns a spec into repo scaffolding/code (per plugin.json). Generic coding content; relevance 0.",
+      "rubric": { "relevance": 0, "quality": null, "conformance": null, "uniqueness": null }
+    },
+    {
+      "id": "landing-page-generator",
+      "reason": "product-team/skills/landing-page-generator -- marketing landing-page copy/build. Marketing content per the rubric's automatic disqualifier; relevance 0.",
+      "rubric": { "relevance": 0, "quality": null, "conformance": null, "uniqueness": null }
+    },
+    {
+      "id": "product-skills",
+      "reason": "product-team/skills/product-skills -- the fork-orchestrator/router for the other 12 product-team skills (16-lane router, Torres cadence tracker, OST linter), not itself design content; and orchestrators over a mostly-rejected/PM skill set don't add registry value here.",
+      "rubric": { "relevance": 1, "quality": null, "conformance": null, "uniqueness": null }
+    },
+    {
+      "id": "agile-product-owner",
+      "reason": "Standalone companion plugin at product-team/agile-product-owner/. Agile ceremony/backlog-management tooling, not clearly design/UX work, so excluded during enumeration per the task's own filter ('any other plugin whose skills are clearly design/UX work'); not deep-inspected.",
+      "rubric": { "relevance": 1, "quality": null, "conformance": null, "uniqueness": null }
+    },
+    {
+      "id": "code-to-prd",
+      "reason": "Standalone companion plugin at product-team/code-to-prd/. Reverse-engineers a PRD from existing code; dev/PM tooling, not clearly design/UX work, excluded during enumeration; not deep-inspected.",
+      "rubric": { "relevance": 1, "quality": null, "conformance": null, "uniqueness": null }
+    },
+    {
+      "id": "research-summarizer",
+      "reason": "Standalone companion plugin at product-team/research-summarizer/skills/research-summarizer. Read SKILL.md in full: a generic academic/article/report summarization and citation-extraction tool (IMRAD scaffolds, APA/IEEE/Chicago/Harvard/MLA citation formatting) for documents the user already has. Explicitly not design- or even product-specific -- it is a general research-writing utility usable in any domain. Relevance 1, below the >=2 vendor threshold regardless of its otherwise strong quality (concrete workflows, two runnable Python scripts, a verification-loop checklist).",
+      "rubric": { "relevance": 1, "quality": 3, "conformance": 2, "uniqueness": 1 }
+    }
+  ]
+}

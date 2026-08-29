@@ -11,60 +11,65 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="page-head">
-<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-ethics-and-safety">Ethics and safety</a></nav>
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=ethics-and-safety">Ethics and safety</a></nav>
 <h1>dark-pattern-review</h1>
 <p class="badges"><span class="il badge badge-rec"><span class="il-icon" aria-hidden="true">★</span><span class="il-label">Recommended</span></span><span class="il badge badge-exp"><span class="il-label">Experimental</span></span></p>
-<p class="lede">Reviews a flow, screen or copy for deceptive and manipulative design patterns (sneaking, obstruction, interface interference, false urgency and scarcity, unverifiable social proof, forced action, asymmetric consent) against the taxonomies regulators cite (deceptive.design, Mathur et al. 2019, FTC 2022, EDPB 03/2022, OECD 2022, EU DSA Art. 25), rates each finding by user harm and regulatory exposure, proposes the honest alternative with the concrete element and step count, and ends with Block or Approve plus a not-legal-advice note.</p>
+<p class="lede">Reviews a flow, screen or copy for deceptive and manipulative design patterns.</p>
 </header>
 
 <div class="layout">
 <nav class="sidebar" aria-labelledby="contents">
-<h2 id="contents">On this page</h2>
+<h2 id="contents" class="label-caps">On this page</h2>
 <ul class="toc">
-<li><a href="#about">About this skill</a></li>
 <li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
 <li><a href="#related">Works with</a></li>
-<li><a href="#dark-pattern-review">Dark pattern review</a></li>
-<li><a href="#inputs">Inputs</a></li>
-<li><a href="#workflow">Workflow</a></li>
-<li><a href="#before-you-finish">Before you finish</a></li>
-<li><a href="#limitations">Limitations</a></li>
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#dark-pattern-review">Dark pattern review</a></li>
+<li class="toc-sub"><a href="#inputs">Inputs</a></li>
+<li class="toc-sub"><a href="#workflow">Workflow</a></li>
+<li class="toc-sub"><a href="#before-you-finish">Before you finish</a></li>
+<li class="toc-sub"><a href="#limitations">Limitations</a></li>
 </ul>
 </nav>
 
 <main id="main">
-<section id="about" class="meta">
-<h2>About this skill</h2>
-<div class="meta-row"><h3>Use when</h3><ul><li>is this flow manipulative</li><li>review the cancellation flow</li><li>check the consent banner</li><li>dark pattern audit</li><li>review pricing and checkout for deceptive patterns</li></ul></div>
-<div class="meta-row"><h3>Works on</h3><ul><li>flow screenshots, prototype or source with copy</li><li>business context and applicable jurisdictions</li></ul></div>
-<div class="meta-row"><h3>Produces</h3><ul><li>findings table with severity, harm and exposure</li><li>honest alternatives</li><li>Block/Approve verdict</li></ul></div>
-<div class="meta-row"><h3>Tags</h3>
-<ul class="tags"><li><a class="tag" href="../index.html?tag=ethics">ethics</a></li><li><a class="tag" href="../index.html?tag=dark-patterns">dark-patterns</a></li><li><a class="tag" href="../index.html?tag=manipulation">manipulation</a></li><li><a class="tag" href="../index.html?tag=consent">consent</a></li><li><a class="tag" href="../index.html?tag=privacy">privacy</a></li><li><a class="tag" href="../index.html?tag=trust-and-safety">trust-and-safety</a></li><li><a class="tag" href="../index.html?tag=review">review</a></li></ul></div>
-
-<div class="meta-row"><h3>Source</h3><p>Written for this library. Licence <code>MIT</code>.</p></div>
-</section>
-
 <section id="install">
 <h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill dark-pattern-review</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill dark-pattern-review"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
 <ul class="install">
-<li>
-<h3>Any agent, via the skills CLI</h3>
-<div class="cmd"><pre><code>npx skills add stritar/skills --skill dark-pattern-review</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill dark-pattern-review"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Installs into whichever agents it finds on your machine.</p>
-</li>
 <li>
 <h3>Claude Code, as a plugin</h3>
 <div class="cmd"><pre><code>/plugin marketplace add stritar/skills
-/plugin install product-design-ethics-and-safety@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-ethics-and-safety@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
 /plugin install product-design-ethics-and-safety@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Brings the whole ethics-and-safety bundle. Use <code>product-design-all</code> for everything.</p>
+<p class="note">Installs the whole <code>ethics-and-safety</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
 </li>
 <li>
 <h3>From a clone, copied by hand</h3>
-<div class="cmd"><pre><code>cp -r skills/ethics-and-safety/dark-pattern-review ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/ethics-and-safety/dark-pattern-review ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<div class="cmd"><pre><code>cp -r skills/ethics-and-safety/dark-pattern-review ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/ethics-and-safety/dark-pattern-review ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
 <p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
 </li>
 </ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Reviews a flow, screen or copy for deceptive and manipulative design patterns (sneaking, obstruction, interface interference, false urgency and scarcity, unverifiable social proof, forced action, asymmetric consent) against the taxonomies regulators cite (deceptive.design, Mathur et al. 2019, FTC 2022, EDPB 03/2022, OECD 2022, EU DSA Art. 25), rates each finding by user harm and regulatory exposure, proposes the honest alternative with the concrete element and step count, and ends with Block or Approve plus a not-legal-advice note.</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>is this flow manipulative</li><li>review the cancellation flow</li><li>check the consent banner</li><li>dark pattern audit</li><li>review pricing and checkout for deceptive patterns</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>flow screenshots, prototype or source with copy</li><li>business context and applicable jurisdictions</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>findings table with severity, harm and exposure</li><li>honest alternatives</li><li>Block/Approve verdict</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=ethics">ethics</a></li><li><a class="tag" href="../index.html?tag=dark-patterns">dark-patterns</a></li><li><a class="tag" href="../index.html?tag=manipulation">manipulation</a></li><li><a class="tag" href="../index.html?tag=consent">consent</a></li><li><a class="tag" href="../index.html?tag=privacy">privacy</a></li><li><a class="tag" href="../index.html?tag=trust-and-safety">trust-and-safety</a></li><li><a class="tag" href="../index.html?tag=review">review</a></li></ul></div>
+
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Written for this library. Licence <code>MIT</code>.</p>
+</details>
 </section>
 
 <section id="related">
@@ -77,7 +82,7 @@
 </ul>
 </section>
 
-<article class="skill-body">
+<article class="skill-body" id="instructions">
 <h2 class="body-head">Instructions</h2>
 <p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/ethics-and-safety/dark-pattern-review/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
 <h2 id="dark-pattern-review">Dark pattern review</h2>

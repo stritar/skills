@@ -11,61 +11,66 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="page-head">
-<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-visual-design">Visual design</a></nav>
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=visual-design">Visual design</a></nav>
 <h1>frontend-design</h1>
 <p class="badges"><span class="il badge badge-rec"><span class="il-icon" aria-hidden="true">★</span><span class="il-label">Recommended</span></span></p>
-<p class="lede">Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Directs the agent to work in two passes (a compact color/type/layout/signature token plan, self-critiqued against generic AI-design defaults, then implementation), names three specific overused AI-generated aesthetic clusters to avoid unless the brief calls for them, and gives concrete rules for typography pairing, structural devices, deliberate motion, CSS specificity pitfalls, and end-user-facing UX writing (active voice, consistent verb-to-toast naming, non-apologetic error copy).</p>
+<p class="lede">Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one.</p>
 </header>
 
 <div class="layout">
 <nav class="sidebar" aria-labelledby="contents">
-<h2 id="contents">On this page</h2>
+<h2 id="contents" class="label-caps">On this page</h2>
 <ul class="toc">
-<li><a href="#about">About this skill</a></li>
 <li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
 <li><a href="#related">Works with</a></li>
-<li><a href="#frontend-design">Frontend Design</a></li>
-<li><a href="#ground-it-in-the-subject">Ground it in the subject</a></li>
-<li><a href="#design-principles">Design principles</a></li>
-<li><a href="#process-brainstorm-explore-plan-critique-build-critique-again">Process: brainstorm, explore, plan, critique, build, critique again</a></li>
-<li><a href="#restraint-and-self-critique">Restraint and self-critique</a></li>
-<li><a href="#more-on-writing-in-design">More on writing in design</a></li>
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#frontend-design">Frontend Design</a></li>
+<li class="toc-sub"><a href="#ground-it-in-the-subject">Ground it in the subject</a></li>
+<li class="toc-sub"><a href="#design-principles">Design principles</a></li>
+<li class="toc-sub"><a href="#process-brainstorm-explore-plan-critique-build-critique-again">Process: brainstorm, explore, plan, critique, build, critique again</a></li>
+<li class="toc-sub"><a href="#restraint-and-self-critique">Restraint and self-critique</a></li>
+<li class="toc-sub"><a href="#more-on-writing-in-design">More on writing in design</a></li>
 </ul>
 </nav>
 
 <main id="main">
-<section id="about" class="meta">
-<h2>About this skill</h2>
-<div class="meta-row"><h3>Use when</h3><ul><li>design a landing page</li><li>make this UI look distinctive</li><li>avoid generic AI-generated design</li><li>pick a typography and color direction</li><li>critique my design plan before building</li><li>write UX copy for this interface</li></ul></div>
-<div class="meta-row"><h3>Works on</h3><ul><li>a design brief or existing UI to redesign</li><li>any known audience/brand context in memory</li></ul></div>
-<div class="meta-row"><h3>Produces</h3><ul><li>a token plan (4-6 named hex colors, 2+ type roles, layout concept, signature element)</li><li>a self-critique noting what was revised and why</li><li>implemented UI code (markup/CSS) following the revised plan</li><li>UX copy for labels, errors, and empty states</li></ul></div>
-<div class="meta-row"><h3>Tags</h3>
-<ul class="tags"><li><a class="tag" href="../index.html?tag=typography">typography</a></li><li><a class="tag" href="../index.html?tag=color">color</a></li><li><a class="tag" href="../index.html?tag=layout">layout</a></li><li><a class="tag" href="../index.html?tag=visual-hierarchy">visual-hierarchy</a></li><li><a class="tag" href="../index.html?tag=ui-design">ui-design</a></li><li><a class="tag" href="../index.html?tag=interaction-design">interaction-design</a></li><li><a class="tag" href="../index.html?tag=responsive">responsive</a></li><li><a class="tag" href="../index.html?tag=motion">motion</a></li><li><a class="tag" href="../index.html?tag=ux-writing">ux-writing</a></li><li><a class="tag" href="../index.html?tag=voice-and-tone">voice-and-tone</a></li></ul></div>
-
-<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/anthropics/skills/tree/3b3fad96af16a10759d930941b4520ba0c40edae/skills/frontend-design">anthropics/skills</a> by Anthropic at <code>3b3fad9</code>, licence <code>Apache-2.0</code>. Vendored byte-identical to upstream.</p></div>
-</section>
-
 <section id="install">
 <h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill frontend-design</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill frontend-design"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
 <ul class="install">
-<li>
-<h3>Any agent, via the skills CLI</h3>
-<div class="cmd"><pre><code>npx skills add stritar/skills --skill frontend-design</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill frontend-design"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Installs into whichever agents it finds on your machine.</p>
-</li>
 <li>
 <h3>Claude Code, as a plugin</h3>
 <div class="cmd"><pre><code>/plugin marketplace add stritar/skills
-/plugin install product-design-visual-design@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-visual-design@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
 /plugin install product-design-visual-design@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Brings the whole visual-design bundle. Use <code>product-design-all</code> for everything.</p>
+<p class="note">Installs the whole <code>visual-design</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
 </li>
 <li>
 <h3>From a clone, copied by hand</h3>
-<div class="cmd"><pre><code>cp -r skills/visual-design/frontend-design ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/visual-design/frontend-design ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<div class="cmd"><pre><code>cp -r skills/visual-design/frontend-design ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/visual-design/frontend-design ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
 <p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
 </li>
 </ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Directs the agent to work in two passes (a compact color/type/layout/signature token plan, self-critiqued against generic AI-design defaults, then implementation), names three specific overused AI-generated aesthetic clusters to avoid unless the brief calls for them, and gives concrete rules for typography pairing, structural devices, deliberate motion, CSS specificity pitfalls, and end-user-facing UX writing (active voice, consistent verb-to-toast naming, non-apologetic error copy).</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>design a landing page</li><li>make this UI look distinctive</li><li>avoid generic AI-generated design</li><li>pick a typography and color direction</li><li>critique my design plan before building</li><li>write UX copy for this interface</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>a design brief or existing UI to redesign</li><li>any known audience/brand context in memory</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>a token plan (4-6 named hex colors, 2+ type roles, layout concept, signature element)</li><li>a self-critique noting what was revised and why</li><li>implemented UI code (markup/CSS) following the revised plan</li><li>UX copy for labels, errors, and empty states</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=typography">typography</a></li><li><a class="tag" href="../index.html?tag=color">color</a></li><li><a class="tag" href="../index.html?tag=layout">layout</a></li><li><a class="tag" href="../index.html?tag=visual-hierarchy">visual-hierarchy</a></li><li><a class="tag" href="../index.html?tag=ui-design">ui-design</a></li><li><a class="tag" href="../index.html?tag=interaction-design">interaction-design</a></li><li><a class="tag" href="../index.html?tag=responsive">responsive</a></li><li><a class="tag" href="../index.html?tag=motion">motion</a></li><li><a class="tag" href="../index.html?tag=ux-writing">ux-writing</a></li><li><a class="tag" href="../index.html?tag=voice-and-tone">voice-and-tone</a></li></ul></div>
+
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/anthropics/skills/tree/3b3fad96af16a10759d930941b4520ba0c40edae/skills/frontend-design">anthropics/skills</a> by Anthropic at <code>3b3fad9</code>, licence <code>Apache-2.0</code>. Vendored byte-identical to upstream.</p>
+</details>
 </section>
 
 <section id="related">
@@ -78,7 +83,7 @@
 </ul>
 </section>
 
-<article class="skill-body">
+<article class="skill-body" id="instructions">
 <h2 class="body-head">Instructions</h2>
 <p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/visual-design/frontend-design/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
 <h2 id="frontend-design">Frontend Design</h2>

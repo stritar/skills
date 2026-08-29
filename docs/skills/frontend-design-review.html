@@ -11,65 +11,70 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="page-head">
-<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-design-qa">Design QA</a></nav>
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=design-qa">Design QA</a></nav>
 <h1>frontend-design-review</h1>
 <p class="badges"><span class="il badge badge-rec"><span class="il-icon" aria-hidden="true">★</span><span class="il-label">Recommended</span></span></p>
-<p class="lede">Reviews existing UI implementations against design-system compliance, three quality pillars (frictionless task completion, quality-as-craft including WCAG 2.1 A/AA accessibility grades, and trustworthy AI/error transparency), and aesthetic distinctiveness -- or creates new distinctive frontend interfaces from scratch avoiding generic 'AI slop' aesthetics. Produces a structured review output with a pillar status table, blocking/major/minor severity-ranked issues, and design-system-linked recommendations; provides a pre-approval quick checklist and review-type modifiers (PR review, creative review, design review, accessibility audit, design-system compliance audit) that adjust evaluation focus.</p>
+<p class="lede">Reviews existing UI implementations against design-system compliance, three quality pillars (frictionless task completion, quality-as-craft including WCAG 2.1 A/AA accessibility grades, and trustworthy AI/error transparency).</p>
 </header>
 
 <div class="layout">
 <nav class="sidebar" aria-labelledby="contents">
-<h2 id="contents">On this page</h2>
+<h2 id="contents" class="label-caps">On this page</h2>
 <ul class="toc">
-<li><a href="#about">About this skill</a></li>
 <li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
 <li><a href="#related">Works with</a></li>
-<li><a href="#frontend-design-review">Frontend Design Review</a></li>
-<li><a href="#two-modes">Two Modes</a></li>
-<li><a href="#creative-frontend-design">Creative Frontend Design</a></li>
-<li><a href="#design-review">Design Review</a></li>
-<li><a href="#quality-pillars">Quality Pillars</a></li>
-<li><a href="#review-output-format">Review Output Format</a></li>
-<li><a href="#review-type-modifiers">Review Type Modifiers</a></li>
-<li><a href="#quick-checklist">Quick Checklist</a></li>
-<li><a href="#pattern-examples">Pattern Examples</a></li>
-<li><a href="#acknowledgments">Acknowledgments</a></li>
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#frontend-design-review">Frontend Design Review</a></li>
+<li class="toc-sub"><a href="#two-modes">Two Modes</a></li>
+<li class="toc-sub"><a href="#creative-frontend-design">Creative Frontend Design</a></li>
+<li class="toc-sub"><a href="#design-review">Design Review</a></li>
+<li class="toc-sub"><a href="#quality-pillars">Quality Pillars</a></li>
+<li class="toc-sub"><a href="#review-output-format">Review Output Format</a></li>
+<li class="toc-sub"><a href="#review-type-modifiers">Review Type Modifiers</a></li>
+<li class="toc-sub"><a href="#quick-checklist">Quick Checklist</a></li>
+<li class="toc-sub"><a href="#pattern-examples">Pattern Examples</a></li>
+<li class="toc-sub"><a href="#acknowledgments">Acknowledgments</a></li>
 </ul>
 </nav>
 
 <main id="main">
-<section id="about" class="meta">
-<h2>About this skill</h2>
-<div class="meta-row"><h3>Use when</h3><ul><li>review this UI for design quality</li><li>PR design review</li><li>accessibility audit of this component</li><li>check design system compliance</li><li>critique this frontend implementation</li><li>create a distinctive UI that avoids generic AI design</li></ul></div>
-<div class="meta-row"><h3>Works on</h3><ul><li>an existing UI implementation, PR diff, or component to review</li><li>or a brief for a new interface to design</li><li>access to the project's design system / Figma (optional but recommended for compliance checks)</li></ul></div>
-<div class="meta-row"><h3>Produces</h3><ul><li>a structured review report (context, pillar assessment table, verdict, blocking/major/minor issues, recommendations)</li><li>or a newly implemented distinctive UI when used in creative mode</li></ul></div>
-<div class="meta-row"><h3>Tags</h3>
-<ul class="tags"><li><a class="tag" href="../index.html?tag=design-qa">design-qa</a></li><li><a class="tag" href="../index.html?tag=design-review">design-review</a></li><li><a class="tag" href="../index.html?tag=pr-review">pr-review</a></li><li><a class="tag" href="../index.html?tag=a11y">a11y</a></li><li><a class="tag" href="../index.html?tag=ui-design">ui-design</a></li></ul></div>
-
-<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/microsoft/skills/tree/7066b58141d8cc66f39356b2ee5bb64d428dcf17/.github/skills/frontend-design-review">microsoft/skills</a> by Microsoft at <code>7066b58</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p></div>
-</section>
-
 <section id="install">
 <h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill frontend-design-review</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill frontend-design-review"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
 <ul class="install">
-<li>
-<h3>Any agent, via the skills CLI</h3>
-<div class="cmd"><pre><code>npx skills add stritar/skills --skill frontend-design-review</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill frontend-design-review"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Installs into whichever agents it finds on your machine.</p>
-</li>
 <li>
 <h3>Claude Code, as a plugin</h3>
 <div class="cmd"><pre><code>/plugin marketplace add stritar/skills
-/plugin install product-design-design-qa@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-design-qa@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
 /plugin install product-design-design-qa@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Brings the whole design-qa bundle. Use <code>product-design-all</code> for everything.</p>
+<p class="note">Installs the whole <code>design-qa</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
 </li>
 <li>
 <h3>From a clone, copied by hand</h3>
-<div class="cmd"><pre><code>cp -r skills/design-qa/frontend-design-review ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/design-qa/frontend-design-review ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<div class="cmd"><pre><code>cp -r skills/design-qa/frontend-design-review ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/design-qa/frontend-design-review ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
 <p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
 </li>
 </ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Reviews existing UI implementations against design-system compliance, three quality pillars (frictionless task completion, quality-as-craft including WCAG 2.1 A/AA accessibility grades, and trustworthy AI/error transparency), and aesthetic distinctiveness -- or creates new distinctive frontend interfaces from scratch avoiding generic 'AI slop' aesthetics. Produces a structured review output with a pillar status table, blocking/major/minor severity-ranked issues, and design-system-linked recommendations; provides a pre-approval quick checklist and review-type modifiers (PR review, creative review, design review, accessibility audit, design-system compliance audit) that adjust evaluation focus.</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>review this UI for design quality</li><li>PR design review</li><li>accessibility audit of this component</li><li>check design system compliance</li><li>critique this frontend implementation</li><li>create a distinctive UI that avoids generic AI design</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>an existing UI implementation, PR diff, or component to review</li><li>or a brief for a new interface to design</li><li>access to the project's design system / Figma (optional but recommended for compliance checks)</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>a structured review report (context, pillar assessment table, verdict, blocking/major/minor issues, recommendations)</li><li>or a newly implemented distinctive UI when used in creative mode</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=design-qa">design-qa</a></li><li><a class="tag" href="../index.html?tag=design-review">design-review</a></li><li><a class="tag" href="../index.html?tag=pr-review">pr-review</a></li><li><a class="tag" href="../index.html?tag=a11y">a11y</a></li><li><a class="tag" href="../index.html?tag=ui-design">ui-design</a></li></ul></div>
+
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/microsoft/skills/tree/7066b58141d8cc66f39356b2ee5bb64d428dcf17/.github/skills/frontend-design-review">microsoft/skills</a> by Microsoft at <code>7066b58</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p>
+</details>
 </section>
 
 <section id="related">
@@ -82,7 +87,7 @@
 </ul>
 </section>
 
-<article class="skill-body">
+<article class="skill-body" id="instructions">
 <h2 class="body-head">Instructions</h2>
 <p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/design-qa/frontend-design-review/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
 <h2 id="frontend-design-review">Frontend Design Review</h2>

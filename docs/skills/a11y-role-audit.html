@@ -11,64 +11,69 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="page-head">
-<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-accessibility">Accessibility</a></nav>
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=accessibility">Accessibility</a></nav>
 <h1>a11y-role-audit</h1>
 <p class="badges"></p>
-<p class="lede">Runs an ARRM-based (W3C WAI Accessibility Requirements-to-Roles Mapping) accessibility review through six responsibility-based lenses — visual design, UX design, front-end development, content authoring, business analysis, and testing — to produce findings attributed to the team role best positioned to catch and fix each barrier, rather than a single generic pass/fail. Supports three modes: design review (mockups/specs before implementation), implementation review (code through each role's lens), and finding attribution (assigning ownership of existing accessibility gaps). Findings are rated CRITICAL, MAJOR, MINOR, or ENHANCEMENT (AAA-level).</p>
+<p class="lede">Runs an ARRM-based (W3C WAI Accessibility Requirements-to-Roles Mapping) accessibility review through six responsibility-based lenses — visual design, UX design, front-end development, content authoring, business analysis.</p>
 </header>
 
 <div class="layout">
 <nav class="sidebar" aria-labelledby="contents">
-<h2 id="contents">On this page</h2>
+<h2 id="contents" class="label-caps">On this page</h2>
 <ul class="toc">
-<li><a href="#about">About this skill</a></li>
 <li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
 <li><a href="#related">Works with</a></li>
-<li><a href="#accessibility-role-audit">Accessibility Role Audit</a></li>
-<li><a href="#relationship-to-other-skills">Relationship to Other Skills</a></li>
-<li><a href="#when-to-use">When to Use</a></li>
-<li><a href="#the-6-roles">The 6 Roles</a></li>
-<li><a href="#steps">Steps</a></li>
-<li><a href="#severity-calibration">Severity Calibration</a></li>
-<li><a href="#cross-role-synthesis">Cross-Role Synthesis</a></li>
-<li><a href="#evidence-requirements">Evidence Requirements</a></li>
-<li><a href="#integration-with-workflow">Integration with Workflow</a></li>
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#accessibility-role-audit">Accessibility Role Audit</a></li>
+<li class="toc-sub"><a href="#relationship-to-other-skills">Relationship to Other Skills</a></li>
+<li class="toc-sub"><a href="#when-to-use">When to Use</a></li>
+<li class="toc-sub"><a href="#the-6-roles">The 6 Roles</a></li>
+<li class="toc-sub"><a href="#steps">Steps</a></li>
+<li class="toc-sub"><a href="#severity-calibration">Severity Calibration</a></li>
+<li class="toc-sub"><a href="#cross-role-synthesis">Cross-Role Synthesis</a></li>
+<li class="toc-sub"><a href="#evidence-requirements">Evidence Requirements</a></li>
+<li class="toc-sub"><a href="#integration-with-workflow">Integration with Workflow</a></li>
 </ul>
 </nav>
 
 <main id="main">
-<section id="about" class="meta">
-<h2>About this skill</h2>
-<div class="meta-row"><h3>Use when</h3><ul><li>who should fix this accessibility issue</li><li>role-based accessibility audit</li><li>attribute this a11y finding to a team</li><li>review this mockup for accessibility by role</li><li>ARRM accessibility review</li></ul></div>
-<div class="meta-row"><h3>Works on</h3><ul><li>a design mockup/spec, or implemented code, to review through each of the six role lenses</li></ul></div>
-<div class="meta-row"><h3>Produces</h3><ul><li>role-attributed findings table (role, barrier, severity, WCAG/ARRM reference)</li><li>ownership assignment for existing accessibility gaps</li></ul></div>
-<div class="meta-row"><h3>Tags</h3>
-<ul class="tags"><li><a class="tag" href="../index.html?tag=a11y">a11y</a></li><li><a class="tag" href="../index.html?tag=wcag">wcag</a></li><li><a class="tag" href="../index.html?tag=aria">aria</a></li><li><a class="tag" href="../index.html?tag=keyboard">keyboard</a></li><li><a class="tag" href="../index.html?tag=contrast">contrast</a></li><li><a class="tag" href="../index.html?tag=semantic-html">semantic-html</a></li><li><a class="tag" href="../index.html?tag=severity">severity</a></li><li><a class="tag" href="../index.html?tag=design-critique">design-critique</a></li><li><a class="tag" href="../index.html?tag=expert-review">expert-review</a></li></ul></div>
-
-<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/zivtech/accessibility-skills/tree/817dedeae90324017ece2d2b104332aec9d20656/.claude/skills/a11y-role-audit">zivtech/accessibility-skills</a> by zivtech at <code>817dede</code>, licence <code>GPL-3.0-or-later</code>. Vendored byte-identical to upstream.</p></div>
-</section>
-
 <section id="install">
 <h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill a11y-role-audit</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill a11y-role-audit"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
 <ul class="install">
-<li>
-<h3>Any agent, via the skills CLI</h3>
-<div class="cmd"><pre><code>npx skills add stritar/skills --skill a11y-role-audit</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill a11y-role-audit"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Installs into whichever agents it finds on your machine.</p>
-</li>
 <li>
 <h3>Claude Code, as a plugin</h3>
 <div class="cmd"><pre><code>/plugin marketplace add stritar/skills
-/plugin install product-design-accessibility@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-accessibility@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
 /plugin install product-design-accessibility@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Brings the whole accessibility bundle. Use <code>product-design-all</code> for everything.</p>
+<p class="note">Installs the whole <code>accessibility</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
 </li>
 <li>
 <h3>From a clone, copied by hand</h3>
-<div class="cmd"><pre><code>cp -r skills/accessibility/a11y-role-audit ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/accessibility/a11y-role-audit ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<div class="cmd"><pre><code>cp -r skills/accessibility/a11y-role-audit ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/accessibility/a11y-role-audit ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
 <p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
 </li>
 </ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Runs an ARRM-based (W3C WAI Accessibility Requirements-to-Roles Mapping) accessibility review through six responsibility-based lenses — visual design, UX design, front-end development, content authoring, business analysis, and testing — to produce findings attributed to the team role best positioned to catch and fix each barrier, rather than a single generic pass/fail. Supports three modes: design review (mockups/specs before implementation), implementation review (code through each role's lens), and finding attribution (assigning ownership of existing accessibility gaps). Findings are rated CRITICAL, MAJOR, MINOR, or ENHANCEMENT (AAA-level).</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>who should fix this accessibility issue</li><li>role-based accessibility audit</li><li>attribute this a11y finding to a team</li><li>review this mockup for accessibility by role</li><li>ARRM accessibility review</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>a design mockup/spec, or implemented code, to review through each of the six role lenses</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>role-attributed findings table (role, barrier, severity, WCAG/ARRM reference)</li><li>ownership assignment for existing accessibility gaps</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=a11y">a11y</a></li><li><a class="tag" href="../index.html?tag=wcag">wcag</a></li><li><a class="tag" href="../index.html?tag=aria">aria</a></li><li><a class="tag" href="../index.html?tag=keyboard">keyboard</a></li><li><a class="tag" href="../index.html?tag=contrast">contrast</a></li><li><a class="tag" href="../index.html?tag=semantic-html">semantic-html</a></li><li><a class="tag" href="../index.html?tag=severity">severity</a></li><li><a class="tag" href="../index.html?tag=design-critique">design-critique</a></li><li><a class="tag" href="../index.html?tag=expert-review">expert-review</a></li></ul></div>
+
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/zivtech/accessibility-skills/tree/817dedeae90324017ece2d2b104332aec9d20656/.claude/skills/a11y-role-audit">zivtech/accessibility-skills</a> by zivtech at <code>817dede</code>, licence <code>GPL-3.0-or-later</code>. Vendored byte-identical to upstream.</p>
+</details>
 </section>
 
 <section id="related">
@@ -79,7 +84,7 @@
 </ul>
 </section>
 
-<article class="skill-body">
+<article class="skill-body" id="instructions">
 <h2 class="body-head">Instructions</h2>
 <p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/accessibility/a11y-role-audit/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
 <h2 id="accessibility-role-audit">Accessibility Role Audit</h2>

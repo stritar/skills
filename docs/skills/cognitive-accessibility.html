@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>cognitive-accessibility — Product design skills</title>
+<meta name="description" content="Evaluates and reduces cognitive demands in an interface: assesses intrinsic load (complexity inherent to the task), extraneous load (complexity added by poor design), and germane load (effort to learn the system); reduces extraneous load via progressive disclosure, consistent patterns, sensible…">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="page-head">
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=accessibility">Accessibility</a></nav>
+<h1>cognitive-accessibility</h1>
+<p class="badges"></p>
+<p class="lede">Evaluates and reduces cognitive demands in an interface.</p>
+</header>
+
+<div class="layout">
+<nav class="sidebar" aria-labelledby="contents">
+<h2 id="contents" class="label-caps">On this page</h2>
+<ul class="toc">
+<li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
+
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#cognitive-accessibility">Cognitive Accessibility</a></li>
+<li class="toc-sub"><a href="#when-to-use">When to Use</a></li>
+<li class="toc-sub"><a href="#process">Process</a></li>
+<li class="toc-sub"><a href="#integration">Integration</a></li>
+<li class="toc-sub"><a href="#quick-reference-coga-guidelines">Quick Reference: COGA Guidelines</a></li>
+</ul>
+</nav>
+
+<main id="main">
+<section id="install">
+<h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill cognitive-accessibility</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill cognitive-accessibility"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
+<ul class="install">
+<li>
+<h3>Claude Code, as a plugin</h3>
+<div class="cmd"><pre><code>/plugin marketplace add stritar/skills
+/plugin install product-design-accessibility@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-accessibility@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Installs the whole <code>accessibility</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
+</li>
+<li>
+<h3>From a clone, copied by hand</h3>
+<div class="cmd"><pre><code>cp -r skills/accessibility/cognitive-accessibility ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/accessibility/cognitive-accessibility ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
+</li>
+</ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Evaluates and reduces cognitive demands in an interface: assesses intrinsic load (complexity inherent to the task), extraneous load (complexity added by poor design), and germane load (effort to learn the system); reduces extraneous load via progressive disclosure, consistent patterns, sensible defaults, and chunking fields into groups of 3-5; ensures wayfinding answers 'where am I / where can I go / where have I been' with progress indicators and savable multi-step flows; protects focus with one primary action per screen and interruption-recovery support; and makes errors cheap via full undo, destructive-action confirmation, preserved form input on failure, and forgiving input formats. Includes a COGA-guideline reference table (provide help, use clear language, ease of finding things, ease of completing tasks, avoid reliance on memory, provide feedback, prevent/support error correction) and a documentation format for cognitive considerations per screen.</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>evaluate cognitive load for this flow</li><li>is this too much for working memory</li><li>reduce cognitive load in this form</li><li>wayfinding review for this multi-step process</li><li>design for users with cognitive differences or under stress</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>A screen, flow, or multi-step process to evaluate or design</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>Cognitive-load assessment (intrinsic/extraneous/germane) per screen or flow</li><li>Wayfinding, focus-management, and error-recovery recommendations</li><li>Documented cognitive considerations: decisions required, memory demands, wayfinding cues, recovery paths, simplification opportunities</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=a11y">a11y</a></li><li><a class="tag" href="../index.html?tag=inclusive-design">inclusive-design</a></li><li><a class="tag" href="../index.html?tag=focus-management">focus-management</a></li><li><a class="tag" href="../index.html?tag=error-recovery">error-recovery</a></li></ul></div>
+
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/Owl-Listener/designpowers/tree/cb00757da9d554591fa78d27aa1854d60a05c4f7/skills/cognitive-accessibility">Owl-Listener/designpowers</a> by MC Dean at <code>cb00757</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p>
+</details>
+</section>
+
+
+
+<article class="skill-body" id="instructions">
+<h2 class="body-head">Instructions</h2>
+<p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/accessibility/cognitive-accessibility/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
+<h2 id="cognitive-accessibility">Cognitive Accessibility</h2>
+<p>The hardest accessibility barriers to see are cognitive ones. A screen reader user encounters a missing label and knows immediately. A person with a processing difference encounters an interface that demands too much of their working memory and just... leaves. This skill makes cognitive demands visible and manageable.</p>
+<h3 id="when-to-use">When to Use</h3>
+<ul>
+<li>Designing multi-step processes or forms</li>
+<li>Creating navigation structures or information architecture</li>
+<li>Evaluating whether an interface asks too much of the user</li>
+<li>Designing for contexts of stress, distraction, or time pressure</li>
+<li>Reviewing any interface for cognitive load</li>
+</ul>
+<h3 id="process">Process</h3>
+<h4 id="step-1-assess-cognitive-load">Step 1: Assess Cognitive Load</h4>
+<p>For each screen or flow, evaluate three types of load:</p>
+<p><strong>Intrinsic load</strong> — complexity inherent to the task</p>
+<ul>
+<li>How many concepts must the user understand simultaneously?</li>
+<li>How many decisions must they make per screen?</li>
+<li>Can the task be simplified without losing essential function?</li>
+</ul>
+<p><strong>Extraneous load</strong> — complexity added by poor design</p>
+<ul>
+<li>Is information organised logically or scattered?</li>
+<li>Are instructions clear and visible, or must the user remember them?</li>
+<li>Is the interface consistent, or do similar things work differently in different places?</li>
+</ul>
+<p><strong>Germane load</strong> — effort spent learning the system</p>
+<ul>
+<li>Can the user build a mental model from the interface structure?</li>
+<li>Are patterns consistent so that learning one part teaches the next?</li>
+<li>Does the interface reward exploration or punish mistakes?</li>
+</ul>
+<h4 id="step-2-reduce-extraneous-load">Step 2: Reduce Extraneous Load</h4>
+<p>Extraneous load is design debt. Reduce it:</p>
+<ul>
+<li><strong>Show, do not ask people to remember.</strong> If a user needs information from Step 2 in Step 5, display it — do not expect them to recall it</li>
+<li><strong>Progressive disclosure.</strong> Show only what is needed now. Reveal complexity as it becomes relevant</li>
+<li><strong>Consistent patterns.</strong> Same action, same appearance, same location, every time</li>
+<li><strong>Clear defaults.</strong> Sensible pre-selections reduce decisions. Make the safe choice the easy choice</li>
+<li><strong>Chunking.</strong> Break long forms into sections of 3-5 related fields. Break long content into scannable sections</li>
+</ul>
+<h4 id="step-3-wayfinding">Step 3: Wayfinding</h4>
+<p>People need to know three things at all times:</p>
+<ol>
+<li><strong>Where am I?</strong> (clear page titles, breadcrumbs, highlighted navigation)</li>
+<li><strong>Where can I go?</strong> (visible navigation, clear calls to action)</li>
+<li><strong>Where have I been?</strong> (visited link styles, progress indicators, history)</li>
+</ol>
+<p>For multi-step processes:</p>
+<ul>
+<li>Show progress (step 3 of 5)</li>
+<li>Allow backward navigation without data loss</li>
+<li>Show a summary of previous steps' inputs</li>
+<li>Allow saving progress and returning later</li>
+</ul>
+<h4 id="step-4-focus-management">Step 4: Focus Management</h4>
+<p>Attention is a limited resource. Protect it:</p>
+<ul>
+<li><strong>One primary action per screen.</strong> If everything is important, nothing is</li>
+<li><strong>Visual hierarchy guides attention.</strong> The most important element should be the most visually prominent</li>
+<li><strong>Minimise interruptions.</strong> Notifications, pop-ups, and auto-updates break concentration</li>
+<li><strong>Support return from interruption.</strong> If the user is interrupted, the interface should help them resume where they left off</li>
+<li><strong>Timed actions are hostile.</strong> If a timeout is necessary, warn before it expires and allow extension</li>
+</ul>
+<h4 id="step-5-error-recovery">Step 5: Error Recovery</h4>
+<p>Cognitive accessibility means mistakes are cheap:</p>
+<ul>
+<li><strong>Undo everything.</strong> Every action should be reversible</li>
+<li><strong>Confirm destructive actions.</strong> &quot;Delete all items?&quot; with a clear way to cancel</li>
+<li><strong>Preserve input.</strong> If a form submission fails, do not clear the fields</li>
+<li><strong>Forgive formatting.</strong> Accept phone numbers with or without dashes, dates in multiple formats</li>
+<li><strong>Provide clear recovery paths.</strong> After an error, the next step should be obvious</li>
+</ul>
+<h4 id="step-6-document-cognitive-considerations">Step 6: Document Cognitive Considerations</h4>
+<p>For each screen or flow, note:</p>
+<ul>
+<li><strong>Decisions required:</strong> how many, how complex</li>
+<li><strong>Memory demands:</strong> what the user must remember vs. what is displayed</li>
+<li><strong>Wayfinding cues:</strong> how the user knows where they are</li>
+<li><strong>Recovery paths:</strong> how the user corrects mistakes</li>
+<li><strong>Simplification opportunities:</strong> what could be removed or deferred</li>
+</ul>
+<h3 id="integration">Integration</h3>
+<ul>
+<li><strong>Called by:</strong> Any design skill, especially <code>ui-composition</code> and <code>interaction-design</code></li>
+<li><strong>Pairs with:</strong> <code>accessible-content</code> (language complexity), <code>adaptive-interfaces</code> (personalisation), <code>inclusive-personas</code> (cognitive diversity)</li>
+<li><strong>Reviewed by:</strong> <code>designpowers-critique</code></li>
+</ul>
+<h3 id="quick-reference-coga-guidelines">Quick Reference: COGA Guidelines</h3>
+<div class="table-scroll"><table>
+<thead><tr><th>Guideline</th><th>Implementation</th></tr></thead>
+<tbody>
+<tr><td>Provide help and support</td><td>Contextual help adjacent to complex interactions</td></tr>
+<tr><td>Use clear language</td><td>Plain language, no jargon, short sentences</td></tr>
+<tr><td>Make it easy to find things</td><td>Consistent navigation, clear labels, search</td></tr>
+<tr><td>Make tasks easy to complete</td><td>Fewer steps, clear progress, forgiving input</td></tr>
+<tr><td>Avoid reliance on memory</td><td>Display information rather than requiring recall</td></tr>
+<tr><td>Provide feedback</td><td>Clear confirmation of actions and state changes</td></tr>
+<tr><td>Prevent and support error correction</td><td>Validation, undo, confirmation for destructive actions</td></tr>
+</tbody>
+</table></div>
+</article>
+</main>
+</div>
+
+<footer class="site-foot">
+<p><a href="../index.html">Back to all skills</a></p>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

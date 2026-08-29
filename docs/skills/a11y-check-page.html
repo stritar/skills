@@ -11,60 +11,65 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="page-head">
-<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-accessibility">Accessibility</a></nav>
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=accessibility">Accessibility</a></nav>
 <h1>a11y-check-page</h1>
 <p class="badges"><span class="il badge badge-rec"><span class="il-icon" aria-hidden="true">★</span><span class="il-label">Recommended</span></span><span class="il badge badge-dep"><span class="il-label">Needs Playwright</span></span></p>
-<p class="lede">Audits a live, running web page for WCAG 2.2 AA accessibility using browser automation (Playwright MCP, Chrome DevTools MCP, or playwright-cli): runs the bundled axe-core build, walks keyboard focus order in both directions, injects CSS/viewport changes to test 200% zoom, 320px reflow, and text-spacing, inspects the accessibility tree, and re-runs checks per distinct UI state (modals, loading, errors). Enforces credential-safety rules for login-gated pages (never store or echo credentials, screenshot only pre-input states, explicit permission before destructive actions) and writes a severity-rated Markdown report to a11y-report/ with screenshots saved under a11y-report/assets/.</p>
+<p class="lede">Audits a live, running web page for WCAG 2.2 AA accessibility using browser automation (Playwright MCP, Chrome DevTools MCP, or playwright-cli).</p>
 </header>
 
 <div class="layout">
 <nav class="sidebar" aria-labelledby="contents">
-<h2 id="contents">On this page</h2>
+<h2 id="contents" class="label-caps">On this page</h2>
 <ul class="toc">
-<li><a href="#about">About this skill</a></li>
 <li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
 <li><a href="#related">Works with</a></li>
-<li><a href="#動作しているページのアクセシビリティチェック">動作しているページのアクセシビリティチェック</a></li>
-<li><a href="#前提の確認">前提の確認</a></li>
-<li><a href="#このチェックの限界を最初に理解する">このチェックの限界を最初に理解する</a></li>
-<li><a href="#手順">手順</a></li>
-<li><a href="#各観点について">各観点について</a></li>
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#動作しているページのアクセシビリティチェック">動作しているページのアクセシビリティチェック</a></li>
+<li class="toc-sub"><a href="#前提の確認">前提の確認</a></li>
+<li class="toc-sub"><a href="#このチェックの限界を最初に理解する">このチェックの限界を最初に理解する</a></li>
+<li class="toc-sub"><a href="#手順">手順</a></li>
+<li class="toc-sub"><a href="#各観点について">各観点について</a></li>
 </ul>
 </nav>
 
 <main id="main">
-<section id="about" class="meta">
-<h2>About this skill</h2>
-<div class="meta-row"><h3>Use when</h3><ul><li>check this URL's accessibility</li><li>audit this live page for WCAG</li><li>test keyboard navigation on this page</li><li>run axe-core against this site</li><li>a11y check after login</li></ul></div>
-<div class="meta-row"><h3>Works on</h3><ul><li>target URL(s) and, when login is required, credentials/steps provided by the user</li><li>confirmation of test vs. production environment and whether destructive actions are permitted</li></ul></div>
-<div class="meta-row"><h3>Produces</h3><ul><li>severity-rated Markdown report in a11y-report/ with screenshots in a11y-report/assets/</li><li>per-state axe-core, keyboard-focus, and accessibility-tree findings</li><li>list of items excluded from automated testing (e.g. screen-reader behavior, seizure thresholds)</li></ul></div>
-<div class="meta-row"><h3>Tags</h3>
-<ul class="tags"><li><a class="tag" href="../index.html?tag=a11y">a11y</a></li><li><a class="tag" href="../index.html?tag=wcag">wcag</a></li><li><a class="tag" href="../index.html?tag=aria">aria</a></li><li><a class="tag" href="../index.html?tag=keyboard">keyboard</a></li><li><a class="tag" href="../index.html?tag=focus-management">focus-management</a></li><li><a class="tag" href="../index.html?tag=contrast">contrast</a></li><li><a class="tag" href="../index.html?tag=severity">severity</a></li><li><a class="tag" href="../index.html?tag=audit">audit</a></li><li><a class="tag" href="../index.html?tag=remediation">remediation</a></li></ul></div>
-<div class="meta-row"><h3>Requires</h3><ul><li><code>node</code></li><li><code>browser</code></li><li><code>playwright</code></li><li><code>axe-core</code></li></ul></div>
-<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/ymrl/a11y-check-skills/tree/a59f48bbe72c1c4ec710e86ae19f8b39fa4b44f6/skills/a11y-check-page">ymrl/a11y-check-skills</a> by ymrl at <code>a59f48b</code>, licence <code>ISC</code>. Vendored byte-identical to upstream.</p></div>
-</section>
-
 <section id="install">
 <h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill a11y-check-page</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill a11y-check-page"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
 <ul class="install">
-<li>
-<h3>Any agent, via the skills CLI</h3>
-<div class="cmd"><pre><code>npx skills add stritar/skills --skill a11y-check-page</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill a11y-check-page"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Installs into whichever agents it finds on your machine.</p>
-</li>
 <li>
 <h3>Claude Code, as a plugin</h3>
 <div class="cmd"><pre><code>/plugin marketplace add stritar/skills
-/plugin install product-design-accessibility@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-accessibility@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
 /plugin install product-design-accessibility@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Brings the whole accessibility bundle. Use <code>product-design-all</code> for everything.</p>
+<p class="note">Installs the whole <code>accessibility</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
 </li>
 <li>
 <h3>From a clone, copied by hand</h3>
-<div class="cmd"><pre><code>cp -r skills/accessibility/a11y-check-page ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/accessibility/a11y-check-page ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<div class="cmd"><pre><code>cp -r skills/accessibility/a11y-check-page ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/accessibility/a11y-check-page ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
 <p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
 </li>
 </ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Audits a live, running web page for WCAG 2.2 AA accessibility using browser automation (Playwright MCP, Chrome DevTools MCP, or playwright-cli): runs the bundled axe-core build, walks keyboard focus order in both directions, injects CSS/viewport changes to test 200% zoom, 320px reflow, and text-spacing, inspects the accessibility tree, and re-runs checks per distinct UI state (modals, loading, errors). Enforces credential-safety rules for login-gated pages (never store or echo credentials, screenshot only pre-input states, explicit permission before destructive actions) and writes a severity-rated Markdown report to a11y-report/ with screenshots saved under a11y-report/assets/.</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>check this URL's accessibility</li><li>audit this live page for WCAG</li><li>test keyboard navigation on this page</li><li>run axe-core against this site</li><li>a11y check after login</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>target URL(s) and, when login is required, credentials/steps provided by the user</li><li>confirmation of test vs. production environment and whether destructive actions are permitted</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>severity-rated Markdown report in a11y-report/ with screenshots in a11y-report/assets/</li><li>per-state axe-core, keyboard-focus, and accessibility-tree findings</li><li>list of items excluded from automated testing (e.g. screen-reader behavior, seizure thresholds)</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=a11y">a11y</a></li><li><a class="tag" href="../index.html?tag=wcag">wcag</a></li><li><a class="tag" href="../index.html?tag=aria">aria</a></li><li><a class="tag" href="../index.html?tag=keyboard">keyboard</a></li><li><a class="tag" href="../index.html?tag=focus-management">focus-management</a></li><li><a class="tag" href="../index.html?tag=contrast">contrast</a></li><li><a class="tag" href="../index.html?tag=severity">severity</a></li><li><a class="tag" href="../index.html?tag=audit">audit</a></li><li><a class="tag" href="../index.html?tag=remediation">remediation</a></li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Requires</h3><ul><li><code>node</code></li><li><code>browser</code></li><li><code>playwright</code></li><li><code>axe-core</code></li></ul></div>
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/ymrl/a11y-check-skills/tree/a59f48bbe72c1c4ec710e86ae19f8b39fa4b44f6/skills/a11y-check-page">ymrl/a11y-check-skills</a> by ymrl at <code>a59f48b</code>, licence <code>ISC</code>. Vendored byte-identical to upstream.</p>
+</details>
 </section>
 
 <section id="related">
@@ -76,7 +81,7 @@
 </ul>
 </section>
 
-<article class="skill-body">
+<article class="skill-body" id="instructions">
 <h2 class="body-head">Instructions</h2>
 <p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/accessibility/a11y-check-page/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
 <h2 id="動作しているページのアクセシビリティチェック">動作しているページのアクセシビリティチェック</h2>

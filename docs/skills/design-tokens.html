@@ -11,58 +11,63 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="page-head">
-<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-design-systems">Design systems</a></nav>
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=design-systems">Design systems</a></nav>
 <h1>design-tokens</h1>
 <p class="badges"><span class="il badge badge-dep"><span class="il-label">Needs Python</span></span><span class="il badge badge-exp"><span class="il-label">Experimental</span></span></p>
-<p class="lede">Generates, extends, or audits design tokens in DTCG format ($type/$value) using a 3-tier architecture (primitive, raw values never used directly; semantic, purpose aliases; component, component-scoped). Reads the project's token-and-color and typography-and-spacing rules to apply a 4px base spacing grid, a Major Third type scale, and OKLCH-based palette generation, verifying that any new palette's mid shade clears 4.5:1 on white for text and a darker shade clears 3:1 for UI use. Covers colors, typography, spacing, shadows, borders, breakpoints, motion, gradients, opacity, blur, sizing, states, and multi-brand/density theming, and runs a JSON-validity-and-alias-resolution script before calling the work done.</p>
+<p class="lede">Generates, extends, or audits design tokens in DTCG format ($type/$value) using a 3-tier architecture (primitive, raw values never used directly; semantic, purpose aliases; component, component-scoped).</p>
 </header>
 
 <div class="layout">
 <nav class="sidebar" aria-labelledby="contents">
-<h2 id="contents">On this page</h2>
+<h2 id="contents" class="label-caps">On this page</h2>
 <ul class="toc">
-<li><a href="#about">About this skill</a></li>
 <li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
 <li><a href="#related">Works with</a></li>
-<li><a href="#skill-design-tokens">Skill: Design Tokens</a></li>
-<li><a href="#steps">Steps</a></li>
-<li><a href="#output">Output</a></li>
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#skill-design-tokens">Skill: Design Tokens</a></li>
+<li class="toc-sub"><a href="#steps">Steps</a></li>
+<li class="toc-sub"><a href="#output">Output</a></li>
 </ul>
 </nav>
 
 <main id="main">
-<section id="about" class="meta">
-<h2>About this skill</h2>
-<div class="meta-row"><h3>Use when</h3><ul><li>generate a color palette</li><li>set up design tokens</li><li>define a type scale</li><li>validate our token files</li><li>multi-brand theming</li></ul></div>
-<div class="meta-row"><h3>Works on</h3><ul><li>An existing tokens/ directory to extend, or a brief for a new palette</li><li>Target platforms/brands needing theming</li></ul></div>
-<div class="meta-row"><h3>Produces</h3><ul><li>DTCG-format token JSON (primitive/semantic/component tiers) with $description preserved</li><li>A validation pass confirming JSON validity and alias resolution</li></ul></div>
-<div class="meta-row"><h3>Tags</h3>
-<ul class="tags"><li><a class="tag" href="../index.html?tag=design-tokens">design-tokens</a></li><li><a class="tag" href="../index.html?tag=token-naming">token-naming</a></li><li><a class="tag" href="../index.html?tag=semantic-tokens">semantic-tokens</a></li><li><a class="tag" href="../index.html?tag=design-system">design-system</a></li><li><a class="tag" href="../index.html?tag=color">color</a></li><li><a class="tag" href="../index.html?tag=typography">typography</a></li><li><a class="tag" href="../index.html?tag=spacing">spacing</a></li><li><a class="tag" href="../index.html?tag=dark-mode">dark-mode</a></li><li><a class="tag" href="../index.html?tag=multi-brand">multi-brand</a></li></ul></div>
-<div class="meta-row"><h3>Requires</h3><ul><li><code>python</code></li></ul></div>
-<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/design-tokens">plugin87/ux-ui-agent-skills</a> by plugin87 at <code>2ffb677</code>, licence <code>MIT</code>. Modified when vendored: portability.</p></div>
-</section>
-
 <section id="install">
 <h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill design-tokens</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill design-tokens"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
 <ul class="install">
-<li>
-<h3>Any agent, via the skills CLI</h3>
-<div class="cmd"><pre><code>npx skills add stritar/skills --skill design-tokens</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill design-tokens"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Installs into whichever agents it finds on your machine.</p>
-</li>
 <li>
 <h3>Claude Code, as a plugin</h3>
 <div class="cmd"><pre><code>/plugin marketplace add stritar/skills
-/plugin install product-design-design-systems@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-design-systems@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
 /plugin install product-design-design-systems@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Brings the whole design-systems bundle. Use <code>product-design-all</code> for everything.</p>
+<p class="note">Installs the whole <code>design-systems</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
 </li>
 <li>
 <h3>From a clone, copied by hand</h3>
-<div class="cmd"><pre><code>cp -r skills/design-systems/design-tokens ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/design-systems/design-tokens ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<div class="cmd"><pre><code>cp -r skills/design-systems/design-tokens ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/design-systems/design-tokens ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
 <p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
 </li>
 </ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Generates, extends, or audits design tokens in DTCG format ($type/$value) using a 3-tier architecture (primitive, raw values never used directly; semantic, purpose aliases; component, component-scoped). Reads the project's token-and-color and typography-and-spacing rules to apply a 4px base spacing grid, a Major Third type scale, and OKLCH-based palette generation, verifying that any new palette's mid shade clears 4.5:1 on white for text and a darker shade clears 3:1 for UI use. Covers colors, typography, spacing, shadows, borders, breakpoints, motion, gradients, opacity, blur, sizing, states, and multi-brand/density theming, and runs a JSON-validity-and-alias-resolution script before calling the work done.</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>generate a color palette</li><li>set up design tokens</li><li>define a type scale</li><li>validate our token files</li><li>multi-brand theming</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>An existing tokens/ directory to extend, or a brief for a new palette</li><li>Target platforms/brands needing theming</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>DTCG-format token JSON (primitive/semantic/component tiers) with $description preserved</li><li>A validation pass confirming JSON validity and alias resolution</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=design-tokens">design-tokens</a></li><li><a class="tag" href="../index.html?tag=token-naming">token-naming</a></li><li><a class="tag" href="../index.html?tag=semantic-tokens">semantic-tokens</a></li><li><a class="tag" href="../index.html?tag=design-system">design-system</a></li><li><a class="tag" href="../index.html?tag=color">color</a></li><li><a class="tag" href="../index.html?tag=typography">typography</a></li><li><a class="tag" href="../index.html?tag=spacing">spacing</a></li><li><a class="tag" href="../index.html?tag=dark-mode">dark-mode</a></li><li><a class="tag" href="../index.html?tag=multi-brand">multi-brand</a></li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Requires</h3><ul><li><code>python</code></li></ul></div>
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/design-tokens">plugin87/ux-ui-agent-skills</a> by plugin87 at <code>2ffb677</code>, licence <code>MIT</code>. Modified when vendored: portability.</p>
+</details>
 </section>
 
 <section id="related">
@@ -75,7 +80,7 @@
 </ul>
 </section>
 
-<article class="skill-body">
+<article class="skill-body" id="instructions">
 <h2 class="body-head">Instructions</h2>
 <p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/design-systems/design-tokens/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
 <h2 id="skill-design-tokens">Skill: Design Tokens</h2>

@@ -1,0 +1,58 @@
+{
+  "id": "ui-design-system",
+  "category": "design-systems",
+  "verdict": "vendor",
+  "rubric": { "relevance": 3, "quality": 3, "conformance": 2, "uniqueness": 1 },
+  "upstream": {
+    "repository": "alirezarezvani/claude-skills",
+    "url": "https://github.com/alirezarezvani/claude-skills/tree/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/ui-design-system",
+    "author": "Alireza Rezvani",
+    "commit": "19392f7a08264ed00486a251f5b2098321771f94",
+    "path": "product-team/skills/ui-design-system",
+    "license": "MIT",
+    "licenseSource": "repo-root:LICENSE"
+  },
+  "files": [
+    { "dest": "SKILL.md", "rawUrl": "https://raw.githubusercontent.com/alirezarezvani/claude-skills/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/ui-design-system/SKILL.md", "blobSha": "c36af38e7b67f31019ebd90b7916165ad6fc3263" },
+    { "dest": "assets/design_system_doc_template.md", "rawUrl": "https://raw.githubusercontent.com/alirezarezvani/claude-skills/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/ui-design-system/assets/design_system_doc_template.md", "blobSha": "b1b8be5234819369b29a46a24234ee468ceb39e9" },
+    { "dest": "references/component-architecture.md", "rawUrl": "https://raw.githubusercontent.com/alirezarezvani/claude-skills/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/ui-design-system/references/component-architecture.md", "blobSha": "a50a1e202ed7ad01058c9b3ba6ae7e6b3810e293" },
+    { "dest": "references/developer-handoff.md", "rawUrl": "https://raw.githubusercontent.com/alirezarezvani/claude-skills/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/ui-design-system/references/developer-handoff.md", "blobSha": "ee0d60aa7a48316e67e22ac9e2f5051f15ec14da" },
+    { "dest": "references/responsive-calculations.md", "rawUrl": "https://raw.githubusercontent.com/alirezarezvani/claude-skills/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/ui-design-system/references/responsive-calculations.md", "blobSha": "f6468e31e84149529d683bebc348807381ded3ca" },
+    { "dest": "references/token-generation.md", "rawUrl": "https://raw.githubusercontent.com/alirezarezvani/claude-skills/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/ui-design-system/references/token-generation.md", "blobSha": "0d50ac5b894c572dac64f5380b4f8cdb534d7907" },
+    { "dest": "scripts/design_token_generator.py", "rawUrl": "https://raw.githubusercontent.com/alirezarezvani/claude-skills/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/ui-design-system/scripts/design_token_generator.py", "blobSha": "ddc7f30b25471224ab644832b47bee70d723605a" },
+    { "dest": "LICENSE.txt", "rawUrl": "https://raw.githubusercontent.com/alirezarezvani/claude-skills/19392f7a08264ed00486a251f5b2098321771f94/LICENSE", "blobSha": "c3e30bcc287d6a1ebdb4ab29c10d344fd1053639" }
+  ],
+  "securityNotes": "Read SKILL.md, all 4 references/*.md, the assets template, and scripts/design_token_generator.py (590 lines) in full at the pinned SHA. The script is stdlib-only Python (colorsys/json/sys/argparse-style manual arg parsing) generating token JSON/CSS/SCSS from a hex color; no network calls, no subprocess, no eval/exec, no file writes outside stdout. No hidden instructions in the markdown. Clean.",
+  "overlaps": ["design-tokens", "token-build", "theme-factory"],
+  "proposedEntry": {
+    "id": "ui-design-system",
+    "name": "ui-design-system",
+    "description": "Generates a complete design-token system (colors, typography, spacing, borders, shadows, animation, breakpoints, z-index) from one brand hex color and a style preset (modern/classic/playful) via a bundled Python script, exporting JSON, CSS custom properties, or SCSS. Also gives workflows and reference tables for structuring a component system (atoms/molecules/organisms/templates, token-to-component mapping, size and color variant patterns), calculating responsive breakpoints and fluid typography (clamp formulas), and preparing developer handoff (framework integration snippets for React/Tailwind/styled-components, a Figma Tokens Studio sync note, and a handoff checklist). Includes WCAG AA/AAA contrast reference tables and a color-scale (50-900) generation formula.",
+    "category": "design-systems",
+    "tags": ["design-tokens", "design-system", "component-api", "component-docs", "responsive", "typography", "color", "layout", "spacing", "handoff", "figma"],
+    "triggers": ["generate design tokens from a brand color", "build a component system on top of tokens", "calculate responsive breakpoints and fluid typography", "prepare developer handoff for a design system", "export design tokens as CSS/SCSS/JSON"],
+    "inputs": ["a brand hex color and a style preset (modern/classic/playful)", "optionally an existing component inventory or breakpoint set to extend"],
+    "outputs": ["a design-token file in JSON, CSS custom properties, or SCSS", "component architecture and variant documentation", "responsive breakpoint and fluid-typography values", "a developer-handoff checklist with framework integration snippets"],
+    "path": "skills/design-systems/ui-design-system",
+    "source": {
+      "type": "third-party",
+      "repository": "alirezarezvani/claude-skills",
+      "url": "https://github.com/alirezarezvani/claude-skills/tree/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/ui-design-system",
+      "author": "Alireza Rezvani",
+      "license": "MIT",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": "product-team/skills/ui-design-system",
+      "upstreamCommit": "19392f7a08264ed00486a251f5b2098321771f94",
+      "retrievedAt": "2026-08-29",
+      "modified": false,
+      "modifications": []
+    },
+    "compatibility": ["claude-code", "codex", "cursor", "opencode", "amp", "gemini-cli", "copilot", "vs-code", "claude-ai"],
+    "dependencies": ["python3"],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "experimental",
+    "status": "draft"
+  },
+  "logMd": "#### alirezarezvani/claude-skills (inspected 2026-08-29)\n- Repo pin: 19392f7a08264ed00486a251f5b2098321771f94 (default branch main), 25,184 stars, pushed 2026-08-26T15:12:59Z. Root LICENSE read in full: MIT, copyright (c) 2025 Alireza Rezvani.\n- This is one of 6 skills vendored (of the max 6 allowed) from the product-team plugin family after enumerating product-team/skills/* (13 skills) plus the 4 companion standalone plugins nested under product-team/ (agile-product-owner, apple-hig-expert, code-to-prd, research-summarizer). apple-hig-expert and this skill were flagged/selected as clearly design/UX; agile-product-owner and code-to-prd are PM/dev-process tooling, not design, and were excluded from consideration.\n- Read SKILL.md, all 4 reference files, the doc-template asset, and the 590-line generator script in full.\n- Rubric: relevance 3 (design-token generation and component-system structuring is core design-systems work), quality 3 (concrete formulas -- HSV color-scale steps, 1.25x type-scale table, clamp() fluid-typography formulas -- runnable script, validation checklists per workflow), conformance 2 (frontmatter is name+description only, a subset of the spec six -> claude-ai appended; name equals dirname), uniqueness 1 (design-tokens/token-build/theme-factory already cover DTCG-format token generation and theming in this registry; this skill's differentiator is the single-script brand-color-to-full-token-system generator plus developer-handoff/Figma-sync guidance bundled with the token content, not a clean superset). Total 9.\n- Security: clean, stdlib-only script, no network/exec calls.\n- Verdict: vendor."
+}

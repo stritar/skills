@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>research-synthesis — Product design skills</title>
+<meta name="description" content="Synthesizes raw user-research data (interview transcripts, survey results, usability-test notes, support tickets, NPS/CSAT responses, app-store reviews) into a structured report: an executive summary, quote-backed themes each with a prevalence count and product implication, an…">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="page-head">
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=research">User research</a></nav>
+<h1>research-synthesis</h1>
+<p class="badges"></p>
+<p class="lede">Synthesizes raw user-research data (interview transcripts, survey results, usability-test notes, support tickets, NPS/CSAT responses, app-store reviews) into a structured report.</p>
+</header>
+
+<div class="layout">
+<nav class="sidebar" aria-labelledby="contents">
+<h2 id="contents" class="label-caps">On this page</h2>
+<ul class="toc">
+<li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
+
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#research-synthesis">/research-synthesis</a></li>
+<li class="toc-sub"><a href="#usage">Usage</a></li>
+<li class="toc-sub"><a href="#what-i-accept">What I Accept</a></li>
+<li class="toc-sub"><a href="#output">Output</a></li>
+<li class="toc-sub"><a href="#if-connectors-available">If Connectors Available</a></li>
+<li class="toc-sub"><a href="#tips">Tips</a></li>
+</ul>
+</nav>
+
+<main id="main">
+<section id="install">
+<h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill research-synthesis</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill research-synthesis"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
+<ul class="install">
+<li>
+<h3>Claude Code, as a plugin</h3>
+<div class="cmd"><pre><code>/plugin marketplace add stritar/skills
+/plugin install product-design-research@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-research@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Installs the whole <code>research</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
+</li>
+<li>
+<h3>From a clone, copied by hand</h3>
+<div class="cmd"><pre><code>cp -r skills/research/research-synthesis ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/research/research-synthesis ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
+</li>
+</ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Synthesizes raw user-research data (interview transcripts, survey results, usability-test notes, support tickets, NPS/CSAT responses, app-store reviews) into a structured report: an executive summary, quote-backed themes each with a prevalence count and product implication, an insight-to-opportunity table scored by impact and effort, identified user segments with characteristics and rough size, prioritized recommendations, and open questions for further research. Explicitly instructs separating observations from interpretations and quantifying findings instead of using vague terms like 'most users'. Works standalone from pasted data; optionally pulls in support tickets, NPS data, or product-analytics numbers from connected tools to supplement or validate the synthesis, and can publish the result to a connected knowledge base, but neither is required.</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>synthesize this research</li><li>turn these interview transcripts into themes</li><li>summarize survey results into insights</li><li>distill usability test notes into recommendations</li><li>what are the key themes in this feedback</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>Interview transcripts or notes, survey results (CSV or pasted), usability-test notes, support tickets, NPS/CSAT responses, or app-store reviews</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>Markdown synthesis report: executive summary, quote-backed themes with prevalence, insight-to-opportunity table (impact/effort), user segments, prioritized recommendations, open questions, methodology notes</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=user-research">user-research</a></li><li><a class="tag" href="../index.html?tag=synthesis">synthesis</a></li><li><a class="tag" href="../index.html?tag=thematic-analysis">thematic-analysis</a></li><li><a class="tag" href="../index.html?tag=insights">insights</a></li><li><a class="tag" href="../index.html?tag=qualitative">qualitative</a></li><li><a class="tag" href="../index.html?tag=quantitative">quantitative</a></li></ul></div>
+
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/anthropics/knowledge-work-plugins/tree/8c3ec5534fc6948b461c6a0275bdfdb8ab0c9888/design/skills/research-synthesis">anthropics/knowledge-work-plugins</a> by Anthropic at <code>8c3ec55</code>, licence <code>Apache-2.0</code>. Modified when vendored: broken-reference.</p>
+</details>
+</section>
+
+
+
+<article class="skill-body" id="instructions">
+<h2 class="body-head">Instructions</h2>
+<p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/research/research-synthesis/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
+<h2 id="research-synthesis">/research-synthesis</h2>
+<blockquote>
+<p>If you see unfamiliar placeholders or need to check which tools are connected, see <a href="https://github.com/stritar/skills/blob/main/skills/research/research-synthesis/CONNECTORS.md" target="_blank" rel="noopener noreferrer">CONNECTORS.md</a>.</p>
+</blockquote>
+<p>Synthesize user research data into actionable insights. See the <strong>user-research</strong> skill for research methods, interview guides, and analysis frameworks.</p>
+<h3 id="usage">Usage</h3>
+<pre><code>/research-synthesis $ARGUMENTS
+</code></pre>
+<h3 id="what-i-accept">What I Accept</h3>
+<ul>
+<li>Interview transcripts or notes</li>
+<li>Survey results (CSV, pasted data)</li>
+<li>Usability test recordings or notes</li>
+<li>Support tickets or feedback</li>
+<li>NPS/CSAT responses</li>
+<li>App store reviews</li>
+</ul>
+<h3 id="output">Output</h3>
+<pre><code class="language-markdown">## Research Synthesis: [Study Name]
+**Method:** [Interviews / Survey / Usability Test] | **Participants:** [X]
+**Date:** [Date range] | **Researcher:** [Name]
+
+### Executive Summary
+[3-4 sentence overview of key findings]
+
+### Key Themes
+
+#### Theme 1: [Name]
+**Prevalence:** [X of Y participants]
+**Summary:** [What this theme is about]
+**Supporting Evidence:**
+- &quot;[Quote]&quot; — P[X]
+- &quot;[Quote]&quot; — P[X]
+**Implication:** [What this means for the product]
+
+#### Theme 2: [Name]
+[Same format]
+
+### Insights → Opportunities
+
+| Insight | Opportunity | Impact | Effort |
+|---------|-------------|--------|--------|
+| [What we learned] | [What we could do] | High/Med/Low | High/Med/Low |
+
+### User Segments Identified
+| Segment | Characteristics | Needs | Size |
+|---------|----------------|-------|------|
+| [Name] | [Description] | [Key needs] | [Rough %] |
+
+### Recommendations
+1. **[High priority]** — [Why, based on which findings]
+2. **[Medium priority]** — [Why]
+3. **[Lower priority]** — [Why]
+
+### Questions for Further Research
+- [What we still don't know]
+
+### Methodology Notes
+[How the research was conducted, any limitations or biases to note]
+</code></pre>
+<h3 id="if-connectors-available">If Connectors Available</h3>
+<p>If <strong>~~user feedback</strong> is connected:</p>
+<ul>
+<li>Pull support tickets, feature requests, and NPS responses to supplement research data</li>
+<li>Cross-reference themes with real user complaints and requests</li>
+</ul>
+<p>If <strong>~~product analytics</strong> is connected:</p>
+<ul>
+<li>Validate qualitative findings with usage data and behavioral metrics</li>
+<li>Quantify the impact of identified pain points</li>
+</ul>
+<p>If <strong>~~knowledge base</strong> is connected:</p>
+<ul>
+<li>Search for prior research studies and findings to compare against</li>
+<li>Publish the synthesis to your research repository</li>
+</ul>
+<h3 id="tips">Tips</h3>
+<ol>
+<li><strong>Include raw quotes</strong> — Direct participant quotes make insights credible and memorable.</li>
+<li><strong>Separate observations from interpretations</strong> — &quot;5 of 8 users clicked the wrong button&quot; is an observation. &quot;The button placement is confusing&quot; is an interpretation.</li>
+<li><strong>Quantify where possible</strong> — &quot;Most users&quot; is vague. &quot;7 of 10 users&quot; is specific.</li>
+</ol>
+</article>
+</main>
+</div>
+
+<footer class="site-foot">
+<p><a href="../index.html">Back to all skills</a></p>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

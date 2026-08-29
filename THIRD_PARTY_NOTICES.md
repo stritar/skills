@@ -63,6 +63,15 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 - License: GPL-3.0-or-later (license file: `skills/accessibility/a11y-role-audit/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
+## accessible-content
+
+- Upstream: [Owl-Listener/designpowers](https://github.com/Owl-Listener/designpowers/tree/cb00757da9d554591fa78d27aa1854d60a05c4f7/skills/accessible-content)
+- Author: MC Dean
+- Upstream path: `skills/accessible-content` at commit `cb00757da9d554591fa78d27aa1854d60a05c4f7`
+- Retrieved: 2026-08-29
+- License: MIT (license file: `skills/content-design/accessible-content/LICENSE.txt`)
+- Local modifications: none (byte-identical to upstream)
+
 ## algorithmic-art
 
 - Upstream: [anthropics/skills](https://github.com/anthropics/skills/tree/3b3fad96af16a10759d930941b4520ba0c40edae/skills/algorithmic-art)
@@ -106,6 +115,15 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 - Upstream path: `skills/apple-design` at commit `d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7`
 - Retrieved: 2026-08-26
 - License: MIT (license file: `skills/interaction-design/apple-design/LICENSE.txt`)
+- Local modifications: none (byte-identical to upstream)
+
+## apple-hig-expert
+
+- Upstream: [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills/tree/19392f7a08264ed00486a251f5b2098321771f94/product-team/apple-hig-expert/skills/apple-hig-expert)
+- Author: Alireza Rezvani
+- Upstream path: `product-team/apple-hig-expert/skills/apple-hig-expert` at commit `19392f7a08264ed00486a251f5b2098321771f94`
+- Retrieved: 2026-08-29
+- License: MIT (license file: `skills/interaction-design/apple-hig-expert/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
 ## better-accessibility
@@ -189,6 +207,15 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 - License: Apache-2.0 (license file: `skills/visual-design/canvas-design/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
+## cognitive-accessibility
+
+- Upstream: [Owl-Listener/designpowers](https://github.com/Owl-Listener/designpowers/tree/cb00757da9d554591fa78d27aa1854d60a05c4f7/skills/cognitive-accessibility)
+- Author: MC Dean
+- Upstream path: `skills/cognitive-accessibility` at commit `cb00757da9d554591fa78d27aa1854d60a05c4f7`
+- Retrieved: 2026-08-29
+- License: MIT (license file: `skills/accessibility/cognitive-accessibility/LICENSE.txt`)
+- Local modifications: none (byte-identical to upstream)
+
 ## conversational-ux
 
 - Upstream: [Owl-Listener/designer-skills](https://github.com/Owl-Listener/designer-skills/tree/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/interaction-design/skills/conversational-ux)
@@ -225,6 +252,16 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 - License: MIT (license file: `skills/design-qa/design-details/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
+## design-handoff
+
+- Upstream: [anthropics/knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins/tree/8c3ec5534fc6948b461c6a0275bdfdb8ab0c9888/design/skills/design-handoff)
+- Author: Anthropic
+- Upstream path: `design/skills/design-handoff` at commit `8c3ec5534fc6948b461c6a0275bdfdb8ab0c9888`
+- Retrieved: 2026-08-29
+- License: Apache-2.0 (license file: `skills/design-engineering/design-handoff/LICENSE.txt`)
+- Local modifications:
+  - 2026-08-29 (broken-reference): Upstream SKILL.md links CONNECTORS.md as ../../CONNECTORS.md, resolving two directories above the plugin's per-skill folder (design/CONNECTORS.md, shared across all six design/ skills) — a path that falls outside any single vendored skill directory. Rewrote the link to a same-directory relative path (CONNECTORS.md) and bundled a copy of design/CONNECTORS.md into this skill's own directory so it resolves after vendoring. [SKILL.md, CONNECTORS.md]
+
 ## design-negotiation
 
 - Upstream: [Owl-Listener/designer-skills](https://github.com/Owl-Listener/designer-skills/tree/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/designer-toolkit/skills/design-negotiation)
@@ -243,6 +280,16 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 - License: MIT (license file: `skills/testing/design-review/LICENSE.txt`)
 - Local modifications:
   - 2026-08-26 (portability): Upstream SKILL.md references repo-root shared files (workflows/design-review.md, accessibility/wcag-checklist.md, scripts/contrast.py, taste/design-taste.md) outside the skill's own directory. Bundled the specific referenced files into the vendored skill directory at the same relative paths already used in the prose, so no wording had to change. [workflows/design-review.md, accessibility/wcag-checklist.md, scripts/contrast.py, taste/design-taste.md]
+
+## design-system
+
+- Upstream: [anthropics/knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins/tree/8c3ec5534fc6948b461c6a0275bdfdb8ab0c9888/design/skills/design-system)
+- Author: Anthropic
+- Upstream path: `design/skills/design-system` at commit `8c3ec5534fc6948b461c6a0275bdfdb8ab0c9888`
+- Retrieved: 2026-08-29
+- License: Apache-2.0 (license file: `skills/design-systems/design-system/LICENSE.txt`)
+- Local modifications:
+  - 2026-08-29 (broken-reference): Upstream SKILL.md links CONNECTORS.md as ../../CONNECTORS.md, resolving two directories above the plugin's per-skill folder (design/CONNECTORS.md, shared across all six design/ skills) — a path that falls outside any single vendored skill directory. Rewrote the link to a same-directory relative path (CONNECTORS.md) and bundled a copy of design/CONNECTORS.md into this skill's own directory so it resolves after vendoring. [SKILL.md, CONNECTORS.md]
 
 ## design-system-governance
 
@@ -272,6 +319,15 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 - License: MIT (license file: `skills/visual-design/diagram-design/LICENSE.txt`)
 - Local modifications:
   - 2026-08-26 (portability): references/type-treemap.md, type-line.md (slopegraph and ridgeline variants), and type-scatter.md (bubble variant) each cite a repo-root scripts/verify-*.py geometry/contrast verifier as a functional gate the agent should run against its generated output, but these scripts live at the repository root (scripts/) rather than inside skills/diagram-design/ and are not among the three extractor scripts the skill directory itself ships. Bundled the five specific referenced verifiers (verify-treemap.py, verify-slopegraph.py, verify-ridgeline.py, verify-dumbbell.py, verify-bubble.py -- all confirmed standalone, stdlib-only Python with no shared-module imports) into the vendored skill's scripts/ directory at the paths the prose already uses, so the citations resolve without any wording change. Did not bundle their test-verify-*.py counterparts (maintainer/CI-only, never invoked from a SKILL.md/reference workflow step) or the many other repo-root scripts/verify-*.py and scripts/test-*.py files that SKILL.md, animation.md, and doctor.md already explicitly gate as 'from a repository checkout' / 'maintainer-checkout mode only', which the installed skill correctly treats as optional. [scripts/verify-treemap.py, scripts/verify-slopegraph.py, scripts/verify-ridgeline.py, scripts/verify-dumbbell.py, scripts/verify-bubble.py]
+
+## experiment-designer
+
+- Upstream: [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills/tree/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/experiment-designer)
+- Author: Alireza Rezvani
+- Upstream path: `product-team/skills/experiment-designer` at commit `19392f7a08264ed00486a251f5b2098321771f94`
+- Retrieved: 2026-08-29
+- License: MIT (license file: `skills/analytics/experiment-designer/LICENSE.txt`)
+- Local modifications: none (byte-identical to upstream)
 
 ## explain-interface
 
@@ -360,6 +416,15 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 - License: MIT (license file: `skills/testing/improve-animations/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
+## inclusive-personas
+
+- Upstream: [Owl-Listener/designpowers](https://github.com/Owl-Listener/designpowers/tree/cb00757da9d554591fa78d27aa1854d60a05c4f7/skills/inclusive-personas)
+- Author: MC Dean
+- Upstream path: `skills/inclusive-personas` at commit `cb00757da9d554591fa78d27aa1854d60a05c4f7`
+- Retrieved: 2026-08-29
+- License: MIT (license file: `skills/research/inclusive-personas/LICENSE.txt`)
+- Local modifications: none (byte-identical to upstream)
+
 ## interface-review
 
 - Upstream: [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/interface-review)
@@ -423,6 +488,24 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 - License: MIT (license file: `skills/interaction-design/platform-conventions/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
+## product-analytics
+
+- Upstream: [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills/tree/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/product-analytics)
+- Author: Alireza Rezvani
+- Upstream path: `product-team/skills/product-analytics` at commit `19392f7a08264ed00486a251f5b2098321771f94`
+- Retrieved: 2026-08-29
+- License: MIT (license file: `skills/analytics/product-analytics/LICENSE.txt`)
+- Local modifications: none (byte-identical to upstream)
+
+## product-discovery
+
+- Upstream: [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills/tree/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/product-discovery)
+- Author: Alireza Rezvani
+- Upstream path: `product-team/skills/product-discovery` at commit `19392f7a08264ed00486a251f5b2098321771f94`
+- Retrieved: 2026-08-29
+- License: MIT (license file: `skills/discovery/product-discovery/LICENSE.txt`)
+- Local modifications: none (byte-identical to upstream)
+
 ## prototype
 
 - Upstream: [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/prototype)
@@ -431,6 +514,25 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 - Retrieved: 2026-08-26
 - License: MIT (license file: `skills/prototyping/prototype/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
+
+## research-planning
+
+- Upstream: [Owl-Listener/designpowers](https://github.com/Owl-Listener/designpowers/tree/cb00757da9d554591fa78d27aa1854d60a05c4f7/skills/research-planning)
+- Author: MC Dean
+- Upstream path: `skills/research-planning` at commit `cb00757da9d554591fa78d27aa1854d60a05c4f7`
+- Retrieved: 2026-08-29
+- License: MIT (license file: `skills/research/research-planning/LICENSE.txt`)
+- Local modifications: none (byte-identical to upstream)
+
+## research-synthesis
+
+- Upstream: [anthropics/knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins/tree/8c3ec5534fc6948b461c6a0275bdfdb8ab0c9888/design/skills/research-synthesis)
+- Author: Anthropic
+- Upstream path: `design/skills/research-synthesis` at commit `8c3ec5534fc6948b461c6a0275bdfdb8ab0c9888`
+- Retrieved: 2026-08-29
+- License: Apache-2.0 (license file: `skills/research/research-synthesis/LICENSE.txt`)
+- Local modifications:
+  - 2026-08-29 (broken-reference): Upstream SKILL.md links CONNECTORS.md as ../../CONNECTORS.md, resolving two directories above the plugin's per-skill folder (design/CONNECTORS.md, shared across all six design/ skills) — a path that falls outside any single vendored skill directory. Rewrote the link to a same-directory relative path (CONNECTORS.md) and bundled a copy of design/CONNECTORS.md into this skill's own directory so it resolves after vendoring. [SKILL.md, CONNECTORS.md]
 
 ## review-a11y
 
@@ -522,6 +624,15 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 - License: MIT (license file: `skills/research/survey-design/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
+## synthetic-user-testing
+
+- Upstream: [Owl-Listener/designpowers](https://github.com/Owl-Listener/designpowers/tree/cb00757da9d554591fa78d27aa1854d60a05c4f7/skills/synthetic-user-testing)
+- Author: MC Dean
+- Upstream path: `skills/synthetic-user-testing` at commit `cb00757da9d554591fa78d27aa1854d60a05c4f7`
+- Retrieved: 2026-08-29
+- License: MIT (license file: `skills/testing/synthetic-user-testing/LICENSE.txt`)
+- Local modifications: none (byte-identical to upstream)
+
 ## theme-factory
 
 - Upstream: [anthropics/skills](https://github.com/anthropics/skills/tree/3b3fad96af16a10759d930941b4520ba0c40edae/skills/theme-factory)
@@ -541,6 +652,15 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 - Local modifications:
   - 2026-08-26 (portability): Upstream SKILL.md references repo-root shared files (workflows/token-build.md, scripts/validate_tokens.py, scripts/contrast.py) outside the skill's own directory. Bundled the specific referenced files into the vendored skill directory at the same relative paths already used in the prose, so no wording had to change. [workflows/token-build.md, scripts/validate_tokens.py, scripts/contrast.py]
 
+## ui-design-system
+
+- Upstream: [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills/tree/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/ui-design-system)
+- Author: Alireza Rezvani
+- Upstream path: `product-team/skills/ui-design-system` at commit `19392f7a08264ed00486a251f5b2098321771f94`
+- Retrieved: 2026-08-29
+- License: MIT (license file: `skills/design-systems/ui-design-system/LICENSE.txt`)
+- Local modifications: none (byte-identical to upstream)
+
 ## ultra11y
 
 - Upstream: [maxgfr/ultra11y](https://github.com/maxgfr/ultra11y/tree/d1cd14792f3bd1b9ab15958bc4e72081375514dc/skills/ultra11y)
@@ -548,6 +668,15 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 - Upstream path: `skills/ultra11y` at commit `d1cd14792f3bd1b9ab15958bc4e72081375514dc`
 - Retrieved: 2026-08-26
 - License: MIT (license file: `skills/accessibility/ultra11y/LICENSE.txt`)
+- Local modifications: none (byte-identical to upstream)
+
+## usability-testing
+
+- Upstream: [Owl-Listener/designpowers](https://github.com/Owl-Listener/designpowers/tree/cb00757da9d554591fa78d27aa1854d60a05c4f7/skills/usability-testing)
+- Author: MC Dean
+- Upstream path: `skills/usability-testing` at commit `cb00757da9d554591fa78d27aa1854d60a05c4f7`
+- Retrieved: 2026-08-29
+- License: MIT (license file: `skills/testing/usability-testing/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
 ## user-research-cookiy
@@ -559,6 +688,15 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 - License: MIT (license file: `skills/research/user-research-cookiy/LICENSE.txt`)
 - Local modifications:
   - 2026-08-26 (portability): Vendored SKILL.md and references/ from the repository root rather than the nominal plugin-marketplace skill path plugins/user-research/skills/user-research-cookiy/, which is not a real skill directory but two symlinks (SKILL.md and references) pointing back to the repo root. Symlinks cannot be represented in a copied, self-contained skill directory, so the root files they resolve to were bundled directly at the equivalent relative paths (SKILL.md, references/**). No content was altered. [SKILL.md, references/**]
+
+## ux-researcher-designer
+
+- Upstream: [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills/tree/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/ux-researcher-designer)
+- Author: Alireza Rezvani
+- Upstream path: `product-team/skills/ux-researcher-designer` at commit `19392f7a08264ed00486a251f5b2098321771f94`
+- Retrieved: 2026-08-29
+- License: MIT (license file: `skills/research/ux-researcher-designer/LICENSE.txt`)
+- Local modifications: none (byte-identical to upstream)
 
 ## ux-writing
 

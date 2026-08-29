@@ -1,0 +1,96 @@
+{
+  "id": "usability-testing",
+  "category": "testing",
+  "verdict": "vendor",
+  "rubric": {
+    "relevance": 3,
+    "quality": 3,
+    "conformance": 2,
+    "uniqueness": 2
+  },
+  "upstream": {
+    "repository": "Owl-Listener/designpowers",
+    "url": "https://github.com/Owl-Listener/designpowers/tree/cb00757da9d554591fa78d27aa1854d60a05c4f7/skills/usability-testing",
+    "author": "MC Dean",
+    "commit": "cb00757da9d554591fa78d27aa1854d60a05c4f7",
+    "path": "skills/usability-testing",
+    "license": "MIT",
+    "licenseSource": "repo-root:LICENSE"
+  },
+  "files": [
+    {
+      "dest": "SKILL.md",
+      "rawUrl": "https://raw.githubusercontent.com/Owl-Listener/designpowers/cb00757da9d554591fa78d27aa1854d60a05c4f7/skills/usability-testing/SKILL.md",
+      "blobSha": "04d99317fc165a1096695665ef220af237c42b2c"
+    },
+    {
+      "dest": "LICENSE.txt",
+      "rawUrl": "https://raw.githubusercontent.com/Owl-Listener/designpowers/cb00757da9d554591fa78d27aa1854d60a05c4f7/LICENSE",
+      "blobSha": "2f3f2b283f2116cf6927b85262269a1960bbff8a"
+    }
+  ],
+  "securityNotes": "Read SKILL.md in full at the pinned SHA. Contains no markdown links (grepped for '](' -- none found), so nothing needed bundling. Plain prose: a 6-step process for planning/running moderated and unmoderated usability tests (task writing, participant recruitment including specific inclusion minimums, method selection, script structure, finding analysis, action conversion). No scripts, no network calls, no credential access, no hidden instructions or exfiltration attempts. Backtick mentions of sibling skills (inclusive-personas, design-discovery) and agent names (design-lead, design-builder, design-strategist) are plain-text cross-references in an 'Integration' footer, not resolvable links or required file reads -- the skill's numbered process is fully self-contained without them.",
+  "overlaps": [
+    "silver-evaluate"
+  ],
+  "proposedEntry": {
+    "id": "usability-testing",
+    "name": "usability-testing",
+    "description": "Plans and runs usability tests with real people: writes 3-5 task scenarios with realistic triggers and clear success conditions (never revealing how to complete them), sets participant recruitment targets (5-8 people, with explicit minimums covering screen-reader users, older adults, non-native speakers, and low tech confidence), selects a test method (moderated think-aloud, unmoderated remote, guerrilla, or accessibility audit with assistive-technology users) against a when-to-use table, structures the test script (welcome, background, tasks, debrief), classifies each task outcome (completed easily / with difficulty / failed / completed wrong) with a three-tier severity scale, and converts every finding into a concrete design action. Delivers a task-success-rate table, severity-ranked findings, and an iterate/ship/rethink recommendation.",
+    "category": "testing",
+    "tags": [
+      "usability-testing",
+      "severity",
+      "qualitative",
+      "user-research"
+    ],
+    "triggers": [
+      "plan a usability test",
+      "write a usability test script",
+      "how many participants do I need for testing",
+      "analyse usability test findings",
+      "turn usability findings into design fixes"
+    ],
+    "inputs": [
+      "A working prototype or build to test",
+      "The core tasks/jobs from the design brief"
+    ],
+    "outputs": [
+      "Task scenarios and a full test script",
+      "Task success-rate table classified by outcome",
+      "Severity-ranked findings with design actions",
+      "Ship / iterate / rethink recommendation"
+    ],
+    "path": "skills/testing/usability-testing",
+    "source": {
+      "type": "third-party",
+      "repository": "Owl-Listener/designpowers",
+      "url": "https://github.com/Owl-Listener/designpowers/tree/cb00757da9d554591fa78d27aa1854d60a05c4f7/skills/usability-testing",
+      "author": "MC Dean",
+      "license": "MIT",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": "skills/usability-testing",
+      "upstreamCommit": "cb00757da9d554591fa78d27aa1854d60a05c4f7",
+      "retrievedAt": "2026-08-29",
+      "modified": false,
+      "modifications": []
+    },
+    "compatibility": [
+      "claude-code",
+      "codex",
+      "cursor",
+      "opencode",
+      "amp",
+      "gemini-cli",
+      "copilot",
+      "vs-code",
+      "claude-ai"
+    ],
+    "dependencies": [],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "stable",
+    "status": "draft"
+  },
+  "logMd": "#### Owl-Listener/designpowers (inspected 2026-08-29)\n\nRepo: HEAD cb00757da9d554591fa78d27aa1854d60a05c4f7 on main, 240 stars, pushed 2026-06-23. License: MIT, confirmed at repo-root LICENSE (Copyright (c) 2026 MC Dean) and matching the SPDX declaration in both .claude-plugin/plugin.json and package.json. Enumerated the full repo tree: 36 skills under skills/ (all single-file SKILL.md, one exception -- design-library also ships library-index.md), plus 10 agents/*.md subagent definitions, hooks/, examples/, and a large skills/using-designpowers/SKILL.md (46KB) that documents the whole orchestration pipeline rather than being an atomic skill itself. Ten skills from the author's other repo (Owl-Listener/designer-skills) are already vendored -- service-blueprint, survey-design, design-negotiation, platform-conventions, conversational-ux, critique-information-density, design-debt-audit, design-system-governance, motion-system, localization-design -- so design-debt-tracker (near-duplicate of design-debt-audit) and motion-choreography (near-duplicate of motion-system) were deprioritised as overlap even before full scoring. usability-testing: relevance 3 (rubric's own explicit example), quality 3 (concrete task-writing rules, specific inclusion minimums, a 4-way outcome classification, a 3-tier severity scale, and an explicit finding-to-action conversion format), conformance 2 (single self-contained file, no markdown links, frontmatter uses only name+description), uniqueness 2 (registry has no dedicated usability-test-planning skill -- silver-evaluate is the closest but is part of a different, broader orchestration suite). Total 10, vendor -- and the repo's explicitly reported skill. Full 36-skill enumeration and all other verdicts recorded in designpowers-rejections.json and the sibling vendor manifests (synthetic-user-testing, research-planning, cognitive-accessibility, inclusive-personas, accessible-content)."
+}

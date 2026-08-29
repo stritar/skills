@@ -11,62 +11,67 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="page-head">
-<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-design-qa">Design QA</a></nav>
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=design-qa">Design QA</a></nav>
 <h1>review-animations</h1>
 <p class="badges"><span class="il badge badge-rec"><span class="il-icon" aria-hidden="true">★</span><span class="il-label">Recommended</span></span></p>
-<p class="lede">Reviews animation and motion code (a diff or a component) against ten non-negotiable standards derived from Emil Kowalski's animation philosophy: justified motion, frequency-appropriate use, responsive easing, sub-300ms UI durations, origin/physical correctness, interruptibility, GPU-only properties, accessibility, asymmetric enter/exit timing, and cohesion. Flags a fixed list of escalation triggers on sight (transition: all, scale(0) entrances, ease-in on UI, animation on high-frequency/keyboard actions, keyframes on rapidly-triggered elements), proposes fixes via a nine-step remedial preference hierarchy (delete first, polish last), and outputs a required Before/After/Why findings table followed by a tiered verdict ending in Block or Approve. Defaults to flagging; approval is earned.</p>
+<p class="lede">Reviews animation and motion code (a diff or a component) against ten non-negotiable standards derived from Emil Kowalski's animation philosophy.</p>
 </header>
 
 <div class="layout">
 <nav class="sidebar" aria-labelledby="contents">
-<h2 id="contents">On this page</h2>
+<h2 id="contents" class="label-caps">On this page</h2>
 <ul class="toc">
-<li><a href="#about">About this skill</a></li>
 <li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
 <li><a href="#related">Works with</a></li>
-<li><a href="#reviewing-animations">Reviewing Animations</a></li>
-<li><a href="#operating-posture">Operating Posture</a></li>
-<li><a href="#the-ten-non-negotiable-standards">The Ten Non-Negotiable Standards</a></li>
-<li><a href="#aggressive-escalation-triggers">Aggressive Escalation Triggers</a></li>
-<li><a href="#remedial-preference-hierarchy">Remedial Preference Hierarchy</a></li>
-<li><a href="#required-output-format">Required Output Format</a></li>
-<li><a href="#guidelines">Guidelines</a></li>
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#reviewing-animations">Reviewing Animations</a></li>
+<li class="toc-sub"><a href="#operating-posture">Operating Posture</a></li>
+<li class="toc-sub"><a href="#the-ten-non-negotiable-standards">The Ten Non-Negotiable Standards</a></li>
+<li class="toc-sub"><a href="#aggressive-escalation-triggers">Aggressive Escalation Triggers</a></li>
+<li class="toc-sub"><a href="#remedial-preference-hierarchy">Remedial Preference Hierarchy</a></li>
+<li class="toc-sub"><a href="#required-output-format">Required Output Format</a></li>
+<li class="toc-sub"><a href="#guidelines">Guidelines</a></li>
 </ul>
 </nav>
 
 <main id="main">
-<section id="about" class="meta">
-<h2>About this skill</h2>
-<div class="meta-row"><h3>Use when</h3><ul><li>review this animation code</li><li>does this motion pass review</li><li>audit this transition against the animation standards</li><li>block or approve this animation diff</li></ul></div>
-<div class="meta-row"><h3>Works on</h3><ul><li>animation/motion source code, typically a diff or a single component</li></ul></div>
-<div class="meta-row"><h3>Produces</h3><ul><li>a Before/After/Why findings table</li><li>a tiered verdict (feel-breaking regressions, missed simplifications, performance, interruptibility/timing, origin/physicality/cohesion, accessibility)</li><li>a final Block or Approve decision</li></ul></div>
-<div class="meta-row"><h3>Tags</h3>
-<ul class="tags"><li><a class="tag" href="../index.html?tag=design-review">design-review</a></li><li><a class="tag" href="../index.html?tag=pr-review">pr-review</a></li><li><a class="tag" href="../index.html?tag=motion">motion</a></li><li><a class="tag" href="../index.html?tag=animation">animation</a></li><li><a class="tag" href="../index.html?tag=severity">severity</a></li><li><a class="tag" href="../index.html?tag=design-qa">design-qa</a></li></ul></div>
-
-<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/review-animations">emilkowalski/skills</a> by Emil Kowalski at <code>d23d7f8</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p></div>
-</section>
-
 <section id="install">
 <h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill review-animations</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill review-animations"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
 <ul class="install">
-<li>
-<h3>Any agent, via the skills CLI</h3>
-<div class="cmd"><pre><code>npx skills add stritar/skills --skill review-animations</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill review-animations"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Installs into whichever agents it finds on your machine.</p>
-</li>
 <li>
 <h3>Claude Code, as a plugin</h3>
 <div class="cmd"><pre><code>/plugin marketplace add stritar/skills
-/plugin install product-design-design-qa@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-design-qa@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
 /plugin install product-design-design-qa@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Brings the whole design-qa bundle. Use <code>product-design-all</code> for everything.</p>
+<p class="note">Installs the whole <code>design-qa</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
 </li>
 <li>
 <h3>From a clone, copied by hand</h3>
-<div class="cmd"><pre><code>cp -r skills/design-qa/review-animations ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/design-qa/review-animations ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<div class="cmd"><pre><code>cp -r skills/design-qa/review-animations ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/design-qa/review-animations ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
 <p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
 </li>
 </ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Reviews animation and motion code (a diff or a component) against ten non-negotiable standards derived from Emil Kowalski's animation philosophy: justified motion, frequency-appropriate use, responsive easing, sub-300ms UI durations, origin/physical correctness, interruptibility, GPU-only properties, accessibility, asymmetric enter/exit timing, and cohesion. Flags a fixed list of escalation triggers on sight (transition: all, scale(0) entrances, ease-in on UI, animation on high-frequency/keyboard actions, keyframes on rapidly-triggered elements), proposes fixes via a nine-step remedial preference hierarchy (delete first, polish last), and outputs a required Before/After/Why findings table followed by a tiered verdict ending in Block or Approve. Defaults to flagging; approval is earned.</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>review this animation code</li><li>does this motion pass review</li><li>audit this transition against the animation standards</li><li>block or approve this animation diff</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>animation/motion source code, typically a diff or a single component</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>a Before/After/Why findings table</li><li>a tiered verdict (feel-breaking regressions, missed simplifications, performance, interruptibility/timing, origin/physicality/cohesion, accessibility)</li><li>a final Block or Approve decision</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=design-review">design-review</a></li><li><a class="tag" href="../index.html?tag=pr-review">pr-review</a></li><li><a class="tag" href="../index.html?tag=motion">motion</a></li><li><a class="tag" href="../index.html?tag=animation">animation</a></li><li><a class="tag" href="../index.html?tag=severity">severity</a></li><li><a class="tag" href="../index.html?tag=design-qa">design-qa</a></li></ul></div>
+
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/review-animations">emilkowalski/skills</a> by Emil Kowalski at <code>d23d7f8</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p>
+</details>
 </section>
 
 <section id="related">
@@ -78,7 +83,7 @@
 </ul>
 </section>
 
-<article class="skill-body">
+<article class="skill-body" id="instructions">
 <h2 class="body-head">Instructions</h2>
 <p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/design-qa/review-animations/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
 <h2 id="reviewing-animations">Reviewing Animations</h2>

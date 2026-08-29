@@ -1,0 +1,85 @@
+{
+  "id": "cognitive-accessibility",
+  "category": "accessibility",
+  "verdict": "vendor",
+  "rubric": {
+    "relevance": 3,
+    "quality": 3,
+    "conformance": 2,
+    "uniqueness": 2
+  },
+  "upstream": {
+    "repository": "Owl-Listener/designpowers",
+    "url": "https://github.com/Owl-Listener/designpowers/tree/cb00757da9d554591fa78d27aa1854d60a05c4f7/skills/cognitive-accessibility",
+    "author": "MC Dean",
+    "commit": "cb00757da9d554591fa78d27aa1854d60a05c4f7",
+    "path": "skills/cognitive-accessibility",
+    "license": "MIT",
+    "licenseSource": "repo-root:LICENSE"
+  },
+  "files": [
+    {
+      "dest": "SKILL.md",
+      "rawUrl": "https://raw.githubusercontent.com/Owl-Listener/designpowers/cb00757da9d554591fa78d27aa1854d60a05c4f7/skills/cognitive-accessibility/SKILL.md",
+      "blobSha": "dec48e6e4d205c5afa78ae289961059be2f6db1a"
+    },
+    {
+      "dest": "LICENSE.txt",
+      "rawUrl": "https://raw.githubusercontent.com/Owl-Listener/designpowers/cb00757da9d554591fa78d27aa1854d60a05c4f7/LICENSE",
+      "blobSha": "2f3f2b283f2116cf6927b85262269a1960bbff8a"
+    }
+  ],
+  "securityNotes": "Read SKILL.md in full at the pinned SHA. No markdown links present. Plain prose covering cognitive load assessment (intrinsic/extraneous/germane), wayfinding, focus management, error recovery, and a COGA-guideline reference table. No scripts, no network calls, no credential access, no hidden instructions. Integration footer references to other skills (ui-composition, interaction-design, accessible-content, adaptive-interfaces, inclusive-personas, designpowers-critique) are plain text, not links or required reads -- the six-step process is fully specified in this one file.",
+  "overlaps": [
+    "better-accessibility",
+    "a11y-audit"
+  ],
+  "proposedEntry": {
+    "id": "cognitive-accessibility",
+    "name": "cognitive-accessibility",
+    "description": "Evaluates and reduces cognitive demands in an interface: assesses intrinsic load (complexity inherent to the task), extraneous load (complexity added by poor design), and germane load (effort to learn the system); reduces extraneous load via progressive disclosure, consistent patterns, sensible defaults, and chunking fields into groups of 3-5; ensures wayfinding answers 'where am I / where can I go / where have I been' with progress indicators and savable multi-step flows; protects focus with one primary action per screen and interruption-recovery support; and makes errors cheap via full undo, destructive-action confirmation, preserved form input on failure, and forgiving input formats. Includes a COGA-guideline reference table (provide help, use clear language, ease of finding things, ease of completing tasks, avoid reliance on memory, provide feedback, prevent/support error correction) and a documentation format for cognitive considerations per screen.",
+    "category": "accessibility",
+    "tags": [
+      "a11y",
+      "inclusive-design",
+      "focus-management",
+      "error-recovery"
+    ],
+    "triggers": [
+      "evaluate cognitive load for this flow",
+      "is this too much for working memory",
+      "reduce cognitive load in this form",
+      "wayfinding review for this multi-step process",
+      "design for users with cognitive differences or under stress"
+    ],
+    "inputs": [
+      "A screen, flow, or multi-step process to evaluate or design"
+    ],
+    "outputs": [
+      "Cognitive-load assessment (intrinsic/extraneous/germane) per screen or flow",
+      "Wayfinding, focus-management, and error-recovery recommendations",
+      "Documented cognitive considerations: decisions required, memory demands, wayfinding cues, recovery paths, simplification opportunities"
+    ],
+    "path": "skills/accessibility/cognitive-accessibility",
+    "source": {
+      "type": "third-party",
+      "repository": "Owl-Listener/designpowers",
+      "url": "https://github.com/Owl-Listener/designpowers/tree/cb00757da9d554591fa78d27aa1854d60a05c4f7/skills/cognitive-accessibility",
+      "author": "MC Dean",
+      "license": "MIT",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": "skills/cognitive-accessibility",
+      "upstreamCommit": "cb00757da9d554591fa78d27aa1854d60a05c4f7",
+      "retrievedAt": "2026-08-29",
+      "modified": false,
+      "modifications": []
+    },
+    "compatibility": ["claude-code", "codex", "cursor", "opencode", "amp", "gemini-cli", "copilot", "vs-code", "claude-ai"],
+    "dependencies": [],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "stable",
+    "status": "draft"
+  },
+  "logMd": "#### Owl-Listener/designpowers (inspected 2026-08-29)\n\nSee usability-testing.json for shared repo-level evidence (HEAD SHA, stars, license, full 36-skill enumeration). cognitive-accessibility: relevance 3 (core accessibility work -- cognitive/inclusive design is explicitly in the accessibility category's scope), quality 3 (a named three-part cognitive-load model, concrete reduction techniques, a three-question wayfinding framework, and a COGA-guideline reference table), conformance 2 (single self-contained file, no links, frontmatter is name+description only), uniqueness 2 (the registry's existing accessibility skills -- a11y-audit, a11y-critic, a11y-role-audit, a11y-check-code/page, ultra11y, better-accessibility -- are all WCAG/ARIA/contrast/keyboard focused; none applies a dedicated cognitive-load, wayfinding, or COGA-guideline lens, so this fills a genuine gap). Total 10, vendor."
+}

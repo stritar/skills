@@ -11,74 +11,79 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="page-head">
-<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-visual-design">Visual design</a></nav>
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=visual-design">Visual design</a></nav>
 <h1>diagram-design</h1>
 <p class="badges"><span class="il badge badge-rec"><span class="il-icon" aria-hidden="true">★</span><span class="il-label">Recommended</span></span><span class="il badge badge-dep"><span class="il-label">Needs Python</span></span></p>
-<p class="lede">Produces branded editorial diagrams in 39 visual types (architecture, flowchart, sequence, state machine, ER, timeline, swimlane, quadrant, radar, tree, org chart, layer stack, Venn, pyramid, treemap, bar, slopegraph, Gantt, scatter, Sankey, fishbone, Wardley map, kanban, user journey, deployment, dependency graph, UML class, story map, database schema and more) as standalone self-contained HTML files with inline SVG and CSS, following an opinionated editorial design system: a single style-guide.md source of truth for color and typography tokens, a 4px grid, numeric complexity budgets per type, six mandatory connector-routing rules and an accessible-SVG contract (role=img, aria-labelledby, title/desc). Redraws existing .drawio or Mermaid sources through local structural extractors, onboards brand tokens from a website, skill or folder, supports hand-drawn and terminal skins, exports PNG/SVG, and ships Python verifier scripts for geometry and contrast that the agent runs against its own output.</p>
+<p class="lede">Produces branded editorial diagrams in 39 visual types (architecture, flowchart, sequence, state machine, ER, timeline, swimlane, quadrant, radar, tree, org chart, layer stack, Venn, pyramid, treemap, bar, slopegraph, Gantt, scatter,…</p>
 </header>
 
 <div class="layout">
 <nav class="sidebar" aria-labelledby="contents">
-<h2 id="contents">On this page</h2>
+<h2 id="contents" class="label-caps">On this page</h2>
 <ul class="toc">
-<li><a href="#about">About this skill</a></li>
 <li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
 
-<li><a href="#diagram-design">Diagram Design</a></li>
-<li><a href="#0-first-time-setup-style-guide-gate">0. First-time setup — style guide gate</a></li>
-<li><a href="#1-philosophy">1. Philosophy</a></li>
-<li><a href="#2-when-to-use">2. When to Use</a></li>
-<li><a href="#3-selection-semantic-pattern-then-visual-type">3. Selection: semantic pattern, then visual type</a></li>
-<li><a href="#4-universal-anti-patterns">4. Universal Anti-patterns</a></li>
-<li><a href="#5-design-system">5. Design System</a></li>
-<li><a href="#6-core-svg-primitives">6. Core SVG Primitives</a></li>
-<li><a href="#7-layout-spacing">7. Layout &amp; Spacing</a></li>
-<li><a href="#8-summary-card-pattern">8. Summary Card Pattern</a></li>
-<li><a href="#9-pre-output-checklist-taste-gate">9. Pre-Output Checklist (Taste Gate)</a></li>
-<li><a href="#10-templates-variants">10. Templates &amp; Variants</a></li>
-<li><a href="#11-importing-an-existing-diagram-drawio-and-mermaid">11. Importing an Existing Diagram (draw.io) and Mermaid</a></li>
-<li><a href="#12-output">12. Output</a></li>
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#diagram-design">Diagram Design</a></li>
+<li class="toc-sub"><a href="#0-first-time-setup-style-guide-gate">0. First-time setup — style guide gate</a></li>
+<li class="toc-sub"><a href="#1-philosophy">1. Philosophy</a></li>
+<li class="toc-sub"><a href="#2-when-to-use">2. When to Use</a></li>
+<li class="toc-sub"><a href="#3-selection-semantic-pattern-then-visual-type">3. Selection: semantic pattern, then visual type</a></li>
+<li class="toc-sub"><a href="#4-universal-anti-patterns">4. Universal Anti-patterns</a></li>
+<li class="toc-sub"><a href="#5-design-system">5. Design System</a></li>
+<li class="toc-sub"><a href="#6-core-svg-primitives">6. Core SVG Primitives</a></li>
+<li class="toc-sub"><a href="#7-layout-spacing">7. Layout &amp; Spacing</a></li>
+<li class="toc-sub"><a href="#8-summary-card-pattern">8. Summary Card Pattern</a></li>
+<li class="toc-sub"><a href="#9-pre-output-checklist-taste-gate">9. Pre-Output Checklist (Taste Gate)</a></li>
+<li class="toc-sub"><a href="#10-templates-variants">10. Templates &amp; Variants</a></li>
+<li class="toc-sub"><a href="#11-importing-an-existing-diagram-drawio-and-mermaid">11. Importing an Existing Diagram (draw.io) and Mermaid</a></li>
+<li class="toc-sub"><a href="#12-output">12. Output</a></li>
 </ul>
 </nav>
 
 <main id="main">
-<section id="about" class="meta">
-<h2>About this skill</h2>
-<div class="meta-row"><h3>Use when</h3><ul><li>draw an architecture diagram</li><li>make a flowchart / sequence diagram / ER diagram</li><li>turn this draw.io or Mermaid file into a proper diagram</li><li>create a Gantt chart or timeline</li><li>visualize this as a diagram, not a table</li><li>brand this diagram to match our website</li></ul></div>
-<div class="meta-row"><h3>Works on</h3><ul><li>a description of the system, process, or data to diagram</li><li>optional .drawio/.drawio.png/.drawio.svg or Mermaid .mmd source to redraw</li><li>optional brand source (website URL, installed skill, or local design-token folder) for onboarding</li></ul></div>
-<div class="meta-row"><h3>Produces</h3><ul><li>a self-contained .html file with inline SVG and CSS (the diagram)</li><li>optional .svg and/or .png exports</li><li>for imports, a fidelity ledger reporting what was merged, collapsed, or dropped</li></ul></div>
-<div class="meta-row"><h3>Tags</h3>
-<ul class="tags"><li><a class="tag" href="../index.html?tag=data-visualization">data-visualization</a></li><li><a class="tag" href="../index.html?tag=charts">charts</a></li><li><a class="tag" href="../index.html?tag=visual-hierarchy">visual-hierarchy</a></li><li><a class="tag" href="../index.html?tag=layout">layout</a></li><li><a class="tag" href="../index.html?tag=typography">typography</a></li><li><a class="tag" href="../index.html?tag=color">color</a></li><li><a class="tag" href="../index.html?tag=brand">brand</a></li></ul></div>
-<div class="meta-row"><h3>Requires</h3><ul><li><code>python</code></li></ul></div>
-<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/cathrynlavery/diagram-design/tree/ac490fd1ac4b4014100f93e729cb4ad198700bd4/skills/diagram-design">cathrynlavery/diagram-design</a> by Cathryn Lavery at <code>ac490fd</code>, licence <code>MIT</code>. Modified when vendored: portability.</p></div>
-</section>
-
 <section id="install">
 <h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill diagram-design</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill diagram-design"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
 <ul class="install">
-<li>
-<h3>Any agent, via the skills CLI</h3>
-<div class="cmd"><pre><code>npx skills add stritar/skills --skill diagram-design</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill diagram-design"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Installs into whichever agents it finds on your machine.</p>
-</li>
 <li>
 <h3>Claude Code, as a plugin</h3>
 <div class="cmd"><pre><code>/plugin marketplace add stritar/skills
-/plugin install product-design-visual-design@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-visual-design@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
 /plugin install product-design-visual-design@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Brings the whole visual-design bundle. Use <code>product-design-all</code> for everything.</p>
+<p class="note">Installs the whole <code>visual-design</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
 </li>
 <li>
 <h3>From a clone, copied by hand</h3>
-<div class="cmd"><pre><code>cp -r skills/visual-design/diagram-design ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/visual-design/diagram-design ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<div class="cmd"><pre><code>cp -r skills/visual-design/diagram-design ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/visual-design/diagram-design ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
 <p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
 </li>
 </ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Produces branded editorial diagrams in 39 visual types (architecture, flowchart, sequence, state machine, ER, timeline, swimlane, quadrant, radar, tree, org chart, layer stack, Venn, pyramid, treemap, bar, slopegraph, Gantt, scatter, Sankey, fishbone, Wardley map, kanban, user journey, deployment, dependency graph, UML class, story map, database schema and more) as standalone self-contained HTML files with inline SVG and CSS, following an opinionated editorial design system: a single style-guide.md source of truth for color and typography tokens, a 4px grid, numeric complexity budgets per type, six mandatory connector-routing rules and an accessible-SVG contract (role=img, aria-labelledby, title/desc). Redraws existing .drawio or Mermaid sources through local structural extractors, onboards brand tokens from a website, skill or folder, supports hand-drawn and terminal skins, exports PNG/SVG, and ships Python verifier scripts for geometry and contrast that the agent runs against its own output.</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>draw an architecture diagram</li><li>make a flowchart / sequence diagram / ER diagram</li><li>turn this draw.io or Mermaid file into a proper diagram</li><li>create a Gantt chart or timeline</li><li>visualize this as a diagram, not a table</li><li>brand this diagram to match our website</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>a description of the system, process, or data to diagram</li><li>optional .drawio/.drawio.png/.drawio.svg or Mermaid .mmd source to redraw</li><li>optional brand source (website URL, installed skill, or local design-token folder) for onboarding</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>a self-contained .html file with inline SVG and CSS (the diagram)</li><li>optional .svg and/or .png exports</li><li>for imports, a fidelity ledger reporting what was merged, collapsed, or dropped</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=data-visualization">data-visualization</a></li><li><a class="tag" href="../index.html?tag=charts">charts</a></li><li><a class="tag" href="../index.html?tag=visual-hierarchy">visual-hierarchy</a></li><li><a class="tag" href="../index.html?tag=layout">layout</a></li><li><a class="tag" href="../index.html?tag=typography">typography</a></li><li><a class="tag" href="../index.html?tag=color">color</a></li><li><a class="tag" href="../index.html?tag=brand">brand</a></li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Requires</h3><ul><li><code>python</code></li></ul></div>
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/cathrynlavery/diagram-design/tree/ac490fd1ac4b4014100f93e729cb4ad198700bd4/skills/diagram-design">cathrynlavery/diagram-design</a> by Cathryn Lavery at <code>ac490fd</code>, licence <code>MIT</code>. Modified when vendored: portability.</p>
+</details>
 </section>
 
 
 
-<article class="skill-body">
+<article class="skill-body" id="instructions">
 <h2 class="body-head">Instructions</h2>
 <p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/visual-design/diagram-design/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
 <h2 id="diagram-design">Diagram Design</h2>

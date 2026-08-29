@@ -11,60 +11,65 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="page-head">
-<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-interaction-design">Interaction design</a></nav>
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=interaction-design">Interaction design</a></nav>
 <h1>laws-of-ux</h1>
 <p class="badges"><span class="il badge badge-rec"><span class="il-icon" aria-hidden="true">★</span><span class="il-label">Recommended</span></span></p>
-<p class="lede">Improves or critiques any user interface using 30 evidence-based UX principles drawn from cognitive psychology and perception research (Gestalt grouping, Hick's Law, Fitts's Law, Jakob's Law, Miller's Law, aesthetic-usability effect, cognitive load, and more). Provides a 5-step procedure for running a UX pass on a screen: name the symptom, pull the relevant principles, propose a concrete change citing the principle by name, check for conflicts between principles, and flag when testing with real users is still required. reference/laws.md gives each principle's mechanism, concrete application, pitfalls, and a real-world example.</p>
+<p class="lede">Improves or critiques any user interface using 30 evidence-based UX principles drawn from cognitive psychology and perception research.</p>
 </header>
 
 <div class="layout">
 <nav class="sidebar" aria-labelledby="contents">
-<h2 id="contents">On this page</h2>
+<h2 id="contents" class="label-caps">On this page</h2>
 <ul class="toc">
-<li><a href="#about">About this skill</a></li>
 <li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
 <li><a href="#related">Works with</a></li>
-<li><a href="#laws-of-ux">Laws of UX</a></li>
-<li><a href="#how-to-run-a-ux-pass">How to run a UX pass</a></li>
-<li><a href="#the-30-principles-by-what-they-govern">The 30 principles, by what they govern</a></li>
-<li><a href="#index-reach-for-it-when">Index — reach for it when…</a></li>
-<li><a href="#ready-made-combinations">Ready-made combinations</a></li>
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#laws-of-ux">Laws of UX</a></li>
+<li class="toc-sub"><a href="#how-to-run-a-ux-pass">How to run a UX pass</a></li>
+<li class="toc-sub"><a href="#the-30-principles-by-what-they-govern">The 30 principles, by what they govern</a></li>
+<li class="toc-sub"><a href="#index-reach-for-it-when">Index — reach for it when…</a></li>
+<li class="toc-sub"><a href="#ready-made-combinations">Ready-made combinations</a></li>
 </ul>
 </nav>
 
 <main id="main">
-<section id="about" class="meta">
-<h2>About this skill</h2>
-<div class="meta-row"><h3>Use when</h3><ul><li>review this UI against UX principles</li><li>why does this screen feel cluttered</li><li>apply Hick's Law / Fitts's Law</li><li>critique this design</li><li>diagnose why users abandon this form</li><li>cite a UX law for this decision</li></ul></div>
-<div class="meta-row"><h3>Works on</h3><ul><li>a screen, flow, or component to design or critique</li><li>optionally, a named symptom (e.g. 'too many buttons', 'feels slow')</li></ul></div>
-<div class="meta-row"><h3>Produces</h3><ul><li>1-3 cited UX principles relevant to the symptom</li><li>a concrete proposed change with the principle named</li><li>a note on any conflicting principles and how they were resolved</li></ul></div>
-<div class="meta-row"><h3>Tags</h3>
-<ul class="tags"><li><a class="tag" href="../index.html?tag=ui-design">ui-design</a></li><li><a class="tag" href="../index.html?tag=interaction-design">interaction-design</a></li><li><a class="tag" href="../index.html?tag=visual-hierarchy">visual-hierarchy</a></li><li><a class="tag" href="../index.html?tag=design-critique">design-critique</a></li><li><a class="tag" href="../index.html?tag=onboarding">onboarding</a></li><li><a class="tag" href="../index.html?tag=forms">forms</a></li></ul></div>
-
-<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/ali-kk/uxlaws/tree/4defa957c3058b89f4a53dc794865602313c6d97/skills/laws-of-ux">ali-kk/uxlaws</a> by ali-kk at <code>4defa95</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p></div>
-</section>
-
 <section id="install">
 <h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill laws-of-ux</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill laws-of-ux"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
 <ul class="install">
-<li>
-<h3>Any agent, via the skills CLI</h3>
-<div class="cmd"><pre><code>npx skills add stritar/skills --skill laws-of-ux</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill laws-of-ux"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Installs into whichever agents it finds on your machine.</p>
-</li>
 <li>
 <h3>Claude Code, as a plugin</h3>
 <div class="cmd"><pre><code>/plugin marketplace add stritar/skills
-/plugin install product-design-interaction-design@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-interaction-design@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
 /plugin install product-design-interaction-design@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Brings the whole interaction-design bundle. Use <code>product-design-all</code> for everything.</p>
+<p class="note">Installs the whole <code>interaction-design</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
 </li>
 <li>
 <h3>From a clone, copied by hand</h3>
-<div class="cmd"><pre><code>cp -r skills/interaction-design/laws-of-ux ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/interaction-design/laws-of-ux ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<div class="cmd"><pre><code>cp -r skills/interaction-design/laws-of-ux ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/interaction-design/laws-of-ux ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
 <p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
 </li>
 </ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Improves or critiques any user interface using 30 evidence-based UX principles drawn from cognitive psychology and perception research (Gestalt grouping, Hick's Law, Fitts's Law, Jakob's Law, Miller's Law, aesthetic-usability effect, cognitive load, and more). Provides a 5-step procedure for running a UX pass on a screen: name the symptom, pull the relevant principles, propose a concrete change citing the principle by name, check for conflicts between principles, and flag when testing with real users is still required. reference/laws.md gives each principle's mechanism, concrete application, pitfalls, and a real-world example.</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>review this UI against UX principles</li><li>why does this screen feel cluttered</li><li>apply Hick's Law / Fitts's Law</li><li>critique this design</li><li>diagnose why users abandon this form</li><li>cite a UX law for this decision</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>a screen, flow, or component to design or critique</li><li>optionally, a named symptom (e.g. 'too many buttons', 'feels slow')</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>1-3 cited UX principles relevant to the symptom</li><li>a concrete proposed change with the principle named</li><li>a note on any conflicting principles and how they were resolved</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=ui-design">ui-design</a></li><li><a class="tag" href="../index.html?tag=interaction-design">interaction-design</a></li><li><a class="tag" href="../index.html?tag=visual-hierarchy">visual-hierarchy</a></li><li><a class="tag" href="../index.html?tag=design-critique">design-critique</a></li><li><a class="tag" href="../index.html?tag=onboarding">onboarding</a></li><li><a class="tag" href="../index.html?tag=forms">forms</a></li></ul></div>
+
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/ali-kk/uxlaws/tree/4defa957c3058b89f4a53dc794865602313c6d97/skills/laws-of-ux">ali-kk/uxlaws</a> by ali-kk at <code>4defa95</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p>
+</details>
 </section>
 
 <section id="related">
@@ -75,7 +80,7 @@
 </ul>
 </section>
 
-<article class="skill-body">
+<article class="skill-body" id="instructions">
 <h2 class="body-head">Instructions</h2>
 <p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/interaction-design/laws-of-ux/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
 <h2 id="laws-of-ux">Laws of UX</h2>

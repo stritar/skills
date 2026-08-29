@@ -11,64 +11,69 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="page-head">
-<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-agentic-ui">Agentic and AI-native UI</a></nav>
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=agentic-ui">Agentic and AI-native UI</a></nav>
 <h1>conversational-ux</h1>
 <p class="badges"><span class="il badge badge-rec"><span class="il-icon" aria-hidden="true">★</span><span class="il-label">Recommended</span></span></p>
-<p class="lede">Makes the agent design voice and chat interfaces around the conversation turn: a confirmation-strategy table (explicit/implicit/none by stakes), a three-step error reprompt ladder that never repeats the same prompt, voice-specific writing rules (short sentences, no visual-only references, max three-item lists, sub-8s responses, earcons), multimodal voice+screen rules, text-chat affordances (quick replies, typing indicators, structured cards), persona/tone decisions including no false humanity, and guidance on when conversation is the wrong pattern.</p>
+<p class="lede">Makes the agent design voice and chat interfaces around the conversation turn.</p>
 </header>
 
 <div class="layout">
 <nav class="sidebar" aria-labelledby="contents">
-<h2 id="contents">On this page</h2>
+<h2 id="contents" class="label-caps">On this page</h2>
 <ul class="toc">
-<li><a href="#about">About this skill</a></li>
 <li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
 <li><a href="#related">Works with</a></li>
-<li><a href="#conversational-ux">Conversational UX</a></li>
-<li><a href="#what-you-do">What You Do</a></li>
-<li><a href="#two-surfaces-one-discipline">Two Surfaces, One Discipline</a></li>
-<li><a href="#the-conversation-turn">The Conversation Turn</a></li>
-<li><a href="#error-handling">Error Handling</a></li>
-<li><a href="#voice-specific-design">Voice-Specific Design</a></li>
-<li><a href="#conversational-ui-text-chat-specifics">Conversational UI (Text Chat) Specifics</a></li>
-<li><a href="#persona-and-tone">Persona and Tone</a></li>
-<li><a href="#best-practices">Best Practices</a></li>
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#conversational-ux">Conversational UX</a></li>
+<li class="toc-sub"><a href="#what-you-do">What You Do</a></li>
+<li class="toc-sub"><a href="#two-surfaces-one-discipline">Two Surfaces, One Discipline</a></li>
+<li class="toc-sub"><a href="#the-conversation-turn">The Conversation Turn</a></li>
+<li class="toc-sub"><a href="#error-handling">Error Handling</a></li>
+<li class="toc-sub"><a href="#voice-specific-design">Voice-Specific Design</a></li>
+<li class="toc-sub"><a href="#conversational-ui-text-chat-specifics">Conversational UI (Text Chat) Specifics</a></li>
+<li class="toc-sub"><a href="#persona-and-tone">Persona and Tone</a></li>
+<li class="toc-sub"><a href="#best-practices">Best Practices</a></li>
 </ul>
 </nav>
 
 <main id="main">
-<section id="about" class="meta">
-<h2>About this skill</h2>
-<div class="meta-row"><h3>Use when</h3><ul><li>design a chatbot flow</li><li>voice interface script</li><li>conversational UI</li><li>dialog error recovery</li><li>assistant persona</li><li>IVR or smart speaker skill</li></ul></div>
-<div class="meta-row"><h3>Works on</h3><ul><li>dialog goals</li><li>sample utterances</li><li>product context</li></ul></div>
-<div class="meta-row"><h3>Produces</h3><ul><li>dialog flow with prompts</li><li>error recovery ladder</li><li>persona and tone specification</li></ul></div>
-<div class="meta-row"><h3>Tags</h3>
-<ul class="tags"><li><a class="tag" href="../index.html?tag=conversational-ui">conversational-ui</a></li><li><a class="tag" href="../index.html?tag=agentic-ui">agentic-ui</a></li><li><a class="tag" href="../index.html?tag=error-recovery">error-recovery</a></li><li><a class="tag" href="../index.html?tag=voice-and-tone">voice-and-tone</a></li></ul></div>
-
-<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/Owl-Listener/designer-skills/tree/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/interaction-design/skills/conversational-ux">Owl-Listener/designer-skills</a> by Owl-Listener at <code>20e34c4</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p></div>
-</section>
-
 <section id="install">
 <h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill conversational-ux</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill conversational-ux"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
 <ul class="install">
-<li>
-<h3>Any agent, via the skills CLI</h3>
-<div class="cmd"><pre><code>npx skills add stritar/skills --skill conversational-ux</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill conversational-ux"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Installs into whichever agents it finds on your machine.</p>
-</li>
 <li>
 <h3>Claude Code, as a plugin</h3>
 <div class="cmd"><pre><code>/plugin marketplace add stritar/skills
-/plugin install product-design-agentic-ui@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-agentic-ui@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
 /plugin install product-design-agentic-ui@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Brings the whole agentic-ui bundle. Use <code>product-design-all</code> for everything.</p>
+<p class="note">Installs the whole <code>agentic-ui</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
 </li>
 <li>
 <h3>From a clone, copied by hand</h3>
-<div class="cmd"><pre><code>cp -r skills/agentic-ui/conversational-ux ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/agentic-ui/conversational-ux ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<div class="cmd"><pre><code>cp -r skills/agentic-ui/conversational-ux ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/agentic-ui/conversational-ux ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
 <p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
 </li>
 </ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Makes the agent design voice and chat interfaces around the conversation turn: a confirmation-strategy table (explicit/implicit/none by stakes), a three-step error reprompt ladder that never repeats the same prompt, voice-specific writing rules (short sentences, no visual-only references, max three-item lists, sub-8s responses, earcons), multimodal voice+screen rules, text-chat affordances (quick replies, typing indicators, structured cards), persona/tone decisions including no false humanity, and guidance on when conversation is the wrong pattern.</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>design a chatbot flow</li><li>voice interface script</li><li>conversational UI</li><li>dialog error recovery</li><li>assistant persona</li><li>IVR or smart speaker skill</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>dialog goals</li><li>sample utterances</li><li>product context</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>dialog flow with prompts</li><li>error recovery ladder</li><li>persona and tone specification</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=conversational-ui">conversational-ui</a></li><li><a class="tag" href="../index.html?tag=agentic-ui">agentic-ui</a></li><li><a class="tag" href="../index.html?tag=error-recovery">error-recovery</a></li><li><a class="tag" href="../index.html?tag=voice-and-tone">voice-and-tone</a></li></ul></div>
+
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/Owl-Listener/designer-skills/tree/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/interaction-design/skills/conversational-ux">Owl-Listener/designer-skills</a> by Owl-Listener at <code>20e34c4</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p>
+</details>
 </section>
 
 <section id="related">
@@ -79,7 +84,7 @@
 </ul>
 </section>
 
-<article class="skill-body">
+<article class="skill-body" id="instructions">
 <h2 class="body-head">Instructions</h2>
 <p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/agentic-ui/conversational-ux/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
 <h2 id="conversational-ux">Conversational UX</h2>

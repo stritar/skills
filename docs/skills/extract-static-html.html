@@ -11,60 +11,65 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="page-head">
-<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-design-engineering">Design engineering</a></nav>
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=design-engineering">Design engineering</a></nav>
 <h1>extract-static-html</h1>
 <p class="badges"><span class="il badge badge-dep"><span class="il-label">Needs a browser</span></span><span class="il badge badge-exp"><span class="il-label">Experimental</span></span></p>
-<p class="lede">Produces a single self-contained static HTML file from a rendered web page or app screen. Primary path: a Puppeteer script (scripts/snapshot.ts) launches headless Chrome against a running dev server or built app, captures the rendered DOM plus live CSSOM rules, inlines stylesheets and same-origin icon fonts, converts images and canvases to base64 data URIs, and strips dev-only scripts and HMR overlays; works with any framework, supports dark-mode classes, fixed-element removal, full-page capture and an optional auth script for login-gated pages. Fallback: a browser-subagent DOM capture for pages needing interaction first. Last resort: scripts/extract_inline_html.ts flattens a hand-written React mock into static HTML via Babel, and scripts/post_process.ts inlines remaining local images. Used to capture a specific UI state or produce a portable snapshot for design handoff or documentation.</p>
+<p class="lede">Produces a single self-contained static HTML file from a rendered web page or app screen.</p>
 </header>
 
 <div class="layout">
 <nav class="sidebar" aria-labelledby="contents">
-<h2 id="contents">On this page</h2>
+<h2 id="contents" class="label-caps">On this page</h2>
 <ul class="toc">
-<li><a href="#about">About this skill</a></li>
 <li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
 <li><a href="#related">Works with</a></li>
-<li><a href="#extract-static-html">Extract Static HTML</a></li>
-<li><a href="#which-strategy-to-use">Which Strategy to Use</a></li>
-<li><a href="#strategy-a-puppeteer-snapshot-recommended">Strategy A: Puppeteer Snapshot (Recommended)</a></li>
-<li><a href="#strategy-b-browser-subagent-capture">Strategy B: Browser Subagent Capture</a></li>
-<li><a href="#appendix-static-fallback-mockpagejsx">Appendix: Static Fallback (MockPage.jsx)</a></li>
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#extract-static-html">Extract Static HTML</a></li>
+<li class="toc-sub"><a href="#which-strategy-to-use">Which Strategy to Use</a></li>
+<li class="toc-sub"><a href="#strategy-a-puppeteer-snapshot-recommended">Strategy A: Puppeteer Snapshot (Recommended)</a></li>
+<li class="toc-sub"><a href="#strategy-b-browser-subagent-capture">Strategy B: Browser Subagent Capture</a></li>
+<li class="toc-sub"><a href="#appendix-static-fallback-mockpagejsx">Appendix: Static Fallback (MockPage.jsx)</a></li>
 </ul>
 </nav>
 
 <main id="main">
-<section id="about" class="meta">
-<h2>About this skill</h2>
-<div class="meta-row"><h3>Use when</h3><ul><li>save this page as a static self-contained HTML file</li><li>capture the rendered UI state of this app</li><li>extract standalone HTML from my dev server</li><li>share a static snapshot of this page</li><li>flatten this React mock into standalone HTML</li></ul></div>
-<div class="meta-row"><h3>Works on</h3><ul><li>a running local dev server URL, or a built app directory</li><li>optional React mock component (.jsx) plus its CSS files for the fallback path</li><li>optional auth script for login-gated pages</li></ul></div>
-<div class="meta-row"><h3>Produces</h3><ul><li>a single self-contained HTML file with inlined CSS, base64 images/icon-fonts, and no external references</li></ul></div>
-<div class="meta-row"><h3>Tags</h3>
-<ul class="tags"><li><a class="tag" href="../index.html?tag=frontend">frontend</a></li><li><a class="tag" href="../index.html?tag=handoff">handoff</a></li><li><a class="tag" href="../index.html?tag=documentation">documentation</a></li><li><a class="tag" href="../index.html?tag=implementation-quality">implementation-quality</a></li></ul></div>
-<div class="meta-row"><h3>Requires</h3><ul><li><code>node</code></li><li><code>npm:puppeteer</code></li><li><code>npm:@babel/parser</code></li><li><code>npm:@babel/traverse</code></li><li><code>npm:@babel/generator</code></li><li><code>browser</code></li></ul></div>
-<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/google-labs-code/stitch-skills/tree/0337446dadde6f8c94210444e2aa9d546126480f/plugins/stitch-design/skills/extract-static-html">google-labs-code/stitch-skills</a> by google-labs-code at <code>0337446</code>, licence <code>Apache-2.0</code>. Modified when vendored: portability, compatibility.</p></div>
-</section>
-
 <section id="install">
 <h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill extract-static-html</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill extract-static-html"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
 <ul class="install">
-<li>
-<h3>Any agent, via the skills CLI</h3>
-<div class="cmd"><pre><code>npx skills add stritar/skills --skill extract-static-html</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill extract-static-html"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Installs into whichever agents it finds on your machine.</p>
-</li>
 <li>
 <h3>Claude Code, as a plugin</h3>
 <div class="cmd"><pre><code>/plugin marketplace add stritar/skills
-/plugin install product-design-design-engineering@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-design-engineering@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
 /plugin install product-design-design-engineering@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Brings the whole design-engineering bundle. Use <code>product-design-all</code> for everything.</p>
+<p class="note">Installs the whole <code>design-engineering</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
 </li>
 <li>
 <h3>From a clone, copied by hand</h3>
-<div class="cmd"><pre><code>cp -r skills/design-engineering/extract-static-html ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/design-engineering/extract-static-html ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<div class="cmd"><pre><code>cp -r skills/design-engineering/extract-static-html ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/design-engineering/extract-static-html ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
 <p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
 </li>
 </ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Produces a single self-contained static HTML file from a rendered web page or app screen. Primary path: a Puppeteer script (scripts/snapshot.ts) launches headless Chrome against a running dev server or built app, captures the rendered DOM plus live CSSOM rules, inlines stylesheets and same-origin icon fonts, converts images and canvases to base64 data URIs, and strips dev-only scripts and HMR overlays; works with any framework, supports dark-mode classes, fixed-element removal, full-page capture and an optional auth script for login-gated pages. Fallback: a browser-subagent DOM capture for pages needing interaction first. Last resort: scripts/extract_inline_html.ts flattens a hand-written React mock into static HTML via Babel, and scripts/post_process.ts inlines remaining local images. Used to capture a specific UI state or produce a portable snapshot for design handoff or documentation.</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>save this page as a static self-contained HTML file</li><li>capture the rendered UI state of this app</li><li>extract standalone HTML from my dev server</li><li>share a static snapshot of this page</li><li>flatten this React mock into standalone HTML</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>a running local dev server URL, or a built app directory</li><li>optional React mock component (.jsx) plus its CSS files for the fallback path</li><li>optional auth script for login-gated pages</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>a single self-contained HTML file with inlined CSS, base64 images/icon-fonts, and no external references</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=frontend">frontend</a></li><li><a class="tag" href="../index.html?tag=handoff">handoff</a></li><li><a class="tag" href="../index.html?tag=documentation">documentation</a></li><li><a class="tag" href="../index.html?tag=implementation-quality">implementation-quality</a></li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Requires</h3><ul><li><code>node</code></li><li><code>npm:puppeteer</code></li><li><code>npm:@babel/parser</code></li><li><code>npm:@babel/traverse</code></li><li><code>npm:@babel/generator</code></li><li><code>browser</code></li></ul></div>
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/google-labs-code/stitch-skills/tree/0337446dadde6f8c94210444e2aa9d546126480f/plugins/stitch-design/skills/extract-static-html">google-labs-code/stitch-skills</a> by google-labs-code at <code>0337446</code>, licence <code>Apache-2.0</code>. Modified when vendored: portability, compatibility.</p>
+</details>
 </section>
 
 <section id="related">
@@ -74,7 +79,7 @@
 </ul>
 </section>
 
-<article class="skill-body">
+<article class="skill-body" id="instructions">
 <h2 class="body-head">Instructions</h2>
 <p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/design-engineering/extract-static-html/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
 <h2 id="extract-static-html">Extract Static HTML</h2>

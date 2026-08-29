@@ -1,0 +1,84 @@
+{
+  "id": "accessible-content",
+  "category": "content-design",
+  "verdict": "vendor",
+  "rubric": {
+    "relevance": 3,
+    "quality": 3,
+    "conformance": 2,
+    "uniqueness": 2
+  },
+  "upstream": {
+    "repository": "Owl-Listener/designpowers",
+    "url": "https://github.com/Owl-Listener/designpowers/tree/cb00757da9d554591fa78d27aa1854d60a05c4f7/skills/accessible-content",
+    "author": "MC Dean",
+    "commit": "cb00757da9d554591fa78d27aa1854d60a05c4f7",
+    "path": "skills/accessible-content",
+    "license": "MIT",
+    "licenseSource": "repo-root:LICENSE"
+  },
+  "files": [
+    {
+      "dest": "SKILL.md",
+      "rawUrl": "https://raw.githubusercontent.com/Owl-Listener/designpowers/cb00757da9d554591fa78d27aa1854d60a05c4f7/skills/accessible-content/SKILL.md",
+      "blobSha": "c99bf4e94c3d6069512cba3a29e157feff5e7424"
+    },
+    {
+      "dest": "LICENSE.txt",
+      "rawUrl": "https://raw.githubusercontent.com/Owl-Listener/designpowers/cb00757da9d554591fa78d27aa1854d60a05c4f7/LICENSE",
+      "blobSha": "2f3f2b283f2116cf6927b85262269a1960bbff8a"
+    }
+  ],
+  "securityNotes": "Read SKILL.md in full at the pinned SHA. No markdown links present. Plain prose covering plain language, heading structure, form labels, alt text, link text, error messages, and table markup, ending in a content-review checklist. No scripts, no network calls, no credential access, no hidden instructions. Integration-footer references (writing-design-plans, ui-composition, interaction-design, cognitive-accessibility, inclusive-personas, designpowers-critique) are plain text, not links -- all eight process steps are fully specified within this one file.",
+  "overlaps": [
+    "ux-writing"
+  ],
+  "proposedEntry": {
+    "id": "accessible-content",
+    "name": "accessible-content",
+    "description": "Writes and structures user-facing content -- labels, headings, error messages, alt text, link text, form instructions, data tables -- so it works for screen readers, second-language readers, and people under stress. Targets a 12-14 reading age with one idea per sentence and active voice; enforces a logical, non-skipped heading hierarchy used for structure rather than visual styling; requires visible, programmatically-associated form labels plus required-field indication and error association (aria-describedby); gives a decision table for alt text by image type (informative, decorative, functional, complex, image-of-text); bans context-free link text ('click here', 'read more') in favour of descriptive links; structures error messages as [what happened] + [what to do] without blaming the user; and specifies data-table markup (caption, scoped headers, no layout tables). Ends with an eight-item content-review checklist covering labels, heading hierarchy, link text, error messages, alt text, reading level, and translatability.",
+    "category": "content-design",
+    "tags": [
+      "a11y",
+      "plain-language",
+      "labels",
+      "error-messages",
+      "semantic-html"
+    ],
+    "triggers": [
+      "write accessible interface copy",
+      "review this content for screen readers",
+      "what should this alt text say",
+      "structure headings for this page",
+      "write an accessible error message"
+    ],
+    "inputs": [
+      "Interface copy, labels, error messages, headings, alt text, or form instructions to write or review"
+    ],
+    "outputs": [
+      "Rewritten or reviewed content meeting the plain-language, heading, label, alt-text, link-text, error-message, and table rules",
+      "Completed content-review checklist"
+    ],
+    "path": "skills/content-design/accessible-content",
+    "source": {
+      "type": "third-party",
+      "repository": "Owl-Listener/designpowers",
+      "url": "https://github.com/Owl-Listener/designpowers/tree/cb00757da9d554591fa78d27aa1854d60a05c4f7/skills/accessible-content",
+      "author": "MC Dean",
+      "license": "MIT",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": "skills/accessible-content",
+      "upstreamCommit": "cb00757da9d554591fa78d27aa1854d60a05c4f7",
+      "retrievedAt": "2026-08-29",
+      "modified": false,
+      "modifications": []
+    },
+    "compatibility": ["claude-code", "codex", "cursor", "opencode", "amp", "gemini-cli", "copilot", "vs-code", "claude-ai"],
+    "dependencies": [],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "stable",
+    "status": "draft"
+  },
+  "logMd": "#### Owl-Listener/designpowers (inspected 2026-08-29)\n\nSee usability-testing.json for shared repo-level evidence (HEAD SHA, stars, license, full 36-skill enumeration). accessible-content: relevance 3 (content that must work for screen readers and plain-language readers is core, specific WCAG-adjacent work), quality 3 (concrete reading-level target, an alt-text decision table by image type, specific ARIA-association rules for labels and errors, and an eight-item review checklist), conformance 2 (single self-contained file, no links, frontmatter is name+description only), uniqueness 2 (registry's ux-writing covers general microcopy/voice/tone but has no dedicated alt-text decision table, heading-hierarchy-for-screen-readers guidance, or aria-describedby error-association rule -- this is a distinct accessibility-of-content lens the content-design category currently lacks). Total 10, vendor."
+}

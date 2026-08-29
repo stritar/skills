@@ -11,65 +11,70 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="page-head">
-<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-design-systems">Design systems</a></nav>
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=design-systems">Design systems</a></nav>
 <h1>frontend-ui-dark-ts</h1>
 <p class="badges"><span class="il badge badge-dep"><span class="il-label">Needs Node</span></span></p>
-<p class="lede">A complete dark-theme design-token and component system for React + Tailwind CSS + Framer Motion applications: CSS custom properties and Tailwind config for brand/neutral/text/border/status/data-viz color scales, spacing/radius/shadow/z-index scales, glassmorphism utility classes, and Framer Motion timing/easing presets, plus ready-to-use TSX source for Button, Input, Card, Badge, Dialog, Tabs, Avatar, Checkbox, Select, and Toast components, and page-layout patterns (app shell, responsive mobile drawer, dashboard, list/tabs/settings-form templates, empty states, skeleton loaders) built for dashboards and admin panels.</p>
+<p class="lede">A complete dark-theme design-token and component system for React + Tailwind CSS + Framer Motion applications.</p>
 </header>
 
 <div class="layout">
 <nav class="sidebar" aria-labelledby="contents">
-<h2 id="contents">On this page</h2>
+<h2 id="contents" class="label-caps">On this page</h2>
 <ul class="toc">
-<li><a href="#about">About this skill</a></li>
 <li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
 <li><a href="#related">Works with</a></li>
-<li><a href="#frontend-ui-dark-theme-typescript">Frontend UI Dark Theme (TypeScript)</a></li>
-<li><a href="#stack">Stack</a></li>
-<li><a href="#quick-start">Quick Start</a></li>
-<li><a href="#project-structure">Project Structure</a></li>
-<li><a href="#configuration">Configuration</a></li>
-<li><a href="#animation-patterns">Animation Patterns</a></li>
-<li><a href="#glass-effect-patterns">Glass Effect Patterns</a></li>
-<li><a href="#typography">Typography</a></li>
-<li><a href="#color-usage">Color Usage</a></li>
-<li><a href="#related-files">Related Files</a></li>
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#frontend-ui-dark-theme-typescript">Frontend UI Dark Theme (TypeScript)</a></li>
+<li class="toc-sub"><a href="#stack">Stack</a></li>
+<li class="toc-sub"><a href="#quick-start">Quick Start</a></li>
+<li class="toc-sub"><a href="#project-structure">Project Structure</a></li>
+<li class="toc-sub"><a href="#configuration">Configuration</a></li>
+<li class="toc-sub"><a href="#animation-patterns">Animation Patterns</a></li>
+<li class="toc-sub"><a href="#glass-effect-patterns">Glass Effect Patterns</a></li>
+<li class="toc-sub"><a href="#typography">Typography</a></li>
+<li class="toc-sub"><a href="#color-usage">Color Usage</a></li>
+<li class="toc-sub"><a href="#related-files">Related Files</a></li>
 </ul>
 </nav>
 
 <main id="main">
-<section id="about" class="meta">
-<h2>About this skill</h2>
-<div class="meta-row"><h3>Use when</h3><ul><li>build a dark-themed React dashboard</li><li>set up design tokens for a dark UI</li><li>need a glassmorphism component library</li><li>create an admin panel with Tailwind and Framer Motion</li></ul></div>
-<div class="meta-row"><h3>Works on</h3><ul><li>a React + TypeScript + Vite project to apply the theme to</li></ul></div>
-<div class="meta-row"><h3>Produces</h3><ul><li>Tailwind config and CSS custom properties implementing the token system</li><li>reusable TSX UI components (Button, Input, Card, Badge, Dialog, Tabs, Avatar, Checkbox, Select, Toast)</li><li>page-layout templates (app shell, dashboard, list, tabs, settings form, empty/loading states)</li></ul></div>
-<div class="meta-row"><h3>Tags</h3>
-<ul class="tags"><li><a class="tag" href="../index.html?tag=design-tokens">design-tokens</a></li><li><a class="tag" href="../index.html?tag=component-api">component-api</a></li><li><a class="tag" href="../index.html?tag=component-docs">component-docs</a></li><li><a class="tag" href="../index.html?tag=pattern-library">pattern-library</a></li><li><a class="tag" href="../index.html?tag=dark-mode">dark-mode</a></li><li><a class="tag" href="../index.html?tag=color">color</a></li><li><a class="tag" href="../index.html?tag=typography">typography</a></li></ul></div>
-<div class="meta-row"><h3>Requires</h3><ul><li><code>node</code></li></ul></div>
-<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/microsoft/skills/tree/7066b58141d8cc66f39356b2ee5bb64d428dcf17/.github/plugins/azure-sdk-typescript/skills/frontend-ui-dark-ts">microsoft/skills</a> by Microsoft at <code>7066b58</code>, licence <code>MIT</code>. Modified when vendored: portability.</p></div>
-</section>
-
 <section id="install">
 <h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill frontend-ui-dark-ts</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill frontend-ui-dark-ts"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
 <ul class="install">
-<li>
-<h3>Any agent, via the skills CLI</h3>
-<div class="cmd"><pre><code>npx skills add stritar/skills --skill frontend-ui-dark-ts</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill frontend-ui-dark-ts"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Installs into whichever agents it finds on your machine.</p>
-</li>
 <li>
 <h3>Claude Code, as a plugin</h3>
 <div class="cmd"><pre><code>/plugin marketplace add stritar/skills
-/plugin install product-design-design-systems@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-design-systems@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
 /plugin install product-design-design-systems@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Brings the whole design-systems bundle. Use <code>product-design-all</code> for everything.</p>
+<p class="note">Installs the whole <code>design-systems</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
 </li>
 <li>
 <h3>From a clone, copied by hand</h3>
-<div class="cmd"><pre><code>cp -r skills/design-systems/frontend-ui-dark-ts ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/design-systems/frontend-ui-dark-ts ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<div class="cmd"><pre><code>cp -r skills/design-systems/frontend-ui-dark-ts ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/design-systems/frontend-ui-dark-ts ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
 <p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
 </li>
 </ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>A complete dark-theme design-token and component system for React + Tailwind CSS + Framer Motion applications: CSS custom properties and Tailwind config for brand/neutral/text/border/status/data-viz color scales, spacing/radius/shadow/z-index scales, glassmorphism utility classes, and Framer Motion timing/easing presets, plus ready-to-use TSX source for Button, Input, Card, Badge, Dialog, Tabs, Avatar, Checkbox, Select, and Toast components, and page-layout patterns (app shell, responsive mobile drawer, dashboard, list/tabs/settings-form templates, empty states, skeleton loaders) built for dashboards and admin panels.</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>build a dark-themed React dashboard</li><li>set up design tokens for a dark UI</li><li>need a glassmorphism component library</li><li>create an admin panel with Tailwind and Framer Motion</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>a React + TypeScript + Vite project to apply the theme to</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>Tailwind config and CSS custom properties implementing the token system</li><li>reusable TSX UI components (Button, Input, Card, Badge, Dialog, Tabs, Avatar, Checkbox, Select, Toast)</li><li>page-layout templates (app shell, dashboard, list, tabs, settings form, empty/loading states)</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=design-tokens">design-tokens</a></li><li><a class="tag" href="../index.html?tag=component-api">component-api</a></li><li><a class="tag" href="../index.html?tag=component-docs">component-docs</a></li><li><a class="tag" href="../index.html?tag=pattern-library">pattern-library</a></li><li><a class="tag" href="../index.html?tag=dark-mode">dark-mode</a></li><li><a class="tag" href="../index.html?tag=color">color</a></li><li><a class="tag" href="../index.html?tag=typography">typography</a></li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Requires</h3><ul><li><code>node</code></li></ul></div>
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/microsoft/skills/tree/7066b58141d8cc66f39356b2ee5bb64d428dcf17/.github/plugins/azure-sdk-typescript/skills/frontend-ui-dark-ts">microsoft/skills</a> by Microsoft at <code>7066b58</code>, licence <code>MIT</code>. Modified when vendored: portability.</p>
+</details>
 </section>
 
 <section id="related">
@@ -80,7 +85,7 @@
 </ul>
 </section>
 
-<article class="skill-body">
+<article class="skill-body" id="instructions">
 <h2 class="body-head">Instructions</h2>
 <p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/design-systems/frontend-ui-dark-ts/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
 <h2 id="frontend-ui-dark-theme-typescript">Frontend UI Dark Theme (TypeScript)</h2>

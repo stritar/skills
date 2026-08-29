@@ -11,60 +11,65 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="page-head">
-<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-interaction-design">Interaction design</a></nav>
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=interaction-design">Interaction design</a></nav>
 <h1>animation-vocabulary</h1>
 <p class="badges"></p>
-<p class="lede">Reverse-lookup glossary that turns a vague, feel-based description of a web animation or motion effect ('the bouncy thing when a popover opens', 'the iOS rubber-band scroll') into its precise, quotable term, organized into ten categories (entrances/exits, sequencing, transforms, state transitions, scroll, feedback, easing, springs, looping, polish, performance, and design principles) with a disambiguation method for near-synonymous terms like clip-path vs. mask or pop-in vs. bounce.</p>
+<p class="lede">Reverse-lookup glossary that turns a vague, feel-based description of a web animation or motion effect ('the bouncy thing when a popover opens', 'the iOS rubber-band scroll') into its precise, quotable term, organized into ten categories.</p>
 </header>
 
 <div class="layout">
 <nav class="sidebar" aria-labelledby="contents">
-<h2 id="contents">On this page</h2>
+<h2 id="contents" class="label-caps">On this page</h2>
 <ul class="toc">
-<li><a href="#about">About this skill</a></li>
 <li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
 <li><a href="#related">Works with</a></li>
-<li><a href="#animation-vocabulary">Animation Vocabulary</a></li>
-<li><a href="#quick-start">Quick Start</a></li>
 <li><a href="#instructions">Instructions</a></li>
-<li><a href="#examples">Examples</a></li>
-<li><a href="#glossary">Glossary</a></li>
+<li class="toc-sub"><a href="#animation-vocabulary">Animation Vocabulary</a></li>
+<li class="toc-sub"><a href="#quick-start">Quick Start</a></li>
+<li class="toc-sub"><a href="#instructions-2">Instructions</a></li>
+<li class="toc-sub"><a href="#examples">Examples</a></li>
+<li class="toc-sub"><a href="#glossary">Glossary</a></li>
 </ul>
 </nav>
 
 <main id="main">
-<section id="about" class="meta">
-<h2>About this skill</h2>
-<div class="meta-row"><h3>Use when</h3><ul><li>what's this animation called</li><li>name this motion effect</li><li>what's the term for this transition</li><li>how do I describe this effect to an AI</li></ul></div>
-<div class="meta-row"><h3>Works on</h3><ul><li>a loose, sensation-based description of an animation or motion effect</li></ul></div>
-<div class="meta-row"><h3>Produces</h3><ul><li>the matching glossary term with its definition, plus close alternates and how they differ when ambiguous</li></ul></div>
-<div class="meta-row"><h3>Tags</h3>
-<ul class="tags"><li><a class="tag" href="../index.html?tag=motion">motion</a></li><li><a class="tag" href="../index.html?tag=animation">animation</a></li><li><a class="tag" href="../index.html?tag=terminology">terminology</a></li><li><a class="tag" href="../index.html?tag=interaction-design">interaction-design</a></li></ul></div>
-
-<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/animation-vocabulary">emilkowalski/skills</a> by Emil Kowalski at <code>d23d7f8</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p></div>
-</section>
-
 <section id="install">
 <h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill animation-vocabulary</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill animation-vocabulary"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
 <ul class="install">
-<li>
-<h3>Any agent, via the skills CLI</h3>
-<div class="cmd"><pre><code>npx skills add stritar/skills --skill animation-vocabulary</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill animation-vocabulary"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Installs into whichever agents it finds on your machine.</p>
-</li>
 <li>
 <h3>Claude Code, as a plugin</h3>
 <div class="cmd"><pre><code>/plugin marketplace add stritar/skills
-/plugin install product-design-interaction-design@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-interaction-design@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
 /plugin install product-design-interaction-design@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Brings the whole interaction-design bundle. Use <code>product-design-all</code> for everything.</p>
+<p class="note">Installs the whole <code>interaction-design</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
 </li>
 <li>
 <h3>From a clone, copied by hand</h3>
-<div class="cmd"><pre><code>cp -r skills/interaction-design/animation-vocabulary ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/interaction-design/animation-vocabulary ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<div class="cmd"><pre><code>cp -r skills/interaction-design/animation-vocabulary ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/interaction-design/animation-vocabulary ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
 <p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
 </li>
 </ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Reverse-lookup glossary that turns a vague, feel-based description of a web animation or motion effect ('the bouncy thing when a popover opens', 'the iOS rubber-band scroll') into its precise, quotable term, organized into ten categories (entrances/exits, sequencing, transforms, state transitions, scroll, feedback, easing, springs, looping, polish, performance, and design principles) with a disambiguation method for near-synonymous terms like clip-path vs. mask or pop-in vs. bounce.</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>what's this animation called</li><li>name this motion effect</li><li>what's the term for this transition</li><li>how do I describe this effect to an AI</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>a loose, sensation-based description of an animation or motion effect</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>the matching glossary term with its definition, plus close alternates and how they differ when ambiguous</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=motion">motion</a></li><li><a class="tag" href="../index.html?tag=animation">animation</a></li><li><a class="tag" href="../index.html?tag=terminology">terminology</a></li><li><a class="tag" href="../index.html?tag=interaction-design">interaction-design</a></li></ul></div>
+
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/animation-vocabulary">emilkowalski/skills</a> by Emil Kowalski at <code>d23d7f8</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p>
+</details>
 </section>
 
 <section id="related">
@@ -74,7 +79,7 @@
 </ul>
 </section>
 
-<article class="skill-body">
+<article class="skill-body" id="instructions">
 <h2 class="body-head">Instructions</h2>
 <p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/interaction-design/animation-vocabulary/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
 <h2 id="animation-vocabulary">Animation Vocabulary</h2>
@@ -84,7 +89,7 @@
 <pre><code>**Stagger** — Animate several items one after another with a small delay between each, creating a cascade.
 </code></pre>
 <p>If several terms could fit, list the best match first, then 1–2 alternates with a one-line note on how they differ.</p>
-<h3 id="instructions">Instructions</h3>
+<h3 id="instructions-2">Instructions</h3>
 <ol>
 <li><strong>Read for intent, not keywords.</strong> Users describe what they <em>see</em> or <em>feel</em> (&quot;springy&quot;, &quot;slides off&quot;, &quot;draws itself in&quot;), not the technical name. Map the sensation to the glossary below.</li>
 <li><strong>Quote the glossary verbatim.</strong> Its descriptions are authoritative — use them as-is, don't paraphrase.</li>

@@ -11,65 +11,70 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="page-head">
-<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-accessibility">Accessibility</a></nav>
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=accessibility">Accessibility</a></nav>
 <h1>ultra11y</h1>
 <p class="badges"><span class="il badge badge-dep"><span class="il-label">Needs Playwright</span></span><span class="il badge badge-exp"><span class="il-label">Experimental</span></span></p>
-<p class="lede">Audits a repository, site, or page against WCAG 2.2 AA or a pluggable country standard (e.g. RGAA) using a bundled, install-free engine that runs 93 static checks tied to specific success criteria with cross-file JSX/TSX AST analysis, routes rendering-dependent criteria (computed contrast, zoom/reflow, focus visibility) to an optional browser scan tier, and has the agent adjudicate judgment criteria (alt-text relevance, link purpose, reading order) from harvested evidence — never silently marking a criterion conforming without recorded proof. Produces dated Markdown/HTML conformance reports, per-page criterion grids, PRD-style backlogs, and filed tickets (GitHub/GitLab/Jira), and can also author accessible markup and apply safe automated fixes. Self-benchmarked against the W3C ACT-Rules corpus (125/176 failing examples caught across 40 rules, zero false positives).</p>
+<p class="lede">Audits a repository, site, or page against WCAG 2.2 AA or a pluggable country standard.</p>
 </header>
 
 <div class="layout">
 <nav class="sidebar" aria-labelledby="contents">
-<h2 id="contents">On this page</h2>
+<h2 id="contents" class="label-caps">On this page</h2>
 <ul class="toc">
-<li><a href="#about">About this skill</a></li>
 <li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
 <li><a href="#related">Works with</a></li>
-<li><a href="#ultra11y-audit-wcag-22-aa-and-write-accessible-markup">ultra11y — audit WCAG 2.2 AA and write accessible markup</a></li>
-<li><a href="#the-reference-library">The reference library</a></li>
-<li><a href="#choose-by-situation">Choose by situation</a></li>
-<li><a href="#orchestration-route-by-harness">Orchestration — route by harness</a></li>
-<li><a href="#command-cheat-sheet">Command cheat sheet</a></li>
-<li><a href="#the-loop-audit-render-judge-fix-re-audit">The loop: audit → render → judge → fix → re-audit</a></li>
-<li><a href="#handing-over-to-review-a11y">Handing over to review-a11y</a></li>
-<li><a href="#combining-engine-judgment-and-residual-risk">Combining engine, judgment and residual risk</a></li>
-<li><a href="#do-not">Do not</a></li>
-<li><a href="#scope">Scope</a></li>
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#ultra11y-audit-wcag-22-aa-and-write-accessible-markup">ultra11y — audit WCAG 2.2 AA and write accessible markup</a></li>
+<li class="toc-sub"><a href="#the-reference-library">The reference library</a></li>
+<li class="toc-sub"><a href="#choose-by-situation">Choose by situation</a></li>
+<li class="toc-sub"><a href="#orchestration-route-by-harness">Orchestration — route by harness</a></li>
+<li class="toc-sub"><a href="#command-cheat-sheet">Command cheat sheet</a></li>
+<li class="toc-sub"><a href="#the-loop-audit-render-judge-fix-re-audit">The loop: audit → render → judge → fix → re-audit</a></li>
+<li class="toc-sub"><a href="#handing-over-to-review-a11y">Handing over to review-a11y</a></li>
+<li class="toc-sub"><a href="#combining-engine-judgment-and-residual-risk">Combining engine, judgment and residual risk</a></li>
+<li class="toc-sub"><a href="#do-not">Do not</a></li>
+<li class="toc-sub"><a href="#scope">Scope</a></li>
 </ul>
 </nav>
 
 <main id="main">
-<section id="about" class="meta">
-<h2>About this skill</h2>
-<div class="meta-row"><h3>Use when</h3><ul><li>audit this repo for accessibility</li><li>generate a WCAG conformance report</li><li>run an RGAA accessibility audit</li><li>produce an accessibility PRD backlog</li><li>author accessible markup for this component</li></ul></div>
-<div class="meta-row"><h3>Works on</h3><ul><li>source file globs, a site URL, or a rendered page to audit</li><li>an optional country-standard pack (e.g. RGAA) and prior audit JSON to merge/re-scan against</li></ul></div>
-<div class="meta-row"><h3>Produces</h3><ul><li>dated Markdown/HTML conformance report with per-criterion status</li><li>per-page compliance grid from rendered-page scans</li><li>PRD-style backlog and/or filed tickets grouped by WCAG criterion</li></ul></div>
-<div class="meta-row"><h3>Tags</h3>
-<ul class="tags"><li><a class="tag" href="../index.html?tag=a11y">a11y</a></li><li><a class="tag" href="../index.html?tag=wcag">wcag</a></li><li><a class="tag" href="../index.html?tag=aria">aria</a></li><li><a class="tag" href="../index.html?tag=keyboard">keyboard</a></li><li><a class="tag" href="../index.html?tag=focus-management">focus-management</a></li><li><a class="tag" href="../index.html?tag=contrast">contrast</a></li><li><a class="tag" href="../index.html?tag=semantic-html">semantic-html</a></li><li><a class="tag" href="../index.html?tag=forms">forms</a></li><li><a class="tag" href="../index.html?tag=severity">severity</a></li><li><a class="tag" href="../index.html?tag=audit">audit</a></li><li><a class="tag" href="../index.html?tag=remediation">remediation</a></li><li><a class="tag" href="../index.html?tag=documentation">documentation</a></li></ul></div>
-<div class="meta-row"><h3>Requires</h3><ul><li><code>node</code></li><li><code>browser</code></li><li><code>playwright</code></li></ul></div>
-<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/maxgfr/ultra11y/tree/d1cd14792f3bd1b9ab15958bc4e72081375514dc/skills/ultra11y">maxgfr/ultra11y</a> by maxgfr at <code>d1cd147</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p></div>
-</section>
-
 <section id="install">
 <h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill ultra11y</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill ultra11y"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
 <ul class="install">
-<li>
-<h3>Any agent, via the skills CLI</h3>
-<div class="cmd"><pre><code>npx skills add stritar/skills --skill ultra11y</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill ultra11y"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Installs into whichever agents it finds on your machine.</p>
-</li>
 <li>
 <h3>Claude Code, as a plugin</h3>
 <div class="cmd"><pre><code>/plugin marketplace add stritar/skills
-/plugin install product-design-accessibility@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-accessibility@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
 /plugin install product-design-accessibility@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Brings the whole accessibility bundle. Use <code>product-design-all</code> for everything.</p>
+<p class="note">Installs the whole <code>accessibility</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
 </li>
 <li>
 <h3>From a clone, copied by hand</h3>
-<div class="cmd"><pre><code>cp -r skills/accessibility/ultra11y ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/accessibility/ultra11y ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<div class="cmd"><pre><code>cp -r skills/accessibility/ultra11y ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/accessibility/ultra11y ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
 <p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
 </li>
 </ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Audits a repository, site, or page against WCAG 2.2 AA or a pluggable country standard (e.g. RGAA) using a bundled, install-free engine that runs 93 static checks tied to specific success criteria with cross-file JSX/TSX AST analysis, routes rendering-dependent criteria (computed contrast, zoom/reflow, focus visibility) to an optional browser scan tier, and has the agent adjudicate judgment criteria (alt-text relevance, link purpose, reading order) from harvested evidence — never silently marking a criterion conforming without recorded proof. Produces dated Markdown/HTML conformance reports, per-page criterion grids, PRD-style backlogs, and filed tickets (GitHub/GitLab/Jira), and can also author accessible markup and apply safe automated fixes. Self-benchmarked against the W3C ACT-Rules corpus (125/176 failing examples caught across 40 rules, zero false positives).</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>audit this repo for accessibility</li><li>generate a WCAG conformance report</li><li>run an RGAA accessibility audit</li><li>produce an accessibility PRD backlog</li><li>author accessible markup for this component</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>source file globs, a site URL, or a rendered page to audit</li><li>an optional country-standard pack (e.g. RGAA) and prior audit JSON to merge/re-scan against</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>dated Markdown/HTML conformance report with per-criterion status</li><li>per-page compliance grid from rendered-page scans</li><li>PRD-style backlog and/or filed tickets grouped by WCAG criterion</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=a11y">a11y</a></li><li><a class="tag" href="../index.html?tag=wcag">wcag</a></li><li><a class="tag" href="../index.html?tag=aria">aria</a></li><li><a class="tag" href="../index.html?tag=keyboard">keyboard</a></li><li><a class="tag" href="../index.html?tag=focus-management">focus-management</a></li><li><a class="tag" href="../index.html?tag=contrast">contrast</a></li><li><a class="tag" href="../index.html?tag=semantic-html">semantic-html</a></li><li><a class="tag" href="../index.html?tag=forms">forms</a></li><li><a class="tag" href="../index.html?tag=severity">severity</a></li><li><a class="tag" href="../index.html?tag=audit">audit</a></li><li><a class="tag" href="../index.html?tag=remediation">remediation</a></li><li><a class="tag" href="../index.html?tag=documentation">documentation</a></li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Requires</h3><ul><li><code>node</code></li><li><code>browser</code></li><li><code>playwright</code></li></ul></div>
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/maxgfr/ultra11y/tree/d1cd14792f3bd1b9ab15958bc4e72081375514dc/skills/ultra11y">maxgfr/ultra11y</a> by maxgfr at <code>d1cd147</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p>
+</details>
 </section>
 
 <section id="related">
@@ -80,7 +85,7 @@
 </ul>
 </section>
 
-<article class="skill-body">
+<article class="skill-body" id="instructions">
 <h2 class="body-head">Instructions</h2>
 <p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/accessibility/ultra11y/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
 <h2 id="ultra11y-audit-wcag-22-aa-and-write-accessible-markup">ultra11y — audit WCAG 2.2 AA and write accessible markup</h2>

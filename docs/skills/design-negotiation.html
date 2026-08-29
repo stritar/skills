@@ -11,63 +11,68 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="page-head">
-<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-strategy">Product strategy</a></nav>
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=strategy">Product strategy</a></nav>
 <h1>design-negotiation</h1>
 <p class="badges"><span class="il badge badge-rec"><span class="il-icon" aria-hidden="true">★</span><span class="il-label">Recommended</span></span></p>
-<p class="lede">Makes the agent coach a designer through cross-functional negotiations: four scripted contexts (timeline compression, scope cut without review, stakeholder override, resource requests) each with a concrete approach; an evidence hierarchy (research counts, metrics, competitive context, WCAG/legal risk, system precedent) replacing taste and authority arguments; negotiation principles (lead with the user problem, name constraints first, make trade-offs explicit, document decisions that go against design); and long-term credibility building.</p>
+<p class="lede">Makes the agent coach a designer through cross-functional negotiations.</p>
 </header>
 
 <div class="layout">
 <nav class="sidebar" aria-labelledby="contents">
-<h2 id="contents">On this page</h2>
+<h2 id="contents" class="label-caps">On this page</h2>
 <ul class="toc">
-<li><a href="#about">About this skill</a></li>
 <li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
 <li><a href="#related">Works with</a></li>
-<li><a href="#design-negotiation">Design Negotiation</a></li>
-<li><a href="#what-you-do">What You Do</a></li>
-<li><a href="#what-design-negotiation-actually-is">What Design Negotiation Actually Is</a></li>
-<li><a href="#common-negotiation-contexts">Common Negotiation Contexts</a></li>
-<li><a href="#evidence-based-advocacy">Evidence-Based Advocacy</a></li>
-<li><a href="#negotiation-principles">Negotiation Principles</a></li>
-<li><a href="#building-long-term-influence">Building Long-Term Influence</a></li>
-<li><a href="#best-practices">Best Practices</a></li>
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#design-negotiation">Design Negotiation</a></li>
+<li class="toc-sub"><a href="#what-you-do">What You Do</a></li>
+<li class="toc-sub"><a href="#what-design-negotiation-actually-is">What Design Negotiation Actually Is</a></li>
+<li class="toc-sub"><a href="#common-negotiation-contexts">Common Negotiation Contexts</a></li>
+<li class="toc-sub"><a href="#evidence-based-advocacy">Evidence-Based Advocacy</a></li>
+<li class="toc-sub"><a href="#negotiation-principles">Negotiation Principles</a></li>
+<li class="toc-sub"><a href="#building-long-term-influence">Building Long-Term Influence</a></li>
+<li class="toc-sub"><a href="#best-practices">Best Practices</a></li>
 </ul>
 </nav>
 
 <main id="main">
-<section id="about" class="meta">
-<h2>About this skill</h2>
-<div class="meta-row"><h3>Use when</h3><ul><li>push back on scope cut</li><li>defend a design decision</li><li>stakeholder wants a change</li><li>negotiate design timeline</li><li>argue for design resources</li></ul></div>
-<div class="meta-row"><h3>Works on</h3><ul><li>the decision at stake</li><li>available evidence</li><li>stakeholder context</li></ul></div>
-<div class="meta-row"><h3>Produces</h3><ul><li>negotiation approach</li><li>evidence-based argument</li><li>documented trade-off</li></ul></div>
-<div class="meta-row"><h3>Tags</h3>
-<ul class="tags"><li><a class="tag" href="../index.html?tag=stakeholders">stakeholders</a></li><li><a class="tag" href="../index.html?tag=prioritization">prioritization</a></li><li><a class="tag" href="../index.html?tag=decision-records">decision-records</a></li><li><a class="tag" href="../index.html?tag=metrics">metrics</a></li></ul></div>
-
-<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/Owl-Listener/designer-skills/tree/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/designer-toolkit/skills/design-negotiation">Owl-Listener/designer-skills</a> by Owl-Listener at <code>20e34c4</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p></div>
-</section>
-
 <section id="install">
 <h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill design-negotiation</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill design-negotiation"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
 <ul class="install">
-<li>
-<h3>Any agent, via the skills CLI</h3>
-<div class="cmd"><pre><code>npx skills add stritar/skills --skill design-negotiation</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill design-negotiation"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Installs into whichever agents it finds on your machine.</p>
-</li>
 <li>
 <h3>Claude Code, as a plugin</h3>
 <div class="cmd"><pre><code>/plugin marketplace add stritar/skills
-/plugin install product-design-strategy@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-strategy@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
 /plugin install product-design-strategy@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Brings the whole strategy bundle. Use <code>product-design-all</code> for everything.</p>
+<p class="note">Installs the whole <code>strategy</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
 </li>
 <li>
 <h3>From a clone, copied by hand</h3>
-<div class="cmd"><pre><code>cp -r skills/strategy/design-negotiation ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/strategy/design-negotiation ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<div class="cmd"><pre><code>cp -r skills/strategy/design-negotiation ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/strategy/design-negotiation ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
 <p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
 </li>
 </ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Makes the agent coach a designer through cross-functional negotiations: four scripted contexts (timeline compression, scope cut without review, stakeholder override, resource requests) each with a concrete approach; an evidence hierarchy (research counts, metrics, competitive context, WCAG/legal risk, system precedent) replacing taste and authority arguments; negotiation principles (lead with the user problem, name constraints first, make trade-offs explicit, document decisions that go against design); and long-term credibility building.</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>push back on scope cut</li><li>defend a design decision</li><li>stakeholder wants a change</li><li>negotiate design timeline</li><li>argue for design resources</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>the decision at stake</li><li>available evidence</li><li>stakeholder context</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>negotiation approach</li><li>evidence-based argument</li><li>documented trade-off</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=stakeholders">stakeholders</a></li><li><a class="tag" href="../index.html?tag=prioritization">prioritization</a></li><li><a class="tag" href="../index.html?tag=decision-records">decision-records</a></li><li><a class="tag" href="../index.html?tag=metrics">metrics</a></li></ul></div>
+
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/Owl-Listener/designer-skills/tree/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/designer-toolkit/skills/design-negotiation">Owl-Listener/designer-skills</a> by Owl-Listener at <code>20e34c4</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p>
+</details>
 </section>
 
 <section id="related">
@@ -77,7 +82,7 @@
 </ul>
 </section>
 
-<article class="skill-body">
+<article class="skill-body" id="instructions">
 <h2 class="body-head">Instructions</h2>
 <p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/strategy/design-negotiation/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
 <h2 id="design-negotiation">Design Negotiation</h2>

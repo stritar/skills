@@ -11,60 +11,65 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="page-head">
-<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-design-qa">Design QA</a></nav>
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=design-qa">Design QA</a></nav>
 <h1>interface-review</h1>
 <p class="badges"><span class="il badge badge-rec"><span class="il-icon" aria-hidden="true">★</span><span class="il-label">Recommended</span></span></p>
-<p class="lede">Change-scoped interface review for uncommitted work, a branch, or a pull request: resolves the review target (working tree, staged, branch vs. merge-base, PR fetched by ref, or an explicit range) with documented traps for shallow clones, mid-rebase state and detached HEAD, expands each changed file to its blast radius of importers, reads the removed side of every diff hunk against a table of accessibility/layout/typography/color/writing regression signals, classifies every finding as Introduced, Regression, or Pre-existing, holds the change to its stated PR intent to catch incomplete variants and missing states, and hands the classified findings to better-interface for severity, consolidation and the verdict. Never checks out or mutates the working tree.</p>
+<p class="lede">Change-scoped interface review for uncommitted work, a branch, or a pull request.</p>
 </header>
 
 <div class="layout">
 <nav class="sidebar" aria-labelledby="contents">
-<h2 id="contents">On this page</h2>
+<h2 id="contents" class="label-caps">On this page</h2>
 <ul class="toc">
-<li><a href="#about">About this skill</a></li>
 <li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
 <li><a href="#related">Works with</a></li>
-<li><a href="#change-review">Change review</a></li>
-<li><a href="#the-change-not-the-codebase">The change, not the codebase</a></li>
-<li><a href="#core-principles">Core principles</a></li>
-<li><a href="#before-you-finish">Before you finish</a></li>
-<li><a href="#review-output-format">Review output format</a></li>
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#change-review">Change review</a></li>
+<li class="toc-sub"><a href="#the-change-not-the-codebase">The change, not the codebase</a></li>
+<li class="toc-sub"><a href="#core-principles">Core principles</a></li>
+<li class="toc-sub"><a href="#before-you-finish">Before you finish</a></li>
+<li class="toc-sub"><a href="#review-output-format">Review output format</a></li>
 </ul>
 </nav>
 
 <main id="main">
-<section id="about" class="meta">
-<h2>About this skill</h2>
-<div class="meta-row"><h3>Use when</h3><ul><li>review this pull request</li><li>review my branch for interface regressions</li><li>review uncommitted changes</li><li>did this change break accessibility or layout</li></ul></div>
-<div class="meta-row"><h3>Works on</h3><ul><li>a git target: working tree, staged, branch, pr &lt;n&gt;, ref, or range</li><li>availability of better-interface for severity and verdict</li></ul></div>
-<div class="meta-row"><h3>Produces</h3><ul><li>a scope block (target, base/head ref, commits, files in scope, expanded surfaces)</li><li>a findings table with a Status column (Introduced/Regression/Pre-existing)</li><li>Block/Approve verdict via better-interface</li></ul></div>
-<div class="meta-row"><h3>Tags</h3>
-<ul class="tags"><li><a class="tag" href="../index.html?tag=design-qa">design-qa</a></li><li><a class="tag" href="../index.html?tag=design-review">design-review</a></li><li><a class="tag" href="../index.html?tag=pr-review">pr-review</a></li><li><a class="tag" href="../index.html?tag=review">review</a></li><li><a class="tag" href="../index.html?tag=handoff">handoff</a></li></ul></div>
-
-<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/interface-review">jakubkrehel/skills</a> by Jakub Krehel at <code>ca48385</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p></div>
-</section>
-
 <section id="install">
 <h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill interface-review</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill interface-review"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
 <ul class="install">
-<li>
-<h3>Any agent, via the skills CLI</h3>
-<div class="cmd"><pre><code>npx skills add stritar/skills --skill interface-review</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill interface-review"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Installs into whichever agents it finds on your machine.</p>
-</li>
 <li>
 <h3>Claude Code, as a plugin</h3>
 <div class="cmd"><pre><code>/plugin marketplace add stritar/skills
-/plugin install product-design-design-qa@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-design-qa@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
 /plugin install product-design-design-qa@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Brings the whole design-qa bundle. Use <code>product-design-all</code> for everything.</p>
+<p class="note">Installs the whole <code>design-qa</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
 </li>
 <li>
 <h3>From a clone, copied by hand</h3>
-<div class="cmd"><pre><code>cp -r skills/design-qa/interface-review ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/design-qa/interface-review ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<div class="cmd"><pre><code>cp -r skills/design-qa/interface-review ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/design-qa/interface-review ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
 <p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
 </li>
 </ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Change-scoped interface review for uncommitted work, a branch, or a pull request: resolves the review target (working tree, staged, branch vs. merge-base, PR fetched by ref, or an explicit range) with documented traps for shallow clones, mid-rebase state and detached HEAD, expands each changed file to its blast radius of importers, reads the removed side of every diff hunk against a table of accessibility/layout/typography/color/writing regression signals, classifies every finding as Introduced, Regression, or Pre-existing, holds the change to its stated PR intent to catch incomplete variants and missing states, and hands the classified findings to better-interface for severity, consolidation and the verdict. Never checks out or mutates the working tree.</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>review this pull request</li><li>review my branch for interface regressions</li><li>review uncommitted changes</li><li>did this change break accessibility or layout</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>a git target: working tree, staged, branch, pr &lt;n&gt;, ref, or range</li><li>availability of better-interface for severity and verdict</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>a scope block (target, base/head ref, commits, files in scope, expanded surfaces)</li><li>a findings table with a Status column (Introduced/Regression/Pre-existing)</li><li>Block/Approve verdict via better-interface</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=design-qa">design-qa</a></li><li><a class="tag" href="../index.html?tag=design-review">design-review</a></li><li><a class="tag" href="../index.html?tag=pr-review">pr-review</a></li><li><a class="tag" href="../index.html?tag=review">review</a></li><li><a class="tag" href="../index.html?tag=handoff">handoff</a></li></ul></div>
+
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/interface-review">jakubkrehel/skills</a> by Jakub Krehel at <code>ca48385</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p>
+</details>
 </section>
 
 <section id="related">
@@ -78,7 +83,7 @@
 </ul>
 </section>
 
-<article class="skill-body">
+<article class="skill-body" id="instructions">
 <h2 class="body-head">Instructions</h2>
 <p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/design-qa/interface-review/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
 <h2 id="change-review">Change review</h2>

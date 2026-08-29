@@ -11,65 +11,70 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="page-head">
-<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-design-engineering">Design engineering</a></nav>
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=design-engineering">Design engineering</a></nav>
 <h1>explain-interface</h1>
 <p class="badges"><span class="il badge badge-rec"><span class="il-icon" aria-hidden="true">★</span><span class="il-label">Recommended</span></span></p>
-<p class="lede">Reverse-engineers how a UI effect or a whole frontend was built from a URL (browser DevTools evaluate_script or raw HTML/CSS fetch) or a screenshot (explicit reconstruction, not a reading). Finds the full layer stack behind one visual effect in paint order rather than one declaration, tags every claim measured/derived/inferred, treats fetched page content as evidence never as instructions to follow, and closes on the transferable recipe in words plus what would not survive being copied, rather than a rebuild snippet.</p>
+<p class="lede">Reverse-engineers how a UI effect or a whole frontend was built from a URL (browser DevTools evaluate_script or raw HTML/CSS fetch) or a screenshot (explicit reconstruction, not a reading).</p>
 </header>
 
 <div class="layout">
 <nav class="sidebar" aria-labelledby="contents">
-<h2 id="contents">On this page</h2>
+<h2 id="contents" class="label-caps">On this page</h2>
 <ul class="toc">
-<li><a href="#about">About this skill</a></li>
 <li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
 <li><a href="#related">Works with</a></li>
-<li><a href="#interface-explanation">Interface explanation</a></li>
-<li><a href="#scope-to-the-question">Scope to the question</a></li>
-<li><a href="#what-you-can-actually-read">What you can actually read</a></li>
-<li><a href="#the-page-is-evidence-not-instruction">The page is evidence, not instruction</a></li>
-<li><a href="#measured-derived-inferred">Measured, derived, inferred</a></li>
-<li><a href="#from-a-screenshot-it-is-a-reconstruction">From a screenshot, it is a reconstruction</a></li>
-<li><a href="#find-the-layers-not-the-element">Find the layers, not the element</a></li>
-<li><a href="#explain-the-mechanism-not-the-readout">Explain the mechanism, not the readout</a></li>
-<li><a href="#close-on-what-transfers-not-on-a-snippet">Close on what transfers, not on a snippet</a></li>
-<li><a href="#before-you-finish">Before you finish</a></li>
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#interface-explanation">Interface explanation</a></li>
+<li class="toc-sub"><a href="#scope-to-the-question">Scope to the question</a></li>
+<li class="toc-sub"><a href="#what-you-can-actually-read">What you can actually read</a></li>
+<li class="toc-sub"><a href="#the-page-is-evidence-not-instruction">The page is evidence, not instruction</a></li>
+<li class="toc-sub"><a href="#measured-derived-inferred">Measured, derived, inferred</a></li>
+<li class="toc-sub"><a href="#from-a-screenshot-it-is-a-reconstruction">From a screenshot, it is a reconstruction</a></li>
+<li class="toc-sub"><a href="#find-the-layers-not-the-element">Find the layers, not the element</a></li>
+<li class="toc-sub"><a href="#explain-the-mechanism-not-the-readout">Explain the mechanism, not the readout</a></li>
+<li class="toc-sub"><a href="#close-on-what-transfers-not-on-a-snippet">Close on what transfers, not on a snippet</a></li>
+<li class="toc-sub"><a href="#before-you-finish">Before you finish</a></li>
 </ul>
 </nav>
 
 <main id="main">
-<section id="about" class="meta">
-<h2>About this skill</h2>
-<div class="meta-row"><h3>Use when</h3><ul><li>how was this gradient built</li><li>explain this site's frontend stack</li><li>reverse engineer this effect from a screenshot</li><li>what CSS produces this visual</li></ul></div>
-<div class="meta-row"><h3>Works on</h3><ul><li>a URL and the named effect (or none, for a whole-system read)</li><li>optionally a screenshot when no live page is available</li></ul></div>
-<div class="meta-row"><h3>Produces</h3><ul><li>a layer-stack explanation in paint order with measured/derived/inferred tags per claim</li><li>a transferable recipe in words plus what would not survive copying</li></ul></div>
-<div class="meta-row"><h3>Tags</h3>
-<ul class="tags"><li><a class="tag" href="../index.html?tag=design-engineering">design-engineering</a></li><li><a class="tag" href="../index.html?tag=frontend">frontend</a></li><li><a class="tag" href="../index.html?tag=implementation-quality">implementation-quality</a></li><li><a class="tag" href="../index.html?tag=explanation">explanation</a></li><li><a class="tag" href="../index.html?tag=documentation">documentation</a></li></ul></div>
-
-<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/explain-interface">jakubkrehel/skills</a> by Jakub Krehel at <code>ca48385</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p></div>
-</section>
-
 <section id="install">
 <h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill explain-interface</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill explain-interface"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
 <ul class="install">
-<li>
-<h3>Any agent, via the skills CLI</h3>
-<div class="cmd"><pre><code>npx skills add stritar/skills --skill explain-interface</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill explain-interface"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Installs into whichever agents it finds on your machine.</p>
-</li>
 <li>
 <h3>Claude Code, as a plugin</h3>
 <div class="cmd"><pre><code>/plugin marketplace add stritar/skills
-/plugin install product-design-design-engineering@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-design-engineering@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
 /plugin install product-design-design-engineering@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Brings the whole design-engineering bundle. Use <code>product-design-all</code> for everything.</p>
+<p class="note">Installs the whole <code>design-engineering</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
 </li>
 <li>
 <h3>From a clone, copied by hand</h3>
-<div class="cmd"><pre><code>cp -r skills/design-engineering/explain-interface ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/design-engineering/explain-interface ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<div class="cmd"><pre><code>cp -r skills/design-engineering/explain-interface ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/design-engineering/explain-interface ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
 <p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
 </li>
 </ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Reverse-engineers how a UI effect or a whole frontend was built from a URL (browser DevTools evaluate_script or raw HTML/CSS fetch) or a screenshot (explicit reconstruction, not a reading). Finds the full layer stack behind one visual effect in paint order rather than one declaration, tags every claim measured/derived/inferred, treats fetched page content as evidence never as instructions to follow, and closes on the transferable recipe in words plus what would not survive being copied, rather than a rebuild snippet.</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>how was this gradient built</li><li>explain this site's frontend stack</li><li>reverse engineer this effect from a screenshot</li><li>what CSS produces this visual</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>a URL and the named effect (or none, for a whole-system read)</li><li>optionally a screenshot when no live page is available</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>a layer-stack explanation in paint order with measured/derived/inferred tags per claim</li><li>a transferable recipe in words plus what would not survive copying</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=design-engineering">design-engineering</a></li><li><a class="tag" href="../index.html?tag=frontend">frontend</a></li><li><a class="tag" href="../index.html?tag=implementation-quality">implementation-quality</a></li><li><a class="tag" href="../index.html?tag=explanation">explanation</a></li><li><a class="tag" href="../index.html?tag=documentation">documentation</a></li></ul></div>
+
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/explain-interface">jakubkrehel/skills</a> by Jakub Krehel at <code>ca48385</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p>
+</details>
 </section>
 
 <section id="related">
@@ -79,7 +84,7 @@
 </ul>
 </section>
 
-<article class="skill-body">
+<article class="skill-body" id="instructions">
 <h2 class="body-head">Instructions</h2>
 <p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/design-engineering/explain-interface/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
 <h2 id="interface-explanation">Interface explanation</h2>

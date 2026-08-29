@@ -11,62 +11,67 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="page-head">
-<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-visual-design">Visual design</a></nav>
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=visual-design">Visual design</a></nav>
 <h1>theme-factory</h1>
 <p class="badges"><span class="il badge badge-rec"><span class="il-icon" aria-hidden="true">★</span><span class="il-label">Recommended</span></span></p>
-<p class="lede">Applies one of 10 curated color-palette + font-pairing themes (each with named hex colors, header/body font roles, and recommended use cases, shown via a theme-showcase.pdf) to slide decks, documents, or HTML artifacts, or generates a new custom theme on the fly when none of the presets fit, following a show-choices / confirm / apply workflow.</p>
+<p class="lede">Applies one of 10 curated color-palette + font-pairing themes (each with named hex colors, header/body font roles, and recommended use cases, shown via a theme-showcase.pdf) to slide decks, documents, or HTML artifacts.</p>
 </header>
 
 <div class="layout">
 <nav class="sidebar" aria-labelledby="contents">
-<h2 id="contents">On this page</h2>
+<h2 id="contents" class="label-caps">On this page</h2>
 <ul class="toc">
-<li><a href="#about">About this skill</a></li>
 <li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
 <li><a href="#related">Works with</a></li>
-<li><a href="#theme-factory-skill">Theme Factory Skill</a></li>
-<li><a href="#purpose">Purpose</a></li>
-<li><a href="#usage-instructions">Usage Instructions</a></li>
-<li><a href="#themes-available">Themes Available</a></li>
-<li><a href="#theme-details">Theme Details</a></li>
-<li><a href="#application-process">Application Process</a></li>
-<li><a href="#create-your-own-theme">Create your Own Theme</a></li>
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#theme-factory-skill">Theme Factory Skill</a></li>
+<li class="toc-sub"><a href="#purpose">Purpose</a></li>
+<li class="toc-sub"><a href="#usage-instructions">Usage Instructions</a></li>
+<li class="toc-sub"><a href="#themes-available">Themes Available</a></li>
+<li class="toc-sub"><a href="#theme-details">Theme Details</a></li>
+<li class="toc-sub"><a href="#application-process">Application Process</a></li>
+<li class="toc-sub"><a href="#create-your-own-theme">Create your Own Theme</a></li>
 </ul>
 </nav>
 
 <main id="main">
-<section id="about" class="meta">
-<h2>About this skill</h2>
-<div class="meta-row"><h3>Use when</h3><ul><li>apply a theme to this deck</li><li>pick a color and font palette for this document</li><li>show me theme options</li><li>generate a custom theme for this artifact</li></ul></div>
-<div class="meta-row"><h3>Works on</h3><ul><li>an existing artifact/deck/document to style</li><li>optional description of desired mood for a custom theme</li></ul></div>
-<div class="meta-row"><h3>Produces</h3><ul><li>a styled artifact using the chosen theme's colors and fonts</li><li>for custom themes, a new theme spec (palette + font pairing) shown for confirmation before applying</li></ul></div>
-<div class="meta-row"><h3>Tags</h3>
-<ul class="tags"><li><a class="tag" href="../index.html?tag=themes">themes</a></li><li><a class="tag" href="../index.html?tag=color">color</a></li><li><a class="tag" href="../index.html?tag=typography">typography</a></li><li><a class="tag" href="../index.html?tag=visual-polish">visual-polish</a></li></ul></div>
-
-<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/anthropics/skills/tree/3b3fad96af16a10759d930941b4520ba0c40edae/skills/theme-factory">anthropics/skills</a> by Anthropic at <code>3b3fad9</code>, licence <code>Apache-2.0</code>. Vendored byte-identical to upstream.</p></div>
-</section>
-
 <section id="install">
 <h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill theme-factory</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill theme-factory"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
 <ul class="install">
-<li>
-<h3>Any agent, via the skills CLI</h3>
-<div class="cmd"><pre><code>npx skills add stritar/skills --skill theme-factory</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill theme-factory"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Installs into whichever agents it finds on your machine.</p>
-</li>
 <li>
 <h3>Claude Code, as a plugin</h3>
 <div class="cmd"><pre><code>/plugin marketplace add stritar/skills
-/plugin install product-design-visual-design@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-visual-design@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
 /plugin install product-design-visual-design@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Brings the whole visual-design bundle. Use <code>product-design-all</code> for everything.</p>
+<p class="note">Installs the whole <code>visual-design</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
 </li>
 <li>
 <h3>From a clone, copied by hand</h3>
-<div class="cmd"><pre><code>cp -r skills/visual-design/theme-factory ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/visual-design/theme-factory ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<div class="cmd"><pre><code>cp -r skills/visual-design/theme-factory ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/visual-design/theme-factory ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
 <p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
 </li>
 </ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Applies one of 10 curated color-palette + font-pairing themes (each with named hex colors, header/body font roles, and recommended use cases, shown via a theme-showcase.pdf) to slide decks, documents, or HTML artifacts, or generates a new custom theme on the fly when none of the presets fit, following a show-choices / confirm / apply workflow.</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>apply a theme to this deck</li><li>pick a color and font palette for this document</li><li>show me theme options</li><li>generate a custom theme for this artifact</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>an existing artifact/deck/document to style</li><li>optional description of desired mood for a custom theme</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>a styled artifact using the chosen theme's colors and fonts</li><li>for custom themes, a new theme spec (palette + font pairing) shown for confirmation before applying</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=themes">themes</a></li><li><a class="tag" href="../index.html?tag=color">color</a></li><li><a class="tag" href="../index.html?tag=typography">typography</a></li><li><a class="tag" href="../index.html?tag=visual-polish">visual-polish</a></li></ul></div>
+
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/anthropics/skills/tree/3b3fad96af16a10759d930941b4520ba0c40edae/skills/theme-factory">anthropics/skills</a> by Anthropic at <code>3b3fad9</code>, licence <code>Apache-2.0</code>. Vendored byte-identical to upstream.</p>
+</details>
 </section>
 
 <section id="related">
@@ -77,7 +82,7 @@
 </ul>
 </section>
 
-<article class="skill-body">
+<article class="skill-body" id="instructions">
 <h2 class="body-head">Instructions</h2>
 <p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/visual-design/theme-factory/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
 <h2 id="theme-factory-skill">Theme Factory Skill</h2>

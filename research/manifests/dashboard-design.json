@@ -1,0 +1,59 @@
+{
+  "id": "dashboard-design",
+  "category": "interaction-design",
+  "verdict": "not-vendored-keeper",
+  "rubric": { "relevance": 3, "quality": 2, "conformance": 1, "uniqueness": 2 },
+  "upstream": {
+    "repository": "mckinsey/vizro",
+    "url": "https://github.com/mckinsey/vizro/tree/a12d760aa45233d68f4ef3f1cec9cc8b5fcda48f/vizro-e2e-flow/skills/dashboard-design",
+    "author": "McKinsey & Company (Vizro maintainers)",
+    "commit": "a12d760aa45233d68f4ef3f1cec9cc8b5fcda48f",
+    "path": "vizro-e2e-flow/skills/dashboard-design",
+    "license": "Apache-2.0",
+    "licenseSource": "repo-root:LICENSE.txt"
+  },
+  "files": [
+    { "dest": "SKILL.md", "rawUrl": "https://raw.githubusercontent.com/mckinsey/vizro/a12d760aa45233d68f4ef3f1cec9cc8b5fcda48f/vizro-e2e-flow/skills/dashboard-design/SKILL.md", "blobSha": "92289975a6bbe80a6a93b7aba432da91bbe442e9" },
+    { "dest": "assets/1_information_architecture.md", "rawUrl": "https://raw.githubusercontent.com/mckinsey/vizro/a12d760aa45233d68f4ef3f1cec9cc8b5fcda48f/vizro-e2e-flow/skills/dashboard-design/assets/1_information_architecture.md", "blobSha": "1db5205241007478a21600ede9ce1c599051cc02" },
+    { "dest": "assets/2_interaction_ux.md", "rawUrl": "https://raw.githubusercontent.com/mckinsey/vizro/a12d760aa45233d68f4ef3f1cec9cc8b5fcda48f/vizro-e2e-flow/skills/dashboard-design/assets/2_interaction_ux.md", "blobSha": "bbaa5abd802bf82016c879220d097be823f80b74" },
+    { "dest": "assets/3_visual_design.md", "rawUrl": "https://raw.githubusercontent.com/mckinsey/vizro/a12d760aa45233d68f4ef3f1cec9cc8b5fcda48f/vizro-e2e-flow/skills/dashboard-design/assets/3_visual_design.md", "blobSha": "2f62cf28d30e0bb93c4f5bf30e9f46d0d7f3b683" },
+    { "dest": "references/common_mistakes.md", "rawUrl": "https://raw.githubusercontent.com/mckinsey/vizro/a12d760aa45233d68f4ef3f1cec9cc8b5fcda48f/vizro-e2e-flow/skills/dashboard-design/references/common_mistakes.md", "blobSha": "6a0ea43cfd18296e7a8e82c88b722f1ee2560291" },
+    { "dest": "references/information_architecture.md", "rawUrl": "https://raw.githubusercontent.com/mckinsey/vizro/a12d760aa45233d68f4ef3f1cec9cc8b5fcda48f/vizro-e2e-flow/skills/dashboard-design/references/information_architecture.md", "blobSha": "e453d28aa8da760edbb911a591e1c2f4c29d992d" },
+    { "dest": "references/wireframe_templates.md", "rawUrl": "https://raw.githubusercontent.com/mckinsey/vizro/a12d760aa45233d68f4ef3f1cec9cc8b5fcda48f/vizro-e2e-flow/skills/dashboard-design/references/wireframe_templates.md", "blobSha": "55b7a575e765d72081c39e7a7b5a793918c060a0" },
+    { "dest": "LICENSE.txt", "rawUrl": "https://raw.githubusercontent.com/mckinsey/vizro/a12d760aa45233d68f4ef3f1cec9cc8b5fcda48f/LICENSE.txt", "blobSha": null }
+  ],
+  "securityNotes": "Read SKILL.md and all 6 bundled asset/reference files in full at the pinned SHA. Pure prose, ASCII wireframes and markdown tables; no scripts, no code execution, no network calls, no credential handling, no hidden instructions. Clean.",
+  "overlaps": ["critique-information-density", "design-review", "instrumentation-plan"],
+  "proposedEntry": {
+    "id": "dashboard-design",
+    "name": "dashboard-design",
+    "description": "Runs a structured requirements -> layout -> visualization workflow for dashboard design (Vizro-flavored but largely tool-agnostic): Step 1 gathers users/goals/data/structure and applies the 7±2 KPI rule with a 3-level information hierarchy; Step 2 defines navigation, filter placement and ASCII wireframes; Step 3 selects chart types and enforces no-custom-KPI-card rules. Each step produces a spec file for resumable, reviewable design decisions, and a common_mistakes.md anti-pattern library covers all three steps (information overload, poor hierarchy, wrong chart types, color misuse, missing context).",
+    "category": "interaction-design",
+    "tags": ["dashboards", "layout", "visual-hierarchy", "data-visualization", "wireframing"],
+    "triggers": ["design a dashboard", "plan a Vizro dashboard", "structure this dashboard's information architecture", "wireframe a dashboard layout"],
+    "inputs": ["end users, decisions, and data sources for the dashboard", "approved wireframes and chart/KPI choices at each step gate"],
+    "outputs": ["spec/1_information_architecture.md, spec/2_interaction_ux.md, spec/3_visual_design.md documenting requirements, layout/wireframes, and chart selections"],
+    "path": "skills/interaction-design/dashboard-design",
+    "source": {
+      "type": "third-party",
+      "repository": "mckinsey/vizro",
+      "url": "https://github.com/mckinsey/vizro/tree/a12d760aa45233d68f4ef3f1cec9cc8b5fcda48f/vizro-e2e-flow/skills/dashboard-design",
+      "author": "McKinsey & Company (Vizro maintainers)",
+      "license": "Apache-2.0",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": "vizro-e2e-flow/skills/dashboard-design",
+      "upstreamCommit": "a12d760aa45233d68f4ef3f1cec9cc8b5fcda48f",
+      "retrievedAt": "2026-08-29",
+      "modified": false,
+      "modifications": []
+    },
+    "compatibility": ["claude-code", "codex", "cursor", "opencode", "amp", "gemini-cli", "copilot", "vs-code", "claude-ai"],
+    "dependencies": ["vizro"],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "experimental",
+    "status": "draft"
+  },
+  "logMd": "#### mckinsey/vizro (inspected 2026-08-29)\n- Repo pin: a12d760aa45233d68f4ef3f1cec9cc8b5fcda48f (default branch main), 3,785 stars, pushed 2026-08-28T23:03:54Z. Root license file is LICENSE.txt (LICENSE and LICENSE.md both 404): Apache License 2.0, full text read.\n- vizro-e2e-flow/skills/ contains 6 skills forming one chained Vizro workflow: dashboard-build, dashboard-design, designing-vizro-layouts, selecting-vizro-charts, wiring-vizro-actions, writing-vizro-yaml.\n- Read SKILL.md and all 6 bundled files (3 spec-template assets, 3 references) in full.\n- Task-specific check: how much of dashboard-design stands on its own vs. is a pure Vizro API manual. Step 1 (Understand Requirements) is fully general and well-developed -- 7±2 KPI rule, user-archetype table, analytical-question framing, page-structure patterns, all reusable outside Vizro. references/wireframe_templates.md (ASCII wireframe conventions) and references/common_mistakes.md's Step 1 and Step 3 sections are also largely general dashboard-design wisdom. BUT: Step 2 (layout & interaction), which the SKILL.md itself frames as a required, non-skippable stage, explicitly delegates its actual content -- grid system, component sizing, filter-placement rules ('Load the designing-vizro-layouts skill') and all interaction-pattern definitions (the 6 named Patterns 1-6, referenced by name throughout common_mistakes.md and wireframe_templates.md but never defined in any file in this skill's own directory) -- to two sibling skill directories (vizro-e2e-flow/skills/designing-vizro-layouts, vizro-e2e-flow/skills/wiring-vizro-actions) that live outside dashboard-design/. Step 3's chart-type-selection and color-strategy specifics are likewise deferred to vizro-e2e-flow/skills/selecting-vizro-charts. An agent given only the dashboard-design directory cannot complete roughly half of its own mandated 3-step workflow, and cannot resolve the Pattern 1-6 references it uses.\n- Self-containment rule applied: bundling the three sibling skills was considered and rejected -- they are Vizro-API-specific (Vizro's own grid/action/chart components), so pulling them in would mean vendoring Vizro-API-manual content under a 'product design' skill id, contrary to the task's explicit instruction to reject content that is 'purely a Vizro API manual'. The clean alternative is the one the rule offers: keep the skill, name the external dependency, don't vendor.\n- Rubric computed as if vendored (for record): relevance 3, quality 2 (Step 1 and the wireframe/mistakes content are strong, but the workflow's own Step 2/3 core guidance is not actually present in the vendorable files), conformance 1 (unresolvable cross-skill references for a mandated workflow step), uniqueness 2. Total 8 -- would ordinarily clear the vendor bar, but the self-containment rule overrides.\n- Security: clean.\n- Verdict: not-vendored-keeper.",
+  "keeperReason": "SKILL.md's own mandated Step 2 (layout & interaction) and part of Step 3 (chart/color selection) delegate their actual content to three sibling skills outside this directory (designing-vizro-layouts, wiring-vizro-actions, selecting-vizro-charts) -- including six named interaction Patterns referenced throughout the bundled reference files but never defined within them. Bundling those siblings would mean vendoring Vizro-API-manual content, which the task explicitly directs against. Install the full vizro-e2e-flow/skills/ set from upstream instead if the Vizro-specific workflow is wanted."
+}

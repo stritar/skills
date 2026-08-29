@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>inclusive-personas — Product design skills</title>
+<meta name="description" content="Builds personas that represent the full ability spectrum from the start rather than retrofitting accessibility later. Maps permanent conditions (vision, hearing, motor, cognitive, speech), temporary conditions (broken arm, concussion, medication effects), and situational conditions (bright…">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="page-head">
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=research">User research</a></nav>
+<h1>inclusive-personas</h1>
+<p class="badges"></p>
+<p class="lede">Builds personas that represent the full ability spectrum from the start rather than retrofitting accessibility later.</p>
+</header>
+
+<div class="layout">
+<nav class="sidebar" aria-labelledby="contents">
+<h2 id="contents" class="label-caps">On this page</h2>
+<ul class="toc">
+<li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
+
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#inclusive-personas">Inclusive Personas</a></li>
+<li class="toc-sub"><a href="#the-principle">The Principle</a></li>
+<li class="toc-sub"><a href="#process">Process</a></li>
+<li class="toc-sub"><a href="#integration">Integration</a></li>
+<li class="toc-sub"><a href="#anti-patterns">Anti-Patterns</a></li>
+</ul>
+</nav>
+
+<main id="main">
+<section id="install">
+<h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill inclusive-personas</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill inclusive-personas"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
+<ul class="install">
+<li>
+<h3>Claude Code, as a plugin</h3>
+<div class="cmd"><pre><code>/plugin marketplace add stritar/skills
+/plugin install product-design-research@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-research@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Installs the whole <code>research</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
+</li>
+<li>
+<h3>From a clone, copied by hand</h3>
+<div class="cmd"><pre><code>cp -r skills/research/inclusive-personas ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/research/inclusive-personas ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
+</li>
+</ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Builds personas that represent the full ability spectrum from the start rather than retrofitting accessibility later. Maps permanent conditions (vision, hearing, motor, cognitive, speech), temporary conditions (broken arm, concussion, medication effects), and situational conditions (bright sunlight, noisy environment, one hand occupied, unfamiliar language) relevant to the project. Selects 4-6 personas covering 2-3 primary users, 1-2 edge-case users, and one stress-case user; documents each with context, abilities/conditions, technology and assistive-tech use, goals, frustrations, and environment; writes standard, assisted, and stress-path user stories per persona; and maps scenario intersections where different personas share the same underlying need (e.g. a sighted user in bright sunlight and a low-vision user). Ends with a validation prompt (who's missing, do these feel real) and a table of persona anti-patterns to avoid.</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>create personas for this project</li><li>who are we designing for</li><li>build inclusive personas covering the ability spectrum</li><li>write user stories for these personas</li><li>define edge-case and stress-case users</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>The design brief or product context</li><li>Any existing research about the target users</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>4-6 documented personas (context, abilities, technology, goals, frustrations, environment)</li><li>Standard/assisted/stress-path user stories per persona</li><li>Scenario-intersection map and persona anti-pattern check</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=personas">personas</a></li><li><a class="tag" href="../index.html?tag=inclusive-design">inclusive-design</a></li><li><a class="tag" href="../index.html?tag=segmentation">segmentation</a></li><li><a class="tag" href="../index.html?tag=user-research">user-research</a></li></ul></div>
+
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/Owl-Listener/designpowers/tree/cb00757da9d554591fa78d27aa1854d60a05c4f7/skills/inclusive-personas">Owl-Listener/designpowers</a> by MC Dean at <code>cb00757</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p>
+</details>
+</section>
+
+
+
+<article class="skill-body" id="instructions">
+<h2 class="body-head">Instructions</h2>
+<p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/research/inclusive-personas/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
+<h2 id="inclusive-personas">Inclusive Personas</h2>
+<p>Personas shape every design decision that follows. If your personas only represent able-bodied, neurotypical, tech-savvy adults with fast internet, your design will only work for those people. This skill ensures the full range of human experience is represented from the beginning.</p>
+<h3 id="the-principle">The Principle</h3>
+<p>&quot;Nothing About Us Without Us.&quot; Design for the margins and the centre benefits. Design for the centre and the margins get excluded.</p>
+<h3 id="process">Process</h3>
+<h4 id="step-1-map-the-ability-spectrum">Step 1: Map the Ability Spectrum</h4>
+<p>For the design context, identify the relevant spectrum across:</p>
+<p><strong>Permanent conditions:</strong></p>
+<ul>
+<li>Vision: blind, low vision, colour blind</li>
+<li>Hearing: deaf, hard of hearing</li>
+<li>Motor: limited fine motor, limited reach, tremor, paralysis</li>
+<li>Cognitive: learning differences, memory challenges, attention differences</li>
+<li>Speech: non-verbal, speech differences</li>
+</ul>
+<p><strong>Temporary conditions:</strong></p>
+<ul>
+<li>Broken arm, ear infection, concussion, medication effects, post-surgery</li>
+</ul>
+<p><strong>Situational conditions:</strong></p>
+<ul>
+<li>Bright sunlight, noisy environment, one hand occupied, driving, multitasking, emotional distress, unfamiliar language, slow connection</li>
+</ul>
+<h4 id="step-2-identify-relevant-personas">Step 2: Identify Relevant Personas</h4>
+<p>Not every project needs every persona. Select 4-6 personas that represent:</p>
+<ul>
+<li><strong>2-3 primary users</strong> — the most common use cases</li>
+<li><strong>1-2 edge case users</strong> — people at the margins whose needs reveal design weaknesses</li>
+<li><strong>1 stress case user</strong> — someone using the design under difficult circumstances</li>
+</ul>
+<h4 id="step-3-build-each-persona">Step 3: Build Each Persona</h4>
+<p>For each persona, document:</p>
+<pre><code class="language-markdown">## [Name]
+
+**Context:** [Who they are, what they do, their relationship to this product]
+
+**Abilities and conditions:** [Permanent, temporary, or situational factors that affect how they interact with interfaces]
+
+**Technology:** [Devices, assistive technology, connection speed, technical confidence]
+
+**Goals:** [What they need to accomplish]
+
+**Frustrations:** [What typically goes wrong for them with similar products]
+
+**Environment:** [Where and when they use this — lighting, noise, distractions, time pressure]
+</code></pre>
+<h4 id="step-4-write-inclusive-user-stories">Step 4: Write Inclusive User Stories</h4>
+<p>For each persona, write stories that capture:</p>
+<ul>
+<li>The standard path: &quot;As [persona], I want to [goal] so that [outcome]&quot;</li>
+<li>The assisted path: &quot;As [persona] using [assistive technology], I want to [goal] so that [outcome]&quot;</li>
+<li>The stress path: &quot;As [persona] under [stressful condition], I need to [goal] without [negative outcome]&quot;</li>
+</ul>
+<h4 id="step-5-identify-scenario-intersections">Step 5: Identify Scenario Intersections</h4>
+<p>Map where personas overlap in unexpected ways:</p>
+<ul>
+<li>A sighted user in bright sunlight has similar needs to a low-vision user</li>
+<li>A stressed parent holding a baby has similar motor constraints to someone with limited hand mobility</li>
+<li>A non-native speaker has similar needs to someone with a cognitive processing difference</li>
+</ul>
+<p>These intersections reveal universal design opportunities.</p>
+<h4 id="step-6-present-and-validate">Step 6: Present and Validate</h4>
+<p>Present personas to the user. Ask:</p>
+<ul>
+<li>Who is missing from this set?</li>
+<li>Do these feel like real people or cardboard cutouts?</li>
+<li>Which persona makes you most uncomfortable? (That one probably needs the most attention)</li>
+</ul>
+<p>Save to: <code>docs/designpowers/personas/YYYY-MM-DD-&lt;project&gt;-personas.md</code></p>
+<h3 id="integration">Integration</h3>
+<ul>
+<li><strong>Called by:</strong> <code>research-planning</code>, <code>design-discovery</code></li>
+<li><strong>Informs:</strong> Every subsequent design skill — personas should be referenced when making any design decision</li>
+<li><strong>Pairs with:</strong> <code>cognitive-accessibility</code>, <code>adaptive-interfaces</code></li>
+</ul>
+<h3 id="anti-patterns">Anti-Patterns</h3>
+<div class="table-scroll"><table>
+<thead><tr><th>Pattern</th><th>Problem</th></tr></thead>
+<tbody>
+<tr><td>&quot;Our users are everyone&quot;</td><td>If everyone is your user, nobody is. Define specific people</td></tr>
+<tr><td>Personas without disabilities</td><td>You have excluded a quarter of the population</td></tr>
+<tr><td>Edge cases treated as afterthoughts</td><td>Edge cases reveal the quality of your design. They come first, not last</td></tr>
+<tr><td>Personas based on demographics alone</td><td>Age and job title do not determine how someone uses an interface. Focus on behaviour, ability, and context</td></tr>
+</tbody>
+</table></div>
+</article>
+</main>
+</div>
+
+<footer class="site-foot">
+<p><a href="../index.html">Back to all skills</a></p>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

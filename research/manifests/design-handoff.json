@@ -1,0 +1,99 @@
+{
+  "id": "design-handoff",
+  "category": "design-engineering",
+  "verdict": "vendor",
+  "rubric": {
+    "relevance": 3,
+    "quality": 2,
+    "conformance": 1,
+    "uniqueness": 1
+  },
+  "upstream": {
+    "repository": "anthropics/knowledge-work-plugins",
+    "url": "https://github.com/anthropics/knowledge-work-plugins/tree/8c3ec5534fc6948b461c6a0275bdfdb8ab0c9888/design/skills/design-handoff",
+    "author": "Anthropic",
+    "commit": "8c3ec5534fc6948b461c6a0275bdfdb8ab0c9888",
+    "path": "design/skills/design-handoff",
+    "license": "Apache-2.0",
+    "licenseSource": "repo-root:LICENSE"
+  },
+  "files": [
+    {
+      "dest": "SKILL.md",
+      "content": "---\nname: design-handoff\ndescription: Generate developer handoff specs from a design. Use when a design is ready for engineering and needs a spec sheet covering layout, design tokens, component props, interaction states, responsive breakpoints, edge cases, and animation details.\nargument-hint: \"<Figma URL or design description>\"\n---\n\n# /design-handoff\n\n> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](CONNECTORS.md).\n\nGenerate comprehensive developer handoff documentation from a design.\n\n## Usage\n\n```\n/design-handoff $ARGUMENTS\n```\n\nGenerate handoff specs for: @$1\n\nIf a Figma URL is provided, pull the design from Figma. Otherwise, work from the provided description or screenshot.\n\n## What to Include\n\n### Visual Specifications\n- Exact measurements (padding, margins, widths)\n- Design token references (colors, typography, spacing)\n- Responsive breakpoints and behavior\n- Component variants and states\n\n### Interaction Specifications\n- Click/tap behavior\n- Hover states\n- Transitions and animations (duration, easing)\n- Gesture support (swipe, pinch, long-press)\n\n### Content Specifications\n- Character limits\n- Truncation behavior\n- Empty states\n- Loading states\n- Error states\n\n### Edge Cases\n- Minimum/maximum content\n- International text (longer strings)\n- Slow connections\n- Missing data\n\n### Accessibility\n- Focus order\n- ARIA labels and roles\n- Keyboard interactions\n- Screen reader announcements\n\n## Principles\n\n1. **Don't assume** — If it's not specified, the developer will guess. Specify everything.\n2. **Use tokens, not values** — Reference `spacing-md` not `16px`.\n3. **Show all states** — Default, hover, active, disabled, loading, error, empty.\n4. **Describe the why** — \"This collapses on mobile because users primarily use one-handed\" helps developers make good judgment calls.\n\n## Output\n\n```markdown\n## Handoff Spec: [Feature/Screen Name]\n\n### Overview\n[What this screen/feature does, user context]\n\n### Layout\n[Grid system, breakpoints, responsive behavior]\n\n### Design Tokens Used\n| Token | Value | Usage |\n|-------|-------|-------|\n| `color-primary` | #[hex] | CTA buttons, links |\n| `spacing-md` | [X]px | Between sections |\n| `font-heading-lg` | [size/weight/family] | Page title |\n\n### Components\n| Component | Variant | Props | Notes |\n|-----------|---------|-------|-------|\n| [Component] | [Variant] | [Props] | [Special behavior] |\n\n### States and Interactions\n| Element | State | Behavior |\n|---------|-------|----------|\n| [CTA Button] | Hover | [Background darken 10%] |\n| [CTA Button] | Loading | [Spinner, disabled] |\n| [Form] | Error | [Red border, error message below] |\n\n### Responsive Behavior\n| Breakpoint | Changes |\n|------------|---------|\n| Desktop (>1024px) | [Default layout] |\n| Tablet (768-1024px) | [What changes] |\n| Mobile (<768px) | [What changes] |\n\n### Edge Cases\n- **Empty state**: [What to show when no data]\n- **Long text**: [Truncation rules]\n- **Loading**: [Skeleton or spinner]\n- **Error**: [Error state appearance]\n\n### Animation / Motion\n| Element | Trigger | Animation | Duration | Easing |\n|---------|---------|-----------|----------|--------|\n| [Element] | [Trigger] | [Description] | [ms] | [easing] |\n\n### Accessibility Notes\n- [Focus order]\n- [ARIA labels needed]\n- [Keyboard interactions]\n```\n\n## If Connectors Available\n\nIf **~~design tool** is connected:\n- Pull exact measurements, tokens, and component specs from Figma\n- Export assets and generate a complete spec sheet\n\nIf **~~project tracker** is connected:\n- Link the handoff to the implementation ticket\n- Create sub-tasks for each section of the spec\n\n## Tips\n\n1. **Share the Figma link** — I can pull exact measurements, tokens, and component info.\n2. **Mention edge cases** — \"What happens with 100 items?\" helps me spec boundary conditions.\n3. **Specify the tech stack** — \"We use React + Tailwind\" helps me give relevant implementation notes.\n"
+    },
+    {
+      "dest": "CONNECTORS.md",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/knowledge-work-plugins/8c3ec5534fc6948b461c6a0275bdfdb8ab0c9888/design/CONNECTORS.md",
+      "blobSha": "1443063b984d825aba151ae672c415c70c7b2829"
+    },
+    {
+      "dest": "LICENSE.txt",
+      "rawUrl": "https://raw.githubusercontent.com/anthropics/knowledge-work-plugins/8c3ec5534fc6948b461c6a0275bdfdb8ab0c9888/LICENSE",
+      "blobSha": "f53c679acba79cbb292961fd9fb9e87ca20eab22"
+    }
+  ],
+  "securityNotes": "Read SKILL.md, design/CONNECTORS.md, design/.mcp.json, design/README.md and the repo-root LICENSE in full at the pinned SHA. SKILL.md is plain prose instructing the agent to draft a handoff-spec document from a design; no hidden instructions, no exfiltration, no credential access, no scripts. design/.mcp.json pre-registers optional MCP servers (Figma, Slack, Linear, Asana, Atlassian, Notion, Intercom, Google Calendar, Gmail) that the plugin can use if the user connects them, but the skill's own text works standalone from a description/screenshot and never requires a connector; connector use is opt-in via the user's own OAuth. No download-and-execute, no network calls embedded in the skill file itself.",
+  "overlaps": [
+    "pre-handoff-review"
+  ],
+  "proposedEntry": {
+    "id": "design-handoff",
+    "name": "design-handoff",
+    "description": "Generates a developer handoff specification from a design (Figma URL, screenshot, or description): exact measurements and design-token references, component variants and interaction states (hover, active, disabled, loading, error), responsive breakpoint behavior, content edge cases (empty/loading/error states, long or international text), and accessibility notes (focus order, ARIA, keyboard). Produces a structured Markdown spec sheet covering layout, tokens, components, states, responsiveness, edge cases, animation, and accessibility. Works standalone from a text description or screenshot; when a Figma MCP connector is available it can pull exact measurements and tokens directly, and when a project-tracker connector (Linear/Asana/Jira) is available it can link the spec to the implementation ticket, but neither is required.",
+    "category": "design-engineering",
+    "tags": [
+      "handoff",
+      "design-engineering",
+      "documentation",
+      "design-tokens",
+      "component-docs",
+      "responsive"
+    ],
+    "triggers": [
+      "generate a design handoff spec",
+      "developer handoff for this screen",
+      "write the dev spec for this design",
+      "design is ready for engineering",
+      "spec out tokens and states for this component"
+    ],
+    "inputs": [
+      "A Figma URL, screenshot, or written description of the design",
+      "Optional: tech stack, breakpoints, or edge cases to cover"
+    ],
+    "outputs": [
+      "Markdown handoff spec: layout, design tokens used, component states/interactions, responsive behavior, edge cases, animation notes, accessibility notes"
+    ],
+    "path": "skills/design-engineering/design-handoff",
+    "source": {
+      "type": "third-party",
+      "repository": "anthropics/knowledge-work-plugins",
+      "url": "https://github.com/anthropics/knowledge-work-plugins/tree/8c3ec5534fc6948b461c6a0275bdfdb8ab0c9888/design/skills/design-handoff",
+      "author": "Anthropic",
+      "license": "Apache-2.0",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": "design/skills/design-handoff",
+      "upstreamCommit": "8c3ec5534fc6948b461c6a0275bdfdb8ab0c9888",
+      "retrievedAt": "2026-08-29",
+      "modified": true,
+      "modifications": [
+        {
+          "date": "2026-08-29",
+          "reason": "broken-reference",
+          "description": "Upstream SKILL.md links CONNECTORS.md as ../../CONNECTORS.md, resolving two directories above the plugin's per-skill folder (design/CONNECTORS.md, shared across all six design/ skills) — a path that falls outside any single vendored skill directory. Rewrote the link to a same-directory relative path (CONNECTORS.md) and bundled a copy of design/CONNECTORS.md into this skill's own directory so it resolves after vendoring.",
+          "files": [
+            "SKILL.md",
+            "CONNECTORS.md"
+          ]
+        }
+      ]
+    },
+    "compatibility": ["claude-code", "codex", "cursor", "opencode", "amp", "gemini-cli", "copilot", "vs-code"],
+    "dependencies": [],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "stable",
+    "status": "draft"
+  },
+  "logMd": "#### anthropics/knowledge-work-plugins (inspected 2026-08-29)\n\nRepo: HEAD 8c3ec5534fc6948b461c6a0275bdfdb8ab0c9888 on main, 23729 stars, pushed 2026-08-29. License: Apache-2.0 confirmed at repo-root LICENSE (standard Apache 2.0 boilerplate, verified full text). Enumerated design/ plugin via recursive tree: design/.claude-plugin/plugin.json (name 'design', version 1.2.0, author Anthropic), design/.mcp.json (9 optional MCP servers: slack, figma, linear, asana, atlassian, notion, intercom, google calendar, gmail), design/CONNECTORS.md, design/README.md, and 7 skills under design/skills/: accessibility-review, design-critique, design-handoff, design-system, research-synthesis, user-research, ux-copy. No other plugin in the repo (bio-research, cowork-plugin-management, customer-support, data, engineering, enterprise-search, finance, human-resources, legal, marketing, operations, partner-built/apollo) is product-design work. Read every one of the 7 SKILL.md files plus plugin.json, .mcp.json, CONNECTORS.md and README.md in full. All 7 share one structural defect: SKILL.md links CONNECTORS.md via ../../CONNECTORS.md, which resolves above any single skill's own directory once vendored standalone — fixed here via a broken-reference modification (rewritten link + bundled CONNECTORS.md copy) for every vendored skill. design-handoff: relevance 3 (core design-to-engineering deliverable), quality 2 (concrete principles — token-not-value references, full state matrix — with a clear structured output template, though templated rather than deeply calibrated), conformance 1 (fixed via the broken-reference modification above), uniqueness 1 (registry's pre-handoff-review is a review/readiness gate for handoff; this skill instead generates the handoff spec document itself — a different lifecycle stage and artifact). Total 7, vendor. Full per-skill verdicts (7 candidates, cap 6): vendored design-handoff, design-system, research-synthesis; rejected accessibility-review, design-critique, ux-copy, user-research — see knowledge-work-plugins-rejections.json for reasons and scores."
+}

@@ -1,0 +1,27 @@
+{
+  "verdict": "reject",
+  "repository": "anthropics/knowledge-work-plugins",
+  "commit": "8c3ec5534fc6948b461c6a0275bdfdb8ab0c9888",
+  "rejectedSkills": [
+    {
+      "id": "accessibility-review",
+      "reason": "Passes the numeric rubric threshold (7) but is the most overlapping of the 7 design/ skills: the registry already vendors six dedicated accessibility skills (a11y-audit, a11y-check-code, a11y-check-page, a11y-critic, a11y-planner, a11y-role-audit). This skill's content is a standard WCAG 2.1 AA quick-reference plus a severity-coded findings table -- ground those six already cover, several in more depth (e.g. a11y-role-audit for ARIA roles specifically, a11y-check-code for code-level checks). Per the instruction to vendor at most 6 of the 7 design/ candidates favoring the strongest and least overlapping, this is the one dropped. Path: design/skills/accessibility-review. License Apache-2.0 (repo-root LICENSE), security clean (plain prose, no scripts).",
+      "rubric": {"relevance": 3, "quality": 3, "conformance": 1, "uniqueness": 0}
+    },
+    {
+      "id": "design-critique",
+      "reason": "Passes the numeric rubric threshold (6) but overlaps a saturated cluster of already-vendored structured-critique skills: design-review, frontend-design-review, interface-review, product-design-review, perspective-audit, critique-information-density and agentic-ui-review all cover the same 'structured design feedback on usability/hierarchy/consistency/accessibility' ground. design-critique adds no distinct scoring formula, framework, or artifact type beyond a generic 5-dimension checklist. Excluded to stay within the at-most-6 cap favoring the least-overlapping candidates from this repo. Path: design/skills/design-critique. License Apache-2.0, security clean.",
+      "rubric": {"relevance": 3, "quality": 2, "conformance": 1, "uniqueness": 0}
+    },
+    {
+      "id": "user-research",
+      "reason": "Fails the rubric threshold (total 5, below the required 6). The skill is a short reference (method table plus a generic 5-part interview-guide outline) rather than an actionable workflow -- no calibrated judgment guidance, no concrete output artifact beyond a bullet list of 'deliverables' with no template. It also overlaps ux-research-workflow, user-research-cookiy and silver-research, which already cover research planning at greater depth. Path: design/skills/user-research. License Apache-2.0, security clean.",
+      "rubric": {"relevance": 3, "quality": 1, "conformance": 1, "uniqueness": 0}
+    },
+    {
+      "id": "ux-copy",
+      "reason": "Fails the rubric threshold (total 5, below the required 6). Per the rubric's own worked example, UX writing is relevance 2 (a clear design application rather than a core design activity), and the registry's existing ux-writing skill covers the same microcopy/error-message/empty-state ground with no meaningfully different approach visible in this skill's content (both cover CTAs, error messages, empty states, confirmation dialogs, tone-by-context). Path: design/skills/ux-copy. License Apache-2.0, security clean.",
+      "rubric": {"relevance": 2, "quality": 2, "conformance": 1, "uniqueness": 0}
+    }
+  ]
+}

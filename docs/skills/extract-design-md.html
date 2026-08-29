@@ -11,62 +11,67 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="page-head">
-<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-design-systems">Design systems</a></nav>
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=design-systems">Design systems</a></nav>
 <h1>extract-design-md</h1>
 <p class="badges"><span class="il badge badge-rec"><span class="il-icon" aria-hidden="true">★</span><span class="il-label">Recommended</span></span></p>
-<p class="lede">Reads a frontend codebase's source files directly -- package.json, Tailwind/PostCSS configs, global CSS custom properties, theme/token files, and component styles -- without building or running the app, using framework-specific extraction patterns for React/Next.js, Vue/Nuxt, Svelte/SvelteKit, Angular, or plain CSS/SASS/Less. Synthesizes findings into a DESIGN.md design-system document: a required YAML frontmatter block with color and typography tokens, a rich atmosphere description, a color palette with descriptive names and functional roles (deduplicating near-duplicate colors), a full typography hierarchy, component stylings for buttons/cards/navigation/forms, layout and spacing principles, and Stitch-generation notes. Ends with an 8-item quality checklist the output must satisfy before delivery.</p>
+<p class="lede">Reads a frontend codebase's source files directly -- package.json, Tailwind/PostCSS configs, global CSS custom properties, theme/token files, and component styles -- without building or running the app.</p>
 </header>
 
 <div class="layout">
 <nav class="sidebar" aria-labelledby="contents">
-<h2 id="contents">On this page</h2>
+<h2 id="contents" class="label-caps">On this page</h2>
 <ul class="toc">
-<li><a href="#about">About this skill</a></li>
 <li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
 <li><a href="#related">Works with</a></li>
-<li><a href="#extract-design-system-from-frontend-code">Extract Design System from Frontend Code</a></li>
-<li><a href="#why-this-exists">Why This Exists</a></li>
-<li><a href="#when-to-use">When to Use</a></li>
-<li><a href="#prerequisites">Prerequisites</a></li>
-<li><a href="#workflow">Workflow</a></li>
-<li><a href="#quality-checklist">Quality Checklist</a></li>
-<li><a href="#tips-for-better-extraction">Tips for Better Extraction</a></li>
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#extract-design-system-from-frontend-code">Extract Design System from Frontend Code</a></li>
+<li class="toc-sub"><a href="#why-this-exists">Why This Exists</a></li>
+<li class="toc-sub"><a href="#when-to-use">When to Use</a></li>
+<li class="toc-sub"><a href="#prerequisites">Prerequisites</a></li>
+<li class="toc-sub"><a href="#workflow">Workflow</a></li>
+<li class="toc-sub"><a href="#quality-checklist">Quality Checklist</a></li>
+<li class="toc-sub"><a href="#tips-for-better-extraction">Tips for Better Extraction</a></li>
 </ul>
 </nav>
 
 <main id="main">
-<section id="about" class="meta">
-<h2>About this skill</h2>
-<div class="meta-row"><h3>Use when</h3><ul><li>extract a design system from this codebase</li><li>audit the styling of this app</li><li>pull design tokens out of the source code</li><li>what does this app's design system look like</li><li>reverse-engineer a DESIGN.md from source</li><li>create a design system document from this repo</li></ul></div>
-<div class="meta-row"><h3>Works on</h3><ul><li>frontend source tree (components, stylesheets, theme/token configs, Tailwind config)</li></ul></div>
-<div class="meta-row"><h3>Produces</h3><ul><li>DESIGN.md design-system document with color palette, typography hierarchy, component stylings, and layout principles</li></ul></div>
-<div class="meta-row"><h3>Tags</h3>
-<ul class="tags"><li><a class="tag" href="../index.html?tag=design-tokens">design-tokens</a></li><li><a class="tag" href="../index.html?tag=design-system">design-system</a></li><li><a class="tag" href="../index.html?tag=audit">audit</a></li><li><a class="tag" href="../index.html?tag=typography">typography</a></li><li><a class="tag" href="../index.html?tag=color">color</a></li><li><a class="tag" href="../index.html?tag=documentation">documentation</a></li></ul></div>
-
-<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/google-labs-code/stitch-skills/tree/0337446dadde6f8c94210444e2aa9d546126480f/plugins/stitch-design/skills/extract-design-md">google-labs-code/stitch-skills</a> by google-labs-code at <code>0337446</code>, licence <code>Apache-2.0</code>. Modified when vendored: portability, compatibility.</p></div>
-</section>
-
 <section id="install">
 <h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill extract-design-md</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill extract-design-md"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
 <ul class="install">
-<li>
-<h3>Any agent, via the skills CLI</h3>
-<div class="cmd"><pre><code>npx skills add stritar/skills --skill extract-design-md</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill extract-design-md"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Installs into whichever agents it finds on your machine.</p>
-</li>
 <li>
 <h3>Claude Code, as a plugin</h3>
 <div class="cmd"><pre><code>/plugin marketplace add stritar/skills
-/plugin install product-design-design-systems@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-design-systems@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
 /plugin install product-design-design-systems@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Brings the whole design-systems bundle. Use <code>product-design-all</code> for everything.</p>
+<p class="note">Installs the whole <code>design-systems</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
 </li>
 <li>
 <h3>From a clone, copied by hand</h3>
-<div class="cmd"><pre><code>cp -r skills/design-systems/extract-design-md ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/design-systems/extract-design-md ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<div class="cmd"><pre><code>cp -r skills/design-systems/extract-design-md ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/design-systems/extract-design-md ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
 <p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
 </li>
 </ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Reads a frontend codebase's source files directly -- package.json, Tailwind/PostCSS configs, global CSS custom properties, theme/token files, and component styles -- without building or running the app, using framework-specific extraction patterns for React/Next.js, Vue/Nuxt, Svelte/SvelteKit, Angular, or plain CSS/SASS/Less. Synthesizes findings into a DESIGN.md design-system document: a required YAML frontmatter block with color and typography tokens, a rich atmosphere description, a color palette with descriptive names and functional roles (deduplicating near-duplicate colors), a full typography hierarchy, component stylings for buttons/cards/navigation/forms, layout and spacing principles, and Stitch-generation notes. Ends with an 8-item quality checklist the output must satisfy before delivery.</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>extract a design system from this codebase</li><li>audit the styling of this app</li><li>pull design tokens out of the source code</li><li>what does this app's design system look like</li><li>reverse-engineer a DESIGN.md from source</li><li>create a design system document from this repo</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>frontend source tree (components, stylesheets, theme/token configs, Tailwind config)</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>DESIGN.md design-system document with color palette, typography hierarchy, component stylings, and layout principles</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=design-tokens">design-tokens</a></li><li><a class="tag" href="../index.html?tag=design-system">design-system</a></li><li><a class="tag" href="../index.html?tag=audit">audit</a></li><li><a class="tag" href="../index.html?tag=typography">typography</a></li><li><a class="tag" href="../index.html?tag=color">color</a></li><li><a class="tag" href="../index.html?tag=documentation">documentation</a></li></ul></div>
+
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/google-labs-code/stitch-skills/tree/0337446dadde6f8c94210444e2aa9d546126480f/plugins/stitch-design/skills/extract-design-md">google-labs-code/stitch-skills</a> by google-labs-code at <code>0337446</code>, licence <code>Apache-2.0</code>. Modified when vendored: portability, compatibility.</p>
+</details>
 </section>
 
 <section id="related">
@@ -79,7 +84,7 @@
 </ul>
 </section>
 
-<article class="skill-body">
+<article class="skill-body" id="instructions">
 <h2 class="body-head">Instructions</h2>
 <p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/design-systems/extract-design-md/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
 <h2 id="extract-design-system-from-frontend-code">Extract Design System from Frontend Code</h2>

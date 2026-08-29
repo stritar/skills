@@ -1,0 +1,135 @@
+{
+  "id": "designers-eye",
+  "category": "testing",
+  "verdict": "not-vendored-keeper",
+  "rubric": {
+    "relevance": 3,
+    "quality": 3,
+    "conformance": 1,
+    "uniqueness": 1
+  },
+  "upstream": {
+    "repository": "leoyeai/openclaw-master-skills",
+    "url": "https://github.com/leoyeai/openclaw-master-skills/tree/e5199b56ae1ff72e141586c17695563486c46702/skills/design-critique",
+    "author": "Chris Couriard",
+    "commit": "e5199b56ae1ff72e141586c17695563486c46702",
+    "path": "skills/design-critique",
+    "license": "MIT",
+    "licenseSource": "repo-root:LICENSE"
+  },
+  "files": [
+    {
+      "dest": "SKILL.md",
+      "rawUrl": "https://raw.githubusercontent.com/leoyeai/openclaw-master-skills/e5199b56ae1ff72e141586c17695563486c46702/skills/design-critique/SKILL.md",
+      "blobSha": "2f19c897d6c707d3e51e683038a68b1947feff03"
+    },
+    {
+      "dest": "references/colour-theory.md",
+      "rawUrl": "https://raw.githubusercontent.com/leoyeai/openclaw-master-skills/e5199b56ae1ff72e141586c17695563486c46702/skills/design-critique/references/colour-theory.md",
+      "blobSha": "d598c8e5cbaf8fc909e0a589d760d29fe1a25f71"
+    },
+    {
+      "dest": "references/gestalt.md",
+      "rawUrl": "https://raw.githubusercontent.com/leoyeai/openclaw-master-skills/e5199b56ae1ff72e141586c17695563486c46702/skills/design-critique/references/gestalt.md",
+      "blobSha": "4ae0849d41b73deb7f17622bf18766da0fe12897"
+    },
+    {
+      "dest": "references/platform-conventions.md",
+      "rawUrl": "https://raw.githubusercontent.com/leoyeai/openclaw-master-skills/e5199b56ae1ff72e141586c17695563486c46702/skills/design-critique/references/platform-conventions.md",
+      "blobSha": "9b4f5599300b8612b1e908642a127eaea272b2bc"
+    },
+    {
+      "dest": "references/typography.md",
+      "rawUrl": "https://raw.githubusercontent.com/leoyeai/openclaw-master-skills/e5199b56ae1ff72e141586c17695563486c46702/skills/design-critique/references/typography.md",
+      "blobSha": "f26e59efe415dc7d412877e53fe38b30cc358340"
+    },
+    {
+      "dest": "references/ux-heuristics.md",
+      "rawUrl": "https://raw.githubusercontent.com/leoyeai/openclaw-master-skills/e5199b56ae1ff72e141586c17695563486c46702/skills/design-critique/references/ux-heuristics.md",
+      "blobSha": "a4ca3db8f3207572d41930ab07225d918ed6a40e"
+    },
+    {
+      "dest": "references/visual-hierarchy.md",
+      "rawUrl": "https://raw.githubusercontent.com/leoyeai/openclaw-master-skills/e5199b56ae1ff72e141586c17695563486c46702/skills/design-critique/references/visual-hierarchy.md",
+      "blobSha": "e123913b9e482a5150d8814bb08e21903d1f5869"
+    },
+    {
+      "dest": "LICENSE.txt",
+      "rawUrl": "https://raw.githubusercontent.com/leoyeai/openclaw-master-skills/e5199b56ae1ff72e141586c17695563486c46702/LICENSE",
+      "blobSha": "6d421047ca62a9dcfe6c30beb326995797a9af4a"
+    }
+  ],
+  "securityNotes": "Read SKILL.md and all 6 references/*.md in full at the pinned SHA. Pure prose/markdown (no scripts, no code execution paths). No hidden instructions, no credential/network/exfiltration patterns found (grepped for ignore-previous/system-prompt/exfiltrate/api-key/curl/wget/eval and found none). Clean. Note for the pipeline: this repo (leoyeai/openclaw-master-skills) is a third-party aggregation hub ('MyClaw.ai') that mirrors skills submitted by or about other authors -- its .github/ISSUE_TEMPLATE/submit-skill.md allows submitting 'a skill I found and recommend', i.e. not only self-submissions. The repo-root LICENSE (MIT, copyright MyClaw.ai/LeoYeAI) is a valid license source per the rubric's literal list (repo-root LICENSE*), and was used as such here, but true upstream authorship/licensing intent for this specific skill (author field: Chris Couriard, no separate origin repo link found in _meta.json for this one, unlike macos-hig-designer) could not be independently re-verified beyond the mirror. Flagged in issues.",
+  "overlaps": [
+    "design-review",
+    "critique-information-density",
+    "laws-of-ux",
+    "better-colors",
+    "better-typography",
+    "better-layout"
+  ],
+  "proposedEntry": {
+    "id": "designers-eye",
+    "name": "designers-eye",
+    "description": "Critiques an uploaded visual (UI screenshot, logo, photo, graphic, PDF-as-image, Figma frame) through 11 named frameworks -- Gestalt principles, visual hierarchy, Itten color science, typography, Muller-Brockmann grid/alignment, Freeman composition, Tufte information design, Rams/Bauhaus reduction, visual balance, Nielsen/Norman usability heuristics, and platform conventions -- and returns a priority-ordered action list (Critical/Important/Polish) where every finding names the violated principle and includes a specific Fix line. Bundles full reference detail for each framework (proximity/similarity/continuity/closure/figure-ground/common-fate/pragnanz/uniform-connectedness violations and fixes; WCAG contrast tables and colour-harmony models; type-scale ratios and readability targets; the 10 Nielsen heuristics with concrete violation examples; web/mobile/social/email/dark-mode platform norms).",
+    "category": "testing",
+    "tags": [
+      "design-critique",
+      "expert-review",
+      "severity",
+      "visual-hierarchy",
+      "typography",
+      "color",
+      "layout",
+      "grids",
+      "contrast",
+      "a11y",
+      "heuristic-evaluation"
+    ],
+    "triggers": [
+      "critique this design screenshot",
+      "what's broken in this UI",
+      "give me honest feedback on this logo",
+      "review this mockup against usability heuristics",
+      "rank these design issues by severity"
+    ],
+    "inputs": [
+      "an image, screenshot, PDF-as-image, or Figma frame to critique",
+      "optionally a stated platform (web/mobile/social/email) or a specific question to focus the critique"
+    ],
+    "outputs": [
+      "a severity-ranked list of findings (Critical/Important/Polish), each naming the violated principle and a specific fix"
+    ],
+    "path": "skills/testing/designers-eye",
+    "source": {
+      "type": "third-party",
+      "repository": "leoyeai/openclaw-master-skills",
+      "url": "https://github.com/leoyeai/openclaw-master-skills/tree/e5199b56ae1ff72e141586c17695563486c46702/skills/design-critique",
+      "author": "Chris Couriard",
+      "license": "MIT",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": "skills/design-critique",
+      "upstreamCommit": "e5199b56ae1ff72e141586c17695563486c46702",
+      "retrievedAt": "2026-08-29",
+      "modified": false,
+      "modifications": []
+    },
+    "compatibility": [
+      "claude-code",
+      "codex",
+      "cursor",
+      "opencode",
+      "amp",
+      "gemini-cli",
+      "copilot",
+      "vs-code"
+    ],
+    "dependencies": [],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "experimental",
+    "status": "draft"
+  },
+  "logMd": "#### leoyeai/openclaw-master-skills (inspected 2026-08-29)\n- Repo pin: e5199b56ae1ff72e141586c17695563486c46702 (default branch main), 2,129 stars, pushed 2026-07-20T02:05:04Z. Root LICENSE read in full: MIT, copyright (c) 2026 MyClaw.ai (LeoYeAI).\n- Enumerated the repo's top-level skills/ directory (2,409 skill dirs) by grepping directory names for design/UX keywords; full listing not tractable at this scale, so candidates were shortlisted from the keyword match plus the task's named target (skills/product-analytics).\n- _meta.json for skills/product-analytics, ux-researcher-designer, ui-design-system all show owner: alirezarezvani -- confirming these three are mirrors of alirezarezvani/claude-skills' product-team skills, already vendored from that true origin (see product-analytics.json, ui-design-system.json, ux-researcher-designer.json); not re-vendored here as duplicates.\n- Directory listed as 'design-critique' but SKILL.md frontmatter name is 'designers-eye' -- id/proposedEntry.name follow the frontmatter per the task rule, not the dirname; this mismatch scores conformance 1 (fixable rename) rather than 2.\n- Read SKILL.md and all 6 references/*.md in full.\n- Rubric: relevance 3 (design critique is core testing/design-QA work), quality 3 (11 named frameworks each with concrete violation/fix patterns, a hard rule requiring a Fix line on every finding, worked examples), conformance 1 (name != dirname), uniqueness 1 (design-review, critique-information-density, laws-of-ux and the better-* family already cover hierarchy/color/typography/layout critique piecemeal; this skill's differentiator is operating directly on an uploaded image across all 11 frameworks including photography composition (Freeman) and information-design (Tufte), which nothing else in the registry does, but the core Gestalt/hierarchy/heuristics ground is not new). Total 8.\n- Security: clean, prose-only, no scripts.\n- Provenance caveat: this repo aggregates third-party skills including ones submitted by someone other than the author ('a skill I found and recommend'); the repo-root MIT LICENSE is a valid source per the rubric's literal rule and was used as such, but chain-of-title back to Chris Couriard's own licensing intent could not be independently re-verified. Noted in securityNotes.\n- Verdict: vendor.\n- Curator decision 2026-08-29: NOT vendored - leoyeai/openclaw-master-skills is an aggregation hub that accepts third-party submissions; its repo-root MIT license does not establish that the re-hosted skill was licensed by its author (author Chris Couriard; original repository not located this pass). Provenance cannot be verified from the hub, which research/rubric.md lists as a disqualifier. Re-inspect from the original author's repository.",
+  "keeperReason": "leoyeai/openclaw-master-skills is an aggregation hub that accepts third-party submissions; its repo-root MIT license does not establish that the re-hosted skill was licensed by its author (author Chris Couriard; original repository not located this pass). Provenance cannot be verified from the hub, which research/rubric.md lists as a disqualifier. Re-inspect from the original author's repository."
+}

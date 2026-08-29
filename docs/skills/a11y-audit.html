@@ -11,58 +11,63 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="page-head">
-<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-accessibility">Accessibility</a></nav>
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=accessibility">Accessibility</a></nav>
 <h1>a11y-audit</h1>
 <p class="badges"><span class="il badge badge-dep"><span class="il-label">Needs Python</span></span><span class="il badge badge-exp"><span class="il-label">Experimental</span></span></p>
-<p class="lede">Audits a UI or design against WCAG 2.2 AA/AAA and documented ARIA patterns, producing a criterion-referenced findings table (WCAG criterion, P0/P1/P2 severity, what fails, specific fix). Directs the agent to check the mandatory P0 set (keyboard nav, visible focus &gt;=3:1, screen-reader name/role/state, 4.5:1 text / 3:1 UI contrast, &gt;=24x24 target size, no color-only signaling) plus WCAG 2.2 additions (Focus Not Obscured, Target Size, Accessible Authentication), and to measure contrast rather than eyeball it: a Playwright-based real-render gate over every text element and every interactive element's default/hover/focus states, plus a standalone hex-pair contrast calculator, with instructions to report only actually-measured ratios.</p>
+<p class="lede">Audits a UI or design against WCAG 2.2 AA/AAA and documented ARIA patterns, producing a criterion-referenced findings table (WCAG criterion, P0/P1/P2 severity, what fails, specific fix).</p>
 </header>
 
 <div class="layout">
 <nav class="sidebar" aria-labelledby="contents">
-<h2 id="contents">On this page</h2>
+<h2 id="contents" class="label-caps">On this page</h2>
 <ul class="toc">
-<li><a href="#about">About this skill</a></li>
 <li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
 <li><a href="#related">Works with</a></li>
-<li><a href="#skill-accessibility-audit">Skill: Accessibility Audit</a></li>
-<li><a href="#steps">Steps</a></li>
-<li><a href="#output">Output</a></li>
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#skill-accessibility-audit">Skill: Accessibility Audit</a></li>
+<li class="toc-sub"><a href="#steps">Steps</a></li>
+<li class="toc-sub"><a href="#output">Output</a></li>
 </ul>
 </nav>
 
 <main id="main">
-<section id="about" class="meta">
-<h2>About this skill</h2>
-<div class="meta-row"><h3>Use when</h3><ul><li>accessibility audit</li><li>WCAG check</li><li>contrast verification</li><li>keyboard and screen-reader review</li><li>does this meet WCAG 2.2 AA</li></ul></div>
-<div class="meta-row"><h3>Works on</h3><ul><li>A UI, component, or rendered HTML page to audit</li><li>Target conformance level (AA or AAA)</li></ul></div>
-<div class="meta-row"><h3>Produces</h3><ul><li>A findings table: WCAG criterion, severity (P0/P1/P2), what fails, specific fix</li><li>Explicit confirmation of passing checks</li><li>Measured contrast ratios (not estimated)</li></ul></div>
-<div class="meta-row"><h3>Tags</h3>
-<ul class="tags"><li><a class="tag" href="../index.html?tag=a11y">a11y</a></li><li><a class="tag" href="../index.html?tag=wcag">wcag</a></li><li><a class="tag" href="../index.html?tag=aria">aria</a></li><li><a class="tag" href="../index.html?tag=screen-reader">screen-reader</a></li><li><a class="tag" href="../index.html?tag=keyboard">keyboard</a></li><li><a class="tag" href="../index.html?tag=focus-management">focus-management</a></li><li><a class="tag" href="../index.html?tag=contrast">contrast</a></li><li><a class="tag" href="../index.html?tag=audit">audit</a></li><li><a class="tag" href="../index.html?tag=remediation">remediation</a></li></ul></div>
-<div class="meta-row"><h3>Requires</h3><ul><li><code>python</code></li><li><code>node</code></li></ul></div>
-<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/a11y-audit">plugin87/ux-ui-agent-skills</a> by plugin87 at <code>2ffb677</code>, licence <code>MIT</code>. Modified when vendored: portability.</p></div>
-</section>
-
 <section id="install">
 <h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill a11y-audit</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill a11y-audit"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
 <ul class="install">
-<li>
-<h3>Any agent, via the skills CLI</h3>
-<div class="cmd"><pre><code>npx skills add stritar/skills --skill a11y-audit</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill a11y-audit"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Installs into whichever agents it finds on your machine.</p>
-</li>
 <li>
 <h3>Claude Code, as a plugin</h3>
 <div class="cmd"><pre><code>/plugin marketplace add stritar/skills
-/plugin install product-design-accessibility@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-accessibility@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
 /plugin install product-design-accessibility@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Brings the whole accessibility bundle. Use <code>product-design-all</code> for everything.</p>
+<p class="note">Installs the whole <code>accessibility</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
 </li>
 <li>
 <h3>From a clone, copied by hand</h3>
-<div class="cmd"><pre><code>cp -r skills/accessibility/a11y-audit ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/accessibility/a11y-audit ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<div class="cmd"><pre><code>cp -r skills/accessibility/a11y-audit ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/accessibility/a11y-audit ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
 <p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
 </li>
 </ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Audits a UI or design against WCAG 2.2 AA/AAA and documented ARIA patterns, producing a criterion-referenced findings table (WCAG criterion, P0/P1/P2 severity, what fails, specific fix). Directs the agent to check the mandatory P0 set (keyboard nav, visible focus &gt;=3:1, screen-reader name/role/state, 4.5:1 text / 3:1 UI contrast, &gt;=24x24 target size, no color-only signaling) plus WCAG 2.2 additions (Focus Not Obscured, Target Size, Accessible Authentication), and to measure contrast rather than eyeball it: a Playwright-based real-render gate over every text element and every interactive element's default/hover/focus states, plus a standalone hex-pair contrast calculator, with instructions to report only actually-measured ratios.</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>accessibility audit</li><li>WCAG check</li><li>contrast verification</li><li>keyboard and screen-reader review</li><li>does this meet WCAG 2.2 AA</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>A UI, component, or rendered HTML page to audit</li><li>Target conformance level (AA or AAA)</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>A findings table: WCAG criterion, severity (P0/P1/P2), what fails, specific fix</li><li>Explicit confirmation of passing checks</li><li>Measured contrast ratios (not estimated)</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=a11y">a11y</a></li><li><a class="tag" href="../index.html?tag=wcag">wcag</a></li><li><a class="tag" href="../index.html?tag=aria">aria</a></li><li><a class="tag" href="../index.html?tag=screen-reader">screen-reader</a></li><li><a class="tag" href="../index.html?tag=keyboard">keyboard</a></li><li><a class="tag" href="../index.html?tag=focus-management">focus-management</a></li><li><a class="tag" href="../index.html?tag=contrast">contrast</a></li><li><a class="tag" href="../index.html?tag=audit">audit</a></li><li><a class="tag" href="../index.html?tag=remediation">remediation</a></li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Requires</h3><ul><li><code>python</code></li><li><code>node</code></li></ul></div>
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/a11y-audit">plugin87/ux-ui-agent-skills</a> by plugin87 at <code>2ffb677</code>, licence <code>MIT</code>. Modified when vendored: portability.</p>
+</details>
 </section>
 
 <section id="related">
@@ -73,7 +78,7 @@
 </ul>
 </section>
 
-<article class="skill-body">
+<article class="skill-body" id="instructions">
 <h2 class="body-head">Instructions</h2>
 <p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/accessibility/a11y-audit/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
 <h2 id="skill-accessibility-audit">Skill: Accessibility Audit</h2>
