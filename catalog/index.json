@@ -1061,6 +1061,153 @@
       "status": "draft"
     },
     {
+      "id": "design-tokens",
+      "name": "design-tokens",
+      "description": "Generates, extends, or audits design tokens in DTCG format ($type/$value) using a 3-tier architecture (primitive, raw values never used directly; semantic, purpose aliases; component, component-scoped). Reads the project's token-and-color and typography-and-spacing rules to apply a 4px base spacing grid, a Major Third type scale, and OKLCH-based palette generation, verifying that any new palette's mid shade clears 4.5:1 on white for text and a darker shade clears 3:1 for UI use. Covers colors, typography, spacing, shadows, borders, breakpoints, motion, gradients, opacity, blur, sizing, states, and multi-brand/density theming, and runs a JSON-validity-and-alias-resolution script before calling the work done.",
+      "category": "design-systems",
+      "tags": [
+        "design-tokens",
+        "token-naming",
+        "semantic-tokens",
+        "design-system",
+        "color",
+        "typography",
+        "spacing",
+        "dark-mode",
+        "multi-brand"
+      ],
+      "triggers": [
+        "generate a color palette",
+        "set up design tokens",
+        "define a type scale",
+        "validate our token files",
+        "multi-brand theming"
+      ],
+      "inputs": [
+        "An existing tokens/ directory to extend, or a brief for a new palette",
+        "Target platforms/brands needing theming"
+      ],
+      "outputs": [
+        "DTCG-format token JSON (primitive/semantic/component tiers) with $description preserved",
+        "A validation pass confirming JSON validity and alias resolution"
+      ],
+      "path": "skills/design-systems/design-tokens",
+      "source": {
+        "type": "third-party",
+        "repository": "plugin87/ux-ui-agent-skills",
+        "url": "https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/design-tokens",
+        "author": "plugin87",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": ".claude/skills/design-tokens",
+        "upstreamCommit": "2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd",
+        "retrievedAt": "2026-08-26",
+        "modified": true,
+        "modifications": [
+          {
+            "date": "2026-08-26",
+            "reason": "portability",
+            "description": "Upstream SKILL.md references repo-root shared files (.claude/rules/tokens-and-color.md, .claude/rules/typography-and-spacing.md, scripts/validate_tokens.py, scripts/contrast.py) outside the skill's own directory. Bundled the specific referenced files into the vendored skill directory at the same relative paths already used in the prose, so no wording had to change.",
+            "files": [
+              ".claude/rules/tokens-and-color.md",
+              ".claude/rules/typography-and-spacing.md",
+              "scripts/validate_tokens.py",
+              "scripts/contrast.py"
+            ]
+          }
+        ]
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code"
+      ],
+      "dependencies": [
+        "python"
+      ],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "experimental",
+      "status": "draft"
+    },
+    {
+      "id": "figma-integration",
+      "name": "figma-integration",
+      "description": "Keeps Figma and code in sync by mapping the project's 3-tier DTCG tokens to Figma Variables: three Figma collections (Primitives, Semantic, Component) mirroring the token tiers, with dark/brand/density variance modeled as Figma Modes. Requires picking exactly one authoritative sync direction (code-to-Figma publish, or Figma-to-code extract via Tokens Studio or the Variables REST API) so the non-authoritative side is always generated, never hand-edited. When a Figma MCP server is connected, prefers its tools for reading frames/variables/screenshots and wiring Code Connect. Verifies component parity (Figma variants/properties must cover every design-system variant, size, and the full state set) and that every Figma Variable resolves to a real token with no orphan hex values.",
+      "category": "design-systems",
+      "tags": [
+        "figma",
+        "figma-to-code",
+        "design-tokens",
+        "design-system",
+        "component-api",
+        "multi-brand"
+      ],
+      "triggers": [
+        "sync tokens with Figma",
+        "push components to Figma",
+        "pull a Figma design into code",
+        "set up Figma Variables from our tokens",
+        "check design-code drift"
+      ],
+      "inputs": [
+        "The project's DTCG token files",
+        "A connected Figma file or Figma MCP server (optional)"
+      ],
+      "outputs": [
+        "A token-to-Figma-Variable collection/mode mapping",
+        "A stated authoritative sync direction",
+        "A component parity report (variant/state coverage gaps)"
+      ],
+      "path": "skills/design-systems/figma-integration",
+      "source": {
+        "type": "third-party",
+        "repository": "plugin87/ux-ui-agent-skills",
+        "url": "https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/figma-integration",
+        "author": "plugin87",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": ".claude/skills/figma-integration",
+        "upstreamCommit": "2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd",
+        "retrievedAt": "2026-08-26",
+        "modified": true,
+        "modifications": [
+          {
+            "date": "2026-08-26",
+            "reason": "portability",
+            "description": "Upstream SKILL.md references repo-root shared files (workflows/figma-integration.md, scripts/validate_tokens.py) outside the skill's own directory. Bundled the specific referenced files into the vendored skill directory at the same relative paths already used in the prose, so no wording had to change.",
+            "files": [
+              "workflows/figma-integration.md",
+              "scripts/validate_tokens.py"
+            ]
+          }
+        ]
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code"
+      ],
+      "dependencies": [
+        "python",
+        "figma-mcp"
+      ],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "experimental",
+      "status": "draft"
+    },
+    {
       "id": "frontend-ui-dark-ts",
       "name": "frontend-ui-dark-ts",
       "description": "A complete dark-theme design-token and component system for React + Tailwind CSS + Framer Motion applications: CSS custom properties and Tailwind config for brand/neutral/text/border/status/data-viz color scales, spacing/radius/shadow/z-index scales, glassmorphism utility classes, and Framer Motion timing/easing presets, plus ready-to-use TSX source for Button, Input, Card, Badge, Dialog, Tabs, Avatar, Checkbox, Select, and Toast components, and page-layout patterns (app shell, responsive mobile drawer, dashboard, list/tabs/settings-form templates, empty states, skeleton loaders) built for dashboards and admin panels.",
@@ -1243,6 +1390,475 @@
       "status": "draft"
     },
     {
+      "id": "token-build",
+      "name": "token-build",
+      "description": "Sets up or runs the build pipeline that turns the project's DTCG tokens/*.json source of truth into platform-ready artifacts: CSS custom properties, a Tailwind v4 @theme block, typed JS/TS, an iOS Asset Catalog plus Color/Spacing extensions, and Android colors.xml/Compose theme. Picks between Style Dictionary (the default, multi-platform), Tokens Studio (when tokens are Figma-owned), a W3C DTCG exporter, or a small custom script; resolves aliases to final per-platform values, keeps primitives internal while exposing semantic/component tokens, and emits dark/brand/density variants as deltas only rather than full duplicate files. Wires CI to validate and regenerate on token changes and to fail if committed artifacts drift from a fresh regeneration, gating any color change through a contrast check.",
+      "category": "design-systems",
+      "tags": [
+        "design-tokens",
+        "design-system",
+        "versioning",
+        "multi-brand",
+        "governance"
+      ],
+      "triggers": [
+        "generate CSS variables from our tokens",
+        "set up a Style Dictionary pipeline",
+        "export tokens to iOS and Android",
+        "wire token validation into CI",
+        "build Tailwind theme from tokens"
+      ],
+      "inputs": [
+        "DTCG token source files (tokens/*.json)",
+        "Target platform(s) for generated artifacts"
+      ],
+      "outputs": [
+        "Platform-specific generated theme files (CSS, Tailwind, JS/TS, iOS, Android)",
+        "A CI step that validates tokens and fails on stale generated artifacts"
+      ],
+      "path": "skills/design-systems/token-build",
+      "source": {
+        "type": "third-party",
+        "repository": "plugin87/ux-ui-agent-skills",
+        "url": "https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/token-build",
+        "author": "plugin87",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": ".claude/skills/token-build",
+        "upstreamCommit": "2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd",
+        "retrievedAt": "2026-08-26",
+        "modified": true,
+        "modifications": [
+          {
+            "date": "2026-08-26",
+            "reason": "portability",
+            "description": "Upstream SKILL.md references repo-root shared files (workflows/token-build.md, scripts/validate_tokens.py, scripts/contrast.py) outside the skill's own directory. Bundled the specific referenced files into the vendored skill directory at the same relative paths already used in the prose, so no wording had to change.",
+            "files": [
+              "workflows/token-build.md",
+              "scripts/validate_tokens.py",
+              "scripts/contrast.py"
+            ]
+          }
+        ]
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code"
+      ],
+      "dependencies": [
+        "node",
+        "python"
+      ],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "experimental",
+      "status": "draft"
+    },
+    {
+      "id": "a11y-audit",
+      "name": "a11y-audit",
+      "description": "Audits a UI or design against WCAG 2.2 AA/AAA and documented ARIA patterns, producing a criterion-referenced findings table (WCAG criterion, P0/P1/P2 severity, what fails, specific fix). Directs the agent to check the mandatory P0 set (keyboard nav, visible focus >=3:1, screen-reader name/role/state, 4.5:1 text / 3:1 UI contrast, >=24x24 target size, no color-only signaling) plus WCAG 2.2 additions (Focus Not Obscured, Target Size, Accessible Authentication), and to measure contrast rather than eyeball it: a Playwright-based real-render gate over every text element and every interactive element's default/hover/focus states, plus a standalone hex-pair contrast calculator, with instructions to report only actually-measured ratios.",
+      "category": "accessibility",
+      "tags": [
+        "a11y",
+        "wcag",
+        "aria",
+        "screen-reader",
+        "keyboard",
+        "focus-management",
+        "contrast",
+        "audit",
+        "remediation"
+      ],
+      "triggers": [
+        "accessibility audit",
+        "WCAG check",
+        "contrast verification",
+        "keyboard and screen-reader review",
+        "does this meet WCAG 2.2 AA"
+      ],
+      "inputs": [
+        "A UI, component, or rendered HTML page to audit",
+        "Target conformance level (AA or AAA)"
+      ],
+      "outputs": [
+        "A findings table: WCAG criterion, severity (P0/P1/P2), what fails, specific fix",
+        "Explicit confirmation of passing checks",
+        "Measured contrast ratios (not estimated)"
+      ],
+      "path": "skills/accessibility/a11y-audit",
+      "source": {
+        "type": "third-party",
+        "repository": "plugin87/ux-ui-agent-skills",
+        "url": "https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/a11y-audit",
+        "author": "plugin87",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": ".claude/skills/a11y-audit",
+        "upstreamCommit": "2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd",
+        "retrievedAt": "2026-08-26",
+        "modified": true,
+        "modifications": [
+          {
+            "date": "2026-08-26",
+            "reason": "portability",
+            "description": "Upstream SKILL.md references repo-root shared files (accessibility/, scripts/, taste/) that live outside the skill's own directory in the source repo, so the skill is not self-contained on its own. Bundled the specific referenced files into the vendored skill directory at the same relative paths the prose already uses, so no wording had to change and the file references now resolve inside the skill directory.",
+            "files": [
+              "accessibility/wcag-checklist.md",
+              "accessibility/aria-patterns.md",
+              "scripts/measure_render.mjs",
+              "scripts/verify_states.mjs",
+              "scripts/contrast.py",
+              "taste/motion-choreography.md"
+            ]
+          }
+        ]
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code"
+      ],
+      "dependencies": [
+        "python",
+        "node"
+      ],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "experimental",
+      "status": "draft"
+    },
+    {
+      "id": "a11y-check-code",
+      "name": "a11y-check-code",
+      "description": "Reviews source files (HTML, JSX, TSX, Vue, Svelte, templates) for WCAG 2.2 AA accessibility issues without external dependencies: traces imported components (depth 3, max 50 files) to see final rendered markup, enumerates every conditional/state variation before checking, applies a fixed ID'd checklist (SPEC/VIS/KBD/RFL/SEM/AXE) by observation type rather than by file, computes contrast ratios with a bundled Node script instead of estimating them, and writes a severity-rated (Critical/Major/Normal/Minor) Markdown report with file:line evidence, user-impact statements, and an explicit list of items that cannot be verified from code alone and must be checked on a live page.",
+      "category": "accessibility",
+      "tags": [
+        "a11y",
+        "wcag",
+        "contrast",
+        "keyboard",
+        "focus-management",
+        "semantic-html",
+        "forms",
+        "severity",
+        "audit",
+        "remediation"
+      ],
+      "triggers": [
+        "a11y check this component",
+        "check accessibility of this code",
+        "review this PR for accessibility",
+        "WCAG 2.2 AA audit of source code",
+        "check for accessibility issues before merge"
+      ],
+      "inputs": [
+        "source files (HTML/JSX/TSX/Vue/Svelte/templates) to review",
+        "the imported component tree reachable from the target file"
+      ],
+      "outputs": [
+        "severity-rated Markdown report with file:line findings and user-impact statements",
+        "contrast-ratio calculations from the bundled scripts/contrast.mjs",
+        "list of items requiring live-page verification, handed off to a11y-check-page"
+      ],
+      "path": "skills/accessibility/a11y-check-code",
+      "source": {
+        "type": "third-party",
+        "repository": "ymrl/a11y-check-skills",
+        "url": "https://github.com/ymrl/a11y-check-skills/tree/a59f48bbe72c1c4ec710e86ae19f8b39fa4b44f6/skills/a11y-check-code",
+        "author": "ymrl",
+        "license": "ISC",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/a11y-check-code",
+        "upstreamCommit": "a59f48bbe72c1c4ec710e86ae19f8b39fa4b44f6",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [
+        "node"
+      ],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "a11y-check-page",
+      "name": "a11y-check-page",
+      "description": "Audits a live, running web page for WCAG 2.2 AA accessibility using browser automation (Playwright MCP, Chrome DevTools MCP, or playwright-cli): runs the bundled axe-core build, walks keyboard focus order in both directions, injects CSS/viewport changes to test 200% zoom, 320px reflow, and text-spacing, inspects the accessibility tree, and re-runs checks per distinct UI state (modals, loading, errors). Enforces credential-safety rules for login-gated pages (never store or echo credentials, screenshot only pre-input states, explicit permission before destructive actions) and writes a severity-rated Markdown report to a11y-report/ with screenshots saved under a11y-report/assets/.",
+      "category": "accessibility",
+      "tags": [
+        "a11y",
+        "wcag",
+        "aria",
+        "keyboard",
+        "focus-management",
+        "contrast",
+        "severity",
+        "audit",
+        "remediation"
+      ],
+      "triggers": [
+        "check this URL's accessibility",
+        "audit this live page for WCAG",
+        "test keyboard navigation on this page",
+        "run axe-core against this site",
+        "a11y check after login"
+      ],
+      "inputs": [
+        "target URL(s) and, when login is required, credentials/steps provided by the user",
+        "confirmation of test vs. production environment and whether destructive actions are permitted"
+      ],
+      "outputs": [
+        "severity-rated Markdown report in a11y-report/ with screenshots in a11y-report/assets/",
+        "per-state axe-core, keyboard-focus, and accessibility-tree findings",
+        "list of items excluded from automated testing (e.g. screen-reader behavior, seizure thresholds)"
+      ],
+      "path": "skills/accessibility/a11y-check-page",
+      "source": {
+        "type": "third-party",
+        "repository": "ymrl/a11y-check-skills",
+        "url": "https://github.com/ymrl/a11y-check-skills/tree/a59f48bbe72c1c4ec710e86ae19f8b39fa4b44f6/skills/a11y-check-page",
+        "author": "ymrl",
+        "license": "ISC",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/a11y-check-page",
+        "upstreamCommit": "a59f48bbe72c1c4ec710e86ae19f8b39fa4b44f6",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [
+        "node",
+        "browser",
+        "playwright",
+        "axe-core"
+      ],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "a11y-critic",
+      "name": "a11y-critic",
+      "description": "Reviews accessibility design decisions in an existing component, flow, or interface after automated compliance checks already pass — catching what axe-core/Pa11y miss: incomplete ARIA patterns, incoherent focus management, and state-communication gaps. Runs a 10-phase protocol (pre-commitment predictions, semantic HTML audit, ARIA pattern compliance, focus management analysis, state communication audit, multi-perspective review across screen-reader/keyboard-only/low-vision/cognitive users) and produces findings with severity (CRITICAL/MAJOR/MINOR/ENHANCEMENT), file:line evidence, affected user group, and a WCAG 2.2 or WAI-ARIA APG citation, ending in a verdict of ACCEPT, ACCEPT-WITH-RESERVATIONS, REVISE, or REJECT.",
+      "category": "accessibility",
+      "tags": [
+        "a11y",
+        "wcag",
+        "aria",
+        "keyboard",
+        "focus-management",
+        "screen-reader",
+        "semantic-html",
+        "severity",
+        "design-critique",
+        "expert-review"
+      ],
+      "triggers": [
+        "critique this accessibility plan",
+        "review this component's accessibility design",
+        "is this ready to ship accessibility-wise?",
+        "check ARIA pattern completeness",
+        "review focus management before merge"
+      ],
+      "inputs": [
+        "an existing component, flow, or interface (code or a written accessibility plan) that has already passed automated accessibility checks"
+      ],
+      "outputs": [
+        "findings list with severity, file:line evidence, affected user group, and WCAG/APG citation",
+        "a verdict: ACCEPT / ACCEPT-WITH-RESERVATIONS / REVISE / REJECT"
+      ],
+      "path": "skills/accessibility/a11y-critic",
+      "source": {
+        "type": "third-party",
+        "repository": "zivtech/accessibility-skills",
+        "url": "https://github.com/zivtech/accessibility-skills/tree/817dedeae90324017ece2d2b104332aec9d20656/.claude/skills/a11y-critic",
+        "author": "zivtech",
+        "license": "GPL-3.0-or-later",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": ".claude/skills/a11y-critic",
+        "upstreamCommit": "817dedeae90324017ece2d2b104332aec9d20656",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "a11y-planner",
+      "name": "a11y-planner",
+      "description": "Designs an accessible implementation before code is written: runs a 9-phase protocol covering scope/context, semantic structure, WAI-ARIA Authoring Practices Guide pattern mapping for every interactive widget, focus management (tab order, modal traps, restoration, roving tabindex), state communication to assistive technology, visual accessibility (contrast, touch targets, motion), content accessibility (alt text, link text, form labels), a testing strategy, and an implementation task breakdown with review checkpoints. Every decision cites a WCAG 2.2 success criterion or APG pattern section. Guards against nine known failure modes (e.g. per-event live-region spam, color-only state indicators, title-attribute-only accessible names). Writes the plan to docs/a11y-plans/YYYY-MM-DD-<feature-name>-a11y-plan.md.",
+      "category": "accessibility",
+      "tags": [
+        "a11y",
+        "wcag",
+        "aria",
+        "keyboard",
+        "focus-management",
+        "contrast",
+        "semantic-html",
+        "forms",
+        "inclusive-design"
+      ],
+      "triggers": [
+        "design accessible interaction for this component",
+        "plan the accessibility approach for this modal/combobox/tabs",
+        "write an a11y spec before we build this",
+        "WAI-ARIA pattern for this widget",
+        "prepare for a WCAG 2.2 AA audit"
+      ],
+      "inputs": [
+        "a description of the component, flow, or interface to be built",
+        "the target compliance level and known constraints (framework, existing design system)"
+      ],
+      "outputs": [
+        "a Markdown accessibility plan (docs/a11y-plans/YYYY-MM-DD-<feature-name>-a11y-plan.md) with semantic structure, APG pattern table, focus plan, state-communication table, and task breakdown",
+        "a WCAG-EM audit-scope variant for Section 508 conformance sampling when requested"
+      ],
+      "path": "skills/accessibility/a11y-planner",
+      "source": {
+        "type": "third-party",
+        "repository": "zivtech/accessibility-skills",
+        "url": "https://github.com/zivtech/accessibility-skills/tree/817dedeae90324017ece2d2b104332aec9d20656/.claude/skills/a11y-planner",
+        "author": "zivtech",
+        "license": "GPL-3.0-or-later",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": ".claude/skills/a11y-planner",
+        "upstreamCommit": "817dedeae90324017ece2d2b104332aec9d20656",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "a11y-role-audit",
+      "name": "a11y-role-audit",
+      "description": "Runs an ARRM-based (W3C WAI Accessibility Requirements-to-Roles Mapping) accessibility review through six responsibility-based lenses — visual design, UX design, front-end development, content authoring, business analysis, and testing — to produce findings attributed to the team role best positioned to catch and fix each barrier, rather than a single generic pass/fail. Supports three modes: design review (mockups/specs before implementation), implementation review (code through each role's lens), and finding attribution (assigning ownership of existing accessibility gaps). Findings are rated CRITICAL, MAJOR, MINOR, or ENHANCEMENT (AAA-level).",
+      "category": "accessibility",
+      "tags": [
+        "a11y",
+        "wcag",
+        "aria",
+        "keyboard",
+        "contrast",
+        "semantic-html",
+        "severity",
+        "design-critique",
+        "expert-review"
+      ],
+      "triggers": [
+        "who should fix this accessibility issue",
+        "role-based accessibility audit",
+        "attribute this a11y finding to a team",
+        "review this mockup for accessibility by role",
+        "ARRM accessibility review"
+      ],
+      "inputs": [
+        "a design mockup/spec, or implemented code, to review through each of the six role lenses"
+      ],
+      "outputs": [
+        "role-attributed findings table (role, barrier, severity, WCAG/ARRM reference)",
+        "ownership assignment for existing accessibility gaps"
+      ],
+      "path": "skills/accessibility/a11y-role-audit",
+      "source": {
+        "type": "third-party",
+        "repository": "zivtech/accessibility-skills",
+        "url": "https://github.com/zivtech/accessibility-skills/tree/817dedeae90324017ece2d2b104332aec9d20656/.claude/skills/a11y-role-audit",
+        "author": "zivtech",
+        "license": "GPL-3.0-or-later",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": ".claude/skills/a11y-role-audit",
+        "upstreamCommit": "817dedeae90324017ece2d2b104332aec9d20656",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
       "id": "better-accessibility",
       "name": "better-accessibility",
       "description": "Accessibility engineering guidance for building or reviewing UI components and custom widgets: native-element-first ARIA rules, exact focus-ring and tabindex/roving-tabindex recipes, WCAG 2.5.8 hit-area sizing with pseudo-element expansion, form labeling and error-announcement patterns, prefers-reduced-motion and autoplay/zoom rules, live-region and screen-reader announcement selection, alt-text-by-purpose table, and a calibrated HIGH/MEDIUM/LOW severity report format ending in Block/Approve.",
@@ -1305,6 +1921,203 @@
       "dependencies": [],
       "relatedSkills": [],
       "recommended": true,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "perspective-audit",
+      "name": "perspective-audit",
+      "description": "Runs a deep, single-dimension accessibility review from one of seven access perspectives — magnification & reflow, environmental contrast, vestibular & motion sensitivity, auditory access, keyboard & motor access, screen reader & semantic structure, and cognitive & neurodivergent accessibility. Activates only on escalation from a11y-planner or a11y-critic when a perspective is flagged MEDIUM or HIGH alarm level, skipping LOW-rated perspectives entirely ('evidence over assertion'). Loads only the relevant checklist section, reviews source/markup against it, and routes each finding to an ARRM team role with severity (CRITICAL/MAJOR/MINOR/ENHANCEMENT), before issuing a PASS, REVISE, or BLOCK recommendation. Read-only: cannot write or edit files.",
+      "category": "accessibility",
+      "tags": [
+        "a11y",
+        "wcag",
+        "keyboard",
+        "focus-management",
+        "contrast",
+        "screen-reader",
+        "motion",
+        "inclusive-design",
+        "severity",
+        "expert-review"
+      ],
+      "triggers": [
+        "deep-dive this flagged accessibility perspective",
+        "review keyboard and motor access in depth",
+        "check cognitive accessibility for this flow",
+        "escalated accessibility review",
+        "audit vestibular/motion safety"
+      ],
+      "inputs": [
+        "an artifact (source code or markup) plus the specific perspective(s) flagged MEDIUM or HIGH by an upstream review"
+      ],
+      "outputs": [
+        "per-perspective findings with severity, WCAG citation, ARRM role routing, and file:line evidence",
+        "a PASS / REVISE / BLOCK recommendation"
+      ],
+      "path": "skills/accessibility/perspective-audit",
+      "source": {
+        "type": "third-party",
+        "repository": "zivtech/accessibility-skills",
+        "url": "https://github.com/zivtech/accessibility-skills/tree/817dedeae90324017ece2d2b104332aec9d20656/.claude/skills/perspective-audit",
+        "author": "zivtech",
+        "license": "GPL-3.0-or-later",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": ".claude/skills/perspective-audit",
+        "upstreamCommit": "817dedeae90324017ece2d2b104332aec9d20656",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "review-a11y",
+      "name": "review-a11y",
+      "description": "Reviews changed frontend code (staged files, a working diff, a branch, or a PR) for WCAG 2.2 AA accessibility using a bundled, install-free static engine with cross-file JSX/TSX AST analysis. Treats engine findings as candidates, not verdicts: confirms each occurrence in the actual code, flags preliminary findings from framework templates or library-rendered markup that need rendered-DOM verification, adjudicates judgment criteria (alt-text relevance, link purpose, focus logic) from visible evidence, and refutes false positives with cited code. Returns a severity-ranked WCAG 2.2 AA review scoped only to the change, with file:line fixes, explicitly named residual rendering risks (contrast, focus visibility, zoom) that require a browser scan, and a pass/fail verdict.",
+      "category": "accessibility",
+      "tags": [
+        "a11y",
+        "wcag",
+        "aria",
+        "keyboard",
+        "focus-management",
+        "contrast",
+        "semantic-html",
+        "severity",
+        "remediation",
+        "pr-review"
+      ],
+      "triggers": [
+        "review a11y",
+        "is this accessible?",
+        "anything to fix before merge?",
+        "accessibility review of this diff",
+        "check staged files for accessibility"
+      ],
+      "inputs": [
+        "staged files, a working diff, a branch, or a PR diff",
+        "the bundled engine's candidate findings from `node scripts/ultra11y.mjs audit`"
+      ],
+      "outputs": [
+        "severity-ranked WCAG 2.2 AA review scoped to the change, with file:line fixes",
+        "list of residual rendering risks requiring a browser scan",
+        "pass/fail verdict for the change"
+      ],
+      "path": "skills/accessibility/review-a11y",
+      "source": {
+        "type": "third-party",
+        "repository": "maxgfr/ultra11y",
+        "url": "https://github.com/maxgfr/ultra11y/tree/d1cd14792f3bd1b9ab15958bc4e72081375514dc/skills/review-a11y",
+        "author": "maxgfr",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/review-a11y",
+        "upstreamCommit": "d1cd14792f3bd1b9ab15958bc4e72081375514dc",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [
+        "node"
+      ],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "ultra11y",
+      "name": "ultra11y",
+      "description": "Audits a repository, site, or page against WCAG 2.2 AA or a pluggable country standard (e.g. RGAA) using a bundled, install-free engine that runs 93 static checks tied to specific success criteria with cross-file JSX/TSX AST analysis, routes rendering-dependent criteria (computed contrast, zoom/reflow, focus visibility) to an optional browser scan tier, and has the agent adjudicate judgment criteria (alt-text relevance, link purpose, reading order) from harvested evidence — never silently marking a criterion conforming without recorded proof. Produces dated Markdown/HTML conformance reports, per-page criterion grids, PRD-style backlogs, and filed tickets (GitHub/GitLab/Jira), and can also author accessible markup and apply safe automated fixes. Self-benchmarked against the W3C ACT-Rules corpus (125/176 failing examples caught across 40 rules, zero false positives).",
+      "category": "accessibility",
+      "tags": [
+        "a11y",
+        "wcag",
+        "aria",
+        "keyboard",
+        "focus-management",
+        "contrast",
+        "semantic-html",
+        "forms",
+        "severity",
+        "audit",
+        "remediation",
+        "documentation"
+      ],
+      "triggers": [
+        "audit this repo for accessibility",
+        "generate a WCAG conformance report",
+        "run an RGAA accessibility audit",
+        "produce an accessibility PRD backlog",
+        "author accessible markup for this component"
+      ],
+      "inputs": [
+        "source file globs, a site URL, or a rendered page to audit",
+        "an optional country-standard pack (e.g. RGAA) and prior audit JSON to merge/re-scan against"
+      ],
+      "outputs": [
+        "dated Markdown/HTML conformance report with per-criterion status",
+        "per-page compliance grid from rendered-page scans",
+        "PRD-style backlog and/or filed tickets grouped by WCAG criterion"
+      ],
+      "path": "skills/accessibility/ultra11y",
+      "source": {
+        "type": "third-party",
+        "repository": "maxgfr/ultra11y",
+        "url": "https://github.com/maxgfr/ultra11y/tree/d1cd14792f3bd1b9ab15958bc4e72081375514dc/skills/ultra11y",
+        "author": "maxgfr",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/ultra11y",
+        "upstreamCommit": "d1cd14792f3bd1b9ab15958bc4e72081375514dc",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [
+        "node",
+        "browser",
+        "playwright"
+      ],
+      "relatedSkills": [],
+      "recommended": false,
       "maturity": "stable",
       "status": "draft"
     },
@@ -1412,6 +2225,79 @@
         "retrievedAt": "2026-08-26",
         "modified": false,
         "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "ux-writing",
+      "name": "ux-writing",
+      "description": "Writes and edits user-centered, accessible interface copy (buttons, labels, error messages, notifications, forms, onboarding, empty states, success messages, help text) against four measurable quality standards -- purposeful, concise, conversational, clear -- each scored 0-10 with concrete criteria (e.g. 40-60 characters per line, active voice predominates). Draws on dedicated reference material for WCAG-aligned accessible writing (plain language at a 7th-8th grade level, sentences under 20 words, descriptive interactive-element labels), a detailed pattern library covering three contrasting worked product voices, a fillable voice-chart template for defining brand personality in 3-5 concepts, and three ready-to-use templates for empty states, error messages, and onboarding flows.",
+      "category": "content-design",
+      "tags": [
+        "ux-writing",
+        "microcopy",
+        "voice-and-tone",
+        "labels",
+        "error-messages",
+        "help-content",
+        "onboarding",
+        "empty-states",
+        "plain-language",
+        "a11y"
+      ],
+      "triggers": [
+        "write button and error copy",
+        "review this UI text",
+        "set up voice and tone guidelines",
+        "audit our interface copy",
+        "write an empty state or onboarding flow"
+      ],
+      "inputs": [
+        "Existing or draft interface copy to write or review",
+        "Product voice/brand context (optional, for tone calibration)"
+      ],
+      "outputs": [
+        "Rewritten or new interface copy",
+        "A 0-10 score across the four quality dimensions with the lowest-scoring areas flagged",
+        "Filled templates for empty states, error messages, or onboarding flows where applicable"
+      ],
+      "path": "skills/content-design/ux-writing",
+      "source": {
+        "type": "third-party",
+        "repository": "content-designer/ux-writing-skill",
+        "url": "https://github.com/content-designer/ux-writing-skill/tree/98cacde4ba2dd10ed28df43a8d53eef1e321c539",
+        "author": "Christopher Greer",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": ".",
+        "upstreamCommit": "98cacde4ba2dd10ed28df43a8d53eef1e321c539",
+        "retrievedAt": "2026-08-26",
+        "modified": true,
+        "modifications": [
+          {
+            "date": "2026-08-26",
+            "reason": "broken-reference",
+            "description": "docs/figma-integration.md linked ../README.md (the upstream repository README, outside the skill directory); repointed to the same file at the pinned upstream commit.",
+            "files": [
+              "docs/figma-integration.md"
+            ]
+          }
+        ]
       },
       "compatibility": [
         "claude-code",
@@ -1650,6 +2536,80 @@
       "relatedSkills": [],
       "recommended": false,
       "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "design-review",
+      "name": "design-review",
+      "description": "Runs a structured, scored review of a screen, page, or product. Scores six weighted dimensions (Visual Hierarchy 20%, Consistency 20%, Accessibility 20%, Usability 20%, Responsiveness 10%, Performance 10%) into an overall weighted score, applies Nielsen's 10 usability heuristics flagging violations by number, runs an accessibility pass against a WCAG checklist with a contrast calculator for color-pair doubts, and checks the result against a documented anti-slop / banned-defaults checklist. Outputs the six-dimension scored table plus a prioritized findings table (# / severity Critical-Major-Minor-Enhancement / finding / recommendation) with concrete, token-referenced fixes.",
+      "category": "testing",
+      "tags": [
+        "design-review",
+        "design-critique",
+        "heuristic-evaluation",
+        "severity",
+        "ui-design",
+        "visual-hierarchy",
+        "a11y"
+      ],
+      "triggers": [
+        "review this design",
+        "audit this screen",
+        "heuristic evaluation",
+        "design quality score",
+        "critique this UI before we ship"
+      ],
+      "inputs": [
+        "A screen, page, or flow to review",
+        "Target users, platform, and constraints"
+      ],
+      "outputs": [
+        "Six-dimension scored table plus weighted overall score",
+        "Prioritized findings table with severity and concrete fixes",
+        "Nielsen heuristic violations flagged by number"
+      ],
+      "path": "skills/testing/design-review",
+      "source": {
+        "type": "third-party",
+        "repository": "plugin87/ux-ui-agent-skills",
+        "url": "https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/design-review",
+        "author": "plugin87",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": ".claude/skills/design-review",
+        "upstreamCommit": "2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd",
+        "retrievedAt": "2026-08-26",
+        "modified": true,
+        "modifications": [
+          {
+            "date": "2026-08-26",
+            "reason": "portability",
+            "description": "Upstream SKILL.md references repo-root shared files (workflows/design-review.md, accessibility/wcag-checklist.md, scripts/contrast.py, taste/design-taste.md) outside the skill's own directory. Bundled the specific referenced files into the vendored skill directory at the same relative paths already used in the prose, so no wording had to change.",
+            "files": [
+              "workflows/design-review.md",
+              "accessibility/wcag-checklist.md",
+              "scripts/contrast.py",
+              "taste/design-taste.md"
+            ]
+          }
+        ]
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code"
+      ],
+      "dependencies": [
+        "python"
+      ],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "experimental",
       "status": "draft"
     },
     {

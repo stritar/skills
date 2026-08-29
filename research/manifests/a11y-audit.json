@@ -1,0 +1,133 @@
+{
+  "id": "a11y-audit",
+  "category": "accessibility",
+  "verdict": "vendor",
+  "rubric": {
+    "relevance": 3,
+    "quality": 3,
+    "conformance": 1,
+    "uniqueness": 1
+  },
+  "upstream": {
+    "repository": "plugin87/ux-ui-agent-skills",
+    "url": "https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/a11y-audit",
+    "author": "plugin87",
+    "commit": "2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd",
+    "path": ".claude/skills/a11y-audit",
+    "license": "MIT",
+    "licenseSource": "package.json"
+  },
+  "files": [
+    {
+      "dest": "SKILL.md",
+      "rawUrl": "https://raw.githubusercontent.com/plugin87/ux-ui-agent-skills/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/a11y-audit/SKILL.md",
+      "blobSha": "e7990245cfb053ac5fdf625fdc0d4a74984a5561"
+    },
+    {
+      "dest": "accessibility/wcag-checklist.md",
+      "rawUrl": "https://raw.githubusercontent.com/plugin87/ux-ui-agent-skills/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/accessibility/wcag-checklist.md",
+      "blobSha": "8493230558ff5f4b125e0b300bef1c9e3448ee56"
+    },
+    {
+      "dest": "accessibility/aria-patterns.md",
+      "rawUrl": "https://raw.githubusercontent.com/plugin87/ux-ui-agent-skills/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/accessibility/aria-patterns.md",
+      "blobSha": "4333bee9da2a7bc4804c460392fe231c76115ca6"
+    },
+    {
+      "dest": "scripts/measure_render.mjs",
+      "rawUrl": "https://raw.githubusercontent.com/plugin87/ux-ui-agent-skills/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/scripts/measure_render.mjs",
+      "blobSha": "2bbef65b722bd62b944706d5584b64d9262429a5"
+    },
+    {
+      "dest": "scripts/verify_states.mjs",
+      "rawUrl": "https://raw.githubusercontent.com/plugin87/ux-ui-agent-skills/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/scripts/verify_states.mjs",
+      "blobSha": "c7965de59e1fcddf8857457bd397ab27b480362c"
+    },
+    {
+      "dest": "scripts/contrast.py",
+      "rawUrl": "https://raw.githubusercontent.com/plugin87/ux-ui-agent-skills/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/scripts/contrast.py",
+      "blobSha": "3a8588d16efe1a6af6d35825d059682f322916d9"
+    },
+    {
+      "dest": "taste/motion-choreography.md",
+      "rawUrl": "https://raw.githubusercontent.com/plugin87/ux-ui-agent-skills/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/taste/motion-choreography.md",
+      "blobSha": "565e8da742d38a816c3fdcebfca20abeb64b04c7"
+    },
+    {
+      "dest": "LICENSE.txt",
+      "content": "MIT License\n\nCopyright (c) 2026 plugin87\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n"
+    }
+  ],
+  "securityNotes": "Read SKILL.md and every referenced dependency file in full at the pinned SHA (repo has no LICENSE file; repo root README claims MIT via badge only -- that alone would be quarantine, but package.json declares \"license\": \"MIT\" and \"author\": \"plugin87\" as a valid SPDX source, so the SPDX rule applies and LICENSE.txt content is embedded rather than linked). scripts/contrast.py, scripts/measure_render.mjs and scripts/verify_states.mjs are plain, fully reviewable local scripts: contrast.py does pure local hex-color math with no imports beyond sys; measure_render.mjs and verify_states.mjs launch a local headless Chromium via Playwright to open local file:// HTML and measure computed styles -- no network fetch, no credential/env access beyond reading one boolean env var (DS_REQUIRE_BROWSER) to decide pass/skip behavior when Playwright isn't installed, no remote code download or eval. accessibility/wcag-checklist.md, aria-patterns.md and taste/motion-choreography.md are plain reference prose with no hidden instructions or injection content. No exfiltration, no bypass-user-rules language anywhere.",
+  "overlaps": [
+    "better-accessibility"
+  ],
+  "proposedEntry": {
+    "id": "a11y-audit",
+    "name": "a11y-audit",
+    "description": "Audits a UI or design against WCAG 2.2 AA/AAA and documented ARIA patterns, producing a criterion-referenced findings table (WCAG criterion, P0/P1/P2 severity, what fails, specific fix). Directs the agent to check the mandatory P0 set (keyboard nav, visible focus >=3:1, screen-reader name/role/state, 4.5:1 text / 3:1 UI contrast, >=24x24 target size, no color-only signaling) plus WCAG 2.2 additions (Focus Not Obscured, Target Size, Accessible Authentication), and to measure contrast rather than eyeball it: a Playwright-based real-render gate over every text element and every interactive element's default/hover/focus states, plus a standalone hex-pair contrast calculator, with instructions to report only actually-measured ratios.",
+    "category": "accessibility",
+    "tags": [
+      "a11y",
+      "wcag",
+      "aria",
+      "screen-reader",
+      "keyboard",
+      "focus-management",
+      "contrast",
+      "audit",
+      "remediation"
+    ],
+    "triggers": [
+      "accessibility audit",
+      "WCAG check",
+      "contrast verification",
+      "keyboard and screen-reader review",
+      "does this meet WCAG 2.2 AA"
+    ],
+    "inputs": [
+      "A UI, component, or rendered HTML page to audit",
+      "Target conformance level (AA or AAA)"
+    ],
+    "outputs": [
+      "A findings table: WCAG criterion, severity (P0/P1/P2), what fails, specific fix",
+      "Explicit confirmation of passing checks",
+      "Measured contrast ratios (not estimated)"
+    ],
+    "path": "skills/accessibility/a11y-audit",
+    "source": {
+      "type": "third-party",
+      "repository": "plugin87/ux-ui-agent-skills",
+      "url": "https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/a11y-audit",
+      "author": "plugin87",
+      "license": "MIT",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": ".claude/skills/a11y-audit",
+      "upstreamCommit": "2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd",
+      "retrievedAt": "2026-08-26",
+      "modified": true,
+      "modifications": [
+        {
+          "date": "2026-08-26",
+          "reason": "portability",
+          "description": "Upstream SKILL.md references repo-root shared files (accessibility/, scripts/, taste/) that live outside the skill's own directory in the source repo, so the skill is not self-contained on its own. Bundled the specific referenced files into the vendored skill directory at the same relative paths the prose already uses, so no wording had to change and the file references now resolve inside the skill directory.",
+          "files": [
+            "accessibility/wcag-checklist.md",
+            "accessibility/aria-patterns.md",
+            "scripts/measure_render.mjs",
+            "scripts/verify_states.mjs",
+            "scripts/contrast.py",
+            "taste/motion-choreography.md"
+          ]
+        }
+      ]
+    },
+    "compatibility": ["claude-code", "codex", "cursor", "opencode", "amp", "gemini-cli", "copilot", "vs-code"],
+    "dependencies": ["python", "node"],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "experimental",
+    "status": "draft"
+  },
+  "logMd": "#### plugin87/ux-ui-agent-skills (inspected 2026-08-26)\n\n- HEAD commit: 2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd (default branch main). Repo API reports 811 stars, pushed_at 2026-08-26T15:24:54Z, license: null.\n- No LICENSE file anywhere in the tree (checked repo root and .claude-plugin/plugin.json, both 404). README claims MIT via a badge only, which per the inspection brief is \"quarantine\" on its own -- but package.json declares `\"license\": \"MIT\"`, `\"author\": \"plugin87\"`, a valid SPDX source per the brief, so the repo clears the license gate via package.json and LICENSE.txt is embedded as content rather than linked.\n- Enumerated all 17 skills under .claude/skills: a11y-audit, apply-aesthetic, brandkit, design-code, design-component, design-qa, design-review, design-tokens, figma-integration, governance, image-to-code, migrate-design-system, performance, prototype, redesign, token-build, ux-writing. Each skill directory contains only a SKILL.md; all cross-reference repo-root shared directories (scripts/, workflows/, taste/, accessibility/, design-systems/, .claude/rules/, tokens/, frameworks/) that are NOT in the skill's own directory -- none of the 17 are self-contained as-is. An initial recursive-tree WebFetch silently dropped several of those root directories (scripts/, workflows/, taste/) from its summarized output; verified their real existence and blob SHAs via the Contents API before treating any reference as broken.\n- a11y-audit: WCAG 2.2 AA/AAA + ARIA audit skill. Read SKILL.md in full plus every file it references (accessibility/wcag-checklist.md, accessibility/aria-patterns.md, scripts/contrast.py, scripts/measure_render.mjs, scripts/verify_states.mjs, taste/motion-choreography.md) -- all read and security-checked, all clean (no network calls beyond local file:// loads in the Playwright scripts, no credential access beyond an optional DS_REQUIRE_BROWSER env flag, no hidden instructions). Rubric: relevance 3 (core a11y audit), quality 3 (mandatory P0 checklist, WCAG 2.2 additions named by number, explicit instruction to measure not eyeball contrast, concrete output format), conformance 1 (fixable -- not self-contained upstream, fixed here via a portability modification bundling the six referenced files), uniqueness 1 (overlaps the registry's better-accessibility, but adds executable measurement gates -- a real-render Playwright contrast checker across default/hover/focus states plus a standalone hex contrast calculator -- rather than guidance alone). Total 8, vendor.\n- Verdict: vendor. See a11y-audit.json. Other 16 skills from this repo are covered in ux-ui-agent-skills-rejections.json (11 rejected) and in design-review.json, design-tokens.json, brandkit.json, figma-integration.json, migrate-design-system.json, token-build.json (6 more vendored, 7 total from this repo)."
+}

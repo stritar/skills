@@ -31,16 +31,30 @@
         "./skills/visual-design/theme-factory",
         "./skills/design-systems/design-debt-audit",
         "./skills/design-systems/design-system-governance",
+        "./skills/design-systems/design-tokens",
+        "./skills/design-systems/figma-integration",
         "./skills/design-systems/frontend-ui-dark-ts",
         "./skills/design-systems/motion-system",
         "./skills/design-systems/pick-ui-library",
+        "./skills/design-systems/token-build",
+        "./skills/accessibility/a11y-audit",
+        "./skills/accessibility/a11y-check-code",
+        "./skills/accessibility/a11y-check-page",
+        "./skills/accessibility/a11y-critic",
+        "./skills/accessibility/a11y-planner",
+        "./skills/accessibility/a11y-role-audit",
         "./skills/accessibility/better-accessibility",
+        "./skills/accessibility/perspective-audit",
+        "./skills/accessibility/review-a11y",
+        "./skills/accessibility/ultra11y",
         "./skills/content-design/better-writing",
         "./skills/content-design/localization-design",
+        "./skills/content-design/ux-writing",
         "./skills/prototyping/prototype",
         "./skills/prototyping/variant",
         "./skills/testing/break",
         "./skills/testing/critique-information-density",
+        "./skills/testing/design-review",
         "./skills/testing/find-animation-opportunities",
         "./skills/testing/improve-animations",
         "./skills/design-qa/design-details",
@@ -109,9 +123,12 @@
       "skills": [
         "./skills/design-systems/design-debt-audit",
         "./skills/design-systems/design-system-governance",
+        "./skills/design-systems/design-tokens",
+        "./skills/design-systems/figma-integration",
         "./skills/design-systems/frontend-ui-dark-ts",
         "./skills/design-systems/motion-system",
-        "./skills/design-systems/pick-ui-library"
+        "./skills/design-systems/pick-ui-library",
+        "./skills/design-systems/token-build"
       ]
     },
     {
@@ -120,7 +137,16 @@
       "description": "Accessibility skills from the product-design skill registry.",
       "version": "0.1.0",
       "skills": [
-        "./skills/accessibility/better-accessibility"
+        "./skills/accessibility/a11y-audit",
+        "./skills/accessibility/a11y-check-code",
+        "./skills/accessibility/a11y-check-page",
+        "./skills/accessibility/a11y-critic",
+        "./skills/accessibility/a11y-planner",
+        "./skills/accessibility/a11y-role-audit",
+        "./skills/accessibility/better-accessibility",
+        "./skills/accessibility/perspective-audit",
+        "./skills/accessibility/review-a11y",
+        "./skills/accessibility/ultra11y"
       ]
     },
     {
@@ -130,7 +156,8 @@
       "version": "0.1.0",
       "skills": [
         "./skills/content-design/better-writing",
-        "./skills/content-design/localization-design"
+        "./skills/content-design/localization-design",
+        "./skills/content-design/ux-writing"
       ]
     },
     {
@@ -151,6 +178,7 @@
       "skills": [
         "./skills/testing/break",
         "./skills/testing/critique-information-density",
+        "./skills/testing/design-review",
         "./skills/testing/find-animation-opportunities",
         "./skills/testing/improve-animations"
       ]

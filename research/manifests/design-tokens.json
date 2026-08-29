@@ -1,0 +1,121 @@
+{
+  "id": "design-tokens",
+  "category": "design-systems",
+  "verdict": "vendor",
+  "rubric": {
+    "relevance": 3,
+    "quality": 3,
+    "conformance": 1,
+    "uniqueness": 2
+  },
+  "upstream": {
+    "repository": "plugin87/ux-ui-agent-skills",
+    "url": "https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/design-tokens",
+    "author": "plugin87",
+    "commit": "2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd",
+    "path": ".claude/skills/design-tokens",
+    "license": "MIT",
+    "licenseSource": "package.json"
+  },
+  "files": [
+    {
+      "dest": "SKILL.md",
+      "rawUrl": "https://raw.githubusercontent.com/plugin87/ux-ui-agent-skills/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/design-tokens/SKILL.md",
+      "blobSha": "c96cd1d050a6f951dc9c76d931a4eb105c387c0c"
+    },
+    {
+      "dest": ".claude/rules/tokens-and-color.md",
+      "rawUrl": "https://raw.githubusercontent.com/plugin87/ux-ui-agent-skills/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/rules/tokens-and-color.md",
+      "blobSha": "270857887e80f43bd54a401ff9ee10394b43b00c"
+    },
+    {
+      "dest": ".claude/rules/typography-and-spacing.md",
+      "rawUrl": "https://raw.githubusercontent.com/plugin87/ux-ui-agent-skills/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/rules/typography-and-spacing.md",
+      "blobSha": "a23cba395e43425301e5e9339c595e00eb62ef0b"
+    },
+    {
+      "dest": "scripts/validate_tokens.py",
+      "rawUrl": "https://raw.githubusercontent.com/plugin87/ux-ui-agent-skills/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/scripts/validate_tokens.py",
+      "blobSha": "629647e779ff24541198269de874cab05fe96f15"
+    },
+    {
+      "dest": "scripts/contrast.py",
+      "rawUrl": "https://raw.githubusercontent.com/plugin87/ux-ui-agent-skills/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/scripts/contrast.py",
+      "blobSha": "3a8588d16efe1a6af6d35825d059682f322916d9"
+    },
+    {
+      "dest": "LICENSE.txt",
+      "content": "MIT License\n\nCopyright (c) 2026 plugin87\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n"
+    }
+  ],
+  "securityNotes": "Read SKILL.md and every referenced file in full at the pinned SHA. .claude/rules/tokens-and-color.md and typography-and-spacing.md are plain rule prose (3-tier token architecture, OKLCH generation, 4px base grid, Major Third type scale) with no hidden instructions. scripts/validate_tokens.py is a pure local JSON parser/alias-resolver (json, re, sys, pathlib only) with no network calls, no credential access, no remote execution -- read in full. scripts/contrast.py is the same reviewed local hex-contrast calculator used elsewhere in this repo. Same license resolution as a11y-audit: no repo LICENSE file, README badge claim alone would be quarantine, package.json's SPDX \"license\": \"MIT\" / \"author\": \"plugin87\" is used instead per the brief's allowed sources.",
+  "overlaps": [
+    "design-system-governance",
+    "brandkit"
+  ],
+  "proposedEntry": {
+    "id": "design-tokens",
+    "name": "design-tokens",
+    "description": "Generates, extends, or audits design tokens in DTCG format ($type/$value) using a 3-tier architecture (primitive, raw values never used directly; semantic, purpose aliases; component, component-scoped). Reads the project's token-and-color and typography-and-spacing rules to apply a 4px base spacing grid, a Major Third type scale, and OKLCH-based palette generation, verifying that any new palette's mid shade clears 4.5:1 on white for text and a darker shade clears 3:1 for UI use. Covers colors, typography, spacing, shadows, borders, breakpoints, motion, gradients, opacity, blur, sizing, states, and multi-brand/density theming, and runs a JSON-validity-and-alias-resolution script before calling the work done.",
+    "category": "design-systems",
+    "tags": [
+      "design-tokens",
+      "token-naming",
+      "semantic-tokens",
+      "design-system",
+      "color",
+      "typography",
+      "spacing",
+      "dark-mode",
+      "multi-brand"
+    ],
+    "triggers": [
+      "generate a color palette",
+      "set up design tokens",
+      "define a type scale",
+      "validate our token files",
+      "multi-brand theming"
+    ],
+    "inputs": [
+      "An existing tokens/ directory to extend, or a brief for a new palette",
+      "Target platforms/brands needing theming"
+    ],
+    "outputs": [
+      "DTCG-format token JSON (primitive/semantic/component tiers) with $description preserved",
+      "A validation pass confirming JSON validity and alias resolution"
+    ],
+    "path": "skills/design-systems/design-tokens",
+    "source": {
+      "type": "third-party",
+      "repository": "plugin87/ux-ui-agent-skills",
+      "url": "https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/design-tokens",
+      "author": "plugin87",
+      "license": "MIT",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": ".claude/skills/design-tokens",
+      "upstreamCommit": "2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd",
+      "retrievedAt": "2026-08-26",
+      "modified": true,
+      "modifications": [
+        {
+          "date": "2026-08-26",
+          "reason": "portability",
+          "description": "Upstream SKILL.md references repo-root shared files (.claude/rules/tokens-and-color.md, .claude/rules/typography-and-spacing.md, scripts/validate_tokens.py, scripts/contrast.py) outside the skill's own directory. Bundled the specific referenced files into the vendored skill directory at the same relative paths already used in the prose, so no wording had to change.",
+          "files": [
+            ".claude/rules/tokens-and-color.md",
+            ".claude/rules/typography-and-spacing.md",
+            "scripts/validate_tokens.py",
+            "scripts/contrast.py"
+          ]
+        }
+      ]
+    },
+    "compatibility": ["claude-code", "codex", "cursor", "opencode", "amp", "gemini-cli", "copilot", "vs-code"],
+    "dependencies": ["python"],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "experimental",
+    "status": "draft"
+  },
+  "logMd": "#### plugin87/ux-ui-agent-skills -- design-tokens (inspected 2026-08-26)\n\nSee a11y-audit.json for shared repo-level evidence. design-tokens: read SKILL.md plus .claude/rules/tokens-and-color.md, typography-and-spacing.md, scripts/validate_tokens.py, scripts/contrast.py in full; all clean. Rubric: relevance 3 (design tokens are a core design-systems activity), quality 3 (concrete 3-tier rules, exact contrast thresholds, named scale/grid values, runnable validation), conformance 1 (fixed via portability modification), uniqueness 2 (the registry has design-system-governance for versioning/process but nothing that generates/audits the DTCG 3-tier token architecture itself -- genuine gap). Total 9, vendor. Notable in-batch overlap with brandkit (same repo, also vendored): design-tokens covers general token generation/extension/audit of any token file, brandkit is a from-scratch, brief-driven, full-system generator (color+type+spacing+radius+shadow+motion, light+dark, single theme.css) -- different lifecycle stage, kept both, overlap noted."
+}

@@ -26,6 +26,29 @@ Candidates awaiting license clarification stay here until resolved.
 
 ## Better installed from source
 
+### brandkit and migrate-design-system (plugin87/ux-ui-agent-skills)
+
+- URL: https://github.com/plugin87/ux-ui-agent-skills (MIT via package.json,
+  commit `2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd`)
+- Purpose: brand-kit generation and design-system migration workflows.
+- Reason not vendored: both depend on the repository's 138-file
+  `design-systems/library/` catalog and `frameworks/adapter-protocol.md`;
+  vendored alone their bundled reference files carry ~140 dead links. The
+  library is disproportionate to copy for two skills. Seven other skills
+  from the same repository are vendored (a11y-audit, design-review,
+  design-tokens, figma-integration, token-build and more).
+
+### acr-reporting (zivtech/accessibility-skills)
+
+- URL: https://github.com/zivtech/accessibility-skills (GPL-3.0-or-later,
+  commit `817dedeae90324017ece2d2b104332aec9d20656`)
+- Purpose: OpenACR / VPAT-style accessibility conformance reports.
+- Reason not vendored: SKILL.md links six repository-level documents
+  (`docs/openacr-reference.md`, evaluation and evidence contracts, WCAG-EM
+  reference, an integration plan) outside the skill directory; making it
+  standalone would mean rewriting upstream text. Four sibling skills from the
+  same repository are vendored.
+
 ### impeccable
 
 - URL: https://github.com/pbakaus/impeccable (npm: `impeccable`)

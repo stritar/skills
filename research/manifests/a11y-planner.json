@@ -1,0 +1,58 @@
+{
+  "id": "a11y-planner",
+  "category": "accessibility",
+  "verdict": "vendor",
+  "rubric": { "relevance": 3, "quality": 3, "conformance": 2, "uniqueness": 2 },
+  "upstream": {
+    "repository": "zivtech/accessibility-skills",
+    "url": "https://github.com/zivtech/accessibility-skills/tree/817dedeae90324017ece2d2b104332aec9d20656/.claude/skills/a11y-planner",
+    "author": "zivtech",
+    "commit": "817dedeae90324017ece2d2b104332aec9d20656",
+    "path": ".claude/skills/a11y-planner",
+    "license": "GPL-3.0-or-later",
+    "licenseSource": "repo-root:LICENSE"
+  },
+  "files": [
+    { "dest": "SKILL.md", "rawUrl": "https://raw.githubusercontent.com/zivtech/accessibility-skills/817dedeae90324017ece2d2b104332aec9d20656/.claude/skills/a11y-planner/SKILL.md", "blobSha": "d79a806bf1b0f3305c215f837194b95cb0805481" },
+    { "dest": "references/external-skills-manifest.yaml", "rawUrl": "https://raw.githubusercontent.com/zivtech/accessibility-skills/817dedeae90324017ece2d2b104332aec9d20656/.claude/skills/a11y-planner/references/external-skills-manifest.yaml", "blobSha": "fb913ca06b45154c34fc7640fd532864c5158e4e" },
+    { "dest": "LICENSE.txt", "rawUrl": "https://raw.githubusercontent.com/zivtech/accessibility-skills/817dedeae90324017ece2d2b104332aec9d20656/LICENSE", "blobSha": "f288702d2fa16d3cdf0035b15a9fcbc552cd88e7" }
+  ],
+  "securityNotes": "Read SKILL.md and references/external-skills-manifest.yaml in full at the pinned SHA. The reference file is a static YAML catalog of *other*, non-affiliated accessibility skills/tools (snapsynapse/skill-a11y-audit, addyosmani/web-quality-skills, accesslint/claude-marketplace, etc.) with priority scores and one-line descriptions — informational only, no code, no fetch/exec instructions, no telemetry. SKILL.md is a 9-phase planning protocol (prose + Markdown tables), no scripts, no network calls, no credential handling. No hidden instructions or prompt-injection language directed at the agent's own behavior. Clean. LICENSING DISCREPANCY: SKILL.md frontmatter declares `license: Apache-2.0`, but the repository's root LICENSE file and README.md both state the whole repo is GPL-3.0-or-later with no per-skill carve-out ('GPL-3.0-or-later. See LICENSE.'). Treating GPL-3.0-or-later as authoritative since it is the actual license text governing redistribution and the README confirms it applies repo-wide; the frontmatter's Apache-2.0 claim is recorded here as an upstream inconsistency, not acted on. Per instructions, the copyleft GPL-3.0-or-later license must travel with these vendored files (LICENSE.txt included in the file list).",
+  "overlaps": [
+    "a11y-critic (same repo, this batch — a11y-planner designs before code, a11y-critic reviews the plan/implementation afterward; explicitly paired as review checkpoints)",
+    "a11y-role-audit / perspective-audit (same repo, this batch — those are review/audit lenses applied after or during implementation; a11y-planner is upstream, pre-implementation design)",
+    "a11y-check-code / a11y-check-page (ymrl/a11y-check-skills, this batch — those audit existing code/pages against a checklist; a11y-planner produces the accessibility spec before any code exists)",
+    "better-accessibility (already in registry — engineering reference/checklist for building or reviewing components, vs. a11y-planner's structured 9-phase planning-document workflow)"
+  ],
+  "proposedEntry": {
+    "id": "a11y-planner",
+    "name": "a11y-planner",
+    "description": "Designs an accessible implementation before code is written: runs a 9-phase protocol covering scope/context, semantic structure, WAI-ARIA Authoring Practices Guide pattern mapping for every interactive widget, focus management (tab order, modal traps, restoration, roving tabindex), state communication to assistive technology, visual accessibility (contrast, touch targets, motion), content accessibility (alt text, link text, form labels), a testing strategy, and an implementation task breakdown with review checkpoints. Every decision cites a WCAG 2.2 success criterion or APG pattern section. Guards against nine known failure modes (e.g. per-event live-region spam, color-only state indicators, title-attribute-only accessible names). Writes the plan to docs/a11y-plans/YYYY-MM-DD-<feature-name>-a11y-plan.md.",
+    "category": "accessibility",
+    "tags": ["a11y", "wcag", "aria", "keyboard", "focus-management", "contrast", "semantic-html", "forms", "inclusive-design"],
+    "triggers": ["design accessible interaction for this component", "plan the accessibility approach for this modal/combobox/tabs", "write an a11y spec before we build this", "WAI-ARIA pattern for this widget", "prepare for a WCAG 2.2 AA audit"],
+    "inputs": ["a description of the component, flow, or interface to be built", "the target compliance level and known constraints (framework, existing design system)"],
+    "outputs": ["a Markdown accessibility plan (docs/a11y-plans/YYYY-MM-DD-<feature-name>-a11y-plan.md) with semantic structure, APG pattern table, focus plan, state-communication table, and task breakdown", "a WCAG-EM audit-scope variant for Section 508 conformance sampling when requested"],
+    "path": "skills/accessibility/a11y-planner",
+    "source": {
+      "type": "third-party",
+      "repository": "zivtech/accessibility-skills",
+      "url": "https://github.com/zivtech/accessibility-skills/tree/817dedeae90324017ece2d2b104332aec9d20656/.claude/skills/a11y-planner",
+      "author": "zivtech",
+      "license": "GPL-3.0-or-later",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": ".claude/skills/a11y-planner",
+      "upstreamCommit": "817dedeae90324017ece2d2b104332aec9d20656",
+      "retrievedAt": "2026-08-26",
+      "modified": false,
+      "modifications": []
+    },
+    "compatibility": ["claude-code", "codex", "cursor", "opencode", "amp", "gemini-cli", "copilot", "vs-code", "claude-ai"],
+    "dependencies": [],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "stable",
+    "status": "draft"
+  },
+  "logMd": "#### zivtech/accessibility-skills (inspected 2026-08-26)\n- Repo HEAD pinned: 817dedeae90324017ece2d2b104332aec9d20656. Stars: 6. Pushed: 2026-08-28T13:25:27Z. License: GPL-3.0-or-later — confirmed via repo-root LICENSE full-text search for 'or (at your option) any later version' (present, in the 'How to Apply These Terms' section) and README.md's explicit statement 'GPL-3.0-or-later. See LICENSE.' with no per-skill carve-out.\n- Full recursive tree fetched at pinned SHA (591+ entries across .claude/skills, .agents/skills, docs/drupal-patch-evaluations/, evals/, etc; the repo is dominated by Drupal patch-evaluation case studies and eval harnesses outside this vendoring's scope). .claude/skills/ and .agents/skills/ are near-mirrors; used .claude/skills/ as canonical since the task specifies Claude Code skills. Noted the .claude and .agents copies of a11y-planner, a11y-role-audit differ in blob sha (content edits not yet mirrored) — vendored the .claude/skills version.\n- Read all 11 SKILL.md files under .claude/skills to select the strongest 5 per the 5-skill cap (see zivtech-accessibility-skills-rejections.json for the other 6: a11y-test, a11y-workflow, bug-reporting, drupal-a11y-patch-eval, maintain-accessibility-skills, verify).\n- a11y-planner: SKILL.md + references/external-skills-manifest.yaml read in full. Rubric: relevance 3 (core pre-implementation accessibility design), quality 3 (9 concrete phases, explicit APG-pattern-per-widget mandate, 9 named antipatterns from prior audit failures, WCAG-EM audit-scope variant for Section 508), conformance 2 (frontmatter is name/description/license/compatibility/metadata — spec-six subset, claude-ai appended; name equals dirname), uniqueness 2 (only pre-implementation planning skill in this batch; a11y-check-code/page and ultra11y/review-a11y all audit existing code, a11y-critic reviews after the fact). Total 10.\n- Verdict: vendor."
+}

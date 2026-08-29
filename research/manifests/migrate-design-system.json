@@ -1,0 +1,121 @@
+{
+  "id": "migrate-design-system",
+  "category": "design-systems",
+  "verdict": "not-vendored-keeper",
+  "rubric": {
+    "relevance": 3,
+    "quality": 3,
+    "conformance": 1,
+    "uniqueness": 2
+  },
+  "upstream": {
+    "repository": "plugin87/ux-ui-agent-skills",
+    "url": "https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/migrate-design-system",
+    "author": "plugin87",
+    "commit": "2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd",
+    "path": ".claude/skills/migrate-design-system",
+    "license": "MIT",
+    "licenseSource": "package.json"
+  },
+  "files": [
+    {
+      "dest": "SKILL.md",
+      "rawUrl": "https://raw.githubusercontent.com/plugin87/ux-ui-agent-skills/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/migrate-design-system/SKILL.md",
+      "blobSha": "ce4e33494761f5eb72ded3a04bfab0077e501fbb"
+    },
+    {
+      "dest": "design-systems/interop-protocol.md",
+      "rawUrl": "https://raw.githubusercontent.com/plugin87/ux-ui-agent-skills/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/design-systems/interop-protocol.md",
+      "blobSha": "f1557c04a7e73069ead8a0298c8024c1c10156f6"
+    },
+    {
+      "dest": "design-systems/crosswalk.md",
+      "rawUrl": "https://raw.githubusercontent.com/plugin87/ux-ui-agent-skills/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/design-systems/crosswalk.md",
+      "blobSha": "c37cc88e08feeb55aa218db290502a9e5d4ed1fb"
+    },
+    {
+      "dest": "scripts/contrast.py",
+      "rawUrl": "https://raw.githubusercontent.com/plugin87/ux-ui-agent-skills/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/scripts/contrast.py",
+      "blobSha": "3a8588d16efe1a6af6d35825d059682f322916d9"
+    },
+    {
+      "dest": "LICENSE.txt",
+      "content": "MIT License\n\nCopyright (c) 2026 plugin87\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n"
+    }
+  ],
+  "securityNotes": "Read SKILL.md, design-systems/interop-protocol.md and design-systems/crosswalk.md in full at the pinned SHA: plain reference documentation (a six-axis crosswalk method; per-system notes for Material 3, Apple HIG, Fluent 2, Carbon, shadcn/ui, Radix, Ant, Polaris, Primer, Atlassian, Bootstrap), no hidden instructions or injection content, no reference to any private/undeclared service. scripts/contrast.py already reviewed (pure local hex-contrast calculator).",
+  "overlaps": [],
+  "proposedEntry": {
+    "id": "migrate-design-system",
+    "name": "migrate-design-system",
+    "description": "Bridges this project's token system to or from any external design system (Material Design 3, Apple HIG, Fluent, Carbon, Ant, shadcn/ui, Radix, Chakra, Mantine, Bootstrap, and more) via a role-based, six-axis crosswalk (color roles, type scale, spacing unit, radius, elevation, motion) rather than name-matching. Supports three directions: adopting an external system's look by re-pointing the project's semantic tokens, theming an external component library on top of the project's own tokens, or migrating between systems through an audit-map-bridge-verify sequence applied screen by screen. Every mapped color pair is re-checked for WCAG contrast and all eight component states plus dark mode are confirmed to survive the mapping before the crosswalk table and bridge plan are handed off.",
+    "category": "design-systems",
+    "tags": [
+      "design-system",
+      "migration",
+      "component-api",
+      "design-tokens",
+      "governance"
+    ],
+    "triggers": [
+      "migrate to shadcn/ui",
+      "adopt Material Design 3",
+      "theme Radix primitives with our tokens",
+      "map our tokens to Apple HIG",
+      "bridge two design systems"
+    ],
+    "inputs": [
+      "The project's current token/component system",
+      "The target external design system or component library"
+    ],
+    "outputs": [
+      "A crosswalk table (our token -> their token -> value note)",
+      "A bridge/migration plan if migrating between systems",
+      "Verified token overrides with contrast and state coverage confirmed"
+    ],
+    "path": "skills/design-systems/migrate-design-system",
+    "source": {
+      "type": "third-party",
+      "repository": "plugin87/ux-ui-agent-skills",
+      "url": "https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/migrate-design-system",
+      "author": "plugin87",
+      "license": "MIT",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": ".claude/skills/migrate-design-system",
+      "upstreamCommit": "2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd",
+      "retrievedAt": "2026-08-26",
+      "modified": true,
+      "modifications": [
+        {
+          "date": "2026-08-26",
+          "reason": "portability",
+          "description": "Upstream SKILL.md references repo-root shared files (design-systems/interop-protocol.md, design-systems/crosswalk.md, scripts/contrast.py) outside the skill's own directory. Bundled the specific referenced files into the vendored skill directory at the same relative paths already used in the prose, so no wording had to change.",
+          "files": [
+            "design-systems/interop-protocol.md",
+            "design-systems/crosswalk.md",
+            "scripts/contrast.py"
+          ]
+        }
+      ]
+    },
+    "compatibility": [
+      "claude-code",
+      "codex",
+      "cursor",
+      "opencode",
+      "amp",
+      "gemini-cli",
+      "copilot",
+      "vs-code"
+    ],
+    "dependencies": [
+      "python"
+    ],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "experimental",
+    "status": "draft"
+  },
+  "logMd": "#### plugin87/ux-ui-agent-skills -- migrate-design-system (inspected 2026-08-26)\n\nSee a11y-audit.json for shared repo-level evidence. migrate-design-system: read SKILL.md, design-systems/interop-protocol.md, design-systems/crosswalk.md in full; all clean. Rubric: relevance 3, quality 3 (named six-axis method, three explicit directions, curated real crosswalk tables for 10+ systems), conformance 1 (fixed via portability modification), uniqueness 2 (nothing else in the registry does cross-design-system token/component migration -- genuine gap). Total 9, vendor.\n- Curator decision 2026-08-26: NOT vendored after validation - Bundled design-systems/interop-protocol.md depends on frameworks/adapter-protocol.md and the upstream design-systems/library catalog; not self-contained without the 138-file library. Install from upstream instead.",
+  "keeperReason": "Bundled design-systems/interop-protocol.md depends on frameworks/adapter-protocol.md and the upstream design-systems/library catalog; not self-contained without the 138-file library. Install from upstream instead."
+}

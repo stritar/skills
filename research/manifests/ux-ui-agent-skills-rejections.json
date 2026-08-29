@@ -1,0 +1,62 @@
+{
+  "verdict": "reject",
+  "upstream": {
+    "repository": "plugin87/ux-ui-agent-skills",
+    "url": "https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd",
+    "commit": "2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd"
+  },
+  "rejectedSkills": [
+    {
+      "id": "apply-aesthetic",
+      "reason": "Read SKILL.md in full. Genuinely distinctive workflow (Brief Inference -> pick an archetype or named design system -> remap semantic tokens via a Library Contract -> verify), but its real differentiator is a 138-file design-systems/library/*/DESIGN.md catalog that lives entirely outside the skill's own directory in the source repo -- vendoring it self-contained would mean bundling roughly 140 additional files for one skill, disproportionate against the 'vendor at most 8, stay economical' mandate. Not selected within the 8-skill cap; the repo's design-token and design-system skills (design-tokens, brandkit, figma-integration, migrate-design-system, token-build) were judged the stronger, more self-containable picks.",
+      "rubric": {"relevance": 3, "quality": 2, "conformance": 0, "uniqueness": 2}
+    },
+    {
+      "id": "design-code",
+      "reason": "Read via WebFetch summary (frontmatter not independently re-verified since not selected). 13-point verification checklist across many frameworks is reasonably concrete, but the ground it covers (token-driven, accessible, state-complete component code generation) is already covered in the registry by frontend-design, design-details and frontend-ui-dark-ts with comparable or greater depth. Near-duplicate of already-vendored skills.",
+      "rubric": {"relevance": 2, "quality": 2, "conformance": 1, "uniqueness": 0}
+    },
+    {
+      "id": "design-component",
+      "reason": "Read via WebFetch summary. Component-spec authoring workflow (8 states, ARIA, tokens, automated gates) substantially overlaps design-code within this same repo and with design-details/frontend-design-review already in the registry; no independent differentiator strong enough to justify a second component-spec skill within the 8-skill cap.",
+      "rubric": {"relevance": 2, "quality": 2, "conformance": 1, "uniqueness": 0}
+    },
+    {
+      "id": "design-qa",
+      "reason": "Read via WebFetch summary. Describes a QA pyramid (token/lint validation, automated a11y checks, visual regression, manual checklist) wired to CI -- a reasonable framing, but its ground (design QA gates, PR-level compliance checking) is already covered by the registry's design-debt-audit, frontend-design-review and design-details with comparable or greater specificity, and referenced CI/script wiring wasn't independently verified as functioning end to end. Not selected within the 8-skill cap.",
+      "rubric": {"relevance": 3, "quality": 2, "conformance": 1, "uniqueness": 1}
+    },
+    {
+      "id": "governance",
+      "reason": "Read the full frontmatter and body. A five-step SemVer/contribution/deprecation workflow for design systems, but the registry's already-vendored design-system-governance covers the same ground with substantially more depth (seven governance questions, three named ownership models, a seven-stage contribution lifecycle) -- this is a thinner near-duplicate of a better skill already vendored.",
+      "rubric": {"relevance": 3, "quality": 2, "conformance": 1, "uniqueness": 0}
+    },
+    {
+      "id": "image-to-code",
+      "reason": "Read via WebFetch summary. Screenshot/reference-to-design-system reconstruction workflow; like apply-aesthetic it leans on the repo-root 138-system design-systems/library catalog and the shared tokens/scripts pipeline to hit its stated 'system anchoring' step, which is not practically self-containable as a single vendored skill within this batch's scope. Not selected within the 8-skill cap.",
+      "rubric": {"relevance": 2, "quality": 2, "conformance": 0, "uniqueness": 1}
+    },
+    {
+      "id": "performance",
+      "reason": "Read the full frontmatter and body. Concrete Core Web Vitals budgets (LCP<=2.5s, INP<=200ms, CLS<=0.1) and specific techniques, but this is frontend performance engineering rather than a design activity -- it scores below the relevance>=2 threshold the rubric requires for a vendor verdict (relevance 1: adjacent, materially supports design work only in some situations).",
+      "rubric": {"relevance": 1, "quality": 3, "conformance": 1, "uniqueness": 2}
+    },
+    {
+      "id": "prototype",
+      "reason": "Read via WebFetch summary. Describes a five-level fidelity-ladder methodology (content-first -> wireframe -> low-fi -> high-fi -> code) with per-level validation criteria, which is a real methodology distinct from the registry's already-vendored 'prototype' skill (which builds several divergent UI variants along a named axis). However this upstream skill's frontmatter name is the exact string 'prototype', an EXACT ID COLLISION with the already-vendored registry entry -- flagging per instructions rather than force-renaming. Combined with the collision and the 8-skill cap already filled by stronger, non-colliding candidates from this repo, not selected.",
+      "rubric": {"relevance": 3, "quality": 2, "conformance": 1, "uniqueness": 1},
+      "issues": "Upstream frontmatter name 'prototype' collides exactly with the already-vendored registry skill id 'prototype'. If a curator later decides to vendor this skill despite non-selection here, it needs a rename or an explicit collision resolution."
+    },
+    {
+      "id": "redesign",
+      "reason": "Read via WebFetch summary. Audit-first redesign methodology preserving existing functionality while consolidating to one shared token theme; overlaps substantially with the registry's already-vendored design-debt-audit (five debt categories, structured audit process) without adding a clearly distinct angle. Not selected within the 8-skill cap.",
+      "rubric": {"relevance": 3, "quality": 2, "conformance": 1, "uniqueness": 0}
+    },
+    {
+      "id": "ux-writing",
+      "reason": "Read via WebFetch summary. Reasonable voice/tone framework (clear/concise/useful/human/honest, button and error formulas, a 10-item pre-ship checklist), but thinner than the dedicated content-designer/ux-writing-skill inspected in the same batch, which has quantified 0-10 scoring across four dimensions, dedicated accessibility-guidelines and content-usability-checklist references, three worked example voices, and three fillable templates (empty-state, error-message, onboarding-flow). Superseded by the stronger, cleanly self-contained candidate from the dedicated repo; vendoring both would be a near-duplicate.",
+      "rubric": {"relevance": 3, "quality": 2, "conformance": 1, "uniqueness": 0}
+    }
+  ],
+  "logMd": "#### plugin87/ux-ui-agent-skills -- 11 rejected skills (inspected 2026-08-26)\n\nSee a11y-audit.json for shared repo-level evidence (HEAD SHA 2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd, 811 stars, license resolved via package.json SPDX MIT / author plugin87, full 17-skill enumeration, and the note that scripts/, workflows/, taste/ were confirmed present via the Contents API after an initial recursive-tree fetch silently dropped them). Of the 17 skills enumerated, 6 were vendored (a11y-audit, design-review, design-tokens, brandkit, figma-integration, migrate-design-system) plus token-build as a 7th, filling 7 of the at-most-8 slots; the 11 listed here were not vendored. Reasons split into three groups: (1) apply-aesthetic and image-to-code depend on a 138-file repo-root design-systems/library catalog that is disproportionate to bundle for one skill each; (2) design-code, design-component, design-qa, governance, redesign and ux-writing are near-duplicates (uniqueness 0-1) of skills already in the registry or, for ux-writing, of the stronger dedicated candidate inspected in the same batch; (3) performance falls below the relevance>=2 vendor threshold (it is frontend engineering, not a design activity); prototype has a real methodological difference from the registry's existing 'prototype' skill but collides on the exact id string, flagged rather than force-renamed. All had clean security (no scripts beyond the already-reviewed shared ones) and the same package.json-SPDX MIT license as the vendored picks -- none were rejected on license or security grounds, all on relevance/uniqueness/cap grounds."
+}

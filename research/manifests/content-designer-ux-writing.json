@@ -1,0 +1,155 @@
+{
+  "id": "ux-writing",
+  "category": "content-design",
+  "verdict": "vendor",
+  "rubric": {
+    "relevance": 3,
+    "quality": 3,
+    "conformance": 2,
+    "uniqueness": 1
+  },
+  "upstream": {
+    "repository": "content-designer/ux-writing-skill",
+    "url": "https://github.com/content-designer/ux-writing-skill/tree/98cacde4ba2dd10ed28df43a8d53eef1e321c539",
+    "author": "Christopher Greer",
+    "commit": "98cacde4ba2dd10ed28df43a8d53eef1e321c539",
+    "path": ".",
+    "license": "MIT",
+    "licenseSource": "repo-root:LICENSE"
+  },
+  "files": [
+    {
+      "dest": "SKILL.md",
+      "rawUrl": "https://raw.githubusercontent.com/content-designer/ux-writing-skill/98cacde4ba2dd10ed28df43a8d53eef1e321c539/SKILL.md",
+      "blobSha": "8bf410a5d7f8ca0c14eda9e70c165166ed99f5c9"
+    },
+    {
+      "dest": "docs/figma-integration.md",
+      "rawUrl": "https://raw.githubusercontent.com/content-designer/ux-writing-skill/98cacde4ba2dd10ed28df43a8d53eef1e321c539/docs/figma-integration.md",
+      "blobSha": "0bc302df0b626f28f87f9933e72e00f684ff2c7c"
+    },
+    {
+      "dest": "examples/real-world-improvements.md",
+      "rawUrl": "https://raw.githubusercontent.com/content-designer/ux-writing-skill/98cacde4ba2dd10ed28df43a8d53eef1e321c539/examples/real-world-improvements.md",
+      "blobSha": "ae1df0c4e392f53eaff27ee76946591b0996fc6a"
+    },
+    {
+      "dest": "references/accessibility-guidelines.md",
+      "rawUrl": "https://raw.githubusercontent.com/content-designer/ux-writing-skill/98cacde4ba2dd10ed28df43a8d53eef1e321c539/references/accessibility-guidelines.md",
+      "blobSha": "60d3fc26ae93252fec60a36bbae3d8b83795aee9"
+    },
+    {
+      "dest": "references/content-usability-checklist.md",
+      "rawUrl": "https://raw.githubusercontent.com/content-designer/ux-writing-skill/98cacde4ba2dd10ed28df43a8d53eef1e321c539/references/content-usability-checklist.md",
+      "blobSha": "594d7967243cc294d56674bfeda789cb2c3de397"
+    },
+    {
+      "dest": "references/patterns-detailed.md",
+      "rawUrl": "https://raw.githubusercontent.com/content-designer/ux-writing-skill/98cacde4ba2dd10ed28df43a8d53eef1e321c539/references/patterns-detailed.md",
+      "blobSha": "1825230373055c1e6cf7da6f8c3e1e09c962abfe"
+    },
+    {
+      "dest": "references/voice-chart-template.md",
+      "rawUrl": "https://raw.githubusercontent.com/content-designer/ux-writing-skill/98cacde4ba2dd10ed28df43a8d53eef1e321c539/references/voice-chart-template.md",
+      "blobSha": "87f9c03ce45024ac056aa0fc4de19ad3bbe25d93"
+    },
+    {
+      "dest": "templates/empty-state-template.md",
+      "rawUrl": "https://raw.githubusercontent.com/content-designer/ux-writing-skill/98cacde4ba2dd10ed28df43a8d53eef1e321c539/templates/empty-state-template.md",
+      "blobSha": "2231a0ef6ad51d91bfaf341cb5f4a93630f73249"
+    },
+    {
+      "dest": "templates/error-message-template.md",
+      "rawUrl": "https://raw.githubusercontent.com/content-designer/ux-writing-skill/98cacde4ba2dd10ed28df43a8d53eef1e321c539/templates/error-message-template.md",
+      "blobSha": "b09805d1e0d883af662d3550da4d270bf9043d1d"
+    },
+    {
+      "dest": "templates/onboarding-flow-template.md",
+      "rawUrl": "https://raw.githubusercontent.com/content-designer/ux-writing-skill/98cacde4ba2dd10ed28df43a8d53eef1e321c539/templates/onboarding-flow-template.md",
+      "blobSha": "3c5fd5412c7a23d519f5dd97b50ede9b6bfeee29"
+    },
+    {
+      "dest": "LICENSE.txt",
+      "rawUrl": "https://raw.githubusercontent.com/content-designer/ux-writing-skill/98cacde4ba2dd10ed28df43a8d53eef1e321c539/LICENSE",
+      "blobSha": "39a10a64aeea888afa5ffbb68bb85dc0f1ac6671"
+    }
+  ],
+  "securityNotes": "Read SKILL.md and every file under docs/, examples/, references/ and templates/ in full at the pinned SHA -- all plain, well-structured UX-writing reference prose (accessibility guidelines, a scored usability checklist, three worked example voices, a voice-chart template, and three fillable content templates), no hidden instructions, no prompt injection, no credential access. Also read build-skill.sh (repo-root packaging script, not part of the vendored skill): pure local zip packaging of SKILL.md + docs/ + examples/ + references/ + templates/, no network calls, confirms these are exactly the files the upstream author considers 'the skill' (excluding CONTRIBUTING.md, CHANGELOG.md, VERSIONING.md, index.html, the two .mp4 demo videos, and dist/ux-writing-skill.zip, none of which build-skill.sh packages either). docs/figma-integration.md documents an OPTIONAL Figma MCP integration (https://mcp.figma.com/mcp) requiring the user's own Figma authentication -- disclosed as a dependency, not a hidden requirement, and the skill's core UX-writing function does not require it.",
+  "overlaps": [
+    "better-writing"
+  ],
+  "proposedEntry": {
+    "id": "ux-writing",
+    "name": "ux-writing",
+    "description": "Writes and edits user-centered, accessible interface copy (buttons, labels, error messages, notifications, forms, onboarding, empty states, success messages, help text) against four measurable quality standards -- purposeful, concise, conversational, clear -- each scored 0-10 with concrete criteria (e.g. 40-60 characters per line, active voice predominates). Draws on dedicated reference material for WCAG-aligned accessible writing (plain language at a 7th-8th grade level, sentences under 20 words, descriptive interactive-element labels), a detailed pattern library covering three contrasting worked product voices, a fillable voice-chart template for defining brand personality in 3-5 concepts, and three ready-to-use templates for empty states, error messages, and onboarding flows.",
+    "category": "content-design",
+    "tags": [
+      "ux-writing",
+      "microcopy",
+      "voice-and-tone",
+      "labels",
+      "error-messages",
+      "help-content",
+      "onboarding",
+      "empty-states",
+      "plain-language",
+      "a11y"
+    ],
+    "triggers": [
+      "write button and error copy",
+      "review this UI text",
+      "set up voice and tone guidelines",
+      "audit our interface copy",
+      "write an empty state or onboarding flow"
+    ],
+    "inputs": [
+      "Existing or draft interface copy to write or review",
+      "Product voice/brand context (optional, for tone calibration)"
+    ],
+    "outputs": [
+      "Rewritten or new interface copy",
+      "A 0-10 score across the four quality dimensions with the lowest-scoring areas flagged",
+      "Filled templates for empty states, error messages, or onboarding flows where applicable"
+    ],
+    "path": "skills/content-design/ux-writing",
+    "source": {
+      "type": "third-party",
+      "repository": "content-designer/ux-writing-skill",
+      "url": "https://github.com/content-designer/ux-writing-skill/tree/98cacde4ba2dd10ed28df43a8d53eef1e321c539",
+      "author": "Christopher Greer",
+      "license": "MIT",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": ".",
+      "upstreamCommit": "98cacde4ba2dd10ed28df43a8d53eef1e321c539",
+      "retrievedAt": "2026-08-26",
+      "modified": true,
+      "modifications": [
+        {
+          "date": "2026-08-26",
+          "reason": "broken-reference",
+          "description": "docs/figma-integration.md linked ../README.md (the upstream repository README, outside the skill directory); repointed to the same file at the pinned upstream commit.",
+          "files": [
+            "docs/figma-integration.md"
+          ]
+        }
+      ]
+    },
+    "compatibility": [
+      "claude-code",
+      "codex",
+      "cursor",
+      "opencode",
+      "amp",
+      "gemini-cli",
+      "copilot",
+      "vs-code",
+      "claude-ai"
+    ],
+    "dependencies": [],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "stable",
+    "status": "draft"
+  },
+  "logMd": "#### content-designer/ux-writing-skill (inspected 2026-08-26)\n\n- HEAD commit: 98cacde4ba2dd10ed28df43a8d53eef1e321c539 (default branch main). Repo API reports 156 stars, pushed_at 2026-05-26T23:23:35Z, license: MIT (also confirmed via a real repo-root LICENSE file, MIT, Copyright (c) 2026 Christopher Greer -- not a README-only claim).\n- Single skill at repo root, v1.6.0. Read SKILL.md (frontmatter: only `name` and `description`, both spec fields with no non-spec additions -- qualifies for the 'claude-ai' compatibility append per the inspection brief) plus every file under docs/, examples/, references/, templates/ in full. Also read build-skill.sh, the upstream's own packaging script, which confirms the skill's real file set is exactly SKILL.md + docs/ + examples/ + references/ + templates/ -- matching what was vendored, so no portability modification was needed (source.modified: false).\n- Security: all content is plain, well-organized UX-writing reference prose with concrete scoring rubrics and worked examples; no hidden instructions, no prompt injection, no credential access anywhere. docs/figma-integration.md documents an optional Figma MCP integration requiring the user's own Figma auth -- disclosed, not hidden, and not required for the skill's core function.\n- Rubric: relevance 3 (UX writing is a core content-design activity), quality 3 (four measurable 0-10-scored quality dimensions with concrete numeric criteria, three fillable templates, three contrasting worked example voices), conformance 2 (valid spec-only frontmatter, name matches, all resources resolve, no host-specific magic required for core use), uniqueness 1 (overlaps the registry's already-vendored better-writing, but adds a quantified scoring rubric and three ready-to-fill templates that better-writing's description does not mention). Total 9, vendor.\n- This skill was judged clearly stronger and more self-contained than plugin87/ux-ui-agent-skills' own ux-writing skill (see ux-ui-agent-skills-rejections.json), which was rejected as a near-duplicate in favor of this one."
+}

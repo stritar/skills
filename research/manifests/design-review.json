@@ -1,0 +1,122 @@
+{
+  "id": "design-review",
+  "category": "testing",
+  "verdict": "vendor",
+  "rubric": {
+    "relevance": 3,
+    "quality": 3,
+    "conformance": 1,
+    "uniqueness": 1
+  },
+  "upstream": {
+    "repository": "plugin87/ux-ui-agent-skills",
+    "url": "https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/design-review",
+    "author": "plugin87",
+    "commit": "2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd",
+    "path": ".claude/skills/design-review",
+    "license": "MIT",
+    "licenseSource": "package.json"
+  },
+  "files": [
+    {
+      "dest": "SKILL.md",
+      "rawUrl": "https://raw.githubusercontent.com/plugin87/ux-ui-agent-skills/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/design-review/SKILL.md",
+      "blobSha": "ef1b20a8c500239f2e29c8c1daa76c5b41c27b50"
+    },
+    {
+      "dest": "workflows/design-review.md",
+      "rawUrl": "https://raw.githubusercontent.com/plugin87/ux-ui-agent-skills/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/workflows/design-review.md",
+      "blobSha": "65b5bc9c99eb1f0460be8ddb2f20f19f74c3dd5b"
+    },
+    {
+      "dest": "accessibility/wcag-checklist.md",
+      "rawUrl": "https://raw.githubusercontent.com/plugin87/ux-ui-agent-skills/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/accessibility/wcag-checklist.md",
+      "blobSha": "8493230558ff5f4b125e0b300bef1c9e3448ee56"
+    },
+    {
+      "dest": "scripts/contrast.py",
+      "rawUrl": "https://raw.githubusercontent.com/plugin87/ux-ui-agent-skills/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/scripts/contrast.py",
+      "blobSha": "3a8588d16efe1a6af6d35825d059682f322916d9"
+    },
+    {
+      "dest": "taste/design-taste.md",
+      "rawUrl": "https://raw.githubusercontent.com/plugin87/ux-ui-agent-skills/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/taste/design-taste.md",
+      "blobSha": "c4ebf8203fcac8b6cd606aea6a5cb4758500bf1a"
+    },
+    {
+      "dest": "LICENSE.txt",
+      "content": "MIT License\n\nCopyright (c) 2026 plugin87\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n"
+    }
+  ],
+  "securityNotes": "Read SKILL.md and every referenced file in full at the pinned SHA. workflows/design-review.md, taste/design-taste.md and accessibility/wcag-checklist.md are plain reference prose (scoring rubric, Nielsen heuristics text, Banned Defaults checklist, WCAG POUR checklist) with no hidden instructions, injection attempts, or instructions to bypass user rules. scripts/contrast.py is the same reviewed local-only hex contrast calculator used by a11y-audit (no network, no credential access, no remote execution). License handled the same way as a11y-audit: no repo LICENSE file, README claims MIT via badge only (quarantine on its own), but package.json's SPDX \"license\": \"MIT\" / \"author\": \"plugin87\" is a valid source per the brief.",
+  "overlaps": [
+    "interface-review",
+    "frontend-design-review",
+    "design-details",
+    "critique-information-density"
+  ],
+  "proposedEntry": {
+    "id": "design-review",
+    "name": "design-review",
+    "description": "Runs a structured, scored review of a screen, page, or product. Scores six weighted dimensions (Visual Hierarchy 20%, Consistency 20%, Accessibility 20%, Usability 20%, Responsiveness 10%, Performance 10%) into an overall weighted score, applies Nielsen's 10 usability heuristics flagging violations by number, runs an accessibility pass against a WCAG checklist with a contrast calculator for color-pair doubts, and checks the result against a documented anti-slop / banned-defaults checklist. Outputs the six-dimension scored table plus a prioritized findings table (# / severity Critical-Major-Minor-Enhancement / finding / recommendation) with concrete, token-referenced fixes.",
+    "category": "testing",
+    "tags": [
+      "design-review",
+      "design-critique",
+      "heuristic-evaluation",
+      "severity",
+      "ui-design",
+      "visual-hierarchy",
+      "a11y"
+    ],
+    "triggers": [
+      "review this design",
+      "audit this screen",
+      "heuristic evaluation",
+      "design quality score",
+      "critique this UI before we ship"
+    ],
+    "inputs": [
+      "A screen, page, or flow to review",
+      "Target users, platform, and constraints"
+    ],
+    "outputs": [
+      "Six-dimension scored table plus weighted overall score",
+      "Prioritized findings table with severity and concrete fixes",
+      "Nielsen heuristic violations flagged by number"
+    ],
+    "path": "skills/testing/design-review",
+    "source": {
+      "type": "third-party",
+      "repository": "plugin87/ux-ui-agent-skills",
+      "url": "https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/design-review",
+      "author": "plugin87",
+      "license": "MIT",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": ".claude/skills/design-review",
+      "upstreamCommit": "2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd",
+      "retrievedAt": "2026-08-26",
+      "modified": true,
+      "modifications": [
+        {
+          "date": "2026-08-26",
+          "reason": "portability",
+          "description": "Upstream SKILL.md references repo-root shared files (workflows/design-review.md, accessibility/wcag-checklist.md, scripts/contrast.py, taste/design-taste.md) outside the skill's own directory. Bundled the specific referenced files into the vendored skill directory at the same relative paths already used in the prose, so no wording had to change.",
+          "files": [
+            "workflows/design-review.md",
+            "accessibility/wcag-checklist.md",
+            "scripts/contrast.py",
+            "taste/design-taste.md"
+          ]
+        }
+      ]
+    },
+    "compatibility": ["claude-code", "codex", "cursor", "opencode", "amp", "gemini-cli", "copilot", "vs-code"],
+    "dependencies": ["python"],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "experimental",
+    "status": "draft"
+  },
+  "logMd": "#### plugin87/ux-ui-agent-skills -- design-review (inspected 2026-08-26)\n\nSee a11y-audit.json for shared repo-level evidence (HEAD SHA, stars, license resolution path, full 17-skill enumeration). design-review: read SKILL.md plus workflows/design-review.md, accessibility/wcag-checklist.md, scripts/contrast.py, taste/design-taste.md in full; all clean, no hidden instructions. Rubric: relevance 3 (core UI review activity), quality 3 (explicit weighted scoring formula, numbered Nielsen heuristics, defined severity tiers, concrete output table), conformance 1 (fixed via portability modification bundling the four referenced files), uniqueness 1 (overlaps registry's interface-review, frontend-design-review, design-details and critique-information-density, but contributes a distinct weighted six-dimension scoring formula plus Nielsen's numbered heuristics that none of those exactly replicate). Total 8, vendor."
+}

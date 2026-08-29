@@ -1,0 +1,104 @@
+{
+  "id": "figma-integration",
+  "category": "design-systems",
+  "verdict": "vendor",
+  "rubric": {
+    "relevance": 3,
+    "quality": 3,
+    "conformance": 1,
+    "uniqueness": 2
+  },
+  "upstream": {
+    "repository": "plugin87/ux-ui-agent-skills",
+    "url": "https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/figma-integration",
+    "author": "plugin87",
+    "commit": "2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd",
+    "path": ".claude/skills/figma-integration",
+    "license": "MIT",
+    "licenseSource": "package.json"
+  },
+  "files": [
+    {
+      "dest": "SKILL.md",
+      "rawUrl": "https://raw.githubusercontent.com/plugin87/ux-ui-agent-skills/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/figma-integration/SKILL.md",
+      "blobSha": "dce94292599dcbbfb95e53e32af11d0a8677fb61"
+    },
+    {
+      "dest": "workflows/figma-integration.md",
+      "rawUrl": "https://raw.githubusercontent.com/plugin87/ux-ui-agent-skills/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/workflows/figma-integration.md",
+      "blobSha": "d5210f482af3cac42b3fb1d7228d489dc768bcd9"
+    },
+    {
+      "dest": "scripts/validate_tokens.py",
+      "rawUrl": "https://raw.githubusercontent.com/plugin87/ux-ui-agent-skills/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/scripts/validate_tokens.py",
+      "blobSha": "629647e779ff24541198269de874cab05fe96f15"
+    },
+    {
+      "dest": "LICENSE.txt",
+      "content": "MIT License\n\nCopyright (c) 2026 plugin87\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n"
+    }
+  ],
+  "securityNotes": "Read SKILL.md and workflows/figma-integration.md in full at the pinned SHA: plain technical documentation (token<->Variable mapping, sync-direction rule, MCP usage, parity checklist), no hidden instructions or injection content. The skill explicitly names an undeclared external dependency -- 'If a Figma MCP server is connected: prefer its tools' -- which is conditional/optional (the skill still functions for the token<->JSON side without it) and is disclosed here as a dependency rather than treated as hidden. scripts/validate_tokens.py already reviewed for design-tokens (pure local JSON validator, no network/credential access).",
+  "overlaps": [],
+  "proposedEntry": {
+    "id": "figma-integration",
+    "name": "figma-integration",
+    "description": "Keeps Figma and code in sync by mapping the project's 3-tier DTCG tokens to Figma Variables: three Figma collections (Primitives, Semantic, Component) mirroring the token tiers, with dark/brand/density variance modeled as Figma Modes. Requires picking exactly one authoritative sync direction (code-to-Figma publish, or Figma-to-code extract via Tokens Studio or the Variables REST API) so the non-authoritative side is always generated, never hand-edited. When a Figma MCP server is connected, prefers its tools for reading frames/variables/screenshots and wiring Code Connect. Verifies component parity (Figma variants/properties must cover every design-system variant, size, and the full state set) and that every Figma Variable resolves to a real token with no orphan hex values.",
+    "category": "design-systems",
+    "tags": [
+      "figma",
+      "figma-to-code",
+      "design-tokens",
+      "design-system",
+      "component-api",
+      "multi-brand"
+    ],
+    "triggers": [
+      "sync tokens with Figma",
+      "push components to Figma",
+      "pull a Figma design into code",
+      "set up Figma Variables from our tokens",
+      "check design-code drift"
+    ],
+    "inputs": [
+      "The project's DTCG token files",
+      "A connected Figma file or Figma MCP server (optional)"
+    ],
+    "outputs": [
+      "A token-to-Figma-Variable collection/mode mapping",
+      "A stated authoritative sync direction",
+      "A component parity report (variant/state coverage gaps)"
+    ],
+    "path": "skills/design-systems/figma-integration",
+    "source": {
+      "type": "third-party",
+      "repository": "plugin87/ux-ui-agent-skills",
+      "url": "https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/figma-integration",
+      "author": "plugin87",
+      "license": "MIT",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": ".claude/skills/figma-integration",
+      "upstreamCommit": "2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd",
+      "retrievedAt": "2026-08-26",
+      "modified": true,
+      "modifications": [
+        {
+          "date": "2026-08-26",
+          "reason": "portability",
+          "description": "Upstream SKILL.md references repo-root shared files (workflows/figma-integration.md, scripts/validate_tokens.py) outside the skill's own directory. Bundled the specific referenced files into the vendored skill directory at the same relative paths already used in the prose, so no wording had to change.",
+          "files": [
+            "workflows/figma-integration.md",
+            "scripts/validate_tokens.py"
+          ]
+        }
+      ]
+    },
+    "compatibility": ["claude-code", "codex", "cursor", "opencode", "amp", "gemini-cli", "copilot", "vs-code"],
+    "dependencies": ["python", "figma-mcp"],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "experimental",
+    "status": "draft"
+  },
+  "logMd": "#### plugin87/ux-ui-agent-skills -- figma-integration (inspected 2026-08-26)\n\nSee a11y-audit.json for shared repo-level evidence. figma-integration: read SKILL.md and workflows/figma-integration.md in full; both clean. This skill explicitly names the Figma MCP server as an optional dependency, which is disclosed in dependencies[] rather than a hidden requirement. Rubric: relevance 3 (design-system category explicitly names Figma-to-code), quality 3 (concrete collection/mode mapping, one-authoritative-direction rule, definition-of-done checklist), conformance 1 (fixed via portability modification), uniqueness 2 (no other skill in the registry does token<->Figma-Variable sync -- genuine gap). Total 9, vendor."
+}

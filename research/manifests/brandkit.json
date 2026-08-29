@@ -1,0 +1,144 @@
+{
+  "id": "brandkit",
+  "category": "design-systems",
+  "verdict": "not-vendored-keeper",
+  "rubric": {
+    "relevance": 3,
+    "quality": 3,
+    "conformance": 1,
+    "uniqueness": 1
+  },
+  "upstream": {
+    "repository": "plugin87/ux-ui-agent-skills",
+    "url": "https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/brandkit",
+    "author": "plugin87",
+    "commit": "2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd",
+    "path": ".claude/skills/brandkit",
+    "license": "MIT",
+    "licenseSource": "package.json"
+  },
+  "files": [
+    {
+      "dest": "SKILL.md",
+      "rawUrl": "https://raw.githubusercontent.com/plugin87/ux-ui-agent-skills/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/brandkit/SKILL.md",
+      "blobSha": "08568bb78cc1d5c5d813c158d6c26473282d2348"
+    },
+    {
+      "dest": "taste/design-taste.md",
+      "rawUrl": "https://raw.githubusercontent.com/plugin87/ux-ui-agent-skills/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/taste/design-taste.md",
+      "blobSha": "c4ebf8203fcac8b6cd606aea6a5cb4758500bf1a"
+    },
+    {
+      "dest": "taste/aesthetic-systems.md",
+      "rawUrl": "https://raw.githubusercontent.com/plugin87/ux-ui-agent-skills/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/taste/aesthetic-systems.md",
+      "blobSha": "d1df248ad13f96287631e159c75175023859a006"
+    },
+    {
+      "dest": ".claude/rules/tokens-and-color.md",
+      "rawUrl": "https://raw.githubusercontent.com/plugin87/ux-ui-agent-skills/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/rules/tokens-and-color.md",
+      "blobSha": "270857887e80f43bd54a401ff9ee10394b43b00c"
+    },
+    {
+      "dest": "scripts/validate_tokens.py",
+      "rawUrl": "https://raw.githubusercontent.com/plugin87/ux-ui-agent-skills/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/scripts/validate_tokens.py",
+      "blobSha": "629647e779ff24541198269de874cab05fe96f15"
+    },
+    {
+      "dest": "scripts/validate_contrast.py",
+      "rawUrl": "https://raw.githubusercontent.com/plugin87/ux-ui-agent-skills/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/scripts/validate_contrast.py",
+      "blobSha": "ef953fb5b5043929bec68f5dd29e5b42265a9fd0"
+    },
+    {
+      "dest": "scripts/validate_theme_refs.py",
+      "rawUrl": "https://raw.githubusercontent.com/plugin87/ux-ui-agent-skills/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/scripts/validate_theme_refs.py",
+      "blobSha": "6d3747449d2fc832276c7b7c73deb644ba689987"
+    },
+    {
+      "dest": "LICENSE.txt",
+      "content": "MIT License\n\nCopyright (c) 2026 plugin87\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n"
+    }
+  ],
+  "securityNotes": "Read SKILL.md and every referenced file in full at the pinned SHA. taste/design-taste.md (the anti-slop doctrine: Brief Inference, Banned Defaults checklist, Variance Mandate) and taste/aesthetic-systems.md (6 archetypes + pointer to a 138-system library) are plain reference prose, no hidden instructions. scripts/validate_contrast.py and scripts/validate_theme_refs.py, read in full, are pure local file/regex checkers (json, re, sys, pathlib stdlib only) with no network calls, no credential access, no remote execution; validate_tokens.py and contrast.py were already reviewed for the design-tokens/a11y-audit manifests. Same license resolution as the other picks from this repo: no repo LICENSE file, package.json SPDX \"license\": \"MIT\" / \"author\": \"plugin87\" used per the brief.",
+  "overlaps": [
+    "theme-factory",
+    "design-tokens"
+  ],
+  "proposedEntry": {
+    "id": "brandkit",
+    "name": "brandkit",
+    "description": "Stands up a complete, accessible brand design system from a brief before any screen is built: infers industry/audience/mood/motion-depth and anchors to an aesthetic archetype, generates an 11-shade OKLCH brand color ramp plus a neutral ramp verified for contrast (500 shade >=4.5:1 on white for text, 600 >=3:1 for UI), maps roles to a semantic layer (action, text, surface, border, feedback) with designed (not inverted) dark-mode overrides, defines a Major Third type scale, 4px spacing scale, radius/elevation/motion tiers, and emits three-tier DTCG tokens plus a single shared theme.css. Runs token-validity, contrast, and theme-reference-resolution scripts as its definition of done.",
+    "category": "design-systems",
+    "tags": [
+      "design-tokens",
+      "color",
+      "typography",
+      "spacing",
+      "dark-mode",
+      "brand",
+      "design-system",
+      "themes"
+    ],
+    "triggers": [
+      "build a brand design system",
+      "generate a new color palette and type system",
+      "create a themeable token kit",
+      "set up light and dark mode from scratch"
+    ],
+    "inputs": [
+      "A brief: industry, audience, mood, motion depth",
+      "An anchoring aesthetic archetype (optional)"
+    ],
+    "outputs": [
+      "DTCG tokens/*.json (primitive/semantic/component tiers)",
+      "A single theme.css with light and dark overrides",
+      "Passing token-validity, contrast, and theme-reference-resolution checks"
+    ],
+    "path": "skills/design-systems/brandkit",
+    "source": {
+      "type": "third-party",
+      "repository": "plugin87/ux-ui-agent-skills",
+      "url": "https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/brandkit",
+      "author": "plugin87",
+      "license": "MIT",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": ".claude/skills/brandkit",
+      "upstreamCommit": "2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd",
+      "retrievedAt": "2026-08-26",
+      "modified": true,
+      "modifications": [
+        {
+          "date": "2026-08-26",
+          "reason": "portability",
+          "description": "Upstream SKILL.md references repo-root shared files (taste/design-taste.md, taste/aesthetic-systems.md, .claude/rules/tokens-and-color.md, scripts/validate_tokens.py, scripts/validate_contrast.py, scripts/validate_theme_refs.py) outside the skill's own directory. Bundled the specific referenced files into the vendored skill directory at the same relative paths already used in the prose, so no wording had to change. Did NOT bundle the 138-file design-systems/library archetype catalog referenced indirectly via taste/aesthetic-systems.md's 'Library' section -- that catalog is shared across multiple skills in the upstream repo and is disproportionate to include for this one skill; the skill remains usable via its 6 named archetypes without it.",
+          "files": [
+            "taste/design-taste.md",
+            "taste/aesthetic-systems.md",
+            ".claude/rules/tokens-and-color.md",
+            "scripts/validate_tokens.py",
+            "scripts/validate_contrast.py",
+            "scripts/validate_theme_refs.py"
+          ]
+        }
+      ]
+    },
+    "compatibility": [
+      "claude-code",
+      "codex",
+      "cursor",
+      "opencode",
+      "amp",
+      "gemini-cli",
+      "copilot",
+      "vs-code"
+    ],
+    "dependencies": [
+      "python"
+    ],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "experimental",
+    "status": "draft"
+  },
+  "logMd": "#### plugin87/ux-ui-agent-skills -- brandkit (inspected 2026-08-26)\n\nSee a11y-audit.json for shared repo-level evidence. brandkit: read SKILL.md plus taste/design-taste.md, taste/aesthetic-systems.md, .claude/rules/tokens-and-color.md, scripts/validate_tokens.py, scripts/validate_contrast.py, scripts/validate_theme_refs.py in full; all clean. Deliberately did not bundle the 138-file design-systems/library/*/DESIGN.md archetype catalog that aesthetic-systems.md points to -- disproportionate for a single skill's manifest; the skill still functions via its 6 named archetypes. Rubric: relevance 3, quality 3 (concrete OKLCH generation with exact ratios, explicit semantic role list, definition-of-done scripts), conformance 1 (fixed via portability modification, catalog knowingly left out), uniqueness 1 (overlaps registry's theme-factory, which applies 10 curated static palette+font themes to documents/slides -- brandkit instead generates a full brief-driven DTCG token system with dark-mode and code-level verification scripts, a different output and depth). Total 8, vendor.\n- Curator decision 2026-08-26: NOT vendored after validation - Bundled taste/aesthetic-systems.md links ~140 DESIGN.md files in the upstream design-systems/library plus frameworks/adapter-protocol.md; the skill is not self-contained without that 138-file library, which is disproportionate to vendor. Install from upstream instead.",
+  "keeperReason": "Bundled taste/aesthetic-systems.md links ~140 DESIGN.md files in the upstream design-systems/library plus frameworks/adapter-protocol.md; the skill is not self-contained without that 138-file library, which is disproportionate to vendor. Install from upstream instead."
+}

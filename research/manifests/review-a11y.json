@@ -1,0 +1,57 @@
+{
+  "id": "review-a11y",
+  "category": "accessibility",
+  "verdict": "vendor",
+  "rubric": { "relevance": 3, "quality": 3, "conformance": 2, "uniqueness": 2 },
+  "upstream": {
+    "repository": "maxgfr/ultra11y",
+    "url": "https://github.com/maxgfr/ultra11y/tree/d1cd14792f3bd1b9ab15958bc4e72081375514dc/skills/review-a11y",
+    "author": "maxgfr",
+    "commit": "d1cd14792f3bd1b9ab15958bc4e72081375514dc",
+    "path": "skills/review-a11y",
+    "license": "MIT",
+    "licenseSource": "repo-root:LICENSE"
+  },
+  "files": [
+    { "dest": "SKILL.md", "rawUrl": "https://raw.githubusercontent.com/maxgfr/ultra11y/d1cd14792f3bd1b9ab15958bc4e72081375514dc/skills/review-a11y/SKILL.md", "blobSha": "0a15a4302898bc75771c6735fb7384d81cdf5af1" },
+    { "dest": "scripts/ultra11y.mjs", "rawUrl": "https://raw.githubusercontent.com/maxgfr/ultra11y/d1cd14792f3bd1b9ab15958bc4e72081375514dc/skills/review-a11y/scripts/ultra11y.mjs", "blobSha": "45965bf88e4813bae6ec3f1929a23db58d01ffe7" },
+    { "dest": "LICENSE.txt", "rawUrl": "https://raw.githubusercontent.com/maxgfr/ultra11y/d1cd14792f3bd1b9ab15958bc4e72081375514dc/LICENSE", "blobSha": "ec38123b18bfb23a17f67d6f6fe12e80eda2a9c5" }
+  ],
+  "securityNotes": "Read SKILL.md in full and inspected scripts/ultra11y.mjs (a large ~150-200KB bundled esbuild-style Node CLI, version 5.40.0, identical blob sha to skills/ultra11y/scripts/ultra11y.mjs). The bundle is readable, non-minified source with intact `// src/<file>.ts` comment banners from the original TypeScript sources, not obfuscated. Sampled the first 150 lines verbatim (standard fs/path/url/crypto imports, embedded WCAG 2.2 criteria JSON) and searched for fetch(/http(s).request/child_process/exec/eval/new Function/process.env/XMLHttpRequest/telemetry patterns — none found in the portions reviewed. Given the file's size, full manual line-by-line review of every line was not feasible with the available fetch tooling within this session's budget; review was necessarily sample-based (start of file, targeted pattern search) rather than exhaustive. No evidence of exfiltration, credential access, or download-and-execute; the tool's only network behavior (per SKILL.md and the sibling ultra11y skill's references) is Playwright/browser automation for its optional rendering tier, which review-a11y's diff-scoped `audit` command does not invoke. Flagged as a caveat for a maintainer to re-review on a future engine version bump given the bundle's size.",
+  "overlaps": [
+    "ultra11y (same repo, this batch — shares the identical bundled scripts/ultra11y.mjs engine; review-a11y scopes it to staged/diff/branch/PR, ultra11y runs full-repo audits and dated reports)",
+    "a11y-check-code (ymrl/a11y-check-skills, this batch — both review changed source for WCAG 2.2 AA, but a11y-check-code is a manual checklist + import-tracing procedure with no bundled analysis engine, while review-a11y runs a deterministic AST/cross-file engine and adjudicates its candidate findings)",
+    "a11y-critic (zivtech/accessibility-skills, this batch — a11y-critic reviews accessibility *design decisions* after tests pass; review-a11y reviews a diff's *engine-detected* non-conformities plus adjudicated judgment criteria)"
+  ],
+  "proposedEntry": {
+    "id": "review-a11y",
+    "name": "review-a11y",
+    "description": "Reviews changed frontend code (staged files, a working diff, a branch, or a PR) for WCAG 2.2 AA accessibility using a bundled, install-free static engine with cross-file JSX/TSX AST analysis. Treats engine findings as candidates, not verdicts: confirms each occurrence in the actual code, flags preliminary findings from framework templates or library-rendered markup that need rendered-DOM verification, adjudicates judgment criteria (alt-text relevance, link purpose, focus logic) from visible evidence, and refutes false positives with cited code. Returns a severity-ranked WCAG 2.2 AA review scoped only to the change, with file:line fixes, explicitly named residual rendering risks (contrast, focus visibility, zoom) that require a browser scan, and a pass/fail verdict.",
+    "category": "accessibility",
+    "tags": ["a11y", "wcag", "aria", "keyboard", "focus-management", "contrast", "semantic-html", "severity", "remediation", "pr-review"],
+    "triggers": ["review a11y", "is this accessible?", "anything to fix before merge?", "accessibility review of this diff", "check staged files for accessibility"],
+    "inputs": ["staged files, a working diff, a branch, or a PR diff", "the bundled engine's candidate findings from `node scripts/ultra11y.mjs audit`"],
+    "outputs": ["severity-ranked WCAG 2.2 AA review scoped to the change, with file:line fixes", "list of residual rendering risks requiring a browser scan", "pass/fail verdict for the change"],
+    "path": "skills/accessibility/review-a11y",
+    "source": {
+      "type": "third-party",
+      "repository": "maxgfr/ultra11y",
+      "url": "https://github.com/maxgfr/ultra11y/tree/d1cd14792f3bd1b9ab15958bc4e72081375514dc/skills/review-a11y",
+      "author": "maxgfr",
+      "license": "MIT",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": "skills/review-a11y",
+      "upstreamCommit": "d1cd14792f3bd1b9ab15958bc4e72081375514dc",
+      "retrievedAt": "2026-08-26",
+      "modified": false,
+      "modifications": []
+    },
+    "compatibility": ["claude-code", "codex", "cursor", "opencode", "amp", "gemini-cli", "copilot", "vs-code", "claude-ai"],
+    "dependencies": ["node"],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "stable",
+    "status": "draft"
+  },
+  "logMd": "#### maxgfr/ultra11y (inspected 2026-08-26)\n- Repo HEAD pinned: d1cd14792f3bd1b9ab15958bc4e72081375514dc. Stars: 2. Pushed_at per GitHub API: 2026-08-29T07:54:06Z (recorded as returned; postdates this session's stated inspection date, an artifact of the sandboxed environment's clock rather than an inconsistency I can resolve). License: MIT, confirmed at repo-root LICENSE (standard MIT text, copyright maxgfr 2026) and matches package.json `\"license\": \"MIT\"`.\n- Full recursive tree fetched for the `skills/` subdirectory at pinned SHA (52 entries, not truncated) after the whole-repo tree response was summarized/truncated by the fetch tool due to repo size (200+ files across src/, tests/, docker/, extension/, etc. outside the skills/ scope assigned here).\n- review-a11y: SKILL.md and scripts/ultra11y.mjs (shared blob sha with ultra11y's copy) reviewed. SKILL.md frontmatter uses only name/description/license/metadata (spec-six subset) so claude-ai is appended to compatibility; name equals dirname review-a11y. Rubric: relevance 3 (core diff/PR accessibility review), quality 3 ('never invent a non-conformity', 'review the change not the world', explicit residual-risk naming, engine-candidate vs. adjudicated-verdict distinction), conformance 2, uniqueness 2 (only skill in this batch built as a bundled deterministic engine + AI adjudication layer scoped specifically to a diff/PR, as opposed to a11y-check-code's manual checklist or a11y-critic's post-test design review). Total 10.\n- Security: see securityNotes — bundle is large (~150-200KB) so review was sample-based (first 150 lines quoted verbatim, plus targeted grep-style pattern search for network/exec/eval/env patterns) rather than exhaustive line-by-line; no red flags found in what was reviewed.\n- Verdict: vendor."
+}

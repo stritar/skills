@@ -2,7 +2,7 @@
 
 <!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
 
-38 skills (38 vendored third-party, 0 original).
+52 skills (52 vendored third-party, 0 original).
 
 Search locally instead of reading this whole file: `npm run search -- "your query"`. The machine-readable index is [catalog/index.json](catalog/index.json).
 
@@ -14,11 +14,11 @@ Search locally instead of reading this whole file: `npm run search -- "your quer
 - [Product strategy](#product-strategy) (1)
 - [Interaction design](#interaction-design) (5)
 - [Visual design](#visual-design) (8)
-- [Design systems](#design-systems) (5)
-- [Accessibility](#accessibility) (1)
-- [Content design](#content-design) (2)
+- [Design systems](#design-systems) (8)
+- [Accessibility](#accessibility) (10)
+- [Content design](#content-design) (3)
 - [Prototyping](#prototyping) (2)
-- [Testing and evaluation](#testing-and-evaluation) (4)
+- [Testing and evaluation](#testing-and-evaluation) (5)
 - [Design QA](#design-qa) (4)
 - [Agentic and AI-native UI](#agentic-and-ai-native-ui) (1)
 - [Design engineering](#design-engineering) (2)
@@ -285,6 +285,34 @@ Makes the agent define how a design system evolves: seven core governance questi
 - **Status**: draft, stable
 - **Tags**: design-system, governance, versioning, migration, component-docs
 
+### `design-tokens`
+
+Generates, extends, or audits design tokens in DTCG format ($type/$value) using a 3-tier architecture (primitive, raw values never used directly; semantic, purpose aliases; component, component-scoped). Reads the project's token-and-color and typography-and-spacing rules to apply a 4px base spacing grid, a Major Third type scale, and OKLCH-based palette generation, verifying that any new palette's mid shade clears 4.5:1 on white for text and a darker shade clears 3:1 for UI use. Covers colors, typography, spacing, shadows, borders, breakpoints, motion, gradients, opacity, blur, sizing, states, and multi-brand/density theming, and runs a JSON-validity-and-alias-resolution script before calling the work done.
+
+- **Path**: [skills/design-systems/design-tokens/SKILL.md](skills/design-systems/design-tokens/SKILL.md)
+- **Use when**: generate a color palette; set up design tokens; define a type scale; validate our token files; multi-brand theming
+- **Inputs**: An existing tokens/ directory to extend, or a brief for a new palette, Target platforms/brands needing theming
+- **Outputs**: DTCG-format token JSON (primitive/semantic/component tiers) with $description preserved, A validation pass confirming JSON validity and alias resolution
+- **Dependencies**: python
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code
+- **Source**: third-party — [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/design-tokens) @ `2ffb677` by plugin87, MIT (modified — see THIRD_PARTY_NOTICES.md)
+- **Status**: draft, experimental
+- **Tags**: design-tokens, token-naming, semantic-tokens, design-system, color, typography, spacing, dark-mode, multi-brand
+
+### `figma-integration`
+
+Keeps Figma and code in sync by mapping the project's 3-tier DTCG tokens to Figma Variables: three Figma collections (Primitives, Semantic, Component) mirroring the token tiers, with dark/brand/density variance modeled as Figma Modes. Requires picking exactly one authoritative sync direction (code-to-Figma publish, or Figma-to-code extract via Tokens Studio or the Variables REST API) so the non-authoritative side is always generated, never hand-edited. When a Figma MCP server is connected, prefers its tools for reading frames/variables/screenshots and wiring Code Connect. Verifies component parity (Figma variants/properties must cover every design-system variant, size, and the full state set) and that every Figma Variable resolves to a real token with no orphan hex values.
+
+- **Path**: [skills/design-systems/figma-integration/SKILL.md](skills/design-systems/figma-integration/SKILL.md)
+- **Use when**: sync tokens with Figma; push components to Figma; pull a Figma design into code; set up Figma Variables from our tokens; check design-code drift
+- **Inputs**: The project's DTCG token files, A connected Figma file or Figma MCP server (optional)
+- **Outputs**: A token-to-Figma-Variable collection/mode mapping, A stated authoritative sync direction, A component parity report (variant/state coverage gaps)
+- **Dependencies**: python, figma-mcp
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code
+- **Source**: third-party — [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/figma-integration) @ `2ffb677` by plugin87, MIT (modified — see THIRD_PARTY_NOTICES.md)
+- **Status**: draft, experimental
+- **Tags**: figma, figma-to-code, design-tokens, design-system, component-api, multi-brand
+
 ### `frontend-ui-dark-ts`
 
 A complete dark-theme design-token and component system for React + Tailwind CSS + Framer Motion applications: CSS custom properties and Tailwind config for brand/neutral/text/border/status/data-viz color scales, spacing/radius/shadow/z-index scales, glassmorphism utility classes, and Framer Motion timing/easing presets, plus ready-to-use TSX source for Button, Input, Card, Badge, Dialog, Tabs, Avatar, Checkbox, Select, and Toast components, and page-layout patterns (app shell, responsive mobile drawer, dashboard, list/tabs/settings-form templates, empty states, skeleton loaders) built for dashboards and admin panels.
@@ -325,7 +353,102 @@ Curated, opinionated lookup table matching a frontend UI task (toasts, command m
 - **Status**: draft, stable
 - **Tags**: pattern-library, component-api, design-system
 
+### `token-build`
+
+Sets up or runs the build pipeline that turns the project's DTCG tokens/*.json source of truth into platform-ready artifacts: CSS custom properties, a Tailwind v4 @theme block, typed JS/TS, an iOS Asset Catalog plus Color/Spacing extensions, and Android colors.xml/Compose theme. Picks between Style Dictionary (the default, multi-platform), Tokens Studio (when tokens are Figma-owned), a W3C DTCG exporter, or a small custom script; resolves aliases to final per-platform values, keeps primitives internal while exposing semantic/component tokens, and emits dark/brand/density variants as deltas only rather than full duplicate files. Wires CI to validate and regenerate on token changes and to fail if committed artifacts drift from a fresh regeneration, gating any color change through a contrast check.
+
+- **Path**: [skills/design-systems/token-build/SKILL.md](skills/design-systems/token-build/SKILL.md)
+- **Use when**: generate CSS variables from our tokens; set up a Style Dictionary pipeline; export tokens to iOS and Android; wire token validation into CI; build Tailwind theme from tokens
+- **Inputs**: DTCG token source files (tokens/*.json), Target platform(s) for generated artifacts
+- **Outputs**: Platform-specific generated theme files (CSS, Tailwind, JS/TS, iOS, Android), A CI step that validates tokens and fails on stale generated artifacts
+- **Dependencies**: node, python
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code
+- **Source**: third-party — [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/token-build) @ `2ffb677` by plugin87, MIT (modified — see THIRD_PARTY_NOTICES.md)
+- **Status**: draft, experimental
+- **Tags**: design-tokens, design-system, versioning, multi-brand, governance
+
 ## Accessibility
+
+### `a11y-audit`
+
+Audits a UI or design against WCAG 2.2 AA/AAA and documented ARIA patterns, producing a criterion-referenced findings table (WCAG criterion, P0/P1/P2 severity, what fails, specific fix). Directs the agent to check the mandatory P0 set (keyboard nav, visible focus >=3:1, screen-reader name/role/state, 4.5:1 text / 3:1 UI contrast, >=24x24 target size, no color-only signaling) plus WCAG 2.2 additions (Focus Not Obscured, Target Size, Accessible Authentication), and to measure contrast rather than eyeball it: a Playwright-based real-render gate over every text element and every interactive element's default/hover/focus states, plus a standalone hex-pair contrast calculator, with instructions to report only actually-measured ratios.
+
+- **Path**: [skills/accessibility/a11y-audit/SKILL.md](skills/accessibility/a11y-audit/SKILL.md)
+- **Use when**: accessibility audit; WCAG check; contrast verification; keyboard and screen-reader review; does this meet WCAG 2.2 AA
+- **Inputs**: A UI, component, or rendered HTML page to audit, Target conformance level (AA or AAA)
+- **Outputs**: A findings table: WCAG criterion, severity (P0/P1/P2), what fails, specific fix, Explicit confirmation of passing checks, Measured contrast ratios (not estimated)
+- **Dependencies**: python, node
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code
+- **Source**: third-party — [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/a11y-audit) @ `2ffb677` by plugin87, MIT (modified — see THIRD_PARTY_NOTICES.md)
+- **Status**: draft, experimental
+- **Tags**: a11y, wcag, aria, screen-reader, keyboard, focus-management, contrast, audit, remediation
+
+### `a11y-check-code`
+
+Reviews source files (HTML, JSX, TSX, Vue, Svelte, templates) for WCAG 2.2 AA accessibility issues without external dependencies: traces imported components (depth 3, max 50 files) to see final rendered markup, enumerates every conditional/state variation before checking, applies a fixed ID'd checklist (SPEC/VIS/KBD/RFL/SEM/AXE) by observation type rather than by file, computes contrast ratios with a bundled Node script instead of estimating them, and writes a severity-rated (Critical/Major/Normal/Minor) Markdown report with file:line evidence, user-impact statements, and an explicit list of items that cannot be verified from code alone and must be checked on a live page.
+
+- **Path**: [skills/accessibility/a11y-check-code/SKILL.md](skills/accessibility/a11y-check-code/SKILL.md)
+- **Use when**: a11y check this component; check accessibility of this code; review this PR for accessibility; WCAG 2.2 AA audit of source code; check for accessibility issues before merge
+- **Inputs**: source files (HTML/JSX/TSX/Vue/Svelte/templates) to review, the imported component tree reachable from the target file
+- **Outputs**: severity-rated Markdown report with file:line findings and user-impact statements, contrast-ratio calculations from the bundled scripts/contrast.mjs, list of items requiring live-page verification, handed off to a11y-check-page
+- **Dependencies**: node
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
+- **Source**: third-party — [ymrl/a11y-check-skills](https://github.com/ymrl/a11y-check-skills/tree/a59f48bbe72c1c4ec710e86ae19f8b39fa4b44f6/skills/a11y-check-code) @ `a59f48b` by ymrl, ISC
+- **Status**: draft, stable
+- **Tags**: a11y, wcag, contrast, keyboard, focus-management, semantic-html, forms, severity, audit, remediation
+
+### `a11y-check-page`
+
+Audits a live, running web page for WCAG 2.2 AA accessibility using browser automation (Playwright MCP, Chrome DevTools MCP, or playwright-cli): runs the bundled axe-core build, walks keyboard focus order in both directions, injects CSS/viewport changes to test 200% zoom, 320px reflow, and text-spacing, inspects the accessibility tree, and re-runs checks per distinct UI state (modals, loading, errors). Enforces credential-safety rules for login-gated pages (never store or echo credentials, screenshot only pre-input states, explicit permission before destructive actions) and writes a severity-rated Markdown report to a11y-report/ with screenshots saved under a11y-report/assets/.
+
+- **Path**: [skills/accessibility/a11y-check-page/SKILL.md](skills/accessibility/a11y-check-page/SKILL.md)
+- **Use when**: check this URL's accessibility; audit this live page for WCAG; test keyboard navigation on this page; run axe-core against this site; a11y check after login
+- **Inputs**: target URL(s) and, when login is required, credentials/steps provided by the user, confirmation of test vs. production environment and whether destructive actions are permitted
+- **Outputs**: severity-rated Markdown report in a11y-report/ with screenshots in a11y-report/assets/, per-state axe-core, keyboard-focus, and accessibility-tree findings, list of items excluded from automated testing (e.g. screen-reader behavior, seizure thresholds)
+- **Dependencies**: node, browser, playwright, axe-core
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
+- **Source**: third-party — [ymrl/a11y-check-skills](https://github.com/ymrl/a11y-check-skills/tree/a59f48bbe72c1c4ec710e86ae19f8b39fa4b44f6/skills/a11y-check-page) @ `a59f48b` by ymrl, ISC
+- **Status**: draft, stable
+- **Tags**: a11y, wcag, aria, keyboard, focus-management, contrast, severity, audit, remediation
+
+### `a11y-critic`
+
+Reviews accessibility design decisions in an existing component, flow, or interface after automated compliance checks already pass — catching what axe-core/Pa11y miss: incomplete ARIA patterns, incoherent focus management, and state-communication gaps. Runs a 10-phase protocol (pre-commitment predictions, semantic HTML audit, ARIA pattern compliance, focus management analysis, state communication audit, multi-perspective review across screen-reader/keyboard-only/low-vision/cognitive users) and produces findings with severity (CRITICAL/MAJOR/MINOR/ENHANCEMENT), file:line evidence, affected user group, and a WCAG 2.2 or WAI-ARIA APG citation, ending in a verdict of ACCEPT, ACCEPT-WITH-RESERVATIONS, REVISE, or REJECT.
+
+- **Path**: [skills/accessibility/a11y-critic/SKILL.md](skills/accessibility/a11y-critic/SKILL.md)
+- **Use when**: critique this accessibility plan; review this component's accessibility design; is this ready to ship accessibility-wise?; check ARIA pattern completeness; review focus management before merge
+- **Inputs**: an existing component, flow, or interface (code or a written accessibility plan) that has already passed automated accessibility checks
+- **Outputs**: findings list with severity, file:line evidence, affected user group, and WCAG/APG citation, a verdict: ACCEPT / ACCEPT-WITH-RESERVATIONS / REVISE / REJECT
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
+- **Source**: third-party — [zivtech/accessibility-skills](https://github.com/zivtech/accessibility-skills/tree/817dedeae90324017ece2d2b104332aec9d20656/.claude/skills/a11y-critic) @ `817dede` by zivtech, GPL-3.0-or-later
+- **Status**: draft, stable
+- **Tags**: a11y, wcag, aria, keyboard, focus-management, screen-reader, semantic-html, severity, design-critique, expert-review
+
+### `a11y-planner`
+
+Designs an accessible implementation before code is written: runs a 9-phase protocol covering scope/context, semantic structure, WAI-ARIA Authoring Practices Guide pattern mapping for every interactive widget, focus management (tab order, modal traps, restoration, roving tabindex), state communication to assistive technology, visual accessibility (contrast, touch targets, motion), content accessibility (alt text, link text, form labels), a testing strategy, and an implementation task breakdown with review checkpoints. Every decision cites a WCAG 2.2 success criterion or APG pattern section. Guards against nine known failure modes (e.g. per-event live-region spam, color-only state indicators, title-attribute-only accessible names). Writes the plan to docs/a11y-plans/YYYY-MM-DD-<feature-name>-a11y-plan.md.
+
+- **Path**: [skills/accessibility/a11y-planner/SKILL.md](skills/accessibility/a11y-planner/SKILL.md)
+- **Use when**: design accessible interaction for this component; plan the accessibility approach for this modal/combobox/tabs; write an a11y spec before we build this; WAI-ARIA pattern for this widget; prepare for a WCAG 2.2 AA audit
+- **Inputs**: a description of the component, flow, or interface to be built, the target compliance level and known constraints (framework, existing design system)
+- **Outputs**: a Markdown accessibility plan (docs/a11y-plans/YYYY-MM-DD-<feature-name>-a11y-plan.md) with semantic structure, APG pattern table, focus plan, state-communication table, and task breakdown, a WCAG-EM audit-scope variant for Section 508 conformance sampling when requested
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
+- **Source**: third-party — [zivtech/accessibility-skills](https://github.com/zivtech/accessibility-skills/tree/817dedeae90324017ece2d2b104332aec9d20656/.claude/skills/a11y-planner) @ `817dede` by zivtech, GPL-3.0-or-later
+- **Status**: draft, stable
+- **Tags**: a11y, wcag, aria, keyboard, focus-management, contrast, semantic-html, forms, inclusive-design
+
+### `a11y-role-audit`
+
+Runs an ARRM-based (W3C WAI Accessibility Requirements-to-Roles Mapping) accessibility review through six responsibility-based lenses — visual design, UX design, front-end development, content authoring, business analysis, and testing — to produce findings attributed to the team role best positioned to catch and fix each barrier, rather than a single generic pass/fail. Supports three modes: design review (mockups/specs before implementation), implementation review (code through each role's lens), and finding attribution (assigning ownership of existing accessibility gaps). Findings are rated CRITICAL, MAJOR, MINOR, or ENHANCEMENT (AAA-level).
+
+- **Path**: [skills/accessibility/a11y-role-audit/SKILL.md](skills/accessibility/a11y-role-audit/SKILL.md)
+- **Use when**: who should fix this accessibility issue; role-based accessibility audit; attribute this a11y finding to a team; review this mockup for accessibility by role; ARRM accessibility review
+- **Inputs**: a design mockup/spec, or implemented code, to review through each of the six role lenses
+- **Outputs**: role-attributed findings table (role, barrier, severity, WCAG/ARRM reference), ownership assignment for existing accessibility gaps
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
+- **Source**: third-party — [zivtech/accessibility-skills](https://github.com/zivtech/accessibility-skills/tree/817dedeae90324017ece2d2b104332aec9d20656/.claude/skills/a11y-role-audit) @ `817dede` by zivtech, GPL-3.0-or-later
+- **Status**: draft, stable
+- **Tags**: a11y, wcag, aria, keyboard, contrast, semantic-html, severity, design-critique, expert-review
 
 ### `better-accessibility` ⭐
 
@@ -339,6 +462,47 @@ Accessibility engineering guidance for building or reviewing UI components and c
 - **Source**: third-party — [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-accessibility) @ `ca48385` by Jakub Krehel, MIT
 - **Status**: draft, stable, recommended default
 - **Tags**: a11y, wcag, aria, screen-reader, keyboard, focus-management, contrast, forms, semantic-html, inclusive-design, remediation
+
+### `perspective-audit`
+
+Runs a deep, single-dimension accessibility review from one of seven access perspectives — magnification & reflow, environmental contrast, vestibular & motion sensitivity, auditory access, keyboard & motor access, screen reader & semantic structure, and cognitive & neurodivergent accessibility. Activates only on escalation from a11y-planner or a11y-critic when a perspective is flagged MEDIUM or HIGH alarm level, skipping LOW-rated perspectives entirely ('evidence over assertion'). Loads only the relevant checklist section, reviews source/markup against it, and routes each finding to an ARRM team role with severity (CRITICAL/MAJOR/MINOR/ENHANCEMENT), before issuing a PASS, REVISE, or BLOCK recommendation. Read-only: cannot write or edit files.
+
+- **Path**: [skills/accessibility/perspective-audit/SKILL.md](skills/accessibility/perspective-audit/SKILL.md)
+- **Use when**: deep-dive this flagged accessibility perspective; review keyboard and motor access in depth; check cognitive accessibility for this flow; escalated accessibility review; audit vestibular/motion safety
+- **Inputs**: an artifact (source code or markup) plus the specific perspective(s) flagged MEDIUM or HIGH by an upstream review
+- **Outputs**: per-perspective findings with severity, WCAG citation, ARRM role routing, and file:line evidence, a PASS / REVISE / BLOCK recommendation
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code
+- **Source**: third-party — [zivtech/accessibility-skills](https://github.com/zivtech/accessibility-skills/tree/817dedeae90324017ece2d2b104332aec9d20656/.claude/skills/perspective-audit) @ `817dede` by zivtech, GPL-3.0-or-later
+- **Status**: draft, stable
+- **Tags**: a11y, wcag, keyboard, focus-management, contrast, screen-reader, motion, inclusive-design, severity, expert-review
+
+### `review-a11y`
+
+Reviews changed frontend code (staged files, a working diff, a branch, or a PR) for WCAG 2.2 AA accessibility using a bundled, install-free static engine with cross-file JSX/TSX AST analysis. Treats engine findings as candidates, not verdicts: confirms each occurrence in the actual code, flags preliminary findings from framework templates or library-rendered markup that need rendered-DOM verification, adjudicates judgment criteria (alt-text relevance, link purpose, focus logic) from visible evidence, and refutes false positives with cited code. Returns a severity-ranked WCAG 2.2 AA review scoped only to the change, with file:line fixes, explicitly named residual rendering risks (contrast, focus visibility, zoom) that require a browser scan, and a pass/fail verdict.
+
+- **Path**: [skills/accessibility/review-a11y/SKILL.md](skills/accessibility/review-a11y/SKILL.md)
+- **Use when**: review a11y; is this accessible?; anything to fix before merge?; accessibility review of this diff; check staged files for accessibility
+- **Inputs**: staged files, a working diff, a branch, or a PR diff, the bundled engine's candidate findings from `node scripts/ultra11y.mjs audit`
+- **Outputs**: severity-ranked WCAG 2.2 AA review scoped to the change, with file:line fixes, list of residual rendering risks requiring a browser scan, pass/fail verdict for the change
+- **Dependencies**: node
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
+- **Source**: third-party — [maxgfr/ultra11y](https://github.com/maxgfr/ultra11y/tree/d1cd14792f3bd1b9ab15958bc4e72081375514dc/skills/review-a11y) @ `d1cd147` by maxgfr, MIT
+- **Status**: draft, stable
+- **Tags**: a11y, wcag, aria, keyboard, focus-management, contrast, semantic-html, severity, remediation, pr-review
+
+### `ultra11y`
+
+Audits a repository, site, or page against WCAG 2.2 AA or a pluggable country standard (e.g. RGAA) using a bundled, install-free engine that runs 93 static checks tied to specific success criteria with cross-file JSX/TSX AST analysis, routes rendering-dependent criteria (computed contrast, zoom/reflow, focus visibility) to an optional browser scan tier, and has the agent adjudicate judgment criteria (alt-text relevance, link purpose, reading order) from harvested evidence — never silently marking a criterion conforming without recorded proof. Produces dated Markdown/HTML conformance reports, per-page criterion grids, PRD-style backlogs, and filed tickets (GitHub/GitLab/Jira), and can also author accessible markup and apply safe automated fixes. Self-benchmarked against the W3C ACT-Rules corpus (125/176 failing examples caught across 40 rules, zero false positives).
+
+- **Path**: [skills/accessibility/ultra11y/SKILL.md](skills/accessibility/ultra11y/SKILL.md)
+- **Use when**: audit this repo for accessibility; generate a WCAG conformance report; run an RGAA accessibility audit; produce an accessibility PRD backlog; author accessible markup for this component
+- **Inputs**: source file globs, a site URL, or a rendered page to audit, an optional country-standard pack (e.g. RGAA) and prior audit JSON to merge/re-scan against
+- **Outputs**: dated Markdown/HTML conformance report with per-criterion status, per-page compliance grid from rendered-page scans, PRD-style backlog and/or filed tickets grouped by WCAG criterion
+- **Dependencies**: node, browser, playwright
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
+- **Source**: third-party — [maxgfr/ultra11y](https://github.com/maxgfr/ultra11y/tree/d1cd14792f3bd1b9ab15958bc4e72081375514dc/skills/ultra11y) @ `d1cd147` by maxgfr, MIT
+- **Status**: draft, stable
+- **Tags**: a11y, wcag, aria, keyboard, focus-management, contrast, semantic-html, forms, severity, audit, remediation, documentation
 
 ## Content design
 
@@ -367,6 +531,19 @@ Makes the agent design UI that survives localization: text-expansion planning wi
 - **Source**: third-party — [Owl-Listener/designer-skills](https://github.com/Owl-Listener/designer-skills/tree/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/design-systems/skills/localization-design) @ `20e34c4` by Owl-Listener, MIT
 - **Status**: draft, stable
 - **Tags**: localization, internationalization, layout, typography, design-system
+
+### `ux-writing`
+
+Writes and edits user-centered, accessible interface copy (buttons, labels, error messages, notifications, forms, onboarding, empty states, success messages, help text) against four measurable quality standards -- purposeful, concise, conversational, clear -- each scored 0-10 with concrete criteria (e.g. 40-60 characters per line, active voice predominates). Draws on dedicated reference material for WCAG-aligned accessible writing (plain language at a 7th-8th grade level, sentences under 20 words, descriptive interactive-element labels), a detailed pattern library covering three contrasting worked product voices, a fillable voice-chart template for defining brand personality in 3-5 concepts, and three ready-to-use templates for empty states, error messages, and onboarding flows.
+
+- **Path**: [skills/content-design/ux-writing/SKILL.md](skills/content-design/ux-writing/SKILL.md)
+- **Use when**: write button and error copy; review this UI text; set up voice and tone guidelines; audit our interface copy; write an empty state or onboarding flow
+- **Inputs**: Existing or draft interface copy to write or review, Product voice/brand context (optional, for tone calibration)
+- **Outputs**: Rewritten or new interface copy, A 0-10 score across the four quality dimensions with the lowest-scoring areas flagged, Filled templates for empty states, error messages, or onboarding flows where applicable
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
+- **Source**: third-party — [content-designer/ux-writing-skill](https://github.com/content-designer/ux-writing-skill/tree/98cacde4ba2dd10ed28df43a8d53eef1e321c539) @ `98cacde` by Christopher Greer, MIT (modified — see THIRD_PARTY_NOTICES.md)
+- **Status**: draft, stable
+- **Tags**: ux-writing, microcopy, voice-and-tone, labels, error-messages, help-content, onboarding, empty-states, plain-language, a11y
 
 ## Prototyping
 
@@ -423,6 +600,20 @@ Makes the agent critique a rendered screen's information density along four dime
 - **Source**: third-party — [Owl-Listener/designer-skills](https://github.com/Owl-Listener/designer-skills/tree/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/visual-critique/skills/critique-information-density) @ `20e34c4` by Owl-Listener, MIT
 - **Status**: draft, stable
 - **Tags**: design-critique, expert-review, visual-hierarchy, dashboards
+
+### `design-review`
+
+Runs a structured, scored review of a screen, page, or product. Scores six weighted dimensions (Visual Hierarchy 20%, Consistency 20%, Accessibility 20%, Usability 20%, Responsiveness 10%, Performance 10%) into an overall weighted score, applies Nielsen's 10 usability heuristics flagging violations by number, runs an accessibility pass against a WCAG checklist with a contrast calculator for color-pair doubts, and checks the result against a documented anti-slop / banned-defaults checklist. Outputs the six-dimension scored table plus a prioritized findings table (# / severity Critical-Major-Minor-Enhancement / finding / recommendation) with concrete, token-referenced fixes.
+
+- **Path**: [skills/testing/design-review/SKILL.md](skills/testing/design-review/SKILL.md)
+- **Use when**: review this design; audit this screen; heuristic evaluation; design quality score; critique this UI before we ship
+- **Inputs**: A screen, page, or flow to review, Target users, platform, and constraints
+- **Outputs**: Six-dimension scored table plus weighted overall score, Prioritized findings table with severity and concrete fixes, Nielsen heuristic violations flagged by number
+- **Dependencies**: python
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code
+- **Source**: third-party — [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/design-review) @ `2ffb677` by plugin87, MIT (modified — see THIRD_PARTY_NOTICES.md)
+- **Status**: draft, experimental
+- **Tags**: design-review, design-critique, heuristic-evaluation, severity, ui-design, visual-hierarchy, a11y
 
 ### `find-animation-opportunities`
 
@@ -584,6 +775,12 @@ Cross-discipline interface-review orchestrator: resolves review scope, routes a 
 
 | Skill | Category | Source | Status |
 | --- | --- | --- | --- |
+| [`a11y-audit`](skills/accessibility/a11y-audit/SKILL.md) | accessibility | third-party | draft |
+| [`a11y-check-code`](skills/accessibility/a11y-check-code/SKILL.md) | accessibility | third-party | draft |
+| [`a11y-check-page`](skills/accessibility/a11y-check-page/SKILL.md) | accessibility | third-party | draft |
+| [`a11y-critic`](skills/accessibility/a11y-critic/SKILL.md) | accessibility | third-party | draft |
+| [`a11y-planner`](skills/accessibility/a11y-planner/SKILL.md) | accessibility | third-party | draft |
+| [`a11y-role-audit`](skills/accessibility/a11y-role-audit/SKILL.md) | accessibility | third-party | draft |
 | [`algorithmic-art`](skills/visual-design/algorithmic-art/SKILL.md) | visual-design | third-party | draft |
 | [`animate`](skills/interaction-design/animate/SKILL.md) | interaction-design | third-party | draft |
 | [`animate-expo`](skills/interaction-design/animate-expo/SKILL.md) | interaction-design | third-party | draft |
@@ -603,8 +800,11 @@ Cross-discipline interface-review orchestrator: resolves review scope, routes a 
 | [`design-debt-audit`](skills/design-systems/design-debt-audit/SKILL.md) | design-systems | third-party | draft |
 | [`design-details`](skills/design-qa/design-details/SKILL.md) | design-qa | third-party | draft |
 | [`design-negotiation`](skills/strategy/design-negotiation/SKILL.md) | strategy | third-party | draft |
+| [`design-review`](skills/testing/design-review/SKILL.md) | testing | third-party | draft |
 | [`design-system-governance`](skills/design-systems/design-system-governance/SKILL.md) | design-systems | third-party | draft |
+| [`design-tokens`](skills/design-systems/design-tokens/SKILL.md) | design-systems | third-party | draft |
 | [`explain-interface`](skills/design-engineering/explain-interface/SKILL.md) | design-engineering | third-party | draft |
+| [`figma-integration`](skills/design-systems/figma-integration/SKILL.md) | design-systems | third-party | draft |
 | [`find-animation-opportunities`](skills/testing/find-animation-opportunities/SKILL.md) | testing | third-party | draft |
 | [`frontend-design`](skills/visual-design/frontend-design/SKILL.md) | visual-design | third-party | draft |
 | [`frontend-design-review`](skills/design-qa/frontend-design-review/SKILL.md) | design-qa | third-party | draft |
@@ -613,12 +813,17 @@ Cross-discipline interface-review orchestrator: resolves review scope, routes a 
 | [`interface-review`](skills/design-qa/interface-review/SKILL.md) | design-qa | third-party | draft |
 | [`localization-design`](skills/content-design/localization-design/SKILL.md) | content-design | third-party | draft |
 | [`motion-system`](skills/design-systems/motion-system/SKILL.md) | design-systems | third-party | draft |
+| [`perspective-audit`](skills/accessibility/perspective-audit/SKILL.md) | accessibility | third-party | draft |
 | [`pick-ui-library`](skills/design-systems/pick-ui-library/SKILL.md) | design-systems | third-party | draft |
 | [`platform-conventions`](skills/interaction-design/platform-conventions/SKILL.md) | interaction-design | third-party | draft |
 | [`prototype`](skills/prototyping/prototype/SKILL.md) | prototyping | third-party | draft |
+| [`review-a11y`](skills/accessibility/review-a11y/SKILL.md) | accessibility | third-party | draft |
 | [`review-animations`](skills/design-qa/review-animations/SKILL.md) | design-qa | third-party | draft |
 | [`service-blueprint`](skills/research/service-blueprint/SKILL.md) | research | third-party | draft |
 | [`survey-design`](skills/research/survey-design/SKILL.md) | research | third-party | draft |
 | [`theme-factory`](skills/visual-design/theme-factory/SKILL.md) | visual-design | third-party | draft |
+| [`token-build`](skills/design-systems/token-build/SKILL.md) | design-systems | third-party | draft |
+| [`ultra11y`](skills/accessibility/ultra11y/SKILL.md) | accessibility | third-party | draft |
+| [`ux-writing`](skills/content-design/ux-writing/SKILL.md) | content-design | third-party | draft |
 | [`variant`](skills/prototyping/variant/SKILL.md) | prototyping | third-party | draft |
 | [`web-artifacts-builder`](skills/design-engineering/web-artifacts-builder/SKILL.md) | design-engineering | third-party | draft |

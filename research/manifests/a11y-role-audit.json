@@ -1,0 +1,56 @@
+{
+  "id": "a11y-role-audit",
+  "category": "accessibility",
+  "verdict": "vendor",
+  "rubric": { "relevance": 3, "quality": 3, "conformance": 2, "uniqueness": 2 },
+  "upstream": {
+    "repository": "zivtech/accessibility-skills",
+    "url": "https://github.com/zivtech/accessibility-skills/tree/817dedeae90324017ece2d2b104332aec9d20656/.claude/skills/a11y-role-audit",
+    "author": "zivtech",
+    "commit": "817dedeae90324017ece2d2b104332aec9d20656",
+    "path": ".claude/skills/a11y-role-audit",
+    "license": "GPL-3.0-or-later",
+    "licenseSource": "repo-root:LICENSE"
+  },
+  "files": [
+    { "dest": "SKILL.md", "rawUrl": "https://raw.githubusercontent.com/zivtech/accessibility-skills/817dedeae90324017ece2d2b104332aec9d20656/.claude/skills/a11y-role-audit/SKILL.md", "blobSha": "641e99b6b5bfe790061c9960132439cea7caf216" },
+    { "dest": "LICENSE.txt", "rawUrl": "https://raw.githubusercontent.com/zivtech/accessibility-skills/817dedeae90324017ece2d2b104332aec9d20656/LICENSE", "blobSha": "f288702d2fa16d3cdf0035b15a9fcbc552cd88e7" }
+  ],
+  "securityNotes": "Read SKILL.md in full at the pinned SHA (this skill has no references/ subdirectory — a single self-contained file). Prose only: a six-role responsibility table, three operational modes, and a severity framework. No scripts, no network calls, no credential handling, no hidden instructions. Clean. LICENSING DISCREPANCY (same as the rest of this repo's skills): SKILL.md frontmatter declares `license: Apache-2.0`, but repo-root LICENSE and README.md both state GPL-3.0-or-later applies repo-wide with no per-skill exception. Recording GPL-3.0-or-later as authoritative; the copyleft license must travel with these vendored files. Attribution note: frontmatter metadata states role definitions are 'adapted from Mike Gifford's ARRM roles (MIT)' — a separate upstream attribution preserved verbatim in the vendored SKILL.md frontmatter.",
+  "overlaps": [
+    "perspective-audit (same repo, this batch — explicitly complementary per its own description: 'Complements the access-method perspectives in perspective-audit'; role-based team attribution vs. disability-dimension access review)",
+    "a11y-critic / a11y-planner (same repo, this batch — a11y-role-audit adds a distinct routing lens, attributing findings to Visual Design/UX/Front-End/Content/Business/Testing rather than issuing an accept/revise verdict)",
+    "better-accessibility (already in registry — engineering-focused checklist with no role-attribution or team-routing concept)"
+  ],
+  "proposedEntry": {
+    "id": "a11y-role-audit",
+    "name": "a11y-role-audit",
+    "description": "Runs an ARRM-based (W3C WAI Accessibility Requirements-to-Roles Mapping) accessibility review through six responsibility-based lenses — visual design, UX design, front-end development, content authoring, business analysis, and testing — to produce findings attributed to the team role best positioned to catch and fix each barrier, rather than a single generic pass/fail. Supports three modes: design review (mockups/specs before implementation), implementation review (code through each role's lens), and finding attribution (assigning ownership of existing accessibility gaps). Findings are rated CRITICAL, MAJOR, MINOR, or ENHANCEMENT (AAA-level).",
+    "category": "accessibility",
+    "tags": ["a11y", "wcag", "aria", "keyboard", "contrast", "semantic-html", "severity", "design-critique", "expert-review"],
+    "triggers": ["who should fix this accessibility issue", "role-based accessibility audit", "attribute this a11y finding to a team", "review this mockup for accessibility by role", "ARRM accessibility review"],
+    "inputs": ["a design mockup/spec, or implemented code, to review through each of the six role lenses"],
+    "outputs": ["role-attributed findings table (role, barrier, severity, WCAG/ARRM reference)", "ownership assignment for existing accessibility gaps"],
+    "path": "skills/accessibility/a11y-role-audit",
+    "source": {
+      "type": "third-party",
+      "repository": "zivtech/accessibility-skills",
+      "url": "https://github.com/zivtech/accessibility-skills/tree/817dedeae90324017ece2d2b104332aec9d20656/.claude/skills/a11y-role-audit",
+      "author": "zivtech",
+      "license": "GPL-3.0-or-later",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": ".claude/skills/a11y-role-audit",
+      "upstreamCommit": "817dedeae90324017ece2d2b104332aec9d20656",
+      "retrievedAt": "2026-08-26",
+      "modified": false,
+      "modifications": []
+    },
+    "compatibility": ["claude-code", "codex", "cursor", "opencode", "amp", "gemini-cli", "copilot", "vs-code", "claude-ai"],
+    "dependencies": [],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "stable",
+    "status": "draft"
+  },
+  "logMd": "#### zivtech/accessibility-skills (inspected 2026-08-26)\n- Same repo pin, stars, pushed date, and license determination as a11y-planner/a11y-critic: 817dedeae90324017ece2d2b104332aec9d20656, GPL-3.0-or-later.\n- a11y-role-audit: SKILL.md read in full (no references/ subdir; single-file skill). Frontmatter is name/description/license/compatibility/metadata — spec-six subset, claude-ai appended; name equals dirname a11y-role-audit. Note: .claude/skills and .agents/skills copies of this file differ in blob sha (content drift between mirrors) — vendored the .claude/skills version per the task's stated canonical location. Rubric: relevance 3 (core team-routed accessibility review), quality 3 (concrete six-role table with explicit strengths/blind spots per role, three defined operational modes, calibrated severity framework, maps to a named external standard, W3C WAI ARRM), conformance 2, uniqueness 2 (the only skill in this batch organized around *who* should fix a barrier rather than *what* the barrier is; explicitly designed as complementary to, not overlapping with, perspective-audit's disability-dimension lens). Total 10.\n- Verdict: vendor."
+}

@@ -1,0 +1,72 @@
+{
+  "id": "a11y-check-page",
+  "category": "accessibility",
+  "verdict": "vendor",
+  "rubric": { "relevance": 3, "quality": 3, "conformance": 2, "uniqueness": 2 },
+  "upstream": {
+    "repository": "ymrl/a11y-check-skills",
+    "url": "https://github.com/ymrl/a11y-check-skills/tree/a59f48bbe72c1c4ec710e86ae19f8b39fa4b44f6/skills/a11y-check-page",
+    "author": "ymrl",
+    "commit": "a59f48bbe72c1c4ec710e86ae19f8b39fa4b44f6",
+    "path": "skills/a11y-check-page",
+    "license": "ISC",
+    "licenseSource": "repo-root:LICENSE"
+  },
+  "files": [
+    { "dest": "SKILL.md", "rawUrl": "https://raw.githubusercontent.com/ymrl/a11y-check-skills/a59f48bbe72c1c4ec710e86ae19f8b39fa4b44f6/skills/a11y-check-page/SKILL.md", "blobSha": "6def2fe37d0cd6dbb14217951fc95cffaec04e77" },
+    { "dest": "assets/VERSION", "rawUrl": "https://raw.githubusercontent.com/ymrl/a11y-check-skills/a59f48bbe72c1c4ec710e86ae19f8b39fa4b44f6/skills/a11y-check-page/assets/VERSION", "blobSha": "3fd88a769a772d2078421bfb32fd0cb96eeb6a6f" },
+    { "dest": "assets/axe.min.js", "rawUrl": "https://raw.githubusercontent.com/ymrl/a11y-check-skills/a59f48bbe72c1c4ec710e86ae19f8b39fa4b44f6/skills/a11y-check-page/assets/axe.min.js", "blobSha": "cb593377c50175c67db9025afd0332a9b94ff345" },
+    { "dest": "references/README-checklist.md", "rawUrl": "https://raw.githubusercontent.com/ymrl/a11y-check-skills/a59f48bbe72c1c4ec710e86ae19f8b39fa4b44f6/skills/a11y-check-page/references/README-checklist.md", "blobSha": "56375f559d201f7f2fa9c261a52c16c005756bb4" },
+    { "dest": "references/auth-and-safety.md", "rawUrl": "https://raw.githubusercontent.com/ymrl/a11y-check-skills/a59f48bbe72c1c4ec710e86ae19f8b39fa4b44f6/skills/a11y-check-page/references/auth-and-safety.md", "blobSha": "4399076550a492fcf0aecc4d82348296250a4a74" },
+    { "dest": "references/checklist-keyboard.md", "rawUrl": "https://raw.githubusercontent.com/ymrl/a11y-check-skills/a59f48bbe72c1c4ec710e86ae19f8b39fa4b44f6/skills/a11y-check-page/references/checklist-keyboard.md", "blobSha": "96e040c8d95bdadebd94e6d20cda4fe4f54a6b82" },
+    { "dest": "references/checklist-reflow.md", "rawUrl": "https://raw.githubusercontent.com/ymrl/a11y-check-skills/a59f48bbe72c1c4ec710e86ae19f8b39fa4b44f6/skills/a11y-check-page/references/checklist-reflow.md", "blobSha": "b08566b0ee747cfa979c63dc296c1f5058b1ea53" },
+    { "dest": "references/checklist-semantics.md", "rawUrl": "https://raw.githubusercontent.com/ymrl/a11y-check-skills/a59f48bbe72c1c4ec710e86ae19f8b39fa4b44f6/skills/a11y-check-page/references/checklist-semantics.md", "blobSha": "8a9cd3920b5732ad5c5d46a14fee9e2b6d992d08" },
+    { "dest": "references/checklist-spec.md", "rawUrl": "https://raw.githubusercontent.com/ymrl/a11y-check-skills/a59f48bbe72c1c4ec710e86ae19f8b39fa4b44f6/skills/a11y-check-page/references/checklist-spec.md", "blobSha": "21472d9ce21eceb310280b911b8859248a8a68f1" },
+    { "dest": "references/checklist-visual.md", "rawUrl": "https://raw.githubusercontent.com/ymrl/a11y-check-skills/a59f48bbe72c1c4ec710e86ae19f8b39fa4b44f6/skills/a11y-check-page/references/checklist-visual.md", "blobSha": "756966d96028b6cfe70d39b0a3fba1029c3d7acc" },
+    { "dest": "references/injection-snippets.md", "rawUrl": "https://raw.githubusercontent.com/ymrl/a11y-check-skills/a59f48bbe72c1c4ec710e86ae19f8b39fa4b44f6/skills/a11y-check-page/references/injection-snippets.md", "blobSha": "0fadd1fefdcd3102c94d1791f818838606935a8a" },
+    { "dest": "references/playwright-workflow.md", "rawUrl": "https://raw.githubusercontent.com/ymrl/a11y-check-skills/a59f48bbe72c1c4ec710e86ae19f8b39fa4b44f6/skills/a11y-check-page/references/playwright-workflow.md", "blobSha": "8c3a1dcb665fb67e8b317e60acecf5c7aa763b66" },
+    { "dest": "references/report-format.md", "rawUrl": "https://raw.githubusercontent.com/ymrl/a11y-check-skills/a59f48bbe72c1c4ec710e86ae19f8b39fa4b44f6/skills/a11y-check-page/references/report-format.md", "blobSha": "3b1a8e1d5ac8de842b94c71e7be512023045a364" },
+    { "dest": "references/severity.md", "rawUrl": "https://raw.githubusercontent.com/ymrl/a11y-check-skills/a59f48bbe72c1c4ec710e86ae19f8b39fa4b44f6/skills/a11y-check-page/references/severity.md", "blobSha": "bab6c3215f4b70c1e45ae70eb18f1bf8b9f5e75c" },
+    { "dest": "scripts/browser.mjs", "rawUrl": "https://raw.githubusercontent.com/ymrl/a11y-check-skills/a59f48bbe72c1c4ec710e86ae19f8b39fa4b44f6/skills/a11y-check-page/scripts/browser.mjs", "blobSha": "6d19eeaf6c066702fb94f467911352f788ac329c" },
+    { "dest": "scripts/focus-walk.mjs", "rawUrl": "https://raw.githubusercontent.com/ymrl/a11y-check-skills/a59f48bbe72c1c4ec710e86ae19f8b39fa4b44f6/skills/a11y-check-page/scripts/focus-walk.mjs", "blobSha": "f8d0c824ebd8a962ed0cb973d7aac355beb47095" },
+    { "dest": "scripts/run-axe.mjs", "rawUrl": "https://raw.githubusercontent.com/ymrl/a11y-check-skills/a59f48bbe72c1c4ec710e86ae19f8b39fa4b44f6/skills/a11y-check-page/scripts/run-axe.mjs", "blobSha": "9f464afa704186286d266e2a3e5b0d18ea318c7b" },
+    { "dest": "LICENSE.txt", "rawUrl": "https://raw.githubusercontent.com/ymrl/a11y-check-skills/a59f48bbe72c1c4ec710e86ae19f8b39fa4b44f6/LICENSE", "blobSha": "fb852e81c98f4bee48c9932634ad19d7af6b095b" }
+  ],
+  "securityNotes": "Read SKILL.md, all 9 reference files, all 3 scripts, and assets/VERSION in full at the pinned SHA. scripts/browser.mjs, run-axe.mjs and focus-walk.mjs are readable, non-minified Node scripts whose only network activity is the Playwright/Chromium browser automation the skill exists to perform; no other outbound calls, no credential or env-var exfiltration, no eval/exec of remote code. auth-and-safety.md hard-codes credential-safety rules (never store or echo credentials in reports, screenshot only pre-input states, explicit permission gate before any destructive action, logout after testing). playwright-workflow.md instructs using the bundled assets/axe.min.js instead of a CDN copy specifically to avoid supply-chain risk. assets/axe.min.js is Deque's axe-core v4.12.1, MPL-2.0-licensed, vendored unmodified with its MPL header intact (\"Your use of this Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0...\") — this file carries its own license notice distinct from the skill's ISC license; noted for maintainers but not a blocker since the notice ships with the file. No hidden instructions, no prompt injection. Clean.",
+  "overlaps": [
+    "a11y-check-code (same repo, this batch — source-code counterpart; shares report-format.md and severity.md byte-for-byte)",
+    "review-a11y / ultra11y (maxgfr/ultra11y, this batch — ultra11y's `scan` rendering tier also runs axe-core via Playwright/Docker for computed contrast/reflow/focus, using a different non-bundled tool stack)",
+    "a11y-test (zivtech/accessibility-skills, not vendored — also Playwright-based keyboard/axe-core testing, but built around several external npm packages rather than a single bundled axe-core asset)"
+  ],
+  "proposedEntry": {
+    "id": "a11y-check-page",
+    "name": "a11y-check-page",
+    "description": "Audits a live, running web page for WCAG 2.2 AA accessibility using browser automation (Playwright MCP, Chrome DevTools MCP, or playwright-cli): runs the bundled axe-core build, walks keyboard focus order in both directions, injects CSS/viewport changes to test 200% zoom, 320px reflow, and text-spacing, inspects the accessibility tree, and re-runs checks per distinct UI state (modals, loading, errors). Enforces credential-safety rules for login-gated pages (never store or echo credentials, screenshot only pre-input states, explicit permission before destructive actions) and writes a severity-rated Markdown report to a11y-report/ with screenshots saved under a11y-report/assets/.",
+    "category": "accessibility",
+    "tags": ["a11y", "wcag", "aria", "keyboard", "focus-management", "contrast", "severity", "audit", "remediation"],
+    "triggers": ["check this URL's accessibility", "audit this live page for WCAG", "test keyboard navigation on this page", "run axe-core against this site", "a11y check after login"],
+    "inputs": ["target URL(s) and, when login is required, credentials/steps provided by the user", "confirmation of test vs. production environment and whether destructive actions are permitted"],
+    "outputs": ["severity-rated Markdown report in a11y-report/ with screenshots in a11y-report/assets/", "per-state axe-core, keyboard-focus, and accessibility-tree findings", "list of items excluded from automated testing (e.g. screen-reader behavior, seizure thresholds)"],
+    "path": "skills/accessibility/a11y-check-page",
+    "source": {
+      "type": "third-party",
+      "repository": "ymrl/a11y-check-skills",
+      "url": "https://github.com/ymrl/a11y-check-skills/tree/a59f48bbe72c1c4ec710e86ae19f8b39fa4b44f6/skills/a11y-check-page",
+      "author": "ymrl",
+      "license": "ISC",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": "skills/a11y-check-page",
+      "upstreamCommit": "a59f48bbe72c1c4ec710e86ae19f8b39fa4b44f6",
+      "retrievedAt": "2026-08-26",
+      "modified": false,
+      "modifications": []
+    },
+    "compatibility": ["claude-code", "codex", "cursor", "opencode", "amp", "gemini-cli", "copilot", "vs-code", "claude-ai"],
+    "dependencies": ["node", "browser", "playwright", "axe-core"],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "stable",
+    "status": "draft"
+  },
+  "logMd": "#### ymrl/a11y-check-skills (inspected 2026-08-26)\n- Same repo/commit/license as a11y-check-code: a59f48bbe72c1c4ec710e86ae19f8b39fa4b44f6, ISC (repo-root LICENSE), 1 star, pushed 2026-07-28T07:37:54Z.\n- All 17 files (SKILL.md, 9 references/*.md, 3 scripts/*.mjs, assets/VERSION, assets/axe.min.js) read/reviewed in full at the pinned SHA. auth-and-safety.md sets hard credential rules; playwright-workflow.md mandates using the bundled axe-core over a CDN copy specifically for supply-chain safety; injection-snippets.md gives exact CSS/viewport injection recipes for 200%-zoom, 320px-reflow and text-spacing checks; report-format.md and severity.md are byte-identical (same blob sha) to a11y-check-code's copies, keeping the two skills' outputs cross-referenceable via shared checklist IDs.\n- Rubric: relevance 3 (core WCAG AA live-page audit via browser automation), quality 3 (concrete injection recipes, explicit per-state re-testing rule, credential-safety gate, bundled-over-CDN supply-chain rule), conformance 2 (frontmatter is name+description only — claude-ai appended; name equals dirname a11y-check-page; all references/assets/scripts links resolve inside the skill dir), uniqueness 2 (only skill in this batch that ships its own bundled axe-core build plus a dedicated bidirectional focus-walk script, rather than depending on a separately-installed toolchain). Total 10.\n- License note: assets/axe.min.js is Deque's axe-core v4.12.1 (MPL-2.0), vendored unmodified with its MPL header intact at the top of the file — a separately-licensed third-party asset within an ISC-licensed skill; flagged for maintainers, not a blocker.\n- Verdict: vendor."
+}

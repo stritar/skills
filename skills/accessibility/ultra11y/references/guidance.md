@@ -1,0 +1,109 @@
+# Implementation guidance — concrete before/after rules attached to criteria
+
+A standards pack says *what* a criterion requires; **guidance** says *how to implement
+it*. It is the layer of concrete, how-to-implement rules — the RGAA SocialGouv/etalab
+good/bad code patterns — keyed to a pack criterion and the WCAG success criteria it maps
+onto. It enriches output without ever changing the verdict.
+
+## Where it shows up
+
+Guidance is looked up at **render time** by criterion / WCAG SC, so the canonical
+`audit` JSON stays untouched (no schema change, no new finding). It surfaces in:
+
+- **`prd`** — each backlog item gains a before/after example and an effort estimate; the
+  `--format doc` PRD weaves it into the user stories and acceptance criteria.
+- **`ultra11y_guidance`** over MCP — the direct lookup, by criterion.
+- **`ultra11y_criteria`** with `include_guidance: true`, attached to the criterion.
+
+Because attachment is presentation-only, guidance never marks anything conforming and
+never invents a non-conformity — it is illustration, not detection.
+
+## Dataset shape
+
+A guidance dataset is JSON: `{ pack, source, license, attribution, entries[] }`, where
+each entry is `{ id, criterionId, wcag[], title, summary, impact?, examples[], reference }`
+and an example is `{ lang: "html"|"jsx"|"css", bad?, good?, note? }`. Two ship built in:
+`src/data/guidance/rgaa.json` (93 entries, ids mirroring the SocialGouv rule files) and
+`src/data/guidance/wcag.json` (the WCAG-keyed set). Load external guidance with
+`--pack <dir>` (a `guidance.json` beside `pack.json`) or a `.ultra11yrc.json` `guidance`
+list. `pack check --guidance` validates that every entry resolves to a real criterion,
+maps to recognized WCAG SCs, and that every example parses.
+
+## Inheritance — why a new country pack is useful on day one
+
+Every entry declares the WCAG success criteria it implements, and a lookup walks **every**
+registered dataset. So a pack that ships no guidance of its own still gets examples, through
+the criteria it maps onto — a freshly authored Section 508 or EN 301 549 pack inherits the
+whole corpus the moment its `wcag[]` mappings exist.
+
+Resolution order (first wins, deduped by entry id):
+
+1. the pack's own entry for that criterion → `via: "pack"`, `inherited: false`
+2. every entry keyed to each WCAG SC the criterion maps to, in the pack's own SC order →
+   `via: "wcag:<sc>"`, `inherited: true`
+
+**The marking is the point.** An inherited example is not the national standard's own
+doctrine, and a report that presented it as one would be making a claim nobody wrote. Every
+surface carries `inherited` / `via`, and each entry also carries `languagesAvailable` — the
+RGAA dataset is French-first, so an English caller must be told when an entry has no English
+text rather than handed French silently.
+
+`src/data/guidance/wcag.json` covers **all 55 AA success criteria**, so no criterion is
+without reachable guidance for any pack — including the ten RGAA 4.1.2 never covered, six of
+them added in WCAG 2.2 after RGAA (`wcagVersion: 2.1`) froze.
+
+**It is generated, never hand-written** — `scripts/build-guidance-wcag.mjs`, from the W3C's
+own documents:
+
+| Field | Comes from |
+|---|---|
+| which techniques apply | `understanding/understanding.11tydata.js`, the W3C's machine-readable association map |
+| `summary` | the Understanding document's "In brief" block (Goal / What to do / Why), verbatim |
+| `good` | the first HTML or CSS code sample in a **sufficient technique** |
+| `bad` | the first one in a documented **failure** |
+| `note` | the technique's own title and id, so a reader can trace the sample upstream |
+
+Selection is one uniform rule, not a per-criterion choice: technologies are taken in a fixed
+order (html, css, aria, script, general) and within a technology the W3C's own listing order
+decides. Preferring HTML matters — for 1.1.1 the first technique listed with a sample is
+ARIA6, whose example is a navigation landmark; H2's `alt=""` on an image link actually
+illustrates a text alternative.
+
+Two consequences worth knowing:
+
+- **15 criteria carry a summary and no code sample.** 2.4.5 Multiple Ways and 2.5.7 Dragging
+  Movements are site-structure and behavioural matters the W3C documents in prose. An
+  invented snippet there would read as authoritative guidance nobody wrote.
+- **The summary is English-only.** Titles are bilingual (the authorized French translation
+  covers them) but the Understanding documents are not translated, and `languagesAvailable`
+  says so rather than shipping a French rendering nobody authorized.
+
+`pnpm run check:guidance:wcag` fails if the committed dataset does not reproduce from the
+vendored snapshot, and the daily `standards-refresh` workflow re-fetches the W3C source, so
+it cannot drift from the techniques it claims to reproduce.
+
+## Honesty rule — guidance is NOT a free detector
+
+A pattern earns a **WCAG-core detector** only when it is both statically decidable **and**
+maps to a success criterion present in the WCAG 2.2 **AA** core. Everything else lives
+here as guidance (and, where the country standard covers it, in the pack), never as a
+silent "conforming".
+
+The headline example: **opening a new window** (`target="_blank"` without warning). Its
+only clean WCAG home is **3.2.5 Change on Request — which is AAA, absent from the AA
+core** (the dataset jumps 3.2.4 → 3.2.6). So ultra11y does **not** ship a WCAG-core
+detector for it — no static rule flags `target="_blank"` under any standard. It ships as
+RGAA guidance (criterion 13.2 → WCAG 3.2.1): look it up with `criteria --standard rgaa 13.2`,
+and it attaches to the relevant `prd`/`report` entry — it is never raised as an audit
+non-conformity, and never force-mapped onto a wrong AA criterion. (`--standard` is a
+`report`/`prd`/`criteria` flag, not an `audit` one.) Judgment- and
+rendering-dependent rules (alt relevance, computed contrast, reading order) stay guidance
++ residual risk for the same reason.
+
+## Attribution
+
+RGAA 4.1.2 © DINUM — Licence Ouverte / Etalab 2.0. The before/after implementation
+patterns are adapted from SocialGouv/skills (`rgaa-html-css`) and the official RGAA
+méthode; the dataset stores short derived summaries + minimal examples, not verbatim prose
+(see `NOTICE`). When ingesting another source, record its license and attribution in the
+dataset header and `NOTICE` before redistributing any text.
