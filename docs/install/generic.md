@@ -41,7 +41,7 @@ documentation first.
 at once and handles updates:
 
 ```bash
-npx skills add <owner>/skills --skill <skill-id>
+npx skills add stritar/skills --skill <skill-id>
 npx skills update
 ```
 

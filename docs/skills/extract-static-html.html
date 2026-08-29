@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>extract-static-html — Product design skills</title>
+<meta name="description" content="Produces a single self-contained static HTML file from a rendered web page or app screen. Primary path: a Puppeteer script (scripts/snapshot.ts) launches headless Chrome against a running dev server or built app, captures the rendered DOM plus live CSSOM rules, inlines stylesheets and same-origin…">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="page-head">
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-design-engineering">Design engineering</a></nav>
+<h1>extract-static-html</h1>
+<p class="badges"><span class="il badge badge-dep"><span class="il-label">Needs a browser</span></span><span class="il badge badge-exp"><span class="il-label">Experimental</span></span></p>
+<p class="lede">Produces a single self-contained static HTML file from a rendered web page or app screen. Primary path: a Puppeteer script (scripts/snapshot.ts) launches headless Chrome against a running dev server or built app, captures the rendered DOM plus live CSSOM rules, inlines stylesheets and same-origin icon fonts, converts images and canvases to base64 data URIs, and strips dev-only scripts and HMR overlays; works with any framework, supports dark-mode classes, fixed-element removal, full-page capture and an optional auth script for login-gated pages. Fallback: a browser-subagent DOM capture for pages needing interaction first. Last resort: scripts/extract_inline_html.ts flattens a hand-written React mock into static HTML via Babel, and scripts/post_process.ts inlines remaining local images. Used to capture a specific UI state or produce a portable snapshot for design handoff or documentation.</p>
+</header>
+
+<div class="layout">
+<nav class="sidebar" aria-labelledby="contents">
+<h2 id="contents">On this page</h2>
+<ul class="toc">
+<li><a href="#about">About this skill</a></li>
+<li><a href="#install">Install</a></li>
+<li><a href="#related">Works with</a></li>
+<li><a href="#extract-static-html">Extract Static HTML</a></li>
+<li><a href="#which-strategy-to-use">Which Strategy to Use</a></li>
+<li><a href="#strategy-a-puppeteer-snapshot-recommended">Strategy A: Puppeteer Snapshot (Recommended)</a></li>
+<li><a href="#strategy-b-browser-subagent-capture">Strategy B: Browser Subagent Capture</a></li>
+<li><a href="#appendix-static-fallback-mockpagejsx">Appendix: Static Fallback (MockPage.jsx)</a></li>
+</ul>
+</nav>
+
+<main id="main">
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3>Use when</h3><ul><li>save this page as a static self-contained HTML file</li><li>capture the rendered UI state of this app</li><li>extract standalone HTML from my dev server</li><li>share a static snapshot of this page</li><li>flatten this React mock into standalone HTML</li></ul></div>
+<div class="meta-row"><h3>Works on</h3><ul><li>a running local dev server URL, or a built app directory</li><li>optional React mock component (.jsx) plus its CSS files for the fallback path</li><li>optional auth script for login-gated pages</li></ul></div>
+<div class="meta-row"><h3>Produces</h3><ul><li>a single self-contained HTML file with inlined CSS, base64 images/icon-fonts, and no external references</li></ul></div>
+<div class="meta-row"><h3>Tags</h3>
+<ul class="tags"><li><a class="tag" href="../index.html?tag=frontend">frontend</a></li><li><a class="tag" href="../index.html?tag=handoff">handoff</a></li><li><a class="tag" href="../index.html?tag=documentation">documentation</a></li><li><a class="tag" href="../index.html?tag=implementation-quality">implementation-quality</a></li></ul></div>
+<div class="meta-row"><h3>Requires</h3><ul><li><code>node</code></li><li><code>npm:puppeteer</code></li><li><code>npm:@babel/parser</code></li><li><code>npm:@babel/traverse</code></li><li><code>npm:@babel/generator</code></li><li><code>browser</code></li></ul></div>
+<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/google-labs-code/stitch-skills/tree/0337446dadde6f8c94210444e2aa9d546126480f/plugins/stitch-design/skills/extract-static-html">google-labs-code/stitch-skills</a> by google-labs-code at <code>0337446</code>, licence <code>Apache-2.0</code>. Modified when vendored: portability, compatibility.</p></div>
+</section>
+
+<section id="install">
+<h2>Install</h2>
+<ul class="install">
+<li>
+<h3>Any agent, via the skills CLI</h3>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill extract-static-html</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill extract-static-html"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Installs into whichever agents it finds on your machine.</p>
+</li>
+<li>
+<h3>Claude Code, as a plugin</h3>
+<div class="cmd"><pre><code>/plugin marketplace add stritar/skills
+/plugin install product-design-design-engineering@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-design-engineering@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Brings the whole design-engineering bundle. Use <code>product-design-all</code> for everything.</p>
+</li>
+<li>
+<h3>From a clone, copied by hand</h3>
+<div class="cmd"><pre><code>cp -r skills/design-engineering/extract-static-html ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/design-engineering/extract-static-html ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
+</li>
+</ul>
+</section>
+
+<section id="related">
+<h2>Works with</h2>
+<ul class="related">
+<li><a href="extract-design-md.html"><span class="rel-id">extract-design-md</span></a> <span class="rel-cat">Design systems</span></li>
+</ul>
+</section>
+
+<article class="skill-body">
+<h2 class="body-head">Instructions</h2>
+<p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/design-engineering/extract-static-html/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
+<h2 id="extract-static-html">Extract Static HTML</h2>
+<p>Extract a self-contained static HTML file from any web application.</p>
+<h3 id="which-strategy-to-use">Which Strategy to Use</h3>
+<p>You MUST ask the user to choose which strategy to use before proceeding. Present the options clearly, <strong>recommend Strategy A</strong> as the preferred default, and <strong>provide a brief pros/cons summary</strong> for each option to help them make an informed decision.</p>
+<div class="table-scroll"><table>
+<thead><tr><th style="text-align:left"></th><th style="text-align:left">Strategy A (Puppeteer)</th><th style="text-align:left">Strategy B (Browser Subagent)</th></tr></thead>
+<tbody>
+<tr><td style="text-align:left"><strong>When</strong></td><td style="text-align:left">App runs locally, no auth wall</td><td style="text-align:left">Need to interact with page first (click, fill forms)</td></tr>
+<tr><td style="text-align:left"><strong>Fidelity</strong></td><td style="text-align:left"><strong>Highest — computed styles resolved</strong></td><td style="text-align:left">High — rendered DOM</td></tr>
+<tr><td style="text-align:left"><strong>Setup</strong></td><td style="text-align:left"><strong>Zero — no mock needed</strong></td><td style="text-align:left">Zero — no mock needed</td></tr>
+<tr><td style="text-align:left"><strong>Framework</strong></td><td style="text-align:left"><strong>Any</strong></td><td style="text-align:left">Any</td></tr>
+<tr><td style="text-align:left"><strong>Output</strong></td><td style="text-align:left"><strong>Writes to file — no size limit</strong></td><td style="text-align:left">May truncate in agent context</td></tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>[!WARNING]
+<strong>Checkpoint — User Confirmation Required.</strong>
+You <strong>MUST</strong> ask the user which strategy they prefer before proceeding.
+Present the comparison table above, recommend Strategy A as the default, and
+wait for explicit approval. Do <strong>NOT</strong> make the decision yourself or proceed
+until the user confirms.</p>
+</blockquote>
+<hr>
+<h3 id="strategy-a-puppeteer-snapshot-recommended">Strategy A: Puppeteer Snapshot (Recommended)</h3>
+<p>Launches headless Chrome, captures the fully rendered DOM, and produces a self-contained HTML file with all CSS inlined and images as base64. Works with <strong>any framework</strong> — no MockPage.jsx needed.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<ul>
+<li>App running locally (e.g., <code>npm run dev</code>)</li>
+<li>Node.js with <code>puppeteer</code> available (check: <code>node -e &quot;require('puppeteer')&quot;</code>)</li>
+</ul>
+<h4 id="workflow">Workflow</h4>
+<ol>
+<li><strong>Start the App</strong> and note the port.
+<blockquote>
+<p>[!WARNING]
+<strong>Checkpoint — User Confirmation Required.</strong>
+After starting the local server, you <strong>MUST</strong> pause and ask the user for
+confirmation before running the snapshot script or launching a browser
+subagent. Report the URL and port to the user so they can verify the app
+is running and rendering correctly. Do <strong>NOT</strong> proceed to the snapshot
+step until the user confirms.</p>
+</blockquote></li>
+<li><strong>Run the Snapshot Script</strong>:
+<pre><code class="language-bash">  npx tsx &lt;SKILL_DIR&gt;/scripts/snapshot.ts \
+    --url http://localhost:5173 \
+    --output .stitch/home.html \
+    --wait 2000
+</code></pre></li>
+<li><strong>Multiple pages</strong> — run once per route:
+<pre><code class="language-bash">  npx tsx &lt;SKILL_DIR&gt;/scripts/snapshot.ts \
+    --url http://localhost:5173 --output .stitch/home.html --wait 2000
+  npx tsx &lt;SKILL_DIR&gt;/scripts/snapshot.ts \
+    --url http://localhost:5173/pricing --output .stitch/pricing.html --wait 2000
+  npx tsx &lt;SKILL_DIR&gt;/scripts/snapshot.ts \
+    --url http://localhost:5173/dashboard --output .stitch/dashboard.html --wait 2000 --html-class dark
+</code></pre></li>
+<li><strong>Clean Up Dev Server</strong>:
+  If a local dev server was started specifically for snapshot extraction, make sure to stop the server process or terminate the background task once extraction is completed.</li>
+</ol>
+<h4 id="script-flags">Script Flags</h4>
+<div class="table-scroll"><table>
+<thead><tr><th style="text-align:left">Flag</th><th style="text-align:left">Default</th><th style="text-align:left">Description</th></tr></thead>
+<tbody>
+<tr><td style="text-align:left"><code>--url</code></td><td style="text-align:left"><em>(required)</em></td><td style="text-align:left">URL to capture</td></tr>
+<tr><td style="text-align:left"><code>--output</code></td><td style="text-align:left"><em>(required)</em></td><td style="text-align:left">Output file path</td></tr>
+<tr><td style="text-align:left"><code>--wait</code></td><td style="text-align:left"><code>1000</code></td><td style="text-align:left">Extra wait (ms) after network idle. Increase for lazy-loading apps.</td></tr>
+<tr><td style="text-align:left"><code>--viewport</code></td><td style="text-align:left"><code>1280x800</code></td><td style="text-align:left">Viewport size as <code>WIDTHxHEIGHT</code></td></tr>
+<tr><td style="text-align:left"><code>--html-class</code></td><td style="text-align:left">—</td><td style="text-align:left">Class(es) for <code>&lt;html&gt;</code> element (e.g., <code>dark</code>)</td></tr>
+<tr><td style="text-align:left"><code>--remove-fixed</code></td><td style="text-align:left"><code>false</code></td><td style="text-align:left">Remove fixed/sticky elements (cookie banners, chat widgets)</td></tr>
+<tr><td style="text-align:left"><code>--full-height</code></td><td style="text-align:left"><code>false</code></td><td style="text-align:left">Resize viewport to full scroll height</td></tr>
+<tr><td style="text-align:left"><code>--title</code></td><td style="text-align:left">—</td><td style="text-align:left">Override page title (set to the route path, e.g. <code>/dashboard</code> or <code>/settings/profile</code>)</td></tr>
+<tr><td style="text-align:left"><code>--auth-script</code></td><td style="text-align:left">—</td><td style="text-align:left">Path to a JS/TS module that exports a default <code>async (page) =&gt; void</code> function for authentication</td></tr>
+<tr><td style="text-align:left"><code>--inline-canvas</code></td><td style="text-align:left"><code>false</code></td><td style="text-align:left">Convert <code>&lt;canvas&gt;</code> elements (ECharts, Chart.js, D3) to base64 <code>&lt;img&gt;</code> tags</td></tr>
+</tbody>
+</table></div>
+<h4 id="what-it-does-automatically">What It Does Automatically</h4>
+<ul>
+<li>Captures all CSSOM rules from <code>document.styleSheets</code> (preserves dynamic Vite/Tailwind dev styles and CSS-in-JS)</li>
+<li>Inlines all <code>&lt;link rel=&quot;stylesheet&quot;&gt;</code> → <code>&lt;style&gt;</code> blocks</li>
+<li>Converts <code>&lt;img&gt;</code> <code>src</code> <strong>and <code>srcset</code></strong> → base64 data URIs (skips external fonts)</li>
+<li>Inlines same-origin and relative icon font files (<code>@font-face</code>) as base64 data URIs so ligatures never render as ASCII text</li>
+<li>Inlines <code>&lt;source srcset&gt;</code> URLs as base64</li>
+<li>Removes failed/dead <code>srcset</code> entries so the browser falls back to the inlined <code>src</code></li>
+<li>Removes <code>&lt;script&gt;</code> tags, Vite HMR dev style blocks (<code>createHotContext</code>, <code>import.meta.hot</code>), and dev overlays</li>
+<li>Resolves relative CSS <code>url()</code> paths before inlining</li>
+</ul>
+<h4 id="framework-notes">Framework Notes</h4>
+<div class="table-scroll"><table>
+<thead><tr><th style="text-align:left">Framework</th><th style="text-align:left">Notes</th></tr></thead>
+<tbody>
+<tr><td style="text-align:left"><strong>React + Vite</strong></td><td style="text-align:left">Works out of the box. <code>--wait 1000</code>.</td></tr>
+<tr><td style="text-align:left"><strong>Next.js</strong></td><td style="text-align:left"><code>--wait 3000</code> for SSR hydration. URL: <code>http://localhost:3000</code>. <code>&lt;img srcset&gt;</code> from <code>/_next/image</code> is auto-inlined as base64.</td></tr>
+<tr><td style="text-align:left"><strong>Angular (@angular/cli / v17+)</strong></td><td style="text-align:left">Works out of the box with <code>ng serve</code> (default URL: <code>http://localhost:4200</code>). <code>--wait 2000</code> for Angular Material / PrimeNG animation hydration and lazy-loaded routes.</td></tr>
+<tr><td style="text-align:left"><strong>Vue / Nuxt</strong></td><td style="text-align:left">Works out of the box.</td></tr>
+<tr><td style="text-align:left"><strong>Svelte / SvelteKit</strong></td><td style="text-align:left">Works out of the box.</td></tr>
+<tr><td style="text-align:left"><strong>Storybook</strong></td><td style="text-align:left">Use story URL: <code>--url http://localhost:6006/?path=/story/...</code></td></tr>
+<tr><td style="text-align:left"><strong>SSR (Webpack)</strong></td><td style="text-align:left">May need longer <code>--wait</code>.</td></tr>
+</tbody>
+</table></div>
+<h4 id="troubleshooting">Troubleshooting</h4>
+<div class="table-scroll"><table>
+<thead><tr><th style="text-align:left">Issue</th><th style="text-align:left">Solution</th></tr></thead>
+<tbody>
+<tr><td style="text-align:left">Images missing</td><td style="text-align:left">Increase <code>--wait</code></td></tr>
+<tr><td style="text-align:left">Images show as broken after server stops</td><td style="text-align:left">Verify <code>srcset</code> was inlined — check log for &quot;Inlined N images&quot;. If <code>srcset</code> URLs failed, they are auto-removed so <code>src</code> (inlined) is used.</td></tr>
+<tr><td style="text-align:left">Icons display as text / Serif unstyled font</td><td style="text-align:left">Ensure <code>snapshot.ts</code> captures CSSOM from <code>document.styleSheets</code> (step 0) and same-origin icon fonts (<code>@font-face</code>) are inlined as base64 data URIs.</td></tr>
+<tr><td style="text-align:left">Next.js <code>/_next/image</code> not inlined</td><td style="text-align:left">Ensure the dev server is running when snapshot runs — the script fetches optimized images from the running server.</td></tr>
+<tr><td style="text-align:left">Dark mode not applied</td><td style="text-align:left"><code>--html-class dark</code></td></tr>
+<tr><td style="text-align:left">Cookie banner in output</td><td style="text-align:left"><code>--remove-fixed</code></td></tr>
+<tr><td style="text-align:left">Page requires login</td><td style="text-align:left">Use <code>--auth-script ./auth.ts</code> (see Auth-Gated Pages below)</td></tr>
+<tr><td style="text-align:left">Charts/graphs show as blank boxes</td><td style="text-align:left">Use <code>--inline-canvas</code> to serialize <code>&lt;canvas&gt;</code> to base64 <code>&lt;img&gt;</code></td></tr>
+<tr><td style="text-align:left"><code>Cannot find module 'puppeteer'</code></td><td style="text-align:left"><code>npm install -g puppeteer</code></td></tr>
+</tbody>
+</table></div>
+<h4 id="auth-gated-pages">Auth-Gated Pages</h4>
+<p>For apps with login guards (Vue Router <code>beforeEach</code>, React <code>ProtectedRoute</code>, etc.), create a small auth script that runs in the Puppeteer session:</p>
+<pre><code class="language-ts">// auth-myapp.ts
+import type { Page } from 'puppeteer';
+
+export default async function authenticate(page: Page) {
+  // Example 1: Fill and submit a login form
+  await page.type('#username', 'admin');
+  await page.type('#password', 'password123');
+  await page.click('#login-button');
+  await page.waitForNavigation({ waitUntil: 'networkidle2' });
+
+  // Example 2: Inject cookies/localStorage directly
+  // await page.evaluate(() =&gt; {
+  //   localStorage.setItem('token', 'mock-jwt-token');
+  // });
+
+  // Example 3: Call the app's own login API via module injection (Vue/Vite)
+  // await page.evaluate(() =&gt; {
+  //   return new Promise((resolve) =&gt; {
+  //     const script = document.createElement('script');
+  //     script.type = 'module';
+  //     script.textContent = `
+  //       import { useUserStore } from '/src/store/modules/user.ts';
+  //       import { fetchLogin } from '/src/api/auth.ts';
+  //       const res = await fetchLogin({ userName: 'Admin', password: '123456' });
+  //       useUserStore().setToken(res.token, res.refreshToken);
+  //       window.dispatchEvent(new CustomEvent('auth-done'));
+  //     `;
+  //     document.head.appendChild(script);
+  //     window.addEventListener('auth-done', () =&gt; resolve(true), { once: true });
+  //   });
+  // });
+}
+</code></pre>
+<p>Then use it:</p>
+<pre><code class="language-bash">npx tsx &lt;SKILL_DIR&gt;/scripts/snapshot.ts \
+  --url http://localhost:5173/#/dashboard \
+  --output .stitch/dashboard.html \
+  --auth-script ./auth-myapp.ts \
+  --inline-canvas \
+  --wait 5000
+</code></pre>
+<p>The script navigates to the <code>--url</code> first (which may redirect to login), runs your auth function, then <strong>re-navigates</strong> to the original <code>--url</code> with the authenticated session.</p>
+<hr>
+<h3 id="strategy-b-browser-subagent-capture">Strategy B: Browser Subagent Capture</h3>
+<p>Use when you need to <strong>interact with the page</strong> (click buttons, fill forms, navigate tabs) before capturing. The browser subagent gives you full control but output may truncate for large pages.</p>
+<h4 id="workflow-2">Workflow</h4>
+<ol>
+<li><strong>Start the App</strong> locally.</li>
+<li><strong>Navigate</strong> using a browser subagent.</li>
+<li><strong>Interact</strong> as needed (click, scroll, fill forms).</li>
+<li><strong>Extract DOM</strong>: <code>document.documentElement.outerHTML</code>
+<blockquote>
+<p>[!WARNING]
+Large pages may truncate. To handle this:</p>
+<ul>
+<li>Remove <code>&lt;style&gt;</code> tags before extraction: <code>document.querySelectorAll('style').forEach(el =&gt; el.remove())</code></li>
+<li>Re-add styles statically (Tailwind CDN link, source CSS)</li>
+</ul>
+</blockquote></li>
+<li><strong>Save</strong> to file.</li>
+</ol>
+<hr>
+<h3 id="appendix-static-fallback-mockpagejsx">Appendix: Static Fallback (MockPage.jsx)</h3>
+<blockquote>
+<p>[!NOTE]
+This method is a <strong>last resort</strong> for when the app cannot run locally (broken deps, missing backend, auth walls with no bypass). It requires manually flattening React components into a single JSX file. <strong>Prefer Strategy A whenever possible.</strong></p>
+</blockquote>
+<h4 id="when-to-use">When to Use</h4>
+<ul>
+<li>App can't run locally at all</li>
+<li>Page requires auth with no mock/bypass</li>
+<li>You need a specific UI state that's impossible to reach by navigation (error screens, empty states)</li>
+</ul>
+<h4 id="quick-reference">Quick Reference</h4>
+<pre><code class="language-bash">npx tsx &lt;SKILL_DIR&gt;/scripts/extract_inline_html.ts \
+  --index-css src/css/App.css \
+  --extra-css index.html \
+  --outdir .stitch \
+  --page src/MockPage.jsx:Page.html:&quot;Page Title&quot;
+</code></pre>
+<p><strong>Key flags</strong>: <code>--no-tailwind</code> (non-Tailwind apps), <code>--html-class dark</code> (dark mode), <code>--css-files</code> (extra CSS files).</p>
+<p><strong>Auto-detection</strong>: Tailwind config is auto-detected. <code>@apply</code> directives automatically use <code>&lt;style type=&quot;text/tailwindcss&quot;&gt;</code>.</p>
+<h4 id="mockpagejsx-rules">MockPage.jsx Rules</h4>
+<ol>
+<li><strong>Include the full layout</strong> — header, sidebar, footer (read <code>App.js</code> first)</li>
+<li><strong>Flatten all conditionals</strong> — pick one state, remove all ternaries and <code>&amp;&amp;</code> guards</li>
+<li><strong>Hardcode all data</strong> — replace <code>{variable}</code> with concrete values, unroll <code>.map()</code> loops</li>
+<li><strong>Preserve logos</strong> — use <code>&lt;img&gt;</code> with local paths (post-process will inline them)</li>
+<li><strong>Remove floating elements</strong> — cookie banners, chat widgets, feedback buttons</li>
+</ol>
+<h4 id="post-processing">Post-Processing</h4>
+<p>Inline local images:</p>
+<pre><code class="language-bash">npx tsx &lt;SKILL_DIR&gt;/scripts/post_process.ts \
+  .stitch/Page.html --base-dir &lt;app-directory&gt;
+</code></pre>
+</article>
+</main>
+</div>
+
+<footer class="site-foot">
+<p><a href="../index.html">Back to all skills</a></p>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

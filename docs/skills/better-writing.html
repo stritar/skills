@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>better-writing — Product design skills</title>
+<meta name="description" content="UX writing and interface-copy guidance: recon the existing voice before editing, one voice with tone that flexes by stakes (success vs. destructive-confirmation), addressing the reader as 'you' rather than 'the user', verb-first button labels, consistent flow vocabulary across multi-step flows,…">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="page-head">
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-content-design">Content design</a></nav>
+<h1>better-writing</h1>
+<p class="badges"><span class="il badge badge-rec"><span class="il-icon" aria-hidden="true">★</span><span class="il-label">Recommended</span></span></p>
+<p class="lede">UX writing and interface-copy guidance: recon the existing voice before editing, one voice with tone that flexes by stakes (success vs. destructive-confirmation), addressing the reader as 'you' rather than 'the user', verb-first button labels, consistent flow vocabulary across multi-step flows, link text that stands alone out of context, one capitalization policy per element type, toggle labels that describe the ON state, error copy that states the fix beside the failing field with no blame or exclamation marks, forward-pointing empty states, and placeholders as format examples rather than labels, closing with a calibrated severity report ending in Block/Approve.</p>
+</header>
+
+<div class="layout">
+<nav class="sidebar" aria-labelledby="contents">
+<h2 id="contents">On this page</h2>
+<ul class="toc">
+<li><a href="#about">About this skill</a></li>
+<li><a href="#install">Install</a></li>
+<li><a href="#related">Works with</a></li>
+<li><a href="#interface-writing">Interface writing</a></li>
+<li><a href="#recon-the-existing-voice">Recon the existing voice</a></li>
+<li><a href="#one-voice-flexible-tone">One voice, flexible tone</a></li>
+<li><a href="#address-the-reader-directly">Address the reader directly</a></li>
+<li><a href="#plain-words-over-clever-ones">Plain words over clever ones</a></li>
+<li><a href="#verb-first-buttons">Verb-first buttons</a></li>
+<li><a href="#consistent-flow-vocabulary">Consistent flow vocabulary</a></li>
+<li><a href="#links-describe-their-destination">Links describe their destination</a></li>
+<li><a href="#one-capitalization-policy">One capitalization policy</a></li>
+<li><a href="#settings-describe-the-on-state">Settings describe the ON state</a></li>
+<li><a href="#errors-say-how-to-fix-next-to-where-it-broke">Errors say how to fix, next to where it broke</a></li>
+<li><a href="#empty-states-point-forward">Empty states point forward</a></li>
+<li><a href="#placeholders-are-examples-not-labels">Placeholders are examples, not labels</a></li>
+<li><a href="#reporting">Reporting</a></li>
+</ul>
+</nav>
+
+<main id="main">
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3>Use when</h3><ul><li>write button labels</li><li>review error message copy</li><li>UX writing pass</li><li>empty state copy</li><li>microcopy consistency check</li></ul></div>
+<div class="meta-row"><h3>Works on</h3><ul><li>user-facing copy in source code</li><li>existing product copy for voice recon</li></ul></div>
+<div class="meta-row"><h3>Produces</h3><ul><li>severity-ranked findings table (Severity | Location | Before | After | Why)</li><li>Block/Approve verdict</li></ul></div>
+<div class="meta-row"><h3>Tags</h3>
+<ul class="tags"><li><a class="tag" href="../index.html?tag=ux-writing">ux-writing</a></li><li><a class="tag" href="../index.html?tag=microcopy">microcopy</a></li><li><a class="tag" href="../index.html?tag=voice-and-tone">voice-and-tone</a></li><li><a class="tag" href="../index.html?tag=labels">labels</a></li><li><a class="tag" href="../index.html?tag=error-messages">error-messages</a></li><li><a class="tag" href="../index.html?tag=help-content">help-content</a></li><li><a class="tag" href="../index.html?tag=plain-language">plain-language</a></li><li><a class="tag" href="../index.html?tag=terminology">terminology</a></li></ul></div>
+
+<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-writing">jakubkrehel/skills</a> by Jakub Krehel at <code>ca48385</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p></div>
+</section>
+
+<section id="install">
+<h2>Install</h2>
+<ul class="install">
+<li>
+<h3>Any agent, via the skills CLI</h3>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill better-writing</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill better-writing"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Installs into whichever agents it finds on your machine.</p>
+</li>
+<li>
+<h3>Claude Code, as a plugin</h3>
+<div class="cmd"><pre><code>/plugin marketplace add stritar/skills
+/plugin install product-design-content-design@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-content-design@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Brings the whole content-design bundle. Use <code>product-design-all</code> for everything.</p>
+</li>
+<li>
+<h3>From a clone, copied by hand</h3>
+<div class="cmd"><pre><code>cp -r skills/content-design/better-writing ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/content-design/better-writing ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
+</li>
+</ul>
+</section>
+
+<section id="related">
+<h2>Works with</h2>
+<ul class="related">
+<li><a href="ux-writing.html"><span class="rel-id">ux-writing</span></a> <span class="rel-cat">Content design</span></li>
+<li><a href="localization-design.html"><span class="rel-id">localization-design</span></a> <span class="rel-cat">Content design</span></li>
+<li><a href="better-interface.html"><span class="rel-id">better-interface</span></a> <span class="rel-cat">Orchestration</span></li>
+<li><a href="dark-pattern-review.html"><span class="rel-id">dark-pattern-review</span></a> <span class="rel-cat">Ethics and safety</span></li>
+</ul>
+</section>
+
+<article class="skill-body">
+<h2 class="body-head">Instructions</h2>
+<p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/content-design/better-writing/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
+<h2 id="interface-writing">Interface writing</h2>
+<p>Clear and brief beats clever; consistent beats varied. The best error message is the interaction redesigned so the error cannot happen.</p>
+<p>How copy renders (capitalization via <code>text-transform</code>, truncation, smart punctuation) belongs to <code>better-typography</code>. Error markup and announcements (<code>aria-invalid</code>, live regions) belong to <code>better-accessibility</code>. Room for translated strings belongs to <code>better-layout</code>.</p>
+<h3 id="recon-the-existing-voice">Recon the existing voice</h3>
+<p>Before writing or reviewing, read the copy nearby. Note the product's terminology, its localization conventions and any voice or content style guide.</p>
+<p>A deliberate brand voice is not a defect. Raise a departure from plain language only when it creates inconsistency, ambiguity, translation risk, or a tone the stakes don't support.</p>
+<h3 id="one-voice-flexible-tone">One voice, flexible tone</h3>
+<p>The product has one voice and its existing copy establishes it. A local edit does not get to invent a new one. Keep terms consistent: if it's &quot;Archive&quot; in the menu, it isn't &quot;Move to storage&quot; in the toast. Tone flexes with the stakes:</p>
+<div class="table-scroll"><table>
+<thead><tr><th>Context</th><th>Tone</th></tr></thead>
+<tbody>
+<tr><td>Success, onboarding, empty states</td><td>Warm, can be light</td></tr>
+<tr><td>Routine actions, settings</td><td>Neutral, minimal</td></tr>
+<tr><td>Errors, destructive confirmations</td><td>Calm, plain, zero playfulness</td></tr>
+<tr><td>Data loss, security</td><td>Serious, explicit</td></tr>
+</tbody>
+</table></div>
+<h3 id="address-the-reader-directly">Address the reader directly</h3>
+<p>In instructional copy, write &quot;you&quot;, not &quot;the user&quot;. In errors, &quot;we&quot; invites ambiguity and reads as deflection, so prefer &quot;Unable to load content&quot; over &quot;We're having trouble loading this content&quot;. An established first-person voice can stay in low-stakes copy where it still reads clearly.</p>
+<p>Use possessives sparingly: &quot;Favorites&quot; beats &quot;Your Favorites&quot;. Hold one perspective throughout a flow.</p>
+<h3 id="plain-words-over-clever-ones">Plain words over clever ones</h3>
+<p>Choose words a tired reader gets on the first pass, and delete every word that does no work. No idioms, no colloquialisms, no humor that won't translate.</p>
+<p>Skip unnecessary gender: &quot;Subscribers can post recipes&quot;, not &quot;each subscriber can post his or her recipes&quot;. Match the input device: &quot;tap&quot; on touch, &quot;click&quot; with a pointer, &quot;select&quot; when both are possible.</p>
+<p>Never assemble a sentence from fragments around a variable (<code>&quot;You have &quot; + n + &quot; new messages&quot;</code>), because word order changes per language. Use a full templated string with proper pluralization.</p>
+<h3 id="verb-first-buttons">Verb-first buttons</h3>
+<p>A button label starts with a verb naming the action: &quot;Send&quot;, &quot;Save draft&quot;, &quot;Delete project&quot;. Never &quot;OK!&quot;, &quot;Let's go!&quot;, or a bare &quot;Yes&quot; and &quot;No&quot; on a consequential action.</p>
+<p>A confirmation button repeats the consequence, so the dialog is answerable without reading the body. &quot;Delete this project?&quot; offers <code>Delete project</code> and <code>Cancel</code>.</p>
+<h3 id="consistent-flow-vocabulary">Consistent flow vocabulary</h3>
+<p>A multi-step flow uses one vocabulary throughout: &quot;Get started&quot; to enter, &quot;Continue&quot; or &quot;Next&quot; (pick one) to advance, &quot;Done&quot; to finish. Alternating synonyms makes users wonder whether the buttons do different things.</p>
+<h3 id="links-describe-their-destination">Links describe their destination</h3>
+<p>Link text has to make sense out of context, because screen-reader users navigate by a list of the page's links. Write &quot;Read the billing docs&quot;. &quot;Click here&quot; fails this and the device-verb rule at once.</p>
+<p>A bare &quot;Learn more&quot; breaks down as soon as two appear on one page. Suffix each one: &quot;Learn more about exports&quot;.</p>
+<h3 id="one-capitalization-policy">One capitalization policy</h3>
+<p>Pick title case or sentence case per element type, then apply it to every instance of that type. Sentence case is the safer default. It is calmer, has no per-word rules to remember and localizes cleanly. &quot;Save Changes&quot; beside &quot;Discard changes&quot; reads as sloppiness.</p>
+<h3 id="settings-describe-the-on-state">Settings describe the ON state</h3>
+<p>Label a toggle for what happens when it is on. &quot;Send read receipts&quot; lets users infer the off state; the negative (&quot;Don't send read receipts&quot;) turns the toggle into a double negative.</p>
+<p>Link straight to a referenced setting rather than describing the path to it: a &quot;Notification settings&quot; link, not &quot;Go to Settings &gt; Notifications &gt; Email&quot;.</p>
+<h3 id="errors-say-how-to-fix-next-to-where-it-broke">Errors say how to fix, next to where it broke</h3>
+<p>An error is an instruction, and it belongs beside the field that failed:</p>
+<div class="table-scroll"><table>
+<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<tbody>
+<tr><td>That password is too short</td><td>Choose a password with at least 8 characters</td></tr>
+<tr><td>Invalid name</td><td>Use only letters for your name</td></tr>
+<tr><td>Oops! Something went wrong.</td><td>Unable to save. Check your connection and try again.</td></tr>
+</tbody>
+</table></div>
+<p>No blame, no &quot;oops&quot;, no exclamation marks. Phrase hints positively (&quot;Use only letters&quot;, not &quot;Don't use numbers or symbols&quot;) and show them before the mistake, not after. When the same error keeps firing, redesign the interaction instead of rewording it.</p>
+<h3 id="empty-states-point-forward">Empty states point forward</h3>
+<p>An empty state says what this place is, how to fill it and offers one clear next action:</p>
+<pre><code class="language-html">&lt;!-- Bad: a shrug --&gt;
+&lt;p&gt;No results.&lt;/p&gt;
+
+&lt;!-- Good: orientation plus a next step --&gt;
+&lt;p class=&quot;font-medium&quot;&gt;No projects yet&lt;/p&gt;
+&lt;p class=&quot;text-sm text-zinc-500&quot;&gt;Projects keep your tasks and files together.&lt;/p&gt;
+&lt;button class=&quot;mt-4&quot;&gt;Create a project&lt;/button&gt;
+</code></pre>
+<p>A search or filter empty state names the query and offers an exit: &quot;No results for 'quarterly'. Clear filters&quot;. Never park persistent information in an empty state. It disappears the moment content exists.</p>
+<h3 id="placeholders-are-examples-not-labels">Placeholders are examples, not labels</h3>
+<p>A placeholder shows the expected format: <code>name@example.com</code>, <code>DD/MM/YYYY</code>. It vanishes on input, so it is never the only label. Every field keeps a visible one.</p>
+<h3 id="reporting">Reporting</h3>
+<p><strong>Severity.</strong> <code>HIGH</code> misleads the user or hides how to recover from an error. <code>MEDIUM</code> breaks voice, terminology, or capitalization consistency. <code>LOW</code> is isolated wording polish.</p>
+<p><strong>Verification.</strong> Source alone is enough here. Check every label against the action it invokes, every error for a stated fix and terminology against the copy around it. No browser check is required.</p>
+<p><strong>Format.</strong> Group findings under the principle each violates, ordered by severity, one row per root cause listing every location it appears in:</p>
+<div class="table-scroll"><table>
+<thead><tr><th>Severity</th><th>Location</th><th>Before</th><th>After</th><th>Why</th></tr></thead>
+<tbody>
+
+</tbody>
+</table></div>
+<p><code>Location</code> is <code>path/to/file:line</code>. <code>Why</code> names the principle and the user impact.</p>
+<p>End with <code>Block</code> when any <code>HIGH</code> remains, <code>Approve</code> otherwise, leaving the rest in the table as work to do. Never <code>Approve</code> coverage you did not inspect. With nothing to report, state &quot;No actionable writing findings&quot; and report verification.</p>
+</article>
+</main>
+</div>
+
+<footer class="site-foot">
+<p><a href="../index.html">Back to all skills</a></p>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>conversational-ux — Product design skills</title>
+<meta name="description" content="Makes the agent design voice and chat interfaces around the conversation turn: a confirmation-strategy table (explicit/implicit/none by stakes), a three-step error reprompt ladder that never repeats the same prompt, voice-specific writing rules (short sentences, no visual-only references, max…">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="page-head">
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-agentic-ui">Agentic and AI-native UI</a></nav>
+<h1>conversational-ux</h1>
+<p class="badges"><span class="il badge badge-rec"><span class="il-icon" aria-hidden="true">★</span><span class="il-label">Recommended</span></span></p>
+<p class="lede">Makes the agent design voice and chat interfaces around the conversation turn: a confirmation-strategy table (explicit/implicit/none by stakes), a three-step error reprompt ladder that never repeats the same prompt, voice-specific writing rules (short sentences, no visual-only references, max three-item lists, sub-8s responses, earcons), multimodal voice+screen rules, text-chat affordances (quick replies, typing indicators, structured cards), persona/tone decisions including no false humanity, and guidance on when conversation is the wrong pattern.</p>
+</header>
+
+<div class="layout">
+<nav class="sidebar" aria-labelledby="contents">
+<h2 id="contents">On this page</h2>
+<ul class="toc">
+<li><a href="#about">About this skill</a></li>
+<li><a href="#install">Install</a></li>
+<li><a href="#related">Works with</a></li>
+<li><a href="#conversational-ux">Conversational UX</a></li>
+<li><a href="#what-you-do">What You Do</a></li>
+<li><a href="#two-surfaces-one-discipline">Two Surfaces, One Discipline</a></li>
+<li><a href="#the-conversation-turn">The Conversation Turn</a></li>
+<li><a href="#error-handling">Error Handling</a></li>
+<li><a href="#voice-specific-design">Voice-Specific Design</a></li>
+<li><a href="#conversational-ui-text-chat-specifics">Conversational UI (Text Chat) Specifics</a></li>
+<li><a href="#persona-and-tone">Persona and Tone</a></li>
+<li><a href="#best-practices">Best Practices</a></li>
+</ul>
+</nav>
+
+<main id="main">
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3>Use when</h3><ul><li>design a chatbot flow</li><li>voice interface script</li><li>conversational UI</li><li>dialog error recovery</li><li>assistant persona</li><li>IVR or smart speaker skill</li></ul></div>
+<div class="meta-row"><h3>Works on</h3><ul><li>dialog goals</li><li>sample utterances</li><li>product context</li></ul></div>
+<div class="meta-row"><h3>Produces</h3><ul><li>dialog flow with prompts</li><li>error recovery ladder</li><li>persona and tone specification</li></ul></div>
+<div class="meta-row"><h3>Tags</h3>
+<ul class="tags"><li><a class="tag" href="../index.html?tag=conversational-ui">conversational-ui</a></li><li><a class="tag" href="../index.html?tag=agentic-ui">agentic-ui</a></li><li><a class="tag" href="../index.html?tag=error-recovery">error-recovery</a></li><li><a class="tag" href="../index.html?tag=voice-and-tone">voice-and-tone</a></li></ul></div>
+
+<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/Owl-Listener/designer-skills/tree/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/interaction-design/skills/conversational-ux">Owl-Listener/designer-skills</a> by Owl-Listener at <code>20e34c4</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p></div>
+</section>
+
+<section id="install">
+<h2>Install</h2>
+<ul class="install">
+<li>
+<h3>Any agent, via the skills CLI</h3>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill conversational-ux</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill conversational-ux"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Installs into whichever agents it finds on your machine.</p>
+</li>
+<li>
+<h3>Claude Code, as a plugin</h3>
+<div class="cmd"><pre><code>/plugin marketplace add stritar/skills
+/plugin install product-design-agentic-ui@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-agentic-ui@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Brings the whole agentic-ui bundle. Use <code>product-design-all</code> for everything.</p>
+</li>
+<li>
+<h3>From a clone, copied by hand</h3>
+<div class="cmd"><pre><code>cp -r skills/agentic-ui/conversational-ux ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/agentic-ui/conversational-ux ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
+</li>
+</ul>
+</section>
+
+<section id="related">
+<h2>Works with</h2>
+<ul class="related">
+<li><a href="better-writing.html"><span class="rel-id">better-writing</span></a> <span class="rel-cat">Content design</span></li>
+<li><a href="agentic-ui-review.html"><span class="rel-id">agentic-ui-review</span></a> <span class="rel-cat">Agentic and AI-native UI</span></li>
+</ul>
+</section>
+
+<article class="skill-body">
+<h2 class="body-head">Instructions</h2>
+<p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/agentic-ui/conversational-ux/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
+<h2 id="conversational-ux">Conversational UX</h2>
+<p>You are an expert in designing voice interfaces, chatbots, and AI-driven conversational experiences.</p>
+<h3 id="what-you-do">What You Do</h3>
+<p>You design the dialog structure, turn logic, error recovery, and persona for voice and conversational interfaces — applying the distinct interaction model that applies when there is no visual UI to explore, or when speech is the primary channel.</p>
+<h3 id="two-surfaces-one-discipline">Two Surfaces, One Discipline</h3>
+<p><strong>Voice interfaces</strong> (IVR, smart speaker skills, voice assistants): audio-only or audio-primary. No screen to scan. No buttons to click. The interface exists only in the moment of the utterance.</p>
+<p><strong>Conversational UI</strong> (chatbots, AI assistants, messaging interfaces): text-based, but governed by conversation turn structure rather than screen layout. Users read and respond; they do not navigate spatially.</p>
+<p>Both share the same underlying design discipline: scripting what the system says, anticipating what the user might say, and handling the gaps between them.</p>
+<h3 id="the-conversation-turn">The Conversation Turn</h3>
+<p>Every conversational interaction is built from turns:</p>
+<ol>
+<li><strong>System prompt</strong> — the interface speaks or displays a message</li>
+<li><strong>User response</strong> — the user speaks or types</li>
+<li><strong>System acknowledgement and next prompt</strong> — the interface confirms it understood and continues</li>
+</ol>
+<p>Designing a conversational interface is designing the script for every meaningful path through this loop.</p>
+<h4 id="what-a-good-system-prompt-does">What a good system prompt does</h4>
+<ul>
+<li>States one clear thing (not three)</li>
+<li>Signals what kind of response is expected</li>
+<li>Does not bury the call to action at the end of a long sentence</li>
+<li>On voice: reads naturally when spoken aloud — punctuation affects cadence</li>
+</ul>
+<h4 id="confirmation-strategies">Confirmation strategies</h4>
+<div class="table-scroll"><table>
+<thead><tr><th>Confirmation type</th><th>When to use</th></tr></thead>
+<tbody>
+<tr><td>Explicit (&quot;You said Tuesday at 3pm — is that right?&quot;)</td><td>High-stakes actions, easily confused inputs</td></tr>
+<tr><td>Implicit (&quot;Booking for Tuesday at 3pm…&quot;)</td><td>Low-stakes, recoverable actions</td></tr>
+<tr><td>None</td><td>When misrecognition is rare and recovery is easy</td></tr>
+</tbody>
+</table></div>
+<h3 id="error-handling">Error Handling</h3>
+<p>Conversational error recovery is the highest-leverage design surface. Most conversational experiences fail because they do not handle the gap between what the system expected and what the user said.</p>
+<h4 id="error-types">Error types</h4>
+<ul>
+<li><strong>No input</strong> — user did not respond; re-prompt with a shorter version of the original</li>
+<li><strong>No match / misrecognition</strong> — system heard something but could not parse intent; ask for clarification, offer examples</li>
+<li><strong>Out-of-scope input</strong> — user said something the system cannot handle; acknowledge and redirect without pretending to understand</li>
+<li><strong>Partial match</strong> — system understood part of the request; confirm what it understood and ask for the missing piece</li>
+</ul>
+<h4 id="the-error-reprompt-ladder">The error reprompt ladder</h4>
+<ol>
+<li>First error: rephrase the prompt with slightly more context</li>
+<li>Second error: offer explicit examples or constrained choices (&quot;You can say 'morning', 'afternoon', or 'evening'&quot;)</li>
+<li>Third error: offer a graceful exit — a live agent, a different channel, or a clear stopping point</li>
+</ol>
+<p>Never loop the same error prompt more than once. Each reprompt must add information.</p>
+<h3 id="voice-specific-design">Voice-Specific Design</h3>
+<h4 id="writing-for-ears-not-eyes">Writing for ears, not eyes</h4>
+<ul>
+<li>Short sentences — voice working memory is shorter than visual</li>
+<li>Active voice — passive constructions are harder to parse aurally</li>
+<li>No visual-only elements — &quot;click the button below&quot; is meaningless on voice</li>
+<li>Spell out abbreviations and acronyms — &quot;ETA&quot; should be &quot;estimated arrival time&quot; on first use</li>
+<li>Avoid lists longer than three items — users cannot re-read; chunk or sequence instead</li>
+</ul>
+<h4 id="latency-and-pacing">Latency and pacing</h4>
+<ul>
+<li>Keep system responses under 8 seconds where possible; long silences break the conversation model</li>
+<li>Use earcons (audio cues) to signal state transitions — recording started, processing, done</li>
+<li>On smart speakers, use explicit listening cues (&quot;Go ahead&quot; / chime) to signal when the mic is open</li>
+</ul>
+<h4 id="multimodal-voice-screen">Multimodal (voice + screen)</h4>
+<p>Alexa Show, Google Nest Hub, and phone assistants combine voice with a display. Design rules:</p>
+<ul>
+<li>The spoken word must make sense without the screen — not all users look at the screen</li>
+<li>The screen reinforces and disambiguates; it does not replace the spoken prompt</li>
+<li>Interactive visual elements (cards, buttons) must also be activatable by voice</li>
+</ul>
+<h3 id="conversational-ui-text-chat-specifics">Conversational UI (Text Chat) Specifics</h3>
+<h4 id="affordances-in-text-interfaces">Affordances in text interfaces</h4>
+<p>Unlike voice, text conversational UI can show interface elements:</p>
+<ul>
+<li><strong>Quick replies / suggestion chips</strong>: constrain the interaction to reduce typing friction; use for common paths, not all paths</li>
+<li><strong>Persistent menu</strong>: hamburger or menu icon providing navigation outside the conversation thread</li>
+<li><strong>Typing indicator</strong>: shows the system is processing; suppresses user anxiety during latency</li>
+<li><strong>Structured cards</strong>: present information (flight details, product results) within the chat stream — more scannable than raw prose</li>
+</ul>
+<h4 id="distinguishing-the-conversation-from-navigation">Distinguishing the conversation from navigation</h4>
+<p>Text conversational UI tends toward one of two models:</p>
+<ul>
+<li><strong>Pure conversation</strong>: no persistent UI chrome; all navigation happens through dialogue</li>
+<li><strong>Hybrid</strong>: conversational input field within a screen-based product; the chat handles help, search, and action initiation; the rest of the product is conventional UI</li>
+</ul>
+<p>Do not apply conversational UX patterns to workflows that are better served by a form, a table, or a menu. Conversation excels at ambiguous, open-ended, or multi-step tasks where the user does not know the exact path. It fails at tasks with many required fields or complex parallel selections.</p>
+<h3 id="persona-and-tone">Persona and Tone</h3>
+<p>The system's voice is a design decision, not a default:</p>
+<ul>
+<li><strong>Name and identity</strong>: does the assistant have a name? A consistent one reduces confusion in multimodal contexts</li>
+<li><strong>Register</strong>: formal, professional, warm, playful — should match the product's brand and the emotional context of the conversation</li>
+<li><strong>Handling failures gracefully</strong>: the persona must remain consistent when the system fails — robotic error messages that break the established voice undermine trust</li>
+<li><strong>Avoiding false humanity</strong>: conversational UI should not claim to be human when sincerely asked; this applies to text as much as voice</li>
+</ul>
+<h3 id="best-practices">Best Practices</h3>
+<ul>
+<li>Write every prompt aloud before shipping — if it sounds unnatural spoken, rewrite it</li>
+<li>Design the unhappy path first: error handling and out-of-scope recovery define the experience quality more than the happy path</li>
+<li>Constrain choice at decision points — open-ended &quot;What would you like to do?&quot; fails more often than &quot;Would you like to start, or pick up where you left off?&quot;</li>
+<li>Test with real speech on real devices; text-to-speech synthesis changes cadence in ways that are invisible in a script</li>
+<li>Log what users actually say; the gap between expected utterances and real ones is your highest-value design data</li>
+<li>Design exit paths explicitly — users must always be able to stop, restart, or escalate to a human channel</li>
+</ul>
+</article>
+</main>
+</div>
+
+<footer class="site-foot">
+<p><a href="../index.html">Back to all skills</a></p>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

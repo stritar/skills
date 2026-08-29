@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>instrumentation-plan — Product design skills</title>
+<meta name="description" content="Turns a feature or flow into an instrumentation plan: the questions the data must answer, success and guardrail metrics with owners and baselines, activation and retention definitions, an event taxonomy under one naming convention (object_action snake_case, typed properties, shared context…">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="page-head">
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-analytics">Product analytics</a></nav>
+<h1>instrumentation-plan</h1>
+<p class="badges"><span class="il badge badge-rec"><span class="il-icon" aria-hidden="true">★</span><span class="il-label">Recommended</span></span><span class="il badge badge-exp"><span class="il-label">Experimental</span></span></p>
+<p class="lede">Turns a feature or flow into an instrumentation plan: the questions the data must answer, success and guardrail metrics with owners and baselines, activation and retention definitions, an event taxonomy under one naming convention (object_action snake_case, typed properties, shared context properties), identity and consent rules with data minimisation, funnel and segment definitions, an experiment block, and a QA checklist. Grounded in the Segment, Amplitude, GA4 and PostHog conventions so it ports between vendors.</p>
+</header>
+
+<div class="layout">
+<nav class="sidebar" aria-labelledby="contents">
+<h2 id="contents">On this page</h2>
+<ul class="toc">
+<li><a href="#about">About this skill</a></li>
+<li><a href="#install">Install</a></li>
+<li><a href="#related">Works with</a></li>
+<li><a href="#instrumentation-plan">Instrumentation plan</a></li>
+<li><a href="#inputs">Inputs</a></li>
+<li><a href="#workflow">Workflow</a></li>
+<li><a href="#before-you-finish">Before you finish</a></li>
+<li><a href="#limitations">Limitations</a></li>
+</ul>
+</nav>
+
+<main id="main">
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3>Use when</h3><ul><li>write the tracking plan for this feature</li><li>define analytics events</li><li>what should we measure after launch</li><li>name these events</li><li>set up the A/B test metrics</li><li>define activation and retention</li></ul></div>
+<div class="meta-row"><h3>Works on</h3><ul><li>feature or flow</li><li>the decision the data must inform</li><li>existing analytics conventions</li></ul></div>
+<div class="meta-row"><h3>Produces</h3><ul><li>metrics table</li><li>tracking plan table</li><li>identity and consent rules</li><li>funnel and experiment definitions</li><li>QA checklist</li></ul></div>
+<div class="meta-row"><h3>Tags</h3>
+<ul class="tags"><li><a class="tag" href="../index.html?tag=analytics">analytics</a></li><li><a class="tag" href="../index.html?tag=instrumentation">instrumentation</a></li><li><a class="tag" href="../index.html?tag=event-taxonomy">event-taxonomy</a></li><li><a class="tag" href="../index.html?tag=funnel">funnel</a></li><li><a class="tag" href="../index.html?tag=activation">activation</a></li><li><a class="tag" href="../index.html?tag=retention">retention</a></li><li><a class="tag" href="../index.html?tag=experimentation">experimentation</a></li><li><a class="tag" href="../index.html?tag=ab-testing">ab-testing</a></li><li><a class="tag" href="../index.html?tag=metrics">metrics</a></li><li><a class="tag" href="../index.html?tag=kpis">kpis</a></li><li><a class="tag" href="../index.html?tag=data-minimization">data-minimization</a></li></ul></div>
+
+<div class="meta-row"><h3>Source</h3><p>Written for this library. Licence <code>MIT</code>.</p></div>
+</section>
+
+<section id="install">
+<h2>Install</h2>
+<ul class="install">
+<li>
+<h3>Any agent, via the skills CLI</h3>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill instrumentation-plan</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill instrumentation-plan"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Installs into whichever agents it finds on your machine.</p>
+</li>
+<li>
+<h3>Claude Code, as a plugin</h3>
+<div class="cmd"><pre><code>/plugin marketplace add stritar/skills
+/plugin install product-design-analytics@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-analytics@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Brings the whole analytics bundle. Use <code>product-design-all</code> for everything.</p>
+</li>
+<li>
+<h3>From a clone, copied by hand</h3>
+<div class="cmd"><pre><code>cp -r skills/analytics/instrumentation-plan ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/analytics/instrumentation-plan ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
+</li>
+</ul>
+</section>
+
+<section id="related">
+<h2>Works with</h2>
+<ul class="related">
+<li><a href="silver-measure.html"><span class="rel-id">silver-measure</span></a> <span class="rel-cat">Product analytics</span></li>
+<li><a href="ux-research-workflow.html"><span class="rel-id">ux-research-workflow</span></a> <span class="rel-cat">Orchestration</span></li>
+<li><a href="pre-handoff-review.html"><span class="rel-id">pre-handoff-review</span></a> <span class="rel-cat">Orchestration</span></li>
+<li><a href="survey-design.html"><span class="rel-id">survey-design</span></a> <span class="rel-cat">User research</span></li>
+</ul>
+</section>
+
+<article class="skill-body">
+<h2 class="body-head">Instructions</h2>
+<p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/analytics/instrumentation-plan/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
+<h2 id="instrumentation-plan">Instrumentation plan</h2>
+<p>Produces the plan that lets a team learn whether a design worked. Metrics
+first, events second: an event that answers no question is cost without
+information. The plan is a deliverable engineers implement and analysts
+query; it is not the analysis itself. Post-launch evaluation of results
+belongs to <code>silver-measure</code>; experiment analysis to the team's analytics
+tooling.</p>
+<h3 id="inputs">Inputs</h3>
+<ul>
+<li>The feature or flow: screens, states, entry and exit points.</li>
+<li>The decision the data must inform (ship, iterate, roll back, expand).</li>
+<li>Existing conventions: current event names, analytics vendor, identity
+model, consent framework. Read them before inventing new ones.</li>
+</ul>
+<h3 id="workflow">Workflow</h3>
+<h4 id="1-state-the-questions-and-the-metrics">1. State the questions and the metrics</h4>
+<p>Write two to five questions in the form &quot;did users X after Y&quot;. Derive:</p>
+<ul>
+<li><strong>Success metrics</strong> — the outcome the design intends (task completion
+rate, time to first value, adoption of the new path).</li>
+<li><strong>Guardrail metrics</strong> — what must not get worse (error rate, support
+contacts, churn of the old path, latency, accessibility-related drop-off).</li>
+<li><strong>Activation and retention definitions</strong> where relevant: the action that
+marks a user as activated, and the window and action that count as
+retained. Make each definition computable from the events below.</li>
+</ul>
+<p>Every metric gets an owner, a baseline (or &quot;none, first measurement&quot;), and
+a target or a stated hypothesis. Read
+<a href="https://github.com/stritar/skills/blob/main/skills/analytics/instrumentation-plan/references/metric-patterns.md" target="_blank" rel="noopener noreferrer">references/metric-patterns.md</a> for the
+standard funnel, activation and retention shapes.</p>
+<h4 id="2-derive-the-events-from-the-users-actions">2. Derive the events from the user's actions</h4>
+<p>Walk the flow and list the user actions and system outcomes needed to compute
+the metrics. Nothing else. For each event record: trigger (the exact moment
+and component), who fires it (client or server; prefer server for outcomes
+like payment or save), and the properties needed to slice it.</p>
+<h4 id="3-apply-one-naming-convention">3. Apply one naming convention</h4>
+<p>Follow the project's existing convention. When there is none, use
+<strong>object_action in snake_case</strong> (<code>checkout_started</code>, <code>report_exported</code>),
+past tense for completed outcomes, present tense for intents, no product or
+screen names inside the event name (those are properties). Properties are
+snake_case, typed, with enumerations spelled out. Reserve a small set of
+context properties attached to every event (screen, entry_point, variant,
+platform, app_version). Read
+<a href="https://github.com/stritar/skills/blob/main/skills/analytics/instrumentation-plan/references/naming-and-schema.md" target="_blank" rel="noopener noreferrer">references/naming-and-schema.md</a> for the
+rules and the tracking-plan table format.</p>
+<h4 id="4-identity-consent-and-minimisation">4. Identity, consent and minimisation</h4>
+<p>State how users are identified (anonymous id, user id, when they merge),
+what happens before consent is given (no tracking, or essential only), and
+which properties are personal data. Collect the minimum needed to answer the
+questions (GDPR Article 5(1)(c)); never put free-text user input, full URLs
+with query strings, or health, financial or precise location data in
+properties unless the question requires it and consent covers it.</p>
+<h4 id="5-funnels-segments-and-experiments">5. Funnels, segments and experiments</h4>
+<p>Define each funnel as an ordered list of events with the conversion window.
+Define segments by properties that exist in the plan. For an experiment,
+name the assignment event and the <code>variant</code> property, the primary metric,
+the guardrails, the minimum detectable effect and the sample size
+assumption, and the analysis owner.</p>
+<h4 id="6-qa-and-rollout">6. QA and rollout</h4>
+<p>List how each event will be verified before launch: the action to perform,
+the expected event and properties, and where to look. Include a check that
+no event fires twice, that server and client counts reconcile for outcomes,
+and that consent-off sessions produce nothing non-essential.</p>
+<h4 id="7-output">7. Output</h4>
+<p>Deliver a single document with: questions and metrics table; the tracking
+plan table (<code>event | trigger | properties | source | owner | metric served</code>);
+identity and consent rules; funnel and segment definitions; experiment
+block if any; QA checklist. Flag every open decision with the person who
+owns it.</p>
+<h3 id="before-you-finish">Before you finish</h3>
+<div class="table-scroll"><table>
+<thead><tr><th>Mistake</th><th>Fix</th></tr></thead>
+<tbody>
+<tr><td>Starting from a list of clicks</td><td>Start from questions; drop events that serve no metric</td></tr>
+<tr><td>Naming events after screens</td><td>Object_action names; screen is a property</td></tr>
+<tr><td>Client-side events for money or saved data</td><td>Fire outcomes from the server, intents from the client</td></tr>
+<tr><td>Metrics without baselines or owners</td><td>Add both, or write &quot;first measurement&quot; and the date</td></tr>
+<tr><td>Personal data in properties by default</td><td>Minimise; list what is personal and the consent that covers it</td></tr>
+<tr><td>One giant funnel</td><td>Short funnels per question, with explicit conversion windows</td></tr>
+</tbody>
+</table></div>
+<h3 id="limitations">Limitations</h3>
+<p>Vendor features differ (session definitions, identity merge rules, sampling);
+the plan states assumptions rather than vendor specifics. Statistical design
+for experiments beyond sample-size assumptions is out of scope.</p>
+</article>
+</main>
+</div>
+
+<footer class="site-foot">
+<p><a href="../index.html">Back to all skills</a></p>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

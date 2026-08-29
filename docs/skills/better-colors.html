@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>better-colors — Product design skills</title>
+<meta name="description" content="Color-system design and audit guidance: ramps named by role rather than picked by eye (neutral/accent/status), a two-tier primitive-then-semantic token naming grammar, perceptual ramp-generation rules (constant hue, even perceived lightness, vividness peaking mid-ramp), APCA and WCAG 2 contrast…">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="page-head">
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-visual-design">Visual design</a></nav>
+<h1>better-colors</h1>
+<p class="badges"><span class="il badge badge-rec"><span class="il-icon" aria-hidden="true">★</span><span class="il-label">Recommended</span></span></p>
+<p class="lede">Color-system design and audit guidance: ramps named by role rather than picked by eye (neutral/accent/status), a two-tier primitive-then-semantic token naming grammar, perceptual ramp-generation rules (constant hue, even perceived lightness, vividness peaking mid-ramp), APCA and WCAG 2 contrast thresholds with a report-don't-repaint measurement discipline, gradient interpolation-space choices, P3/sRGB gamut fallbacks, dark-mode derivation rules, and a calibrated severity report format ending in Block/Approve.</p>
+</header>
+
+<div class="layout">
+<nav class="sidebar" aria-labelledby="contents">
+<h2 id="contents">On this page</h2>
+<ul class="toc">
+<li><a href="#about">About this skill</a></li>
+<li><a href="#install">Install</a></li>
+<li><a href="#related">Works with</a></li>
+<li><a href="#colors">Colors</a></li>
+<li><a href="#match-the-projects-color-system">Match the project's color system</a></li>
+<li><a href="#a-system-is-ramps-not-colors">A system is ramps, not colors</a></li>
+<li><a href="#every-step-has-a-job">Every step has a job</a></li>
+<li><a href="#name-primitives-by-hue-semantics-by-role">Name primitives by hue, semantics by role</a></li>
+<li><a href="#use-a-token-only-in-its-role">Use a token only in its role</a></li>
+<li><a href="#hold-the-hue-across-the-ramp">Hold the hue across the ramp</a></li>
+<li><a href="#one-color-one-meaning">One color, one meaning</a></li>
+<li><a href="#fill-exactly-one-action-per-view">Fill exactly one action per view</a></li>
+<li><a href="#measure-the-rendered-pair-then-report">Measure the rendered pair, then report</a></li>
+<li><a href="#pick-a-gradients-interpolation-space">Pick a gradient's interpolation space</a></li>
+<li><a href="#before-you-finish">Before you finish</a></li>
+<li><a href="#reporting">Reporting</a></li>
+</ul>
+</nav>
+
+<main id="main">
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3>Use when</h3><ul><li>build a color palette</li><li>name design tokens for color</li><li>check contrast ratio</li><li>dark mode colors</li><li>color ramp generation</li><li>audit a codebase's colors</li></ul></div>
+<div class="meta-row"><h3>Works on</h3><ul><li>a brand color or existing palette</li><li>UI source code or rendered screens to audit</li></ul></div>
+<div class="meta-row"><h3>Produces</h3><ul><li>ramp values in the project's notation</li><li>token naming scheme (primitive + semantic tiers)</li><li>severity-ranked findings table ending in Block/Approve</li></ul></div>
+<div class="meta-row"><h3>Tags</h3>
+<ul class="tags"><li><a class="tag" href="../index.html?tag=color">color</a></li><li><a class="tag" href="../index.html?tag=design-tokens">design-tokens</a></li><li><a class="tag" href="../index.html?tag=token-naming">token-naming</a></li><li><a class="tag" href="../index.html?tag=semantic-tokens">semantic-tokens</a></li><li><a class="tag" href="../index.html?tag=dark-mode">dark-mode</a></li><li><a class="tag" href="../index.html?tag=themes">themes</a></li><li><a class="tag" href="../index.html?tag=contrast">contrast</a></li></ul></div>
+
+<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-colors">jakubkrehel/skills</a> by Jakub Krehel at <code>ca48385</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p></div>
+</section>
+
+<section id="install">
+<h2>Install</h2>
+<ul class="install">
+<li>
+<h3>Any agent, via the skills CLI</h3>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill better-colors</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill better-colors"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Installs into whichever agents it finds on your machine.</p>
+</li>
+<li>
+<h3>Claude Code, as a plugin</h3>
+<div class="cmd"><pre><code>/plugin marketplace add stritar/skills
+/plugin install product-design-visual-design@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-visual-design@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Brings the whole visual-design bundle. Use <code>product-design-all</code> for everything.</p>
+</li>
+<li>
+<h3>From a clone, copied by hand</h3>
+<div class="cmd"><pre><code>cp -r skills/visual-design/better-colors ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/visual-design/better-colors ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
+</li>
+</ul>
+</section>
+
+<section id="related">
+<h2>Works with</h2>
+<ul class="related">
+<li><a href="better-accessibility.html"><span class="rel-id">better-accessibility</span></a> <span class="rel-cat">Accessibility</span></li>
+<li><a href="design-tokens.html"><span class="rel-id">design-tokens</span></a> <span class="rel-cat">Design systems</span></li>
+<li><a href="theme-factory.html"><span class="rel-id">theme-factory</span></a> <span class="rel-cat">Visual design</span></li>
+</ul>
+</section>
+
+<article class="skill-body">
+<h2 class="body-head">Instructions</h2>
+<p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/visual-design/better-colors/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
+<h2 id="colors">Colors</h2>
+<p>A color system is a small set of ramps, named by role and verified against the backgrounds they actually render on. Most color bugs are system bugs. A value picked in isolation, a token borrowed because it looked right, a pair nobody measured.</p>
+<p>Never report a contrast value you did not measure, and never estimate a color you could compute. Colors are one of the few interface concerns with an exact answer, so produce the exact answer.</p>
+<p>Contrast requirements belong to <code>better-accessibility</code>. Surfaces, shadows and icon color belong to <code>better-ui</code>.</p>
+<h3 id="match-the-projects-color-system">Match the project's color system</h3>
+<p>Reuse the project's tokens and notation. A second representation added to fix one value makes the palette harder to reason about. A consistent hex system beats hex with <code>oklch()</code> scattered through it.</p>
+<p>For a new system, <code>oklch()</code> is the best default, because its numbers behave the way the ramp rules below describe. Everywhere else, a color library produces the same ramp in the project's own notation (<a href="https://github.com/stritar/skills/blob/main/skills/visual-design/better-colors/color-formats.md" target="_blank" rel="noopener noreferrer">color-formats.md</a>).</p>
+<h3 id="a-system-is-ramps-not-colors">A system is ramps, not colors</h3>
+<p>One neutral ramp, one accent ramp and only the status ramps the product actually renders. A <code>warning</code> ramp nothing imports is maintenance for zero pixels. A second accent hue earns its place only when two things must be distinguishable at a glance.</p>
+<h3 id="every-step-has-a-job">Every step has a job</h3>
+<p>A ramp is not a gradient to pick from by eye. Each step exists because a role needs it: page background, component hover, border, solid fill, body text. Do not generate a step no role consumes. Both the Tailwind <code>50</code>–<code>950</code> and Radix <code>1</code>–<code>12</code> conventions map to those roles (<a href="https://github.com/stritar/skills/blob/main/skills/visual-design/better-colors/palette-structure.md" target="_blank" rel="noopener noreferrer">palette-structure.md</a>).</p>
+<h3 id="name-primitives-by-hue-semantics-by-role">Name primitives by hue, semantics by role</h3>
+<p>Primitives name a value (<code>--blue-500</code>) and are never applied in a component. Semantic tokens name a job (<code>--color-text-secondary</code>), point at a primitive and are the only tier components reference.</p>
+<p>That seam is what makes theming possible. Without it, dark mode means auditing every usage to work out which meant &quot;the accent&quot; and which just wanted blue (<a href="https://github.com/stritar/skills/blob/main/skills/visual-design/better-colors/token-naming.md" target="_blank" rel="noopener noreferrer">token-naming.md</a>).</p>
+<h3 id="use-a-token-only-in-its-role">Use a token only in its role</h3>
+<p>Never borrow a token because its value is right today. A separator used as a text color works until borders get lighter, and then the text goes with them. If a role has no token, add the token.</p>
+<h3 id="hold-the-hue-across-the-ramp">Hold the hue across the ramp</h3>
+<p>Four properties define a well-formed ramp:</p>
+<ul>
+<li>Steps step evenly in <em>perceived</em> lightness, not in whatever the format calls lightness.</li>
+<li>Hue stays constant end to end.</li>
+<li>Vividness peaks mid-ramp and falls off at both ends.</li>
+<li>Steps sit denser at the light end than at the dark end.</li>
+</ul>
+<p>Both ends stop short of pure black and white, which cannot carry hue at all. Use a color library rather than eyeballing it (<a href="https://github.com/stritar/skills/blob/main/skills/visual-design/better-colors/palette-generation.md" target="_blank" rel="noopener noreferrer">palette-generation.md</a>).</p>
+<h3 id="one-color-one-meaning">One color, one meaning</h3>
+<p>Use a color for one purpose across the whole interface, treating anything within <code>15°</code> of hue as the same color. If the accent means interactive, that hue on static text tells users to click something that is not clickable, and an interactive element rendered neutral misleads just as badly. Color is never the only carrier of meaning, which <code>better-accessibility</code> owns.</p>
+<h3 id="fill-exactly-one-action-per-view">Fill exactly one action per view</h3>
+<p>When filled color encodes primary emphasis, one primary action gets it and peers stay neutral. Put the color on the background, not the label. A filled button reads as primary across the room; accent-colored text on a neutral button reads as a link.</p>
+<p>Several colored backgrounds are fine when they encode distinct states or categories rather than competing as peers.</p>
+<h3 id="measure-the-rendered-pair-then-report">Measure the rendered pair, then report</h3>
+<p>Measure a foreground against the background it actually renders on, not the page background. When a pair fails, report the pair, its measured value and the threshold it misses, then leave the colors alone. They are a design decision. Change them only when asked, and remeasure after (<a href="https://github.com/stritar/skills/blob/main/skills/visual-design/better-colors/contrast.md" target="_blank" rel="noopener noreferrer">contrast.md</a>).</p>
+<h3 id="pick-a-gradients-interpolation-space">Pick a gradient's interpolation space</h3>
+<p>The space is a look, not a correctness setting.</p>
+<ul>
+<li><strong><code>in oklab</code></strong> is the best default: even brightness, no hue surprises.</li>
+<li><strong><code>in oklch</code></strong> travels around the hue wheel rather than through the middle, staying vivid and sweeping every hue between the stops. Reach for it when a two-hue gradient goes gray in the middle.</li>
+<li><strong>The sRGB default</strong> darkens and mutes the midpoint. It is what most interfaces already have, because it is what you get without asking.</li>
+</ul>
+<p>See <a href="https://github.com/stritar/skills/blob/main/skills/visual-design/better-colors/color-usage.md" target="_blank" rel="noopener noreferrer">color-usage.md</a>.</p>
+<h3 id="before-you-finish">Before you finish</h3>
+<div class="table-scroll"><table>
+<thead><tr><th>Mistake</th><th>Fix</th></tr></thead>
+<tbody>
+<tr><td>A raw value where the project has a token</td><td>Reuse or add the role token, in the project's notation</td></tr>
+<tr><td>An isolated <code>oklch()</code> value dropped into a hex codebase</td><td>Keep the established notation unless a migration is in scope</td></tr>
+<tr><td>A primitive like <code>--blue-500</code> used directly in a component</td><td>Point a semantic token at it</td></tr>
+<tr><td>Token named for its appearance (<code>--color-blue-button</code>) or first use (<code>--color-sidebar-gray</code>)</td><td>Name it for its role: <code>--color-accent-solid</code>, <code>--color-bg-surface</code></td></tr>
+<tr><td><code>--color-primary</code> meaning the brand and <code>--color-text-primary</code> meaning body text</td><td>Reserve <code>accent</code> for the brand; let <code>primary</code> mean &quot;most prominent of its group&quot;</td></tr>
+<tr><td>Semantic token used outside its role (separator as text)</td><td>Add a token for the missing role; never borrow by value</td></tr>
+<tr><td>Ramp built by varying HSL lightness</td><td>Rebuild against perceived lightness with a constant hue</td></tr>
+<tr><td>Ramp spaced evenly across the full range</td><td>Tighten the light end until <code>50</code> and <code>100</code> read as two surfaces</td></tr>
+<tr><td>Same saturation number reused across hues</td><td>Match the proportion of each hue's own maximum, not the raw value</td></tr>
+<tr><td>Status hue that collides with the accent hue</td><td>Move it until destructive and primary read apart side by side</td></tr>
+<tr><td>Dark mode made by mechanically reversing the light palette</td><td>Reverse as a starting point, then reduce vividness, widen the dark end and recheck every pair</td></tr>
+<tr><td><code>prefers-color-scheme</code> setting some tokens and a <code>.dark</code> class setting others</td><td>Pick one switching mechanism and use it throughout</td></tr>
+<tr><td>Contrast fixed by changing hue</td><td>Change lightness, the channel contrast responds to</td></tr>
+<tr><td>P3 color with no sRGB fallback</td><td>Declare the sRGB value first, then override inside <code>@media (color-gamut: p3)</code></td></tr>
+</tbody>
+</table></div>
+<h3 id="reporting">Reporting</h3>
+<p><strong>Severity.</strong> <code>HIGH</code> makes content unreadable or assigns a misleading semantic color. <code>MEDIUM</code> is a noticeable theme, token, or gamut failure. <code>LOW</code> is isolated polish.</p>
+<p><strong>Verification.</strong> Without a browser: token values, the gamut of every declared color, both theme blocks present and contrast computed from the declared token pair. With one: the background actually rendered behind the text, including opacity and any image beneath it, measured in both light and dark. A failing pair is reported, not repainted. Report every check you could not run as <code>Not verified</code>.</p>
+<p><strong>Format.</strong> Group findings under the principle each violates, ordered by severity, one row per root cause listing every location it appears in:</p>
+<div class="table-scroll"><table>
+<thead><tr><th>Severity</th><th>Location</th><th>Before</th><th>After</th><th>Why</th></tr></thead>
+<tbody>
+
+</tbody>
+</table></div>
+<p><code>Location</code> is <code>path/to/file:line</code>. <code>Why</code> names the principle and the user impact.</p>
+<p>End with <code>Block</code> when any <code>HIGH</code> remains, <code>Approve</code> otherwise, leaving the rest in the table as work to do. Never <code>Approve</code> coverage you did not inspect. With nothing to report, state &quot;No actionable color findings&quot; and report verification.</p>
+</article>
+</main>
+</div>
+
+<footer class="site-foot">
+<p><a href="../index.html">Back to all skills</a></p>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

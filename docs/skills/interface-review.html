@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>interface-review — Product design skills</title>
+<meta name="description" content="Change-scoped interface review for uncommitted work, a branch, or a pull request: resolves the review target (working tree, staged, branch vs. merge-base, PR fetched by ref, or an explicit range) with documented traps for shallow clones, mid-rebase state and detached HEAD, expands each changed file…">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="page-head">
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-design-qa">Design QA</a></nav>
+<h1>interface-review</h1>
+<p class="badges"><span class="il badge badge-rec"><span class="il-icon" aria-hidden="true">★</span><span class="il-label">Recommended</span></span></p>
+<p class="lede">Change-scoped interface review for uncommitted work, a branch, or a pull request: resolves the review target (working tree, staged, branch vs. merge-base, PR fetched by ref, or an explicit range) with documented traps for shallow clones, mid-rebase state and detached HEAD, expands each changed file to its blast radius of importers, reads the removed side of every diff hunk against a table of accessibility/layout/typography/color/writing regression signals, classifies every finding as Introduced, Regression, or Pre-existing, holds the change to its stated PR intent to catch incomplete variants and missing states, and hands the classified findings to better-interface for severity, consolidation and the verdict. Never checks out or mutates the working tree.</p>
+</header>
+
+<div class="layout">
+<nav class="sidebar" aria-labelledby="contents">
+<h2 id="contents">On this page</h2>
+<ul class="toc">
+<li><a href="#about">About this skill</a></li>
+<li><a href="#install">Install</a></li>
+<li><a href="#related">Works with</a></li>
+<li><a href="#change-review">Change review</a></li>
+<li><a href="#the-change-not-the-codebase">The change, not the codebase</a></li>
+<li><a href="#core-principles">Core principles</a></li>
+<li><a href="#before-you-finish">Before you finish</a></li>
+<li><a href="#review-output-format">Review output format</a></li>
+</ul>
+</nav>
+
+<main id="main">
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3>Use when</h3><ul><li>review this pull request</li><li>review my branch for interface regressions</li><li>review uncommitted changes</li><li>did this change break accessibility or layout</li></ul></div>
+<div class="meta-row"><h3>Works on</h3><ul><li>a git target: working tree, staged, branch, pr &lt;n&gt;, ref, or range</li><li>availability of better-interface for severity and verdict</li></ul></div>
+<div class="meta-row"><h3>Produces</h3><ul><li>a scope block (target, base/head ref, commits, files in scope, expanded surfaces)</li><li>a findings table with a Status column (Introduced/Regression/Pre-existing)</li><li>Block/Approve verdict via better-interface</li></ul></div>
+<div class="meta-row"><h3>Tags</h3>
+<ul class="tags"><li><a class="tag" href="../index.html?tag=design-qa">design-qa</a></li><li><a class="tag" href="../index.html?tag=design-review">design-review</a></li><li><a class="tag" href="../index.html?tag=pr-review">pr-review</a></li><li><a class="tag" href="../index.html?tag=review">review</a></li><li><a class="tag" href="../index.html?tag=handoff">handoff</a></li></ul></div>
+
+<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/interface-review">jakubkrehel/skills</a> by Jakub Krehel at <code>ca48385</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p></div>
+</section>
+
+<section id="install">
+<h2>Install</h2>
+<ul class="install">
+<li>
+<h3>Any agent, via the skills CLI</h3>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill interface-review</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill interface-review"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Installs into whichever agents it finds on your machine.</p>
+</li>
+<li>
+<h3>Claude Code, as a plugin</h3>
+<div class="cmd"><pre><code>/plugin marketplace add stritar/skills
+/plugin install product-design-design-qa@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-design-qa@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Brings the whole design-qa bundle. Use <code>product-design-all</code> for everything.</p>
+</li>
+<li>
+<h3>From a clone, copied by hand</h3>
+<div class="cmd"><pre><code>cp -r skills/design-qa/interface-review ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/design-qa/interface-review ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
+</li>
+</ul>
+</section>
+
+<section id="related">
+<h2>Works with</h2>
+<ul class="related">
+<li><a href="better-interface.html"><span class="rel-id">better-interface</span></a> <span class="rel-cat">Orchestration</span></li>
+<li><a href="frontend-design-review.html"><span class="rel-id">frontend-design-review</span></a> <span class="rel-cat">Design QA</span></li>
+<li><a href="design-details.html"><span class="rel-id">design-details</span></a> <span class="rel-cat">Design QA</span></li>
+<li><a href="design-review.html"><span class="rel-id">design-review</span></a> <span class="rel-cat">Testing and evaluation</span></li>
+<li><a href="break.html"><span class="rel-id">break</span></a> <span class="rel-cat">Testing and evaluation</span></li>
+</ul>
+</section>
+
+<article class="skill-body">
+<h2 class="body-head">Instructions</h2>
+<p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/design-qa/interface-review/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
+<h2 id="change-review">Change review</h2>
+<p>This skill reviews a change rather than a screen. It resolves the scope, expands the changed files to the surfaces they affect, reads both sides of the diff and classifies every finding.</p>
+<p>Scope is all it owns. Domain rules belong to the <code>better-*</code> skills. Severity, consolidation, coverage, the cap and the verdict belong to <code>better-interface</code>, which this skill hands the review to.</p>
+<p>Correctness, tests, security and performance belong to the project's general code review. Name the concern once and move on.</p>
+<h3 id="the-change-not-the-codebase">The change, not the codebase</h3>
+<p>The author is asking &quot;did I make this worse?&quot;. Report what the change caused and stay mostly quiet about what it merely touched. Three pre-existing findings is a courtesy; thirty is a different review and one nobody asked for.</p>
+<p>Read the change before forming an opinion of it. The stated intent decides what counts as incomplete, and a skimmed diff produces findings about code the next hunk already fixed.</p>
+<h3 id="core-principles">Core principles</h3>
+<h4 id="1-resolve-the-change-scope-first">1. Resolve the change scope first</h4>
+<p>The whole invocation is the target, so <code>/interface-review pr 482</code> reviews pull request 482. <a href="https://github.com/stritar/skills/blob/main/skills/design-qa/interface-review/scope-resolution.md" target="_blank" rel="noopener noreferrer">Scope resolution</a> holds the accepted targets and how each resolves.</p>
+<p>With no target supplied, resolve in this order and stop at the first match:</p>
+<ol>
+<li><code>HEAD</code> is ahead of <code>git merge-base origin/&lt;default-branch&gt; HEAD</code>: that range <strong>plus</strong> any uncommitted changes, with the commit count and the uncommitted file count stated separately.</li>
+<li>The working tree is dirty: the uncommitted changes.</li>
+<li>Neither: there is no change to review. Stop and ask, per <strong>With no change, ask rather than invent one</strong>.</li>
+</ol>
+<p>Order matters. Check the working tree first and one stray formatting edit shadows a twelve-commit branch, with the report still claiming full coverage.</p>
+<p>Exclude lockfiles, snapshots, generated output, vendored code and binaries, and name what you excluded. An empty scope after exclusions reaches the same place by a different route.</p>
+<h4 id="2-with-no-change-ask-rather-than-invent-one">2. With no change, ask rather than invent one</h4>
+<p>A clean tree with nothing ahead of the merge base means the user asked to review a change that does not exist. Never fall back to <code>HEAD~1..HEAD</code> on your own. The last commit is whatever happened to land, often a merge, often someone else's work, and a report on it is indistinguishable from a report on what the user meant.</p>
+<p>State the repository facts you found, then offer the routes and wait. <a href="https://github.com/stritar/skills/blob/main/skills/design-qa/interface-review/scope-resolution.md#nothing-to-review" target="_blank" rel="noopener noreferrer">Nothing to review</a> holds the facts to gather:</p>
+<ul>
+<li><strong>The last commit</strong>, <code>HEAD~1..HEAD</code>, named by short SHA and subject, so the user sees what they would get before choosing it.</li>
+<li><strong>A target they name</strong>: <code>pr &lt;n&gt;</code>, a branch, a ref, or a range, resolved per <strong>Resolve the change scope first</strong>.</li>
+<li><strong>A whole-repository interface audit</strong>, which is not a change review. Hand it to <code>better-interface</code> as a repository-scope review, without this skill's scope block, statuses, or pre-existing section. With no change, every finding is pre-existing and the classification says nothing.</li>
+</ul>
+<p>Check for an open pull request on the current branch before asking, and offer it first. A branch whose commits already landed resolves to no change, while its pull request is still exactly what the user meant.</p>
+<p>Where the scope emptied out after exclusions, say which files were excluded and ask the same way. Never report a review of nothing as <code>Approve</code>.</p>
+<h4 id="3-a-diff-is-not-a-surface">3. A diff is not a surface</h4>
+<p>A changed file is evidence, not the review subject. Its <strong>blast radius</strong> is the set of surfaces it renders in; review those.</p>
+<p>Expand the blast radius one hop by default: the direct importers and callers. Expand a second hop only for design tokens, theme values and shared primitives, where one line reaches the whole product.</p>
+<p>Review at most five consumers, ordered by <a href="https://github.com/stritar/skills/blob/main/skills/design-qa/interface-review/scope-resolution.md#expanding-to-consumers" target="_blank" rel="noopener noreferrer">the rule in Scope resolution</a>, then state how many you did not expand. A sweep with no bound cannot support the coverage it claims, and an unstated cutoff reads as completeness.</p>
+<h4 id="4-read-the-removed-lines">4. Read the removed lines</h4>
+<p>Regressions are invisible in the post-change state. Read the <code>-</code> side of every hunk against <a href="https://github.com/stritar/skills/blob/main/skills/design-qa/interface-review/removed-signals.md" target="_blank" rel="noopener noreferrer">Removed signals</a>.</p>
+<p>A signal is a lead, not a finding. A removal is only a regression when nothing in the change replaces it, and the domain skill owns that judgement. Route each unmatched removal to its owner, report only what that skill confirms and status it <code>Regression</code>. That tells the author they broke something that worked rather than made a new mistake.</p>
+<h4 id="5-classify-every-finding">5. Classify every finding</h4>
+<p>Give every finding one status:</p>
+<ul>
+<li><code>Introduced</code>: the change created it.</li>
+<li><code>Regression</code>: the change weakened something previously correct.</li>
+<li><code>Pre-existing</code>: present in the touched code but not caused by this change.</li>
+</ul>
+<p>Status by what the diff touched, not by which file it sits in: a line the change never touched is <code>Pre-existing</code> even three lines from a hunk. Confirm against the base ref when it matters:</p>
+<pre><code class="language-bash">git blame -L &lt;line&gt;,&lt;line&gt; &quot;$BASE&quot; -- path/to/file
+</code></pre>
+<p>Hand every finding up with its status attached and let <code>better-interface</code> apply its cap and verdict rules.</p>
+<h4 id="6-hold-the-change-to-its-stated-intent">6. Hold the change to its stated intent</h4>
+<p>Read the pull request title and body, the linked issue and the commit messages, then review whether the interface delivers what they claim.</p>
+<p>This is what surfaces the <strong>incomplete</strong> change. A surface review cannot see it, because it inspects the states that are present, and here the point is the ones that are absent:</p>
+<ul>
+<li>A new variant, size, or theme applied to some states but not all: hover, focus, active, disabled, loading, selected.</li>
+<li>A new user-facing string with no entry in the translation catalogue the project maintains.</li>
+<li>A new component with no empty, loading, error, disabled, or narrow-width state.</li>
+<li>A control added to one surface but not to the siblings that already carry its peers.</li>
+</ul>
+<p>Do not report scope creep. Whether a change does too much is a process question, not an interface one.</p>
+<h4 id="7-hand-the-review-to-better-interface">7. Hand the review to <code>better-interface</code></h4>
+<p>Hand <code>better-interface</code> the scope block, the affected surfaces and a status on every finding. It routes to the domain skills, applies severity, consolidates, enforces the cap and issues the verdict.</p>
+<p>If <code>better-interface</code> is unavailable, report the resolved scope and the file inventory, name it as the missing skill and stop. Do not invent a severity scale, a cap, or a verdict.</p>
+<h4 id="8-never-mutate-the-working-tree">8. Never mutate the working tree</h4>
+<p>A change review is read-only, including the checkout. Fetch pull request refs; never check them out. <code>git fetch</code> writes only to <code>.git</code> and is permitted. <code>gh pr checkout</code>, <code>git checkout</code>, <code>git switch</code> and <code>git stash</code> rewrite the files the author has open. They fail against local edits or discard them, so they are never permitted.</p>
+<p>Rendered verification is opt-in. Mark visual and runtime claims <strong>Not verified</strong> unless the project exposes a cheap preview or the user asks for a rendered review. When they do, use an isolated worktree (<code>git worktree add /tmp/review-&lt;n&gt; refs/remotes/pr/&lt;n&gt;</code>) and remove it when done.</p>
+<h3 id="before-you-finish">Before you finish</h3>
+<div class="table-scroll"><table>
+<thead><tr><th>Mistake</th><th>Fix</th></tr></thead>
+<tbody>
+<tr><td>One stray edit reviewed instead of the branch</td><td>Check <code>merge-base</code> before the working tree, and report both counts</td></tr>
+<tr><td>The last commit reviewed because there was no change</td><td>State the facts and offer the last commit, a named target, or a repository audit</td></tr>
+<tr><td>Hunks reviewed without their consumers</td><td>Expand one hop, two for tokens and primitives, and name what you skipped</td></tr>
+<tr><td>Only the <code>+</code> side of the diff read</td><td>Search the <code>-</code> side for removed accessibility, focus, motion and text signals</td></tr>
+<tr><td>An equivalent replacement reported as a regression</td><td>Route the removal to its owner; report only what it confirms</td></tr>
+<tr><td>A removal reported as a new mistake</td><td>Status it <code>Regression</code> so the author knows it used to work</td></tr>
+<tr><td>A line near a hunk statused <code>Introduced</code></td><td>Status by what the diff touched, confirmed with <code>git blame</code> against the base ref</td></tr>
+<tr><td>A pull request checked out to review it</td><td>Fetch the ref and review it in place</td></tr>
+<tr><td>Line numbers cited that do not exist on the reviewed ref</td><td>Cite against the head ref named in the scope block</td></tr>
+<tr><td>The severity scale or the finding cap restated here</td><td>Defer to <code>better-interface</code></td></tr>
+<tr><td>Correctness, test, or security findings in the report</td><td>Name the concern once, point at the project's code review and drop it</td></tr>
+</tbody>
+</table></div>
+<h3 id="review-output-format">Review output format</h3>
+<p>Open with the scope block:</p>
+<div class="table-scroll"><table>
+<thead><tr><th>Field</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>Target</td><td><code>branch</code>, <code>working</code>, <code>staged</code>, <code>pr 482</code>, or the range as entered</td></tr>
+<tr><td>Base ref</td><td><code>origin/main</code> at <code>a1b2c3d</code></td></tr>
+<tr><td>Head ref</td><td><code>refs/remotes/pr/482</code> at <code>e4f5g6h</code></td></tr>
+<tr><td>Commits</td><td>7 committed, 2 files uncommitted</td></tr>
+<tr><td>Files in scope</td><td>12 after exclusions</td></tr>
+<tr><td>Excluded</td><td><code>pnpm-lock.yaml</code>, <code>src/__snapshots__/</code>: lockfile and snapshots</td></tr>
+<tr><td>Surfaces expanded</td><td><code>CheckoutPage</code>, <code>SettingsPanel</code>; 3 further <code>Button</code> consumers not expanded</td></tr>
+</tbody>
+</table></div>
+<p>The coverage table follows it unchanged. A domain with no evidence in the change scope is <code>Not reviewed: no evidence in the change scope</code>, which is a coverage statement rather than a gap.</p>
+<p>Then the findings, with a <code>Status</code> column per <strong>Classify every finding</strong>:</p>
+<div class="table-scroll"><table>
+<thead><tr><th>Severity</th><th>Domain</th><th>Status</th><th>Location</th><th>Before</th><th>After</th><th>Why</th></tr></thead>
+<tbody>
+<tr><td>HIGH</td><td>Accessibility</td><td>Regression</td><td><code>src/Dialog.tsx:42</code></td><td><code>aria-label=&quot;Close&quot;</code> removed in this change</td><td>Restore <code>aria-label=&quot;Close&quot;</code> on the icon-only control</td><td>The close control had an accessible name before this change and no longer does</td></tr>
+</tbody>
+</table></div>
+<p>With no <code>Introduced</code> or <code>Regression</code> findings, omit the table and state &quot;No actionable interface findings in this change.&quot;</p>
+<p>Then <code>Pre-existing</code> findings, at most three, highest severity first, stated plainly as not this change's responsibility. Omit the section when there are none.</p>
+<div class="table-scroll"><table>
+<thead><tr><th>Severity</th><th>Domain</th><th>Location</th><th>Issue</th></tr></thead>
+<tbody>
+<tr><td>MEDIUM</td><td>Typography</td><td><code>src/Toolbar.tsx:7</code></td><td>Numeric badges use proportional figures; predates this change</td></tr>
+</tbody>
+</table></div>
+<p>The cap and the verdict cover <code>Introduced</code> and <code>Regression</code> only. <code>Pre-existing</code> findings sit outside the cap, so touching a legacy file cannot turn into a full-file audit. They sit outside the verdict too, so a change whose only findings are pre-existing is an <code>Approve</code>.</p>
+<p>End with <code>Block</code> when any <code>HIGH</code> remains and <code>Approve</code> otherwise, leaving the remaining findings in the table as work to do. When <code>better-interface</code> is available, the severity scale and the cap come from it.</p>
+</article>
+</main>
+</div>
+
+<footer class="site-foot">
+<p><a href="../index.html">Back to all skills</a></p>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

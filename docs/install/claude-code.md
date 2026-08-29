@@ -28,7 +28,7 @@ SKILL.md.
 ## Whole library or a category (plugin marketplace)
 
 ```text
-/plugin marketplace add <owner>/skills
+/plugin marketplace add stritar/skills
 /plugin install product-design-all@product-design-skills
 /plugin install product-design-accessibility@product-design-skills
 ```
@@ -38,8 +38,8 @@ Update later with `/plugin update`.
 ## skills CLI
 
 ```bash
-npx skills add <owner>/skills --skill <skill-id>   # one skill
-npx skills add <owner>/skills                      # let the CLI list them
+npx skills add stritar/skills --skill <skill-id>   # one skill
+npx skills add stritar/skills                      # let the CLI list them
 ```
 
 ## Local clone as a reference library

@@ -51,9 +51,16 @@ You are working in some other repository and want design expertise from here.
 ## Working on the library itself
 
 - `catalog/index.json` is the single source of truth. `CATALOG.md`,
-  `THIRD_PARTY_NOTICES.md`, and `.claude-plugin/*` are generated from it —
-  edit the index, then run `npm run catalog:build`. Never hand-edit generated
-  files (they carry a marker comment).
+  `THIRD_PARTY_NOTICES.md`, `.claude-plugin/*` and the web edition under
+  `docs/` (`index.html`, `skills/<id>.html`, `assets/ranking.js`) are
+  generated from it — edit the index, then run `npm run catalog:build`. Never
+  hand-edit generated files (they carry a marker comment). `docs/` also holds
+  three hand-written files that are *not* generated: `assets/site.css`,
+  `assets/site.js` and `.nojekyll`.
+- The web edition embeds each skill's `SKILL.md` body, so **editing a
+  `SKILL.md` also requires `npm run catalog:build`** — `catalog:check` fails
+  until the pages are rebuilt. That is deliberate: it is what stops the
+  published site from drifting away from the skills it documents.
 - Every change must keep `npm run validate && npm run catalog:check && npm test`
   green.
 - Third-party skills are never edited for style. Allowed modification reasons

@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>animation-vocabulary — Product design skills</title>
+<meta name="description" content="Reverse-lookup glossary that turns a vague, feel-based description of a web animation or motion effect ('the bouncy thing when a popover opens', 'the iOS rubber-band scroll') into its precise, quotable term, organized into ten categories (entrances/exits, sequencing, transforms, state transitions,…">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="page-head">
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-interaction-design">Interaction design</a></nav>
+<h1>animation-vocabulary</h1>
+<p class="badges"></p>
+<p class="lede">Reverse-lookup glossary that turns a vague, feel-based description of a web animation or motion effect ('the bouncy thing when a popover opens', 'the iOS rubber-band scroll') into its precise, quotable term, organized into ten categories (entrances/exits, sequencing, transforms, state transitions, scroll, feedback, easing, springs, looping, polish, performance, and design principles) with a disambiguation method for near-synonymous terms like clip-path vs. mask or pop-in vs. bounce.</p>
+</header>
+
+<div class="layout">
+<nav class="sidebar" aria-labelledby="contents">
+<h2 id="contents">On this page</h2>
+<ul class="toc">
+<li><a href="#about">About this skill</a></li>
+<li><a href="#install">Install</a></li>
+<li><a href="#related">Works with</a></li>
+<li><a href="#animation-vocabulary">Animation Vocabulary</a></li>
+<li><a href="#quick-start">Quick Start</a></li>
+<li><a href="#instructions">Instructions</a></li>
+<li><a href="#examples">Examples</a></li>
+<li><a href="#glossary">Glossary</a></li>
+</ul>
+</nav>
+
+<main id="main">
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3>Use when</h3><ul><li>what's this animation called</li><li>name this motion effect</li><li>what's the term for this transition</li><li>how do I describe this effect to an AI</li></ul></div>
+<div class="meta-row"><h3>Works on</h3><ul><li>a loose, sensation-based description of an animation or motion effect</li></ul></div>
+<div class="meta-row"><h3>Produces</h3><ul><li>the matching glossary term with its definition, plus close alternates and how they differ when ambiguous</li></ul></div>
+<div class="meta-row"><h3>Tags</h3>
+<ul class="tags"><li><a class="tag" href="../index.html?tag=motion">motion</a></li><li><a class="tag" href="../index.html?tag=animation">animation</a></li><li><a class="tag" href="../index.html?tag=terminology">terminology</a></li><li><a class="tag" href="../index.html?tag=interaction-design">interaction-design</a></li></ul></div>
+
+<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/animation-vocabulary">emilkowalski/skills</a> by Emil Kowalski at <code>d23d7f8</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p></div>
+</section>
+
+<section id="install">
+<h2>Install</h2>
+<ul class="install">
+<li>
+<h3>Any agent, via the skills CLI</h3>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill animation-vocabulary</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill animation-vocabulary"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Installs into whichever agents it finds on your machine.</p>
+</li>
+<li>
+<h3>Claude Code, as a plugin</h3>
+<div class="cmd"><pre><code>/plugin marketplace add stritar/skills
+/plugin install product-design-interaction-design@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-interaction-design@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Brings the whole interaction-design bundle. Use <code>product-design-all</code> for everything.</p>
+</li>
+<li>
+<h3>From a clone, copied by hand</h3>
+<div class="cmd"><pre><code>cp -r skills/interaction-design/animation-vocabulary ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/interaction-design/animation-vocabulary ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
+</li>
+</ul>
+</section>
+
+<section id="related">
+<h2>Works with</h2>
+<ul class="related">
+<li><a href="animate.html"><span class="rel-id">animate</span></a> <span class="rel-cat">Interaction design</span></li>
+</ul>
+</section>
+
+<article class="skill-body">
+<h2 class="body-head">Instructions</h2>
+<p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/interaction-design/animation-vocabulary/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
+<h2 id="animation-vocabulary">Animation Vocabulary</h2>
+<p>Turn a vague description of a motion or effect into the precise term, so the user knows what to ask for.</p>
+<h3 id="quick-start">Quick Start</h3>
+<p>The user describes an effect loosely. You return the matching term(s) in this format:</p>
+<pre><code>**Stagger** — Animate several items one after another with a small delay between each, creating a cascade.
+</code></pre>
+<p>If several terms could fit, list the best match first, then 1–2 alternates with a one-line note on how they differ.</p>
+<h3 id="instructions">Instructions</h3>
+<ol>
+<li><strong>Read for intent, not keywords.</strong> Users describe what they <em>see</em> or <em>feel</em> (&quot;springy&quot;, &quot;slides off&quot;, &quot;draws itself in&quot;), not the technical name. Map the sensation to the glossary below.</li>
+<li><strong>Quote the glossary verbatim.</strong> Its descriptions are authoritative — use them as-is, don't paraphrase.</li>
+<li><strong>Disambiguate close terms.</strong> When two compete (<em>Clip-path</em> vs <em>Mask</em>, <em>Pop in</em> vs <em>Bounce</em>, <em>Shared element transition</em> vs <em>Layout animation</em>), contrast them so the user can pick.</li>
+<li><strong>When nothing matches exactly,</strong> name the closest term and say plainly it's an approximation, or describe the effect in the glossary's vocabulary (e.g. &quot;that's a <em>stagger</em> of <em>scale-in</em> entrances&quot;).</li>
+<li><strong>Stay within this glossary.</strong> If a term genuinely isn't here, say so rather than inventing one — though you may explain the concept using these words.</li>
+<li><strong>Keep it tight.</strong> A naming question wants a name, not an essay. Lead with the term; expand only if asked.</li>
+</ol>
+<h3 id="examples">Examples</h3>
+<p><strong>Example 1 — feel-based</strong>
+User: &quot;What's it called when a popover seems to grow out of the button you clicked instead of from its middle?&quot;
+Output:</p>
+<pre><code>**Origin-aware animation** — An element animates out of its trigger, like a popover growing from the button that opened it instead of from its own center which is the default in CSS.
+</code></pre>
+<p><strong>Example 2 — disambiguation</strong>
+User: &quot;The thing where one image turns into another image.&quot;
+Output:</p>
+<pre><code>**Morph** — One shape smoothly turns into another shape, e.g. Dynamic Island.
+
+Close alternates:
+- **Crossfade** — if they simply fade over each other in the same spot.
+- **Shared element transition** — if an element travels and transforms from one position into another.
+</code></pre>
+<p><strong>Example 3 — physics feel</strong>
+User: &quot;That iOS scroll where it resists and snaps back when you pull too far.&quot;
+Output:</p>
+<pre><code>**Rubber-banding** — Resistance and snap-back when you drag past a boundary (the iOS overscroll feel).
+</code></pre>
+<h3 id="glossary">Glossary</h3>
+<p><em>A curated snapshot mirroring the project's <code>/vocabulary</code> page; keep the two in sync when either changes.</em></p>
+<h4 id="entrances-exits-how-elements-appear-and-disappear">Entrances &amp; Exits — how elements appear and disappear</h4>
+<ul>
+<li><strong>Fade in / Fade out</strong> — Element appears or disappears by changing opacity.</li>
+<li><strong>Slide in</strong> — Element enters by sliding in from off-screen (left, right, top, or bottom).</li>
+<li><strong>Scale in</strong> — Element grows from smaller to full size as it appears, often paired with a fade.</li>
+<li><strong>Pop in</strong> — Element appears with a slight overshoot, like it bounces into place.</li>
+<li><strong>Reveal</strong> — Content is uncovered gradually, often by animating a clip-path or mask.</li>
+<li><strong>Enter / Exit</strong> — The animation an element plays when it's added to or removed from the screen.</li>
+</ul>
+<h4 id="sequencing-timing-coordinating-multiple-elements-or-moments">Sequencing &amp; Timing — coordinating multiple elements or moments</h4>
+<ul>
+<li><strong>Keyframes</strong> — Defined points in an animation (0%, 50%, 100%) that the browser fills the gaps between.</li>
+<li><strong>Interpolation / Tween</strong> — Generating all the in-between frames between a start and end value, so motion is continuous.</li>
+<li><strong>Stagger</strong> — Animate several items one after another with a small delay between each, creating a cascade.</li>
+<li><strong>Orchestration</strong> — Deliberately timing multiple animations so they feel like one coordinated motion.</li>
+<li><strong>Delay</strong> — Time before an animation starts.</li>
+<li><strong>Duration</strong> — How long an animation takes.</li>
+<li><strong>Fill mode</strong> — Whether an element keeps its first or last frame's styles before the animation starts or after it ends (e.g. forwards).</li>
+<li><strong>Stepped animation</strong> — An animation that is divided into discrete steps, like a countdown timer.</li>
+</ul>
+<h4 id="movement-transforms-changing-an-elements-position-size-or-angle">Movement &amp; Transforms — changing an element's position, size, or angle</h4>
+<ul>
+<li><strong>Translate</strong> — Move an element along the X or Y axis.</li>
+<li><strong>Scale</strong> — Make an element bigger or smaller.</li>
+<li><strong>Rotate</strong> — Spin an element around a point.</li>
+<li><strong>Skew</strong> — Slant an element along the X or Y axis, shearing it out of its rectangular shape.</li>
+<li><strong>3D tilt / Flip</strong> — Rotate in 3D space (rotateX / rotateY) to add depth.</li>
+<li><strong>Perspective</strong> — How strong the 3D effect looks — a lower value exaggerates depth, like the viewer is closer.</li>
+<li><strong>Transform origin</strong> — The anchor point a scale or rotation grows or spins from.</li>
+<li><strong>Origin-aware animation</strong> — An element animates out of its trigger, like a popover growing from the button that opened it instead of from its own center which is the default in CSS.</li>
+</ul>
+<h4 id="transitions-between-states-connecting-one-state-view-or-element-to-another">Transitions Between States — connecting one state, view, or element to another</h4>
+<ul>
+<li><strong>Crossfade</strong> — One element fades out as another fades in, in the same spot.</li>
+<li><strong>Continuity transition</strong> — A change that keeps the user oriented by visually connecting before and after. For example, making the same rectangle bigger and smaller.</li>
+<li><strong>Morph</strong> — One shape smoothly turns into another shape, e.g. Dynamic Island.</li>
+<li><strong>Shared element transition</strong> — An element travels and transforms from one position into another, like a thumbnail expanding into a card.</li>
+<li><strong>Layout animation</strong> — When an element's size or position changes, it animates to the new spot instead of snapping.</li>
+<li><strong>Accordion / Collapse</strong> — A section smoothly expands and collapses its height to show or hide content.</li>
+<li><strong>Direction-aware transition</strong> — Content slides one way going forward and the opposite way going back, so navigation has a sense of direction.</li>
+</ul>
+<h4 id="scroll-motion-tied-to-scrolling-or-navigating-between-views">Scroll — motion tied to scrolling or navigating between views</h4>
+<ul>
+<li><strong>Scroll reveal</strong> — Elements fade or slide into place as they enter the viewport.</li>
+<li><strong>Scroll-driven animation</strong> — An animation whose progress is tied directly to scroll position.</li>
+<li><strong>Parallax</strong> — Background and foreground move at different speeds while scrolling, creating depth.</li>
+<li><strong>Page transition</strong> — An animation that plays when navigating from one page or route to another.</li>
+<li><strong>View transition</strong> — The browser morphs between two states or pages, connecting shared elements.</li>
+</ul>
+<h4 id="feedback-interaction-responding-to-the-users-actions">Feedback &amp; Interaction — responding to the user's actions</h4>
+<ul>
+<li><strong>Hover effect</strong> — Visual change when the cursor moves over an element.</li>
+<li><strong>Press / Tap feedback</strong> — A subtle scale-down when an element is clicked, so it feels physical.</li>
+<li><strong>Hold to confirm</strong> — A progress effect that fills up while the user holds a button.</li>
+<li><strong>Drag</strong> — Moving an element by grabbing it, often with momentum when released.</li>
+<li><strong>Drag to reorder</strong> — Dragging items in a list to rearrange them, while the others shift to make room.</li>
+<li><strong>Swipe to dismiss</strong> — Dragging an element off-screen to close it, like a drawer or toast.</li>
+<li><strong>Rubber-banding</strong> — Resistance and snap-back when you drag past a boundary (the iOS overscroll feel).</li>
+<li><strong>Shake / Wiggle</strong> — A quick side-to-side jitter signaling an error or rejected input.</li>
+<li><strong>Ripple</strong> — A circle expanding from the point of a tap, confirming the press.</li>
+</ul>
+<h4 id="easing-how-speed-changes-over-an-animation">Easing — how speed changes over an animation</h4>
+<ul>
+<li><strong>Easing</strong> — The rate at which an animation speeds up or slows down.</li>
+<li><strong>Ease-out</strong> — Starts fast, ends slow. The default for most UI and anything responding to the user.</li>
+<li><strong>Ease-in</strong> — Starts slow, ends fast. Usually avoided; can feel sluggish.</li>
+<li><strong>Ease-in-out</strong> — Slow, fast, slow. Good for elements already on screen moving from A to B.</li>
+<li><strong>Linear</strong> — Constant speed. Avoid for UI; reserve for spinners or marquees.</li>
+<li><strong>Cubic-bezier</strong> — A custom easing curve you define for precise control.</li>
+<li><strong>Asymmetric easing</strong> — A curve that accelerates and decelerates at different rates. Feels more alive than a symmetric one.</li>
+</ul>
+<h4 id="spring-animations-physics-based-motion-as-an-alternative-to-fixed-duration-easing">Spring Animations — physics-based motion as an alternative to fixed-duration easing</h4>
+<ul>
+<li><strong>Spring</strong> — Motion driven by physics (tension, mass, damping) rather than a set duration.</li>
+<li><strong>Stiffness / Tension</strong> — How strongly the spring pulls toward its target. Higher feels snappier.</li>
+<li><strong>Damping</strong> — How quickly a spring settles. Lower damping means more bounce and oscillation.</li>
+<li><strong>Mass</strong> — How heavy the animated element feels. More mass makes it slower and more sluggish.</li>
+<li><strong>Bounce</strong> — A spring that overshoots and settles, adding playfulness.</li>
+<li><strong>Perceptual duration</strong> — How long a spring feels finished, even though it keeps micro-settling underneath.</li>
+<li><strong>Momentum</strong> — Motion that carries velocity, especially after a drag or interruption.</li>
+<li><strong>Velocity</strong> — How fast and in which direction an element is moving. A spring carries it into the next animation when interrupted, so a flicked element keeps its speed.</li>
+<li><strong>Interruptible animation</strong> — An animation that can be smoothly redirected mid-flight instead of finishing first.</li>
+</ul>
+<h4 id="looping-ambient-motion-animations-that-run-on-their-own">Looping &amp; Ambient Motion — animations that run on their own</h4>
+<ul>
+<li><strong>Marquee</strong> — Text or content that scrolls continuously in a loop.</li>
+<li><strong>Loop</strong> — An animation that repeats, a set number of times or infinitely.</li>
+<li><strong>Alternate (yoyo)</strong> — A loop that plays forward then reverses each iteration, instead of jumping back to the start.</li>
+<li><strong>Orbit</strong> — An element circling around another in a continuous path.</li>
+<li><strong>Pulse</strong> — A gentle repeating scale or opacity change to draw attention.</li>
+<li><strong>Float</strong> — A gentle, continuous up-and-down drift that makes a static element feel alive and weightless.</li>
+<li><strong>Idle animation</strong> — Subtle motion that plays while an element is just sitting there, waiting to be interacted with.</li>
+</ul>
+<h4 id="polish-effects-the-small-touches-that-separate-good-from-great">Polish &amp; Effects — the small touches that separate good from great</h4>
+<ul>
+<li><strong>Blur</strong> — A blur filter used to soften an element or mask tiny imperfections.</li>
+<li><strong>Clip-path</strong> — Clipping an element to a shape, used for reveals, masks, and before/after sliders.</li>
+<li><strong>Mask</strong> — Hiding or revealing parts of an element using a shape or gradient — like clip-path, but with soft, fadeable edges.</li>
+<li><strong>Before / after slider</strong> — A draggable divider that wipes between two overlaid images to compare them.</li>
+<li><strong>Line drawing</strong> — An SVG path that draws itself in, like an invisible pen tracing it.</li>
+<li><strong>Text morph</strong> — Text that animates character by character when it changes, drawing attention to the new value.</li>
+<li><strong>Skeleton / Shimmer</strong> — A placeholder with a moving sheen shown while content loads.</li>
+<li><strong>Number ticker</strong> — Digits rolling or counting up to a value.</li>
+<li><strong>Tabular numbers</strong> — Fixed-width digits so numbers don't shift around as they change. Essential for tickers, timers, and counters.</li>
+<li><strong>Typewriter</strong> — Text appearing one character at a time, as if being typed.</li>
+</ul>
+<h4 id="performance-what-keeps-motion-smooth-instead-of-stuttering">Performance — what keeps motion smooth instead of stuttering</h4>
+<ul>
+<li><strong>Frame rate (FPS)</strong> — Frames drawn per second. 60fps is the baseline for smooth motion; 120fps on newer displays.</li>
+<li><strong>Jank</strong> — Visible stutter when the browser drops frames because it can't keep up with the animation.</li>
+<li><strong>Dropped frame</strong> — A frame the browser missed its deadline to draw, causing a tiny hitch in motion.</li>
+<li><strong>Compositing</strong> — Letting the GPU move or fade an element on its own layer without redoing layout or paint.</li>
+<li><strong>will-change</strong> — A CSS hint that an element is about to animate, so the browser can promote it to its own layer ahead of time.</li>
+<li><strong>Layout thrashing</strong> — Animating properties like width, height, top, or left that force the browser to recalculate layout every frame, causing jank.</li>
+</ul>
+<h4 id="principles-to-know-concepts-that-guide-when-and-how-to-animate">Principles to Know — concepts that guide when and how to animate</h4>
+<ul>
+<li><strong>Purposeful animation</strong> — Motion should serve a function — orient, give feedback, show relationships — not just decorate.</li>
+<li><strong>Anticipation</strong> — A small wind-up in the opposite direction before a move, hinting at what's about to happen.</li>
+<li><strong>Follow-through</strong> — Parts of an element keep moving and settle slightly after the main motion stops, adding weight.</li>
+<li><strong>Squash &amp; stretch</strong> — Deforming an element as it moves to convey weight, speed, and flexibility.</li>
+<li><strong>Perceived performance</strong> — The right animation makes an interface feel faster, even when it isn't.</li>
+<li><strong>Frequency of use</strong> — The more often a user sees an animation, the shorter and subtler it should be.</li>
+<li><strong>Spatial consistency</strong> — Animating so an element keeps its identity and position across states, so users never lose track of where things went.</li>
+<li><strong>Hardware acceleration</strong> — Animating transform and opacity lets the GPU keep motion smooth.</li>
+<li><strong>Reduced motion</strong> — Respecting the user's prefers-reduced-motion setting by toning down or removing motion.</li>
+</ul>
+</article>
+</main>
+</div>
+
+<footer class="site-foot">
+<p><a href="../index.html">Back to all skills</a></p>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

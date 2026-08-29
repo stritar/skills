@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ux-writing — Product design skills</title>
+<meta name="description" content="Writes and edits user-centered, accessible interface copy (buttons, labels, error messages, notifications, forms, onboarding, empty states, success messages, help text) against four measurable quality standards -- purposeful, concise, conversational, clear -- each scored 0-10 with concrete criteria…">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="page-head">
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-content-design">Content design</a></nav>
+<h1>ux-writing</h1>
+<p class="badges"><span class="il badge badge-rec"><span class="il-icon" aria-hidden="true">★</span><span class="il-label">Recommended</span></span></p>
+<p class="lede">Writes and edits user-centered, accessible interface copy (buttons, labels, error messages, notifications, forms, onboarding, empty states, success messages, help text) against four measurable quality standards -- purposeful, concise, conversational, clear -- each scored 0-10 with concrete criteria (e.g. 40-60 characters per line, active voice predominates). Draws on dedicated reference material for WCAG-aligned accessible writing (plain language at a 7th-8th grade level, sentences under 20 words, descriptive interactive-element labels), a detailed pattern library covering three contrasting worked product voices, a fillable voice-chart template for defining brand personality in 3-5 concepts, and three ready-to-use templates for empty states, error messages, and onboarding flows.</p>
+</header>
+
+<div class="layout">
+<nav class="sidebar" aria-labelledby="contents">
+<h2 id="contents">On this page</h2>
+<ul class="toc">
+<li><a href="#about">About this skill</a></li>
+<li><a href="#install">Install</a></li>
+<li><a href="#related">Works with</a></li>
+<li><a href="#ux-writing">UX Writing</a></li>
+<li><a href="#when-to-use-this-skill">When to Use This Skill</a></li>
+<li><a href="#core-ux-writing-principles">Core UX Writing Principles</a></li>
+<li><a href="#ux-text-patterns">UX Text Patterns</a></li>
+<li><a href="#voice-and-tone">Voice and Tone</a></li>
+<li><a href="#editing-process">Editing Process</a></li>
+<li><a href="#workflow">Workflow</a></li>
+<li><a href="#accessibility-in-ux-writing">Accessibility in UX Writing</a></li>
+<li><a href="#ux-text-benchmarks">UX Text Benchmarks</a></li>
+<li><a href="#common-mistakes-to-avoid">Common Mistakes to Avoid</a></li>
+<li><a href="#quick-reference">Quick Reference</a></li>
+<li><a href="#resources">Resources</a></li>
+</ul>
+</nav>
+
+<main id="main">
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3>Use when</h3><ul><li>write button and error copy</li><li>review this UI text</li><li>set up voice and tone guidelines</li><li>audit our interface copy</li><li>write an empty state or onboarding flow</li></ul></div>
+<div class="meta-row"><h3>Works on</h3><ul><li>Existing or draft interface copy to write or review</li><li>Product voice/brand context (optional, for tone calibration)</li></ul></div>
+<div class="meta-row"><h3>Produces</h3><ul><li>Rewritten or new interface copy</li><li>A 0-10 score across the four quality dimensions with the lowest-scoring areas flagged</li><li>Filled templates for empty states, error messages, or onboarding flows where applicable</li></ul></div>
+<div class="meta-row"><h3>Tags</h3>
+<ul class="tags"><li><a class="tag" href="../index.html?tag=ux-writing">ux-writing</a></li><li><a class="tag" href="../index.html?tag=microcopy">microcopy</a></li><li><a class="tag" href="../index.html?tag=voice-and-tone">voice-and-tone</a></li><li><a class="tag" href="../index.html?tag=labels">labels</a></li><li><a class="tag" href="../index.html?tag=error-messages">error-messages</a></li><li><a class="tag" href="../index.html?tag=help-content">help-content</a></li><li><a class="tag" href="../index.html?tag=onboarding">onboarding</a></li><li><a class="tag" href="../index.html?tag=empty-states">empty-states</a></li><li><a class="tag" href="../index.html?tag=plain-language">plain-language</a></li><li><a class="tag" href="../index.html?tag=a11y">a11y</a></li></ul></div>
+
+<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/content-designer/ux-writing-skill/tree/98cacde4ba2dd10ed28df43a8d53eef1e321c539">content-designer/ux-writing-skill</a> by Christopher Greer at <code>98cacde</code>, licence <code>MIT</code>. Modified when vendored: broken-reference.</p></div>
+</section>
+
+<section id="install">
+<h2>Install</h2>
+<ul class="install">
+<li>
+<h3>Any agent, via the skills CLI</h3>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill ux-writing</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill ux-writing"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Installs into whichever agents it finds on your machine.</p>
+</li>
+<li>
+<h3>Claude Code, as a plugin</h3>
+<div class="cmd"><pre><code>/plugin marketplace add stritar/skills
+/plugin install product-design-content-design@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-content-design@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Brings the whole content-design bundle. Use <code>product-design-all</code> for everything.</p>
+</li>
+<li>
+<h3>From a clone, copied by hand</h3>
+<div class="cmd"><pre><code>cp -r skills/content-design/ux-writing ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/content-design/ux-writing ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
+</li>
+</ul>
+</section>
+
+<section id="related">
+<h2>Works with</h2>
+<ul class="related">
+<li><a href="better-writing.html"><span class="rel-id">better-writing</span></a> <span class="rel-cat">Content design</span></li>
+</ul>
+</section>
+
+<article class="skill-body">
+<h2 class="body-head">Instructions</h2>
+<p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/content-design/ux-writing/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
+<h2 id="ux-writing">UX Writing</h2>
+<p>Write clear, concise, user-centered interface copy (UX text/microcopy) for digital products and experiences. This skill provides frameworks, patterns, and best practices for creating text that helps users accomplish their goals.</p>
+<p><strong>Compatible with:</strong> Claude, Codex, Cursor, and other agents that support the agent skills specification.</p>
+<p><strong>Note:</strong> This skill works with Codex CLI/IDE, not ChatGPT. ChatGPT cannot install or use skills.</p>
+<h3 id="when-to-use-this-skill">When to Use This Skill</h3>
+<p>Use this skill when:</p>
+<ul>
+<li>Writing interface copy (buttons, labels, titles, messages, forms)</li>
+<li>Editing existing UX text for clarity and effectiveness</li>
+<li>Creating error messages, notifications, or success messages</li>
+<li>Designing conversational flows or onboarding experiences</li>
+<li>Establishing voice and tone for a product</li>
+<li>Auditing product content for consistency and usability</li>
+</ul>
+<h3 id="core-ux-writing-principles">Core UX Writing Principles</h3>
+<h4 id="the-four-quality-standards">The Four Quality Standards</h4>
+<p>Every piece of UX text should be:</p>
+<ol>
+<li><strong>Purposeful</strong> — Helps users or the business achieve goals</li>
+<li><strong>Concise</strong> — Uses the fewest words possible without losing meaning</li>
+<li><strong>Conversational</strong> — Sounds natural and human, not robotic</li>
+<li><strong>Clear</strong> — Unambiguous, accurate, and easy to understand</li>
+</ol>
+<h4 id="key-best-practices">Key Best Practices</h4>
+<p><strong>Conciseness</strong></p>
+<ul>
+<li>Use 40-60 characters per line maximum</li>
+<li>Every word must have a job</li>
+<li>Break dense text into scannable chunks</li>
+<li>Front-load important information</li>
+</ul>
+<p><strong>Clarity</strong></p>
+<ul>
+<li>Use plain language (7th grade reading level for general, 10th for professional)</li>
+<li>Avoid jargon, idioms, and technical terms</li>
+<li>Use consistent terminology throughout</li>
+<li>Choose meaningful, specific verbs</li>
+</ul>
+<p><strong>Conversational Tone</strong></p>
+<ul>
+<li>Write how you speak</li>
+<li>Use active voice 85% of the time</li>
+<li>Include prepositions and articles</li>
+<li>Avoid robotic phrasing</li>
+</ul>
+<p><strong>User-Centered</strong></p>
+<ul>
+<li>Focus on user benefits, not features</li>
+<li>Anticipate and answer user questions</li>
+<li>Use second-person (&quot;you&quot;) language</li>
+<li>Match user's language and mental models</li>
+</ul>
+<h3 id="ux-text-patterns">UX Text Patterns</h3>
+<p>Apply these common patterns for interface elements.</p>
+<h4 id="titles">Titles</h4>
+<ul>
+<li><strong>Purpose</strong>: Orient users to where they are</li>
+<li><strong>Format</strong>: Noun phrases, sentence case</li>
+<li><strong>Types</strong>: Brand titles, content titles, category titles, task titles</li>
+<li><strong>Examples</strong>: &quot;Account settings&quot;, &quot;Your library&quot;, &quot;Create new post&quot;</li>
+</ul>
+<h4 id="buttons-and-links">Buttons and Links</h4>
+<ul>
+<li><strong>Purpose</strong>: Enable users to take action</li>
+<li><strong>Format</strong>: Active imperative verbs, sentence case</li>
+<li><strong>Pattern</strong>: <code>[Verb] [object]</code> </li>
+<li><strong>Examples</strong>: &quot;Save changes&quot;, &quot;Delete account&quot;, &quot;View details&quot;</li>
+<li><strong>Avoid</strong>: Generic labels like &quot;OK&quot;, &quot;Submit&quot;, &quot;Click here&quot;</li>
+</ul>
+<h4 id="error-messages">Error Messages</h4>
+<ul>
+<li><strong>Purpose</strong>: Explain problem and provide solution</li>
+<li><strong>Format</strong>: Empathetic, clear, actionable</li>
+<li><strong>Pattern</strong>: <code>[What failed]. [Why/context]. [What to do].</code></li>
+</ul>
+<p><strong>Error Message Types</strong></p>
+<p><strong>Validation Errors (Inline)</strong></p>
+<ul>
+<li>Show as user completes field or on blur</li>
+<li>Brief, specific guidance to correct input</li>
+<li>Pattern: <code>[Field] [specific requirement]</code></li>
+<li>Examples:
+<ul>
+<li>&quot;Email must include @&quot;</li>
+<li>&quot;Password must be at least 8 characters&quot;</li>
+<li>&quot;Choose a date in the future&quot;</li>
+</ul></li>
+<li>Timing: Real-time or on field exit</li>
+<li>Location: Below or beside the field</li>
+</ul>
+<p><strong>System Errors (Modal/Banner)</strong></p>
+<ul>
+<li>Show when backend operations fail</li>
+<li>Explain what happened and why</li>
+<li>Pattern: <code>[Action failed]. [Likely cause]. [Recovery step].</code></li>
+<li>Examples:
+<ul>
+<li>&quot;Payment failed. Your card was declined. Try a different payment method.&quot;</li>
+<li>&quot;Couldn't save changes. Connection lost. Reconnect and try again.&quot;</li>
+<li>&quot;Upload failed. File is too large. Choose a file under 10MB.&quot;</li>
+</ul></li>
+<li>Timing: Immediately after failure</li>
+<li>Location: Modal dialog or prominent banner</li>
+</ul>
+<p><strong>Blocking Errors (Full-screen)</strong></p>
+<ul>
+<li>Prevent continued use until resolved</li>
+<li>Clear explanation of blocker and resolution</li>
+<li>Pattern: <code>[What's blocked]. [Why]. [Specific action needed].</code></li>
+<li>Examples:
+<ul>
+<li>&quot;Update required. This version is no longer supported. Update now to continue.&quot;</li>
+<li>&quot;Subscription expired. Your account is paused. Renew subscription to restore access.&quot;</li>
+<li>&quot;Verification needed. Confirm your email to access features. Check your inbox.&quot;</li>
+</ul></li>
+<li>Timing: On app launch or feature access</li>
+<li>Location: Full screen or large modal</li>
+</ul>
+<p><strong>Permission Errors</strong></p>
+<ul>
+<li>Explain benefit before requesting permission</li>
+<li>Pattern: <code>[User benefit]. [Permission needed].</code></li>
+<li>Examples:
+<ul>
+<li>&quot;Get notified when orders ship. Enable notifications.&quot;</li>
+<li>&quot;Find nearby stores. Allow location access.&quot;</li>
+<li>&quot;Back up your photos. Grant storage permission.&quot;</li>
+</ul></li>
+<li>Timing: When feature is first used</li>
+<li>Location: In context of the feature</li>
+</ul>
+<p><strong>What to Avoid</strong></p>
+<ul>
+<li>Technical codes without explanation (&quot;Error 403&quot;)</li>
+<li>Blame language (&quot;invalid input&quot;, &quot;illegal character&quot;)</li>
+<li>Robotic tone (&quot;An error has occurred&quot;)</li>
+<li>Dead ends (error with no recovery path)</li>
+<li>Vague causes (&quot;Something went wrong&quot;)</li>
+</ul>
+<h4 id="success-messages">Success Messages</h4>
+<ul>
+<li><strong>Purpose</strong>: Confirm action completion</li>
+<li><strong>Format</strong>: Past tense, specific, encouraging</li>
+<li><strong>Pattern</strong>: <code>[Action] [result/benefit]</code></li>
+<li><strong>Examples</strong>: &quot;Changes saved&quot;, &quot;Email sent&quot;, &quot;Profile updated&quot;</li>
+</ul>
+<h4 id="empty-states">Empty States</h4>
+<ul>
+<li><strong>Purpose</strong>: Guide users when content is absent</li>
+<li><strong>Types</strong>: First-use, user-cleared, error/no results</li>
+<li><strong>Format</strong>: Explanation + CTA to populate</li>
+<li><strong>Example</strong>: &quot;No messages yet. Start a conversation to connect with your team.&quot;</li>
+</ul>
+<h4 id="form-fields">Form Fields</h4>
+<ul>
+<li><strong>Labels</strong>: Clear noun phrases describing input (&quot;Email address&quot;, &quot;Phone number&quot;)</li>
+<li><strong>Instructions</strong>: Verb-first, explain why information is needed</li>
+<li><strong>Placeholder</strong>: Use sparingly, only for standard inputs like &quot;name@example.com&quot;</li>
+<li><strong>Helper text</strong>: Static, on-demand, or automatic based on importance</li>
+</ul>
+<h4 id="notifications">Notifications</h4>
+<ul>
+<li><strong>Purpose</strong>: Deliver timely, valuable information</li>
+<li><strong>Types</strong>: Action-required (intrusive), Passive (less intrusive)</li>
+<li><strong>Format</strong>: Verb-first title + contextual description</li>
+<li><strong>Example</strong>: &quot;Update required. Install the latest version to continue.&quot;</li>
+</ul>
+<h3 id="voice-and-tone">Voice and Tone</h3>
+<h4 id="voice-consistent-brand-personality">Voice (Consistent Brand Personality)</h4>
+<p>Voice is the consistent personality of the product. Establish voice using:</p>
+<ul>
+<li><strong>Concepts</strong>: 3-5 key brand principles/values</li>
+<li><strong>Voice characteristics</strong>: Descriptive adjectives for each concept</li>
+<li><strong>Do/Don't examples</strong>: Concrete examples showing voice in action</li>
+</ul>
+<p>See references/voice-chart-template.md for creating a voice chart.</p>
+<h4 id="tone-adaptive-to-context">Tone (Adaptive to Context)</h4>
+<p>Tone is how voice adapts to specific situations. While voice remains constant, tone shifts based on user context and emotional state.</p>
+<p><strong>Tone Variables</strong></p>
+<ul>
+<li><strong>Purpose</strong>: Why user is seeing this text (information, action, confirmation)</li>
+<li><strong>Context</strong>: What user is trying to do (learning, completing task, recovering from error)</li>
+<li><strong>Emotional state</strong>: How user likely feels (frustrated, excited, confused, cautious)</li>
+<li><strong>Stakes</strong>: Impact of the action (low: changing theme, high: deleting account)</li>
+</ul>
+<p><strong>Tone Adaptation by User Emotional State</strong></p>
+<p><strong>Frustrated</strong> (errors, failures, blockers)</p>
+<ul>
+<li>Empathetic and solution-focused</li>
+<li>Acknowledge the problem without blame</li>
+<li>Provide clear recovery path</li>
+<li>Example: &quot;Payment failed. Your card was declined. Try a different payment method.&quot;</li>
+</ul>
+<p><strong>Confused</strong> (first use, complex features)</p>
+<ul>
+<li>Patient and explanatory</li>
+<li>Break down steps clearly</li>
+<li>Provide context and guidance</li>
+<li>Example: &quot;Connect your bank to see spending insights. We'll guide you through it.&quot;</li>
+</ul>
+<p><strong>Confident</strong> (routine tasks, return visits)</p>
+<ul>
+<li>Efficient and direct</li>
+<li>Minimal explanation</li>
+<li>Quick confirmation</li>
+<li>Example: &quot;Saved&quot;</li>
+</ul>
+<p><strong>Cautious</strong> (high-stakes actions, data loss)</p>
+<ul>
+<li>Serious and transparent</li>
+<li>Clear consequences</li>
+<li>Respectful of user's decision</li>
+<li>Example: &quot;Delete account? You'll lose all data and this can't be undone.&quot;</li>
+</ul>
+<p><strong>Successful</strong> (completions, achievements)</p>
+<ul>
+<li>Positive and encouraging</li>
+<li>Proportional to achievement</li>
+<li>Brief celebration</li>
+<li>Example: &quot;Profile updated. Your changes are live.&quot;</li>
+</ul>
+<p><strong>Tone Adaptation by Content Type</strong></p>
+<p><strong>Error messages</strong>: Empathetic, reassuring, solution-focused</p>
+<ul>
+<li>Never blame user</li>
+<li>Explain what happened</li>
+<li>Provide clear next step</li>
+</ul>
+<p><strong>Success messages</strong>: Positive, specific, encouraging</p>
+<ul>
+<li>Confirm what happened</li>
+<li>Proportional to action importance</li>
+<li>Brief and clear</li>
+</ul>
+<p><strong>Instructions</strong>: Clear, direct, helpful</p>
+<ul>
+<li>Front-load key action</li>
+<li>Explain why when needed</li>
+<li>Use simple steps</li>
+</ul>
+<p><strong>Onboarding</strong>: Inviting, encouraging, concise</p>
+<ul>
+<li>Welcome without overwhelming</li>
+<li>Focus on value</li>
+<li>Celebrate early wins</li>
+</ul>
+<p><strong>Confirmations</strong>: Serious, transparent, respectful</p>
+<ul>
+<li>Clear about consequences</li>
+<li>No manipulation</li>
+<li>Easy to back out</li>
+</ul>
+<p><strong>Empty states</strong>: Hopeful, actionable, guiding</p>
+<ul>
+<li>Explain why it's empty</li>
+<li>Provide clear next action</li>
+<li>Keep encouraging tone</li>
+</ul>
+<h3 id="editing-process">Editing Process</h3>
+<p>Edit UX text in four phases:</p>
+<h4 id="phase-1-purposeful">Phase 1: Purposeful</h4>
+<ul>
+<li>Does text help user achieve their goal?</li>
+<li>Does text serve business objectives?</li>
+<li>Is value to user clear?</li>
+<li>Are concerns anticipated and addressed?</li>
+</ul>
+<h4 id="phase-2-concise">Phase 2: Concise</h4>
+<ul>
+<li>Remove unnecessary words</li>
+<li>Combine redundant information</li>
+<li>Ensure every word earns its space</li>
+<li>Front-load important concepts</li>
+</ul>
+<h4 id="phase-3-conversational">Phase 3: Conversational</h4>
+<ul>
+<li>Read aloud—would you say this?</li>
+<li>Use active voice (unless passive is clearer)</li>
+<li>Include natural connecting words</li>
+<li>Avoid corporate jargon</li>
+</ul>
+<h4 id="phase-4-clear">Phase 4: Clear</h4>
+<ul>
+<li>Use specific, accurate verbs</li>
+<li>Maintain consistent terminology</li>
+<li>Test readability (Hemingway Editor, Flesch-Kincaid)</li>
+<li>Ensure unambiguous meaning</li>
+</ul>
+<h3 id="workflow">Workflow</h3>
+<ol>
+<li><strong>Understand context</strong>
+<ul>
+<li>User goals and needs</li>
+<li>Business objectives</li>
+<li>Technical constraints</li>
+<li>Emotional state of user</li>
+</ul></li>
+<li><strong>Draft content</strong>
+<ul>
+<li>Start with conversation (what would you say?)</li>
+<li>Apply appropriate pattern</li>
+<li>Consider voice and tone</li>
+<li>Front-load important information</li>
+</ul></li>
+<li><strong>Edit iteratively</strong>
+<ul>
+<li>Phase 1: Purposeful</li>
+<li>Phase 2: Concise</li>
+<li>Phase 3: Conversational</li>
+<li>Phase 4: Clear</li>
+</ul></li>
+<li><strong>Test and measure</strong>
+<ul>
+<li>Review with team</li>
+<li>Test with users when possible</li>
+<li>Measure task completion, comprehension</li>
+<li>Iterate based on feedback</li>
+</ul></li>
+</ol>
+<h3 id="accessibility-in-ux-writing">Accessibility in UX Writing</h3>
+<p>Writing accessible content ensures all users, including those using assistive technology, can understand and interact with your product.</p>
+<h4 id="core-accessibility-principles">Core Accessibility Principles</h4>
+<p><strong>Screen Reader Optimization</strong></p>
+<ul>
+<li>Label all interactive elements explicitly (&quot;Submit form&quot; not just &quot;Submit&quot;)</li>
+<li>Write descriptive link text (&quot;Read pricing details&quot; not &quot;Click here&quot;)</li>
+<li>Structure error messages to work with screen readers (error + field label read together)</li>
+<li>Use ARIA labels when visual context isn't sufficient</li>
+</ul>
+<p><strong>Cognitive Accessibility</strong></p>
+<ul>
+<li>Target 8-14 words per sentence (8 words = 100% comprehension, 14 words = 90%)</li>
+<li>Break complex information into scannable chunks</li>
+<li>Use clear headings and logical hierarchy</li>
+<li>Provide consistent, predictable patterns</li>
+</ul>
+<p><strong>Multi-Modal Communication</strong></p>
+<ul>
+<li>Don't rely on color alone to convey meaning</li>
+<li>Pair visual indicators with text (&quot;Error: Email required&quot; with red icon)</li>
+<li>Provide text alternatives for icons and images</li>
+<li>Ensure sufficient color contrast (WCAG AA minimum: 4.5:1)</li>
+</ul>
+<p><strong>Plain Language for All</strong></p>
+<ul>
+<li>Target 7th-8th grade reading level for general audience</li>
+<li>Define technical terms when first used</li>
+<li>Avoid idioms, metaphors, and cultural references</li>
+<li>Use common, everyday words</li>
+</ul>
+<h4 id="accessible-pattern-examples">Accessible Pattern Examples</h4>
+<p><strong>Buttons</strong></p>
+<ul>
+<li>❌ Poor: &quot;Submit&quot; (context missing for screen readers)</li>
+<li>✅ Good: &quot;Submit application&quot;</li>
+</ul>
+<p><strong>Links</strong></p>
+<ul>
+<li>❌ Poor: &quot;Click here for more information&quot;</li>
+<li>✅ Good: &quot;Read our privacy policy&quot;</li>
+</ul>
+<p><strong>Error Messages</strong></p>
+<ul>
+<li>❌ Poor: Red text showing &quot;Invalid&quot;</li>
+<li>✅ Good: &quot;Error: Email must include @&quot; (with error icon)</li>
+</ul>
+<p><strong>Form Labels</strong></p>
+<ul>
+<li>❌ Poor: Placeholder-only fields</li>
+<li>✅ Good: Visible label + optional placeholder</li>
+</ul>
+<h3 id="ux-text-benchmarks">UX Text Benchmarks</h3>
+<p>Use these research-backed metrics to create effective UX text.</p>
+<h4 id="sentence-length-targets">Sentence Length Targets</h4>
+<p><strong>By Content Type</strong></p>
+<ul>
+<li><strong>Buttons/CTAs</strong>: 2-4 words ideal, 6 word maximum</li>
+<li><strong>Titles</strong>: 3-6 words, 40 characters maximum</li>
+<li><strong>Error messages</strong>: 12-18 words (including solution)</li>
+<li><strong>Instructions</strong>: 20 words maximum, 14 ideal</li>
+<li><strong>Body copy</strong>: 15-20 words per sentence average</li>
+<li><strong>Notifications</strong>: 10-15 words for title + body</li>
+</ul>
+<p><strong>Comprehension Rates</strong></p>
+<ul>
+<li>8 words or fewer: 100% user comprehension</li>
+<li>14 words or fewer: 90% user comprehension</li>
+<li>25 words: Maximum before significant comprehension drop</li>
+</ul>
+<h4 id="character-and-line-length">Character and Line Length</h4>
+<p><strong>Optimal Ranges</strong></p>
+<ul>
+<li><strong>Line length</strong>: 40-60 characters for maximum readability</li>
+<li><strong>Button labels</strong>: 15-25 characters</li>
+<li><strong>Page titles</strong>: 30-50 characters</li>
+<li><strong>Notification titles</strong>: 35-45 characters</li>
+</ul>
+<h4 id="reading-level-guidelines">Reading Level Guidelines</h4>
+<p><strong>By Audience</strong></p>
+<ul>
+<li><strong>General public</strong>: 7th-8th grade (Flesch-Kincaid)</li>
+<li><strong>Professional tools</strong>: 9th-10th grade</li>
+<li><strong>Technical products</strong>: 10th-11th grade</li>
+<li><strong>Specialized fields</strong>: 11th-12th grade (only when necessary)</li>
+</ul>
+<p><strong>Testing Tools</strong></p>
+<ul>
+<li>Hemingway Editor: Highlights complex sentences</li>
+<li>Readable.com: Provides multiple readability scores</li>
+<li>Microsoft Word: Built-in Flesch-Kincaid scoring</li>
+</ul>
+<h3 id="common-mistakes-to-avoid">Common Mistakes to Avoid</h3>
+<ul>
+<li>Using passive voice excessively</li>
+<li>Generic button labels (&quot;Submit&quot;, &quot;OK&quot;)</li>
+<li>Blaming users in error messages</li>
+<li>Overly clever humor in serious contexts</li>
+<li>Inconsistent terminology</li>
+<li>Hidden instructions or explanations</li>
+<li>System-oriented language vs. user language</li>
+<li>Too many words (not concise enough)</li>
+<li>Robotic, corporate tone</li>
+<li>Relying on color alone for meaning</li>
+<li>Writing inaccessible link text (&quot;Click here&quot;)</li>
+</ul>
+<h3 id="quick-reference">Quick Reference</h3>
+<p><strong>Sentence case</strong>: &quot;Save your changes&quot; (not &quot;Save Your Changes&quot;)
+<strong>Active imperative for buttons</strong>: &quot;Delete account&quot; (not &quot;Account deletion&quot;)
+<strong>User-focused</strong>: &quot;Save time with shortcuts&quot; (not &quot;We offer shortcuts&quot;)
+<strong>Specific verbs</strong>: &quot;Delete&quot; (not &quot;Remove&quot; when permanently deleting)
+<strong>Front-loaded</strong>: &quot;Password must be 8 characters&quot; (not &quot;Must be 8 characters for your password&quot;)</p>
+<h3 id="resources">Resources</h3>
+<p>This skill includes:</p>
+<ul>
+<li><strong>references/accessibility-guidelines.md</strong>: Comprehensive guide to writing accessible UX text for all users</li>
+<li><strong>references/voice-chart-template.md</strong>: Template for creating a product voice chart</li>
+<li><strong>references/content-usability-checklist.md</strong>: Comprehensive checklist for evaluating UX text quality</li>
+<li><strong>references/patterns-detailed.md</strong>: Extended examples of UX text patterns in different voices</li>
+<li><strong>examples/real-world-improvements.md</strong>: Before/after transformations with detailed analysis and scoring</li>
+<li><strong>templates/error-message-template.md</strong>: Fillable template for writing effective error messages</li>
+<li><strong>templates/empty-state-template.md</strong>: Guide for creating helpful empty states</li>
+<li><strong>templates/onboarding-flow-template.md</strong>: Framework for designing clear onboarding experiences</li>
+<li><strong>docs/figma-integration.md</strong>: Guide for using this skill with Figma MCP (Claude Code, Codex, and Cursor)</li>
+</ul>
+</article>
+</main>
+</div>
+
+<footer class="site-foot">
+<p><a href="../index.html">Back to all skills</a></p>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

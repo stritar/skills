@@ -24,6 +24,22 @@ export function loadTagVocabulary() {
   return new Set(m[1].split('\n').map((l) => l.trim()).filter(Boolean));
 }
 
+// The one-line scope of each category is the "## Categories" table in
+// catalog/taxonomy.md, so the browse UI describes a category with the same
+// words validate enforces it by.
+export function loadCategoryScopes() {
+  const md = readFileSync(join(ROOT, 'catalog', 'taxonomy.md'), 'utf8');
+  const section = md.split(/^## /m).find((s) => s.startsWith('Categories'));
+  if (!section) throw new Error('catalog/taxonomy.md has no "## Categories" section');
+  const scopes = {};
+  for (const line of section.split('\n')) {
+    const m = line.match(/^\|\s*`([a-z-]+)`\s*\|\s*(.+?)\s*\|\s*$/);
+    if (m) scopes[m[1]] = m[2];
+  }
+  if (Object.keys(scopes).length === 0) throw new Error('catalog/taxonomy.md has no category rows');
+  return scopes;
+}
+
 export function categoriesFromSchema(schema) {
   return schema.$defs.skill.properties.category.enum;
 }

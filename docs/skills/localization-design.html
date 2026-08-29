@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>localization-design — Product design skills</title>
+<meta name="description" content="Makes the agent design UI that survives localization: text-expansion planning with per-language percentages (German +20-35%, Finnish +30-40%), RTL mirroring rules including what does and does not mirror, CSS logical properties, typography rules for Arabic/CJK/Indic scripts, cultural color and…">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="page-head">
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-content-design">Content design</a></nav>
+<h1>localization-design</h1>
+<p class="badges"><span class="il badge badge-rec"><span class="il-icon" aria-hidden="true">★</span><span class="il-label">Recommended</span></span></p>
+<p class="lede">Makes the agent design UI that survives localization: text-expansion planning with per-language percentages (German +20-35%, Finnish +30-40%), RTL mirroring rules including what does and does not mirror, CSS logical properties, typography rules for Arabic/CJK/Indic scripts, cultural color and iconography tables, locale-aware date/number/address formats, and design-system implications (semantic 'start/end' token naming, pseudo-localization testing).</p>
+</header>
+
+<div class="layout">
+<nav class="sidebar" aria-labelledby="contents">
+<h2 id="contents">On this page</h2>
+<ul class="toc">
+<li><a href="#about">About this skill</a></li>
+<li><a href="#install">Install</a></li>
+<li><a href="#related">Works with</a></li>
+<li><a href="#localization-design">Localization Design</a></li>
+<li><a href="#what-you-do">What You Do</a></li>
+<li><a href="#text-expansion">Text Expansion</a></li>
+<li><a href="#rtl-right-to-left-support">RTL (Right-to-Left) Support</a></li>
+<li><a href="#typography-for-non-latin-scripts">Typography for Non-Latin Scripts</a></li>
+<li><a href="#cultural-considerations">Cultural Considerations</a></li>
+<li><a href="#design-system-implications">Design System Implications</a></li>
+<li><a href="#best-practices">Best Practices</a></li>
+</ul>
+</nav>
+
+<main id="main">
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3>Use when</h3><ul><li>localize this UI</li><li>RTL support</li><li>text expansion in translation</li><li>design for multiple languages</li><li>internationalization review</li><li>Arabic or CJK layout</li></ul></div>
+<div class="meta-row"><h3>Works on</h3><ul><li>UI designs or components</li><li>target locales</li><li>design tokens</li></ul></div>
+<div class="meta-row"><h3>Produces</h3><ul><li>localization-readiness findings</li><li>RTL and expansion fixes</li><li>cultural adaptation guidance</li></ul></div>
+<div class="meta-row"><h3>Tags</h3>
+<ul class="tags"><li><a class="tag" href="../index.html?tag=localization">localization</a></li><li><a class="tag" href="../index.html?tag=internationalization">internationalization</a></li><li><a class="tag" href="../index.html?tag=layout">layout</a></li><li><a class="tag" href="../index.html?tag=typography">typography</a></li><li><a class="tag" href="../index.html?tag=design-system">design-system</a></li></ul></div>
+
+<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/Owl-Listener/designer-skills/tree/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/design-systems/skills/localization-design">Owl-Listener/designer-skills</a> by Owl-Listener at <code>20e34c4</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p></div>
+</section>
+
+<section id="install">
+<h2>Install</h2>
+<ul class="install">
+<li>
+<h3>Any agent, via the skills CLI</h3>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill localization-design</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill localization-design"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Installs into whichever agents it finds on your machine.</p>
+</li>
+<li>
+<h3>Claude Code, as a plugin</h3>
+<div class="cmd"><pre><code>/plugin marketplace add stritar/skills
+/plugin install product-design-content-design@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-content-design@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Brings the whole content-design bundle. Use <code>product-design-all</code> for everything.</p>
+</li>
+<li>
+<h3>From a clone, copied by hand</h3>
+<div class="cmd"><pre><code>cp -r skills/content-design/localization-design ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/content-design/localization-design ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
+</li>
+</ul>
+</section>
+
+<section id="related">
+<h2>Works with</h2>
+<ul class="related">
+<li><a href="better-writing.html"><span class="rel-id">better-writing</span></a> <span class="rel-cat">Content design</span></li>
+<li><a href="better-layout.html"><span class="rel-id">better-layout</span></a> <span class="rel-cat">Visual design</span></li>
+</ul>
+</section>
+
+<article class="skill-body">
+<h2 class="body-head">Instructions</h2>
+<p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/content-design/localization-design/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
+<h2 id="localization-design">Localization Design</h2>
+<p>You are an expert in designing UI that works across languages, scripts, and cultures without requiring per-locale redesigns.</p>
+<h3 id="what-you-do">What You Do</h3>
+<p>You apply localization-aware design principles to ensure components, layouts, and content can be adapted to any target locale without breaking — and that cultural differences in color, iconography, and conventions are accounted for.</p>
+<h3 id="text-expansion">Text Expansion</h3>
+<p>The most common localization failure. English is compact; most target languages are longer:</p>
+<div class="table-scroll"><table>
+<thead><tr><th>Language</th><th>Typical expansion vs English</th></tr></thead>
+<tbody>
+<tr><td>German</td><td>+20–35%</td></tr>
+<tr><td>French</td><td>+15–25%</td></tr>
+<tr><td>Finnish</td><td>+30–40%</td></tr>
+<tr><td>Arabic (translated)</td><td>−20–30% (but RTL and different script)</td></tr>
+<tr><td>Japanese/Chinese</td><td>Often shorter, but very different typographic rules</td></tr>
+</tbody>
+</table></div>
+<p><strong>Design for text expansion:</strong></p>
+<ul>
+<li>Never size containers to fit English copy — use flexible heights and widths</li>
+<li>Test layouts with German or Finnish translations as worst-case proxies before other locales exist</li>
+<li>Truncation with ellipsis is an acceptable last resort, but provide full text via tooltip/expand</li>
+<li>Buttons: use min-width, not fixed width; allow wrapping for extreme cases in narrow contexts</li>
+<li>Navigation labels: test all nav items together at 130% length to validate menu doesn't break</li>
+</ul>
+<h3 id="rtl-right-to-left-support">RTL (Right-to-Left) Support</h3>
+<p>Arabic, Hebrew, Persian, and Urdu read right-to-left. The entire layout mirrors:</p>
+<ul>
+<li><strong>Content flow</strong>: text, lists, and reading order reverse</li>
+<li><strong>Layout mirroring</strong>: sidebars, navigation, and content areas flip; left margin becomes right margin</li>
+<li><strong>Icon mirroring</strong>: directional icons (arrows, chevrons, back button) mirror; non-directional icons (camera, settings) do not</li>
+<li><strong>CSS logical properties</strong>: use <code>margin-inline-start</code> instead of <code>margin-left</code>; <code>padding-block-end</code> instead of <code>padding-bottom</code> — these flip automatically with <code>dir=&quot;rtl&quot;</code></li>
+<li><strong>Text alignment</strong>: use <code>text-align: start</code> not <code>text-align: left</code></li>
+<li><strong>Numbers</strong>: numerals remain LTR within RTL text in most contexts; don't mirror number displays
+<strong>What does not mirror in RTL:</strong></li>
+<li>Logos and brand marks</li>
+<li>Clocks and time displays</li>
+<li>Mathematical notation</li>
+<li>Images and illustrations (usually — context-dependent)</li>
+<li>Video player controls (debated; mirror directional but not play/pause)</li>
+</ul>
+<h3 id="typography-for-non-latin-scripts">Typography for Non-Latin Scripts</h3>
+<ul>
+<li>Arabic and Hebrew: cursive scripts with letter-joining rules; larger minimum font sizes (16px+) for readability</li>
+<li>CJK (Chinese, Japanese, Korean): square characters; different optimal line-height and letter-spacing than Latin; different measure rules</li>
+<li>Devanagari (Hindi) and other Indic scripts: complex ligatures; test with font stacks that include proper fallbacks</li>
+<li>Never fake-bold or fake-italic non-Latin scripts — use genuine weights from the font family</li>
+</ul>
+<h3 id="cultural-considerations">Cultural Considerations</h3>
+<h4 id="color">Color</h4>
+<p>Color meaning varies significantly by culture:</p>
+<div class="table-scroll"><table>
+<thead><tr><th>Color</th><th>Western association</th><th>Example alternative association</th></tr></thead>
+<tbody>
+<tr><td>Red</td><td>Danger, error</td><td>Luck/prosperity (China), mourning (South Africa)</td></tr>
+<tr><td>White</td><td>Clean, minimal</td><td>Mourning (many East Asian cultures)</td></tr>
+<tr><td>Green</td><td>Success, go</td><td>Unfaithfulness (China), danger (some Middle Eastern contexts)</td></tr>
+</tbody>
+</table></div>
+<ul>
+<li>Don't rely on color alone for semantic meaning (this is also an accessibility requirement)</li>
+<li>Test color choices with cultural consultants for high-stakes or global products</li>
+</ul>
+<h4 id="iconography">Iconography</h4>
+<ul>
+<li>Hand gestures (thumbs up, OK sign) have offensive meanings in some cultures — avoid</li>
+<li>Postal and civic icons (mailbox, house, phone) vary by region — use abstract or universally-recognizable forms</li>
+<li>Religious and food symbolism is culturally loaded — avoid unless necessary and tested</li>
+</ul>
+<h4 id="date-time-and-number-formats">Date, Time, and Number Formats</h4>
+<ul>
+<li>Date formats vary: MM/DD/YYYY (US), DD/MM/YYYY (UK/EU), YYYY-MM-DD (ISO)</li>
+<li>Use locale-aware formatting via <code>Intl.DateTimeFormat</code> / equivalent</li>
+<li>Currency: symbol position, decimal separator, thousands separator all vary</li>
+<li>Addresses: field order, required fields, and format vary significantly — use a locale-aware address form library</li>
+</ul>
+<h3 id="design-system-implications">Design System Implications</h3>
+<ul>
+<li>All spacing, sizing, and layout should use logical CSS properties</li>
+<li>Text containers must be flexible-height and flexible-width</li>
+<li>Design token names should be semantic, not directional (&quot;start&quot; not &quot;left&quot;)</li>
+<li>Components should be tested with at least one RTL locale and one long-expansion locale before being added to the system</li>
+<li>Provide localization guidance in component documentation: &quot;This component has been tested with Arabic (RTL) and German (text expansion)&quot;</li>
+</ul>
+<h3 id="best-practices">Best Practices</h3>
+<ul>
+<li>Design with localization in mind from day one — retrofitting RTL support into a left-biased layout is expensive</li>
+<li>Create a pseudo-localization test string (replaces characters with extended lookalikes) to test expansion and special character handling before translations exist</li>
+<li>Partner with in-market users or cultural consultants, not just translators — translation handles words; localization handles meaning</li>
+<li>Audit icon and illustration libraries for cultural neutrality before internationalizing</li>
+</ul>
+</article>
+</main>
+</div>
+
+<footer class="site-foot">
+<p><a href="../index.html">Back to all skills</a></p>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

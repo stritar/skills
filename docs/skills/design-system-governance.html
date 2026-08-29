@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>design-system-governance — Product design skills</title>
+<meta name="description" content="Makes the agent define how a design system evolves: seven core governance questions, three ownership models (centralized/federated/hybrid) with trade-offs, a seven-stage contribution lifecycle from proposal to communicated release, semver as the consumer contract with a patch/minor/major table, a…">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="page-head">
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-design-systems">Design systems</a></nav>
+<h1>design-system-governance</h1>
+<p class="badges"><span class="il badge badge-rec"><span class="il-icon" aria-hidden="true">★</span><span class="il-label">Recommended</span></span></p>
+<p class="lede">Makes the agent define how a design system evolves: seven core governance questions, three ownership models (centralized/federated/hybrid) with trade-offs, a seven-stage contribution lifecycle from proposal to communicated release, semver as the consumer contract with a patch/minor/major table, a deprecation process with timelines and in-product warnings, breaking-change policy (migration guides, codemods, shims), and component quality entry standards.</p>
+</header>
+
+<div class="layout">
+<nav class="sidebar" aria-labelledby="contents">
+<h2 id="contents">On this page</h2>
+<ul class="toc">
+<li><a href="#about">About this skill</a></li>
+<li><a href="#install">Install</a></li>
+<li><a href="#related">Works with</a></li>
+<li><a href="#design-system-governance">Design System Governance</a></li>
+<li><a href="#what-you-do">What You Do</a></li>
+<li><a href="#core-governance-questions">Core Governance Questions</a></li>
+<li><a href="#ownership-models">Ownership Models</a></li>
+<li><a href="#contribution-process">Contribution Process</a></li>
+<li><a href="#versioning">Versioning</a></li>
+<li><a href="#deprecation-process">Deprecation Process</a></li>
+<li><a href="#breaking-change-policy">Breaking Change Policy</a></li>
+<li><a href="#quality-standards">Quality Standards</a></li>
+<li><a href="#best-practices">Best Practices</a></li>
+</ul>
+</nav>
+
+<main id="main">
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3>Use when</h3><ul><li>design system governance</li><li>contribution model</li><li>deprecate a component</li><li>design system versioning</li><li>breaking change policy</li></ul></div>
+<div class="meta-row"><h3>Works on</h3><ul><li>design system state</li><li>team structure</li><li>change proposals</li></ul></div>
+<div class="meta-row"><h3>Produces</h3><ul><li>governance model</li><li>contribution process</li><li>versioning and deprecation policy</li></ul></div>
+<div class="meta-row"><h3>Tags</h3>
+<ul class="tags"><li><a class="tag" href="../index.html?tag=design-system">design-system</a></li><li><a class="tag" href="../index.html?tag=governance">governance</a></li><li><a class="tag" href="../index.html?tag=versioning">versioning</a></li><li><a class="tag" href="../index.html?tag=migration">migration</a></li><li><a class="tag" href="../index.html?tag=component-docs">component-docs</a></li></ul></div>
+
+<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/Owl-Listener/designer-skills/tree/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/design-systems/skills/design-system-governance">Owl-Listener/designer-skills</a> by Owl-Listener at <code>20e34c4</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p></div>
+</section>
+
+<section id="install">
+<h2>Install</h2>
+<ul class="install">
+<li>
+<h3>Any agent, via the skills CLI</h3>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill design-system-governance</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill design-system-governance"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Installs into whichever agents it finds on your machine.</p>
+</li>
+<li>
+<h3>Claude Code, as a plugin</h3>
+<div class="cmd"><pre><code>/plugin marketplace add stritar/skills
+/plugin install product-design-design-systems@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-design-systems@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Brings the whole design-systems bundle. Use <code>product-design-all</code> for everything.</p>
+</li>
+<li>
+<h3>From a clone, copied by hand</h3>
+<div class="cmd"><pre><code>cp -r skills/design-systems/design-system-governance ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/design-systems/design-system-governance ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
+</li>
+</ul>
+</section>
+
+<section id="related">
+<h2>Works with</h2>
+<ul class="related">
+<li><a href="design-debt-audit.html"><span class="rel-id">design-debt-audit</span></a> <span class="rel-cat">Design systems</span></li>
+<li><a href="design-tokens.html"><span class="rel-id">design-tokens</span></a> <span class="rel-cat">Design systems</span></li>
+<li><a href="token-build.html"><span class="rel-id">token-build</span></a> <span class="rel-cat">Design systems</span></li>
+<li><a href="extract-design-md.html"><span class="rel-id">extract-design-md</span></a> <span class="rel-cat">Design systems</span></li>
+<li><a href="pre-handoff-review.html"><span class="rel-id">pre-handoff-review</span></a> <span class="rel-cat">Orchestration</span></li>
+</ul>
+</section>
+
+<article class="skill-body">
+<h2 class="body-head">Instructions</h2>
+<p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/design-systems/design-system-governance/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
+<h2 id="design-system-governance">Design System Governance</h2>
+<p>You are an expert in the operational and organizational structures that keep a design system healthy over time.</p>
+<h3 id="what-you-do">What You Do</h3>
+<p>You define the processes, roles, and decision frameworks that allow a design system to evolve without fragmenting — so contributors know how to participate, consumers know how to depend on it, and the system stays coherent as the product scales.</p>
+<h3 id="core-governance-questions">Core Governance Questions</h3>
+<p>A governance model must answer:</p>
+<ol>
+<li><strong>Who owns the system?</strong> Dedicated team, federated contributors, or hybrid?</li>
+<li><strong>Who can contribute?</strong> Anyone, or only the core team?</li>
+<li><strong>How are changes proposed and decided?</strong> Request process, RFC, or open pull requests?</li>
+<li><strong>How is the system versioned?</strong> How do consumers know what changed?</li>
+<li><strong>How are breaking changes handled?</strong> How much notice, what migration support?</li>
+<li><strong>What gets deprecated, and how?</strong> Timeline and removal process?</li>
+<li><strong>How is quality maintained?</strong> Review process before merging new components?</li>
+</ol>
+<h3 id="ownership-models">Ownership Models</h3>
+<h4 id="centralized-core-team">Centralized (Core Team)</h4>
+<p>A dedicated design system team owns all components. Consumers submit requests; the core team builds and maintains.</p>
+<ul>
+<li>High consistency, high quality</li>
+<li>Can become a bottleneck; slow to respond to product team needs</li>
+<li>Works best in large orgs with budget for a dedicated team</li>
+</ul>
+<h4 id="federated-distributed">Federated (Distributed)</h4>
+<p>Any product team can contribute components. A lightweight governance layer reviews and accepts contributions.</p>
+<ul>
+<li>Fast to grow; reflects actual product needs</li>
+<li>Requires strong review standards to maintain quality</li>
+<li>Works best in mid-size orgs with mature design practice</li>
+</ul>
+<h4 id="hybrid">Hybrid</h4>
+<p>Core team owns foundational components; product teams own domain-specific components with support from core.</p>
+<ul>
+<li>Balances quality with velocity</li>
+<li>Requires clear ownership boundaries (&quot;core&quot; vs &quot;extended&quot; library)</li>
+<li>Most common model in practice</li>
+</ul>
+<h3 id="contribution-process">Contribution Process</h3>
+<p>Define the lifecycle of a new component or change:</p>
+<ol>
+<li><strong>Request/Proposal</strong>: product team identifies a need; submits a request with use case and context</li>
+<li><strong>Triage</strong>: core team assesses: is this generalizable? Does something similar exist? What's the priority?</li>
+<li><strong>Design</strong>: component designed and specced (states, variants, accessibility, tokens)</li>
+<li><strong>Review</strong>: design critique + accessibility review + engineering feasibility</li>
+<li><strong>Build and test</strong>: implementation, documentation, accessibility testing</li>
+<li><strong>Release</strong>: versioned release with changelog entry</li>
+<li><strong>Communication</strong>: announce to consumers with migration notes if applicable</li>
+</ol>
+<h3 id="versioning">Versioning</h3>
+<p>Use semantic versioning (semver) as the communication contract:</p>
+<div class="table-scroll"><table>
+<thead><tr><th>Version type</th><th>When to use</th></tr></thead>
+<tbody>
+<tr><td><strong>Patch</strong> (1.0.x)</td><td>Bug fixes, documentation corrections, no API changes</td></tr>
+<tr><td><strong>Minor</strong> (1.x.0)</td><td>New components or variants added; backwards compatible</td></tr>
+<tr><td><strong>Major</strong> (x.0.0)</td><td>Breaking changes: renamed props, removed components, changed behavior</td></tr>
+</tbody>
+</table></div>
+<ul>
+<li>Tag every release in version control</li>
+<li>Maintain a public changelog — consumers need to know what changed and why</li>
+<li>Keep major version bumps rare and well-communicated</li>
+</ul>
+<h3 id="deprecation-process">Deprecation Process</h3>
+<ul>
+<li>Announce deprecation with the release that introduces the replacement</li>
+<li>Provide a migration guide: what replaces the deprecated item, with code examples</li>
+<li>Keep deprecated items functional for at least one minor version cycle before removal</li>
+<li>Use in-product warnings (console warnings, Figma annotations) to surface deprecations to consumers</li>
+<li>Communicate timelines clearly: &quot;Deprecated in 2.3, removed in 3.0 (Q3)&quot;</li>
+</ul>
+<h3 id="breaking-change-policy">Breaking Change Policy</h3>
+<p>Before releasing a breaking change:</p>
+<ul>
+<li>Give consumers a migration path (a codemod, a replacement component, a spec change)</li>
+<li>Document the change in the changelog with &quot;BREAKING:&quot; prefix</li>
+<li>Provide a migration guide in docs</li>
+<li>Consider a compatibility shim for critical consumers who can't migrate immediately</li>
+</ul>
+<h3 id="quality-standards">Quality Standards</h3>
+<p>Define what a component must have before it can enter the system:</p>
+<ul>
+<li>Documented props, variants, and states</li>
+<li>Accessibility review (WCAG AA minimum, keyboard navigation, screen reader tested)</li>
+<li>Responsive behavior specified</li>
+<li>Design token usage (no hardcoded values)</li>
+<li>Usage guidance (when to use, when not to use)</li>
+<li>Design file component (Figma or equivalent) synced with code</li>
+</ul>
+<h3 id="best-practices">Best Practices</h3>
+<ul>
+<li>Publish a clear contribution guide so product teams know how to participate</li>
+<li>Hold regular office hours or open reviews — governance works better as a conversation than a ticket queue</li>
+<li>Review adoption metrics (which components are used most/least) to guide investment</li>
+<li>Document decisions as well as outcomes — why a component works the way it does prevents revisiting settled debates</li>
+<li>Treat governance as a product: it has users (contributors and consumers), and it needs iteration</li>
+</ul>
+</article>
+</main>
+</div>
+
+<footer class="site-foot">
+<p><a href="../index.html">Back to all skills</a></p>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

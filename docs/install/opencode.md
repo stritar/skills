@@ -20,5 +20,5 @@ cp -r skills/<category>/<skill-id> /path/to/project/.opencode/skills/
 # or the cross-tool convention:
 cp -r skills/<category>/<skill-id> /path/to/project/.agents/skills/
 # or:
-npx skills add <owner>/skills --skill <skill-id>
+npx skills add stritar/skills --skill <skill-id>
 ```

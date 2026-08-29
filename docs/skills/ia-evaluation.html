@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ia-evaluation — Product design skills</title>
+<meta name="description" content="Plans, runs and analyses information-architecture studies: matches the question to open, closed or hybrid card sorts, tree tests or first-click tests; designs cards, trees, goal-language tasks and participant targets; analyses similarity matrices, clusters and standardised labels for sorts, and…">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="page-head">
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-information-architecture">Information architecture</a></nav>
+<h1>ia-evaluation</h1>
+<p class="badges"><span class="il badge badge-rec"><span class="il-icon" aria-hidden="true">★</span><span class="il-label">Recommended</span></span><span class="il badge badge-exp"><span class="il-label">Experimental</span></span></p>
+<p class="lede">Plans, runs and analyses information-architecture studies: matches the question to open, closed or hybrid card sorts, tree tests or first-click tests; designs cards, trees, goal-language tasks and participant targets; analyses similarity matrices, clusters and standardised labels for sorts, and success, directness, time and wrong-path distributions for tree tests, using field thresholds; and turns results into a sitemap or navigation recommendation with the contested items resolved and the follow-up study named.</p>
+</header>
+
+<div class="layout">
+<nav class="sidebar" aria-labelledby="contents">
+<h2 id="contents">On this page</h2>
+<ul class="toc">
+<li><a href="#about">About this skill</a></li>
+<li><a href="#install">Install</a></li>
+<li><a href="#related">Works with</a></li>
+<li><a href="#information-architecture-evaluation">Information architecture evaluation</a></li>
+<li><a href="#inputs">Inputs</a></li>
+<li><a href="#workflow">Workflow</a></li>
+<li><a href="#before-you-finish">Before you finish</a></li>
+<li><a href="#limitations">Limitations</a></li>
+</ul>
+</nav>
+
+<main id="main">
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3>Use when</h3><ul><li>run a card sort</li><li>tree test this navigation</li><li>users cannot find the settings</li><li>validate these category labels</li><li>reorganise the menu</li><li>first-click test</li></ul></div>
+<div class="meta-row"><h3>Works on</h3><ul><li>the structure question</li><li>content inventory or proposed tree</li><li>participant access or recruitment plan</li></ul></div>
+<div class="meta-row"><h3>Produces</h3><ul><li>study plan with instruments</li><li>results tables with thresholds</li><li>sitemap or navigation recommendation</li></ul></div>
+<div class="meta-row"><h3>Tags</h3>
+<ul class="tags"><li><a class="tag" href="../index.html?tag=information-architecture">information-architecture</a></li><li><a class="tag" href="../index.html?tag=card-sorting">card-sorting</a></li><li><a class="tag" href="../index.html?tag=tree-testing">tree-testing</a></li><li><a class="tag" href="../index.html?tag=navigation">navigation</a></li><li><a class="tag" href="../index.html?tag=taxonomy">taxonomy</a></li><li><a class="tag" href="../index.html?tag=sitemap">sitemap</a></li><li><a class="tag" href="../index.html?tag=user-research">user-research</a></li></ul></div>
+
+<div class="meta-row"><h3>Source</h3><p>Written for this library. Licence <code>MIT</code>.</p></div>
+</section>
+
+<section id="install">
+<h2>Install</h2>
+<ul class="install">
+<li>
+<h3>Any agent, via the skills CLI</h3>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill ia-evaluation</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill ia-evaluation"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Installs into whichever agents it finds on your machine.</p>
+</li>
+<li>
+<h3>Claude Code, as a plugin</h3>
+<div class="cmd"><pre><code>/plugin marketplace add stritar/skills
+/plugin install product-design-information-architecture@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-information-architecture@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Brings the whole information-architecture bundle. Use <code>product-design-all</code> for everything.</p>
+</li>
+<li>
+<h3>From a clone, copied by hand</h3>
+<div class="cmd"><pre><code>cp -r skills/information-architecture/ia-evaluation ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/information-architecture/ia-evaluation ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
+</li>
+</ul>
+</section>
+
+<section id="related">
+<h2>Works with</h2>
+<ul class="related">
+<li><a href="silver-structure.html"><span class="rel-id">silver-structure</span></a> <span class="rel-cat">Information architecture</span></li>
+<li><a href="service-blueprint.html"><span class="rel-id">service-blueprint</span></a> <span class="rel-cat">User research</span></li>
+<li><a href="ux-research-workflow.html"><span class="rel-id">ux-research-workflow</span></a> <span class="rel-cat">Orchestration</span></li>
+<li><a href="better-writing.html"><span class="rel-id">better-writing</span></a> <span class="rel-cat">Content design</span></li>
+</ul>
+</section>
+
+<article class="skill-body">
+<h2 class="body-head">Instructions</h2>
+<p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/information-architecture/ia-evaluation/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
+<h2 id="information-architecture-evaluation">Information architecture evaluation</h2>
+<p>Chooses and runs the study that answers a structure question, and turns
+the numbers into a grouping and labelling decision. Structure definition
+itself (entities, relationships, content models) belongs to
+<code>silver-structure</code>; service-level mapping to <code>service-blueprint</code>; the words
+on the labels to <code>better-writing</code> once chosen.</p>
+<h3 id="inputs">Inputs</h3>
+<ul>
+<li>The question: &quot;how should these N items be grouped&quot;, &quot;can users find X in
+this tree&quot;, or &quot;which of two navigations works better&quot;.</li>
+<li>The content inventory: the items or the proposed tree, with any
+constraints (items that must stay together, regulatory sections).</li>
+<li>Access to participants, or the instruction to plan for later recruitment.</li>
+</ul>
+<h3 id="workflow">Workflow</h3>
+<h4 id="1-match-the-question-to-the-method">1. Match the question to the method</h4>
+<p>Read <a href="https://github.com/stritar/skills/blob/main/skills/information-architecture/ia-evaluation/references/methods.md" target="_blank" rel="noopener noreferrer">references/methods.md</a> for the decision table.
+In short:</p>
+<ul>
+<li><strong>Open card sort</strong> when the grouping and the labels are unknown: users
+make and name groups. Generative.</li>
+<li><strong>Closed card sort</strong> when categories exist and the question is whether
+items fit them. Evaluative.</li>
+<li><strong>Hybrid sort</strong> when categories exist but may be incomplete.</li>
+<li><strong>Tree test</strong> when a hierarchy exists and the question is findability:
+participants locate tasks in a text-only tree, so labels and structure are
+tested without visual design.</li>
+<li><strong>First-click test</strong> when a page design exists and the question is whether
+the first choice on that page is right.</li>
+</ul>
+<p>Do not sort more than about 60 cards; split by area instead. Do not tree
+test with fewer than eight tasks or more than fifteen per participant.</p>
+<h4 id="2-design-the-study">2. Design the study</h4>
+<ul>
+<li><strong>Cards / tree</strong>: one concept per card, user language, no leading words
+shared between cards that would sort themselves. For trees, include the
+full depth users would see and realistic sibling counts.</li>
+<li><strong>Tasks</strong> (tree and first-click): describe the goal in the user's words
+without using label words from the tree (&quot;find out how much you were
+charged last month&quot;, not &quot;find billing history&quot;). Define the correct
+destination(s) per task in advance.</li>
+<li><strong>Participants</strong>: card sorts stabilise around 15-20 participants for
+pattern detection (Tullis and Wood; NN/g recommends 15+); tree tests need
+around 50 for stable per-task success rates. Recruit from the target
+population; note when a convenience sample was used.</li>
+<li><strong>Instrument</strong>: record per participant the groups and names (sort) or the
+path, success, directness and time (tree/first-click).</li>
+</ul>
+<h4 id="3-analyse">3. Analyse</h4>
+<p>Read <a href="https://github.com/stritar/skills/blob/main/skills/information-architecture/ia-evaluation/references/analysis.md" target="_blank" rel="noopener noreferrer">references/analysis.md</a> for the calculations.</p>
+<ul>
+<li>Card sorts: build the similarity matrix (how often each pair of cards was
+grouped together), cluster it (dendrogram or agreement view), then
+<strong>standardise</strong> participant category names into a shared set before
+counting. Report the strong clusters (agreement above ~60-70%), the
+contested cards (spread across clusters), and the label candidates with
+the frequency of each wording.</li>
+<li>Tree tests: per task, success rate (correct destination reached),
+directness (reached without backtracking), median time, and the
+first-click path distribution. A task under ~60% success or under ~50%
+directness signals a structural or label problem; look at where wrong
+paths went to tell which.</li>
+<li>First-click: proportion of correct first clicks per task; below ~75% the
+page-level cue is weak.</li>
+</ul>
+<h4 id="4-decide-and-document">4. Decide and document</h4>
+<p>Propose the structure: groups, labels, depth, and the placement of
+contested items (cross-list, rename, or move), each tied to the evidence
+that motivated it. Where results are ambiguous, say what a follow-up study
+(usually a tree test of the revised tree) would settle.</p>
+<h4 id="5-output">5. Output</h4>
+<ul>
+<li>Study plan (method, cards or tree, tasks with correct answers,
+participant target, instrument).</li>
+<li>Results: matrices or per-task tables, with the thresholds used.</li>
+<li>Recommendation: sitemap or navigation outline, contested items with
+rationale, open questions and the follow-up study.</li>
+</ul>
+<h3 id="before-you-finish">Before you finish</h3>
+<div class="table-scroll"><table>
+<thead><tr><th>Mistake</th><th>Fix</th></tr></thead>
+<tbody>
+<tr><td>Testing a tree with label words in the tasks</td><td>Rewrite tasks in goal language</td></tr>
+<tr><td>Reading raw category names without standardising</td><td>Merge synonyms first, then count</td></tr>
+<tr><td>Treating one contested card as a structure failure</td><td>Cross-list or rename; reserve restructuring for cluster-level disagreement</td></tr>
+<tr><td>Sorting 120 cards</td><td>Split into areas of 30-60 cards</td></tr>
+<tr><td>Reporting success without directness</td><td>Report both; success with heavy backtracking is a label problem</td></tr>
+<tr><td>Presenting the dendrogram as the answer</td><td>Present the decision and the evidence behind it</td></tr>
+</tbody>
+</table></div>
+<h3 id="limitations">Limitations</h3>
+<p>Thresholds above are field conventions, not statistical guarantees; small
+samples give direction, not precision. Remote unmoderated tools automate
+the matrices; when analysing by hand, the references give the formulas.</p>
+</article>
+</main>
+</div>
+
+<footer class="site-foot">
+<p><a href="../index.html">Back to all skills</a></p>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

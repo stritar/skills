@@ -5,6 +5,11 @@
   "private": true,
   "type": "module",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stritar/skills.git"
+  },
+  "homepage": "https://stritar.github.io/skills/",
   "engines": {
     "node": ">=18"
   },

@@ -42,6 +42,7 @@ npm run search -- "design tokens" --category design-systems --json
 npm run search -- --category orchestration --recommended
 
 # Browse
+open docs/index.html       # searchable web catalog, works straight from disk
 open CATALOG.md            # generated human catalog
 cat catalog/index.json     # canonical machine-readable index
 
@@ -53,6 +54,17 @@ Search ranks deterministically over name, tags, category, triggers,
 description, inputs and outputs; filters: `--category`, `--tag`, `--agent`,
 `--recommended`, `--source third-party|original`, `--all`, `--limit`,
 `--json`.
+
+## Browsing on the web
+
+`docs/index.html` is a generated, searchable edition of the catalog: every
+skill as a card grouped by category, with the tasks it is for, filters for
+tooling, licence and origin, and a page per skill carrying the full `SKILL.md`
+text and a copyable install command. It has no build step and no dependencies,
+so opening the file from a clone works as well as serving it. The search box
+uses the same ranking code as the CLI, so both agree on what comes first.
+
+To publish it, point GitHub Pages at "deploy from branch", `main`, `/docs`.
 
 ## Catalog statistics (2026-08-26)
 
@@ -95,14 +107,14 @@ copied anywhere on its own. Three ways to use them:
 2. **skills CLI** (77+ agents):
 
    ```bash
-   npx skills add <owner>/skills --skill better-accessibility
+   npx skills add stritar/skills --skill better-accessibility
    ```
 
 3. **Claude Code plugin marketplace**, the whole library or one category
    (bundles are generated from the index):
 
    ```text
-   /plugin marketplace add <owner>/skills
+   /plugin marketplace add stritar/skills
    /plugin install product-design-all@product-design-skills
    /plugin install product-design-accessibility@product-design-skills
    ```

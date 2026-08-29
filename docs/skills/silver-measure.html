@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>silver-measure — Product design skills</title>
+<meta name="description" content="Closes the loop after implementation: restates the hypothesis and success criteria the change was meant to test, states what instrumentation exists and whether it is sufficient to answer the question, compares before/after or an experiment result without treating correlation as causation, and…">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="page-head">
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-analytics">Product analytics</a></nav>
+<h1>silver-measure</h1>
+<p class="badges"><span class="il badge badge-dep"><span class="il-label">Needs Node</span></span><span class="il badge badge-exp"><span class="il-label">Experimental</span></span></p>
+<p class="lede">Closes the loop after implementation: restates the hypothesis and success criteria the change was meant to test, states what instrumentation exists and whether it is sufficient to answer the question, compares before/after or an experiment result without treating correlation as causation, and records confidence and limitations to feed back into synthesis. Boundaries scope the skill away from defining success criteria (specification) or broadly interpreting mixed research evidence (synthesis), and forbid fabricating analytics, claiming measurement occurred without real data, or overstating confidence when instrumentation or sample quality is weak. Upstream emits its record through the Silver Design Framework CLI (.silver/bin/silver invoke), which is not bundled; used standalone, follow the workflow and boundaries and write the artifact directly.</p>
+</header>
+
+<div class="layout">
+<nav class="sidebar" aria-labelledby="contents">
+<h2 id="contents">On this page</h2>
+<ul class="toc">
+<li><a href="#about">About this skill</a></li>
+<li><a href="#install">Install</a></li>
+<li><a href="#related">Works with</a></li>
+<li><a href="#measure-an-outcome">Measure an outcome</a></li>
+<li><a href="#workflow">Workflow</a></li>
+<li><a href="#done">Done</a></li>
+<li><a href="#boundaries">Boundaries</a></li>
+</ul>
+</nav>
+
+<main id="main">
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3>Use when</h3><ul><li>check whether a shipped change achieved its intended outcome</li><li>review instrumentation before trusting a metric</li><li>compare before/after a launch</li><li>state confidence and limitations for a measured result</li><li>avoid treating correlation as causation in an outcome review</li></ul></div>
+<div class="meta-row"><h3>Works on</h3><ul><li>the original hypothesis and success criteria for a shipped design or product change</li><li>available instrumentation/analytics data covering before and after the change</li></ul></div>
+<div class="meta-row"><h3>Produces</h3><ul><li>a measurement record comparing before/after or experiment results, with instrumentation sufficiency, confidence, and data limitations stated explicitly, ready to feed back into synthesis</li></ul></div>
+<div class="meta-row"><h3>Tags</h3>
+<ul class="tags"><li><a class="tag" href="../index.html?tag=analytics">analytics</a></li><li><a class="tag" href="../index.html?tag=instrumentation">instrumentation</a></li><li><a class="tag" href="../index.html?tag=metrics">metrics</a></li><li><a class="tag" href="../index.html?tag=experimentation">experimentation</a></li><li><a class="tag" href="../index.html?tag=hypothesis">hypothesis</a></li></ul></div>
+<div class="meta-row"><h3>Requires</h3><ul><li><code>node</code></li></ul></div>
+<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/measure">thejparsenault/silver-design-framework</a> by JP Arsenault at <code>317ede0</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p></div>
+</section>
+
+<section id="install">
+<h2>Install</h2>
+<ul class="install">
+<li>
+<h3>Any agent, via the skills CLI</h3>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill silver-measure</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill silver-measure"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Installs into whichever agents it finds on your machine.</p>
+</li>
+<li>
+<h3>Claude Code, as a plugin</h3>
+<div class="cmd"><pre><code>/plugin marketplace add stritar/skills
+/plugin install product-design-analytics@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-analytics@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Brings the whole analytics bundle. Use <code>product-design-all</code> for everything.</p>
+</li>
+<li>
+<h3>From a clone, copied by hand</h3>
+<div class="cmd"><pre><code>cp -r skills/analytics/silver-measure ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/analytics/silver-measure ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
+</li>
+</ul>
+</section>
+
+<section id="related">
+<h2>Works with</h2>
+<ul class="related">
+<li><a href="silver-evaluate.html"><span class="rel-id">silver-evaluate</span></a> <span class="rel-cat">Testing and evaluation</span></li>
+<li><a href="instrumentation-plan.html"><span class="rel-id">instrumentation-plan</span></a> <span class="rel-cat">Product analytics</span></li>
+</ul>
+</section>
+
+<article class="skill-body">
+<h2 class="body-head">Instructions</h2>
+<p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/analytics/silver-measure/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
+<h2 id="measure-an-outcome">Measure an outcome</h2>
+<h3 id="workflow">Workflow</h3>
+<ol>
+<li>Restate the hypothesis and success criteria the change was meant to test.</li>
+<li>State what instrumentation exists and whether it is sufficient to answer the question.</li>
+<li>Compare before and after, or the experiment result, without treating correlation as causation.</li>
+<li>Record confidence and limitations; feed observed outcomes back into synthesis.</li>
+</ol>
+<p>Run the guarded file operation through the CLI when durable outputs are ready:</p>
+<pre><code class="language-sh">.silver/bin/silver invoke --scaffold measure .
+.silver/bin/silver invoke measure &lt;request.json&gt; .
+</code></pre>
+<p>The scaffold prefills timestamps, provenance, pinned context, required checks, and
+<code>expected_integrity</code>. Replace every <code>silver-scaffold-placeholder</code> before invoking;
+the CLI refuses a request that still contains one.</p>
+<h3 id="done">Done</h3>
+<ul>
+<li>Satisfy: metrics-tied-to-hypothesis, instrumentation-stated, data-limits-recorded.</li>
+<li>Evaluate quality: Observed outcomes stay traceable to the success criteria they test,
+with instrumentation and data limits stated rather than implied.</li>
+<li>Emit a valid <code>silver/skill-result/v2</code> record separating execution, acceptance, and downstream readiness.</li>
+<li>Recommend follow-up skills; never start them automatically.</li>
+</ul>
+<h3 id="boundaries">Boundaries</h3>
+<ul>
+<li>Do not define success criteria; that is <code>specify</code>.</li>
+<li>Do not interpret mixed research evidence broadly; that is <code>synthesize</code>.</li>
+<li>Do not fabricate analytics or claim measurement occurred without actual data.</li>
+<li>Do not treat correlation as causation without evidence, or overstate confidence when
+instrumentation or sample quality is weak.</li>
+</ul>
+</article>
+</main>
+</div>
+
+<footer class="site-foot">
+<p><a href="../index.html">Back to all skills</a></p>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

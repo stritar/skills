@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>design-negotiation — Product design skills</title>
+<meta name="description" content="Makes the agent coach a designer through cross-functional negotiations: four scripted contexts (timeline compression, scope cut without review, stakeholder override, resource requests) each with a concrete approach; an evidence hierarchy (research counts, metrics, competitive context, WCAG/legal…">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="page-head">
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-strategy">Product strategy</a></nav>
+<h1>design-negotiation</h1>
+<p class="badges"><span class="il badge badge-rec"><span class="il-icon" aria-hidden="true">★</span><span class="il-label">Recommended</span></span></p>
+<p class="lede">Makes the agent coach a designer through cross-functional negotiations: four scripted contexts (timeline compression, scope cut without review, stakeholder override, resource requests) each with a concrete approach; an evidence hierarchy (research counts, metrics, competitive context, WCAG/legal risk, system precedent) replacing taste and authority arguments; negotiation principles (lead with the user problem, name constraints first, make trade-offs explicit, document decisions that go against design); and long-term credibility building.</p>
+</header>
+
+<div class="layout">
+<nav class="sidebar" aria-labelledby="contents">
+<h2 id="contents">On this page</h2>
+<ul class="toc">
+<li><a href="#about">About this skill</a></li>
+<li><a href="#install">Install</a></li>
+<li><a href="#related">Works with</a></li>
+<li><a href="#design-negotiation">Design Negotiation</a></li>
+<li><a href="#what-you-do">What You Do</a></li>
+<li><a href="#what-design-negotiation-actually-is">What Design Negotiation Actually Is</a></li>
+<li><a href="#common-negotiation-contexts">Common Negotiation Contexts</a></li>
+<li><a href="#evidence-based-advocacy">Evidence-Based Advocacy</a></li>
+<li><a href="#negotiation-principles">Negotiation Principles</a></li>
+<li><a href="#building-long-term-influence">Building Long-Term Influence</a></li>
+<li><a href="#best-practices">Best Practices</a></li>
+</ul>
+</nav>
+
+<main id="main">
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3>Use when</h3><ul><li>push back on scope cut</li><li>defend a design decision</li><li>stakeholder wants a change</li><li>negotiate design timeline</li><li>argue for design resources</li></ul></div>
+<div class="meta-row"><h3>Works on</h3><ul><li>the decision at stake</li><li>available evidence</li><li>stakeholder context</li></ul></div>
+<div class="meta-row"><h3>Produces</h3><ul><li>negotiation approach</li><li>evidence-based argument</li><li>documented trade-off</li></ul></div>
+<div class="meta-row"><h3>Tags</h3>
+<ul class="tags"><li><a class="tag" href="../index.html?tag=stakeholders">stakeholders</a></li><li><a class="tag" href="../index.html?tag=prioritization">prioritization</a></li><li><a class="tag" href="../index.html?tag=decision-records">decision-records</a></li><li><a class="tag" href="../index.html?tag=metrics">metrics</a></li></ul></div>
+
+<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/Owl-Listener/designer-skills/tree/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/designer-toolkit/skills/design-negotiation">Owl-Listener/designer-skills</a> by Owl-Listener at <code>20e34c4</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p></div>
+</section>
+
+<section id="install">
+<h2>Install</h2>
+<ul class="install">
+<li>
+<h3>Any agent, via the skills CLI</h3>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill design-negotiation</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill design-negotiation"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Installs into whichever agents it finds on your machine.</p>
+</li>
+<li>
+<h3>Claude Code, as a plugin</h3>
+<div class="cmd"><pre><code>/plugin marketplace add stritar/skills
+/plugin install product-design-strategy@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-strategy@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Brings the whole strategy bundle. Use <code>product-design-all</code> for everything.</p>
+</li>
+<li>
+<h3>From a clone, copied by hand</h3>
+<div class="cmd"><pre><code>cp -r skills/strategy/design-negotiation ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/strategy/design-negotiation ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
+</li>
+</ul>
+</section>
+
+<section id="related">
+<h2>Works with</h2>
+<ul class="related">
+<li><a href="silver-ideate.html"><span class="rel-id">silver-ideate</span></a> <span class="rel-cat">Discovery</span></li>
+</ul>
+</section>
+
+<article class="skill-body">
+<h2 class="body-head">Instructions</h2>
+<p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/strategy/design-negotiation/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
+<h2 id="design-negotiation">Design Negotiation</h2>
+<p>You are an expert in advocating for design quality and investment in cross-functional environments.</p>
+<h3 id="what-you-do">What You Do</h3>
+<p>You help designers navigate the situations where design quality is at risk from scope compression, timeline pressure, or organizational under-investment — and translate design needs into terms that resonate with PMs, engineers, and leadership.</p>
+<h3 id="what-design-negotiation-actually-is">What Design Negotiation Actually Is</h3>
+<p>Design negotiation is not about winning arguments. It is about finding the overlap between what users need, what the business wants, and what design believes is necessary — and making that overlap visible to decision-makers.
+The goal is <strong>shared understanding and informed trade-offs</strong>, not the designer getting their preferred outcome at any cost.</p>
+<h3 id="common-negotiation-contexts">Common Negotiation Contexts</h3>
+<h4 id="timeline-compression">Timeline Compression</h4>
+<p>&quot;We need this shipped in two weeks, not four.&quot;
+<strong>Approach:</strong></p>
+<ul>
+<li>Clarify what &quot;done&quot; means: shipped vs. right vs. defensible</li>
+<li>Scope with evidence: &quot;We can ship [X] in two weeks. To do that, we drop [Y] and accept [Z] risk.&quot;</li>
+<li>Name the debt: &quot;Shipping without testing creates this specific risk for users.&quot;</li>
+<li>Offer a phased path: &quot;Ship the essential flow now; we address [Y] in the next sprint.&quot;</li>
+</ul>
+<h4 id="scope-reduction-without-design-review">Scope Reduction Without Design Review</h4>
+<p>&quot;Engineering already started building. Design just needs to clean it up.&quot;
+<strong>Approach:</strong></p>
+<ul>
+<li>Don't relitigate what's built — focus on what can still be influenced</li>
+<li>Identify the specific user experience risks in the current implementation</li>
+<li>Prioritize the 2–3 highest-impact changes; accept the rest as debt to document</li>
+<li>Establish a process agreement for next time</li>
+</ul>
+<h4 id="stakeholder-override-of-design-decisions">Stakeholder Override of Design Decisions</h4>
+<p>&quot;The CEO wants the button to be red.&quot;
+<strong>Approach:</strong></p>
+<ul>
+<li>Separate the request from the reasoning: &quot;What outcome is this trying to achieve?&quot;</li>
+<li>Validate the goal; present alternatives: &quot;If the goal is urgency, here are three ways to achieve it — one of which is red.&quot;</li>
+<li>Bring data: user testing, accessibility, precedent in the design system</li>
+<li>Document the decision either way: what was decided, who made it, what the trade-off was</li>
+</ul>
+<h4 id="headcount-and-resource-requests">Headcount and Resource Requests</h4>
+<p>&quot;We need a third designer on this project.&quot;
+<strong>Approach:</strong></p>
+<ul>
+<li>Quantify current scope vs capacity: &quot;We have X design dependencies for Y delivery date; current capacity covers Z.&quot;</li>
+<li>Translate to business risk: &quot;Without the additional resource, we ship [specific feature] without design, or we push [milestone] by X weeks.&quot;</li>
+<li>Propose alternatives if headcount isn't available: scope reduction, phased delivery, design system acceleration</li>
+</ul>
+<h3 id="evidence-based-advocacy">Evidence-Based Advocacy</h3>
+<p>Design negotiation is strongest when grounded in evidence:</p>
+<ul>
+<li><strong>User research</strong>: &quot;We tested this flow with 8 users; 6 couldn't complete the task.&quot;</li>
+<li><strong>Metrics</strong>: &quot;The current pattern has a 34% drop-off at step 3.&quot;</li>
+<li><strong>Competitive context</strong>: &quot;Every comparable product in this space supports X.&quot;</li>
+<li><strong>Accessibility and legal</strong>: &quot;This pattern fails WCAG 1.4.3; that's a compliance risk.&quot;</li>
+<li><strong>Design system precedent</strong>: &quot;The system already solves this — deviating creates maintenance debt.&quot;
+Avoid arguments based on taste (&quot;this looks better&quot;) or authority (&quot;I'm the designer&quot;) — they don't land with non-designers and they shouldn't have to.</li>
+</ul>
+<h3 id="negotiation-principles">Negotiation Principles</h3>
+<h4 id="start-with-the-user-problem-not-the-design-solution">Start with the user problem, not the design solution</h4>
+<p>&quot;Users are confused at this step&quot; is more compelling than &quot;this layout is unclear.&quot; Lead with the problem; the solution follows.</p>
+<h4 id="acknowledge-constraints">Acknowledge constraints</h4>
+<p>Engineers have technical constraints; PMs have delivery pressure; leadership has business goals. Dismissing these weakens your position. Name them first: &quot;I understand we need this by Q3…&quot;</p>
+<h4 id="make-trade-offs-explicit">Make trade-offs explicit</h4>
+<p>Decision-makers often don't know they're making a trade-off. Naming it — &quot;if we ship without this, we accept X risk&quot; — gives them agency and creates accountability.</p>
+<h4 id="pick-your-battles">Pick your battles</h4>
+<p>Not every design decision is worth negotiating. Reserve your credibility for the things that genuinely affect users. Let go of things that won't.</p>
+<h4 id="document-outcomes">Document outcomes</h4>
+<p>When a decision goes against design's recommendation, write it down: what was decided, why, and what the expected impact is. This creates accountability and builds the evidence base for future conversations.</p>
+<h3 id="building-long-term-influence">Building Long-Term Influence</h3>
+<p>Negotiation outcomes depend heavily on the relationships and credibility you've built before the negotiation:</p>
+<ul>
+<li><strong>Deliver consistently</strong>: teams trust designers who ship; trust opens room for pushback</li>
+<li><strong>Speak the business language</strong>: designers who understand revenue, cost, and risk are taken more seriously in strategic conversations</li>
+<li><strong>Bring data habitually</strong>: teams that routinely hear research in design reviews start expecting it everywhere</li>
+<li><strong>Celebrate shared wins</strong>: when design investment leads to measurable outcomes, make sure the team knows — publicly and with specifics</li>
+</ul>
+<h3 id="best-practices">Best Practices</h3>
+<ul>
+<li>Prepare for high-stakes conversations in advance: know the data, anticipate objections, have alternatives ready</li>
+<li>Never go into a negotiation without a fallback position — what's the minimum acceptable outcome?</li>
+<li>Ask questions before proposing solutions; understand the other party's constraints before defending yours</li>
+<li>Follow up in writing after verbal agreements — misremembers are common under deadline pressure</li>
+</ul>
+</article>
+</main>
+</div>
+
+<footer class="site-foot">
+<p><a href="../index.html">Back to all skills</a></p>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

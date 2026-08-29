@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>variant — Product design skills</title>
+<meta name="description" content="Builds three (up to five) genuinely different versions of one described UI piece, each a different position on a single named axis (structure, density, emphasis, type, or voice) owned by a sibling better-* skill, so secondary choices follow coherently rather than every axis varying at once. Hosts…">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="page-head">
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-prototyping">Prototyping</a></nav>
+<h1>variant</h1>
+<p class="badges"><span class="il badge badge-rec"><span class="il-icon" aria-hidden="true">★</span><span class="il-label">Recommended</span></span></p>
+<p class="lede">Builds three (up to five) genuinely different versions of one described UI piece, each a different position on a single named axis (structure, density, emphasis, type, or voice) owned by a sibling better-* skill, so secondary choices follow coherently rather than every axis varying at once. Hosts all variants on the real page behind a URL-driven picker deliberately styled outside the project's design system, with realistic content and item counts, clears better-interface's accessibility escalation-trigger floor before any variant enters the picker, then presents axis-position tradeoffs without marking a favorite and hands the decision back. On a choice, promotes the winner into the project's own conventions and deletes the rest.</p>
+</header>
+
+<div class="layout">
+<nav class="sidebar" aria-labelledby="contents">
+<h2 id="contents">On this page</h2>
+<ul class="toc">
+<li><a href="#about">About this skill</a></li>
+<li><a href="#install">Install</a></li>
+<li><a href="#related">Works with</a></li>
+<li><a href="#variants">Variants</a></li>
+<li><a href="#different-answers-not-different-tints">Different answers, not different tints</a></li>
+<li><a href="#the-floor-every-variant-clears">The floor every variant clears</a></li>
+<li><a href="#1-scope-one-piece">1. Scope one piece</a></li>
+<li><a href="#2-learn-the-ground">2. Learn the ground</a></li>
+<li><a href="#3-name-the-axis-before-writing-code">3. Name the axis before writing code</a></li>
+<li><a href="#4-build-it-into-the-real-page">4. Build it into the real page</a></li>
+<li><a href="#5-present-the-tradeoffs-and-stop">5. Present the tradeoffs and stop</a></li>
+<li><a href="#6-promote-one-delete-the-rest">6. Promote one, delete the rest</a></li>
+<li><a href="#before-you-finish">Before you finish</a></li>
+</ul>
+</nav>
+
+<main id="main">
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3>Use when</h3><ul><li>show me a few different versions of this component</li><li>explore layout directions for this UI</li><li>build variants behind a picker</li><li>which design direction should we pick</li></ul></div>
+<div class="meta-row"><h3>Works on</h3><ul><li>a one-sentence brief for one piece of UI</li><li>the project's styling system, tokens and component library</li></ul></div>
+<div class="meta-row"><h3>Produces</h3><ul><li>a real page hosting each variant behind a URL search-param picker</li><li>a tradeoffs table (Variant | Axis position | Right when | Costs)</li></ul></div>
+<div class="meta-row"><h3>Tags</h3>
+<ul class="tags"><li><a class="tag" href="../index.html?tag=prototyping">prototyping</a></li><li><a class="tag" href="../index.html?tag=variants">variants</a></li><li><a class="tag" href="../index.html?tag=high-fidelity">high-fidelity</a></li><li><a class="tag" href="../index.html?tag=interactive-prototype">interactive-prototype</a></li></ul></div>
+
+<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/variant">jakubkrehel/skills</a> by Jakub Krehel at <code>ca48385</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p></div>
+</section>
+
+<section id="install">
+<h2>Install</h2>
+<ul class="install">
+<li>
+<h3>Any agent, via the skills CLI</h3>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill variant</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill variant"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Installs into whichever agents it finds on your machine.</p>
+</li>
+<li>
+<h3>Claude Code, as a plugin</h3>
+<div class="cmd"><pre><code>/plugin marketplace add stritar/skills
+/plugin install product-design-prototyping@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-prototyping@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Brings the whole prototyping bundle. Use <code>product-design-all</code> for everything.</p>
+</li>
+<li>
+<h3>From a clone, copied by hand</h3>
+<div class="cmd"><pre><code>cp -r skills/prototyping/variant ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/prototyping/variant ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
+</li>
+</ul>
+</section>
+
+<section id="related">
+<h2>Works with</h2>
+<ul class="related">
+<li><a href="prototype.html"><span class="rel-id">prototype</span></a> <span class="rel-cat">Prototyping</span></li>
+<li><a href="better-interface.html"><span class="rel-id">better-interface</span></a> <span class="rel-cat">Orchestration</span></li>
+</ul>
+</section>
+
+<article class="skill-body">
+<h2 class="body-head">Instructions</h2>
+<p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/prototyping/variant/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
+<h2 id="variants">Variants</h2>
+<p>This skill takes one described piece of UI and builds three versions that differ on purpose. They go behind a picker in the real page, so you can flip between them and choose.</p>
+<p>Every other skill here judges. This one produces candidates and hands the decision back. Reviewing existing UI is <code>interface-review</code> and <code>better-interface</code>, and it does not pick the winner.</p>
+<h3 id="different-answers-not-different-tints">Different answers, not different tints</h3>
+<p>Three variants that differ in accent color teach nothing. You flip between them, see no real choice and the run is wasted.</p>
+<p>So each variant is a different answer to the same brief, on an axis this collection owns:</p>
+<div class="table-scroll"><table>
+<thead><tr><th>Axis</th><th>Owner</th><th>What varies</th></tr></thead>
+<tbody>
+<tr><td>Structure</td><td><code>better-layout</code></td><td>Grouping, order, column count, what collapses</td></tr>
+<tr><td>Density</td><td><code>better-layout</code></td><td>Spacing scale, hit areas, how much fits</td></tr>
+<tr><td>Emphasis</td><td><code>better-colors</code></td><td>Where filled color goes, what recedes</td></tr>
+<tr><td>Type</td><td><code>better-typography</code></td><td>Scale steps, weight contrast, measure</td></tr>
+<tr><td>Voice</td><td><code>better-writing</code></td><td>Labels, tone, how much copy</td></tr>
+</tbody>
+</table></div>
+<p>Pick <strong>one primary axis</strong> and give each variant a different position on it. Secondary choices follow from it rather than varying on their own. A dense variant may need a smaller type step, and that is coherence, not a second axis.</p>
+<p>Varying every axis at once produces three unattributable results. You learn which you liked, not what made it work, so the next piece starts from nothing.</p>
+<h3 id="the-floor-every-variant-clears">The floor every variant clears</h3>
+<p>A variant that wins on looks and fails an escalation trigger is not a candidate. It is a bug with a nice surface.</p>
+<p>Before a variant enters the picker it clears <code>better-interface</code>'s escalation triggers. Every control has an accessible name, keyboard reaches everything a pointer does, focus is visible, nothing clips at 320px and no meaning rides on color alone.</p>
+<p>That floor is identical across variants. It is not an axis and never trades against one. Where a direction can only work by breaking it, say so and drop the direction.</p>
+<h3 id="1-scope-one-piece">1. Scope one piece</h3>
+<p>One piece of UI per run. &quot;The dashboard&quot; is not a piece; the metric card is. Where the brief spans several, name the one the others hang off, say why and offer the rest as later runs.</p>
+<p>Restate the brief in one sentence: what the thing is, where it renders, what it has to do.</p>
+<h3 id="2-learn-the-ground">2. Learn the ground</h3>
+<p>Variants have to look like they could ship tomorrow, so read what they stand on:</p>
+<ul>
+<li>The styling system, the component library and any motion library.</li>
+<li>The tokens: color, spacing, radius, type scale, easing.</li>
+<li>The product's density and voice. A dense professional tool bounds how far the boldest variant may go.</li>
+<li>Where the piece renders: against what background, beside which neighbours, at which widths.</li>
+</ul>
+<p>With no project to read, use neutral grays, one accent and the system font stack, and say that is what you did.</p>
+<h3 id="3-name-the-axis-before-writing-code">3. Name the axis before writing code</h3>
+<p>Default to three variants. Go to five only when asked, or when the space is genuinely wide. Past five nobody compares, they scroll.</p>
+<p>Write the set down first, a name and an axis position each. Names say what the direction is, so <code>Quiet</code>, <code>Editorial</code>, <code>Dense</code>, never <code>Option A</code>.</p>
+<p>This step is done when no two variants share a position and you can state each one's axis in a phrase.</p>
+<h3 id="4-build-it-into-the-real-page">4. Build it into the real page</h3>
+<p>A variant looks fine in isolation, which is why isolation is the wrong place to judge it. Host the variants on the page that will actually contain the piece, with the real chrome, the real neighbours and realistic data.</p>
+<p>Select with a URL search param (<code>?variant=quiet</code>), so every variant is a link you can send someone. A floating control sets it; <a href="https://github.com/stritar/skills/blob/main/skills/prototyping/variant/picker.md" target="_blank" rel="noopener noreferrer">picker.md</a> holds the spec.</p>
+<p>Render one variant at a time, full size. Thumbnails distort spacing and scale, and spacing is usually the thing you are choosing between.</p>
+<p>Where no page can host it, build one self-contained HTML file and keep the same picker.</p>
+<p>Give every variant real content: product-shaped copy, plausible names and the number of items the page will really carry. Lorem ipsum and three rows make every structure look good.</p>
+<h3 id="5-present-the-tradeoffs-and-stop">5. Present the tradeoffs and stop</h3>
+<p>Flip through every variant yourself first. Each one renders, each interaction responds, the console is clean.</p>
+<p>Then hand the decision over:</p>
+<div class="table-scroll"><table>
+<thead><tr><th>Variant</th><th>Axis position</th><th>Right when</th><th>Costs</th></tr></thead>
+<tbody>
+<tr><td>Quiet</td><td>Lowest visual weight</td><td>The page is used daily</td><td>Least memorable</td></tr>
+<tr><td>Editorial</td><td>Largest type, most space</td><td>The moment deserves weight</td><td>Eats vertical space</td></tr>
+</tbody>
+</table></div>
+<p>Say where the picker is running, which key flips it and which width you judged at. The answer can change between 375px and 1440px.</p>
+<p>Never mark a favourite in the table. Asked directly, answer from how often the piece is seen and from the product's personality, not from which one you enjoyed building.</p>
+<h3 id="6-promote-one-delete-the-rest">6. Promote one, delete the rest</h3>
+<p>On a choice: build that variant properly where it belongs, following the project's own conventions, then delete the others and the harness.</p>
+<p>Asked for another round instead, keep the harness and run step 3 again, taking new positions around the direction you leaned toward.</p>
+<p>Until promotion, the harness never imports from production and production never imports from the harness.</p>
+<h3 id="before-you-finish">Before you finish</h3>
+<div class="table-scroll"><table>
+<thead><tr><th>Mistake</th><th>Fix</th></tr></thead>
+<tbody>
+<tr><td>Variants differ only in accent color or copy</td><td>Move one to a different position on the primary axis, or cut it</td></tr>
+<tr><td>Every axis varies at once</td><td>Vary one; let the rest follow from it</td></tr>
+<tr><td>Judged on a blank route</td><td>Host them on the page that will contain the piece</td></tr>
+<tr><td>Lorem ipsum, three rows, &quot;Jane Doe&quot;</td><td>Real copy and the item count the page will really carry</td></tr>
+<tr><td>The boldest variant skips keyboard or focus</td><td>Clear the floor or drop the direction</td></tr>
+<tr><td>A favourite marked in the table</td><td>State each variant's cost and let the user choose</td></tr>
+<tr><td>Picker restyled with the project's tokens</td><td>Keep it visibly outside the design system</td></tr>
+<tr><td>Harness left behind after promotion</td><td>Delete it unless asked to keep it</td></tr>
+</tbody>
+</table></div>
+</article>
+</main>
+</div>
+
+<footer class="site-foot">
+<p><a href="../index.html">Back to all skills</a></p>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

@@ -1,12 +1,24 @@
 // Generates every derived artifact from catalog/index.json:
 //   CATALOG.md, THIRD_PARTY_NOTICES.md, .claude-plugin/plugin.json,
-//   .claude-plugin/marketplace.json
-// Pure function of (index, package.json version): no timestamps, stable
-// ordering — so catalog:check can be a byte-for-byte diff.
+//   .claude-plugin/marketplace.json, and the docs/ web edition.
+// Pure function of the committed sources it reads — catalog/index.json,
+// catalog/schema.json, catalog/taxonomy.md, package.json, each SKILL.md and
+// scripts/lib/ranking.mjs: no timestamps, stable ordering, so catalog:check
+// can be a byte-for-byte diff. Editing a SKILL.md therefore requires a
+// rebuild, which is what keeps the published pages from going stale.
 
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { ROOT, loadSchema, categoriesFromSchema } from './index-io.mjs';
+import { ROOT, loadSchema, categoriesFromSchema, loadCategoryScopes } from './index-io.mjs';
+import { parseFrontmatter } from './frontmatter.mjs';
+import { toClassicScript } from './browser-bundle.mjs';
+import { buildSite, SKILL_PAGES_DIR } from './site.mjs';
+
+// Directories whose entire contents are generated. Anything found in one of
+// these that the build did not produce is an orphan: a page for a skill that
+// has since been renamed or removed. check-generated reports them and
+// catalog-build prunes them, or a deleted skill would stay published forever.
+export const GENERATED_DIRS = [SKILL_PAGES_DIR];
 
 const CATEGORY_LABELS = {
   'discovery': 'Discovery',
@@ -42,7 +54,58 @@ export function buildAll(index) {
     'THIRD_PARTY_NOTICES.md': buildNotices(skills),
     '.claude-plugin/plugin.json': buildPluginJson(skills, version),
     '.claude-plugin/marketplace.json': buildMarketplaceJson(skills, categories, version),
+    'docs/assets/ranking.js': buildRankingScript(),
+    ...buildSite({
+      index,
+      categories,
+      categoryLabels: CATEGORY_LABELS,
+      categoryScopes: loadCategoryScopes(),
+      bodies: loadBodies(index),
+      repo: repoFromPackage(),
+    }),
   };
+}
+
+// The body of each SKILL.md, keyed by skill id, with its frontmatter removed.
+function loadBodies(index) {
+  const bodies = new Map();
+  for (const s of index.skills) {
+    const file = join(ROOT, s.path, 'SKILL.md');
+    let raw;
+    try {
+      raw = readFileSync(file, 'utf8');
+    } catch (e) {
+      throw new Error(`[${s.id}] cannot read ${s.path}/SKILL.md: ${e.message}`);
+    }
+    const { body, error } = parseFrontmatter(raw);
+    if (error) throw new Error(`[${s.id}] ${s.path}/SKILL.md: ${error}`);
+    bodies.set(s.id, body);
+  }
+  return bodies;
+}
+
+// The site ranks with the very same weights as `npm run search`, by converting
+// the ranking module into a classic script the browser can load from file://.
+function buildRankingScript() {
+  const src = readFileSync(join(ROOT, 'scripts', 'lib', 'ranking.mjs'), 'utf8');
+  return toClassicScript(src, {
+    namespace: 'Ranking',
+    exports: ['tokenize', 'scoreEntry', 'compareResults', 'WEIGHTS'],
+    source: 'scripts/lib/ranking.mjs',
+  });
+}
+
+// Install commands and source links need the real repository, so it is read
+// from package.json rather than guessed or left as a placeholder.
+function repoFromPackage() {
+  const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8'));
+  const url = pkg.repository && (typeof pkg.repository === 'string' ? pkg.repository : pkg.repository.url);
+  const m = String(url || '').match(/github\.com[/:]([^/]+)\/([^/.]+)/);
+  if (!m) {
+    throw new Error('package.json needs a "repository" field pointing at the GitHub repo; the site links and install commands are built from it');
+  }
+  const slug = `${m[1]}/${m[2]}`;
+  return { slug, blobBase: `https://github.com/${slug}/blob/main` };
 }
 
 function active(skills) {

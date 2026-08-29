@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>better-accessibility — Product design skills</title>
+<meta name="description" content="Accessibility engineering guidance for building or reviewing UI components and custom widgets: native-element-first ARIA rules, exact focus-ring and tabindex/roving-tabindex recipes, WCAG 2.5.8 hit-area sizing with pseudo-element expansion, form labeling and error-announcement patterns,…">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="page-head">
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-accessibility">Accessibility</a></nav>
+<h1>better-accessibility</h1>
+<p class="badges"><span class="il badge badge-rec"><span class="il-icon" aria-hidden="true">★</span><span class="il-label">Recommended</span></span></p>
+<p class="lede">Accessibility engineering guidance for building or reviewing UI components and custom widgets: native-element-first ARIA rules, exact focus-ring and tabindex/roving-tabindex recipes, WCAG 2.5.8 hit-area sizing with pseudo-element expansion, form labeling and error-announcement patterns, prefers-reduced-motion and autoplay/zoom rules, live-region and screen-reader announcement selection, alt-text-by-purpose table, and a calibrated HIGH/MEDIUM/LOW severity report format ending in Block/Approve.</p>
+</header>
+
+<div class="layout">
+<nav class="sidebar" aria-labelledby="contents">
+<h2 id="contents">On this page</h2>
+<ul class="toc">
+<li><a href="#about">About this skill</a></li>
+<li><a href="#install">Install</a></li>
+<li><a href="#related">Works with</a></li>
+<li><a href="#accessibility">Accessibility</a></li>
+<li><a href="#native-elements-first">Native elements first</a></li>
+<li><a href="#visible-focus-rings">Visible focus rings</a></li>
+<li><a href="#full-keyboard-support">Full keyboard support</a></li>
+<li><a href="#trap-and-restore-focus">Trap and restore focus</a></li>
+<li><a href="#minimum-hit-area">Minimum hit area</a></li>
+<li><a href="#label-and-type-every-control">Label and type every control</a></li>
+<li><a href="#errors-that-announce">Errors that announce</a></li>
+<li><a href="#accessible-names-everywhere">Accessible names everywhere</a></li>
+<li><a href="#dont-rely-on-color-alone">Don't rely on color alone</a></li>
+<li><a href="#honor-prefers-reduced-motion">Honor prefers-reduced-motion</a></li>
+<li><a href="#announce-dynamic-content">Announce dynamic content</a></li>
+<li><a href="#alt-text-by-purpose">Alt text by purpose</a></li>
+<li><a href="#structure-is-navigation">Structure is navigation</a></li>
+<li><a href="#survive-zoom-and-text-resize">Survive zoom and text resize</a></li>
+<li><a href="#before-you-finish">Before you finish</a></li>
+<li><a href="#reporting">Reporting</a></li>
+</ul>
+</nav>
+
+<main id="main">
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3>Use when</h3><ul><li>accessibility audit</li><li>a11y review</li><li>keyboard navigation broken</li><li>screen reader not announcing</li><li>focus ring missing</li><li>WCAG compliance check</li></ul></div>
+<div class="meta-row"><h3>Works on</h3><ul><li>UI component or screen source code</li><li>rendered interface for keyboard/screen-reader walkthrough</li></ul></div>
+<div class="meta-row"><h3>Produces</h3><ul><li>severity-ranked findings table (Severity | Location | Before | After | Why)</li><li>Block/Approve verdict</li><li>verification checklist with Not verified items flagged</li></ul></div>
+<div class="meta-row"><h3>Tags</h3>
+<ul class="tags"><li><a class="tag" href="../index.html?tag=a11y">a11y</a></li><li><a class="tag" href="../index.html?tag=wcag">wcag</a></li><li><a class="tag" href="../index.html?tag=aria">aria</a></li><li><a class="tag" href="../index.html?tag=screen-reader">screen-reader</a></li><li><a class="tag" href="../index.html?tag=keyboard">keyboard</a></li><li><a class="tag" href="../index.html?tag=focus-management">focus-management</a></li><li><a class="tag" href="../index.html?tag=contrast">contrast</a></li><li><a class="tag" href="../index.html?tag=forms">forms</a></li><li><a class="tag" href="../index.html?tag=semantic-html">semantic-html</a></li><li><a class="tag" href="../index.html?tag=inclusive-design">inclusive-design</a></li><li><a class="tag" href="../index.html?tag=remediation">remediation</a></li></ul></div>
+
+<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-accessibility">jakubkrehel/skills</a> by Jakub Krehel at <code>ca48385</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p></div>
+</section>
+
+<section id="install">
+<h2>Install</h2>
+<ul class="install">
+<li>
+<h3>Any agent, via the skills CLI</h3>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill better-accessibility</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill better-accessibility"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Installs into whichever agents it finds on your machine.</p>
+</li>
+<li>
+<h3>Claude Code, as a plugin</h3>
+<div class="cmd"><pre><code>/plugin marketplace add stritar/skills
+/plugin install product-design-accessibility@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-accessibility@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Brings the whole accessibility bundle. Use <code>product-design-all</code> for everything.</p>
+</li>
+<li>
+<h3>From a clone, copied by hand</h3>
+<div class="cmd"><pre><code>cp -r skills/accessibility/better-accessibility ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/accessibility/better-accessibility ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
+</li>
+</ul>
+</section>
+
+<section id="related">
+<h2>Works with</h2>
+<ul class="related">
+<li><a href="a11y-check-code.html"><span class="rel-id">a11y-check-code</span></a> <span class="rel-cat">Accessibility</span></li>
+<li><a href="a11y-check-page.html"><span class="rel-id">a11y-check-page</span></a> <span class="rel-cat">Accessibility</span></li>
+<li><a href="a11y-audit.html"><span class="rel-id">a11y-audit</span></a> <span class="rel-cat">Accessibility</span></li>
+<li><a href="a11y-planner.html"><span class="rel-id">a11y-planner</span></a> <span class="rel-cat">Accessibility</span></li>
+<li><a href="a11y-critic.html"><span class="rel-id">a11y-critic</span></a> <span class="rel-cat">Accessibility</span></li>
+<li><a href="review-a11y.html"><span class="rel-id">review-a11y</span></a> <span class="rel-cat">Accessibility</span></li>
+<li><a href="better-colors.html"><span class="rel-id">better-colors</span></a> <span class="rel-cat">Visual design</span></li>
+</ul>
+</section>
+
+<article class="skill-body">
+<h2 class="body-head">Instructions</h2>
+<p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/accessibility/better-accessibility/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
+<h2 id="accessibility">Accessibility</h2>
+<p>Most accessibility is free if you use the platform. Native elements ship with keyboard support, real labels announce themselves and a visible focus ring is one CSS rule.</p>
+<p>Write every fix in the project's styling system, and use the exact values below rather than familiar-looking substitutes.</p>
+<p>Reviewing means two walks. Keyboard-only, where every flow completes without a mouse. Then screen-reader, where every control announces a name, a role and its state. When unsure, take the platform default over a custom rebuild, and remove ARIA rather than add it.</p>
+<p>Contrast measurement and color fixes belong to <code>better-colors</code>. Text sizing and iOS input zoom belong to <code>better-typography</code>. Spatial RTL layout belongs to <code>better-layout</code>.</p>
+<h3 id="native-elements-first">Native elements first</h3>
+<p>The first rule of ARIA: don't use ARIA when a native element exists. <code>&lt;button&gt;</code> for actions, <code>&lt;a href&gt;</code> for navigation, never <code>&lt;div onClick&gt;</code>. A real link must support Cmd/Ctrl/middle-click. No ARIA is better than bad ARIA. See <a href="https://github.com/stritar/skills/blob/main/skills/accessibility/better-accessibility/semantics-and-aria.md" target="_blank" rel="noopener noreferrer">semantics-and-aria.md</a> for landmarks, button-vs-link and disabled states.</p>
+<h3 id="visible-focus-rings">Visible focus rings</h3>
+<p>Style <code>:focus-visible</code>, not bare <code>:focus</code>. Keyboard users get a ring and mouse users usually don't. Prefer the browser's unmodified indicator.</p>
+<p>A custom ring needs a project focus token or another explicit color. Verify the whole indicator against every adjacent color it crosses, <code>currentColor</code> included. Use at least a <code>2px</code> solid perimeter or an equivalent visible area. Never use <code>outline: none</code> without a verified replacement, and preserve system colors in forced-colors mode. Recipes are in <a href="https://github.com/stritar/skills/blob/main/skills/accessibility/better-accessibility/focus-and-keyboard.md" target="_blank" rel="noopener noreferrer">focus-and-keyboard.md</a>.</p>
+<h3 id="full-keyboard-support">Full keyboard support</h3>
+<p>Every pointer interaction needs a keyboard path. Follow the ARIA APG patterns: Escape closes overlays, arrow keys move within composite widgets, Tab moves between widgets, Enter and Space activate.</p>
+<p>Use only <code>tabindex=&quot;0&quot;</code> to join the natural tab order and <code>tabindex=&quot;-1&quot;</code> for programmatic focus. Positive values break that order. Composite widgets use roving tabindex, where the active item is <code>0</code> and every other is <code>-1</code>.</p>
+<h3 id="trap-and-restore-focus">Trap and restore focus</h3>
+<p>Modals set <code>inert</code> on the background content, move focus inside on open and return focus to the trigger on close. Add <code>overscroll-behavior: contain</code> so background content doesn't scroll.</p>
+<h3 id="minimum-hit-area">Minimum hit area</h3>
+<p>WCAG 2.5.8's Level AA baseline is a 24×24 CSS-pixel target, or one of its spacing, equivalent-control, inline, user-agent and essential exceptions. Aim for 44×44px on touch and 40×40px on desktop where density permits. Extend with a pseudo-element when the visible element should stay smaller.</p>
+<p>Never let extended hit areas overlap. Give decorative layers <code>pointer-events: none</code>, so a glow never swallows the clicks meant for the control beneath it. Sizes and collision rules are in <a href="https://github.com/stritar/skills/blob/main/skills/accessibility/better-accessibility/hit-areas.md" target="_blank" rel="noopener noreferrer">hit-areas.md</a>.</p>
+<h3 id="label-and-type-every-control">Label and type every control</h3>
+<p>Every input gets a <code>&lt;label for&gt;</code> or a wrapping <code>&lt;label&gt;</code>. A placeholder is never a label. Label and control share one hit target, with no dead zone between a checkbox and its text.</p>
+<p>Add <code>autocomplete</code> with a meaningful <code>name</code>, plus the <code>type</code> and <code>inputmode</code> that summon the right keyboard. Never block paste; users paste passwords and one-time codes. See <a href="https://github.com/stritar/skills/blob/main/skills/accessibility/better-accessibility/forms.md" target="_blank" rel="noopener noreferrer">forms.md</a>.</p>
+<h3 id="errors-that-announce">Errors that announce</h3>
+<p>Keep submit enabled until the request starts, then disable with a spinner and the original label. Validate on submit. Mark failing fields <code>aria-invalid=&quot;true&quot;</code>, point <code>aria-describedby</code> at the inline error text and focus the first invalid field.</p>
+<p>Use native <code>disabled</code> when a control is genuinely unavailable. Reach for <code>aria-disabled=&quot;true&quot;</code> only when it should stay focusable, then block pointer, keyboard and form behavior in code and style the state explicitly.</p>
+<h3 id="accessible-names-everywhere">Accessible names everywhere</h3>
+<p>Icon-only buttons need a descriptive <code>aria-label</code>. Visible label text must appear in the accessible name. Decorative elements get <code>aria-hidden=&quot;true&quot;</code>, never on a focusable element.</p>
+<h3 id="dont-rely-on-color-alone">Don't rely on color alone</h3>
+<p>Status needs a redundant cue: an icon, text, or an underline alongside the color. Work out which WCAG contrast requirement applies, then use <code>better-colors</code> to measure the rendered pair. When it fails, report the pair and the requirement it misses, and leave the colors alone unless asked.</p>
+<h3 id="honor-prefers-reduced-motion">Honor prefers-reduced-motion</h3>
+<p>Wrap motion in <code>@media (prefers-reduced-motion: no-preference)</code> so it is opt-in. Under reduced motion, replace slides and scales with opacity crossfades, and kill parallax and autoplay entirely.</p>
+<p>Two rules hold regardless of the preference. Autoplaying media needs a visible pause control, and toasts carrying an action or an error stay until dismissed. See <a href="https://github.com/stritar/skills/blob/main/skills/accessibility/better-accessibility/motion-and-zoom.md" target="_blank" rel="noopener noreferrer">motion-and-zoom.md</a>.</p>
+<h3 id="announce-dynamic-content">Announce dynamic content</h3>
+<p>Three mechanisms, three jobs. <code>aria-describedby</code> carries field-specific validation. A polite live region (<code>role=&quot;status&quot;</code>) carries non-urgent updates not tied to a control, such as toasts and result counts. <code>role=&quot;alert&quot;</code> carries urgent untied errors and nothing else.</p>
+<p>Repeated polite announcements need a stable empty region rendered before its text updates. Dynamically inserted alerts vary in support, so test them on the screen readers you target. See <a href="https://github.com/stritar/skills/blob/main/skills/accessibility/better-accessibility/screen-readers.md" target="_blank" rel="noopener noreferrer">screen-readers.md</a>.</p>
+<h3 id="alt-text-by-purpose">Alt text by purpose</h3>
+<p>Decorative images get <code>alt=&quot;&quot;</code>. Informative images describe the meaning. Functional images describe the action: a search icon button is <code>alt=&quot;Search&quot;</code>, not <code>alt=&quot;magnifying glass&quot;</code>.</p>
+<h3 id="structure-is-navigation">Structure is navigation</h3>
+<p>Use headings that describe their sections and form a coherent outline. Give the page one <code>&lt;h1&gt;</code> and nest the levels below it without skipping. Expose one visible primary <code>&lt;main&gt;</code> landmark. When repeated navigation or chrome precedes it, make a &quot;Skip to content&quot; link the first focusable element. Anchored headings get <code>scroll-margin-top</code>.</p>
+<h3 id="survive-zoom-and-text-resize">Survive zoom and text resize</h3>
+<p>The page must work at 200% zoom and reflow at 320px width without horizontal scrolling. Use <code>min-height</code> rather than fixed <code>height</code> on text containers. Prefer <code>rem</code> breakpoints where they fit the codebase, and never let the viewport meta cap how far the reader can zoom.</p>
+<h3 id="before-you-finish">Before you finish</h3>
+<div class="table-scroll"><table>
+<thead><tr><th>Mistake</th><th>Fix</th></tr></thead>
+<tbody>
+<tr><td>Custom focus color assumed to work everywhere</td><td>Verify it against every adjacent color and in forced-colors mode</td></tr>
+<tr><td>Repeated polite update inconsistently announced</td><td>Keep a stable empty status region and update its text</td></tr>
+<tr><td><code>assertive</code> live region for a routine toast</td><td>Use <code>polite</code>; reserve <code>assertive</code> for errors</td></tr>
+<tr><td><code>aria-hidden=&quot;true&quot;</code> on a focusable element</td><td>Remove it or make the element non-focusable</td></tr>
+<tr><td>Submit disabled until the form is valid</td><td>Keep it enabled; validate on submit and focus the first error</td></tr>
+<tr><td>Hover treatment stuck after a tap on touch</td><td>Gate hover styling with <code>@media (hover: hover)</code></td></tr>
+<tr><td>Tooltip on a natively <code>disabled</code> control</td><td>Text beside it, or <code>aria-disabled</code> so it stays focusable</td></tr>
+</tbody>
+</table></div>
+<h3 id="reporting">Reporting</h3>
+<p><strong>Severity.</strong> <code>HIGH</code> prevents a task, hides content from assistive technology, or creates a systemic failure. <code>MEDIUM</code> makes an interaction meaningfully harder. <code>LOW</code> is isolated polish.</p>
+<p><strong>Verification.</strong> Without a browser: accessible names on every interactive element, keyboard handlers on non-native controls, focus styles, <code>prefers-reduced-motion</code> guards and form labels bound to their inputs. With one: tab the flow in order, read computed names and roles from the accessibility tree, confirm a visible focus indicator at every stop and run an automated audit. Report every check you could not run as <code>Not verified</code>.</p>
+<p><strong>Format.</strong> Group findings under the principle each violates, ordered by severity, one row per root cause listing every location it appears in:</p>
+<div class="table-scroll"><table>
+<thead><tr><th>Severity</th><th>Location</th><th>Before</th><th>After</th><th>Why</th></tr></thead>
+<tbody>
+
+</tbody>
+</table></div>
+<p><code>Location</code> is <code>path/to/file:line</code>. <code>Why</code> names the principle and the user impact.</p>
+<p>End with <code>Block</code> when any <code>HIGH</code> remains, <code>Approve</code> otherwise, leaving the rest in the table as work to do. Never <code>Approve</code> coverage you did not inspect. With nothing to report, state &quot;No actionable accessibility findings&quot; and report verification.</p>
+</article>
+</main>
+</div>
+
+<footer class="site-foot">
+<p><a href="../index.html">Back to all skills</a></p>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>silver-evaluate — Product design skills</title>
+<meta name="description" content="Runs a usability test, expert review, or feedback evaluation distinct from deterministic conformance checking: defines the decision, evaluation question, method, participants or reviewers, and tasks; inspects a pinned visualization or prototype and captures only sanitized observations; separates…">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="page-head">
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-testing">Testing and evaluation</a></nav>
+<h1>silver-evaluate</h1>
+<p class="badges"><span class="il badge badge-dep"><span class="il-label">Needs Node</span></span><span class="il badge badge-exp"><span class="il-label">Experimental</span></span></p>
+<p class="lede">Runs a usability test, expert review, or feedback evaluation distinct from deterministic conformance checking: defines the decision, evaluation question, method, participants or reviewers, and tasks; inspects a pinned visualization or prototype and captures only sanitized observations; separates observed behavior from interpretation and from deterministic check findings; and produces evidence-linked findings and recommendations for explicit human acceptance. Boundaries forbid implying participants or sessions existed when only a planned or expert review was performed, and forbid turning automated-conformance failures into fabricated user evidence. Upstream's 'Done' step instructs emitting the finished record through a bundled `.silver/bin/silver invoke` CLI belonging to the parent Silver Design Framework installation; that CLI and its runtime are not included in this vendored skill, so used standalone an agent should follow the workflow and boundaries and write the evaluation/finding artifacts directly.</p>
+</header>
+
+<div class="layout">
+<nav class="sidebar" aria-labelledby="contents">
+<h2 id="contents">On this page</h2>
+<ul class="toc">
+<li><a href="#about">About this skill</a></li>
+<li><a href="#install">Install</a></li>
+<li><a href="#related">Works with</a></li>
+<li><a href="#evaluate-design">Evaluate design</a></li>
+<li><a href="#workflow">Workflow</a></li>
+<li><a href="#done">Done</a></li>
+<li><a href="#boundaries">Boundaries</a></li>
+</ul>
+</nav>
+
+<main id="main">
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3>Use when</h3><ul><li>plan a usability test</li><li>run an expert review of this prototype</li><li>evaluate this design and separate observation from interpretation</li><li>produce evidence-linked evaluation findings</li><li>distinguish user-tested findings from automated conformance failures</li></ul></div>
+<div class="meta-row"><h3>Works on</h3><ul><li>a sketch, visualization, prototype, design specification, or map to evaluate</li><li>an evaluation question, method, and participant/reviewer set</li></ul></div>
+<div class="meta-row"><h3>Produces</h3><ul><li>evidence-linked findings and recommendations that keep observed behavior, interpretation, confidence, and deterministic-conformance results distinguishable</li></ul></div>
+<div class="meta-row"><h3>Tags</h3>
+<ul class="tags"><li><a class="tag" href="../index.html?tag=usability-testing">usability-testing</a></li><li><a class="tag" href="../index.html?tag=heuristic-evaluation">heuristic-evaluation</a></li><li><a class="tag" href="../index.html?tag=design-critique">design-critique</a></li><li><a class="tag" href="../index.html?tag=expert-review">expert-review</a></li><li><a class="tag" href="../index.html?tag=severity">severity</a></li></ul></div>
+<div class="meta-row"><h3>Requires</h3><ul><li><code>node</code></li></ul></div>
+<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/evaluate">thejparsenault/silver-design-framework</a> by JP Arsenault at <code>317ede0</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p></div>
+</section>
+
+<section id="install">
+<h2>Install</h2>
+<ul class="install">
+<li>
+<h3>Any agent, via the skills CLI</h3>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill silver-evaluate</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill silver-evaluate"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Installs into whichever agents it finds on your machine.</p>
+</li>
+<li>
+<h3>Claude Code, as a plugin</h3>
+<div class="cmd"><pre><code>/plugin marketplace add stritar/skills
+/plugin install product-design-testing@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-testing@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Brings the whole testing bundle. Use <code>product-design-all</code> for everything.</p>
+</li>
+<li>
+<h3>From a clone, copied by hand</h3>
+<div class="cmd"><pre><code>cp -r skills/testing/silver-evaluate ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/testing/silver-evaluate ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
+</li>
+</ul>
+</section>
+
+<section id="related">
+<h2>Works with</h2>
+<ul class="related">
+<li><a href="silver-ideate.html"><span class="rel-id">silver-ideate</span></a> <span class="rel-cat">Discovery</span></li>
+<li><a href="silver-measure.html"><span class="rel-id">silver-measure</span></a> <span class="rel-cat">Product analytics</span></li>
+<li><a href="interface-review.html"><span class="rel-id">interface-review</span></a> <span class="rel-cat">Design QA</span></li>
+</ul>
+</section>
+
+<article class="skill-body">
+<h2 class="body-head">Instructions</h2>
+<p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/testing/silver-evaluate/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
+<h2 id="evaluate-design">Evaluate design</h2>
+<h3 id="workflow">Workflow</h3>
+<ol>
+<li>Define the decision, question, method, participants or reviewers, and tasks.</li>
+<li>Inspect the pinned visualization or prototype and capture only sanitized observations.</li>
+<li>Separate observed behavior from interpretation and deterministic check findings.</li>
+<li>Produce evidence-linked findings and recommendations for explicit acceptance.</li>
+</ol>
+<p>Run the guarded file operation through the CLI when durable outputs are ready:</p>
+<pre><code class="language-sh">.silver/bin/silver invoke --scaffold evaluate .
+.silver/bin/silver invoke evaluate &lt;request.json&gt; .
+</code></pre>
+<p>The scaffold prefills timestamps, provenance, pinned context, required checks, and
+<code>expected_integrity</code>. Replace every <code>silver-scaffold-placeholder</code> before invoking;
+the CLI refuses a request that still contains one.</p>
+<h3 id="done">Done</h3>
+<ul>
+<li>Satisfy: question-declared, observations-sanitized, interpretation-separated, conformance-distinct.</li>
+<li>Evaluate quality: Observations, interpretations, confidence, and recommendations remain distinguishable and traceable.</li>
+<li>Emit a valid <code>silver/skill-result/v2</code> record separating execution, acceptance, and downstream readiness.</li>
+<li>Recommend follow-up skills; never start them automatically.</li>
+</ul>
+<h3 id="boundaries">Boundaries</h3>
+<ul>
+<li>Do not imply participants or sessions existed when performing only a planned or expert review.</li>
+<li>Do not turn conformance failures into fabricated user evidence.</li>
+</ul>
+</article>
+</main>
+</div>
+
+<footer class="site-foot">
+<p><a href="../index.html">Back to all skills</a></p>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

@@ -10,5 +10,5 @@ change it there.
 Claude Code specifics: install one skill by copying its directory into
 `.claude/skills/` of the target project (or `~/.claude/skills/` for all
 projects), or add this repo as a plugin marketplace
-(`/plugin marketplace add <owner>/skills`) and install `product-design-all` or
+(`/plugin marketplace add stritar/skills`) and install `product-design-all` or
 a `product-design-<category>` bundle.

@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ultra11y — Product design skills</title>
+<meta name="description" content="Audits a repository, site, or page against WCAG 2.2 AA or a pluggable country standard (e.g. RGAA) using a bundled, install-free engine that runs 93 static checks tied to specific success criteria with cross-file JSX/TSX AST analysis, routes rendering-dependent criteria (computed contrast,…">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="page-head">
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-accessibility">Accessibility</a></nav>
+<h1>ultra11y</h1>
+<p class="badges"><span class="il badge badge-dep"><span class="il-label">Needs Playwright</span></span><span class="il badge badge-exp"><span class="il-label">Experimental</span></span></p>
+<p class="lede">Audits a repository, site, or page against WCAG 2.2 AA or a pluggable country standard (e.g. RGAA) using a bundled, install-free engine that runs 93 static checks tied to specific success criteria with cross-file JSX/TSX AST analysis, routes rendering-dependent criteria (computed contrast, zoom/reflow, focus visibility) to an optional browser scan tier, and has the agent adjudicate judgment criteria (alt-text relevance, link purpose, reading order) from harvested evidence — never silently marking a criterion conforming without recorded proof. Produces dated Markdown/HTML conformance reports, per-page criterion grids, PRD-style backlogs, and filed tickets (GitHub/GitLab/Jira), and can also author accessible markup and apply safe automated fixes. Self-benchmarked against the W3C ACT-Rules corpus (125/176 failing examples caught across 40 rules, zero false positives).</p>
+</header>
+
+<div class="layout">
+<nav class="sidebar" aria-labelledby="contents">
+<h2 id="contents">On this page</h2>
+<ul class="toc">
+<li><a href="#about">About this skill</a></li>
+<li><a href="#install">Install</a></li>
+<li><a href="#related">Works with</a></li>
+<li><a href="#ultra11y-audit-wcag-22-aa-and-write-accessible-markup">ultra11y — audit WCAG 2.2 AA and write accessible markup</a></li>
+<li><a href="#the-reference-library">The reference library</a></li>
+<li><a href="#choose-by-situation">Choose by situation</a></li>
+<li><a href="#orchestration-route-by-harness">Orchestration — route by harness</a></li>
+<li><a href="#command-cheat-sheet">Command cheat sheet</a></li>
+<li><a href="#the-loop-audit-render-judge-fix-re-audit">The loop: audit → render → judge → fix → re-audit</a></li>
+<li><a href="#handing-over-to-review-a11y">Handing over to review-a11y</a></li>
+<li><a href="#combining-engine-judgment-and-residual-risk">Combining engine, judgment and residual risk</a></li>
+<li><a href="#do-not">Do not</a></li>
+<li><a href="#scope">Scope</a></li>
+</ul>
+</nav>
+
+<main id="main">
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3>Use when</h3><ul><li>audit this repo for accessibility</li><li>generate a WCAG conformance report</li><li>run an RGAA accessibility audit</li><li>produce an accessibility PRD backlog</li><li>author accessible markup for this component</li></ul></div>
+<div class="meta-row"><h3>Works on</h3><ul><li>source file globs, a site URL, or a rendered page to audit</li><li>an optional country-standard pack (e.g. RGAA) and prior audit JSON to merge/re-scan against</li></ul></div>
+<div class="meta-row"><h3>Produces</h3><ul><li>dated Markdown/HTML conformance report with per-criterion status</li><li>per-page compliance grid from rendered-page scans</li><li>PRD-style backlog and/or filed tickets grouped by WCAG criterion</li></ul></div>
+<div class="meta-row"><h3>Tags</h3>
+<ul class="tags"><li><a class="tag" href="../index.html?tag=a11y">a11y</a></li><li><a class="tag" href="../index.html?tag=wcag">wcag</a></li><li><a class="tag" href="../index.html?tag=aria">aria</a></li><li><a class="tag" href="../index.html?tag=keyboard">keyboard</a></li><li><a class="tag" href="../index.html?tag=focus-management">focus-management</a></li><li><a class="tag" href="../index.html?tag=contrast">contrast</a></li><li><a class="tag" href="../index.html?tag=semantic-html">semantic-html</a></li><li><a class="tag" href="../index.html?tag=forms">forms</a></li><li><a class="tag" href="../index.html?tag=severity">severity</a></li><li><a class="tag" href="../index.html?tag=audit">audit</a></li><li><a class="tag" href="../index.html?tag=remediation">remediation</a></li><li><a class="tag" href="../index.html?tag=documentation">documentation</a></li></ul></div>
+<div class="meta-row"><h3>Requires</h3><ul><li><code>node</code></li><li><code>browser</code></li><li><code>playwright</code></li></ul></div>
+<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/maxgfr/ultra11y/tree/d1cd14792f3bd1b9ab15958bc4e72081375514dc/skills/ultra11y">maxgfr/ultra11y</a> by maxgfr at <code>d1cd147</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p></div>
+</section>
+
+<section id="install">
+<h2>Install</h2>
+<ul class="install">
+<li>
+<h3>Any agent, via the skills CLI</h3>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill ultra11y</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill ultra11y"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Installs into whichever agents it finds on your machine.</p>
+</li>
+<li>
+<h3>Claude Code, as a plugin</h3>
+<div class="cmd"><pre><code>/plugin marketplace add stritar/skills
+/plugin install product-design-accessibility@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-accessibility@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Brings the whole accessibility bundle. Use <code>product-design-all</code> for everything.</p>
+</li>
+<li>
+<h3>From a clone, copied by hand</h3>
+<div class="cmd"><pre><code>cp -r skills/accessibility/ultra11y ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/accessibility/ultra11y ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
+</li>
+</ul>
+</section>
+
+<section id="related">
+<h2>Works with</h2>
+<ul class="related">
+<li><a href="review-a11y.html"><span class="rel-id">review-a11y</span></a> <span class="rel-cat">Accessibility</span></li>
+<li><a href="a11y-check-page.html"><span class="rel-id">a11y-check-page</span></a> <span class="rel-cat">Accessibility</span></li>
+</ul>
+</section>
+
+<article class="skill-body">
+<h2 class="body-head">Instructions</h2>
+<p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/accessibility/ultra11y/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
+<h2 id="ultra11y-audit-wcag-22-aa-and-write-accessible-markup">ultra11y — audit WCAG 2.2 AA and write accessible markup</h2>
+<p>On accessibility, an automated tool only sees part of the problem. <code>ultra11y</code> owns
+that with a <strong>division of labour</strong>: the deterministic, install-free engine
+(<code>node scripts/ultra11y.mjs &lt;command&gt;</code> — no <code>npm install</code>, no key; the JSX/TSX parser
+is embedded in the bundle) does the <em>mechanical</em> work — detect the machine-checkable
+non-conformities and tie each to the right <strong>WCAG success criterion</strong> — and <strong>the active coding
+agent</strong> <em>adjudicates the judgment criteria itself</em> — alt relevance, link
+purpose in context, reading order — statically, from the evidence the engine harvests
+(<code>verify --manual</code>), each verdict gated by <code>verify</code>/<code>check</code>. Only the truly <strong>rendered-DOM</strong>
+criteria (computed contrast, visible focus, zoom/reflow, content-on-hover) fall to the <code>scan</code>
+tier (axe-core in a real browser); a human is at most optional oversight. Gates stop any
+hallucinated non-conformity from surviving, and nothing is ever silently &quot;conforming&quot;.</p>
+<p><strong>Do not confuse rules with criteria.</strong> The bundle ships 93 static checks, WCAG AA has 55
+success criteria, and RGAA has 106 criteria. Several rules may evidence one criterion, one
+rule may contribute to several pack criteria, and most criteria remain open until a scan or
+an adjudication. The only honest run-level coverage is the grid's live provenance tally
+(<code>moteur + scan + agent</code>, plus any named undecidable residue), never a fixed promise such as
+“48 agent criteria”. GitHub summaries therefore show <code>decided/total</code>, not a percentage over
+the small decided subset.</p>
+<p><strong>WCAG 2.2 Level AA is the worldwide core.</strong> Country standards — France's <strong>RGAA</strong>, the
+US <strong>Section 508</strong>, the EU <strong>EN 301 549</strong> — are pluggable <em>standards packs</em> that map their
+criteria onto WCAG. Add <code>--standard rgaa</code> to re-key <strong>every command and every output</strong> —
+<code>audit</code> included, findings and all; <strong>plug an external
+pack at runtime</strong> with <code>--pack ./pack.json</code> (or a <code>.ultra11yrc.json</code>), no rebuild; or
+contribute your country (see <code>references/standards.md</code>). Packs (and their concrete
+<strong>implementation guidance</strong> — the RGAA SocialGouv/etalab good/bad patterns) can be
+<strong>AI-ingested</strong> and gated by <code>pack check</code> so a fabricated mapping never passes — see
+<code>references/packs.md</code> and <code>references/guidance.md</code>.</p>
+<p><strong>Most of the work is yours.</strong> Of the 55 WCAG 2.2 AA success criteria, the engine can decide
+<strong>3</strong> outright; <strong>14</strong> need a rendered page (<code>scan</code>) and <strong>38</strong> are judgment calls the agent
+adjudicates. So the engine's clean run is a starting point, never a verdict — and
+<code>references/adjudication.md</code> is the page you actually work from.</p>
+<blockquote>
+<p><strong>Core rules:</strong></p>
+<ol>
+<li><strong>Never invent a non-conformity</strong>: every <code>NC</code> cites a real, resolvable element (<code>check</code> verifies it).</li>
+<li><strong>Native HTML first, ARIA last</strong>; never duplicate implicit semantics.</li>
+<li><strong>Never invent a conformity either</strong>: a <code>C</code> is cited exactly like an <code>NC</code> — it names in
+ <code>citations[]</code> the harvested evidence it cleared, each anchor resolvable and drawn from
+ the evidence that criterion was actually shown. A criterion presented with <em>no</em> evidence
+ cannot be <code>C</code> at all; it stays <code>manual</code>. Neither can one whose reading was INCOMPLETE
+ (<code>evidenceComplete: false</code>): a criterion you were shown part of can still fail on what
+ you saw, but it can never be cleared over what you did not. And an adjudicated <code>C</code> is
+ never merged with an engine-decided one: reports list it separately and keep it out of
+ the automatic pass rate.
+3b. <strong>What you are shown is the whole population, said once per distinct thing.</strong> Evidence
+ is one representative per CONTENT CLASS, carrying <code>occurrences</code>, the other anchors in
+ <code>alsoAt</code>, and the <code>pages</code> it appears on — 887 links across 38 captured pages are 97
+ distinct (text, href) pairs. Ruling on the representative rules on all of them, which is
+ what makes an honest <code>C</code> reachable; and a citation naming ANY occurrence of a class the
+ criterion carries is accepted, so cite the one you actually opened.</li>
+<li><strong>Residual is explicit, never silently conforming</strong>: the AI agent <em>adjudicates</em> every
+ <em>judgment</em> criterion itself (<code>verify --manual</code>, gated), and the <em>rendering</em> criteria go to
+ <code>scan</code> — which now CONCLUDES <code>C</code> (<code>decidedBy: &quot;scan&quot;</code>) when every rule carrying a
+ criterion ran on every page in scope and raised nothing, and stays silent when even one
+ page's signals were incomplete. Any criterion still unproven stays &quot;to assess manually&quot; —
+ no status without a recorded, justified verdict. To make that a gate rather than a hope,
+ <code>check --in &lt;audit.json&gt; --require-decided</code> fails while anything is still to assess, and
+ <code>--allow-undecided &lt;file&gt;</code> takes the criteria you genuinely cannot decide, each with its
+ reason (a named list, never a threshold). <code>--require-decided=pages</code> holds EVERY page's own
+ grid to the same bar: a criterion failing on one route is settled for the run and may still
+ be nobody's verdict on the routes it never fired on, which is what a per-page deliverable is
+ actually judged on.</li>
+<li><strong>Look the criterion up; never recall it.</strong> <code>criteria [--standard &lt;pack&gt;] &lt;id&gt;</code> — or
+ <code>ultra11y_criteria</code> over MCP — returns the criterion's own wording, its <strong>numbered
+ tests</strong>, and the glossary definitions those tests cite. RGAA 8.3 is not &quot;the page needs a
+ <code>lang</code> attribute&quot;; it is test <code>8.3.1</code> with two alternative conditions, and the glossary
+ decides what its terms mean. An auditor block that cites <code>8.3.1</code> after reading it is
+ grounded; one that cites it from memory is a guess wearing a reference. Before auditing
+ against a country standard, run the plan (<code>ultra11y_method</code>): it tells you how many of its
+ criteria that still need adjudication to earn C — for RGAA, <strong>103 of 106</strong>. See <code>references/mcp.md</code>.</li>
+<li><strong>The FINAL rendered semantic HTML must be correct.</strong> The engine sees only source; a
+ component library (DSFR/MUI…) or <code>.vue</code>/<code>.svelte</code>/<code>.astro</code> SFC hides the real markup, so
+ a green source audit is not proof. Verify the produced semantic HTML — install the
+ zero-touch <strong>capture</strong> harvester (<code>render --setup</code>) so every component your tests render
+ is serialized to <code>.ultra11y/captures</code> and audited, with <code>audit --require-captures</code> gating
+ the blind spots. See <code>references/automation.md</code> / <code>rendered.md</code>.</li>
+<li><strong>Language</strong>: ALWAYS pass <code>--lang</code> matching the language of your conversation with
+ the user; ask the user when ambiguous. Without the flag the CLI auto-detects (repo
+ <code>&lt;html lang&gt;</code> → the active standard's default locale → English) — a scripted/CI
+ fallback, not a substitute for passing <code>--lang</code> yourself.</li>
+<li><strong>Technical tokens stay in English, even in French prose.</strong> In any French deliverable
+ you write (report commentary, PRD, tracker tickets, judgment verdicts), attribute/
+ element/role names and their values are code, not prose — never translate them:
+ <code>aria-live</code> stays <code>aria-live</code> (never « région live »), same for <code>tabindex</code>, <code>alt</code>,
+ <code>role=&quot;alert&quot;</code>, landmark role names. The engine's own fr catalog follows this; match
+ it. Normative standard vocabulary (RGAA wording such as « lien d'évitement ») keeps
+ its official French.</li>
+</ol>
+</blockquote>
+<h3 id="the-reference-library">The reference library</h3>
+<p>Domain knowledge first, then the tooling. Read the one that matches the question in front of you.</p>
+<div class="table-scroll"><table>
+<thead><tr><th>Accessibility knowledge</th><th></th></tr></thead>
+<tbody>
+<tr><td><code>references/adjudication.md</code></td><td>How to decide each of the 52 criteria the engine hands you — the decision rule, when NA is legitimate, the questions</td></tr>
+<tr><td><code>references/naming.md</code></td><td>Accessible-name computation, 2.5.3 label-in-name, visually-hidden CSS, naming images/SVG/figures</td></tr>
+<tr><td><code>references/widgets.md</code></td><td>ARIA APG composite patterns, keyboard contracts, focus management, SPA route changes, live regions</td></tr>
+<tr><td><code>references/forms-and-errors.md</code></td><td>Labels and instructions, the <code>autocomplete</code> token list, error identification/suggestion/prevention, redundant entry, accessible authentication</td></tr>
+<tr><td><code>references/structure.md</code></td><td>Headings, landmarks, lists and <code>dl</code>, simple and complex tables, meaningful sequence</td></tr>
+<tr><td><code>references/media-and-motion.md</code></td><td>Captions/audio description/transcripts, pointer gestures, target size, orientation, reflow, reduced motion</td></tr>
+<tr><td><code>references/forbidden-patterns.md</code></td><td>15 anti-patterns: bad → why → native fix → criterion</td></tr>
+<tr><td><code>references/focus-and-logic.md</code></td><td>The focus/keyboard criteria you own, and how to reason about them</td></tr>
+<tr><td><code>references/criteria.md</code></td><td>The 55 criteria: level, automatability class, engine rules, pack mapping (generated)</td></tr>
+<tr><td><code>references/rgaa-automation.md</code></td><td>RGAA 4.1.2: generated 106-criterion / 258-test matrix, decisive rules, candidate signals and silence policy</td></tr>
+<tr><td><code>references/act.md</code></td><td>What the engine is measured to catch — and what it demonstrably does not (generated)</td></tr>
+</tbody>
+</table></div>
+<div class="table-scroll"><table>
+<thead><tr><th>Running the tool</th><th></th></tr></thead>
+<tbody>
+<tr><td><code>references/runbook.md</code></td><td><strong>The reliable run</strong>: the one recipe, the transport to use and why, and what a pass costs. Read this before paying for an adjudication</td></tr>
+<tr><td><code>references/claude-code-report.md</code></td><td>Claude Code's detailed publication route: rendered scope, direct adjudication, adversarial verification, Markdown + HTML + per-page evidence</td></tr>
+<tr><td><code>references/audit.md</code></td><td>The audit loop end to end, and the normative page sample</td></tr>
+<tr><td><code>references/judgment.md</code></td><td>The adjudication + refutation worklists, verdict vocabulary, fail-closed fold</td></tr>
+<tr><td><code>references/verify.md</code></td><td>The <code>check</code>/<code>verify</code> gates</td></tr>
+<tr><td><code>references/false-positives.md</code></td><td>Where a finding may still be wrong, and how to refute it</td></tr>
+<tr><td><code>references/rendered.md</code> · <code>references/automation.md</code></td><td>Auditing produced HTML, captures, hooks and CI</td></tr>
+<tr><td><code>references/harnesses.md</code></td><td>Where this runs: Claude Code, Codex CLI, OpenCode, and the AGENTS.md fallback</td></tr>
+<tr><td><code>references/orchestrators.md</code></td><td>Driving the engine from a workflow engine / non-GitHub CI: pinning, the six-step pipeline, exit codes, the ticket set as JSON for any tracker</td></tr>
+<tr><td><code>references/ci.md</code></td><td><code>--format sarif|github</code>: inline PR annotations, code scanning, job summary</td></tr>
+<tr><td><code>references/pages.md</code></td><td>Page snapshots + the per-page criterion grid (<code>pages</code>), and its honesty rules</td></tr>
+<tr><td><code>references/e2e.md</code></td><td><code>render --e2e</code>: auditing a page during your Playwright/Cypress run</td></tr>
+<tr><td><code>references/devtools.md</code></td><td><code>dev</code>: the live overlay while you build, and the per-page dashboard</td></tr>
+<tr><td><code>references/extension.md</code></td><td>The browser extension: audit the page you are looking at, through the side-car</td></tr>
+<tr><td><code>references/dynamic.md</code></td><td>The <code>scan</code> tier: runtimes, probes, authenticated pages</td></tr>
+<tr><td><code>references/scale.md</code></td><td>Focusing an audit on a large repository</td></tr>
+<tr><td><code>references/fix.md</code> · <code>references/correction.md</code></td><td>Applying fixes, by priority, without regressions</td></tr>
+<tr><td><code>references/prd.md</code></td><td>The auditor block as a backlog (markdown)</td></tr>
+<tr><td><code>references/tickets.md</code></td><td>Filing that backlog as tickets: GitHub, GitLab, Jira, and at which granularity</td></tr>
+<tr><td><code>references/standards.md</code> · <code>references/packs.md</code> · <code>references/guidance.md</code></td><td>Country standards, authoring a pack, implementation guidance</td></tr>
+<tr><td><code>references/mcp.md</code></td><td><strong>The standards as a rule engine</strong>: look a criterion up instead of recalling it — its numbered tests, the terms it defines, the fix, and the work plan. As MCP tools and <code>std://</code> resources, or the same data on the CLI</td></tr>
+<tr><td><code>references/methodology.md</code></td><td>Statuses, pass rate, severities, report format</td></tr>
+<tr><td><code>references/cross-file.md</code></td><td><code>--graph</code>: imports and cross-file rules</td></tr>
+<tr><td><code>references/orchestration.md</code></td><td>Fanning the judgment phases out across subagents</td></tr>
+</tbody>
+</table></div>
+<h3 id="choose-by-situation">Choose by situation</h3>
+<ul>
+<li><strong>&quot;Produce a detailed audit/report in Claude Code&quot;</strong> → use the active Claude session as the
+auditor, close the rendered and judgment criteria, challenge its claims, then publish the
+dated Markdown report, printable HTML and evidenced per-page dossiers. Read
+<strong><code>references/claude-code-report.md</code></strong>. This is the interactive publication profile; finish
+with its full deliverable set. The compact summary is the CI branch below.</li>
+<li><strong>&quot;Audit / compliance report&quot;</strong> → <code>node scripts/ultra11y.mjs audit … --json</code>, then
+<code>report</code> (synthesis table + one <strong>auditor conformance block</strong> per NC criterion — same
+block <code>prd</code> and <code>tickets</code> use), then <code>check</code>; read <strong><code>references/audit.md</code></strong>.</li>
+<li><strong>&quot;Code rendered by a library (DSFR, MUI…) or a <code>.vue</code>/<code>.svelte</code>/<code>.astro</code> SFC / avoid
+false negatives&quot;</strong> → audit the <strong>produced HTML</strong>, not the source template. Easiest:
+install the zero-touch <strong>capture</strong> harvester (<code>render --setup</code>) so your tests serialize
+every rendered component to <code>.ultra11y/captures</code> (auto-ingested, findings attributed to the
+source component; <code>render --coverage</code> and <code>audit --require-captures</code> track blind spots). Or
+<code>render</code> (build→audit recipe or SSR snapshot <code>--scaffold</code>) then <code>audit</code> on the output, and
+<code>scan</code> for computed rendering. SFC-source findings are flagged <code>preliminary</code> (a
+<code>scope.sourceTemplate</code> caveat); read <strong><code>references/rendered.md</code></strong>.</li>
+<li><strong>&quot;A finding looks wrong / false positive on a component&quot;</strong> → the engine auto-suppresses
+most component false positives (slot/prop-injected names, component children, dynamic
+bindings, conditional headings) and marks SFC/library-source findings <code>preliminary</code>;
+confirm or refute the rest with <code>verify --apply</code>; read <strong><code>references/false-positives.md</code></strong>.</li>
+<li><strong>&quot;Large repo / audit smartly&quot;</strong> → focus: <code>--changed</code> (git diff), template
+prioritization, dedup, <code>--max-files</code>; read <strong><code>references/scale.md</code></strong>.</li>
+<li><strong>&quot;Cross-file analysis (tree + dependencies), JSX/TSX as a real AST&quot;</strong> →
+<code>audit --graph</code> resolves imports and applies cross-file rules (an icon-only component
+used without a name, an anchor target in another file…), no browser; read
+<strong><code>references/cross-file.md</code></strong>.</li>
+<li><strong>&quot;Generate the fix markdown / PRDs&quot;</strong> → <code>prd</code> (the SAME auditor
+conformance block <code>report</code>'s NC section renders — theme/criterion/test/WCAG+level/
+finding/expected/verification in the active standard's vocabulary — as a backlog);
+<code>--split criterion</code>, <code>--format doc</code> for a product-requirements doc, <code>--format remediation</code>
+for the legacy dev backlog). It writes markdown only; read
+<strong><code>references/prd.md</code></strong>.</li>
+<li><strong>&quot;Open tickets / issues for this (GitHub · GitLab · Jira)&quot;</strong> → <code>tickets</code>, a separate
+command that reads the audit and files it, writing no markdown. <code>--grain</code> picks what one
+ticket is: per criterion (default), per page, per page+criterion, per file, or one
+consolidated. De-dupe is by exact title, so re-running never duplicates. Always
+<code>--dry-run</code> first; read <strong><code>references/tickets.md</code></strong>.</li>
+<li><strong>&quot;Plug or author a standards pack (RGAA &amp; beyond), AI-ingest external rules&quot;</strong> →
+<code>--pack</code>/<code>.ultra11yrc.json</code> to load at runtime, <code>pack check</code> to gate it (the
+anti-hallucination guardrail), <code>pack scaffold</code> to start one; concrete before/after
+implementation guidance attaches to findings/PRD; read <strong><code>references/packs.md</code></strong> and
+<strong><code>references/guidance.md</code></strong>.</li>
+<li><strong>&quot;Adjudicate the judgment criteria (judgment phase)&quot;</strong> → <code>verify --manual --in audit.json</code>
+emits an ADJUDICATION worklist (<code>ADJUDICATE.todo.json</code> + <code>ADJUDICATE.md</code>), one item per
+residual criterion, pre-loaded with the engine's harvested evidence (every alt, link text +
+context, literal colour pairs, control labels, heading outline, ARIA state, tabindex,
+lang-of-parts); the AI agent fills each <code>verdict</code> — <code>C</code>/<code>NA</code> (with a <code>justification</code>), <code>NC</code>
+(with a groundable finding), or <code>manual</code> (with a <code>reason</code>) — then <code>verify --apply … --in
+audit.json</code> folds them back FAIL-CLOSED; read <strong><code>references/judgment.md</code></strong>.</li>
+<li><strong>&quot;Many items to adjudicate/verify (fan the judgment out to subagents)&quot;</strong> →
+<code>orchestrate --run &lt;dir&gt;</code> emits, from the run's CURRENT worklists, one launchable
+multi-agent workflow per ready phase + the <code>agents/&lt;role&gt;.md</code> dispatch contracts +
+a sequential <code>RUNBOOK.md</code> — the default execution path on a subagent-capable harness;
+see <strong>Orchestration — route by harness</strong> below.</li>
+<li><strong>&quot;Focus, keyboard &amp; interaction logic (the interaction-logic part)&quot;</strong> → the engine marks
+focus order/visible/trap and on-focus/on-input criteria as residual risks; the AI agent reads
+the full component source and adjudicates the keyboard/focus behaviour (visible-focus and the
+other rendered criteria go to <code>scan</code>); read <strong><code>references/focus-and-logic.md</code></strong>.</li>
+<li><strong>&quot;Put the fixes in place&quot;</strong> → <code>fix</code> (dry-run by default, <code>--write</code> applies the safe
+codemods, proposes the rest without inventing anything); read <strong><code>references/fix.md</code></strong>.</li>
+<li><strong>&quot;Fix by priority, no regressions (correction phase)&quot;</strong> → <code>fix</code> (<code>--write</code>,
+<code>--iterate</code>) + the <code>prd</code> backlog, blocking→major→minor; read <strong><code>references/correction.md</code></strong>.</li>
+<li><strong>&quot;Automatic repo gate (hook / CI)&quot;</strong> → <code>init --hook</code> writes a git pre-commit gate over
+the <strong>strict staged snapshot</strong> (audits the exact index blobs, auto-applies safe fixes and
+re-stages them, blocks only on judgment issues); <code>init --baseline</code>/<code>--ci</code> is the opt-in
+&quot;block only NEW non-conformities&quot; variant. Installed as a <strong>Claude Code plugin</strong>, a third
+gate runs the <code>review-a11y</code> <em>skill</em> (not just the engine) on a pending commit/push/PR —
+that one is shipped by the plugin, not by <code>init</code>. For library/SFC code, commit rendered
+<strong>captures</strong> (<code>render --setup</code>) and stage them so the real semantic HTML is what's
+checked (<code>audit --require-captures</code>); read <strong><code>references/automation.md</code></strong>.</li>
+<li><strong>&quot;Show me the problems while I build the page&quot;</strong> → <code>dev --next</code> writes a one-line overlay
+component and <code>dev</code> starts a loopback side-car: a floating panel lists the current page's
+non-conformities, each opening its <code>file:line</code> in your editor, and <code>http://127.0.0.1:4111</code>
+accumulates the per-page grid as you browse. Renders nothing outside development; read
+<strong><code>references/devtools.md</code></strong>.</li>
+<li><strong>&quot;Check a page during our E2E tests&quot;</strong> → <code>render --e2e</code> writes Playwright/Cypress fixtures
+that audit the page <strong>as your test left it</strong> (logged in, form filled, modal open) — state a
+separate <code>scan</code> run does not have — and persist each checked page as a snapshot. <code>failOn</code>
+gates the test; <code>failOn: false</code> records without failing, which is how you adopt it on an
+existing backlog; read <strong><code>references/e2e.md</code></strong>.</li>
+<li><strong>&quot;Audit the real PAGE, not the component&quot;</strong> → a <strong>page snapshot</strong>
+(<code>.ultra11y/pages/&lt;id&gt;/</code>) is the whole rendered document plus the browser-only signals
+(computed styles, boxes, a11y tree, screenshot), ingested by <code>audit</code> automatically. Because
+it is a FULL document, the page-scoped rules run on it — that is where RGAA 8.3 (lang),
+8.5/8.6 (title) and 12.6 become decidable at all; read <strong><code>references/pages.md</code></strong>.</li>
+<li><strong>&quot;Decide the rendering criteria without a browser in CI&quot;</strong> → once a page snapshot exists,
+the <strong>rendered tier</strong> runs inside the ordinary <code>audit</code>: computed-style contrast
+(RGAA 3.2/10.5), screenshot-measured contrast for text over a gradient/image (the CSSOM
+blind spot axe-core shares), and colour-only link identification (<strong>RGAA 10.6</strong>, previously
+undecidable). Each leaves the criterion <code>manual</code> when it cannot measure — never a guess;
+read <strong><code>references/pages.md</code></strong>.</li>
+<li><strong>&quot;Give me the RGAA grid, page by page&quot;</strong> → <code>pages --in audits/audit-latest.json --standard
+rgaa</code> (also embedded in <code>report</code>): one row per criterion, one column per page <strong>URL</strong>, rebuilt from
+the committed audit.json alone. Two rules hold: a finding is attributed to a page only when
+something SAYS so (else it is reported as unattributed, never spread), and <code>C</code> by silence is
+earned only by a page whose real DOM was audited — a source-only page keeps its undecided
+criteria « à évaluer »; read <strong><code>references/pages.md</code></strong>.</li>
+<li><strong>&quot;I want a report PER PAGE, not a matrix&quot;</strong> → <code>pages --in audits/audit-latest.json
+--standard rgaa --format report --split page --out audits/pages</code>: one dossier per page —
+identity, its screenshot, its rate, EVERY criterion of the standard with its status on that
+page, then each non-conformity as the ordinary auditor block. Nothing is re-decided (the
+same projection as the grid) and no format is invented (the same auditor block as the
+report), so a page sheet and the compliance report cannot disagree. <code>check</code> gates it against
+invented criteria like any other report; read <strong><code>references/pages.md</code></strong>.</li>
+<li><strong>&quot;Which pages should I even audit?&quot;</strong> → <code>pages discover --crawl http://localhost:3000
+--write</code> (or <code>--sitemap &lt;url&gt;</code>) writes the <code>sample.pages</code> block for you, taking each page's
+name from its served <code>&lt;title&gt;</code> and NEVER overwriting the auth/storageState/notes already
+declared. Then <code>sample check</code> lints the coverage and <code>scan --sample</code> scans and snapshots it.
+A client-rendered SPA exposes no routes in its served HTML — use a sitemap there; read
+<strong><code>references/dynamic.md</code></strong>.</li>
+<li><strong>&quot;Audit these URLs page by page, in CI&quot;</strong> → the shipped Action takes <code>urls</code>, <code>sitemap</code>,
+<code>crawl</code> or <code>sample</code>, snapshots every page it visits and writes every criterion's status under
+every page both in the job summary and in <code>audits/pages-status.md</code>. Use
+<code>pages-report: compact</code> for that status-only package: the Markdown, page JSON, source audit
+and verdict ledger only (no adjudication worklists, remediation report, HTML or crops),
+or keep the default <code>true</code> for the detailed page dossiers too. Request a <code>pages</code>/<code>full</code> PR
+comment when the same grid is wanted on the pull request; read
+<strong><code>references/ci.md</code></strong>.</li>
+<li><strong>&quot;Nobody is here to rule on the judgment criteria&quot;</strong> → <code>judge --in audits/audit-latest.json
+--standard rgaa [--apply]</code> adjudicates them with a model, for a run with no coding agent in
+the loop (CI, the extension, an E2E run). It is a CALLER, not a second judge: same worklist,
+same evidence, same prompt, and the verdicts pass the same fail-closed gate yours do. Use
+<code>--runner api</code> with an API key, or <code>--runner claude|codex</code> with that local CLI's existing
+subscription login (<code>--runner cli</code> still aliases Claude). Inside an agent, prefer
+<code>verify --manual</code> and rule the worklist yourself; read <strong><code>references/judgment.md</code></strong>.</li>
+<li><strong>&quot;Show the findings ON the pull request, not just a red job&quot;</strong> → <code>--format sarif</code> (upload
+to code scanning → inline annotations at the right file:line) or <code>--format github</code>
+(<code>::error::</code> workflow commands + a <code>$GITHUB_STEP_SUMMARY</code> table) — from <code>report
+--standard rgaa</code> when you want the pack's criteria rather than WCAG's; read
+<strong><code>references/ci.md</code></strong>.</li>
+<li><strong>&quot;Make this code accessible / review it&quot;</strong> → audit the snippet
+(<code>audit - &lt; component.html</code>) native-first; read <strong><code>references/authoring.md</code></strong> and
+<strong><code>references/forbidden-patterns.md</code></strong>.</li>
+<li><strong>&quot;What does criterion X mean&quot;</strong> → <code>criteria</code> (e.g. <code>criteria 1.4.3</code>, or
+<code>criteria --standard rgaa 8.3</code>); see <strong><code>references/criteria.md</code></strong>.</li>
+<li><strong>&quot;How trustworthy is a given check / what does the engine NOT catch&quot;</strong> → the engine is
+scored against the <strong>W3C ACT-Rules test corpus</strong> (~1 100 third-party examples): which
+checks are consistent, where recall is partial, which deviations are deliberate, and
+which statically-decidable rules are still missing — read <strong><code>references/act.md</code></strong>. Use it
+to calibrate how much of a criterion the engine really settles before you adjudicate.</li>
+<li><strong>&quot;Country standard (RGAA, Section 508, EN 301 549)&quot;</strong> → <code>--standard &lt;pack&gt;</code> on
+<code>report</code>/<code>prd</code>/<code>criteria</code>/<code>check</code>/<code>verify</code>; see <strong><code>references/standards.md</code></strong> and
+<strong><code>references/methodology.md</code></strong>. <strong>For a country-standard audit, PROPOSE the scan by
+default</strong>: such an audit is normatively defined over a declared page <strong>sample</strong>, and an
+un-scanned <code>--standard rgaa</code> report is marked <strong>partial</strong> — say so rather than implying
+full coverage. The sample workflow (<code>sample check</code>, <code>scan --sample</code>, <code>--merge</code>) is in
+<strong><code>references/audit.md</code></strong>.</li>
+<li><strong>&quot;High-assurance audit&quot;</strong> → <code>verify --report … --semantic</code>; see <strong><code>references/verify.md</code></strong>.</li>
+<li><strong>&quot;Check contrast / rendering (dynamic tier)&quot;</strong> → <code>scan &lt;url&gt; --merge …</code> runs axe-core in a
+headless browser and, on the local runtime, probes focus visibility, 200% zoom, text
+spacing and content-on-hover, with bounded stateful interactions and authenticated pages;
+read <strong><code>references/dynamic.md</code></strong>.</li>
+<li><strong>&quot;Close the criteria that came back <code>needs-rendered-dom</code>&quot;</strong> → they did not need a better
+model, they needed a browser. <code>scan</code> persists WHAT IT MEASURED beside each snapshot
+(<code>probes.json</code>, <code>axe.json</code>), so a page it zoomed, reflowed and tabbed through can come back
+<strong>conforming</strong> rather than « à évaluer » — RGAA 3.2/3.3/10.4/10.11/10.12 close on the
+measurement, and 10.1/12.8 become adjudicable from the real DOM. <code>verify --manual</code> warns
+before you spend a pass, <code>check --require-rendered</code> refuses, and the crawl is <strong>unbounded by
+default</strong> (<code>--max 0</code> / <code>--depth 0</code>), announcing every page it reaches. Read
+<strong><code>references/dynamic.md</code></strong> and <strong><code>references/pages.md</code></strong>.</li>
+</ul>
+<h3 id="orchestration-route-by-harness">Orchestration — route by harness</h3>
+<p>The judgment phases fan out: <code>ADJUDICATE.todo.json</code> (one item per residual criterion) and
+<code>VERIFY.todo.json</code> (one entry per NC claim) are independent per-item worklists, and
+<code>orchestrate --run &lt;dir&gt;</code> emits a launchable workflow, per-role dispatch contracts and a
+sequential RUNBOOK from whichever worklists currently exist. Fan-out is an optimization,
+never a requirement: the gates are harness-independent, every phase has a sequential
+fallback with identical artifacts, and the fail-closed <code>verify --apply</code> fold always stays
+with you. Read <strong><code>references/orchestration.md</code></strong> for the routing table and the rules.</p>
+<h3 id="command-cheat-sheet">Command cheat sheet</h3>
+<p>The full surface is in <code>--help</code>; these are the lines you reach for.</p>
+<pre><code>node scripts/ultra11y.mjs audit &quot;src/**/*.tsx&quot; --graph --out audits --json   # the default audit (AST + cross-file, persisted)
+node scripts/ultra11y.mjs audit - &lt; component.html                           # a snippet via stdin
+node scripts/ultra11y.mjs audit --changed --json                             # only the git diff (large repo)
+node scripts/ultra11y.mjs audit --staged --fail-on blocking                  # gate EXACTLY the staged snapshot (pre-commit)
+node scripts/ultra11y.mjs audit &quot;dist/**/*.html&quot;                             # the RENDERED HTML (reliable for DSFR/MUI…)
+node scripts/ultra11y.mjs render --setup                                     # install the capture harvester (tests → .ultra11y/captures)
+node scripts/ultra11y.mjs audit --require-captures                           # gate the components with no rendered capture
+node scripts/ultra11y.mjs scan http://localhost:3000 --runtime local --cwd . --merge audits/audit-latest.json
+node scripts/ultra11y.mjs check --in audits/audit-latest.json --require-rendered              # gate: a rendering criterion left open by a run that rendered nothing
+node scripts/ultra11y.mjs pages --in audits/audit-latest.json --standard rgaa --json --out audits  # the per-page grid, for a machine (audits/pages.json)
+node scripts/ultra11y.mjs verify --report audits/wcag-YYYY-MM-DD.md --in audits/audit-latest.json --manual --out audits
+node scripts/ultra11y.mjs verify --apply audits/ADJUDICATE.todo.json --in audits/audit-latest.json --out audits
+node scripts/ultra11y.mjs orchestrate --run audits                           # fan the judgment phases out (--eco for the sequential path)
+node scripts/ultra11y.mjs report --in audits/audit-latest.json --out audits  # → audits/wcag-YYYY-MM-DD.md
+node scripts/ultra11y.mjs prd     --in audits/audit-latest.json              # the same auditor block as a backlog
+node scripts/ultra11y.mjs tickets --in audits/audit-latest.json --dry-run    # file it: GitHub/GitLab/Jira
+node scripts/ultra11y.mjs check  --report audits/wcag-YYYY-MM-DD.md          # integrity gate
+node scripts/ultra11y.mjs criteria 1.4.3                                     # one success criterion (--list for all)
+node scripts/ultra11y.mjs fix &quot;src/**/*.html&quot; --write --iterate               # apply the safe codemods to a fixpoint
+node scripts/ultra11y.mjs init --hook                                        # pre-commit gate (--baseline for the regression variant)
+node scripts/ultra11y.mjs pack check ./packs/section508.json                  # gate an (AI-)authored standards pack
+</code></pre>
+<p><strong><code>--standard rgaa</code> goes on <code>audit</code> too, and then everything speaks RGAA.</strong> It is honoured by
+<code>audit</code>/<code>scan</code>/<code>fix</code> as well as <code>report</code>/<code>prd</code>/<code>tickets</code>/<code>criteria</code>/<code>check</code>/<code>verify</code>/<code>judge</code>,
+and <code>.ultra11yrc.json { &quot;standard&quot;: &quot;rgaa&quot; }</code> makes it the default for all of them. Under it,
+<code>audit</code> prints an RGAA-titled summary tabulated by thématique with findings tagged <code>[8.4]</code>
+rather than <code>[3.1.1]</code>, in the pack's own language; <code>--json</code> and <code>--out</code> write a pack-keyed
+document (106 criteria, 13 themes) carrying the WCAG core inside <code>core</code> for the pipeline; and
+CI annotations, SARIF, the report, the PRD and the per-page sheets name RGAA criteria and
+nothing else — no WCAG cross-reference anywhere in a pack deliverable. The engine still keys
+on success criteria internally, because a pack criterion is DEFINED as a projection of them;
+that is plumbing, and no reader sees it. Add <code>--pack ./pack.json</code> to load a standard at
+runtime, and <code>--json</code> anywhere for machine output.
+<code>--lang</code> follows the conversation (pass it explicitly — Core rule 7).</p>
+<h3 id="the-loop-audit-render-judge-fix-re-audit">The loop: audit → render → judge → fix → re-audit</h3>
+<p>To converge on conformance (not a single pass), chain the steps, letting the agent
+drive the judgment and content stages:</p>
+<ol>
+<li><strong>Audit</strong> the source (<code>audit … --graph</code>) for a first map; on library-rendered code,
+ <strong>audit the render</strong> (<code>render</code> → build/SSR → <code>audit</code>) for reliable verdicts (otherwise
+ the scope-risk note reminds you).
+1b. <strong>RENDER BEFORE YOU ADJUDICATE — this step is not optional when a rendering criterion is
+ open.</strong> <code>scan &lt;url|file&gt; --runtime local --merge audits/audit-latest.json --out audits</code>
+ (or <code>scan --sample</code>) drives a real browser, persists each page to <code>.ultra11y/pages/&lt;id&gt;/</code>
+ <strong>with what it measured</strong> (<code>probes.json</code>, <code>axe.json</code>), and folds it in. Skipping it does not
+ leave those criteria merely open — it makes them <em>undecidable by anyone</em>: no reading of the
+ source settles computed contrast, 200 % zoom, 320 px reflow or text spacing, so every
+ adjudication pass over them costs a model and returns <code>needs-rendered-dom</code>. Measured on one
+ RGAA run over a two-file fixture: <strong>80 criteria to adjudicate from source alone, 41 once a
+ single page was scanned</strong> — and of the seven a three-pass, $24.90 cascade was left holding,
+ six closed on the measurement. <code>verify --manual</code> now says so before you spend anything, and
+ <code>check --in &lt;audit.json&gt; --require-rendered</code> makes it a gate.</li>
+<li><strong>Adjudicate &amp; refute</strong> with <code>verify</code>, two worklists. (a) <code>verify --manual --in audit.json</code>
+ emits <code>ADJUDICATE.todo.json</code> — one item per residual <em>judgment</em> criterion, pre-loaded with the
+ engine's harvested evidence — which the AI agent rules on (<code>C</code>/<code>NC</code>/<code>NA</code>, or <code>manual</code> with a
+ <code>reason</code> when it truly <code>needs-rendered-dom</code>), each verdict carrying a <code>justification</code> or a
+ groundable finding; <code>verify --apply … --in audit.json</code> folds them back FAIL-CLOSED (agent NCs
+ become real <code>agent:&lt;sc&gt;</code> findings that re-render in §2). (b) <code>verify --report … [--semantic]</code>
+ builds <code>VERIFY.todo.json</code>, which attacks <strong>both directions</strong>. It refutes any
+ <code>preliminary</code>/SFC/library-source <strong>non-conformity</strong> the rendered DOM disproves, and — when a
+ verdict ledger exists, which is the default — it also puts the ledger's agent-adjudicated
+ <strong>conformities</strong> on trial, one item per citation, question inverted: <em>does this evidence
+ establish the criterion, or only show that its subject exists?</em> Nothing used to challenge a
+ <code>C</code>, so a criterion cleared because its subject was PRESENT rather than RIGHT shipped as a
+ conformance claim. Same verdicts (<code>supported</code>/<code>partial</code>/<code>refuted</code>/<code>unsupported</code>);
+ <code>verify --apply</code> drops the refuted/unsupported non-conformities and sends a refuted
+ conformity's criterion back to « à évaluer » — never to NC, because refuting a conformity
+ proves nothing against the criterion. <code>--no-conformities</code> opts out. This
+ includes <strong>focus &amp; interaction logic</strong> (read the full component source: keyboard
+ operability, focus order/visibility, traps, on-focus/on-input changes; see
+ <code>references/focus-and-logic.md</code>) and the per-rule traps in <code>references/false-positives.md</code>.
+ Both worklists fan out (<code>orchestrate --run &lt;dir&gt; --phase adjudicate|verify-report</code> —
+ see <strong>Orchestration — route by harness</strong>); the <code>--apply</code> fold always stays with you.
+ <strong>Rule each criterion against its OWN text, not your memory of it.</strong> <code>verify --manual</code> also
+ writes one small brief per criterion (<code>adjudicate/&lt;criteriaId&gt;.md</code>) carrying the criterion's
+ official wording, its numbered tests and — under a country standard — that standard's own
+ <strong>test methodology</strong> (RGAA publishes one for all 258 of its tests), plus its glossary terms,
+ technical note and particular cases. Read that brief; under <code>--standard rgaa</code> it is RGAA
+ that decides, never the WCAG success criterion behind it. Each brief also cites the
+ criterion's official page: if a wording stays ambiguous and you have a web tool you may go
+ read it — never to contradict the vendored text, and a web page is never an acceptable
+ <code>normativeRef</code> (<code>--no-web</code> drops the offer; CI drops it by default).</li>
+<li><strong>Fix</strong> by priority: <code>fix --write --iterate</code> for the mechanical part (anti-regression
+ gate), then hand-apply the judgment/content fixes (alt, labels, structure) guided by
+ <code>references/correction.md</code>.</li>
+<li><strong>Re-audit</strong> (on the render where relevant) and repeat.</li>
+<li><strong>Deliver the auditor block.</strong> <code>report</code> (compliance doc: synthesis + one auditor
+ conformance block — theme/criterion/test/WCAG+level/finding/expected/verification —
+ per NC criterion) and <code>prd</code> (the same blocks as an actionable backlog; <code>tickets</code>
+ filing one GitHub issue per criterion with that identical block) are two views of the
+ ONE building block, in the language of this conversation (pass <code>--lang</code> explicitly —
+ Core rule 7).</li>
+<li><strong>Hand the change over to <code>review-a11y</code>, in a subagent.</strong> Once the deliverable is out,
+ the code you just fixed still has to be reviewed as a <em>change</em>, and that is the other
+ skill's job — see <strong>Handing over to <code>review-a11y</code></strong> below.</li>
+</ol>
+<p><strong>Stop</strong> when <code>check</code> and <code>verify --apply</code> are green again and only explicitly-named
+residual risks remain. (To automate the outer cadence, the harness <code>/loop</code> command can
+re-run this cycle.)</p>
+<h3 id="handing-over-to-review-a11y">Handing over to <code>review-a11y</code></h3>
+<p>This skill does the analysis end to end: audit, render, adjudicate, fix, re-audit, deliver.
+When it has produced fixes, <strong>dispatch <code>review-a11y</code> on the code under change as a subagent</strong>,
+and report what it returns.</p>
+<p>Use the host's native subagent capability: Codex dispatches a subagent with the prompt below;
+Claude Code can use <code>Agent(...)</code>. If the host exposes neither, follow the sequential route below.</p>
+<pre><code>Use the review-a11y skill on the working diff. Return its report verbatim.
+</code></pre>
+<p>Two skills, two scopes, and the split is not cosmetic:</p>
+<div class="table-scroll"><table>
+<thead><tr><th></th><th>scope</th><th>asks</th></tr></thead>
+<tbody>
+<tr><td><code>ultra11y</code> (this one)</td><td>the repository, a page sample, a standard</td><td><em>does this product conform, and where is the proof?</em></td></tr>
+<tr><td><code>review-a11y</code></td><td>exactly the code under change (staged, diff, or branch vs merge-base)</td><td><em>is this change safe to merge?</em></td></tr>
+</tbody>
+</table></div>
+<p><strong>Why a subagent rather than an inline pass.</strong> A full audit fills a context with a 3 MB
+engine's output, dozens of reference files and a page sample; a review has to read the diff
+closely with none of that in the way. Handing it over keeps the review's judgment
+independent of the audit that just ran — the same reason <code>verify</code> refutes findings instead
+of trusting them. If the harness has no subagent tool, invoke <code>review-a11y</code> directly: the
+routing table in <code>references/orchestration.md</code> names the fallbacks, and the review is
+identical either way.</p>
+<p><strong>Do not paraphrase its verdict.</strong> It returns a severity-ranked review with <code>file:line</code> and a
+one-line verdict; that is the deliverable, not a summary of it.</p>
+<h3 id="combining-engine-judgment-and-residual-risk">Combining engine, judgment and residual risk</h3>
+<p><code>audit</code> classes each criterion <code>C</code>/<code>NC</code>/<code>NA</code> for the static subset and <code>manual</code> for the rest,
+each carrying an <code>automatability</code> class that says WHY it is manual and how to close it:
+<strong><code>static</code></strong> (the engine decides), <strong><code>needs-rendering</code></strong> (<code>scan</code>), <strong><code>judgment</code></strong> (you, from
+the harvested evidence and the decision protocol). Engine <code>NC</code>s are confirmed candidates
+with a cited <code>file:line</code>; a <code>preliminary: true</code> finding (SFC/library source) is provisional —
+confirm it against the render or refute it. A criterion is never silently marked conforming:
+the report is complete only when every applicable criterion is a justified <code>C</code>/<code>NC</code>/<code>NA</code> and
+every residual risk is named. See <strong><code>references/methodology.md</code></strong>.</p>
+<p><strong>Advisory recommendations are a distinct class.</strong> A good-practice signal with NO failing
+normative test renders under a dedicated section and can never flip a criterion to <code>NC</code> nor
+enter <code>conformancePct</code>. An <code>NC</code> needs a <code>normativeRef</code>; a recommendation does not. Do not
+promote one to the other — see <strong><code>references/false-positives.md</code></strong>.</p>
+<h3 id="do-not">Do not</h3>
+<ul>
+<li>Invent a non-conformity the engine did not find and you cannot see (contrast on
+<strong>inline literal colours</strong> is decided statically; <strong>computed</strong> contrast — external CSS,
+variables — goes through <code>scan</code> (Docker tier) or is verified at render before being declared).</li>
+<li>Add ARIA that duplicates native semantics.</li>
+<li>Mark a rendering/judgment criterion &quot;conforming&quot; without a recorded, gated justification
+(agent adjudication via <code>verify --manual</code>, or <code>scan</code> evidence).</li>
+<li>Hand-edit <code>references/criteria.md</code> (generated from the WCAG dataset via <code>criteria --generate</code>).</li>
+</ul>
+<h3 id="scope">Scope</h3>
+<p>Static engine: offline, deterministic, install-free; inputs are HTML + JSX/TSX (real AST,
+cross-file analysis via <code>--graph</code>) + stdin. The <strong>rendering</strong> criteria (computed contrast,
+reflow) are covered by the optional <code>scan</code> tier (axe-core, Docker <strong>or</strong> <code>--runtime local</code>).
+The local runtime additionally <strong>probes</strong> focus visibility (2.4.7), 200% text zoom (1.4.4),
+text spacing (1.4.12) and content-on-hover (1.4.13) — observed in the rendered page, raised
+as NC only when the failure is seen (a clean probe leaves the SC <code>manual</code>, never silently
+conforming); reading order and alt relevance are the AI agent's judgment, adjudicated from the
+harvested evidence and gated (<code>verify --manual</code>).
+Data: WCAG 2.2 ©
+W3C (W3C Document License); the RGAA pack is RGAA 4.1.2 © DINUM, Licence Ouverte / Etalab
+2.0 (see <code>NOTICE</code>).</p>
+</article>
+</main>
+</div>
+
+<footer class="site-foot">
+<p><a href="../index.html">Back to all skills</a></p>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

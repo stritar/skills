@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>better-typography — Product design skills</title>
+<meta name="description" content="Web typography guidance: font-format and weight-loading rules, CSS properties over raw variable-font/OpenType tags, type-scale construction with descending heading steps, line-height and letter-spacing by role, measure capping (60-75 characters), text-wrap balance/pretty usage, tabular numbers,…">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="page-head">
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-visual-design">Visual design</a></nav>
+<h1>better-typography</h1>
+<p class="badges"><span class="il badge badge-rec"><span class="il-icon" aria-hidden="true">★</span><span class="il-label">Recommended</span></span></p>
+<p class="lede">Web typography guidance: font-format and weight-loading rules, CSS properties over raw variable-font/OpenType tags, type-scale construction with descending heading steps, line-height and letter-spacing by role, measure capping (60-75 characters), text-wrap balance/pretty usage, tabular numbers, truncation without losing content, smart punctuation, from-font underline metrics, the 16px iOS input-zoom fix (two documented approaches), font-smoothing and bidi/lang/dir handling, closing with a calibrated severity report ending in Block/Approve, plus a CSS-to-Tailwind cheat sheet for every declaration covered.</p>
+</header>
+
+<div class="layout">
+<nav class="sidebar" aria-labelledby="contents">
+<h2 id="contents">On this page</h2>
+<ul class="toc">
+<li><a href="#about">About this skill</a></li>
+<li><a href="#install">Install</a></li>
+<li><a href="#related">Works with</a></li>
+<li><a href="#typography">Typography</a></li>
+<li><a href="#serve-the-right-format">Serve the right format</a></li>
+<li><a href="#properties-over-raw-tags">Properties over raw tags</a></li>
+<li><a href="#load-intended-weights-and-styles">Load intended weights and styles</a></li>
+<li><a href="#fewer-fonts-sizes-and-weights">Fewer fonts, sizes and weights</a></li>
+<li><a href="#use-a-type-scale-with-semantic-names">Use a type scale with semantic names</a></li>
+<li><a href="#heading-sizes-descend-with-level">Heading sizes descend with level</a></li>
+<li><a href="#line-height-by-role">Line-height by role</a></li>
+<li><a href="#letter-spacing-by-size">Letter-spacing by size</a></li>
+<li><a href="#cap-the-measure">Cap the measure</a></li>
+<li><a href="#wrap-deliberately">Wrap deliberately</a></li>
+<li><a href="#tabular-numbers-on-changing-values">Tabular numbers on changing values</a></li>
+<li><a href="#truncate-without-losing-content">Truncate without losing content</a></li>
+<li><a href="#write-copy-naturally-style-with-css">Write copy naturally, style with CSS</a></li>
+<li><a href="#underlines-from-the-font">Underlines from the font</a></li>
+<li><a href="#inputs-at-16px-on-mobile">Inputs at 16px on mobile</a></li>
+<li><a href="#size-and-contrast-floors">Size and contrast floors</a></li>
+<li><a href="#font-smoothing-on-the-root">Font smoothing on the root</a></li>
+<li><a href="#language-and-bidi-behavior">Language and bidi behavior</a></li>
+<li><a href="#keep-useful-text-selectable">Keep useful text selectable</a></li>
+<li><a href="#before-you-finish">Before you finish</a></li>
+<li><a href="#reporting">Reporting</a></li>
+</ul>
+</nav>
+
+<main id="main">
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3>Use when</h3><ul><li>set up a type scale</li><li>review typography and font choices</li><li>fix text truncation</li><li>iOS input zoom on mobile</li><li>variable font setup</li></ul></div>
+<div class="meta-row"><h3>Works on</h3><ul><li>UI component or page source code</li><li>rendered page for wrapping/widow checks</li></ul></div>
+<div class="meta-row"><h3>Produces</h3><ul><li>severity-ranked findings table (Severity | Location | Before | After | Why)</li><li>Block/Approve verdict</li><li>CSS-to-Tailwind property lookup</li></ul></div>
+<div class="meta-row"><h3>Tags</h3>
+<ul class="tags"><li><a class="tag" href="../index.html?tag=typography">typography</a></li><li><a class="tag" href="../index.html?tag=spacing">spacing</a></li><li><a class="tag" href="../index.html?tag=visual-hierarchy">visual-hierarchy</a></li></ul></div>
+
+<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-typography">jakubkrehel/skills</a> by Jakub Krehel at <code>ca48385</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p></div>
+</section>
+
+<section id="install">
+<h2>Install</h2>
+<ul class="install">
+<li>
+<h3>Any agent, via the skills CLI</h3>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill better-typography</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill better-typography"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Installs into whichever agents it finds on your machine.</p>
+</li>
+<li>
+<h3>Claude Code, as a plugin</h3>
+<div class="cmd"><pre><code>/plugin marketplace add stritar/skills
+/plugin install product-design-visual-design@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-visual-design@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Brings the whole visual-design bundle. Use <code>product-design-all</code> for everything.</p>
+</li>
+<li>
+<h3>From a clone, copied by hand</h3>
+<div class="cmd"><pre><code>cp -r skills/visual-design/better-typography ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/visual-design/better-typography ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
+</li>
+</ul>
+</section>
+
+<section id="related">
+<h2>Works with</h2>
+<ul class="related">
+<li><a href="better-layout.html"><span class="rel-id">better-layout</span></a> <span class="rel-cat">Visual design</span></li>
+<li><a href="better-writing.html"><span class="rel-id">better-writing</span></a> <span class="rel-cat">Content design</span></li>
+</ul>
+</section>
+
+<article class="skill-body">
+<h2 class="body-head">Instructions</h2>
+<p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/visual-design/better-typography/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
+<h2 id="typography">Typography</h2>
+<p>Typography is mostly restraint: a sensible scale, comfortable spacing, enough contrast. A label, a table cell, a marketing headline and an article paragraph do not share one set of rules.</p>
+<p>When reviewing, read the rendered page instead of scanning the code. Bad wrapping, widows and truncation only show up at real content lengths.</p>
+<p>Write every fix in the project's styling system, and use the exact values below rather than familiar-looking equivalents. The <a href="https://github.com/stritar/skills/blob/main/skills/visual-design/better-typography/css-cheat-sheet.md" target="_blank" rel="noopener noreferrer">cheat sheet</a> maps each declaration to its Tailwind equivalent.</p>
+<p>The words themselves belong to <code>better-writing</code>. Semantic heading structure belongs to <code>better-accessibility</code>. Spatial RTL layout and logical properties belong to <code>better-layout</code>. Contrast measurement belongs to <code>better-colors</code>. This skill owns how text renders, wraps and behaves in mixed-direction content.</p>
+<h3 id="serve-the-right-format">Serve the right format</h3>
+<p>Use <code>.woff2</code> on the web, for Brotli compression and broad support. <code>.woff</code> is a fallback for very old browsers. <code>.ttf</code> and <code>.otf</code> are desktop formats with no web compression. How the files load is the project's concern.</p>
+<h3 id="properties-over-raw-tags">Properties over raw tags</h3>
+<p>When a CSS property exists, use it. <code>font-weight: 650</code> instead of <code>font-variation-settings: &quot;wght&quot; 650</code>. <code>font-optical-sizing: auto</code> instead of <code>&quot;opsz&quot;</code>. <code>font-variant-numeric: tabular-nums</code> instead of <code>font-feature-settings: &quot;tnum&quot; 1</code>.</p>
+<p>Properties keep working when a non-variable fallback renders. Reserve raw tags for custom axes (<code>&quot;GRAD&quot; 80</code>) and niche features (<code>&quot;ss01&quot; 1</code>) with no property of their own. Axes and feature tags are listed in <a href="https://github.com/stritar/skills/blob/main/skills/visual-design/better-typography/variable-fonts-and-opentype.md" target="_blank" rel="noopener noreferrer">variable-fonts-and-opentype.md</a>.</p>
+<h3 id="load-intended-weights-and-styles">Load intended weights and styles</h3>
+<p>Browsers synthesize a weight or style the active family doesn't provide, distorting the real face. Load the faces the design uses.</p>
+<p><code>font-synthesis: none</code> turns synthesis off, but it erases emphasis rather than reporting it. Set it only after checking every required bold, italic, small-cap, superscript and subscript form stays distinct across the fallback stack.</p>
+<h3 id="fewer-fonts-sizes-and-weights">Fewer fonts, sizes and weights</h3>
+<p>Rarely use more than three fonts. Weight and size define hierarchy; overusing them hurts readability fast. Pair for contrast, not similarity: a serif headline over a sans body reads as deliberate, two near-identical sans-serifs read as a mistake.</p>
+<p>Below <code>18px</code>, stay at weight <code>400</code> or heavier. Weights under <code>300</code> are display-only at <code>28px</code>+; they disappear at text sizes. Pairing guidance is in <a href="https://github.com/stritar/skills/blob/main/skills/visual-design/better-typography/choosing-fonts.md" target="_blank" rel="noopener noreferrer">choosing-fonts.md</a>.</p>
+<h3 id="use-a-type-scale-with-semantic-names">Use a type scale with semantic names</h3>
+<p>Define a small set of sizes and deviate from it as little as possible. Hard-coded sizes with no system behind them break down at scale.</p>
+<p>Solo, default names like <code>text-sm</code> are fine when the usage rules are clear. On a team, name sizes by use (<code>text-body-sm</code>) so the rules survive other people. Scale construction is in <a href="https://github.com/stritar/skills/blob/main/skills/visual-design/better-typography/spacing-and-sizing.md" target="_blank" rel="noopener noreferrer">spacing-and-sizing.md</a>.</p>
+<h3 id="heading-sizes-descend-with-level">Heading sizes descend with level</h3>
+<p>Map heading levels to descending steps of the type scale, so a visually subordinate heading never overpowers its parent. Adjacent levels may share a size toward the small end of the scale, as long as weight or spacing keeps them distinct. The semantic element is <code>better-accessibility</code>'s; this skill sets only the visual treatment.</p>
+<h3 id="line-height-by-role">Line-height by role</h3>
+<p>Headings tighter, around <code>1.1</code>. Body copy <code>1.5</code> to <code>1.6</code>. Prefer unitless values, so line-height scales with the font size; a fixed <code>24px</code> does not.</p>
+<p>Tight line-height is for short text. Anything that wraps to three or more lines needs at least <code>1.4</code>, even in a height-constrained row.</p>
+<h3 id="letter-spacing-by-size">Letter-spacing by size</h3>
+<p>Large headings often look better with slightly negative letter-spacing. Small uppercase labels need a little positive letter-spacing, or the letters feel crowded. Body copy at reading sizes needs neither.</p>
+<h3 id="cap-the-measure">Cap the measure</h3>
+<p>Long lines make it hard for the eye to find the next one. Cap long-form text around 60–75 characters per line. Any unit works, as long as a cap exists and the line length lands in range. See <a href="https://github.com/stritar/skills/blob/main/skills/visual-design/better-typography/wrapping-and-punctuation.md#measure-line-length" target="_blank" rel="noopener noreferrer">unit choices and the pixel equivalents</a>.</p>
+<h3 id="wrap-deliberately">Wrap deliberately</h3>
+<p>Four declarations, four jobs:</p>
+<ul>
+<li><code>text-wrap: balance</code> distributes text evenly across lines. Use it on headings.</li>
+<li><code>text-wrap: pretty</code> stops a single short word landing on the final line. Use it on descriptions.</li>
+<li><code>overflow-wrap: break-word</code> where a long word, link, or ID could escape the container.</li>
+<li><code>white-space: nowrap</code> on labels and badges where a line break looks broken.</li>
+</ul>
+<p>Skip <code>balance</code> and <code>pretty</code> in long-form text.</p>
+<h3 id="tabular-numbers-on-changing-values">Tabular numbers on changing values</h3>
+<p>Digits have different widths by default, so timers, counters and prices shift the layout as they update. Apply <code>font-variant-numeric: tabular-nums</code> to any value that changes.</p>
+<h3 id="truncate-without-losing-content">Truncate without losing content</h3>
+<p>For a single line, <code>text-overflow: ellipsis</code> with <code>overflow: hidden</code> and <code>white-space: nowrap</code>. For several, <code>line-clamp</code>. Truncation hides content. When the missing text matters, keep the full value reachable in a tooltip or an expanded view.</p>
+<h3 id="write-copy-naturally-style-with-css">Write copy naturally, style with CSS</h3>
+<p>Store text in natural case and control presentation with <code>text-transform</code>, so a redesign never means rewriting copy.</p>
+<p>Use smart punctuation in rendered text:</p>
+<ul>
+<li>Curly quotes in prose, straight quotes in code.</li>
+<li>An en dash for ranges: <code>2010–2020</code>.</li>
+<li>The single ellipsis character, not three periods.</li>
+<li><code>&amp;nbsp;</code> to hold <code>16 px</code> together across a line break.</li>
+<li><code>&amp;shy;</code> to say where a long word may break.</li>
+</ul>
+<h3 id="underlines-from-the-font">Underlines from the font</h3>
+<p>Default underlines sit wherever the browser decides. Pull position and thickness from the font's own metrics with <code>text-underline-position: from-font</code> and <code>text-decoration-thickness: from-font</code>. Tune by hand with <code>text-decoration-thickness</code>, <code>text-underline-offset</code> and <code>text-decoration-skip-ink</code>.</p>
+<p><code>text-decoration-style</code> draws the line dotted, dashed, or wavy. A dotted underline is a common hint that a word carries extra information, such as an abbreviation or a defined term.</p>
+<p>Color is the only part of a real underline that animates reliably. So unless the only thing animating is the color, build the underline as a separate element rather than using <code>text-decoration</code>.</p>
+<h3 id="inputs-at-16px-on-mobile">Inputs at 16px on mobile</h3>
+<p>iOS Safari zooms the whole page when an input's text is smaller than <code>16px</code>. Two fixes hold the size at <code>16px</code> and look different, so ask which one the design wants:</p>
+<ul>
+<li>Size the input up on mobile (<code>text-base sm:text-sm</code>). Changes how it looks on small screens.</li>
+<li>Keep <code>font-size: 16px</code> and render the intended size with <code>transform: scale()</code>, compensating width and <code>line-height</code>. Identical at every viewport, more code to maintain.</li>
+</ul>
+<p>Both recipes are in <a href="https://github.com/stritar/skills/blob/main/skills/visual-design/better-typography/details-and-accessibility.md" target="_blank" rel="noopener noreferrer">details-and-accessibility.md</a>.</p>
+<h3 id="size-and-contrast-floors">Size and contrast floors</h3>
+<p>Start long-form body text at <code>16px</code>, the browser default. Move off it only for a reason you can name: the typeface runs small, the measure is narrow, or the product is a dense professional tool.</p>
+<p>UI text can go smaller. <code>14px</code> is a useful starting point for inputs and menus, <code>13px</code> for captions and rarely below <code>12px</code>. Inputs still need <code>16px</code> on mobile.</p>
+<p>When text looks low-contrast, use <code>better-colors</code> to measure the rendered pair and <code>better-accessibility</code> to classify the requirement. Leave the colors alone unless asked.</p>
+<h3 id="font-smoothing-on-the-root">Font smoothing on the root</h3>
+<p>On macOS, text renders heavier than intended. Apply <code>-webkit-font-smoothing: antialiased</code> and <code>-moz-osx-font-smoothing: grayscale</code> once on the root layout, never per component. Tailwind's <code>antialiased</code> covers both.</p>
+<h3 id="language-and-bidi-behavior">Language and bidi behavior</h3>
+<p>Set <code>lang</code> so browsers and assistive technology pick the right pronunciation, quotes and hyphenation. Set <code>dir</code> at the document or at the content boundary where direction changes. Preserve digit order, and use <code>&lt;bdi&gt;</code> to isolate a mixed-direction value. Spatial mirroring and logical CSS properties belong to <code>better-layout</code>.</p>
+<h3 id="keep-useful-text-selectable">Keep useful text selectable</h3>
+<p>Keep text selectable by default. <code>::selection</code> can carry brand into the reading experience, as long as the selected combination stays legible.</p>
+<p><code>user-select: none</code> belongs on a draggable or gesture-driven surface where accidental selection interferes. Never across the interface and never because a button label can be highlighted.</p>
+<h3 id="before-you-finish">Before you finish</h3>
+<div class="table-scroll"><table>
+<thead><tr><th>Mistake</th><th>Fix</th></tr></thead>
+<tbody>
+<tr><td>Synthesized face differs from the design</td><td>Load the real face; disable only the verified synthesis mode</td></tr>
+<tr><td>Child heading visually overpowers its parent</td><td>Map that section's hierarchy to descending scale steps</td></tr>
+<tr><td>Heading element picked for its default size</td><td>Choose semantics first, then set the size in CSS</td></tr>
+<tr><td>Orphan on the last line of a paragraph</td><td><code>text-wrap: pretty</code></td></tr>
+<tr><td>Lopsided two-line heading</td><td><code>text-wrap: balance</code></td></tr>
+<tr><td>Justified text in an interface</td><td><code>text-align: start</code>; reserve justify for specific editorial layouts</td></tr>
+<tr><td>Underline cuts through descenders</td><td><code>text-decoration-skip-ink: auto</code>, <code>from-font</code> metrics</td></tr>
+<tr><td>Mixed-direction value renders in the wrong order</td><td>Correct <code>lang</code>/<code>dir</code>; isolate the value with <code>&lt;bdi&gt;</code></td></tr>
+<tr><td>Selection disabled across application chrome</td><td>Restore it; suppress only where it conflicts with a drag or gesture</td></tr>
+<tr><td>Extra-info hint with no visual cue</td><td>Dotted underline via <code>text-decoration-style: dotted</code></td></tr>
+<tr><td>Thin/Light weight on <code>14px</code> UI text</td><td>Weight <code>400</code>+ below <code>18px</code>; thin weights are display-only</td></tr>
+<tr><td><code>leading-none</code> on a three-line card description</td><td>At least <code>1.4</code> on any text that wraps to 3+ lines</td></tr>
+</tbody>
+</table></div>
+<h3 id="reporting">Reporting</h3>
+<p><strong>Severity.</strong> <code>HIGH</code> makes text unreadable or truncates content with no way to recover it. <code>MEDIUM</code> breaks the type system or the heading hierarchy. <code>LOW</code> is isolated polish.</p>
+<p><strong>Verification.</strong> Without a browser: computed size and weight for each heading level, checked descending; declared line-height and measure; truncation rules against realistic string lengths. With one: resize the viewport to catch wrapping, widows and truncation at real content lengths. Report every check you could not run as <code>Not verified</code>.</p>
+<p><strong>Format.</strong> Group findings under the principle each violates, ordered by severity, one row per root cause listing every location it appears in:</p>
+<div class="table-scroll"><table>
+<thead><tr><th>Severity</th><th>Location</th><th>Before</th><th>After</th><th>Why</th></tr></thead>
+<tbody>
+
+</tbody>
+</table></div>
+<p><code>Location</code> is <code>path/to/file:line</code>. <code>Why</code> names the principle and the user impact.</p>
+<p>End with <code>Block</code> when any <code>HIGH</code> remains, <code>Approve</code> otherwise, leaving the rest in the table as work to do. Never <code>Approve</code> coverage you did not inspect. With nothing to report, state &quot;No actionable typography findings&quot; and report verification.</p>
+</article>
+</main>
+</div>
+
+<footer class="site-foot">
+<p><a href="../index.html">Back to all skills</a></p>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

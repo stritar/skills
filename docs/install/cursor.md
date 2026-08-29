@@ -19,7 +19,7 @@ picked up too.
 ```bash
 cp -r skills/<category>/<skill-id> /path/to/project/.agents/skills/
 # or:
-npx skills add <owner>/skills --skill <skill-id>
+npx skills add stritar/skills --skill <skill-id>
 ```
 
 Because Cursor scans recursively, you can also copy a whole category:

@@ -17,7 +17,7 @@ Verified against the Codex skills documentation (learn.chatgpt.com/docs/build-sk
 ```bash
 cp -r skills/<category>/<skill-id> /path/to/project/.agents/skills/
 # or via the skills CLI:
-npx skills add <owner>/skills --skill <skill-id>
+npx skills add stritar/skills --skill <skill-id>
 ```
 
 ## Notes

@@ -2,3 +2,8 @@
 # Vendored skills are byte-identical to upstream: never normalize their line endings.
 skills/** -text
 skills/**/*.md linguist-detectable
+# The web edition is generated from catalog/index.json: keep it out of the
+# language stats, and collapsed by default in pull request diffs.
+docs/index.html linguist-generated=true
+docs/skills/*.html linguist-generated=true
+docs/assets/ranking.js linguist-generated=true

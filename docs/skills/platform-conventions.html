@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>platform-conventions — Product design skills</title>
+<meta name="description" content="Makes the agent design native mobile UI against the actual conventions of iOS (Human Interface Guidelines) and Android (Material Design 3): side-by-side comparison tables for navigation models, controls, typography, gestures, and iconography; a decision framework for when to follow each platform…">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="page-head">
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-interaction-design">Interaction design</a></nav>
+<h1>platform-conventions</h1>
+<p class="badges"><span class="il badge badge-rec"><span class="il-icon" aria-hidden="true">★</span><span class="il-label">Recommended</span></span></p>
+<p class="lede">Makes the agent design native mobile UI against the actual conventions of iOS (Human Interface Guidelines) and Android (Material Design 3): side-by-side comparison tables for navigation models, controls, typography, gestures, and iconography; a decision framework for when to follow each platform strictly, when to unify cross-platform, and the hybrid middle path; and explicit anti-patterns (suppressing iOS swipe-back, transplanting the FAB to iOS, ignoring Dynamic Type/sp scaling).</p>
+</header>
+
+<div class="layout">
+<nav class="sidebar" aria-labelledby="contents">
+<h2 id="contents">On this page</h2>
+<ul class="toc">
+<li><a href="#about">About this skill</a></li>
+<li><a href="#install">Install</a></li>
+<li><a href="#related">Works with</a></li>
+<li><a href="#platform-conventions">Platform Conventions</a></li>
+<li><a href="#what-you-do">What You Do</a></li>
+<li><a href="#why-platform-conventions-matter">Why Platform Conventions Matter</a></li>
+<li><a href="#key-differences-ios-hig-vs-android-material-design-3">Key Differences: iOS (HIG) vs. Android (Material Design 3)</a></li>
+<li><a href="#cross-platform-design-decisions">Cross-Platform Design Decisions</a></li>
+<li><a href="#what-not-to-do">What Not to Do</a></li>
+<li><a href="#best-practices">Best Practices</a></li>
+</ul>
+</nav>
+
+<main id="main">
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3>Use when</h3><ul><li>design an iOS app screen</li><li>Android vs iOS pattern</li><li>Material Design conventions</li><li>native app navigation</li><li>should this app follow platform conventions</li><li>cross-platform design decisions</li></ul></div>
+<div class="meta-row"><h3>Works on</h3><ul><li>app screens or mockups</li><li>target platforms</li><li>product context</li></ul></div>
+<div class="meta-row"><h3>Produces</h3><ul><li>platform-appropriate design recommendations</li><li>iOS/Android component mapping</li><li>convention-deviation flags</li></ul></div>
+<div class="meta-row"><h3>Tags</h3>
+<ul class="tags"><li><a class="tag" href="../index.html?tag=mobile">mobile</a></li><li><a class="tag" href="../index.html?tag=ui-design">ui-design</a></li><li><a class="tag" href="../index.html?tag=interaction-design">interaction-design</a></li><li><a class="tag" href="../index.html?tag=navigation">navigation</a></li><li><a class="tag" href="../index.html?tag=adaptive">adaptive</a></li></ul></div>
+
+<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/Owl-Listener/designer-skills/tree/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/ui-design/skills/platform-conventions">Owl-Listener/designer-skills</a> by Owl-Listener at <code>20e34c4</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p></div>
+</section>
+
+<section id="install">
+<h2>Install</h2>
+<ul class="install">
+<li>
+<h3>Any agent, via the skills CLI</h3>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill platform-conventions</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill platform-conventions"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Installs into whichever agents it finds on your machine.</p>
+</li>
+<li>
+<h3>Claude Code, as a plugin</h3>
+<div class="cmd"><pre><code>/plugin marketplace add stritar/skills
+/plugin install product-design-interaction-design@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-interaction-design@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Brings the whole interaction-design bundle. Use <code>product-design-all</code> for everything.</p>
+</li>
+<li>
+<h3>From a clone, copied by hand</h3>
+<div class="cmd"><pre><code>cp -r skills/interaction-design/platform-conventions ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/interaction-design/platform-conventions ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
+</li>
+</ul>
+</section>
+
+<section id="related">
+<h2>Works with</h2>
+<ul class="related">
+<li><a href="apple-design.html"><span class="rel-id">apple-design</span></a> <span class="rel-cat">Interaction design</span></li>
+<li><a href="better-layout.html"><span class="rel-id">better-layout</span></a> <span class="rel-cat">Visual design</span></li>
+</ul>
+</section>
+
+<article class="skill-body">
+<h2 class="body-head">Instructions</h2>
+<p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/interaction-design/platform-conventions/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
+<h2 id="platform-conventions">Platform Conventions</h2>
+<p>You are an expert in iOS Human Interface Guidelines and Material Design, and in the trade-offs between platform-native and cross-platform product design.</p>
+<h3 id="what-you-do">What You Do</h3>
+<p>You identify which UI patterns are platform-mandated conventions, map the meaningful differences between iOS and Android, and help teams decide when to follow each platform vs. when a unified cross-platform design is appropriate.</p>
+<h3 id="why-platform-conventions-matter">Why Platform Conventions Matter</h3>
+<p>Users spend the vast majority of their time in the OS and its native apps. They build strong muscle memory for navigation, controls, and interaction patterns. When your product departs from platform convention without clear reason, users spend cognitive budget understanding your product rather than using it.</p>
+<h3 id="key-differences-ios-hig-vs-android-material-design-3">Key Differences: iOS (HIG) vs. Android (Material Design 3)</h3>
+<h4 id="navigation">Navigation</h4>
+<div class="table-scroll"><table>
+<thead><tr><th>Pattern</th><th>iOS</th><th>Android</th></tr></thead>
+<tbody>
+<tr><td>Back navigation</td><td>Swipe right from left edge; back button top-left</td><td>System back gesture (swipe from either edge) or predictive back; back arrow in app bar</td></tr>
+<tr><td>Primary structure</td><td>Tab bar at bottom; sidebar on iPad</td><td>Navigation bar at bottom or Navigation drawer (hamburger)</td></tr>
+<tr><td>Navigation history</td><td>Stack-based; each tab has its own stack</td><td>Single back stack across the app; tabs do not maintain independent history by default</td></tr>
+<tr><td>Bottom navigation</td><td>Up to 5 tabs; no labels required</td><td>3–5 tabs; labels required</td></tr>
+</tbody>
+</table></div>
+<p><strong>Design implication</strong>: iOS users expect swiping from the left edge to always go back; reserve that gesture zone. On Android, the system back gesture handles this — in-app swipe-from-left can be used for a drawer without conflicting.</p>
+<h4 id="controls-and-components">Controls and Components</h4>
+<div class="table-scroll"><table>
+<thead><tr><th>Component</th><th>iOS convention</th><th>Android (Material 3) convention</th></tr></thead>
+<tbody>
+<tr><td>Toggle switch</td><td>UISwitch — pill shape, right-aligned in lists</td><td>Switch — thumb-and-track, can appear inline or in lists</td></tr>
+<tr><td>Destructive confirmation</td><td>Action sheet (bottom) with red destructive option</td><td>Dialog with text buttons; red/error tone for destructive</td></tr>
+<tr><td>Date/time picker</td><td>Wheel picker or calendar inline</td><td>Calendar with text input alternative</td></tr>
+<tr><td>Selection menus</td><td>Picker wheel or action sheet</td><td>Exposed dropdown or modal bottom sheet</td></tr>
+<tr><td>Primary button</td><td>Filled rectangle, full-width in forms</td><td>Filled button (rounded corners by default in M3)</td></tr>
+<tr><td>Floating action</td><td>Not a convention — use contextual buttons</td><td>FAB — primary surface action, bottom-right</td></tr>
+<tr><td>Pull to refresh</td><td>Native UIRefreshControl</td><td>SwipeRefreshLayout — same gesture, different visual</td></tr>
+</tbody>
+</table></div>
+<h4 id="typography">Typography</h4>
+<div class="table-scroll"><table>
+<thead><tr><th>Attribute</th><th>iOS</th><th>Android</th></tr></thead>
+<tbody>
+<tr><td>System font</td><td>SF Pro (text) / SF Compact (watch)</td><td>Roboto / Google Sans</td></tr>
+<tr><td>Dynamic type</td><td>Required — users control text size system-wide</td><td>Scalable pixels (sp) — must respect system font scale</td></tr>
+<tr><td>Type scale</td><td>iOS text styles (Large Title, Title 1–3, Body, etc.)</td><td>Material type scale (Display, Headline, Title, Body, Label)</td></tr>
+</tbody>
+</table></div>
+<p>Both platforms require apps to respect the user's system font size preference. Hardcoded point sizes that do not scale are an accessibility failure on both.</p>
+<h4 id="interaction-and-gesture-conventions">Interaction and Gesture Conventions</h4>
+<div class="table-scroll"><table>
+<thead><tr><th>Gesture</th><th>iOS behaviour</th><th>Android behaviour</th></tr></thead>
+<tbody>
+<tr><td>Swipe to delete</td><td>Standard in table views</td><td>Swipe to dismiss/archive (context-dependent)</td></tr>
+<tr><td>Long press</td><td>Peek / context menu (iOS 13+ context menus)</td><td>Contextual action mode; long press to select</td></tr>
+<tr><td>Pull to refresh</td><td>Standard</td><td>Standard</td></tr>
+<tr><td>Pinch to zoom</td><td>Standard in maps, images</td><td>Standard</td></tr>
+<tr><td>Back swipe</td><td>Reserved — always navigates back</td><td>Predictive back gesture; apps can opt in to preview</td></tr>
+</tbody>
+</table></div>
+<h4 id="visual-and-iconography">Visual and Iconography</h4>
+<div class="table-scroll"><table>
+<thead><tr><th>Area</th><th>iOS</th><th>Android</th></tr></thead>
+<tbody>
+<tr><td>Icon library</td><td>SF Symbols (thousands, variable weight, auto-scale)</td><td>Material Symbols (rounded, outlined, sharp variants)</td></tr>
+<tr><td>Corner radius</td><td>Larger, &quot;squircle&quot; curves (superellipse)</td><td>Moderate — Material 3 uses prominent rounding on components</td></tr>
+<tr><td>System colours</td><td>Dynamic colors that adapt to dark/light automatically</td><td>Material You dynamic color — generated from wallpaper</td></tr>
+<tr><td>Modal presentation</td><td>Sheet that slides up from bottom, with grab handle</td><td>Bottom sheet (standard or modal) or full-screen dialog</td></tr>
+</tbody>
+</table></div>
+<h3 id="cross-platform-design-decisions">Cross-Platform Design Decisions</h3>
+<h4 id="when-to-follow-each-platform-strictly">When to follow each platform strictly</h4>
+<ul>
+<li>Native or near-native apps where platform fluency is a key quality signal (banking, health, utility apps)</li>
+<li>Apps that integrate deeply with OS features (share sheet, widgets, Siri/Google Assistant)</li>
+<li>Apps with a large base of platform-experienced power users</li>
+</ul>
+<h4 id="when-a-unified-design-is-appropriate">When a unified design is appropriate</h4>
+<ul>
+<li>Products with high feature parity across platforms where design consistency reduces maintenance cost</li>
+<li>Products where cross-device continuity matters (e.g. users switch between iPhone and Android or web)</li>
+<li>B2B tools where users interact primarily with the product's own design system, not OS affordances</li>
+</ul>
+<h4 id="the-hybrid-approach">The hybrid approach</h4>
+<p>Most cross-platform products adopt a middle path: a unified visual and component language, but with platform-specific adaptations for navigation (system-level conventions), system controls, and gesture conflicts. The product looks like itself; it behaves like the OS.</p>
+<h3 id="what-not-to-do">What Not to Do</h3>
+<ul>
+<li>Do not use a bottom tab bar on Android if it uses the gesture navigation that conflicts with a swipe-up action</li>
+<li>Do not suppress the iOS swipe-back gesture — users who trigger it and nothing happens will be confused and trust drops</li>
+<li>Do not use iOS action sheets on Android or Android dialogs on iOS as primary decision patterns</li>
+<li>Do not ignore Dynamic Type / SP scaling on either platform — fixed text sizes are an accessibility failure</li>
+<li>Do not transplant the FAB pattern to iOS without justification — it has no native precedent there</li>
+</ul>
+<h3 id="best-practices">Best Practices</h3>
+<ul>
+<li>Read the current platform guidelines before each major design phase; both iOS HIG and Material 3 update frequently</li>
+<li>Audit native apps on each platform for the interaction you are designing before proposing a solution</li>
+<li>Maintain a component mapping document: what the design system calls a thing, what iOS calls it, what Android calls it</li>
+<li>Test on real devices for each platform — simulator behaviour and gesture handling differ from physical devices</li>
+<li>When in doubt about a platform-specific pattern, use what ships in the OS: it is already tested, already familiar</li>
+</ul>
+</article>
+</main>
+</div>
+
+<footer class="site-foot">
+<p><a href="../index.html">Back to all skills</a></p>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

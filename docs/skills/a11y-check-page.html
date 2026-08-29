@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>a11y-check-page — Product design skills</title>
+<meta name="description" content="Audits a live, running web page for WCAG 2.2 AA accessibility using browser automation (Playwright MCP, Chrome DevTools MCP, or playwright-cli): runs the bundled axe-core build, walks keyboard focus order in both directions, injects CSS/viewport changes to test 200% zoom, 320px reflow, and…">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="page-head">
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-accessibility">Accessibility</a></nav>
+<h1>a11y-check-page</h1>
+<p class="badges"><span class="il badge badge-rec"><span class="il-icon" aria-hidden="true">★</span><span class="il-label">Recommended</span></span><span class="il badge badge-dep"><span class="il-label">Needs Playwright</span></span></p>
+<p class="lede">Audits a live, running web page for WCAG 2.2 AA accessibility using browser automation (Playwright MCP, Chrome DevTools MCP, or playwright-cli): runs the bundled axe-core build, walks keyboard focus order in both directions, injects CSS/viewport changes to test 200% zoom, 320px reflow, and text-spacing, inspects the accessibility tree, and re-runs checks per distinct UI state (modals, loading, errors). Enforces credential-safety rules for login-gated pages (never store or echo credentials, screenshot only pre-input states, explicit permission before destructive actions) and writes a severity-rated Markdown report to a11y-report/ with screenshots saved under a11y-report/assets/.</p>
+</header>
+
+<div class="layout">
+<nav class="sidebar" aria-labelledby="contents">
+<h2 id="contents">On this page</h2>
+<ul class="toc">
+<li><a href="#about">About this skill</a></li>
+<li><a href="#install">Install</a></li>
+<li><a href="#related">Works with</a></li>
+<li><a href="#動作しているページのアクセシビリティチェック">動作しているページのアクセシビリティチェック</a></li>
+<li><a href="#前提の確認">前提の確認</a></li>
+<li><a href="#このチェックの限界を最初に理解する">このチェックの限界を最初に理解する</a></li>
+<li><a href="#手順">手順</a></li>
+<li><a href="#各観点について">各観点について</a></li>
+</ul>
+</nav>
+
+<main id="main">
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3>Use when</h3><ul><li>check this URL's accessibility</li><li>audit this live page for WCAG</li><li>test keyboard navigation on this page</li><li>run axe-core against this site</li><li>a11y check after login</li></ul></div>
+<div class="meta-row"><h3>Works on</h3><ul><li>target URL(s) and, when login is required, credentials/steps provided by the user</li><li>confirmation of test vs. production environment and whether destructive actions are permitted</li></ul></div>
+<div class="meta-row"><h3>Produces</h3><ul><li>severity-rated Markdown report in a11y-report/ with screenshots in a11y-report/assets/</li><li>per-state axe-core, keyboard-focus, and accessibility-tree findings</li><li>list of items excluded from automated testing (e.g. screen-reader behavior, seizure thresholds)</li></ul></div>
+<div class="meta-row"><h3>Tags</h3>
+<ul class="tags"><li><a class="tag" href="../index.html?tag=a11y">a11y</a></li><li><a class="tag" href="../index.html?tag=wcag">wcag</a></li><li><a class="tag" href="../index.html?tag=aria">aria</a></li><li><a class="tag" href="../index.html?tag=keyboard">keyboard</a></li><li><a class="tag" href="../index.html?tag=focus-management">focus-management</a></li><li><a class="tag" href="../index.html?tag=contrast">contrast</a></li><li><a class="tag" href="../index.html?tag=severity">severity</a></li><li><a class="tag" href="../index.html?tag=audit">audit</a></li><li><a class="tag" href="../index.html?tag=remediation">remediation</a></li></ul></div>
+<div class="meta-row"><h3>Requires</h3><ul><li><code>node</code></li><li><code>browser</code></li><li><code>playwright</code></li><li><code>axe-core</code></li></ul></div>
+<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/ymrl/a11y-check-skills/tree/a59f48bbe72c1c4ec710e86ae19f8b39fa4b44f6/skills/a11y-check-page">ymrl/a11y-check-skills</a> by ymrl at <code>a59f48b</code>, licence <code>ISC</code>. Vendored byte-identical to upstream.</p></div>
+</section>
+
+<section id="install">
+<h2>Install</h2>
+<ul class="install">
+<li>
+<h3>Any agent, via the skills CLI</h3>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill a11y-check-page</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill a11y-check-page"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Installs into whichever agents it finds on your machine.</p>
+</li>
+<li>
+<h3>Claude Code, as a plugin</h3>
+<div class="cmd"><pre><code>/plugin marketplace add stritar/skills
+/plugin install product-design-accessibility@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-accessibility@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Brings the whole accessibility bundle. Use <code>product-design-all</code> for everything.</p>
+</li>
+<li>
+<h3>From a clone, copied by hand</h3>
+<div class="cmd"><pre><code>cp -r skills/accessibility/a11y-check-page ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/accessibility/a11y-check-page ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
+</li>
+</ul>
+</section>
+
+<section id="related">
+<h2>Works with</h2>
+<ul class="related">
+<li><a href="a11y-check-code.html"><span class="rel-id">a11y-check-code</span></a> <span class="rel-cat">Accessibility</span></li>
+<li><a href="ultra11y.html"><span class="rel-id">ultra11y</span></a> <span class="rel-cat">Accessibility</span></li>
+<li><a href="perspective-audit.html"><span class="rel-id">perspective-audit</span></a> <span class="rel-cat">Accessibility</span></li>
+</ul>
+</section>
+
+<article class="skill-body">
+<h2 class="body-head">Instructions</h2>
+<p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/accessibility/a11y-check-page/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
+<h2 id="動作しているページのアクセシビリティチェック">動作しているページのアクセシビリティチェック</h2>
+<p>ブラウザで実際にページを操作し、アクセシビリティに関して優先的に対処するべき問題を発見する。
+基準は WCAG 2.2 のレベル AA を目安とする。</p>
+<h3 id="前提の確認">前提の確認</h3>
+<p>このスキルは <strong>Playwright MCP</strong> を使用する。<code>browser_navigate</code> <code>browser_snapshot</code>
+<code>browser_click</code> <code>browser_evaluate</code> <code>browser_resize</code> <code>browser_press_key</code>
+<code>browser_take_screenshot</code> 相当のツールが利用できることを最初に確認する。</p>
+<p>利用できない場合は、以下を案内してチェックを中断する。ツールなしで推測によるチェックを
+行ってはならない。</p>
+<pre><code>claude mcp add playwright npx @playwright/mcp@latest
+</code></pre>
+<h3 id="このチェックの限界を最初に理解する">このチェックの限界を最初に理解する</h3>
+<p>実ページからも判定できないものがある。<strong>判定できないものを、判定できたかのように
+書いてはならない。</strong></p>
+<ul>
+<li>スクリーンリーダー実機での実際の読み上げ（アクセシビリティツリーは代替にならない）</li>
+<li>ハイコントラストモード（強制カラーモード）での表示</li>
+<li>実デバイスでの画面回転、タッチ操作、マルチポインタのジェスチャー</li>
+<li>動画のキャプションや音声解説の<strong>内容</strong>の妥当性</li>
+<li>閃光の一般閃光閾値・赤色閃光閾値の判定</li>
+<li>時間制限（長時間の経過を要するもの）</li>
+</ul>
+<p>これらは「実施しなかった手順」または「要追加確認」としてレポートに明記する。</p>
+<p>アクセシビリティに留まらない一般的なユーザビリティの問題や、実害はないものの HTML や
+WAI-ARIA の仕様・ベストプラクティスに反するものを見つけた場合も、報告する。</p>
+<h3 id="手順">手順</h3>
+<h4 id="スクリーンショットの保存先全手順共通">スクリーンショットの保存先（全手順共通）</h4>
+<p><strong>どの手順であっても、スクリーンショットは必ず <code>a11y-report/assets/</code> の下に保存する。</strong>
+視覚確認・キーボード操作・リフロー確認など、手順を問わずスクショを撮る場面があるが、いずれも
+同じ規則に従う。<code>browser_take_screenshot</code> は <code>filename</code> を指定しないと作業ディレクトリ
+（カレントディレクトリ）にファイルを撒き散らすため、<strong>呼び出しのたびに <code>filename</code> に
+<code>a11y-report/assets/…</code> から始まるパスを毎回明示する。</strong> レポートに載せる最終的なものだけでなく、
+色の抽出や表示崩れの確認のために一時的に撮るものも例外なく同じ。ディレクトリが無ければ
+先に <code>mkdir -p a11y-report/assets</code> を実行しておく。詳細は
+<code>references/playwright-workflow.md</code> の「スクリーンショット」に従う。</p>
+<h4 id="1-対象と実施内容の確認">1. 対象と実施内容の確認</h4>
+<p>引数から、対象 URL、ログイン情報、対象画面への到達手順、重点確認箇所を読み取る。</p>
+<pre><code>/a11y-check-page https://app.example.com/ ID:test@example.com / Pass:xxxx でログインして、
+                 設定画面の通知タブをチェックしてください
+</code></pre>
+<p>読み取れない項目のうち、チェックに必要なものだけを利用者に確認する。</p>
+<ul>
+<li>対象 URL と、チェックの範囲（単一ページか、操作フロー全体か）</li>
+<li>ログインの要否と資格情報、多要素認証の有無</li>
+<li>対象画面への到達手順（どのリンクを辿るか、必要な入力値）</li>
+<li>想定される利用者と利用デバイス（PC のみか、スマートフォンも含むか）</li>
+<li><strong>破壊的操作の可否</strong>（データの作成・変更・削除、フォームの送信、メール送信、課金）</li>
+<li>対象が本番環境かどうか</li>
+</ul>
+<p><strong>資格情報とブラウザ操作の安全上の規則は <code>references/auth-and-safety.md</code> に従う。
+ログインを伴うチェックでは、必ず先にこのファイルを読む。</strong></p>
+<h4 id="2-構成と目的の把握">2. 構成と目的の把握</h4>
+<p><code>browser_navigate</code> で対象を開き、<code>browser_snapshot</code> でアクセシビリティツリーを取得して、
+ページの構成と操作可能な要素を把握する。必要に応じて関連ページも巡回する。</p>
+<p>重篤度の判定には「そのページの主要な目的」が必要である。目的を把握せずに重篤度は判定できない。</p>
+<ul>
+<li>どんな人が利用するものか</li>
+<li>利用の目的（フォームの送信か、情報の閲覧か、業務の遂行か）</li>
+<li>操作の流れ、分岐、ユーザーの操作を受け付ける機構の配置</li>
+</ul>
+<h4 id="3-状態バリエーションの列挙">3. 状態バリエーションの列挙</h4>
+<p><strong>この手順を飛ばすと、初期表示しか見ないチェックになる。必ず行う。</strong></p>
+<p>確認すべき画面と状態をすべて列挙する。</p>
+<ul>
+<li>開閉するメニュー、モーダルダイアログ、ドロップダウン、アコーディオン、タブ</li>
+<li>ローディング中、エラー表示、空状態、検索結果あり／なし</li>
+<li>フォームのバリデーションエラー、送信中、送信完了</li>
+<li>PC 表示とモバイル表示（レスポンシブで UI が変わる場合、モバイル用 UI は別のチェック対象）</li>
+</ul>
+<p><strong>対象が複数ページ・複数状態にわたる場合は、「ツールごと」ではなく「画面ごと」に手順を
+組み立てる。</strong> つまり、1つの画面・状態を表示するたびに、以下の 4〜8 をまとめて実施する。
+対象が単一ページで状態変化もない場合のみ、ツールごとに進めてよい。</p>
+<h4 id="4-axe-core-による自動チェック">4. axe-core による自動チェック</h4>
+<p>同梱の <code>assets/axe.min.js</code> を使って axe-core を実行する。<strong>手順は
+<code>references/playwright-workflow.md</code> の「axe-core の実行」に従う。</strong> 初期表示や URL で再現できる
+状態は同梱の <code>scripts/run-axe.mjs</code>（Bash から実行）が確実で速い。モーダルを開いた等、状態を
+変えた画面は Playwright MCP に注入して実行する。</p>
+<p><code>violations</code> は指摘候補、<code>incomplete</code> は自動では判定できなかった項目であり、後続の手順で
+手動確認する。特にコントラスト比の <code>incomplete</code> は手順 5 で必ず確認する。</p>
+<p><strong>状態が変わるたびに実行する。</strong> モーダルを開いた状態、エラーを表示した状態などは、
+初期表示のチェックには含まれていない。</p>
+<p>axe-core の説明にある修正方法は、そのまま転記しない（筋の悪い解決方法も紹介されているため）。
+対象の目的に沿った修正方法を自分で組み立てる。</p>
+<h4 id="5-視覚とマウスポインタによる操作">5. 視覚とマウスポインタによる操作</h4>
+<p><code>references/checklist-visual.md</code> の <code>page</code> と <code>both</code> の観点を適用する。
+スクリーンショットを撮り、ホバーで表示される追加コンテンツの挙動、色のみによる情報伝達、
+自動再生や動きの停止手段を確認する。</p>
+<h4 id="6-キーボードのみによる操作">6. キーボードのみによる操作</h4>
+<p><code>references/checklist-keyboard.md</code> の <code>page</code> と <code>both</code> の観点を適用する。
+<strong>マウス操作とは独立した手順として必ず実施する。</strong> 操作方法は
+<code>references/playwright-workflow.md</code> の「キーボード操作の確認」に従う。</p>
+<p><code>Tab</code> でページの末尾まで、<code>Shift+Tab</code> で冒頭まで両方向に移動し、各ステップで
+フォーカス位置とフォーカスインジケーターの視認性を確認する。多数の要素をまとめて巡回するには
+同梱の <code>scripts/focus-walk.mjs</code>（<code>--reverse</code> で逆方向も）を使うとよい。</p>
+<h4 id="7-ズーム文字サイズウィンドウサイズの変更">7. ズーム、文字サイズ、ウィンドウサイズの変更</h4>
+<p><code>references/checklist-reflow.md</code> の観点を適用する。注入する CSS とビューポートの設定は
+<code>references/injection-snippets.md</code> にある。</p>
+<p>表示を切り替えるだけでなく、<strong>その状態のまま操作も試す</strong>。モバイル表示に切り替わって
+新しい UI（ハンバーガーメニューなど）が現れた場合、その UI は未チェックであり、
+手順 4〜6 を改めて適用する。</p>
+<h4 id="8-機械可読性の確認">8. 機械可読性の確認</h4>
+<p><code>references/checklist-semantics.md</code> の観点を適用する。<code>browser_snapshot</code> で得られる
+アクセシビリティツリーから、ランドマークと見出しのアウトライン、アクセシブルネーム、
+ロールと状態を確認する。<code>lang</code> とライブリージョンの確認方法は
+<code>references/playwright-workflow.md</code> にある。</p>
+<p>ステータスメッセージ（SEM-12）は、操作の前後でアクセシビリティツリーを比較し、
+ライブリージョンとして通知される実装になっているかを確認する。</p>
+<h4 id="9-レポートの出力">9. レポートの出力</h4>
+<p><code>references/report-format.md</code> の形式で Markdown ファイルを出力する。重篤度の判定は
+<code>references/severity.md</code> の手順に従う。<strong>影響するユーザーの多さを考慮に入れてはならない。</strong></p>
+<p>実ページ対象のレポートでは、以下を必ず守る。</p>
+<ul>
+<li>各指摘に、要素を特定できる情報（CSS セレクタ、アクセシブルネーム、画面上の位置）を記載する</li>
+<li>スクリーンショットは、レポートに載せるものも一時的な確認用のものも、すべて
+<code>a11y-report/assets/</code> の下に保存する（<code>browser_take_screenshot</code> の <code>filename</code> に
+そのパスを毎回明示する）。カレントディレクトリには保存しない</li>
+<li>「実施しなかった手順」に、スクリーンリーダー実機とハイコントラストモードでの確認を
+行っていないことを明記する</li>
+<li><strong>資格情報をレポート・スクリーンショット・会話のいずれにも出力しない</strong></li>
+<li>使用したブラウザとビューポートサイズ、axe-core のバージョンを記録する</li>
+</ul>
+<p>会話には要約のみを出す。</p>
+<h3 id="各観点について">各観点について</h3>
+<p>各観点は <code>問題あり</code> / <code>問題なし</code> / <code>判定不能</code> / <code>対象なし</code> の4値で結果を記録する。
+<strong>「該当なし」を「問題なし」と書いてはならない。</strong></p>
+<p>観点表の読み方は <code>references/README-checklist.md</code> を参照する。
+このスキルは <code>確認手段:</code> が <code>page</code> または <code>both</code> の観点を扱う。</p>
+</article>
+</main>
+</div>
+
+<footer class="site-foot">
+<p><a href="../index.html">Back to all skills</a></p>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

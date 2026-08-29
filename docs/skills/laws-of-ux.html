@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>laws-of-ux — Product design skills</title>
+<meta name="description" content="Improves or critiques any user interface using 30 evidence-based UX principles drawn from cognitive psychology and perception research (Gestalt grouping, Hick's Law, Fitts's Law, Jakob's Law, Miller's Law, aesthetic-usability effect, cognitive load, and more). Provides a 5-step procedure for…">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="page-head">
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-interaction-design">Interaction design</a></nav>
+<h1>laws-of-ux</h1>
+<p class="badges"><span class="il badge badge-rec"><span class="il-icon" aria-hidden="true">★</span><span class="il-label">Recommended</span></span></p>
+<p class="lede">Improves or critiques any user interface using 30 evidence-based UX principles drawn from cognitive psychology and perception research (Gestalt grouping, Hick's Law, Fitts's Law, Jakob's Law, Miller's Law, aesthetic-usability effect, cognitive load, and more). Provides a 5-step procedure for running a UX pass on a screen: name the symptom, pull the relevant principles, propose a concrete change citing the principle by name, check for conflicts between principles, and flag when testing with real users is still required. reference/laws.md gives each principle's mechanism, concrete application, pitfalls, and a real-world example.</p>
+</header>
+
+<div class="layout">
+<nav class="sidebar" aria-labelledby="contents">
+<h2 id="contents">On this page</h2>
+<ul class="toc">
+<li><a href="#about">About this skill</a></li>
+<li><a href="#install">Install</a></li>
+<li><a href="#related">Works with</a></li>
+<li><a href="#laws-of-ux">Laws of UX</a></li>
+<li><a href="#how-to-run-a-ux-pass">How to run a UX pass</a></li>
+<li><a href="#the-30-principles-by-what-they-govern">The 30 principles, by what they govern</a></li>
+<li><a href="#index-reach-for-it-when">Index — reach for it when…</a></li>
+<li><a href="#ready-made-combinations">Ready-made combinations</a></li>
+</ul>
+</nav>
+
+<main id="main">
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3>Use when</h3><ul><li>review this UI against UX principles</li><li>why does this screen feel cluttered</li><li>apply Hick's Law / Fitts's Law</li><li>critique this design</li><li>diagnose why users abandon this form</li><li>cite a UX law for this decision</li></ul></div>
+<div class="meta-row"><h3>Works on</h3><ul><li>a screen, flow, or component to design or critique</li><li>optionally, a named symptom (e.g. 'too many buttons', 'feels slow')</li></ul></div>
+<div class="meta-row"><h3>Produces</h3><ul><li>1-3 cited UX principles relevant to the symptom</li><li>a concrete proposed change with the principle named</li><li>a note on any conflicting principles and how they were resolved</li></ul></div>
+<div class="meta-row"><h3>Tags</h3>
+<ul class="tags"><li><a class="tag" href="../index.html?tag=ui-design">ui-design</a></li><li><a class="tag" href="../index.html?tag=interaction-design">interaction-design</a></li><li><a class="tag" href="../index.html?tag=visual-hierarchy">visual-hierarchy</a></li><li><a class="tag" href="../index.html?tag=design-critique">design-critique</a></li><li><a class="tag" href="../index.html?tag=onboarding">onboarding</a></li><li><a class="tag" href="../index.html?tag=forms">forms</a></li></ul></div>
+
+<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/ali-kk/uxlaws/tree/4defa957c3058b89f4a53dc794865602313c6d97/skills/laws-of-ux">ali-kk/uxlaws</a> by ali-kk at <code>4defa95</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p></div>
+</section>
+
+<section id="install">
+<h2>Install</h2>
+<ul class="install">
+<li>
+<h3>Any agent, via the skills CLI</h3>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill laws-of-ux</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill laws-of-ux"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Installs into whichever agents it finds on your machine.</p>
+</li>
+<li>
+<h3>Claude Code, as a plugin</h3>
+<div class="cmd"><pre><code>/plugin marketplace add stritar/skills
+/plugin install product-design-interaction-design@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-interaction-design@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Brings the whole interaction-design bundle. Use <code>product-design-all</code> for everything.</p>
+</li>
+<li>
+<h3>From a clone, copied by hand</h3>
+<div class="cmd"><pre><code>cp -r skills/interaction-design/laws-of-ux ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/interaction-design/laws-of-ux ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
+</li>
+</ul>
+</section>
+
+<section id="related">
+<h2>Works with</h2>
+<ul class="related">
+<li><a href="design-review.html"><span class="rel-id">design-review</span></a> <span class="rel-cat">Testing and evaluation</span></li>
+<li><a href="better-layout.html"><span class="rel-id">better-layout</span></a> <span class="rel-cat">Visual design</span></li>
+</ul>
+</section>
+
+<article class="skill-body">
+<h2 class="body-head">Instructions</h2>
+<p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/interaction-design/laws-of-ux/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
+<h2 id="laws-of-ux">Laws of UX</h2>
+<p>A working toolkit of 30 principles about how people <strong>see, remember, decide,
+and act</strong> — each translated into decisions you can make in a real interface.
+These aren't style opinions. They come from perception and cognition research,
+and they hold across platforms, eras, and visual trends.</p>
+<p>Use this skill to design new UI, diagnose why an existing screen feels off, or
+back a design decision with a reason instead of a preference.</p>
+<h3 id="how-to-run-a-ux-pass">How to run a UX pass</h3>
+<ol>
+<li><strong>Name the symptom.</strong> &quot;Too many buttons,&quot; &quot;feels slow,&quot; &quot;people abandon the
+ form,&quot; &quot;nobody notices the CTA.&quot; Symptoms map to principles — the index
+ below is organized that way.</li>
+<li><strong>Pull the 1–3 relevant principles</strong> and read their full entry in
+ <code>reference/laws.md</code>. Read the <em>mechanism</em> and the <em>pitfalls</em>, not just the
+ definition — that's where the useful nuance lives.</li>
+<li><strong>Propose a concrete change to this screen</strong>, and cite the principle by name
+ so the reasoning is auditable. Not &quot;add more contrast&quot; — instead: &quot;Von
+ Restorff Effect: make the primary action the only filled button so it stops
+ competing with the three ghost buttons around it.&quot;</li>
+<li><strong>Check for conflicts.</strong> Principles pull against each other. More whitespace
+ (Prägnanz) vs. more visible options (discoverability). Simplicity (Occam)
+ has a floor (Tesler). Resolve deliberately; don't apply one law blind.</li>
+<li><strong>Verify with users when the stakes are real.</strong> These principles predict
+ behavior well, but they don't replace testing — the Aesthetic-Usability
+ Effect specifically warns that a good-looking design can hide broken tasks.</li>
+</ol>
+<h3 id="the-30-principles-by-what-they-govern">The 30 principles, by what they govern</h3>
+<p><strong>Perception &amp; visual grouping (Gestalt)</strong> — how the eye organizes a screen
+before anyone reads a word.</p>
+<ul>
+<li>Law of Proximity · Law of Common Region · Law of Similarity · Law of Uniform
+Connectedness · Law of Prägnanz · Von Restorff Effect · Selective Attention ·
+Aesthetic-Usability Effect</li>
+</ul>
+<p><strong>Memory &amp; attention</strong> — what people can hold in their heads while using your UI.</p>
+<ul>
+<li>Miller's Law · Working Memory · Chunking · Serial Position Effect ·
+Cognitive Load · Zeigarnik Effect · Peak-End Rule</li>
+</ul>
+<p><strong>Decision-making</strong> — how choices get made, and where they stall.</p>
+<ul>
+<li>Hick's Law · Choice Overload · Cognitive Bias · Occam's Razor ·
+Pareto Principle</li>
+</ul>
+<p><strong>Interaction &amp; performance</strong> — speed, effort, motion, momentum.</p>
+<ul>
+<li>Fitts's Law · Doherty Threshold · Flow · Goal-Gradient Effect · Parkinson's Law</li>
+</ul>
+<p><strong>Expectations &amp; mental models</strong> — what people assume before they even arrive.</p>
+<ul>
+<li>Jakob's Law · Mental Model · Paradox of the Active User · Postel's Law ·
+Tesler's Law</li>
+</ul>
+<h3 id="index-reach-for-it-when">Index — reach for it when…</h3>
+<div class="table-scroll"><table>
+<thead><tr><th>Principle</th><th>Reach for it when…</th></tr></thead>
+<tbody>
+<tr><td>Aesthetic-Usability Effect</td><td>You need to know why a prettier design tests as &quot;easier&quot; — and why that's a trap.</td></tr>
+<tr><td>Choice Overload</td><td>Too many options make people freeze, decide worse, or leave.</td></tr>
+<tr><td>Chunking</td><td>Dense content or long strings need grouping to be scannable.</td></tr>
+<tr><td>Cognitive Bias</td><td>Decisions skew from &quot;rational&quot; — framing, defaults, anchoring, confirmation.</td></tr>
+<tr><td>Cognitive Load</td><td>The interface asks the brain to hold or process too much at once.</td></tr>
+<tr><td>Doherty Threshold</td><td>Anything feels slow; responses cross ~400ms; you need loading states.</td></tr>
+<tr><td>Fitts's Law</td><td>Sizing and placing buttons, links, and touch targets.</td></tr>
+<tr><td>Flow</td><td>Keeping people immersed; matching challenge to skill; killing friction.</td></tr>
+<tr><td>Goal-Gradient Effect</td><td>Motivating completion; progress that accelerates near the finish.</td></tr>
+<tr><td>Hick's Law</td><td>Decision time balloons with the number and complexity of choices.</td></tr>
+<tr><td>Jakob's Law</td><td>Users expect your UI to behave like every other one they know.</td></tr>
+<tr><td>Law of Common Region</td><td>Grouping with borders, cards, backgrounds, containers.</td></tr>
+<tr><td>Law of Proximity</td><td>Grouping by spacing alone — what's near reads as related.</td></tr>
+<tr><td>Law of Prägnanz</td><td>Reduce visual complexity; the eye prefers the simplest reading.</td></tr>
+<tr><td>Law of Similarity</td><td>Matching look implies matching function (links vs. plain text).</td></tr>
+<tr><td>Law of Uniform Connectedness</td><td>Tie related items together with lines, frames, shared containers.</td></tr>
+<tr><td>Mental Model</td><td>Match how users already believe the thing should work.</td></tr>
+<tr><td>Miller's Law</td><td>Working memory is small (~7±2 chunks); chunk — but don't over-limit.</td></tr>
+<tr><td>Occam's Razor</td><td>Strip every element that isn't earning its place.</td></tr>
+<tr><td>Paradox of the Active User</td><td>People won't read docs; teach in context, inline, just in time.</td></tr>
+<tr><td>Pareto Principle</td><td>Focus effort on the ~20% of features driving ~80% of value.</td></tr>
+<tr><td>Parkinson's Law</td><td>Tasks stretch to fill the time; shorten steps, autofill, set expectations.</td></tr>
+<tr><td>Peak-End Rule</td><td>Design the most intense moment and the ending on purpose.</td></tr>
+<tr><td>Postel's Law</td><td>Accept messy input generously; emit clean, predictable output.</td></tr>
+<tr><td>Selective Attention</td><td>People tune things out; avoid banner blindness and change blindness.</td></tr>
+<tr><td>Serial Position Effect</td><td>First and last items stick; place key actions at the ends.</td></tr>
+<tr><td>Tesler's Law</td><td>Some complexity is irreducible — let the system carry it, not the user.</td></tr>
+<tr><td>Von Restorff Effect</td><td>Make the one important thing visibly distinct (without faking an ad).</td></tr>
+<tr><td>Working Memory</td><td>Support recognition over recall; carry state across screens.</td></tr>
+<tr><td>Zeigarnik Effect</td><td>Unfinished tasks tug at attention; use progress cues to pull completion.</td></tr>
+</tbody>
+</table></div>
+<h3 id="ready-made-combinations">Ready-made combinations</h3>
+<ul>
+<li><strong>Declutter a busy screen</strong> → Occam's Razor + Law of Proximity + Miller's Law.</li>
+<li><strong>Kill a slow-feeling flow</strong> → Doherty Threshold + Goal-Gradient Effect + optimistic UI.</li>
+<li><strong>Fix a confusing new feature</strong> → Jakob's Law + Mental Model + Paradox of the Active User.</li>
+<li><strong>Rescue an abandoned form</strong> → Hick's Law + Parkinson's Law + Postel's Law + progress cues (Zeigarnik / Goal-Gradient).</li>
+<li><strong>Sharpen a landing page</strong> → Von Restorff Effect + Selective Attention + Serial Position Effect + Peak-End Rule.</li>
+</ul>
+<p>Full entries — mechanism, how-to-apply, pitfalls, and a real example each — are
+in <strong><code>reference/laws.md</code></strong>.</p>
+</article>
+</main>
+</div>
+
+<footer class="site-foot">
+<p><a href="../index.html">Back to all skills</a></p>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

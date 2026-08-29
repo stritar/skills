@@ -15,6 +15,11 @@ agreement, frontmatter rules, taxonomy conformance, provenance completeness,
 a secret scan and link resolution; `catalog:check` proves the generated files
 match `catalog/index.json`.
 
+`npm run catalog:build` regenerates `CATALOG.md`, `THIRD_PARTY_NOTICES.md`,
+`.claude-plugin/*` and the web edition in `docs/`. Because the web pages carry
+each skill's `SKILL.md` text, **any change to a `SKILL.md` needs a rebuild
+too**, not only a change to the index. `catalog:check` will say so.
+
 ## Adding an original skill
 
 1. Pick the category directory (see `catalog/taxonomy.md`) and create

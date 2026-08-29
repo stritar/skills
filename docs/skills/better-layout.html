@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>better-layout — Product design skills</title>
+<meta name="description" content="Layout-structure guidance for web interfaces: grouping by negative space with a 2x inter/intra-group gap ratio, keeping controls visually distinct from static content, shared-edge alignment, logical (RTL-safe) properties over physical left/right, importance-ordered content, progressive-disclosure…">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="page-head">
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html#cat-visual-design">Visual design</a></nav>
+<h1>better-layout</h1>
+<p class="badges"><span class="il badge badge-rec"><span class="il-icon" aria-hidden="true">★</span><span class="il-label">Recommended</span></span></p>
+<p class="lede">Layout-structure guidance for web interfaces: grouping by negative space with a 2x inter/intra-group gap ratio, keeping controls visually distinct from static content, shared-edge alignment, logical (RTL-safe) properties over physical left/right, importance-ordered content, progressive-disclosure affordances (peeking scroll items, disclosure controls), breakpoints driven by content rather than device presets, container queries, safe-area-aware full-bleed vs. floating-control layering, and string-growth/clipping resilience, closing with a calibrated severity report ending in Block/Approve.</p>
+</header>
+
+<div class="layout">
+<nav class="sidebar" aria-labelledby="contents">
+<h2 id="contents">On this page</h2>
+<ul class="toc">
+<li><a href="#about">About this skill</a></li>
+<li><a href="#install">Install</a></li>
+<li><a href="#related">Works with</a></li>
+<li><a href="#layout">Layout</a></li>
+<li><a href="#group-with-space-not-lines">Group with space, not lines</a></li>
+<li><a href="#keep-controls-distinct-from-content">Keep controls distinct from content</a></li>
+<li><a href="#align-to-shared-edges">Align to shared edges</a></li>
+<li><a href="#order-by-importance">Order by importance</a></li>
+<li><a href="#hint-at-hidden-content">Hint at hidden content</a></li>
+<li><a href="#breathing-room-between-targets">Breathing room between targets</a></li>
+<li><a href="#inset-buttons-from-the-edges">Inset buttons from the edges</a></li>
+<li><a href="#content-bleeds-controls-float">Content bleeds, controls float</a></li>
+<li><a href="#hold-structure-until-it-breaks">Hold structure until it breaks</a></li>
+<li><a href="#plan-for-growth-and-clipping">Plan for growth and clipping</a></li>
+<li><a href="#before-you-finish">Before you finish</a></li>
+<li><a href="#reporting">Reporting</a></li>
+</ul>
+</nav>
+
+<main id="main">
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3>Use when</h3><ul><li>structure this page layout</li><li>review layout spacing and alignment</li><li>what collapses at small sizes</li><li>RTL layout review</li><li>breakpoint strategy</li></ul></div>
+<div class="meta-row"><h3>Works on</h3><ul><li>UI component or page source code</li><li>supported viewport list</li></ul></div>
+<div class="meta-row"><h3>Produces</h3><ul><li>severity-ranked findings table (Severity | Location | Before | After | Why)</li><li>Block/Approve verdict</li></ul></div>
+<div class="meta-row"><h3>Tags</h3>
+<ul class="tags"><li><a class="tag" href="../index.html?tag=layout">layout</a></li><li><a class="tag" href="../index.html?tag=spacing">spacing</a></li><li><a class="tag" href="../index.html?tag=responsive">responsive</a></li><li><a class="tag" href="../index.html?tag=adaptive">adaptive</a></li><li><a class="tag" href="../index.html?tag=visual-hierarchy">visual-hierarchy</a></li></ul></div>
+
+<div class="meta-row"><h3>Source</h3><p>Vendored from <a href="https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-layout">jakubkrehel/skills</a> by Jakub Krehel at <code>ca48385</code>, licence <code>MIT</code>. Vendored byte-identical to upstream.</p></div>
+</section>
+
+<section id="install">
+<h2>Install</h2>
+<ul class="install">
+<li>
+<h3>Any agent, via the skills CLI</h3>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill better-layout</code></pre><button type="button" class="copy js-only" data-copy="npx skills add stritar/skills --skill better-layout"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Installs into whichever agents it finds on your machine.</p>
+</li>
+<li>
+<h3>Claude Code, as a plugin</h3>
+<div class="cmd"><pre><code>/plugin marketplace add stritar/skills
+/plugin install product-design-visual-design@product-design-skills</code></pre><button type="button" class="copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-visual-design@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Brings the whole visual-design bundle. Use <code>product-design-all</code> for everything.</p>
+</li>
+<li>
+<h3>From a clone, copied by hand</h3>
+<div class="cmd"><pre><code>cp -r skills/visual-design/better-layout ~/.claude/skills/</code></pre><button type="button" class="copy js-only" data-copy="cp -r skills/visual-design/better-layout ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
+</li>
+</ul>
+</section>
+
+<section id="related">
+<h2>Works with</h2>
+<ul class="related">
+<li><a href="better-typography.html"><span class="rel-id">better-typography</span></a> <span class="rel-cat">Visual design</span></li>
+<li><a href="platform-conventions.html"><span class="rel-id">platform-conventions</span></a> <span class="rel-cat">Interaction design</span></li>
+<li><a href="better-ui.html"><span class="rel-id">better-ui</span></a> <span class="rel-cat">Visual design</span></li>
+<li><a href="critique-information-density.html"><span class="rel-id">critique-information-density</span></a> <span class="rel-cat">Testing and evaluation</span></li>
+</ul>
+</section>
+
+<article class="skill-body">
+<h2 class="body-head">Instructions</h2>
+<p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/visual-design/better-layout/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
+<h2 id="layout">Layout</h2>
+<p>Position, spacing and alignment carry hierarchy before a word is read. This skill builds that structure and stress-tests it: resize it, translate it, mirror it for RTL.</p>
+<p>Write every fix in the project's styling system. The numbers below are starting points for interfaces with no established density system, and where one applies, use it as written rather than a familiar-looking substitute. Keep deliberate platform chrome, compact professional tools and project tokens where they still pass the stress tests.</p>
+<p>Hit areas and focus behavior belong to <code>better-accessibility</code>. Radius, shadows and animation belong to <code>better-ui</code>. Line length and text spacing belong to <code>better-typography</code>.</p>
+<h3 id="group-with-space-not-lines">Group with space, not lines</h3>
+<p>Space groups first, background shapes second, separator lines last and only where space alone can't carry the structure. The gap between groups must be at least 2× the gap within one (<code>8px</code> intra-group to <code>16px</code>+ inter-group), or the grouping reads as noise. Alignment edges and importance ordering are in <a href="https://github.com/stritar/skills/blob/main/skills/visual-design/better-layout/grouping-and-alignment.md" target="_blank" rel="noopener noreferrer">grouping-and-alignment.md</a>.</p>
+<h3 id="keep-controls-distinct-from-content">Keep controls distinct from content</h3>
+<p>Give every interactive element a background shape, a border, or a consistent placement zone. A control styled like the static text beside it does not read as a control.</p>
+<h3 id="align-to-shared-edges">Align to shared edges</h3>
+<p>Pick alignment edges and stick to them; every stray edge reads as noise. Use one project spacing step per level of subordination, where <code>16px</code> is a useful default.</p>
+<p>Use logical properties for direction-dependent layout: <code>padding-inline-start</code>, <code>margin-inline-end</code>. Reserve physical left and right for genuinely physical geometry.</p>
+<h3 id="order-by-importance">Order by importance</h3>
+<p>The most important content sits near the top and the leading edge. Reading order flows top-to-bottom, leading-to-trailing. Think in leading and trailing, not left and right.</p>
+<h3 id="hint-at-hidden-content">Hint at hidden content</h3>
+<p>Progressive disclosure needs a visible affordance. Use the project's established cue, or let the next item peek <code>16–32px</code> past the scroll edge, or show a disclosure control. Content hidden with zero cue may as well not exist.</p>
+<h3 id="breathing-room-between-targets">Breathing room between targets</h3>
+<p>Without an established density system, start with <code>12px</code> between adjacent bordered or filled controls and <code>24px</code> around borderless text- and icon-only ones. Compact layouts may use less, as long as <code>better-accessibility</code> hit areas don't overlap and the controls stay distinct. Layout margins and breakpoint recipes are in <a href="https://github.com/stritar/skills/blob/main/skills/visual-design/better-layout/spacing-and-adaptivity.md" target="_blank" rel="noopener noreferrer">spacing-and-adaptivity.md</a>.</p>
+<h3 id="inset-buttons-from-the-edges">Inset buttons from the edges</h3>
+<p>In content layouts, keep full-width buttons inside the layout margins with a visible radius, starting near <code>16px</code> inline on mobile. Edge-to-edge actions work when they follow established platform chrome, account for safe areas and stay distinguishable from system UI.</p>
+<h3 id="content-bleeds-controls-float">Content bleeds, controls float</h3>
+<p>Backgrounds and media extend to the viewport edges. Controls and text stay inside the layout margins and safe areas (<code>env(safe-area-inset-*)</code>). Sticky chrome floats above the content layer rather than blocking it.</p>
+<h3 id="hold-structure-until-it-breaks">Hold structure until it breaks</h3>
+<p>Breakpoints come from the content, not device presets. Keep the expanded layout as long as it genuinely fits and collapse late. Prefer container queries for component-level adaptation, and test the smallest and largest sizes first.</p>
+<h3 id="plan-for-growth-and-clipping">Plan for growth and clipping</h3>
+<p>Translated strings grow, and short ones grow proportionally more, so a one-word button label is the riskiest thing on the screen. Put no fixed width or height on a text container, and let rows wrap. Test with pseudo-localization and one representative locale rather than budgeting a percentage.</p>
+<p>Never park a critical action where resizing or scrolling clips it. Keep it in the normal flow, or in stable chrome suited to the product.</p>
+<h3 id="before-you-finish">Before you finish</h3>
+<div class="table-scroll"><table>
+<thead><tr><th>Mistake</th><th>Fix</th></tr></thead>
+<tbody>
+<tr><td><code>margin-left</code> / <code>padding-right</code> in a localizable layout</td><td><code>margin-inline-start</code> / <code>padding-inline-end</code></td></tr>
+<tr><td>Content-layout button touches the viewport edge</td><td>Inset within the project margins; keep intentional platform chrome</td></tr>
+<tr><td>Breakpoints at 768/1024 because they're the defaults</td><td>Break where the content actually stops fitting</td></tr>
+<tr><td>Fixed-width text container sized to one language</td><td><code>max-width</code> and wrapping; test pseudo-localization</td></tr>
+<tr><td>Primary action at the clip-prone bottom of a pane</td><td>Sticky positioning or stable chrome with safe-area padding</td></tr>
+</tbody>
+</table></div>
+<h3 id="reporting">Reporting</h3>
+<p><strong>Severity.</strong> <code>HIGH</code> blocks content or an action at a supported viewport. <code>MEDIUM</code> harms hierarchy, reading order, or adaptability. <code>LOW</code> is isolated alignment or spacing polish.</p>
+<p><strong>Verification.</strong> Without a browser: logical properties in place of physical ones, container and media queries against the supported viewport list and DOM order against the intended reading order. With one: every supported width, 200% zoom and the RTL mirror. Report every check you could not run as <code>Not verified</code>.</p>
+<p><strong>Format.</strong> Group findings under the principle each violates, ordered by severity, one row per root cause listing every location it appears in:</p>
+<div class="table-scroll"><table>
+<thead><tr><th>Severity</th><th>Location</th><th>Before</th><th>After</th><th>Why</th></tr></thead>
+<tbody>
+
+</tbody>
+</table></div>
+<p><code>Location</code> is <code>path/to/file:line</code>. <code>Why</code> names the principle and the user impact.</p>
+<p>End with <code>Block</code> when any <code>HIGH</code> remains, <code>Approve</code> otherwise, leaving the rest in the table as work to do. Never <code>Approve</code> coverage you did not inspect. With nothing to report, state &quot;No actionable layout findings&quot; and report verification.</p>
+</article>
+</main>
+</div>
+
+<footer class="site-foot">
+<p><a href="../index.html">Back to all skills</a></p>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>
