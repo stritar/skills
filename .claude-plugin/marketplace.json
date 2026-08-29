@@ -18,6 +18,7 @@
         "./skills/research/customer-journey-mapper",
         "./skills/research/inclusive-personas",
         "./skills/research/journey-mapper",
+        "./skills/research/persona",
         "./skills/research/research-planning",
         "./skills/research/research-synthesis",
         "./skills/research/service-blueprint",
@@ -40,6 +41,8 @@
         "./skills/interaction-design/onboarding",
         "./skills/interaction-design/platform-conventions",
         "./skills/interaction-design/signup",
+        "./skills/interaction-design/wireframe",
+        "./skills/interaction-design/wireframe-json",
         "./skills/visual-design/algorithmic-art",
         "./skills/visual-design/better-colors",
         "./skills/visual-design/better-layout",
@@ -48,6 +51,7 @@
         "./skills/visual-design/canvas-design",
         "./skills/visual-design/diagram-design",
         "./skills/visual-design/frontend-design",
+        "./skills/visual-design/make-a-deck",
         "./skills/visual-design/redesign-existing-projects",
         "./skills/visual-design/theme-factory",
         "./skills/visual-design/wp-block-themes",
@@ -80,10 +84,12 @@
         "./skills/content-design/localization-design",
         "./skills/content-design/ux-writing",
         "./skills/prototyping/design-and-refine",
+        "./skills/prototyping/interactive-prototype",
         "./skills/prototyping/prototype",
         "./skills/prototyping/variant",
         "./skills/testing/break",
         "./skills/testing/critique-information-density",
+        "./skills/testing/design-critique",
         "./skills/testing/design-review",
         "./skills/testing/find-animation-opportunities",
         "./skills/testing/improve-animations",
@@ -94,6 +100,7 @@
         "./skills/design-qa/frontend-design-review",
         "./skills/design-qa/interface-review",
         "./skills/design-qa/review-animations",
+        "./skills/design-qa/web-design-reviewer",
         "./skills/analytics/experiment-designer",
         "./skills/analytics/instrumentation-plan",
         "./skills/analytics/product-analytics",
@@ -104,6 +111,7 @@
         "./skills/design-engineering/design-handoff",
         "./skills/design-engineering/explain-interface",
         "./skills/design-engineering/extract-static-html",
+        "./skills/design-engineering/handoff-to-claude-code",
         "./skills/design-engineering/image-to-code",
         "./skills/design-engineering/web-artifacts-builder",
         "./skills/orchestration/better-interface",
@@ -131,6 +139,7 @@
         "./skills/research/customer-journey-mapper",
         "./skills/research/inclusive-personas",
         "./skills/research/journey-mapper",
+        "./skills/research/persona",
         "./skills/research/research-planning",
         "./skills/research/research-synthesis",
         "./skills/research/service-blueprint",
@@ -176,7 +185,9 @@
         "./skills/interaction-design/laws-of-ux",
         "./skills/interaction-design/onboarding",
         "./skills/interaction-design/platform-conventions",
-        "./skills/interaction-design/signup"
+        "./skills/interaction-design/signup",
+        "./skills/interaction-design/wireframe",
+        "./skills/interaction-design/wireframe-json"
       ]
     },
     {
@@ -193,6 +204,7 @@
         "./skills/visual-design/canvas-design",
         "./skills/visual-design/diagram-design",
         "./skills/visual-design/frontend-design",
+        "./skills/visual-design/make-a-deck",
         "./skills/visual-design/redesign-existing-projects",
         "./skills/visual-design/theme-factory",
         "./skills/visual-design/wp-block-themes",
@@ -257,6 +269,7 @@
       "version": "0.1.0",
       "skills": [
         "./skills/prototyping/design-and-refine",
+        "./skills/prototyping/interactive-prototype",
         "./skills/prototyping/prototype",
         "./skills/prototyping/variant"
       ]
@@ -269,6 +282,7 @@
       "skills": [
         "./skills/testing/break",
         "./skills/testing/critique-information-density",
+        "./skills/testing/design-critique",
         "./skills/testing/design-review",
         "./skills/testing/find-animation-opportunities",
         "./skills/testing/improve-animations",
@@ -286,7 +300,8 @@
         "./skills/design-qa/design-details",
         "./skills/design-qa/frontend-design-review",
         "./skills/design-qa/interface-review",
-        "./skills/design-qa/review-animations"
+        "./skills/design-qa/review-animations",
+        "./skills/design-qa/web-design-reviewer"
       ]
     },
     {
@@ -329,6 +344,7 @@
         "./skills/design-engineering/design-handoff",
         "./skills/design-engineering/explain-interface",
         "./skills/design-engineering/extract-static-html",
+        "./skills/design-engineering/handoff-to-claude-code",
         "./skills/design-engineering/image-to-code",
         "./skills/design-engineering/web-artifacts-builder"
       ]

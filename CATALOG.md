@@ -2,7 +2,7 @@
 
 <!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
 
-97 skills (90 vendored third-party, 7 original).
+105 skills (98 vendored third-party, 7 original).
 
 Search locally instead of reading this whole file: `npm run search -- "your query"`. The machine-readable index is [catalog/index.json](catalog/index.json).
 
@@ -11,21 +11,21 @@ Search locally instead of reading this whole file: `npm run search -- "your quer
 - [Start here](#start-here)
 - [Suggested bundles](#suggested-bundles)
 - [Discovery](#discovery) (2)
-- [User research](#user-research) (11)
+- [User research](#user-research) (12)
 - [Product strategy](#product-strategy) (2)
 - [Information architecture](#information-architecture) (2)
-- [Interaction design](#interaction-design) (10)
-- [Visual design](#visual-design) (12)
+- [Interaction design](#interaction-design) (12)
+- [Visual design](#visual-design) (13)
 - [Design systems](#design-systems) (12)
 - [Accessibility](#accessibility) (11)
 - [Content design](#content-design) (4)
-- [Prototyping](#prototyping) (3)
-- [Testing and evaluation](#testing-and-evaluation) (8)
-- [Design QA](#design-qa) (4)
+- [Prototyping](#prototyping) (4)
+- [Testing and evaluation](#testing-and-evaluation) (9)
+- [Design QA](#design-qa) (5)
 - [Product analytics](#product-analytics) (4)
 - [Agentic and AI-native UI](#agentic-and-ai-native-ui) (2)
 - [Ethics and safety](#ethics-and-safety) (1)
-- [Design engineering](#design-engineering) (5)
+- [Design engineering](#design-engineering) (6)
 - [Orchestration](#orchestration) (4)
 - [Recommended defaults](#recommended-defaults)
 - [Alphabetical index](#alphabetical-index)
@@ -121,6 +121,20 @@ Scans a codebase (routes, components, auth roles, API calls, email templates, er
 - **Source**: third-party — [joeyvansommeren/journey-mapper](https://github.com/joeyvansommeren/journey-mapper/tree/bbb316a4c0a13d2f843c328f3a5fa94f64b82ff4/skills/journey-mapper) @ `bbb316a` by Joey van Sommeren, Apache-2.0 (modified — see THIRD_PARTY_NOTICES.md)
 - **Status**: draft, stable
 - **Tags**: journey-mapping, service-blueprint, user-research, assumption-mapping
+
+### `persona`
+
+Builds reusable synthetic consumer persona panels and runs agent-separated qualitative or structured concept-test research against them. A three-step workflow (build panel, run ask/concept-test, review findings) generates diverse personas via a deterministic sampling-plan allocator with quantified diversity rules (Big Five spread, age/gender/geography/occupation spread, no two personas within 0.85 cosine similarity), validates the panel with automated hard-fail/warning QA checks, then fans each persona out to its own independent `claude -p` or `codex exec` subprocess with zero shared context and CLI-level context isolation so no persona's answer can anchor on another's or leak project context. An LLM adherence check scores each response against the persona profile on four weighted dimensions and regenerates low-scoring ones. Produces results.json/csv, cross-tabs, matplotlib charts, and an LLM- or template-synthesized markdown report, recording exact model IDs and per-call cost.
+
+- **Path**: [skills/research/persona/SKILL.md](skills/research/persona/SKILL.md)
+- **Use when**: build a persona panel for; ask a panel of personas about; run a concept test with synthetic personas; which concept would our target customers prefer; generate diverse AI personas for research; pressure-test this product concept before fieldwork
+- **Inputs**: a market/topic description and optional segment definitions, 2-4 concept or option descriptions (for concept-test), an open-ended research question (for ask)
+- **Outputs**: a reusable persona panel saved under personas/{survey-id}/ with a validation QA summary, results.json/results.csv of per-persona responses, cross-tabs and matplotlib charts (concept-test), an executive markdown report.md with run cost and model metadata
+- **Dependencies**: python3, pandas, matplotlib, seaborn, claude-cli-or-codex-cli
+- **Verified compatible with**: claude-code, codex
+- **Source**: third-party — [takechanman1228/claude-persona](https://github.com/takechanman1228/claude-persona/tree/b4be6e641421968943003b84da16327c5c6a14c4/skills/persona) @ `b4be6e6` by Hajime Takeda, MIT (modified — see THIRD_PARTY_NOTICES.md)
+- **Status**: draft, stable
+- **Tags**: personas, surveys, qualitative, quantitative, synthesis, segmentation
 
 ### `research-planning`
 
@@ -434,6 +448,33 @@ Audits and redesigns signup/registration/account-creation flows for friction: a 
 - **Status**: draft, stable
 - **Tags**: forms, onboarding, state-design, error-messages, mobile
 
+### `wireframe`
+
+Guides the agent to explore a design space quickly with many rough, structurally distinct low-fidelity wireframes rather than one polished direction. Directs producing 3-5 structurally different options per idea (not recolors), using sketchy hand-written fonts, mostly black-and-white shapes with sparing color accents, plain-language section labels, and a minimal tweak surface (variant toggle, density, optional-section swap), while explicitly avoiding polish, hover states, and visual convergence across options.
+
+- **Path**: [skills/interaction-design/wireframe/SKILL.md](skills/interaction-design/wireframe/SKILL.md)
+- **Use when**: explore the design space; rough wireframes; low-fi wireframe options; sketch some layout ideas; give me a few structurally different layouts
+- **Inputs**: a feature or screen description, an existing product/problem context to riff on
+- **Outputs**: a set of 3-5 structurally distinct low-fidelity HTML wireframes laid out for side-by-side comparison, with plain-language section labels and interaction annotations
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
+- **Source**: third-party — [manalkaff/opendesign](https://github.com/manalkaff/opendesign/tree/cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb/skills/wireframe) @ `cecd9bb` by manalkaff, MIT (modified — see THIRD_PARTY_NOTICES.md)
+- **Status**: draft, stable
+- **Tags**: wireframing, low-fidelity, ui-design, interaction-design, prototyping
+
+### `wireframe-json`
+
+Generates a machine-readable JSON wireframe definition from a natural-language screen description (or from a design-spec's Information Architecture section) plus a self-contained, editable HTML preview. Applies a 7-phase design-reasoning framework before producing JSON: displacement check, content inventory, task/scanning-pattern selection, grid establishment, hierarchy assignment via a 4-level type scale, spacing via an 8-point grid, and a rhythm-verification pass with named failure modes (pixel perfectionism, hierarchy collapse, arbitrary spacing, grid amnesia, density monotony, action-hierarchy collapse) each with symptom/root-cause/fix. The JSON maps 1:1 to CSS flexbox and is the same schema used across a wider design pipeline (styled by other skills, consumed by Figma Make / Google Stitch style tools). The HTML preview supports drag-and-drop reordering, direction toggling, copy/paste, undo/redo, and JSON export/save, entirely client-side with no server or build step.
+
+- **Path**: [skills/interaction-design/wireframe-json/SKILL.md](skills/interaction-design/wireframe-json/SKILL.md)
+- **Use when**: generate a wireframe from this description; wireframe this screen as JSON; produce a structured wireframe I can hand to Figma Make; build a machine-readable wireframe definition
+- **Inputs**: a natural-language layout description, or a design-id pointing at an existing design-spec's Information Architecture section
+- **Outputs**: a `.wireframe.json` machine-readable layout definition following the documented schema, a self-contained `.wireframe.html` editable preview (drag-and-drop, undo/redo, JSON export)
+- **Dependencies**: python3
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code
+- **Source**: third-party — [yhassy/wireframe-skill](https://github.com/yhassy/wireframe-skill/tree/948d4331343b18d913d5bc502da72ed0c5f19101) @ `948d433` by yhassy, MIT (modified — see THIRD_PARTY_NOTICES.md)
+- **Status**: draft, stable
+- **Tags**: wireframing, ui-design, interaction-design, layout, grids, spacing, visual-hierarchy, figma
+
 ## Visual design
 
 ### `algorithmic-art`
@@ -548,6 +589,19 @@ Guidance for distinctive, intentional visual design when building new UI or resh
 - **Status**: verified, stable, recommended default
 - **Tags**: typography, color, layout, visual-hierarchy, ui-design, interaction-design, responsive, motion, ux-writing, voice-and-tone
 - **Related**: `frontend-design-review`, `theme-factory`, `better-ui`, `pick-ui-library`
+
+### `make-a-deck`
+
+Shifts the agent into presentation-designer mode for slide decks: fixed 1920x1080 canvas per slide, named CSS type-scale and spacing constants instead of ad-hoc pixel values, an intake step for length/audience/delivery mode, a chapter-driven title-writing discipline (write and review the full title sequence as a standalone artifact before building any slide), rules for content density, visual variety across slide types, pixel-level parallelism of repeated chrome, and image-handling modes (full-bleed, aspect-fit, contrasting background). Lists forbidden deck tropes (takeaway boxes, accent-border call-outs, emoji-as-iconography, self-drawn SVGs, default gradient washes) and AI-sounding title phrasing to refuse.
+
+- **Path**: [skills/visual-design/make-a-deck/SKILL.md](skills/visual-design/make-a-deck/SKILL.md)
+- **Use when**: make a slide deck; build a presentation; design slides for this pitch; create a board update deck; turn this into a presentation
+- **Inputs**: a presentation topic and length in minutes, audience, delivery mode, and any brand context
+- **Outputs**: a fixed-canvas HTML slide deck (1920x1080 sections) with a coherent title sequence, consistent type-scale/spacing tokens, and varied slide types
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
+- **Source**: third-party — [manalkaff/opendesign](https://github.com/manalkaff/opendesign/tree/cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb/skills/make-a-deck) @ `cecd9bb` by manalkaff, MIT (modified — see THIRD_PARTY_NOTICES.md)
+- **Status**: draft, stable
+- **Tags**: typography, layout, visual-hierarchy, spacing, grids
 
 ### `redesign-existing-projects`
 
@@ -1009,6 +1063,19 @@ Runs a Design & Refine workflow that explores a UI concept as several genuinely 
 - **Status**: draft, experimental
 - **Tags**: prototyping, interactive-prototype, ui-design, design-critique, variants
 
+### `interactive-prototype`
+
+Builds one working, clickable prototype that behaves like a real app rather than a static mockup: React with useState/useEffect, small readable components split at ~400 lines, wrapped in a device/window frame. Requires a full interaction surface (hover states, working click/tap handlers with no dead controls, happy-path form validation, animated state transitions, end-to-end multi-step flows, loading and empty states) and realism rules (no lorem ipsum or placeholder names, 44px minimum mobile hit targets, critical state persisted to localStorage so a refresh does not lose the user's place). Explicitly scopes out real auth, real network calls, persistence beyond localStorage, production-grade accessibility audits, and edge cases the user did not ask to demonstrate.
+
+- **Path**: [skills/prototyping/interactive-prototype/SKILL.md](skills/prototyping/interactive-prototype/SKILL.md)
+- **Use when**: build a clickable prototype; make this feel like a real working app; prototype this flow end to end; give me an interactive demo I can click through
+- **Inputs**: a feature or flow description to prototype
+- **Outputs**: a working React-based interactive HTML/JS prototype with realistic fake data, functioning state transitions, and persisted UI state
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
+- **Source**: third-party — [manalkaff/opendesign](https://github.com/manalkaff/opendesign/tree/cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb/skills/interactive-prototype) @ `cecd9bb` by manalkaff, MIT (modified — see THIRD_PARTY_NOTICES.md)
+- **Status**: draft, stable
+- **Tags**: prototyping, interactive-prototype, high-fidelity, state-design
+
 ### `prototype`
 
 Builds several (default three, up to five) genuinely different versions of one described UI piece, each diverging on a named axis (layout, density, personality, motion, interaction model) stated before any code is written, hosted full-size in realistic context behind a visual picker with keyboard navigation, instant switching, and URL-param persistence per a verbatim picker spec. Every variant must independently meet the same motion-craft bar (correct easing, sub-300ms UI motion, transform-origin, reduced-motion) so a sloppy variant never widens the exploration. Presents tradeoffs honestly without marking a favorite, then on selection promotes the winner into the project's conventions and deletes the prototype surface.
@@ -1066,6 +1133,20 @@ Makes the agent critique a rendered screen's information density along four dime
 - **Status**: verified, stable
 - **Tags**: design-critique, expert-review, visual-hierarchy, dashboards
 - **Related**: `better-layout`, `design-review`
+
+### `design-critique`
+
+Runs an evidence-bounded heuristic evaluation of a supplied UI artifact (image, Figma design, rendered HTML/URL, or multi-screen flow) across four categories -- visual design & hierarchy, usability & interaction, accessibility, and content & language -- scoring each finding on the NN/g 0-4 severity scale (frequency x impact x persistence) against a named atom-level checklist drawing on Nielsen's heuristics, Norman's interaction principles, Gestalt, Fitts/Hick/Miller, and WCAG 2.2. Renders code, markup, or URLs to real pixels before judging them (never critiques unrendered source;
+
+- **Path**: [skills/testing/design-critique/SKILL.md](skills/testing/design-critique/SKILL.md)
+- **Use when**: critique this design; evaluate this UI; usability review; heuristic evaluation; review this mockup/screen/figma
+- **Inputs**: image, Figma file, rendered HTML/URL, or multi-screen flow, optional evaluation brief (target users, primary task, platform, design maturity, constraints), optional design-system tokens/spec for the opt-in conformance mode
+- **Outputs**: designer-voiced critique: overall read, what's working, top 3-5 findings each with element/problem/fix, health tally by NN/g severity name (no composite score), list of screens that could not be seen, with the reason, on request: full atom matrix, numeric severities, confidence, and framework badges per finding
+- **Dependencies**: node, playwright
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
+- **Source**: third-party — [kirodotdev/kirocrew](https://github.com/kirodotdev/kirocrew/tree/00ea2455438450feaebe9d8ee315a612164e03bd/src/kiro_crew/apps/builtins/design_critique/skills/design-critique) @ `00ea245` by kirocrew, Apache-2.0 (modified — see THIRD_PARTY_NOTICES.md)
+- **Status**: draft, stable
+- **Tags**: heuristic-evaluation, design-critique, severity, expert-review, a11y, wcag
 
 ### `design-review`
 
@@ -1208,6 +1289,19 @@ Reviews animation and motion code (a diff or a component) against ten non-negoti
 - **Status**: verified, stable, recommended default
 - **Tags**: design-review, pr-review, motion, animation, severity, design-qa
 - **Related**: `animate`, `better-ui`, `better-interface`
+
+### `web-design-reviewer`
+
+Drives a four-phase live visual QA loop against a running website or web app (static HTML, React/Vue/Angular/Svelte SPAs, Next.js/Nuxt/SvelteKit, WordPress/Drupal, or any other web app): gather project/framework/styling info (auto-detecting from package.json, tailwind.config, etc.), capture screenshots and traverse pages at four viewports (375/768/1280/1920px) checking layout, responsive, accessibility and visual-consistency issues against named issue tables with severities, prioritize findings P1-P3, locate the offending source files by selector/component search and apply minimal framework-respecting fixes, then re-verify with before/after screenshots and a regression check.
+
+- **Path**: [skills/design-qa/web-design-reviewer/SKILL.md](skills/design-qa/web-design-reviewer/SKILL.md)
+- **Use when**: review website design; check the UI; fix the layout; find design problems; responsive QA on this site
+- **Inputs**: running URL (local dev server, staging, or production), browser automation capability (screenshot capture, page navigation, DOM retrieval), access to project source code when making fixes
+- **Outputs**: prioritized (P1-P3) issue report with before/after screenshots, source-level fixes applied at the offending files, unfixed-issue list with reasons and recommended actions
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code
+- **Source**: third-party — [galaxy-dawn/claude-scholar](https://github.com/galaxy-dawn/claude-scholar/tree/6ed46dac03191c7a734f49ed48b41195012098ff/skills/web-design-reviewer) @ `6ed46da` by Gaorui Zhang, MIT
+- **Status**: draft, stable
+- **Tags**: design-review, pr-review, visual-regression, responsive, cross-browser, a11y
 
 ## Product analytics
 
@@ -1357,6 +1451,19 @@ Produces a single self-contained static HTML file from a rendered web page or ap
 - **Status**: verified, experimental
 - **Tags**: frontend, handoff, documentation, implementation-quality
 - **Related**: `extract-design-md`
+
+### `handoff-to-claude-code`
+
+Packages a finished design into a self-sufficient handoff folder for a developer or coding agent to implement, with every referenced HTML prototype, component, image, font, and asset copied in so no path traces back into the source project. Generates a README with nine required sections in a fixed order (overview, about the design files, fidelity, screens/views with exact layout and component measurements, interactions and behavior, state management, a flat design-token list, assets, and a file manifest). States up front, verbatim in spirit, that the bundled HTML is a design reference to be recreated in the target codebase's own framework and patterns, not production code to paste in directly. Asks before including screenshots, then zips the folder for download.
+
+- **Path**: [skills/design-engineering/handoff-to-claude-code/SKILL.md](skills/design-engineering/handoff-to-claude-code/SKILL.md)
+- **Use when**: hand this design off to a developer; package this for implementation; generate a spec for the engineering team; prepare this prototype for handoff to a coding agent
+- **Inputs**: a finished design (HTML prototypes, components, assets) ready for implementation
+- **Outputs**: a zipped handoff folder containing every referenced design file plus a nine-section README spec (fidelity, layout, tokens, interactions, state, assets, file manifest)
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
+- **Source**: third-party — [manalkaff/opendesign](https://github.com/manalkaff/opendesign/tree/cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb/skills/handoff-to-claude-code) @ `cecd9bb` by manalkaff, MIT (modified — see THIRD_PARTY_NOTICES.md)
+- **Status**: draft, stable
+- **Tags**: handoff, design-engineering, documentation, design-tokens, component-docs
 
 ### `image-to-code`
 
@@ -1520,6 +1627,7 @@ Orchestrates a research effort from the decision it must inform to a recommendat
 | [`customer-journey-mapper`](skills/research/customer-journey-mapper/SKILL.md) | research | third-party | draft |
 | [`dark-pattern-review`](skills/ethics-and-safety/dark-pattern-review/SKILL.md) | ethics-and-safety | original | verified |
 | [`design-and-refine`](skills/prototyping/design-and-refine/SKILL.md) | prototyping | third-party | draft |
+| [`design-critique`](skills/testing/design-critique/SKILL.md) | testing | third-party | draft |
 | [`design-debt-audit`](skills/design-systems/design-debt-audit/SKILL.md) | design-systems | third-party | verified |
 | [`design-details`](skills/design-qa/design-details/SKILL.md) | design-qa | third-party | verified |
 | [`design-handoff`](skills/design-engineering/design-handoff/SKILL.md) | design-engineering | third-party | draft |
@@ -1539,18 +1647,22 @@ Orchestrates a research effort from the decision it must inform to a recommendat
 | [`frontend-design`](skills/visual-design/frontend-design/SKILL.md) | visual-design | third-party | verified |
 | [`frontend-design-review`](skills/design-qa/frontend-design-review/SKILL.md) | design-qa | third-party | verified |
 | [`frontend-ui-dark-ts`](skills/design-systems/frontend-ui-dark-ts/SKILL.md) | design-systems | third-party | verified |
+| [`handoff-to-claude-code`](skills/design-engineering/handoff-to-claude-code/SKILL.md) | design-engineering | third-party | draft |
 | [`ia-evaluation`](skills/information-architecture/ia-evaluation/SKILL.md) | information-architecture | original | verified |
 | [`image-to-code`](skills/design-engineering/image-to-code/SKILL.md) | design-engineering | third-party | draft |
 | [`improve-animations`](skills/testing/improve-animations/SKILL.md) | testing | third-party | verified |
 | [`inclusive-personas`](skills/research/inclusive-personas/SKILL.md) | research | third-party | draft |
 | [`instrumentation-plan`](skills/analytics/instrumentation-plan/SKILL.md) | analytics | original | verified |
+| [`interactive-prototype`](skills/prototyping/interactive-prototype/SKILL.md) | prototyping | third-party | draft |
 | [`interface-review`](skills/design-qa/interface-review/SKILL.md) | design-qa | third-party | verified |
 | [`journey-mapper`](skills/research/journey-mapper/SKILL.md) | research | third-party | draft |
 | [`laws-of-ux`](skills/interaction-design/laws-of-ux/SKILL.md) | interaction-design | third-party | verified |
 | [`localization-design`](skills/content-design/localization-design/SKILL.md) | content-design | third-party | verified |
+| [`make-a-deck`](skills/visual-design/make-a-deck/SKILL.md) | visual-design | third-party | draft |
 | [`market-command-matrix`](skills/strategy/market-command-matrix/SKILL.md) | strategy | third-party | draft |
 | [`motion-system`](skills/design-systems/motion-system/SKILL.md) | design-systems | third-party | verified |
 | [`onboarding`](skills/interaction-design/onboarding/SKILL.md) | interaction-design | third-party | draft |
+| [`persona`](skills/research/persona/SKILL.md) | research | third-party | draft |
 | [`perspective-audit`](skills/accessibility/perspective-audit/SKILL.md) | accessibility | third-party | verified |
 | [`pick-ui-library`](skills/design-systems/pick-ui-library/SKILL.md) | design-systems | third-party | verified |
 | [`platform-conventions`](skills/interaction-design/platform-conventions/SKILL.md) | interaction-design | third-party | verified |
@@ -1585,6 +1697,9 @@ Orchestrates a research effort from the decision it must inform to a recommendat
 | [`ux-writing`](skills/content-design/ux-writing/SKILL.md) | content-design | third-party | verified |
 | [`variant`](skills/prototyping/variant/SKILL.md) | prototyping | third-party | verified |
 | [`web-artifacts-builder`](skills/design-engineering/web-artifacts-builder/SKILL.md) | design-engineering | third-party | verified |
+| [`web-design-reviewer`](skills/design-qa/web-design-reviewer/SKILL.md) | design-qa | third-party | draft |
+| [`wireframe`](skills/interaction-design/wireframe/SKILL.md) | interaction-design | third-party | draft |
+| [`wireframe-json`](skills/interaction-design/wireframe-json/SKILL.md) | interaction-design | third-party | draft |
 | [`wp-block-themes`](skills/visual-design/wp-block-themes/SKILL.md) | visual-design | third-party | draft |
 | [`wp-patterns`](skills/visual-design/wp-patterns/SKILL.md) | visual-design | third-party | draft |
 | [`wpds`](skills/design-systems/wpds/SKILL.md) | design-systems | third-party | draft |

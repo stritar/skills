@@ -1,0 +1,38 @@
+{
+  "repo": "manalkaff/opendesign",
+  "commit": "cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb",
+  "verdict": "reject",
+  "rejectedSkills": [
+    {
+      "id": "frontend-design",
+      "reason": "Strong candidate on its own merits (relevance 2, quality 3, conformance 2 — a clean, self-contained, spec-minimal SKILL.md pushing for a committed, distinctive aesthetic direction with concrete typography/color/motion/composition rules), but its upstream frontmatter name 'frontend-design' is an exact id collision with BOTH the registry's already-catalogued 'frontend-design' entry AND an already-completed vendor manifest for that same id produced earlier in this research campaign (research/manifests/frontend-design.json, sourced from anthropics/skills, rubric 3/3/2/2=10, recommended:true). Writing a second manifest under the same id would silently overwrite that decided, higher-scoring candidate. Not vendored to avoid the collision; the overlap is recorded for curator awareness in case they prefer this opendesign version, or want to fold ideas from both (this one's oklch chroma-restriction rule and named 'aesthetic direction' taxonomy — brutalist/maximalist/editorial/retro-futuristic/organic/industrial/anti-design/swiss-modernist/zine-punk — are not present in the anthropics version).",
+      "rubric": {"relevance": 2, "quality": 3, "conformance": 2, "uniqueness": 1}
+    },
+    {
+      "id": "create-design-system",
+      "reason": "Good instructions in isolation (explicit required output paths, a numbered process from asset exploration through UI-kit build, hard rules against inventing components or hand-drawing SVGs), but held back by two things: (1) it is tightly coupled to opendesign's own tooling — every generated system MUST write to exact non-negotiable paths under ./opendesign/design-systems/<name>/ so opendesign's own auto-discovery logic can find it, and step 8 explicitly says 'Use the deck skill's conventions', a soft dependency on the make-a-deck sibling that only partially transfers once vendored standalone; (2) it substantially overlaps ground already covered by three already-catalogued/vendored registry ids (design-system, design-tokens, design-system-governance, plus the already-vendored research/manifests/design-system.json from anthropics/knowledge-work-plugins). Excluded under the repo's 4-skill vendoring cap in favor of handoff-to-claude-code, which is more portable (conformance 2 vs 1) and less redundant with what is already vendored.",
+      "rubric": {"relevance": 3, "quality": 3, "conformance": 1, "uniqueness": 1}
+    },
+    {
+      "id": "make-tweakable",
+      "reason": "Covers a genuinely novel niche (an in-design 'Tweaks' panel with an ordered activate/deactivate postMessage handshake and multiple persistence strategies) that nothing else in the registry or this campaign's manifests touches, but it assumes a specific host architecture — a parent iframe/window that posts 'activate'/'deactivate' messages and expects an availability announcement back — which is opendesign-viewer-specific host coupling rather than a self-sufficient, portable instruction set. It also scored lowest of the repo's design-relevant skills and the brief caps vendoring at 4 for this repo.",
+      "rubric": {"relevance": 2, "quality": 2, "conformance": 1, "uniqueness": 2}
+    },
+    {
+      "id": "opendesign",
+      "reason": "The repo's main orchestrator skill (routes to the other 9 specialist skills, defines the base designer role and workflow). Fails the strict self-containment rule: its workflow explicitly dispatches subagents 'using the setup-opendesign skill' and 'using the run-opendesign skill' by name — both of which are rejected below (setup-opendesign for a live download-and-write security concern, run-opendesign for zero design relevance) and are therefore not being vendored as siblings. Bundling them back in to satisfy self-containment would mean vendoring exactly the two skills already rejected on their own merits, which the brief does not intend. Named external dependency: the setup-opendesign and run-opendesign sibling skills (for subagent dispatch) and a live fetch of skills/opendesign/viewer.html from raw.githubusercontent.com (for first-run setup) — none of which resolve inside a standalone 'opendesign' skill directory. not-vendored-keeper in substance (license and content quality are fine); grouped here under the repo's reject file per the required output shape.",
+      "rubric": {"relevance": 3, "quality": 3, "conformance": 0, "uniqueness": 1}
+    },
+    {
+      "id": "run-opendesign",
+      "reason": "Pure local dev-server/runtime tooling (detect platform, check port 8289, start a python/node static file server, print a localhost link). No design activity content whatsoever — it is infrastructure for opendesign's own preview workflow, not something a product-design agent skill registry catalogs. Automatic reject on relevance alone.",
+      "rubric": {"relevance": 0, "quality": 2, "conformance": 1, "uniqueness": 0}
+    },
+    {
+      "id": "setup-opendesign",
+      "reason": "Zero design content — pure first-run installer (create folders, write an empty manifest.json). It also fails the rubric's automatic-disqualifier bar on its own terms: step 1 instructs the agent to fetch skills/opendesign/viewer.html live from raw.githubusercontent.com on every fresh-project run and write the response body directly into the user's project as ./opendesign/index.html, with no pinning, hash check, or review step — content that can change upstream at any time and is written into the user's project unreviewed. That is a download-and-write pattern the rubric's automatic disqualifiers flag as unreviewable/supply-chain risk, on top of already being irrelevant to design work.",
+      "rubric": {"relevance": 0, "quality": 1, "conformance": 0, "uniqueness": 0}
+    }
+  ],
+  "logMd": "#### manalkaff/opendesign (inspected 2026-08-29)\n- HEAD commit (default branch `main`): `cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb` (resolved via https://github.com/manalkaff/opendesign/commits/main.atom after api.github.com hit the unauthenticated rate limit). WebFetch of the repo page reported ~255 stars, MIT license badge, 24 commits on main.\n- Full repo tree for `skills/` obtained via `codeload.github.com/manalkaff/opendesign/tar.gz/<sha>` downloaded to $TMPDIR and listed with `tar -tzf`: 10 skill directories, each holding only a `SKILL.md` (skills/opendesign/ additionally has viewer.html, not read in detail — it is the local preview-server UI, irrelevant to any vendored skill's content since opendesign itself is rejected below).\n- Read every one of the 10 SKILL.md files in full at the pinned SHA (extracted from the tarball, not fetched loose, so content is guaranteed to match the pinned commit). Read repo-root LICENSE in full — genuine MIT text, `Copyright (c) 2026 manalkaff`.\n- Per brief, vendoring at most 4 design-relevant skills from this repo. Vendored (see individual manifests): wireframe (10), make-a-deck (9), interactive-prototype (9), handoff-to-claude-code (8, chosen for the 4th slot over create-design-system and make-tweakable — see its reason above). Rejected: frontend-design, create-design-system, make-tweakable, opendesign, run-opendesign, setup-opendesign — reasons and scores above.\n- Security, repo-wide: all 10 skills are prose-only markdown except setup-opendesign, which is flagged above for a live unpinned download-and-write instruction, and opendesign, which relies on subagent dispatch to sibling skills not being vendored. No credential access, no exfiltration, no prompt-injection payloads found anywhere in the 10 files."
+}

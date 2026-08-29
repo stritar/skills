@@ -320,6 +320,99 @@
       "status": "draft"
     },
     {
+      "id": "persona",
+      "name": "persona",
+      "description": "Builds reusable synthetic consumer persona panels and runs agent-separated qualitative or structured concept-test research against them. A three-step workflow (build panel, run ask/concept-test, review findings) generates diverse personas via a deterministic sampling-plan allocator with quantified diversity rules (Big Five spread, age/gender/geography/occupation spread, no two personas within 0.85 cosine similarity), validates the panel with automated hard-fail/warning QA checks, then fans each persona out to its own independent `claude -p` or `codex exec` subprocess with zero shared context and CLI-level context isolation so no persona's answer can anchor on another's or leak project context. An LLM adherence check scores each response against the persona profile on four weighted dimensions and regenerates low-scoring ones. Produces results.json/csv, cross-tabs, matplotlib charts, and an LLM- or template-synthesized markdown report, recording exact model IDs and per-call cost.",
+      "category": "research",
+      "tags": [
+        "personas",
+        "surveys",
+        "qualitative",
+        "quantitative",
+        "synthesis",
+        "segmentation"
+      ],
+      "triggers": [
+        "build a persona panel for",
+        "ask a panel of personas about",
+        "run a concept test with synthetic personas",
+        "which concept would our target customers prefer",
+        "generate diverse AI personas for research",
+        "pressure-test this product concept before fieldwork"
+      ],
+      "inputs": [
+        "a market/topic description and optional segment definitions",
+        "2-4 concept or option descriptions (for concept-test)",
+        "an open-ended research question (for ask)"
+      ],
+      "outputs": [
+        "a reusable persona panel saved under personas/{survey-id}/ with a validation QA summary",
+        "results.json/results.csv of per-persona responses",
+        "cross-tabs and matplotlib charts (concept-test)",
+        "an executive markdown report.md with run cost and model metadata"
+      ],
+      "path": "skills/research/persona",
+      "source": {
+        "type": "third-party",
+        "repository": "takechanman1228/claude-persona",
+        "url": "https://github.com/takechanman1228/claude-persona/tree/b4be6e641421968943003b84da16327c5c6a14c4/skills/persona",
+        "author": "Hajime Takeda",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/persona",
+        "upstreamCommit": "b4be6e641421968943003b84da16327c5c6a14c4",
+        "retrievedAt": "2026-08-29",
+        "modified": true,
+        "modifications": [
+          {
+            "date": "2026-08-29",
+            "reason": "portability",
+            "description": "In the upstream repo, skills/persona/SKILL.md is the only file inside the Claude-Code-discoverable skills/persona/ directory; the references/, scripts/, and templates/ directories it reads (via paths like references/command-details.md, scripts/validate_panel.py, templates/concept_test.md) live at the repo root instead. SKILL.md's own 'File Organization' section already documents the intended installed layout as one flat directory containing SKILL.md plus references/, scripts/, templates/ (and demo/), so this bundles exactly those three directories into the skill directory at the same relative paths the prose already uses -- no SKILL.md text needed to change. Also bundled requirements.txt and the repo-root LICENSE (as LICENSE.txt) since the skill directory itself ships neither. Deliberately excluded from the bundle: demo/ (four full product-research demo runs, ~150+ files of illustrative example output referenced only anecdotally in error messages and docstrings, never read programmatically during a normal /persona run -- bundling it would blow past the 25-extra-file cap roughly 6x), tests/ (repo unit tests, dev-only), references/test-cases.md (a maintainer manual-QA checklist that itself references the excluded demo/ and tests/ directories), .claude-plugin/, docs/, configs/, assets/, and install/uninstall scripts (repo-level plugin packaging and marketing assets, not read by SKILL.md's own instructions).",
+            "files": [
+              "references/adherence-check-prompt.md",
+              "references/command-details.md",
+              "references/directory-structure.md",
+              "references/persona-generation-prompt-topiconly.md",
+              "references/persona-generation-prompt.md",
+              "references/persona-schema.md",
+              "references/report-template.md",
+              "references/sampling-plan-prompt.md",
+              "references/segment-inference-prompt.md",
+              "references/simulation-prompt.md",
+              "references/topic-only-generation-flow.md",
+              "scripts/analyze_results.py",
+              "scripts/llm_backends.py",
+              "scripts/simulate_survey.py",
+              "scripts/validate_panel.py",
+              "templates/ask.md",
+              "templates/brand_perception.md",
+              "templates/concept_test.md",
+              "templates/custom_survey.md",
+              "templates/price_sensitivity.md",
+              "templates/usage_habits.md",
+              "requirements.txt",
+              "LICENSE.txt"
+            ]
+          }
+        ]
+      },
+      "compatibility": [
+        "claude-code",
+        "codex"
+      ],
+      "dependencies": [
+        "python3",
+        "pandas",
+        "matplotlib",
+        "seaborn",
+        "claude-cli-or-codex-cli"
+      ],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
       "id": "research-planning",
       "name": "research-planning",
       "description": "Turns unclear user needs or contested assumptions into a structured research plan. Splits current understanding into known (evidence-backed), assumed, and unknown; converts gaps into 3-5 specific, observable, actionable research questions; matches each question type (what people do / why they struggle / what they need / which approach works / how they compare / who they are) to recommended methods via a lookup table; and requires every plan to address participant diversity, method accessibility, and situational context (stress, distraction, low bandwidth) rather than treating inclusion as optional. Outputs a research plan document with questions, a method/participants/timeline table, inclusion considerations, expected outputs, and the design decisions the research will inform. Explicitly scoped to planning only, not fielding the research.",
@@ -1735,6 +1828,149 @@
       "status": "draft"
     },
     {
+      "id": "wireframe",
+      "name": "wireframe",
+      "description": "Guides the agent to explore a design space quickly with many rough, structurally distinct low-fidelity wireframes rather than one polished direction. Directs producing 3-5 structurally different options per idea (not recolors), using sketchy hand-written fonts, mostly black-and-white shapes with sparing color accents, plain-language section labels, and a minimal tweak surface (variant toggle, density, optional-section swap), while explicitly avoiding polish, hover states, and visual convergence across options.",
+      "category": "interaction-design",
+      "tags": [
+        "wireframing",
+        "low-fidelity",
+        "ui-design",
+        "interaction-design",
+        "prototyping"
+      ],
+      "triggers": [
+        "explore the design space",
+        "rough wireframes",
+        "low-fi wireframe options",
+        "sketch some layout ideas",
+        "give me a few structurally different layouts"
+      ],
+      "inputs": [
+        "a feature or screen description",
+        "an existing product/problem context to riff on"
+      ],
+      "outputs": [
+        "a set of 3-5 structurally distinct low-fidelity HTML wireframes laid out for side-by-side comparison, with plain-language section labels and interaction annotations"
+      ],
+      "path": "skills/interaction-design/wireframe",
+      "source": {
+        "type": "third-party",
+        "repository": "manalkaff/opendesign",
+        "url": "https://github.com/manalkaff/opendesign/tree/cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb/skills/wireframe",
+        "author": "manalkaff",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/wireframe",
+        "upstreamCommit": "cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb",
+        "retrievedAt": "2026-08-29",
+        "modified": true,
+        "modifications": [
+          {
+            "date": "2026-08-29",
+            "reason": "portability",
+            "description": "Bundled the repo-root MIT LICENSE into the skill directory as LICENSE.txt; the skill directory itself ships no license file.",
+            "files": [
+              "LICENSE.txt"
+            ]
+          }
+        ]
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "wireframe-json",
+      "name": "wireframe-json",
+      "description": "Generates a machine-readable JSON wireframe definition from a natural-language screen description (or from a design-spec's Information Architecture section) plus a self-contained, editable HTML preview. Applies a 7-phase design-reasoning framework before producing JSON: displacement check, content inventory, task/scanning-pattern selection, grid establishment, hierarchy assignment via a 4-level type scale, spacing via an 8-point grid, and a rhythm-verification pass with named failure modes (pixel perfectionism, hierarchy collapse, arbitrary spacing, grid amnesia, density monotony, action-hierarchy collapse) each with symptom/root-cause/fix. The JSON maps 1:1 to CSS flexbox and is the same schema used across a wider design pipeline (styled by other skills, consumed by Figma Make / Google Stitch style tools). The HTML preview supports drag-and-drop reordering, direction toggling, copy/paste, undo/redo, and JSON export/save, entirely client-side with no server or build step.",
+      "category": "interaction-design",
+      "tags": [
+        "wireframing",
+        "ui-design",
+        "interaction-design",
+        "layout",
+        "grids",
+        "spacing",
+        "visual-hierarchy",
+        "figma"
+      ],
+      "triggers": [
+        "generate a wireframe from this description",
+        "wireframe this screen as JSON",
+        "produce a structured wireframe I can hand to Figma Make",
+        "build a machine-readable wireframe definition"
+      ],
+      "inputs": [
+        "a natural-language layout description, or a design-id pointing at an existing design-spec's Information Architecture section"
+      ],
+      "outputs": [
+        "a `.wireframe.json` machine-readable layout definition following the documented schema",
+        "a self-contained `.wireframe.html` editable preview (drag-and-drop, undo/redo, JSON export)"
+      ],
+      "path": "skills/interaction-design/wireframe-json",
+      "source": {
+        "type": "third-party",
+        "repository": "yhassy/wireframe-skill",
+        "url": "https://github.com/yhassy/wireframe-skill/tree/948d4331343b18d913d5bc502da72ed0c5f19101",
+        "author": "yhassy",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": ".",
+        "upstreamCommit": "948d4331343b18d913d5bc502da72ed0c5f19101",
+        "retrievedAt": "2026-08-29",
+        "modified": true,
+        "modifications": [
+          {
+            "date": "2026-08-29",
+            "reason": "collision-rename",
+            "description": "Upstream frontmatter name is 'wireframe', which collides with an already-vendored 'wireframe' skill from manalkaff/opendesign selected earlier in this same research pass (research/manifests/wireframe.json). Renamed this skill's id/frontmatter name to 'wireframe-json' to disambiguate — the two skills do genuinely different things (opendesign's wireframe produces multiple rough divergent low-fi sketches; this one produces one precise, schema-validated, machine-readable wireframe with an editable preview) so both are worth keeping rather than dropping one.",
+            "files": [
+              "SKILL.md"
+            ]
+          },
+          {
+            "date": "2026-08-29",
+            "reason": "broken-reference",
+            "description": "Upstream SKILL.md hard-codes the install path '.claude/skills/wireframe/' when referencing its own sibling files (wireframe-designer.md in Step 2, and wireframe-template.html in the Step 4 python splice command) — a Claude-Code-specific absolute convention that breaks for any other harness, and would in any case now be wrong after the collision-rename since the installed directory name changes. Rewrote the wireframe-designer.md reference to a same-directory relative path, and replaced the hard-coded template path in the Step 4 script with a '{skill_dir}' placeholder the invoking agent fills in with this skill's own installed directory, with an explanatory sentence added after the code block.",
+            "files": [
+              "SKILL.md"
+            ]
+          }
+        ]
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code"
+      ],
+      "dependencies": [
+        "python3"
+      ],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
       "id": "algorithmic-art",
       "name": "algorithmic-art",
       "description": "Directs the agent to create generative p5.js art in two steps: write a named algorithmic-philosophy manifesto (computational process, noise/particle/field approach, seeded variation) as a .md file, then implement it as a single self-contained interactive HTML artifact built from a required starting template that fixes the Anthropic-branded sidebar UI (seed navigation, parameter sliders, color pickers, action buttons) while leaving the p5.js algorithm, parameters, and controls fully custom to the philosophy. Enforces reproducibility via explicit randomSeed/noiseSeed usage.",
@@ -2256,6 +2492,72 @@
       "recommended": true,
       "maturity": "stable",
       "status": "verified"
+    },
+    {
+      "id": "make-a-deck",
+      "name": "make-a-deck",
+      "description": "Shifts the agent into presentation-designer mode for slide decks: fixed 1920x1080 canvas per slide, named CSS type-scale and spacing constants instead of ad-hoc pixel values, an intake step for length/audience/delivery mode, a chapter-driven title-writing discipline (write and review the full title sequence as a standalone artifact before building any slide), rules for content density, visual variety across slide types, pixel-level parallelism of repeated chrome, and image-handling modes (full-bleed, aspect-fit, contrasting background). Lists forbidden deck tropes (takeaway boxes, accent-border call-outs, emoji-as-iconography, self-drawn SVGs, default gradient washes) and AI-sounding title phrasing to refuse.",
+      "category": "visual-design",
+      "tags": [
+        "typography",
+        "layout",
+        "visual-hierarchy",
+        "spacing",
+        "grids"
+      ],
+      "triggers": [
+        "make a slide deck",
+        "build a presentation",
+        "design slides for this pitch",
+        "create a board update deck",
+        "turn this into a presentation"
+      ],
+      "inputs": [
+        "a presentation topic and length in minutes",
+        "audience, delivery mode, and any brand context"
+      ],
+      "outputs": [
+        "a fixed-canvas HTML slide deck (1920x1080 sections) with a coherent title sequence, consistent type-scale/spacing tokens, and varied slide types"
+      ],
+      "path": "skills/visual-design/make-a-deck",
+      "source": {
+        "type": "third-party",
+        "repository": "manalkaff/opendesign",
+        "url": "https://github.com/manalkaff/opendesign/tree/cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb/skills/make-a-deck",
+        "author": "manalkaff",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/make-a-deck",
+        "upstreamCommit": "cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb",
+        "retrievedAt": "2026-08-29",
+        "modified": true,
+        "modifications": [
+          {
+            "date": "2026-08-29",
+            "reason": "portability",
+            "description": "Bundled the repo-root MIT LICENSE into the skill directory as LICENSE.txt; the skill directory itself ships no license file.",
+            "files": [
+              "LICENSE.txt"
+            ]
+          }
+        ]
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
     },
     {
       "id": "redesign-existing-projects",
@@ -4457,6 +4759,69 @@
       "status": "draft"
     },
     {
+      "id": "interactive-prototype",
+      "name": "interactive-prototype",
+      "description": "Builds one working, clickable prototype that behaves like a real app rather than a static mockup: React with useState/useEffect, small readable components split at ~400 lines, wrapped in a device/window frame. Requires a full interaction surface (hover states, working click/tap handlers with no dead controls, happy-path form validation, animated state transitions, end-to-end multi-step flows, loading and empty states) and realism rules (no lorem ipsum or placeholder names, 44px minimum mobile hit targets, critical state persisted to localStorage so a refresh does not lose the user's place). Explicitly scopes out real auth, real network calls, persistence beyond localStorage, production-grade accessibility audits, and edge cases the user did not ask to demonstrate.",
+      "category": "prototyping",
+      "tags": [
+        "prototyping",
+        "interactive-prototype",
+        "high-fidelity",
+        "state-design"
+      ],
+      "triggers": [
+        "build a clickable prototype",
+        "make this feel like a real working app",
+        "prototype this flow end to end",
+        "give me an interactive demo I can click through"
+      ],
+      "inputs": [
+        "a feature or flow description to prototype"
+      ],
+      "outputs": [
+        "a working React-based interactive HTML/JS prototype with realistic fake data, functioning state transitions, and persisted UI state"
+      ],
+      "path": "skills/prototyping/interactive-prototype",
+      "source": {
+        "type": "third-party",
+        "repository": "manalkaff/opendesign",
+        "url": "https://github.com/manalkaff/opendesign/tree/cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb/skills/interactive-prototype",
+        "author": "manalkaff",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/interactive-prototype",
+        "upstreamCommit": "cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb",
+        "retrievedAt": "2026-08-29",
+        "modified": true,
+        "modifications": [
+          {
+            "date": "2026-08-29",
+            "reason": "portability",
+            "description": "Bundled the repo-root MIT LICENSE into the skill directory as LICENSE.txt; the skill directory itself ships no license file.",
+            "files": [
+              "LICENSE.txt"
+            ]
+          }
+        ]
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
       "id": "prototype",
       "name": "prototype",
       "description": "Builds several (default three, up to five) genuinely different versions of one described UI piece, each diverging on a named axis (layout, density, personality, motion, interaction model) stated before any code is written, hosted full-size in realistic context behind a visual picker with keyboard navigation, instant switching, and URL-param persistence per a verbatim picker spec. Every variant must independently meet the same motion-craft bar (correct easing, sub-300ms UI motion, transform-origin, reduced-motion) so a sloppy variant never widens the exploration. Presents tradeoffs honestly without marking a favorite, then on selection promotes the winner into the project's conventions and deletes the prototype surface.",
@@ -4688,6 +5053,80 @@
       "recommended": false,
       "maturity": "stable",
       "status": "verified"
+    },
+    {
+      "id": "design-critique",
+      "name": "design-critique",
+      "description": "Runs an evidence-bounded heuristic evaluation of a supplied UI artifact (image, Figma design, rendered HTML/URL, or multi-screen flow) across four categories -- visual design & hierarchy, usability & interaction, accessibility, and content & language -- scoring each finding on the NN/g 0-4 severity scale (frequency x impact x persistence) against a named atom-level checklist drawing on Nielsen's heuristics, Norman's interaction principles, Gestalt, Fitts/Hick/Miller, and WCAG 2.2. Renders code, markup, or URLs to real pixels before judging them (never critiques unrendered source;",
+      "category": "testing",
+      "tags": [
+        "heuristic-evaluation",
+        "design-critique",
+        "severity",
+        "expert-review",
+        "a11y",
+        "wcag"
+      ],
+      "triggers": [
+        "critique this design",
+        "evaluate this UI",
+        "usability review",
+        "heuristic evaluation",
+        "review this mockup/screen/figma"
+      ],
+      "inputs": [
+        "image, Figma file, rendered HTML/URL, or multi-screen flow",
+        "optional evaluation brief (target users, primary task, platform, design maturity, constraints)",
+        "optional design-system tokens/spec for the opt-in conformance mode"
+      ],
+      "outputs": [
+        "designer-voiced critique: overall read, what's working, top 3-5 findings each with element/problem/fix",
+        "health tally by NN/g severity name (no composite score)",
+        "list of screens that could not be seen, with the reason",
+        "on request: full atom matrix, numeric severities, confidence, and framework badges per finding"
+      ],
+      "path": "skills/testing/design-critique",
+      "source": {
+        "type": "third-party",
+        "repository": "kirodotdev/kirocrew",
+        "url": "https://github.com/kirodotdev/kirocrew/tree/00ea2455438450feaebe9d8ee315a612164e03bd/src/kiro_crew/apps/builtins/design_critique/skills/design-critique",
+        "author": "kirocrew",
+        "license": "Apache-2.0",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "src/kiro_crew/apps/builtins/design_critique/skills/design-critique",
+        "upstreamCommit": "00ea2455438450feaebe9d8ee315a612164e03bd",
+        "retrievedAt": "2026-08-29",
+        "modified": true,
+        "modifications": [
+          {
+            "date": "2026-08-29",
+            "reason": "broken-reference",
+            "description": "SKILL.md's evidence-pipeline section resolved `<skill-dir>` via a KiroCrew-runtime-specific shell-out (`python3 -c \"import kiro_crew, pathlib; print(pathlib.Path(kiro_crew.__file__).parent / 'apps/builtins/design_critique/skills/design-critique')\"`), which depends on the kiro_crew Python package and cannot resolve outside the KiroCrew app. Rewrote the paragraph to state that `<skill-dir>` is simply this skill's own directory (the folder containing SKILL.md) -- functionally identical instruction, no host dependency.",
+            "files": [
+              "SKILL.md"
+            ]
+          }
+        ]
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [
+        "node",
+        "playwright"
+      ],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
     },
     {
       "id": "design-review",
@@ -5330,6 +5769,66 @@
       "recommended": true,
       "maturity": "stable",
       "status": "verified"
+    },
+    {
+      "id": "web-design-reviewer",
+      "name": "web-design-reviewer",
+      "description": "Drives a four-phase live visual QA loop against a running website or web app (static HTML, React/Vue/Angular/Svelte SPAs, Next.js/Nuxt/SvelteKit, WordPress/Drupal, or any other web app): gather project/framework/styling info (auto-detecting from package.json, tailwind.config, etc.), capture screenshots and traverse pages at four viewports (375/768/1280/1920px) checking layout, responsive, accessibility and visual-consistency issues against named issue tables with severities, prioritize findings P1-P3, locate the offending source files by selector/component search and apply minimal framework-respecting fixes, then re-verify with before/after screenshots and a regression check.",
+      "category": "design-qa",
+      "tags": [
+        "design-review",
+        "pr-review",
+        "visual-regression",
+        "responsive",
+        "cross-browser",
+        "a11y"
+      ],
+      "triggers": [
+        "review website design",
+        "check the UI",
+        "fix the layout",
+        "find design problems",
+        "responsive QA on this site"
+      ],
+      "inputs": [
+        "running URL (local dev server, staging, or production)",
+        "browser automation capability (screenshot capture, page navigation, DOM retrieval)",
+        "access to project source code when making fixes"
+      ],
+      "outputs": [
+        "prioritized (P1-P3) issue report with before/after screenshots",
+        "source-level fixes applied at the offending files",
+        "unfixed-issue list with reasons and recommended actions"
+      ],
+      "path": "skills/design-qa/web-design-reviewer",
+      "source": {
+        "type": "third-party",
+        "repository": "galaxy-dawn/claude-scholar",
+        "url": "https://github.com/galaxy-dawn/claude-scholar/tree/6ed46dac03191c7a734f49ed48b41195012098ff/skills/web-design-reviewer",
+        "author": "Gaorui Zhang",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/web-design-reviewer",
+        "upstreamCommit": "6ed46dac03191c7a734f49ed48b41195012098ff",
+        "retrievedAt": "2026-08-29",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
     },
     {
       "id": "experiment-designer",
@@ -6003,6 +6502,70 @@
       "recommended": false,
       "maturity": "experimental",
       "status": "verified"
+    },
+    {
+      "id": "handoff-to-claude-code",
+      "name": "handoff-to-claude-code",
+      "description": "Packages a finished design into a self-sufficient handoff folder for a developer or coding agent to implement, with every referenced HTML prototype, component, image, font, and asset copied in so no path traces back into the source project. Generates a README with nine required sections in a fixed order (overview, about the design files, fidelity, screens/views with exact layout and component measurements, interactions and behavior, state management, a flat design-token list, assets, and a file manifest). States up front, verbatim in spirit, that the bundled HTML is a design reference to be recreated in the target codebase's own framework and patterns, not production code to paste in directly. Asks before including screenshots, then zips the folder for download.",
+      "category": "design-engineering",
+      "tags": [
+        "handoff",
+        "design-engineering",
+        "documentation",
+        "design-tokens",
+        "component-docs"
+      ],
+      "triggers": [
+        "hand this design off to a developer",
+        "package this for implementation",
+        "generate a spec for the engineering team",
+        "prepare this prototype for handoff to a coding agent"
+      ],
+      "inputs": [
+        "a finished design (HTML prototypes, components, assets) ready for implementation"
+      ],
+      "outputs": [
+        "a zipped handoff folder containing every referenced design file plus a nine-section README spec (fidelity, layout, tokens, interactions, state, assets, file manifest)"
+      ],
+      "path": "skills/design-engineering/handoff-to-claude-code",
+      "source": {
+        "type": "third-party",
+        "repository": "manalkaff/opendesign",
+        "url": "https://github.com/manalkaff/opendesign/tree/cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb/skills/handoff-to-claude-code",
+        "author": "manalkaff",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/handoff-to-claude-code",
+        "upstreamCommit": "cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb",
+        "retrievedAt": "2026-08-29",
+        "modified": true,
+        "modifications": [
+          {
+            "date": "2026-08-29",
+            "reason": "portability",
+            "description": "Bundled the repo-root MIT LICENSE into the skill directory as LICENSE.txt; the skill directory itself ships no license file.",
+            "files": [
+              "LICENSE.txt"
+            ]
+          }
+        ]
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
     },
     {
       "id": "image-to-code",

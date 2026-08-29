@@ -1,0 +1,54 @@
+{
+  "id": "wireframe",
+  "category": "interaction-design",
+  "verdict": "vendor",
+  "rubric": {"relevance": 3, "quality": 3, "conformance": 2, "uniqueness": 2},
+  "upstream": {
+    "repository": "manalkaff/opendesign",
+    "url": "https://github.com/manalkaff/opendesign/tree/cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb/skills/wireframe",
+    "author": "manalkaff",
+    "commit": "cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb",
+    "path": "skills/wireframe",
+    "license": "MIT",
+    "licenseSource": "repo-root:LICENSE"
+  },
+  "files": [
+    {"dest": "SKILL.md", "rawUrl": "https://raw.githubusercontent.com/manalkaff/opendesign/cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb/skills/wireframe/SKILL.md"},
+    {"dest": "LICENSE.txt", "rawUrl": "https://raw.githubusercontent.com/manalkaff/opendesign/cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb/LICENSE"}
+  ],
+  "securityNotes": "Prose-only SKILL.md, no scripts, no network calls, no credential handling, no hidden or injected instructions. Only instruction with any external effect is writing output files under a project-relative ./opendesign/mockups/<task-slug>/ path, which is a soft convention, not a functional dependency on other software.",
+  "overlaps": ["prototype"],
+  "proposedEntry": {
+    "id": "wireframe",
+    "name": "wireframe",
+    "description": "Guides the agent to explore a design space quickly with many rough, structurally distinct low-fidelity wireframes rather than one polished direction. Directs producing 3-5 structurally different options per idea (not recolors), using sketchy hand-written fonts, mostly black-and-white shapes with sparing color accents, plain-language section labels, and a minimal tweak surface (variant toggle, density, optional-section swap), while explicitly avoiding polish, hover states, and visual convergence across options.",
+    "category": "interaction-design",
+    "tags": ["wireframing", "low-fidelity", "ui-design", "interaction-design", "prototyping"],
+    "triggers": ["explore the design space", "rough wireframes", "low-fi wireframe options", "sketch some layout ideas", "give me a few structurally different layouts"],
+    "inputs": ["a feature or screen description", "an existing product/problem context to riff on"],
+    "outputs": ["a set of 3-5 structurally distinct low-fidelity HTML wireframes laid out for side-by-side comparison, with plain-language section labels and interaction annotations"],
+    "path": "skills/interaction-design/wireframe",
+    "source": {
+      "type": "third-party",
+      "repository": "manalkaff/opendesign",
+      "url": "https://github.com/manalkaff/opendesign/tree/cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb/skills/wireframe",
+      "author": "manalkaff",
+      "license": "MIT",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": "skills/wireframe",
+      "upstreamCommit": "cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb",
+      "retrievedAt": "2026-08-29",
+      "modified": true,
+      "modifications": [
+        {"date": "2026-08-29", "reason": "portability", "description": "Bundled the repo-root MIT LICENSE into the skill directory as LICENSE.txt; the skill directory itself ships no license file.", "files": ["LICENSE.txt"]}
+      ]
+    },
+    "compatibility": ["claude-code", "codex", "cursor", "opencode", "amp", "gemini-cli", "copilot", "vs-code", "claude-ai"],
+    "dependencies": [],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "stable",
+    "status": "draft"
+  },
+  "logMd": "#### manalkaff/opendesign — skills/wireframe (inspected 2026-08-29)\n- HEAD commit (default branch `main`): `cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb` (resolved via https://github.com/manalkaff/opendesign/commits/main.atom after api.github.com hit the unauthenticated rate limit; corroborated by WebFetch of the repo page showing MIT license, ~255 stars, 24 commits on main).\n- Repo has 10 skill directories under `skills/`: create-design-system, frontend-design, handoff-to-claude-code, interactive-prototype, make-a-deck, make-tweakable, opendesign, run-opendesign, setup-opendesign, wireframe. Full tree listed via `codeload.github.com/.../tar.gz/<sha>` + `tar -tzf`; every SKILL.md in all 10 read in full at the pinned SHA (extracted from the tarball). Per brief, vendoring at most 4 design-relevant ones; the other 6 are recorded in `opendesign-rejections.json`.\n- `wireframe` (this manifest): SKILL.md only, 2 fields of frontmatter (name, description) — a strict subset of the six spec fields, so `claude-ai` is appended to compatibility. name=wireframe matches dirname. No relative links to any other file — fully self-contained. Only external-facing convention is the output path `./opendesign/mockups/<task-slug>/`, which is advisory, not a hard functional dependency.\n- LICENSE: read repo-root `LICENSE` in full — genuine MIT text with `Copyright (c) 2026 manalkaff`.\n- Security: no scripts, no network calls, no credential access, no hidden instructions.\n- Rubric: relevance 3 (wireframing is a core interaction-design activity), quality 3 (concrete quantity/spread rule — \"if two wireframes could be swapped by changing a class, they are the same wireframe\" — plus explicit visual-style and structure rules and an explicit anti-convergence check), conformance 2 (clean spec-minimal frontmatter, no broken links, no hard host coupling), uniqueness 2 (the registry has a `prototype` skill but nothing dedicated to rapid multi-option low-fidelity wireframe divergence). Total 10. Verdict: vendor."
+}

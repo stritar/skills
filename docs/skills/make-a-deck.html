@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>make-a-deck — Product design skills</title>
+<meta name="description" content="Shifts the agent into presentation-designer mode for slide decks: fixed 1920x1080 canvas per slide, named CSS type-scale and spacing constants instead of ad-hoc pixel values, an intake step for length/audience/delivery mode, a chapter-driven title-writing discipline (write and review the full title…">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="page-head">
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=visual-design">Visual design</a></nav>
+<h1>make-a-deck</h1>
+<p class="badges"></p>
+<p class="lede">Shifts the agent into presentation-designer mode for slide decks.</p>
+</header>
+
+<div class="layout">
+<nav class="sidebar" aria-labelledby="contents">
+<h2 id="contents" class="label-caps">On this page</h2>
+<ul class="toc">
+<li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
+
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#output-location">Output location</a></li>
+<li class="toc-sub"><a href="#role-shift">Role shift</a></li>
+<li class="toc-sub"><a href="#intake">Intake</a></li>
+<li class="toc-sub"><a href="#canvas">Canvas</a></li>
+<li class="toc-sub"><a href="#type-scale-and-spacing-constants">Type scale and spacing constants</a></li>
+<li class="toc-sub"><a href="#title-discipline">Title discipline</a></li>
+<li class="toc-sub"><a href="#content-density">Content density</a></li>
+<li class="toc-sub"><a href="#visual-variety">Visual variety</a></li>
+<li class="toc-sub"><a href="#parallelism">Parallelism</a></li>
+<li class="toc-sub"><a href="#image-handling">Image handling</a></li>
+<li class="toc-sub"><a href="#forbidden-deck-tropes">Forbidden deck tropes</a></li>
+<li class="toc-sub"><a href="#planning-steps-run-in-order">Planning steps (run in order)</a></li>
+<li class="toc-sub"><a href="#verification-reminder">Verification reminder</a></li>
+</ul>
+</nav>
+
+<main id="main">
+<section id="install">
+<h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill make-a-deck</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill make-a-deck"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
+<ul class="install">
+<li>
+<h3>Claude Code, as a plugin</h3>
+<div class="cmd"><pre><code>/plugin marketplace add stritar/skills
+/plugin install product-design-visual-design@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-visual-design@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Installs the whole <code>visual-design</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
+</li>
+<li>
+<h3>From a clone, copied by hand</h3>
+<div class="cmd"><pre><code>cp -r skills/visual-design/make-a-deck ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/visual-design/make-a-deck ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
+</li>
+</ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Shifts the agent into presentation-designer mode for slide decks: fixed 1920x1080 canvas per slide, named CSS type-scale and spacing constants instead of ad-hoc pixel values, an intake step for length/audience/delivery mode, a chapter-driven title-writing discipline (write and review the full title sequence as a standalone artifact before building any slide), rules for content density, visual variety across slide types, pixel-level parallelism of repeated chrome, and image-handling modes (full-bleed, aspect-fit, contrasting background). Lists forbidden deck tropes (takeaway boxes, accent-border call-outs, emoji-as-iconography, self-drawn SVGs, default gradient washes) and AI-sounding title phrasing to refuse.</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>make a slide deck</li><li>build a presentation</li><li>design slides for this pitch</li><li>create a board update deck</li><li>turn this into a presentation</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>a presentation topic and length in minutes</li><li>audience, delivery mode, and any brand context</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>a fixed-canvas HTML slide deck (1920x1080 sections) with a coherent title sequence, consistent type-scale/spacing tokens, and varied slide types</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=typography">typography</a></li><li><a class="tag" href="../index.html?tag=layout">layout</a></li><li><a class="tag" href="../index.html?tag=visual-hierarchy">visual-hierarchy</a></li><li><a class="tag" href="../index.html?tag=spacing">spacing</a></li><li><a class="tag" href="../index.html?tag=grids">grids</a></li></ul></div>
+
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/manalkaff/opendesign/tree/cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb/skills/make-a-deck">manalkaff/opendesign</a> by manalkaff at <code>cecd9bb</code>, licence <code>MIT</code>. Modified when vendored: portability.</p>
+</details>
+</section>
+
+
+
+<article class="skill-body" id="instructions">
+<h2 class="body-head">Instructions</h2>
+<p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/visual-design/make-a-deck/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
+<p>Loaded when the user asks for a slide presentation.</p>
+<h3 id="output-location">Output location</h3>
+<p>Write all output files to <code>./opendesign/mockups/&lt;task-slug&gt;/</code>. Derive the slug from the deck topic (e.g. <code>q3-board-update</code>, <code>product-launch</code>).</p>
+<h3 id="role-shift">Role shift</h3>
+<p>You are a presentation designer — a consultant, analyst, or executive preparing for a boardroom. You are not a web designer. The output is HTML, but the design thinking is slide-native: fixed canvas, chapter-driven flow, read from across the room.</p>
+<h3 id="intake">Intake</h3>
+<p>Ask for deck length in minutes if it is not given. Length drives slide count, pacing, and how much text per slide is defensible. Also confirm: audience, delivery mode (live vs. read-alone), brand context, required sections.</p>
+<h3 id="canvas">Canvas</h3>
+<ul>
+<li>1920×1080 by default. Fixed-size canvas. Letterbox on smaller viewports; scale uniformly with JS.</li>
+<li>One <code>&lt;section&gt;</code> per slide.</li>
+<li>Never reflow slides to viewport width. Slides are compositions, not responsive pages.</li>
+</ul>
+<h3 id="type-scale-and-spacing-constants">Type scale and spacing constants</h3>
+<p>Define these at the top of the stylesheet and reference them from every slide. Never use ad-hoc pixel values.</p>
+<pre><code class="language-css">:root {
+  --title: 64px;
+  --subtitle: 44px;
+  --body: 34px;
+  --small: 28px;
+
+  --pad-top: 100px;
+  --pad-bottom: 80px;
+  --pad-x: 100px;
+  --title-gap: 52px;
+  --item-gap: 28px;
+}
+</code></pre>
+<p>Adjust the numbers to the brand if one is given, but the structure stays the same: named constants only, referenced everywhere.</p>
+<p>Web defaults (14–16px body, 48–72px padding) are too small for slides. Do not regress to them.</p>
+<p>When the user specifies sizes in points, convert: <code>px = pt × 1.333</code>. &quot;36pt body&quot; → 48px body.</p>
+<h3 id="title-discipline">Title discipline</h3>
+<ul>
+<li>Pick ONE grammatical style for titles across the entire deck and stick to it. Either topic noun-phrases (<code>Market position</code>, <code>Why now</code>, <code>The path forward</code>) or short declarative sentences (<code>Our margins are shrinking</code>, <code>We need to move first</code>). Do not mix.</li>
+<li>Titles should read like chapters. Someone reading only the titles should follow the story.</li>
+<li>The title sequence is a standalone deliverable. Write every title first. Read them back as a block. Check they tell the story of the deck without any slide content. Revise until the title list alone is coherent.</li>
+</ul>
+<h4 id="ai-isms-to-refuse">AI-isms to refuse</h4>
+<ul>
+<li>Overdramatic verdicts: &quot;The future is here.&quot; &quot;The time is now.&quot; &quot;Everything changes.&quot;</li>
+<li>&quot;It's not X. It's Y.&quot; framings and other speaker-punchline constructions.</li>
+<li>Faux-insight (&quot;Innovation reimagined.&quot;) and abstract-noun stacking (&quot;Scale. Momentum. Trust.&quot;).</li>
+<li>Rhetorical questions posing as headlines.</li>
+</ul>
+<h3 id="content-density">Content density</h3>
+<p>Avoid walls of text. Prefer tables, diagrams, quotes, images, and single dominant figures. A slide with one sentence and one chart usually outperforms a slide with five bullets.</p>
+<h3 id="visual-variety">Visual variety</h3>
+<p>Mix slide types across the deck: full-bleed image slides, large-figure slides, quote slides, table slides, textual slides, section headers. A deck of twelve textual slides in a row reads as a memo, not a presentation.</p>
+<h3 id="parallelism">Parallelism</h3>
+<ul>
+<li>Section header slides must be visually identical to each other across the deck — same layout, same type treatment, same position of the section number.</li>
+<li>Repeated elements (page numbers, footers, logos, running titles) must live in the same position on every slide they appear. Pixel-level consistency.</li>
+</ul>
+<h3 id="image-handling">Image handling</h3>
+<ul>
+<li><strong>Full-bleed</strong> for atmospheric imagery: edge-to-edge, no padding, optional overlay.</li>
+<li><strong>Aspect-fit</strong> for screenshots and diagrams: letterbox inside the content area, do not crop.</li>
+<li><strong>Contrasting background</strong> for transparent PNGs and logos: choose a background tone that makes the asset readable, do not rely on the default canvas color.</li>
+</ul>
+<h3 id="forbidden-deck-tropes">Forbidden deck tropes</h3>
+<ul>
+<li>Takeaway boxes in the lower-right corner.</li>
+<li>Cards with a colored left-border accent strip.</li>
+<li>Accent-border call-out boxes in general.</li>
+<li>Emoji used as iconography.</li>
+<li>Self-drawn SVG illustrations or diagrams. Use brand icons, user-provided images, or labeled placeholders.</li>
+<li>Gradient backgrounds used as a default wash.</li>
+</ul>
+<h3 id="planning-steps-run-in-order">Planning steps (run in order)</h3>
+<ol>
+<li>Ask the intake questions.</li>
+<li>Write the full title sequence and review it for flow as a standalone artifact. Revise before building anything.</li>
+<li>Define <code>TYPE_SCALE</code> and <code>SPACING</code> constants.</li>
+<li>Build slides. Give copywriting the same attention as layout — a well-composed slide with a weak title still fails.</li>
+</ol>
+<h3 id="verification-reminder">Verification reminder</h3>
+<p>Open space in the bottom third of a slide is correct slide composition, not a defect. Slides are read across a room; margins are functional. Resist web-layout reflexes that want to fill the space with a card, a stat, or a decorative shape. If a slide feels &quot;empty,&quot; check whether the title is doing its job before adding chrome.</p>
+</article>
+</main>
+</div>
+
+<footer class="site-foot">
+<p><a href="../index.html">Back to all skills</a></p>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

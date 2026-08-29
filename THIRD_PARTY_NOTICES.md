@@ -254,6 +254,16 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 - Local modifications:
   - 2026-08-29 (portability): Repository license lives only at repo root (LICENSE), not inside the skill directory. Bundled a copy as LICENSE.txt inside the skill directory so the vendored directory is self-contained. [LICENSE.txt]
 
+## design-critique
+
+- Upstream: [kirodotdev/kirocrew](https://github.com/kirodotdev/kirocrew/tree/00ea2455438450feaebe9d8ee315a612164e03bd/src/kiro_crew/apps/builtins/design_critique/skills/design-critique)
+- Author: kirocrew
+- Upstream path: `src/kiro_crew/apps/builtins/design_critique/skills/design-critique` at commit `00ea2455438450feaebe9d8ee315a612164e03bd`
+- Retrieved: 2026-08-29
+- License: Apache-2.0 (license file: `skills/testing/design-critique/LICENSE.txt`)
+- Local modifications:
+  - 2026-08-29 (broken-reference): SKILL.md's evidence-pipeline section resolved `<skill-dir>` via a KiroCrew-runtime-specific shell-out (`python3 -c "import kiro_crew, pathlib; print(pathlib.Path(kiro_crew.__file__).parent / 'apps/builtins/design_critique/skills/design-critique')"`), which depends on the kiro_crew Python package and cannot resolve outside the KiroCrew app. Rewrote the paragraph to state that `<skill-dir>` is simply this skill's own directory (the folder containing SKILL.md) -- functionally identical instruction, no host dependency. [SKILL.md]
+
 ## design-debt-audit
 
 - Upstream: [Owl-Listener/designer-skills](https://github.com/Owl-Listener/designer-skills/tree/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/design-ops/skills/design-debt-audit)
@@ -437,6 +447,16 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 - Local modifications:
   - 2026-08-26 (portability): Excluded four bundled Segoe UI .ttf font files and two Microsoft Foundry brand-logo PNGs from assets/: Microsoft-proprietary assets with no verifiable open redistribution license, unlike the MIT-licensed text and code. Consumers who need them can fetch them from the upstream repository. [assets/]
 
+## handoff-to-claude-code
+
+- Upstream: [manalkaff/opendesign](https://github.com/manalkaff/opendesign/tree/cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb/skills/handoff-to-claude-code)
+- Author: manalkaff
+- Upstream path: `skills/handoff-to-claude-code` at commit `cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb`
+- Retrieved: 2026-08-29
+- License: MIT (license file: `skills/design-engineering/handoff-to-claude-code/LICENSE.txt`)
+- Local modifications:
+  - 2026-08-29 (portability): Bundled the repo-root MIT LICENSE into the skill directory as LICENSE.txt; the skill directory itself ships no license file. [LICENSE.txt]
+
 ## image-to-code
 
 - Upstream: [its-thepoe/skills](https://github.com/its-thepoe/skills/tree/3172de431451bbad2958b1fd87a79d1ccd39b0e3/design/image-to-code)
@@ -464,6 +484,16 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 - Retrieved: 2026-08-29
 - License: MIT (license file: `skills/research/inclusive-personas/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
+
+## interactive-prototype
+
+- Upstream: [manalkaff/opendesign](https://github.com/manalkaff/opendesign/tree/cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb/skills/interactive-prototype)
+- Author: manalkaff
+- Upstream path: `skills/interactive-prototype` at commit `cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb`
+- Retrieved: 2026-08-29
+- License: MIT (license file: `skills/prototyping/interactive-prototype/LICENSE.txt`)
+- Local modifications:
+  - 2026-08-29 (portability): Bundled the repo-root MIT LICENSE into the skill directory as LICENSE.txt; the skill directory itself ships no license file. [LICENSE.txt]
 
 ## interface-review
 
@@ -502,6 +532,16 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 - License: MIT (license file: `skills/content-design/localization-design/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
+## make-a-deck
+
+- Upstream: [manalkaff/opendesign](https://github.com/manalkaff/opendesign/tree/cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb/skills/make-a-deck)
+- Author: manalkaff
+- Upstream path: `skills/make-a-deck` at commit `cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb`
+- Retrieved: 2026-08-29
+- License: MIT (license file: `skills/visual-design/make-a-deck/LICENSE.txt`)
+- Local modifications:
+  - 2026-08-29 (portability): Bundled the repo-root MIT LICENSE into the skill directory as LICENSE.txt; the skill directory itself ships no license file. [LICENSE.txt]
+
 ## market-command-matrix
 
 - Upstream: [its-thepoe/skills](https://github.com/its-thepoe/skills/tree/3172de431451bbad2958b1fd87a79d1ccd39b0e3/design/market-command-matrix)
@@ -530,6 +570,16 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 - License: MIT (license file: `skills/interaction-design/onboarding/LICENSE.txt`)
 - Local modifications:
   - 2026-08-29 (portability): Repository license lives only at repo root (LICENSE), not inside the skill directory. Bundled a copy as LICENSE.txt inside the skill directory so the vendored directory is self-contained. [LICENSE.txt]
+
+## persona
+
+- Upstream: [takechanman1228/claude-persona](https://github.com/takechanman1228/claude-persona/tree/b4be6e641421968943003b84da16327c5c6a14c4/skills/persona)
+- Author: Hajime Takeda
+- Upstream path: `skills/persona` at commit `b4be6e641421968943003b84da16327c5c6a14c4`
+- Retrieved: 2026-08-29
+- License: MIT (license file: `skills/research/persona/LICENSE.txt`)
+- Local modifications:
+  - 2026-08-29 (portability): In the upstream repo, skills/persona/SKILL.md is the only file inside the Claude-Code-discoverable skills/persona/ directory; the references/, scripts/, and templates/ directories it reads (via paths like references/command-details.md, scripts/validate_panel.py, templates/concept_test.md) live at the repo root instead. SKILL.md's own 'File Organization' section already documents the intended installed layout as one flat directory containing SKILL.md plus references/, scripts/, templates/ (and demo/), so this bundles exactly those three directories into the skill directory at the same relative paths the prose already uses -- no SKILL.md text needed to change. Also bundled requirements.txt and the repo-root LICENSE (as LICENSE.txt) since the skill directory itself ships neither. Deliberately excluded from the bundle: demo/ (four full product-research demo runs, ~150+ files of illustrative example output referenced only anecdotally in error messages and docstrings, never read programmatically during a normal /persona run -- bundling it would blow past the 25-extra-file cap roughly 6x), tests/ (repo unit tests, dev-only), references/test-cases.md (a maintainer manual-QA checklist that itself references the excluded demo/ and tests/ directories), .claude-plugin/, docs/, configs/, assets/, and install/uninstall scripts (repo-level plugin packaging and marketing assets, not read by SKILL.md's own instructions). [references/adherence-check-prompt.md, references/command-details.md, references/directory-structure.md, references/persona-generation-prompt-topiconly.md, references/persona-generation-prompt.md, references/persona-schema.md, references/report-template.md, references/sampling-plan-prompt.md, references/segment-inference-prompt.md, references/simulation-prompt.md, references/topic-only-generation-flow.md, scripts/analyze_results.py, scripts/llm_backends.py, scripts/simulate_survey.py, scripts/validate_panel.py, templates/ask.md, templates/brand_perception.md, templates/concept_test.md, templates/custom_survey.md, templates/price_sensitivity.md, templates/usage_habits.md, requirements.txt, LICENSE.txt]
 
 ## perspective-audit
 
@@ -815,6 +865,36 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 - Retrieved: 2026-08-26
 - License: Apache-2.0 (license file: `skills/design-engineering/web-artifacts-builder/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
+
+## web-design-reviewer
+
+- Upstream: [galaxy-dawn/claude-scholar](https://github.com/galaxy-dawn/claude-scholar/tree/6ed46dac03191c7a734f49ed48b41195012098ff/skills/web-design-reviewer)
+- Author: Gaorui Zhang
+- Upstream path: `skills/web-design-reviewer` at commit `6ed46dac03191c7a734f49ed48b41195012098ff`
+- Retrieved: 2026-08-29
+- License: MIT (license file: `skills/design-qa/web-design-reviewer/LICENSE.txt`)
+- Local modifications: none (byte-identical to upstream)
+
+## wireframe
+
+- Upstream: [manalkaff/opendesign](https://github.com/manalkaff/opendesign/tree/cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb/skills/wireframe)
+- Author: manalkaff
+- Upstream path: `skills/wireframe` at commit `cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb`
+- Retrieved: 2026-08-29
+- License: MIT (license file: `skills/interaction-design/wireframe/LICENSE.txt`)
+- Local modifications:
+  - 2026-08-29 (portability): Bundled the repo-root MIT LICENSE into the skill directory as LICENSE.txt; the skill directory itself ships no license file. [LICENSE.txt]
+
+## wireframe-json
+
+- Upstream: [yhassy/wireframe-skill](https://github.com/yhassy/wireframe-skill/tree/948d4331343b18d913d5bc502da72ed0c5f19101)
+- Author: yhassy
+- Upstream path: `.` at commit `948d4331343b18d913d5bc502da72ed0c5f19101`
+- Retrieved: 2026-08-29
+- License: MIT (license file: `skills/interaction-design/wireframe-json/LICENSE.txt`)
+- Local modifications:
+  - 2026-08-29 (collision-rename): Upstream frontmatter name is 'wireframe', which collides with an already-vendored 'wireframe' skill from manalkaff/opendesign selected earlier in this same research pass (research/manifests/wireframe.json). Renamed this skill's id/frontmatter name to 'wireframe-json' to disambiguate — the two skills do genuinely different things (opendesign's wireframe produces multiple rough divergent low-fi sketches; this one produces one precise, schema-validated, machine-readable wireframe with an editable preview) so both are worth keeping rather than dropping one. [SKILL.md]
+  - 2026-08-29 (broken-reference): Upstream SKILL.md hard-codes the install path '.claude/skills/wireframe/' when referencing its own sibling files (wireframe-designer.md in Step 2, and wireframe-template.html in the Step 4 python splice command) — a Claude-Code-specific absolute convention that breaks for any other harness, and would in any case now be wrong after the collision-rename since the installed directory name changes. Rewrote the wireframe-designer.md reference to a same-directory relative path, and replaced the hard-coded template path in the Step 4 script with a '{skill_dir}' placeholder the invoking agent fills in with this skill's own installed directory, with an explanatory sentence added after the code block. [SKILL.md]
 
 ## wp-block-themes
 

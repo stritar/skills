@@ -1,0 +1,96 @@
+{
+  "id": "data-visualization-ux",
+  "category": "visual-design",
+  "verdict": "reject",
+  "rubric": {
+    "relevance": 3,
+    "quality": 1,
+    "conformance": 2,
+    "uniqueness": 2
+  },
+  "upstream": {
+    "repository": "itsual/agent-skills-collection",
+    "url": "https://github.com/itsual/agent-skills-collection/tree/8d2fd11b59496bfb3792e747e5519817e554e6cf/skills/design-ux/data-visualization-ux",
+    "author": "Arockia Liborious",
+    "commit": "8d2fd11b59496bfb3792e747e5519817e554e6cf",
+    "path": "skills/design-ux/data-visualization-ux",
+    "license": "MIT",
+    "licenseSource": "repo-root:LICENSE"
+  },
+  "files": [
+    {
+      "dest": "SKILL.md",
+      "rawUrl": "https://raw.githubusercontent.com/itsual/agent-skills-collection/8d2fd11b59496bfb3792e747e5519817e554e6cf/skills/design-ux/data-visualization-ux/SKILL.md",
+      "blobSha": "43b92441b2adf5e1868e697bf8493b22d12b4fa9"
+    },
+    {
+      "dest": "LICENSE.txt",
+      "rawUrl": "https://raw.githubusercontent.com/itsual/agent-skills-collection/8d2fd11b59496bfb3792e747e5519817e554e6cf/LICENSE",
+      "blobSha": "3e7297a2bbfec022c8854098752f59dfa079c00e"
+    }
+  ],
+  "securityNotes": "Single-file prose skill (SKILL.md only, ~40 lines, no scripts/binaries/references). Frontmatter uses only name+description. No network calls, no credential access, no download-and-execute, no hidden or user-rule-bypassing instructions. Read in full at the pinned commit via a local codeload tarball extraction.",
+  "overlaps": [
+    "diagram-design"
+  ],
+  "proposedEntry": {
+    "id": "data-visualization-ux",
+    "name": "data-visualization-ux",
+    "description": "Directs chart and data-display design for product analytics, admin dashboards, reporting/monitoring UIs, and charts embedded in workflows. Instructs starting from the question the user needs answered, choosing chart types that match the data relationship (trend, comparison, part-to-whole, distribution), designing for scanning (clear titles, direct labels, restrained color), providing context (comparisons, time ranges, definitions), supporting drill-down/export, and handling empty/loading/sparse-data states. Warns against distorting axes/3D effects, relying on color alone, and skipping progressive disclosure for complexity. Verification checklist confirms the primary question is answerable in seconds and chart choice matches the data relationship.",
+    "category": "visual-design",
+    "tags": [
+      "data-visualization",
+      "charts",
+      "visual-hierarchy",
+      "color",
+      "layout"
+    ],
+    "triggers": [
+      "design this chart",
+      "review this data visualization",
+      "pick a chart type",
+      "improve this analytics UI",
+      "audit chart accessibility"
+    ],
+    "inputs": [
+      "data relationship and question the chart must answer",
+      "current chart or dashboard design"
+    ],
+    "outputs": [
+      "chart-type and design recommendations",
+      "verification checklist results"
+    ],
+    "path": "skills/visual-design/data-visualization-ux",
+    "source": {
+      "type": "third-party",
+      "repository": "itsual/agent-skills-collection",
+      "url": "https://github.com/itsual/agent-skills-collection/tree/8d2fd11b59496bfb3792e747e5519817e554e6cf/skills/design-ux/data-visualization-ux",
+      "author": "Arockia Liborious",
+      "license": "MIT",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": "skills/design-ux/data-visualization-ux",
+      "upstreamCommit": "8d2fd11b59496bfb3792e747e5519817e554e6cf",
+      "retrievedAt": "2026-08-29",
+      "modified": false,
+      "modifications": []
+    },
+    "compatibility": [
+      "claude-code",
+      "codex",
+      "cursor",
+      "opencode",
+      "amp",
+      "gemini-cli",
+      "copilot",
+      "vs-code",
+      "claude-ai"
+    ],
+    "dependencies": [],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "experimental",
+    "status": "draft"
+  },
+  "logMd": "#### itsual/agent-skills-collection — data-visualization-ux (inspected 2026-08-29)\nHEAD of main pinned 8d2fd11b59496bfb3792e747e5519817e554e6cf (verified via commit-page 200 check after GitHub API rate-limited; stars 6, last push 2026-07-22 per github.com HTML). License: MIT at repo-root LICENSE (copyright 2026 Arockia Liborious), read in full at the pinned commit. Repo is a 501-skill mass-generated collection (13 domains); design-ux has 46 skills, all following an identical ~40-line template (Overview / When to Use / Core Practices or Principles / Verification checklist) confirmed by reading heuristic-evaluation, design-critique, design-ethics, dashboard-ux and data-visualization-ux in full and scanning the frontmatter description of all 46 siblings. Rubric: relevance 3, quality 1, conformance 2, uniqueness 2 = 8. No dedicated data-visualization/chart-design skill exists in the registry today (diagram-design covers process/flow diagrams, not charts), so uniqueness scores 2. Security: clean (see securityNotes). Verdict: vendor.\n- Curator decision 2026-08-29: NOT vendored - Curator re-read 2026-08-29: a ~40-line template shared by all 46 skills in the collection (overview, when-to-use, bullet principles, checklist) with no executable workflow; rubric quality 1 fails the vendor bar. Covered by dark-pattern-review, design-critique and the visual-design skills.",
+  "rejectReason": "Curator re-read 2026-08-29: a ~40-line template shared by all 46 skills in the collection (overview, when-to-use, bullet principles, checklist) with no executable workflow; rubric quality 1 fails the vendor bar. Covered by dark-pattern-review, design-critique and the visual-design skills."
+}

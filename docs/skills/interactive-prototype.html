@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>interactive-prototype — Product design skills</title>
+<meta name="description" content="Builds one working, clickable prototype that behaves like a real app rather than a static mockup: React with useState/useEffect, small readable components split at ~400 lines, wrapped in a device/window frame. Requires a full interaction surface (hover states, working click/tap handlers with no…">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="page-head">
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=prototyping">Prototyping</a></nav>
+<h1>interactive-prototype</h1>
+<p class="badges"></p>
+<p class="lede">Builds one working, clickable prototype that behaves like a real app rather than a static mockup: React with useState/useEffect, small readable components split at ~400 lines, wrapped in a device/window frame.</p>
+</header>
+
+<div class="layout">
+<nav class="sidebar" aria-labelledby="contents">
+<h2 id="contents" class="label-caps">On this page</h2>
+<ul class="toc">
+<li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
+
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#output-location">Output location</a></li>
+<li class="toc-sub"><a href="#role-framing">Role framing</a></li>
+<li class="toc-sub"><a href="#stack-and-structure">Stack and structure</a></li>
+<li class="toc-sub"><a href="#required-interaction-surface">Required interaction surface</a></li>
+<li class="toc-sub"><a href="#realism-rules">Realism rules</a></li>
+<li class="toc-sub"><a href="#what-to-leave-out">What to leave out</a></li>
+</ul>
+</nav>
+
+<main id="main">
+<section id="install">
+<h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill interactive-prototype</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill interactive-prototype"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
+<ul class="install">
+<li>
+<h3>Claude Code, as a plugin</h3>
+<div class="cmd"><pre><code>/plugin marketplace add stritar/skills
+/plugin install product-design-prototyping@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-prototyping@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Installs the whole <code>prototyping</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
+</li>
+<li>
+<h3>From a clone, copied by hand</h3>
+<div class="cmd"><pre><code>cp -r skills/prototyping/interactive-prototype ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/prototyping/interactive-prototype ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
+</li>
+</ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Builds one working, clickable prototype that behaves like a real app rather than a static mockup: React with useState/useEffect, small readable components split at ~400 lines, wrapped in a device/window frame. Requires a full interaction surface (hover states, working click/tap handlers with no dead controls, happy-path form validation, animated state transitions, end-to-end multi-step flows, loading and empty states) and realism rules (no lorem ipsum or placeholder names, 44px minimum mobile hit targets, critical state persisted to localStorage so a refresh does not lose the user's place). Explicitly scopes out real auth, real network calls, persistence beyond localStorage, production-grade accessibility audits, and edge cases the user did not ask to demonstrate.</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>build a clickable prototype</li><li>make this feel like a real working app</li><li>prototype this flow end to end</li><li>give me an interactive demo I can click through</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>a feature or flow description to prototype</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>a working React-based interactive HTML/JS prototype with realistic fake data, functioning state transitions, and persisted UI state</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=prototyping">prototyping</a></li><li><a class="tag" href="../index.html?tag=interactive-prototype">interactive-prototype</a></li><li><a class="tag" href="../index.html?tag=high-fidelity">high-fidelity</a></li><li><a class="tag" href="../index.html?tag=state-design">state-design</a></li></ul></div>
+
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/manalkaff/opendesign/tree/cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb/skills/interactive-prototype">manalkaff/opendesign</a> by manalkaff at <code>cecd9bb</code>, licence <code>MIT</code>. Modified when vendored: portability.</p>
+</details>
+</section>
+
+
+
+<article class="skill-body" id="instructions">
+<h2 class="body-head">Instructions</h2>
+<p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/prototyping/interactive-prototype/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
+<p>Loaded when the user asks for a working, clickable prototype — something that behaves like a real app rather than a static mockup.</p>
+<h3 id="output-location">Output location</h3>
+<p>Write all output files to <code>./opendesign/mockups/&lt;task-slug&gt;/</code>. Derive the slug from the feature name (e.g. <code>checkout-flow</code>, <code>settings-panel</code>).</p>
+<h3 id="role-framing">Role framing</h3>
+<p>The output is a prototype that feels like a real product, not a storyboard. State transitions work. Forms validate. Buttons route to something. If an interaction is visible in the UI, it actually happens.</p>
+<p>It is still a prototype. Cut corners on backend, real persistence, and edge cases. Fake data is fine. Real logic for the happy path is required.</p>
+<h3 id="stack-and-structure">Stack and structure</h3>
+<ul>
+<li>React with <code>useState</code> and <code>useEffect</code> for local state and effects. Keep state colocated. No global store unless the prototype genuinely needs one.</li>
+<li>Split the prototype into small, readable components. Files over ~400 lines get broken up.</li>
+<li>Inline JSX via Babel is fine for a single-file prototype. For anything multi-screen, split into per-screen component files and compose them.</li>
+<li>Wrap the prototype in an appropriate device or window frame — phone bezel, browser chrome, desktop window — so it reads as a product, not a web page.</li>
+</ul>
+<h3 id="required-interaction-surface">Required interaction surface</h3>
+<ul>
+<li>Hover states on every interactive element.</li>
+<li>Click and tap handlers that route to the next state. No dead controls.</li>
+<li>Form validation on the happy path: buttons disabled until inputs are valid, visible error states when they are not.</li>
+<li>Animated transitions between states and screens. Short, purposeful, not decorative.</li>
+<li>Multi-step flows work end to end. The user can walk the intended happy path without hitting a dead end.</li>
+<li>Loading and empty states where the real product would have them. Do not skip straight to populated views.</li>
+</ul>
+<h3 id="realism-rules">Realism rules</h3>
+<ul>
+<li>Realistic fake data. No lorem ipsum. No &quot;John Doe.&quot; Names, copy, numbers, and timestamps fit the product's world.</li>
+<li>Mobile frames: hit targets minimum 44px.</li>
+<li>Persist critical state — current screen, active tab, demo playback position — in <code>localStorage</code> so a refresh during iteration does not lose the user's place.</li>
+</ul>
+<h3 id="what-to-leave-out">What to leave out</h3>
+<ul>
+<li>Real authentication, real network calls, real persistence beyond <code>localStorage</code>.</li>
+<li>Production-grade accessibility audits. Basic semantics and focus management are enough.</li>
+<li>Every possible edge case. Pick the paths the user wants to demonstrate and make those watertight.</li>
+</ul>
+</article>
+</main>
+</div>
+
+<footer class="site-foot">
+<p><a href="../index.html">Back to all skills</a></p>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

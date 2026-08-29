@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>wireframe-json — Product design skills</title>
+<meta name="description" content="Generates a machine-readable JSON wireframe definition from a natural-language screen description (or from a design-spec's Information Architecture section) plus a self-contained, editable HTML preview. Applies a 7-phase design-reasoning framework before producing JSON: displacement check, content…">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="page-head">
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=interaction-design">Interaction design</a></nav>
+<h1>wireframe-json</h1>
+<p class="badges"><span class="il badge badge-dep"><span class="il-label">Other tooling</span></span></p>
+<p class="lede">Generates a machine-readable JSON wireframe definition from a natural-language screen description (or from a design-spec's Information Architecture section) plus a self-contained, editable HTML preview.</p>
+</header>
+
+<div class="layout">
+<nav class="sidebar" aria-labelledby="contents">
+<h2 id="contents" class="label-caps">On this page</h2>
+<ul class="toc">
+<li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
+
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#wireframe">/wireframe</a></li>
+<li class="toc-sub"><a href="#mode-generate">Mode: Generate</a></li>
+<li class="toc-sub"><a href="#input">Input</a></li>
+<li class="toc-sub"><a href="#output">Output</a></li>
+<li class="toc-sub"><a href="#execution-steps">Execution Steps</a></li>
+<li class="toc-sub"><a href="#json-wireframe-schema">JSON Wireframe Schema</a></li>
+<li class="toc-sub"><a href="#example">Example</a></li>
+</ul>
+</nav>
+
+<main id="main">
+<section id="install">
+<h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill wireframe-json</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill wireframe-json"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
+<ul class="install">
+<li>
+<h3>Claude Code, as a plugin</h3>
+<div class="cmd"><pre><code>/plugin marketplace add stritar/skills
+/plugin install product-design-interaction-design@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-interaction-design@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Installs the whole <code>interaction-design</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
+</li>
+<li>
+<h3>From a clone, copied by hand</h3>
+<div class="cmd"><pre><code>cp -r skills/interaction-design/wireframe-json ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/interaction-design/wireframe-json ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
+</li>
+</ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Generates a machine-readable JSON wireframe definition from a natural-language screen description (or from a design-spec's Information Architecture section) plus a self-contained, editable HTML preview. Applies a 7-phase design-reasoning framework before producing JSON: displacement check, content inventory, task/scanning-pattern selection, grid establishment, hierarchy assignment via a 4-level type scale, spacing via an 8-point grid, and a rhythm-verification pass with named failure modes (pixel perfectionism, hierarchy collapse, arbitrary spacing, grid amnesia, density monotony, action-hierarchy collapse) each with symptom/root-cause/fix. The JSON maps 1:1 to CSS flexbox and is the same schema used across a wider design pipeline (styled by other skills, consumed by Figma Make / Google Stitch style tools). The HTML preview supports drag-and-drop reordering, direction toggling, copy/paste, undo/redo, and JSON export/save, entirely client-side with no server or build step.</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>generate a wireframe from this description</li><li>wireframe this screen as JSON</li><li>produce a structured wireframe I can hand to Figma Make</li><li>build a machine-readable wireframe definition</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>a natural-language layout description, or a design-id pointing at an existing design-spec's Information Architecture section</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>a `.wireframe.json` machine-readable layout definition following the documented schema</li><li>a self-contained `.wireframe.html` editable preview (drag-and-drop, undo/redo, JSON export)</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=wireframing">wireframing</a></li><li><a class="tag" href="../index.html?tag=ui-design">ui-design</a></li><li><a class="tag" href="../index.html?tag=interaction-design">interaction-design</a></li><li><a class="tag" href="../index.html?tag=layout">layout</a></li><li><a class="tag" href="../index.html?tag=grids">grids</a></li><li><a class="tag" href="../index.html?tag=spacing">spacing</a></li><li><a class="tag" href="../index.html?tag=visual-hierarchy">visual-hierarchy</a></li><li><a class="tag" href="../index.html?tag=figma">figma</a></li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Requires</h3><ul><li><code>python3</code></li></ul></div>
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/yhassy/wireframe-skill/tree/948d4331343b18d913d5bc502da72ed0c5f19101">yhassy/wireframe-skill</a> by yhassy at <code>948d433</code>, licence <code>MIT</code>. Modified when vendored: collision-rename, broken-reference.</p>
+</details>
+</section>
+
+
+
+<article class="skill-body" id="instructions">
+<h2 class="body-head">Instructions</h2>
+<p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/interaction-design/wireframe-json/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
+<h2 id="wireframe">/wireframe</h2>
+<p>Generate a JSON wireframe definition and render it as a self-contained HTML preview.</p>
+<h3 id="mode-generate">Mode: Generate</h3>
+<h3 id="input">Input</h3>
+<p>Two modes:</p>
+<ol>
+<li><strong>Conversation</strong>: Describe the layout you want to wireframe. Claude generates JSON from the description.</li>
+<li><strong>design-id argument</strong>: <code>wireframe {design-id}</code> — reads <code>designs/{design-id}/output/design-spec.md</code> and extracts layout structure from the Information Architecture section.</li>
+</ol>
+<h3 id="output">Output</h3>
+<p>Two files per screen:</p>
+<ul>
+<li><code>{name}.wireframe.json</code> — AI-readable wireframe definition</li>
+<li><code>{name}.wireframe.html</code> — self-contained HTML preview (open in browser)</li>
+</ul>
+<p><strong>HTML preview features:</strong></p>
+<ul>
+<li>Collapsible right panel showing live JSON (syncs on every edit)</li>
+<li>Drag-and-drop reordering within the same parent</li>
+<li>Save button (Chrome/Edge — uses File System Access API, first save opens picker, subsequent saves write directly)</li>
+<li>Copy JSON and Download JSON buttons (all browsers)</li>
+<li>Panel collapse state persists across sessions via localStorage</li>
+</ul>
+<p><strong>Output path:</strong></p>
+<ul>
+<li>With design-id: <code>designs/{design-id}/output/wireframe/</code> (automatic)</li>
+<li>Without: prompted — ask user for directory path</li>
+</ul>
+<h3 id="execution-steps">Execution Steps</h3>
+<h4 id="step-1-determine-input">Step 1: Determine input</h4>
+<p>If a <code>{design-id}</code> argument is provided:</p>
+<ol>
+<li>Read <code>designs/{design-id}/output/design-spec.md</code></li>
+<li>Extract layout structure from the Information Architecture section</li>
+<li>Identify all views/screens described</li>
+</ol>
+<p>If no argument:</p>
+<ol>
+<li>Use the conversation context to understand the desired layout</li>
+<li>Ask clarifying questions if the layout description is ambiguous</li>
+</ol>
+<h4 id="step-2-load-cognitive-model-and-generate-wireframe-json">Step 2: Load cognitive model and generate wireframe JSON</h4>
+<ol>
+<li>Load the wireframe designer cognitive model from <code>wireframe-designer.md</code> (in this skill's own directory)</li>
+<li>Follow the perception sequence (Phases 1–7) to reason about the layout before producing JSON</li>
+<li>Produce a JSON object following the schema below</li>
+</ol>
+<p><strong>Schema rules</strong> (mechanical — these constrain the JSON format, not design judgment):</p>
+<ul>
+<li>Every node MUST have a <code>name</code></li>
+<li>Layout containers MUST have <code>direction</code> and <code>children</code></li>
+<li>Leaf elements SHOULD have a <code>type</code></li>
+<li>The JSON maps 1:1 to CSS flexbox — think in flex terms</li>
+<li>Apply the sizing constraints from the Element types table. In particular: buttons, links, inputs, tags, and inline text must never have fixed <code>width</code> — use <code>height</code> only and let content determine width</li>
+</ul>
+<h4 id="step-3-determine-output-location">Step 3: Determine output location</h4>
+<p>Derive the filename from the JSON <code>name</code> field (slugified, e.g., &quot;KAI 回答ビュー&quot; → <code>kai-answer-view</code>).</p>
+<p><strong>If <code>design-id</code> was provided:</strong></p>
+<ul>
+<li>Output directory is <code>designs/{design-id}/output/wireframe/</code> (no prompt needed)</li>
+</ul>
+<p><strong>If no <code>design-id</code>:</strong></p>
+<ul>
+<li>Ask the user where to save the JSON: &quot;Where should I save the wireframe JSON? Provide a directory path.&quot;</li>
+<li>Use <code>AskUserQuestion</code> with a simple text prompt</li>
+<li>Create the directory if it doesn't exist</li>
+</ul>
+<p>Both <code>.wireframe.json</code> and <code>.wireframe.html</code> go in the same output directory.</p>
+<h4 id="step-4-generate-html-preview">Step 4: Generate HTML preview</h4>
+<p>Use a Bash command to splice the JSON into the template. This avoids outputting the ~1000-line template through the Write tool (which is slow because every line becomes output tokens):</p>
+<pre><code class="language-bash">python3 -c &quot;
+t = open('{skill_dir}/wireframe-template.html').read()
+d = open('{json_path}').read()
+open('{html_path}', 'w').write(t.replace('const WIREFRAME_DATA = null;', 'const WIREFRAME_DATA = ' + d + ';'))
+&quot;
+</code></pre>
+<p>Replace <code>{skill_dir}</code> with this skill's own installed directory, and <code>{json_path}</code> and <code>{html_path}</code> with the actual output paths from Step 3. Use absolute paths.</p>
+<p><strong>Do NOT</strong> read the template with the Read tool or write the HTML with the Write tool. The Python script handles both file operations directly on disk.</p>
+<h4 id="step-5-output">Step 5: Output</h4>
+<ol>
+<li>Write both <code>.wireframe.json</code> and <code>.wireframe.html</code> files to the output directory from Step 3</li>
+<li>Open the HTML preview in the browser: <code>open {path}.wireframe.html</code></li>
+<li>Confirm to the user:
+<pre><code> Wireframe generated:
+ - JSON: {path}.wireframe.json
+ - Preview: {path}.wireframe.html (opened in browser)
+</code></pre></li>
+</ol>
+<hr>
+<h3 id="json-wireframe-schema">JSON Wireframe Schema</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;Screen Name&quot;,
+  &quot;viewport&quot;: { &quot;width&quot;: 1280, &quot;height&quot;: 800 },
+  &quot;root&quot;: {
+    &quot;name&quot;: &quot;Root&quot;,
+    &quot;direction&quot;: &quot;vertical&quot;,
+    &quot;children&quot;: []
+  }
+}
+</code></pre>
+<h4 id="top-level-fields">Top-level fields</h4>
+<div class="table-scroll"><table>
+<thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>name</code></td><td>string</td><td>Yes</td><td>Screen/wireframe name</td></tr>
+<tr><td><code>viewport</code></td><td><code>{ width, height }</code></td><td>Yes</td><td>Canvas dimensions in px</td></tr>
+<tr><td><code>root</code></td><td>node</td><td>Yes</td><td>Root layout node</td></tr>
+</tbody>
+</table></div>
+<h4 id="node-fields">Node fields</h4>
+<p><strong>Identity:</strong></p>
+<div class="table-scroll"><table>
+<thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>name</code></td><td>string</td><td>Yes</td><td>Node label (shown in wireframe)</td></tr>
+<tr><td><code>type</code></td><td>string</td><td>No</td><td>Element type for placeholder rendering</td></tr>
+<tr><td><code>variant</code></td><td>string</td><td>No</td><td>Text hierarchy: <code>&quot;display&quot;</code> (32px), <code>&quot;heading&quot;</code> (24px), <code>&quot;caption&quot;</code> (12px). Default body (16px). Only for <code>type: &quot;text&quot;</code>.</td></tr>
+</tbody>
+</table></div>
+<p><strong>Layout (for containers with children):</strong></p>
+<div class="table-scroll"><table>
+<thead><tr><th>Field</th><th>Type</th><th>Default</th><th>CSS equivalent</th></tr></thead>
+<tbody>
+<tr><td><code>direction</code></td><td><code>&quot;vertical&quot;</code> / <code>&quot;horizontal&quot;</code></td><td><code>&quot;vertical&quot;</code></td><td>flex-direction</td></tr>
+<tr><td><code>children</code></td><td>node[]</td><td>—</td><td>child elements</td></tr>
+<tr><td><code>gap</code></td><td>number</td><td>0</td><td>gap (px)</td></tr>
+<tr><td><code>padding</code></td><td>number or [v, h]</td><td>0</td><td>padding (px)</td></tr>
+<tr><td><code>justify</code></td><td>string</td><td><code>&quot;flex-start&quot;</code></td><td>justify-content</td></tr>
+<tr><td><code>align</code></td><td>string</td><td><code>&quot;stretch&quot;</code></td><td>align-items</td></tr>
+<tr><td><code>wrap</code></td><td>boolean</td><td>false</td><td>flex-wrap: wrap</td></tr>
+</tbody>
+</table></div>
+<p><strong>Sizing:</strong></p>
+<div class="table-scroll"><table>
+<thead><tr><th>Field</th><th>Type</th><th>Default</th><th>CSS equivalent</th></tr></thead>
+<tbody>
+<tr><td><code>width</code></td><td>number</td><td>—</td><td>width (px)</td></tr>
+<tr><td><code>height</code></td><td>number</td><td>—</td><td>height (px)</td></tr>
+<tr><td><code>grow</code></td><td>boolean</td><td>false</td><td>flex: 1</td></tr>
+<tr><td><code>maxWidth</code></td><td>number</td><td>—</td><td>max-width (px)</td></tr>
+</tbody>
+</table></div>
+<h4 id="element-types">Element types</h4>
+<div class="table-scroll"><table>
+<thead><tr><th>Type</th><th>Rendered as</th><th>Use for</th><th>Sizing</th></tr></thead>
+<tbody>
+<tr><td><code>&quot;text&quot;</code></td><td>Gray text label</td><td>Labels, headings, body text</td><td><code>height</code> only. No <code>width</code> — text reflows naturally</td></tr>
+<tr><td><code>&quot;image&quot;</code></td><td>Gray box with image icon</td><td>Photos, thumbnails, hero images</td><td><code>width</code> + <code>height</code>, or <code>height</code> + <code>grow</code></td></tr>
+<tr><td><code>&quot;icon&quot;</code></td><td>Small gray circle</td><td>Action icons, status indicators</td><td>Fixed <code>width</code> + <code>height</code> always</td></tr>
+<tr><td><code>&quot;button&quot;</code></td><td>Rounded rectangle</td><td>CTAs, primary actions</td><td><code>height</code> only. Never <code>width</code> — label length varies</td></tr>
+<tr><td><code>&quot;link&quot;</code></td><td>Underlined text</td><td>Navigation items, secondary actions, text links</td><td><code>height</code> only. Never <code>width</code> — label length varies</td></tr>
+<tr><td><code>&quot;input&quot;</code></td><td>Bordered rectangle</td><td>Search fields, form inputs, dropdowns</td><td><code>height</code> + <code>grow</code> or <code>maxWidth</code>. Never fixed <code>width</code> alone</td></tr>
+<tr><td><code>&quot;card&quot;</code></td><td>Bordered box with shadow</td><td>Content cards, list items</td><td><code>height</code> + <code>grow</code>, or <code>height</code> alone in vertical lists</td></tr>
+<tr><td><code>&quot;table&quot;</code></td><td>Header row + placeholder data rows</td><td>Data tables, lists with columns</td><td><code>grow</code> or omit. Column widths via <code>columns[].width</code> / <code>columns[].grow</code></td></tr>
+<tr><td><code>&quot;divider&quot;</code></td><td>Thin horizontal line</td><td>Section separators</td><td>No sizing needed</td></tr>
+<tr><td>(none)</td><td>Transparent container</td><td>Structural grouping only</td><td><code>grow</code> for flexible, <code>width</code> for fixed (e.g., sidebar)</td></tr>
+</tbody>
+</table></div>
+<h4 id="table-properties">Table properties</h4>
+<p>Tables use <code>columns</code> and <code>rows</code> instead of <code>children</code>:</p>
+<div class="table-scroll"><table>
+<thead><tr><th>Field</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>columns</code></td><td>array</td><td>—</td><td>Column definitions (required for table)</td></tr>
+<tr><td><code>columns[].name</code></td><td>string</td><td>—</td><td>Column header text</td></tr>
+<tr><td><code>columns[].grow</code></td><td>boolean</td><td>false</td><td>Flexible width (flex: 1)</td></tr>
+<tr><td><code>columns[].width</code></td><td>number</td><td>—</td><td>Fixed width in px</td></tr>
+<tr><td><code>rows</code></td><td>number</td><td>3</td><td>Number of placeholder data rows</td></tr>
+</tbody>
+</table></div>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;Users Table&quot;,
+  &quot;type&quot;: &quot;table&quot;,
+  &quot;columns&quot;: [
+    { &quot;name&quot;: &quot;Name&quot;, &quot;grow&quot;: true },
+    { &quot;name&quot;: &quot;Email&quot;, &quot;grow&quot;: true },
+    { &quot;name&quot;: &quot;Role&quot;, &quot;width&quot;: 120 },
+    { &quot;name&quot;: &quot;Status&quot;, &quot;width&quot;: 100 }
+  ],
+  &quot;rows&quot;: 5
+}
+</code></pre>
+<h4 id="style-properties-optional">Style properties (optional)</h4>
+<p>Visual properties for downstream consumers. These are <strong>purely additive</strong> — a wireframe JSON with zero style properties is 100% valid and renders as a monochrome wireframe (current behavior, unchanged). The wireframe HTML renderer ignores style properties.</p>
+<p>The <code>/wireframe</code> skill itself produces plain wireframes. Style properties are added by <code>/ui-prompts</code> when a design system is specified, creating a &quot;styled wireframe&quot; that downstream consumers (pencil-generate, stitch-generate, Figma Make) use directly.</p>
+<div class="table-scroll"><table>
+<thead><tr><th>Field</th><th>Type</th><th>Description</th><th>Applies to</th></tr></thead>
+<tbody>
+<tr><td><code>fill</code></td><td>string (hex)</td><td>Background fill color</td><td>Containers, cards, buttons</td></tr>
+<tr><td><code>color</code></td><td>string (hex)</td><td>Text/icon foreground color</td><td>Text, icons, links</td></tr>
+<tr><td><code>fontSize</code></td><td>number</td><td>Font size in px</td><td>Text</td></tr>
+<tr><td><code>fontWeight</code></td><td>number</td><td>Font weight (400, 600)</td><td>Text</td></tr>
+<tr><td><code>borderRadius</code></td><td>number</td><td>Corner radius in px</td><td>Containers, cards, buttons, inputs</td></tr>
+<tr><td><code>stroke</code></td><td><code>{ color, width }</code></td><td>Border definition</td><td>Containers, cards, inputs</td></tr>
+<tr><td><code>shadow</code></td><td><code>{ x, y, blur, color }</code></td><td>Drop shadow</td><td>Containers, cards</td></tr>
+<tr><td><code>opacity</code></td><td>number (0–1)</td><td>Element opacity</td><td>Any node</td></tr>
+</tbody>
+</table></div>
+<p><strong>Rules:</strong></p>
+<ul>
+<li>Values MUST be resolved (hex colors, px numbers) — never token names</li>
+<li>Absence means &quot;use consumer defaults&quot; — omit properties you don't need to specify</li>
+<li><code>fill</code> on a container = background; <code>color</code> on text = foreground (avoid ambiguity)</li>
+<li><code>stroke</code> and <code>shadow</code> use object notation for clean parsing</li>
+</ul>
+<p><strong>Annotation fields:</strong></p>
+<div class="table-scroll"><table>
+<thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>_solves</code></td><td>string</td><td>Traces this element to a PRD problem or user need. Metadata only — ignored by all renderers.</td></tr>
+</tbody>
+</table></div>
+<p><strong>Canonical schema:</strong> This JSON schema is the canonical layout format used across the pipeline. The <code>## Layout</code> section in UI prompt files (<code>prompts/*.md</code>) uses this same schema inline, optionally with style properties. Skills that generate prompts (<code>/ui-prompts</code>, <code>/style-exploration</code>, <code>/figma-variation</code>) produce wireframe JSON. Skills that consume prompts (<code>/pencil-generate</code>, <code>/stitch-generate</code>) parse it directly.</p>
+<hr>
+<h3 id="example">Example</h3>
+<p>A dashboard with proper typographic hierarchy, spacing rhythm, and proportional heights:</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;Dashboard&quot;,
+  &quot;viewport&quot;: { &quot;width&quot;: 1280, &quot;height&quot;: 800 },
+  &quot;root&quot;: {
+    &quot;name&quot;: &quot;Page&quot;,
+    &quot;direction&quot;: &quot;vertical&quot;,
+    &quot;children&quot;: [
+      {
+        &quot;name&quot;: &quot;Header&quot;,
+        &quot;direction&quot;: &quot;horizontal&quot;,
+        &quot;height&quot;: 56,
+        &quot;padding&quot;: [0, 24],
+        &quot;justify&quot;: &quot;space-between&quot;,
+        &quot;align&quot;: &quot;center&quot;,
+        &quot;children&quot;: [
+          { &quot;name&quot;: &quot;Logo&quot;, &quot;type&quot;: &quot;image&quot;, &quot;width&quot;: 100, &quot;height&quot;: 28 },
+          { &quot;name&quot;: &quot;Search&quot;, &quot;type&quot;: &quot;input&quot;, &quot;grow&quot;: true, &quot;maxWidth&quot;: 400, &quot;height&quot;: 40 },
+          { &quot;name&quot;: &quot;Avatar&quot;, &quot;type&quot;: &quot;icon&quot;, &quot;width&quot;: 32, &quot;height&quot;: 32 }
+        ]
+      },
+      {
+        &quot;name&quot;: &quot;Body&quot;,
+        &quot;direction&quot;: &quot;horizontal&quot;,
+        &quot;grow&quot;: true,
+        &quot;children&quot;: [
+          {
+            &quot;name&quot;: &quot;Sidebar&quot;,
+            &quot;width&quot;: 240,
+            &quot;direction&quot;: &quot;vertical&quot;,
+            &quot;padding&quot;: 16,
+            &quot;gap&quot;: 4,
+            &quot;children&quot;: [
+              { &quot;name&quot;: &quot;Overview&quot;, &quot;type&quot;: &quot;link&quot;, &quot;height&quot;: 40 },
+              { &quot;name&quot;: &quot;Projects&quot;, &quot;type&quot;: &quot;link&quot;, &quot;height&quot;: 40 },
+              { &quot;name&quot;: &quot;Settings&quot;, &quot;type&quot;: &quot;link&quot;, &quot;height&quot;: 40 }
+            ]
+          },
+          {
+            &quot;name&quot;: &quot;Main&quot;,
+            &quot;grow&quot;: true,
+            &quot;direction&quot;: &quot;vertical&quot;,
+            &quot;padding&quot;: 32,
+            &quot;gap&quot;: 24,
+            &quot;children&quot;: [
+              { &quot;name&quot;: &quot;Dashboard&quot;, &quot;type&quot;: &quot;text&quot;, &quot;variant&quot;: &quot;display&quot;, &quot;height&quot;: 48 },
+              {
+                &quot;name&quot;: &quot;Stats Row&quot;,
+                &quot;direction&quot;: &quot;horizontal&quot;,
+                &quot;gap&quot;: 16,
+                &quot;children&quot;: [
+                  { &quot;name&quot;: &quot;Total Users&quot;, &quot;type&quot;: &quot;card&quot;, &quot;grow&quot;: true, &quot;height&quot;: 100 },
+                  { &quot;name&quot;: &quot;Revenue&quot;, &quot;type&quot;: &quot;card&quot;, &quot;grow&quot;: true, &quot;height&quot;: 100 },
+                  { &quot;name&quot;: &quot;Active Today&quot;, &quot;type&quot;: &quot;card&quot;, &quot;grow&quot;: true, &quot;height&quot;: 100 }
+                ]
+              },
+              {
+                &quot;name&quot;: &quot;Recent Activity&quot;,
+                &quot;direction&quot;: &quot;vertical&quot;,
+                &quot;gap&quot;: 12,
+                &quot;children&quot;: [
+                  { &quot;name&quot;: &quot;Recent Activity&quot;, &quot;type&quot;: &quot;text&quot;, &quot;variant&quot;: &quot;heading&quot;, &quot;height&quot;: 36 },
+                  {
+                    &quot;name&quot;: &quot;Activity Table&quot;,
+                    &quot;type&quot;: &quot;table&quot;,
+                    &quot;columns&quot;: [
+                      { &quot;name&quot;: &quot;User&quot;, &quot;grow&quot;: true },
+                      { &quot;name&quot;: &quot;Action&quot;, &quot;grow&quot;: true },
+                      { &quot;name&quot;: &quot;Status&quot;, &quot;width&quot;: 120 },
+                      { &quot;name&quot;: &quot;Time&quot;, &quot;width&quot;: 140 }
+                    ],
+                    &quot;rows&quot;: 6
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+</code></pre>
+<p><strong>Cognitive reasoning behind this wireframe:</strong></p>
+<ul>
+<li><strong>Phase 3 (Task &amp; Scanning):</strong> Dashboard = monitoring intent → F-pattern → top-to-bottom primary content flow, important information along left edge and top</li>
+<li><strong>Phase 4 (Grid):</strong> Two major zones — sidebar (240px, fixed, persistent navigation) + content area (<code>grow: true</code>). Sidebar exists because content inventory includes navigation that aids the monitoring task.</li>
+<li><strong>Phase 5 (Hierarchy):</strong> Three levels — <code>display</code> for page identity (&quot;Dashboard&quot;), <code>heading</code> for section identity (&quot;Recent Activity&quot;), body (default) for data content. Caption reserved for table column headers (chrome, not content). Sidebar nav uses <code>link</code> (navigation aids the task but isn't the task itself). Primary CTAs in the content area would use <code>button</code>.</li>
+<li><strong>Phase 6 (Spacing):</strong> Proximity tightens inward — root padding 32 &gt; section gap 24 &gt; card gap 16 &gt; internal gap 12. Each step inward signals increasing relatedness. Container padding (32) ≥ child gap (24) everywhere.</li>
+<li><strong>Phase 7 (Rhythm):</strong> Progressive density — spacious at top (title, 48px display text), medium in middle (stat cards, 100px), dense at bottom (table with 6 data rows). Heights accommodate content proportionally.</li>
+</ul>
+</article>
+</main>
+</div>
+
+<footer class="site-foot">
+<p><a href="../index.html">Back to all skills</a></p>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

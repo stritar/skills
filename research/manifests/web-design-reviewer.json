@@ -1,0 +1,75 @@
+{
+  "id": "web-design-reviewer",
+  "category": "design-qa",
+  "verdict": "vendor",
+  "rubric": {
+    "relevance": 3,
+    "quality": 3,
+    "conformance": 2,
+    "uniqueness": 1
+  },
+  "upstream": {
+    "repository": "galaxy-dawn/claude-scholar",
+    "url": "https://github.com/galaxy-dawn/claude-scholar/tree/6ed46dac03191c7a734f49ed48b41195012098ff/skills/web-design-reviewer",
+    "author": "Gaorui Zhang",
+    "commit": "6ed46dac03191c7a734f49ed48b41195012098ff",
+    "path": "skills/web-design-reviewer",
+    "license": "MIT",
+    "licenseSource": "repo-root:LICENSE"
+  },
+  "files": [
+    {
+      "dest": "SKILL.md",
+      "rawUrl": "https://raw.githubusercontent.com/galaxy-dawn/claude-scholar/6ed46dac03191c7a734f49ed48b41195012098ff/skills/web-design-reviewer/SKILL.md",
+      "blobSha": "057af1cbe4f61ea3e3661df2fb3d0f884dbcb61d"
+    },
+    {
+      "dest": "references/framework-fixes.md",
+      "rawUrl": "https://raw.githubusercontent.com/galaxy-dawn/claude-scholar/6ed46dac03191c7a734f49ed48b41195012098ff/skills/web-design-reviewer/references/framework-fixes.md",
+      "blobSha": "d400ca14d71e23f2e94a552cc41be882df423ff6"
+    },
+    {
+      "dest": "references/visual-checklist.md",
+      "rawUrl": "https://raw.githubusercontent.com/galaxy-dawn/claude-scholar/6ed46dac03191c7a734f49ed48b41195012098ff/skills/web-design-reviewer/references/visual-checklist.md",
+      "blobSha": "24346c54918a6caf0374931c502f605f20ff1b9b"
+    },
+    {
+      "dest": "LICENSE.txt",
+      "rawUrl": "https://raw.githubusercontent.com/galaxy-dawn/claude-scholar/6ed46dac03191c7a734f49ed48b41195012098ff/LICENSE",
+      "blobSha": "c19f3b4a3de7c50a83629bbf88f1efa3fcaf4bbf"
+    }
+  ],
+  "securityNotes": "Read all 3 files in the skill directory in full (SKILL.md, references/framework-fixes.md, references/visual-checklist.md) plus the repo-root LICENSE. Fully self-contained: the only relative link in SKILL.md is `references/framework-fixes.md`, which resolves inside the skill directory; references/visual-checklist.md is bundled but not explicitly linked, and is included anyway since every file in the skill directory is vendored. No scripts, no bundled binaries -- framework-fixes.md contains only illustrative CSS/JS/JSX code snippets (not executable scripts shipped with the skill) plus one plain external URL (a webaim.org contrast-checker reference) and one plain link to the microsoft/playwright-mcp GitHub repo as a suggested (not required) reference implementation -- neither is a functional dependency the skill executes. No network calls, no credential access, no download-and-execute, no hidden or user-rule-bypassing instructions. This skill was checked specifically for self-containment inside claude-scholar, a much larger research-assistant collection (agents/, commands/, hooks/, plugins/, scripts/, templates/, utils/ at repo root); it does not reference any of those directories.",
+  "overlaps": ["frontend-design-review", "design-review", "pre-handoff-review"],
+  "proposedEntry": {
+    "id": "web-design-reviewer",
+    "name": "web-design-reviewer",
+    "description": "Drives a four-phase live visual QA loop against a running website or web app (static HTML, React/Vue/Angular/Svelte SPAs, Next.js/Nuxt/SvelteKit, WordPress/Drupal, or any other web app): gather project/framework/styling info (auto-detecting from package.json, tailwind.config, etc.), capture screenshots and traverse pages at four viewports (375/768/1280/1920px) checking layout, responsive, accessibility and visual-consistency issues against named issue tables with severities, prioritize findings P1-P3, locate the offending source files by selector/component search and apply minimal framework-respecting fixes, then re-verify with before/after screenshots and a regression check. Ships a structured markdown report template (summary table, per-issue P1/P2 sections, unfixed-issues section) and a bundled reference with concrete before/after fix code for Pure CSS/SCSS, Tailwind, React+CSS Modules, styled-components/Emotion, Vue scoped styles, and Next.js, plus browser-console debugging snippets for detecting overflow and checking contrast.",
+    "category": "design-qa",
+    "tags": ["design-review", "pr-review", "visual-regression", "responsive", "cross-browser", "a11y"],
+    "triggers": ["review website design", "check the UI", "fix the layout", "find design problems", "responsive QA on this site"],
+    "inputs": ["running URL (local dev server, staging, or production)", "browser automation capability (screenshot capture, page navigation, DOM retrieval)", "access to project source code when making fixes"],
+    "outputs": ["prioritized (P1-P3) issue report with before/after screenshots", "source-level fixes applied at the offending files", "unfixed-issue list with reasons and recommended actions"],
+    "path": "skills/design-qa/web-design-reviewer",
+    "source": {
+      "type": "third-party",
+      "repository": "galaxy-dawn/claude-scholar",
+      "url": "https://github.com/galaxy-dawn/claude-scholar/tree/6ed46dac03191c7a734f49ed48b41195012098ff/skills/web-design-reviewer",
+      "author": "Gaorui Zhang",
+      "license": "MIT",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": "skills/web-design-reviewer",
+      "upstreamCommit": "6ed46dac03191c7a734f49ed48b41195012098ff",
+      "retrievedAt": "2026-08-29",
+      "modified": false,
+      "modifications": []
+    },
+    "compatibility": ["claude-code", "codex", "cursor", "opencode", "amp", "gemini-cli", "copilot", "vs-code"],
+    "dependencies": [],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "stable",
+    "status": "draft"
+  },
+  "logMd": "#### galaxy-dawn/claude-scholar (inspected 2026-08-29)\nHEAD of main pinned 6ed46dac03191c7a734f49ed48b41195012098ff (verified via a commit-page 200 check after the GitHub REST API rate-limited this session; stars 5.2k, last push 2026-08-27 per github.com HTML -- a merge of PR #45). License: MIT at repo-root LICENSE (copyright 2026 Gaorui Zhang), read in full at the pinned commit. Task instruction was to vendor ONLY skills/web-design-reviewer from this much larger research-assistant collection (agents/, commands/, hooks/, plugins/, rules/, scripts/, templates/, utils/ at repo root) and to check its self-containment -- confirmed: the skill directory (SKILL.md + references/framework-fixes.md + references/visual-checklist.md) has no relative references outside itself. Frontmatter uses name+description+version (version is a non-spec but cosmetic field, so 'claude-ai' was NOT appended to compatibility per the pipeline rule). Read all 3 files in full: a detailed 4-phase workflow (Information Gathering -> Visual Inspection -> Issue Fixing -> Re-verification) with concrete issue tables and severities, a P1-P3 priority matrix, a strict markdown report-output template, framework auto-detection heuristics, and a per-framework fix reference (Pure CSS/SCSS, Tailwind, React+CSS Modules, styled-components/Emotion, Vue, Next.js) with real before/after code plus browser-console debug snippets. Rubric: relevance 3 (core design-QA activity), quality 3 (concrete workflow, severities, output template, worked framework-specific fixes), conformance 2 (valid frontmatter, name=dirname, all links resolve inside the skill dir), uniqueness 1 (overlaps the registry's frontend-design-review/design-review/pre-handoff-review in general shape, but its live-browser-driven, code-level fix-and-reverify loop across 6 named framework/styling stacks with a strict severity/report/troubleshooting protocol is meaningfully deeper and more code-fix-oriented than the existing critique-style skills). Total 9. Security: clean -- no scripts or binaries, only illustrative code snippets in reference docs; one plain external doc link (webaim.org contrast checker) and one suggested-tool link (microsoft/playwright-mcp), neither a functional dependency. Verdict: vendor."
+}

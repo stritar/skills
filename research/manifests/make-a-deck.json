@@ -1,0 +1,54 @@
+{
+  "id": "make-a-deck",
+  "category": "visual-design",
+  "verdict": "vendor",
+  "rubric": {"relevance": 2, "quality": 3, "conformance": 2, "uniqueness": 2},
+  "upstream": {
+    "repository": "manalkaff/opendesign",
+    "url": "https://github.com/manalkaff/opendesign/tree/cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb/skills/make-a-deck",
+    "author": "manalkaff",
+    "commit": "cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb",
+    "path": "skills/make-a-deck",
+    "license": "MIT",
+    "licenseSource": "repo-root:LICENSE"
+  },
+  "files": [
+    {"dest": "SKILL.md", "rawUrl": "https://raw.githubusercontent.com/manalkaff/opendesign/cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb/skills/make-a-deck/SKILL.md"},
+    {"dest": "LICENSE.txt", "rawUrl": "https://raw.githubusercontent.com/manalkaff/opendesign/cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb/LICENSE"}
+  ],
+  "securityNotes": "Prose-only SKILL.md, no scripts, no network calls, no credential handling, no hidden or injected instructions. Only external-facing convention is writing output under a project-relative ./opendesign/mockups/<task-slug>/ path.",
+  "overlaps": [],
+  "proposedEntry": {
+    "id": "make-a-deck",
+    "name": "make-a-deck",
+    "description": "Shifts the agent into presentation-designer mode for slide decks: fixed 1920x1080 canvas per slide, named CSS type-scale and spacing constants instead of ad-hoc pixel values, an intake step for length/audience/delivery mode, a chapter-driven title-writing discipline (write and review the full title sequence as a standalone artifact before building any slide), rules for content density, visual variety across slide types, pixel-level parallelism of repeated chrome, and image-handling modes (full-bleed, aspect-fit, contrasting background). Lists forbidden deck tropes (takeaway boxes, accent-border call-outs, emoji-as-iconography, self-drawn SVGs, default gradient washes) and AI-sounding title phrasing to refuse.",
+    "category": "visual-design",
+    "tags": ["typography", "layout", "visual-hierarchy", "spacing", "grids"],
+    "triggers": ["make a slide deck", "build a presentation", "design slides for this pitch", "create a board update deck", "turn this into a presentation"],
+    "inputs": ["a presentation topic and length in minutes", "audience, delivery mode, and any brand context"],
+    "outputs": ["a fixed-canvas HTML slide deck (1920x1080 sections) with a coherent title sequence, consistent type-scale/spacing tokens, and varied slide types"],
+    "path": "skills/visual-design/make-a-deck",
+    "source": {
+      "type": "third-party",
+      "repository": "manalkaff/opendesign",
+      "url": "https://github.com/manalkaff/opendesign/tree/cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb/skills/make-a-deck",
+      "author": "manalkaff",
+      "license": "MIT",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": "skills/make-a-deck",
+      "upstreamCommit": "cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb",
+      "retrievedAt": "2026-08-29",
+      "modified": true,
+      "modifications": [
+        {"date": "2026-08-29", "reason": "portability", "description": "Bundled the repo-root MIT LICENSE into the skill directory as LICENSE.txt; the skill directory itself ships no license file.", "files": ["LICENSE.txt"]}
+      ]
+    },
+    "compatibility": ["claude-code", "codex", "cursor", "opencode", "amp", "gemini-cli", "copilot", "vs-code", "claude-ai"],
+    "dependencies": [],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "stable",
+    "status": "draft"
+  },
+  "logMd": "#### manalkaff/opendesign — skills/make-a-deck (inspected 2026-08-29)\n- Same repo pin as wireframe.json: cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb. See wireframe.json for full repo-level evidence (star count, license path, 10-skill enumeration).\n- SKILL.md read in full at the pinned SHA (extracted from the tarball). Frontmatter has only name/description — claude-ai appended to compatibility. name=make-a-deck matches dirname. No relative links to other files; fully self-contained.\n- Rubric: relevance 2 (presentation/deck design is a clear visual-design application, comparable to the rubric's 'dashboard design' example), quality 3 (concrete named CSS custom properties for type scale and spacing, an explicit title-sequence-as-standalone-artifact check, an ordered planning-steps list, and a list of specific forbidden tropes), conformance 2 (clean spec-minimal frontmatter, no broken links), uniqueness 2 (nothing in the existing registry, and nothing else vendored so far in this research campaign, covers slide/deck design specifically). Total 9. Verdict: vendor."
+}

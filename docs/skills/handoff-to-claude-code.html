@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>handoff-to-claude-code — Product design skills</title>
+<meta name="description" content="Packages a finished design into a self-sufficient handoff folder for a developer or coding agent to implement, with every referenced HTML prototype, component, image, font, and asset copied in so no path traces back into the source project. Generates a README with nine required sections in a fixed…">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="page-head">
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=design-engineering">Design engineering</a></nav>
+<h1>handoff-to-claude-code</h1>
+<p class="badges"></p>
+<p class="lede">Packages a finished design into a self-sufficient handoff folder for a developer or coding agent to implement, with every referenced HTML prototype, component, image, font, and asset copied in so no path traces back into the source project.</p>
+</header>
+
+<div class="layout">
+<nav class="sidebar" aria-labelledby="contents">
+<h2 id="contents" class="label-caps">On this page</h2>
+<ul class="toc">
+<li><a href="#install">Install</a></li>
+<li><a href="#about">About this skill</a></li>
+
+<li><a href="#instructions">Instructions</a></li>
+<li class="toc-sub"><a href="#folder-setup">Folder setup</a></li>
+<li class="toc-sub"><a href="#readme-structure">README structure</a></li>
+<li class="toc-sub"><a href="#hard-rules">Hard rules</a></li>
+<li class="toc-sub"><a href="#readme-tone">README tone</a></li>
+</ul>
+</nav>
+
+<main id="main">
+<section id="install">
+<h2>Install</h2>
+<div class="cmd"><pre><code>npx skills add stritar/skills --skill handoff-to-claude-code</code></pre><button type="button" class="button button-primary copy js-only" data-copy="npx skills add stritar/skills --skill handoff-to-claude-code"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Works for any agent: the skills CLI installs into whichever agents it finds on your machine.</p>
+<details class="fold">
+<summary>Other ways to install</summary>
+<ul class="install">
+<li>
+<h3>Claude Code, as a plugin</h3>
+<div class="cmd"><pre><code>/plugin marketplace add stritar/skills
+/plugin install product-design-design-engineering@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-design-engineering@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Installs the whole <code>design-engineering</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
+</li>
+<li>
+<h3>From a clone, copied by hand</h3>
+<div class="cmd"><pre><code>cp -r skills/design-engineering/handoff-to-claude-code ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/design-engineering/handoff-to-claude-code ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
+</li>
+</ul>
+</details>
+</section>
+
+<section id="about" class="meta">
+<h2>About this skill</h2>
+<div class="meta-row"><h3 class="label-caps">What it does</h3><p>Packages a finished design into a self-sufficient handoff folder for a developer or coding agent to implement, with every referenced HTML prototype, component, image, font, and asset copied in so no path traces back into the source project. Generates a README with nine required sections in a fixed order (overview, about the design files, fidelity, screens/views with exact layout and component measurements, interactions and behavior, state management, a flat design-token list, assets, and a file manifest). States up front, verbatim in spirit, that the bundled HTML is a design reference to be recreated in the target codebase's own framework and patterns, not production code to paste in directly. Asks before including screenshots, then zips the folder for download.</p></div>
+<div class="meta-row"><h3 class="label-caps">Use when</h3><ul><li>hand this design off to a developer</li><li>package this for implementation</li><li>generate a spec for the engineering team</li><li>prepare this prototype for handoff to a coding agent</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Works on</h3><ul><li>a finished design (HTML prototypes, components, assets) ready for implementation</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Produces</h3><ul><li>a zipped handoff folder containing every referenced design file plus a nine-section README spec (fidelity, layout, tokens, interactions, state, assets, file manifest)</li></ul></div>
+<div class="meta-row"><h3 class="label-caps">Tags</h3>
+<ul class="tags tag-links"><li><a class="tag" href="../index.html?tag=handoff">handoff</a></li><li><a class="tag" href="../index.html?tag=design-engineering">design-engineering</a></li><li><a class="tag" href="../index.html?tag=documentation">documentation</a></li><li><a class="tag" href="../index.html?tag=design-tokens">design-tokens</a></li><li><a class="tag" href="../index.html?tag=component-docs">component-docs</a></li></ul></div>
+
+<details id="source" class="fold">
+<summary>Source and licence</summary>
+<p>Vendored from <a href="https://github.com/manalkaff/opendesign/tree/cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb/skills/handoff-to-claude-code">manalkaff/opendesign</a> by manalkaff at <code>cecd9bb</code>, licence <code>MIT</code>. Modified when vendored: portability.</p>
+</details>
+</section>
+
+
+
+<article class="skill-body" id="instructions">
+<h2 class="body-head">Instructions</h2>
+<p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/design-engineering/handoff-to-claude-code/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
+<p>Loaded when the user asks to hand a finished design off to a developer or a coding agent for implementation in a real codebase. The output of this skill is a self-sufficient handoff folder, zipped and presented to the user for download.</p>
+<h3 id="folder-setup">Folder setup</h3>
+<ul>
+<li>Create a folder at <code>./opendesign/handoffs/&lt;feature-slug&gt;/</code>. Slug describes the feature (e.g. <code>onboarding-flow</code>, <code>settings-redesign</code>). Never <code>handoff/</code>, <code>export/</code>, or similar generics at the project root.</li>
+<li>Copy every relevant HTML prototype, component file, image, font, and referenced asset into the folder. The developer must not have to trace paths back into the main project tree.</li>
+<li>Generate <code>README.md</code> at the root of the folder. Everything the developer needs to act on lives in the README.</li>
+</ul>
+<h3 id="readme-structure">README structure</h3>
+<p>Every section below is required. Use these exact headings in this order.</p>
+<ol>
+<li><strong>Overview.</strong> One short paragraph: what the feature is and what it accomplishes. No design history.</li>
+<li><strong>About the design files.</strong> Disclaimer up front, verbatim in spirit: the HTML files in this bundle are <em>design references</em>, not production code to copy directly. The developer's task is to recreate the designs in the target codebase's existing framework (React, Vue, SwiftUI, native, etc.) using its established patterns and libraries. If no codebase exists yet, pick the most appropriate framework for the project.</li>
+<li><strong>Fidelity.</strong> State explicitly whether the designs are high-fidelity (pixel-perfect; recreate exactly) or low-fidelity (wireframe; use for layout and flow, apply the existing design system for styling). This call changes how much of the rest of the README is authoritative.</li>
+<li><strong>Screens / views.</strong> For every screen in the design, document:
+<ul>
+<li>Name and purpose.</li>
+<li>Layout — grid structure, flex direction, widths, heights, margins, padding. Exact values.</li>
+<li>Components. For each: position and size, exact colors (hex), typography (family, size, weight, line-height, letter-spacing), border radius, shadows, borders, hover / active / focus states, exact copy.</li>
+</ul></li>
+<li><strong>Interactions and behavior.</strong> Click handlers, navigation flows, animations (duration, easing, animated properties), hover states, loading states, error states, form validation rules, responsive behavior where applicable.</li>
+<li><strong>State management.</strong> State variables, transitions and their triggers, data-fetching requirements.</li>
+<li><strong>Design tokens.</strong> Colors (with hex), spacing scale, type scale, border radii, shadows. Flat list, not prose.</li>
+<li><strong>Assets.</strong> Every image, icon, font, or other asset used in the design, with its source.</li>
+<li><strong>Files.</strong> List the HTML/CSS/JS files included in the bundle and what each one corresponds to.</li>
+</ol>
+<h3 id="hard-rules">Hard rules</h3>
+<ul>
+<li>Be extremely precise about measurements, colors, and typography. The developer is implementing from this document, not eyeballing the HTML.</li>
+<li>State up front that the HTML is a reference, not the shipping artifact. This is the single most important thing for the developer to understand — without it they may paste the prototype into the codebase and ship it.</li>
+<li>If the design uses brand assets, tell the developer to pull from the codebase's existing brand system, not to copy the embedded copies from the HTML.</li>
+<li>Before finishing, ask the user whether they want screenshots of the designs included in the bundle. Do not include them by default.</li>
+<li>After writing the folder, zip it and present the archive to the user for download. Name the zip <code>&lt;feature-slug&gt;.zip</code>.</li>
+</ul>
+<h3 id="readme-tone">README tone</h3>
+<ul>
+<li>Write for a developer who was not in the design conversation. No &quot;as we discussed.&quot; No assumed context.</li>
+<li>Imperative and concrete. &quot;Use <code>#246BFD</code> for primary buttons&quot; beats &quot;the primary button should use a blue tone.&quot;</li>
+<li>No rationale or design justification unless the developer needs it to implement correctly. This is a spec, not a pitch.</li>
+</ul>
+</article>
+</main>
+</div>
+
+<footer class="site-foot">
+<p><a href="../index.html">Back to all skills</a></p>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>
