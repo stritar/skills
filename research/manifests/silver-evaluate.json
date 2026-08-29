@@ -1,0 +1,55 @@
+{
+  "id": "silver-evaluate",
+  "category": "testing",
+  "verdict": "vendor",
+  "rubric": { "relevance": 3, "quality": 2, "conformance": 1, "uniqueness": 2 },
+  "upstream": {
+    "repository": "thejparsenault/silver-design-framework",
+    "url": "https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/evaluate",
+    "author": "JP Arsenault",
+    "commit": "317ede0f594cda80f0d84b11098afac0c29e21b1",
+    "path": "framework/skills/evaluate",
+    "license": "MIT",
+    "licenseSource": "repo-root:LICENSE"
+  },
+  "files": [
+    { "dest": "SKILL.md", "rawUrl": "https://raw.githubusercontent.com/thejparsenault/silver-design-framework/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/evaluate/SKILL.md", "blobSha": "cff969df2f4c926f090715162eb28268d9312dd7" },
+    { "dest": "skill.yaml", "rawUrl": "https://raw.githubusercontent.com/thejparsenault/silver-design-framework/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/evaluate/skill.yaml", "blobSha": "f03a9ccb553450e53835c164725ceabe8c3fd286" },
+    { "dest": "agents/openai.yaml", "rawUrl": "https://raw.githubusercontent.com/thejparsenault/silver-design-framework/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/evaluate/agents/openai.yaml", "blobSha": "f54c1a86e149c40ccf69a72cf08b2a80a16457bf" },
+    { "dest": "scripts/invoke.mjs", "rawUrl": "https://raw.githubusercontent.com/thejparsenault/silver-design-framework/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/evaluate/scripts/invoke.mjs", "blobSha": "8791cf2a9682e7f6590ca3909e82ce2b0dfcf4c4" },
+    { "dest": "LICENSE.txt", "rawUrl": "https://raw.githubusercontent.com/thejparsenault/silver-design-framework/317ede0f594cda80f0d84b11098afac0c29e21b1/LICENSE", "blobSha": "3f0c9113e2aadf3ddd7af0cad043e7938b6f2692" }
+  ],
+  "securityNotes": "Read SKILL.md, skill.yaml, agents/openai.yaml, and scripts/invoke.mjs in full at the pinned SHA. invoke.mjs is the same repo-wide Node shim reviewed for silver-research (blob 8791cf2a9682e7f6590ca3909e82ce2b0dfcf4c4): local/npm dynamic import attempts only, fails safely with a clear message, no network calls, no download-and-execute. skill.yaml declares an optional external 'browser' capability (for inspecting a live prototype) and an optional external 'research-evidence' capability, both explicitly gated with fallback: degraded -- no code in the bundled files actually opens a browser or calls a service; these are declarative capability hints for the (unbundled) Silver runtime to wire up. Clean.",
+  "overlaps": ["interface-review", "design-review", "critique-information-density"],
+  "proposedEntry": {
+    "id": "silver-evaluate",
+    "name": "silver-evaluate",
+    "description": "Runs a usability test, expert review, or feedback evaluation distinct from deterministic conformance checking: defines the decision, evaluation question, method, participants or reviewers, and tasks; inspects a pinned visualization or prototype and captures only sanitized observations; separates observed behavior from interpretation and from deterministic check findings; and produces evidence-linked findings and recommendations for explicit human acceptance. Boundaries forbid implying participants or sessions existed when only a planned or expert review was performed, and forbid turning automated-conformance failures into fabricated user evidence. Upstream's 'Done' step instructs emitting the finished record through a bundled `.silver/bin/silver invoke` CLI belonging to the parent Silver Design Framework installation; that CLI and its runtime are not included in this vendored skill, so used standalone an agent should follow the workflow and boundaries and write the evaluation/finding artifacts directly.",
+    "category": "testing",
+    "tags": ["usability-testing", "heuristic-evaluation", "design-critique", "expert-review", "severity"],
+    "triggers": ["plan a usability test", "run an expert review of this prototype", "evaluate this design and separate observation from interpretation", "produce evidence-linked evaluation findings", "distinguish user-tested findings from automated conformance failures"],
+    "inputs": ["a sketch, visualization, prototype, design specification, or map to evaluate", "an evaluation question, method, and participant/reviewer set"],
+    "outputs": ["evidence-linked findings and recommendations that keep observed behavior, interpretation, confidence, and deterministic-conformance results distinguishable"],
+    "path": "skills/testing/silver-evaluate",
+    "source": {
+      "type": "third-party",
+      "repository": "thejparsenault/silver-design-framework",
+      "url": "https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/evaluate",
+      "author": "JP Arsenault",
+      "license": "MIT",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": "framework/skills/evaluate",
+      "upstreamCommit": "317ede0f594cda80f0d84b11098afac0c29e21b1",
+      "retrievedAt": "2026-08-26",
+      "modified": false,
+      "modifications": []
+    },
+    "compatibility": ["claude-code", "codex", "cursor", "opencode", "amp", "gemini-cli", "copilot", "vs-code", "claude-ai"],
+    "dependencies": ["node"],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "experimental",
+    "status": "draft"
+  },
+  "logMd": "#### thejparsenault/silver-design-framework (inspected 2026-08-26)\n- Same repo pin, license, and repo-wide structure as silver-research (see that manifest's logMd for full repo-level evidence).\n- Read this skill's SKILL.md, skill.yaml, agents/openai.yaml, scripts/invoke.mjs in full. Frontmatter name 'silver-evaluate' equals proposedEntry.id; fields are name/description/allowed-tools, all spec-six -> claude-ai appended.\n- Rubric: relevance 3 (usability testing/expert review is core testing-category activity), quality 2 (the observation/interpretation/conformance separation and the specific 'never imply sessions occurred' boundary are genuinely actionable; still no rubric for severity, no task-design guidance, no example finding format), conformance 1 (same CLI host-coupling as the rest of the repo), uniqueness 2 (this registry's closest matches -- interface-review, design-review, critique-information-density -- review PRs/interfaces/information density directly; none frames a research-grade usability-test-vs-expert-review workflow with an explicit boundary against conflating it with automated conformance checks, which is the registry's 'testing' category gap named in the task). Total 8.\n- Verdict: vendor, with the CLI limitation documented in the description and dependencies."
+}

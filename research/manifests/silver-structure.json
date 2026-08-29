@@ -1,0 +1,56 @@
+{
+  "id": "silver-structure",
+  "category": "information-architecture",
+  "verdict": "vendor",
+  "rubric": { "relevance": 3, "quality": 2, "conformance": 1, "uniqueness": 2 },
+  "upstream": {
+    "repository": "thejparsenault/silver-design-framework",
+    "url": "https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/structure",
+    "author": "JP Arsenault",
+    "commit": "317ede0f594cda80f0d84b11098afac0c29e21b1",
+    "path": "framework/skills/structure",
+    "license": "MIT",
+    "licenseSource": "repo-root:LICENSE"
+  },
+  "files": [
+    { "dest": "SKILL.md", "rawUrl": "https://raw.githubusercontent.com/thejparsenault/silver-design-framework/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/structure/SKILL.md", "blobSha": "e064e051ea1cf64ab7565ca407e53ee4cf57d0c2" },
+    { "dest": "skill.yaml", "rawUrl": "https://raw.githubusercontent.com/thejparsenault/silver-design-framework/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/structure/skill.yaml", "blobSha": "b537b2d0b26e6ebb49a227b0fd0a03288f7dfb44" },
+    { "dest": "agents/openai.yaml", "rawUrl": "https://raw.githubusercontent.com/thejparsenault/silver-design-framework/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/structure/agents/openai.yaml", "blobSha": "1838c6aab3b4d0d1a8cb2bcbf371c239e5ae92a9" },
+    { "dest": "scripts/invoke.mjs", "rawUrl": "https://raw.githubusercontent.com/thejparsenault/silver-design-framework/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/structure/scripts/invoke.mjs", "blobSha": "8791cf2a9682e7f6590ca3909e82ce2b0dfcf4c4" },
+    { "dest": "scripts/check-structure.mjs", "rawUrl": "https://raw.githubusercontent.com/thejparsenault/silver-design-framework/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/structure/scripts/check-structure.mjs", "blobSha": "66830124c764d9042251ce7b71d62d7b7d0574bb" },
+    { "dest": "LICENSE.txt", "rawUrl": "https://raw.githubusercontent.com/thejparsenault/silver-design-framework/317ede0f594cda80f0d84b11098afac0c29e21b1/LICENSE", "blobSha": "3f0c9113e2aadf3ddd7af0cad043e7938b6f2692" }
+  ],
+  "securityNotes": "Read SKILL.md, skill.yaml, agents/openai.yaml, scripts/invoke.mjs, and scripts/check-structure.mjs in full at the pinned SHA. invoke.mjs is the same repo-wide Node shim reviewed for silver-research (blob 8791cf2a9682e7f6590ca3909e82ce2b0dfcf4c4): local/npm dynamic import attempts only, fails safely with a clear message, no network calls, no download-and-execute. check-structure.mjs (unique to this skill) is a genuinely self-contained, dependency-free Node module: it only imports node:fs/promises and node:path, reads one JSON file the caller names, validates it against a small local schema, checks for duplicate entity ids, missing-parent references, parent cycles, and dangling relationship references, and explicitly guards against path traversal (`if (!file.startsWith(workspace + sep)) throw`). No network access, no writes, no exfiltration. Clean, and reviewable line by line.",
+  "overlaps": ["service-blueprint"],
+  "proposedEntry": {
+    "id": "silver-structure",
+    "name": "silver-structure",
+    "description": "Defines and refines information architecture: navigation structure, taxonomy, content models, and object models -- what exists, how it is organized, and how things relate -- explicitly distinct from flow (sequences over time) and journey/service maps (broader relational views). Workflow: name the question and structure type (IA, navigation, content model, taxonomy, or object model); define entities, attributes, and parent/child relationships; define relationships between entities including cardinality where known; and record structural rules, leaving genuine ambiguity recorded rather than resolved by assumption. Boundaries explicitly hand off sequences/transitions to a flow skill, journeys/service blueprints to a mapping skill, reusable interface components to a component skill, and design-system tokens/primitives to a system skill, keeping this skill's scope to pure structure. Includes a small, dependency-free Node script (scripts/check-structure.mjs) that validates a structure JSON file for duplicate entity ids, missing parent references, parent cycles, and dangling relationships. Upstream's SKILL.md also instructs emitting the finished record through a bundled `.silver/bin/silver invoke` CLI belonging to the parent Silver Design Framework installation; that CLI and its runtime are not included in this vendored skill, so used standalone an agent should follow the workflow and write the structure artifact directly (the bundled check-structure.mjs script still runs on its own, given a structure JSON file matching the schema described in skill.yaml).",
+    "category": "information-architecture",
+    "tags": ["information-architecture", "taxonomy", "content-hierarchy", "mental-models"],
+    "triggers": ["define the information architecture for this product", "model entities and relationships", "build a taxonomy or content model", "distinguish structure from flow and from journey maps", "check a structure definition for cycles or missing references"],
+    "inputs": ["a product or design-specification context needing structural definition", "optionally, existing findings or maps that inform the structure"],
+    "outputs": ["named entities, attributes, and parent/child relationships; explicit relationships with cardinality where known; and structural rules, with genuine ambiguity recorded rather than assumed"],
+    "path": "skills/information-architecture/silver-structure",
+    "source": {
+      "type": "third-party",
+      "repository": "thejparsenault/silver-design-framework",
+      "url": "https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/structure",
+      "author": "JP Arsenault",
+      "license": "MIT",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": "framework/skills/structure",
+      "upstreamCommit": "317ede0f594cda80f0d84b11098afac0c29e21b1",
+      "retrievedAt": "2026-08-26",
+      "modified": false,
+      "modifications": []
+    },
+    "compatibility": ["claude-code", "codex", "cursor", "opencode", "amp", "gemini-cli", "copilot", "vs-code", "claude-ai"],
+    "dependencies": ["node"],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "experimental",
+    "status": "draft"
+  },
+  "logMd": "#### thejparsenault/silver-design-framework (inspected 2026-08-26)\n- Same repo pin, license, and repo-wide structure as silver-research (see that manifest's logMd for full repo-level evidence).\n- Read this skill's SKILL.md, skill.yaml, agents/openai.yaml, scripts/invoke.mjs, and scripts/check-structure.mjs (the extra validation script unique to this skill) in full. Frontmatter name 'silver-structure' equals proposedEntry.id; fields are name/description/allowed-tools, all spec-six -> claude-ai appended.\n- Rubric: relevance 3 (information architecture / taxonomy / content modeling is core IA-category work, matching the taxonomy.md category description almost verbatim), quality 2 (the explicit structure-vs-flow-vs-map-vs-component-vs-system disambiguation is unusually precise and behavior-shaping for this repo; still no worked IA example, no card-sorting or tree-testing technique, no output template beyond the schema in skill.yaml), conformance 1 (same CLI host-coupling as the rest of the repo for the SKILL.md workflow; the bundled check-structure.mjs script is fully self-contained and functions standalone, which is a small point in this skill's favor over its siblings), uniqueness 2 (the given registry list has no information-architecture-category skill at all; service-blueprint is the nearest neighbor but covers service/journey blueprints, a relation this skill explicitly excludes from its own scope). Total 8.\n- Verdict: vendor, with the CLI limitation documented in the description and dependencies."
+}

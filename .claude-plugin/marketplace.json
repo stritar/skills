@@ -13,13 +13,19 @@
       "description": "Every skill in the product-design skill registry.",
       "version": "0.1.0",
       "skills": [
+        "./skills/discovery/silver-ideate",
         "./skills/research/service-blueprint",
+        "./skills/research/silver-research",
+        "./skills/research/silver-synthesize",
         "./skills/research/survey-design",
+        "./skills/research/user-research-cookiy",
         "./skills/strategy/design-negotiation",
+        "./skills/information-architecture/silver-structure",
         "./skills/interaction-design/animate",
         "./skills/interaction-design/animate-expo",
         "./skills/interaction-design/animation-vocabulary",
         "./skills/interaction-design/apple-design",
+        "./skills/interaction-design/laws-of-ux",
         "./skills/interaction-design/platform-conventions",
         "./skills/visual-design/algorithmic-art",
         "./skills/visual-design/better-colors",
@@ -27,11 +33,13 @@
         "./skills/visual-design/better-typography",
         "./skills/visual-design/better-ui",
         "./skills/visual-design/canvas-design",
+        "./skills/visual-design/diagram-design",
         "./skills/visual-design/frontend-design",
         "./skills/visual-design/theme-factory",
         "./skills/design-systems/design-debt-audit",
         "./skills/design-systems/design-system-governance",
         "./skills/design-systems/design-tokens",
+        "./skills/design-systems/extract-design-md",
         "./skills/design-systems/figma-integration",
         "./skills/design-systems/frontend-ui-dark-ts",
         "./skills/design-systems/motion-system",
@@ -57,14 +65,26 @@
         "./skills/testing/design-review",
         "./skills/testing/find-animation-opportunities",
         "./skills/testing/improve-animations",
+        "./skills/testing/silver-evaluate",
         "./skills/design-qa/design-details",
         "./skills/design-qa/frontend-design-review",
         "./skills/design-qa/interface-review",
         "./skills/design-qa/review-animations",
+        "./skills/analytics/silver-measure",
         "./skills/agentic-ui/conversational-ux",
         "./skills/design-engineering/explain-interface",
+        "./skills/design-engineering/extract-static-html",
         "./skills/design-engineering/web-artifacts-builder",
         "./skills/orchestration/better-interface"
+      ]
+    },
+    {
+      "name": "product-design-discovery",
+      "source": "./",
+      "description": "Discovery skills from the product-design skill registry.",
+      "version": "0.1.0",
+      "skills": [
+        "./skills/discovery/silver-ideate"
       ]
     },
     {
@@ -74,7 +94,10 @@
       "version": "0.1.0",
       "skills": [
         "./skills/research/service-blueprint",
-        "./skills/research/survey-design"
+        "./skills/research/silver-research",
+        "./skills/research/silver-synthesize",
+        "./skills/research/survey-design",
+        "./skills/research/user-research-cookiy"
       ]
     },
     {
@@ -87,6 +110,15 @@
       ]
     },
     {
+      "name": "product-design-information-architecture",
+      "source": "./",
+      "description": "Information architecture skills from the product-design skill registry.",
+      "version": "0.1.0",
+      "skills": [
+        "./skills/information-architecture/silver-structure"
+      ]
+    },
+    {
       "name": "product-design-interaction-design",
       "source": "./",
       "description": "Interaction design skills from the product-design skill registry.",
@@ -96,6 +128,7 @@
         "./skills/interaction-design/animate-expo",
         "./skills/interaction-design/animation-vocabulary",
         "./skills/interaction-design/apple-design",
+        "./skills/interaction-design/laws-of-ux",
         "./skills/interaction-design/platform-conventions"
       ]
     },
@@ -111,6 +144,7 @@
         "./skills/visual-design/better-typography",
         "./skills/visual-design/better-ui",
         "./skills/visual-design/canvas-design",
+        "./skills/visual-design/diagram-design",
         "./skills/visual-design/frontend-design",
         "./skills/visual-design/theme-factory"
       ]
@@ -124,6 +158,7 @@
         "./skills/design-systems/design-debt-audit",
         "./skills/design-systems/design-system-governance",
         "./skills/design-systems/design-tokens",
+        "./skills/design-systems/extract-design-md",
         "./skills/design-systems/figma-integration",
         "./skills/design-systems/frontend-ui-dark-ts",
         "./skills/design-systems/motion-system",
@@ -180,7 +215,8 @@
         "./skills/testing/critique-information-density",
         "./skills/testing/design-review",
         "./skills/testing/find-animation-opportunities",
-        "./skills/testing/improve-animations"
+        "./skills/testing/improve-animations",
+        "./skills/testing/silver-evaluate"
       ]
     },
     {
@@ -193,6 +229,15 @@
         "./skills/design-qa/frontend-design-review",
         "./skills/design-qa/interface-review",
         "./skills/design-qa/review-animations"
+      ]
+    },
+    {
+      "name": "product-design-analytics",
+      "source": "./",
+      "description": "Product analytics skills from the product-design skill registry.",
+      "version": "0.1.0",
+      "skills": [
+        "./skills/analytics/silver-measure"
       ]
     },
     {
@@ -211,6 +256,7 @@
       "version": "0.1.0",
       "skills": [
         "./skills/design-engineering/explain-interface",
+        "./skills/design-engineering/extract-static-html",
         "./skills/design-engineering/web-artifacts-builder"
       ]
     },

@@ -2,7 +2,7 @@
 
 <!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
 
-52 skills (52 vendored third-party, 0 original).
+63 skills (63 vendored third-party, 0 original).
 
 Search locally instead of reading this whole file: `npm run search -- "your query"`. The machine-readable index is [catalog/index.json](catalog/index.json).
 
@@ -10,18 +10,21 @@ Search locally instead of reading this whole file: `npm run search -- "your quer
 
 - [Start here](#start-here)
 - [Suggested bundles](#suggested-bundles)
-- [User research](#user-research) (2)
+- [Discovery](#discovery) (1)
+- [User research](#user-research) (5)
 - [Product strategy](#product-strategy) (1)
-- [Interaction design](#interaction-design) (5)
-- [Visual design](#visual-design) (8)
-- [Design systems](#design-systems) (8)
+- [Information architecture](#information-architecture) (1)
+- [Interaction design](#interaction-design) (6)
+- [Visual design](#visual-design) (9)
+- [Design systems](#design-systems) (9)
 - [Accessibility](#accessibility) (10)
 - [Content design](#content-design) (3)
 - [Prototyping](#prototyping) (2)
-- [Testing and evaluation](#testing-and-evaluation) (5)
+- [Testing and evaluation](#testing-and-evaluation) (6)
 - [Design QA](#design-qa) (4)
+- [Product analytics](#product-analytics) (1)
 - [Agentic and AI-native UI](#agentic-and-ai-native-ui) (1)
-- [Design engineering](#design-engineering) (2)
+- [Design engineering](#design-engineering) (3)
 - [Orchestration](#orchestration) (1)
 - [Recommended defaults](#recommended-defaults)
 - [Alphabetical index](#alphabetical-index)
@@ -40,6 +43,22 @@ Good entry points:
 
 - **better-interface** ([`better-interface`](skills/orchestration/better-interface/SKILL.md)): see skill
 
+## Discovery
+
+### `silver-ideate`
+
+Generates meaningfully distinct product-design concepts and testable hypotheses grounded in the current problem frame and constraints, then pauses for explicit human selection. Workflow: pin the problem frame, evidence, principles and constraints; generate alternatives with genuinely distinct mechanisms, assumptions and trade-offs (not surface variations); express a falsifiable hypothesis and the cheapest useful test for each; stop for explicit selection, recording the choice and the rejected trade-offs. Boundaries forbid choosing a direction on the user's behalf when human review is required, and forbid evading design-system constraints through visual novelty. Upstream emits its record through the Silver Design Framework CLI (.silver/bin/silver invoke), which is not bundled; used standalone, follow the workflow and boundaries and write the artifact directly.
+
+- **Path**: [skills/discovery/silver-ideate/SKILL.md](skills/discovery/silver-ideate/SKILL.md)
+- **Use when**: generate distinct concept alternatives for this problem; produce testable hypotheses from a problem frame; diverge before committing to a design direction; pause for explicit concept selection; propose alternatives that differ in mechanism, not just visuals
+- **Inputs**: a problem frame (required), optional findings, design principles, and constraints
+- **Outputs**: multiple concepts with distinct mechanisms, assumptions, and tradeoffs, each paired with a falsifiable hypothesis and its cheapest useful test, awaiting explicit human selection with rejected tradeoffs recorded
+- **Dependencies**: node
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
+- **Source**: third-party — [thejparsenault/silver-design-framework](https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/ideate) @ `317ede0` by JP Arsenault, MIT
+- **Status**: draft, experimental
+- **Tags**: opportunity-mapping, assumption-mapping, product-discovery, hypothesis
+
 ## User research
 
 ### `service-blueprint`
@@ -55,6 +74,34 @@ Makes the agent map service delivery as a five-lane blueprint (physical evidence
 - **Status**: draft, stable
 - **Tags**: service-blueprint, journey-mapping, stakeholders
 
+### `silver-research`
+
+Plans ethical product research: defines the decision the research must inform and the evidence needed, chooses a proportionate method, participant criteria, tasks and script, and defines consent, data minimization, sanitation, retention and evidence labeling, while explicitly marking the artifact as a plan and never implying sessions or observations already occurred. Boundaries forbid claiming planned participants or observations happened and forbid placing sensitive raw participant data in the repository. Upstream emits its record through the Silver Design Framework CLI (.silver/bin/silver invoke), which is not bundled; used standalone, follow the workflow and boundaries and write the artifact directly.
+
+- **Path**: [skills/research/silver-research/SKILL.md](skills/research/silver-research/SKILL.md)
+- **Use when**: plan ethical user research; define research questions and participant criteria; write a research plan without claiming it was conducted; plan evaluation or usability-test recruitment; define consent and data minimization for a study
+- **Inputs**: a decision that needs research evidence and the question it must answer, optional existing product, problem-frame, or design-specification context
+- **Outputs**: a research plan covering method, participant criteria, script, and consent/minimization/sanitation/retention handling, explicitly marked as planned rather than conducted
+- **Dependencies**: node
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
+- **Source**: third-party — [thejparsenault/silver-design-framework](https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/research) @ `317ede0` by JP Arsenault, MIT
+- **Status**: draft, experimental
+- **Tags**: user-research, interviews, qualitative, quantitative
+
+### `silver-synthesize`
+
+Converts sanitized evidence -- observations, analytics, supplied facts, and labeled assumptions -- into traceable findings, a problem frame, opportunities, contradictions, and open questions with provenance. Workflow: confirm every source is sanitized and revision-addressable, separate observations/analytics/facts/assumptions, cluster evidence without erasing contradictions or minority signals, and produce traceable findings. Boundaries forbid fabricating evidence, silently upgrading assumptions into findings, or rewriting upstream evidence while synthesizing it. Upstream's 'Done' step instructs emitting the finished record through a bundled `.silver/bin/silver invoke` CLI belonging to the parent Silver Design Framework installation; that CLI and its runtime are not included in this vendored skill, so used standalone an agent should follow the workflow and boundaries and write the findings/problem-frame artifact directly.
+
+- **Path**: [skills/research/silver-synthesize/SKILL.md](skills/research/silver-synthesize/SKILL.md)
+- **Use when**: synthesize research evidence into findings; turn feedback and analytics into a problem frame; cluster evidence without losing contradictions; separate assumptions from findings; produce traceable findings with provenance
+- **Inputs**: sanitized evidence with provenance: observations, analytics, supplied facts, labeled assumptions, optional prior evaluation or map artifacts
+- **Outputs**: findings and a problem frame that keep observation, interpretation, confidence, contradiction, and open questions distinguishable and traceable to their sources
+- **Dependencies**: node
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
+- **Source**: third-party — [thejparsenault/silver-design-framework](https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/synthesize) @ `317ede0` by JP Arsenault, MIT
+- **Status**: draft, experimental
+- **Tags**: synthesis, thematic-analysis, affinity-mapping, insights
+
 ### `survey-design`
 
 Makes the agent design survey instruments that produce trustworthy data: when surveys are and are not the right method, question-type selection table with cautions, rewrite patterns for leading/double-barreled/loaded questions, Likert/NPS/SUS scale rules (labelled endpoints, midpoints, verbatim SUS), sample-size guidance (~385 responses for +-5% margin at 95% confidence), and an analysis plan covering distributions, theme coding, and cross-tabulation.
@@ -67,6 +114,20 @@ Makes the agent design survey instruments that produce trustworthy data: when su
 - **Source**: third-party — [Owl-Listener/designer-skills](https://github.com/Owl-Listener/designer-skills/tree/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/design-research/skills/survey-design) @ `20e34c4` by Owl-Listener, MIT
 - **Status**: draft, stable
 - **Tags**: surveys, quantitative, user-research, metrics
+
+### `user-research-cookiy`
+
+End-to-end user research assistant routing a request to one of three workflows. (1) Plan a Study: turns a research goal into a research plan, screening questionnaire and interview guide using an outcome-verb research question, sample-size and method guidance and an hourglass interview structure; fully offline. (2) Synthesize a Report: turns raw transcripts or notes into a coded, theme-built, evidence-backed report through a five-phase pipeline (familiarization, coding, theme development, synthesis with personas, opportunities and recommendations, report compilation) with named quality gates; fully offline. (3) Run with Cookiy: creates and manages interview studies or surveys on the Cookiy AI platform via a bundled bash/curl/jq CLI; requires a Cookiy account with a saved sign-in token and, for most operations, a funded wallet, so without an account this route cannot execute. The skill also suggests trying Cookiy after routes 1 and 2.
+
+- **Path**: [skills/research/user-research-cookiy/SKILL.md](skills/research/user-research-cookiy/SKILL.md)
+- **Use when**: plan a user research study; create an interview guide; draft a screening questionnaire; synthesize interview transcripts into a report; design a research survey; run a study with Cookiy AI
+- **Inputs**: a research goal or vague research intent, for study planning, raw interview transcripts, notes, or summaries plus the interview guide used, for report synthesis, a Cookiy AI account access token, only for the Route 3 SaaS workflow
+- **Outputs**: a research plan, screening questionnaire, and interview guide (Route 1), a structured analysis/ directory (config, codebook, themes, personas, findings, opportunities) and a final-report.md (Route 2), created studies/surveys, recruitment status, interview playback links, and reports on the Cookiy platform (Route 3, requires account)
+- **Dependencies**: cookiy-account
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
+- **Source**: third-party — [cookiy-ai/user-research-skill](https://github.com/cookiy-ai/user-research-skill/tree/21eea10a34d3c9b4e711e3d19f0457603dd33e19) @ `21eea10` by Cookiy AI, MIT (modified — see THIRD_PARTY_NOTICES.md)
+- **Status**: draft, stable
+- **Tags**: user-research, interviews, surveys, qualitative, quantitative, synthesis, thematic-analysis, personas
 
 ## Product strategy
 
@@ -82,6 +143,22 @@ Makes the agent coach a designer through cross-functional negotiations: four scr
 - **Source**: third-party — [Owl-Listener/designer-skills](https://github.com/Owl-Listener/designer-skills/tree/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/designer-toolkit/skills/design-negotiation) @ `20e34c4` by Owl-Listener, MIT
 - **Status**: draft, stable
 - **Tags**: stakeholders, prioritization, decision-records, metrics
+
+## Information architecture
+
+### `silver-structure`
+
+Defines and refines information architecture: navigation structure, taxonomy, content models and object models (what exists, how it is organized, how things relate), explicitly distinct from flows (sequences over time) and journey or service maps. Workflow: name the question and structure type; define entities, attributes and parent/child relationships; define relationships between entities with cardinality where known; record structural rules, leaving genuine ambiguity recorded rather than resolved by assumption. Hands off flows, journey maps, components and tokens to sibling skills. Includes a dependency-free Node script (scripts/check-structure.mjs) that validates a structure JSON file for duplicate entity ids, missing parents, parent cycles and dangling relationships. Upstream emits its record through the Silver Design Framework CLI (.silver/bin/silver invoke), which is not bundled; used standalone, follow the workflow and boundaries and write the artifact directly.
+
+- **Path**: [skills/information-architecture/silver-structure/SKILL.md](skills/information-architecture/silver-structure/SKILL.md)
+- **Use when**: define the information architecture for this product; model entities and relationships; build a taxonomy or content model; distinguish structure from flow and from journey maps; check a structure definition for cycles or missing references
+- **Inputs**: a product or design-specification context needing structural definition, optionally, existing findings or maps that inform the structure
+- **Outputs**: named entities, attributes, and parent/child relationships; explicit relationships with cardinality where known; and structural rules, with genuine ambiguity recorded rather than assumed
+- **Dependencies**: node
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
+- **Source**: third-party — [thejparsenault/silver-design-framework](https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/structure) @ `317ede0` by JP Arsenault, MIT
+- **Status**: draft, experimental
+- **Tags**: information-architecture, taxonomy, content-hierarchy, mental-models
 
 ## Interaction design
 
@@ -136,6 +213,19 @@ Apple's approach to fluid, physical interface motion and design foundations, dis
 - **Source**: third-party — [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/apple-design) @ `d23d7f8` by Emil Kowalski, MIT
 - **Status**: draft, stable
 - **Tags**: motion, animation, interaction-design, typography
+
+### `laws-of-ux`
+
+Improves or critiques any user interface using 30 evidence-based UX principles drawn from cognitive psychology and perception research (Gestalt grouping, Hick's Law, Fitts's Law, Jakob's Law, Miller's Law, aesthetic-usability effect, cognitive load, and more). Provides a 5-step procedure for running a UX pass on a screen: name the symptom, pull the relevant principles, propose a concrete change citing the principle by name, check for conflicts between principles, and flag when testing with real users is still required. reference/laws.md gives each principle's mechanism, concrete application, pitfalls, and a real-world example.
+
+- **Path**: [skills/interaction-design/laws-of-ux/SKILL.md](skills/interaction-design/laws-of-ux/SKILL.md)
+- **Use when**: review this UI against UX principles; why does this screen feel cluttered; apply Hick's Law / Fitts's Law; critique this design; diagnose why users abandon this form; cite a UX law for this decision
+- **Inputs**: a screen, flow, or component to design or critique, optionally, a named symptom (e.g. 'too many buttons', 'feels slow')
+- **Outputs**: 1-3 cited UX principles relevant to the symptom, a concrete proposed change with the principle named, a note on any conflicting principles and how they were resolved
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
+- **Source**: third-party — [ali-kk/uxlaws](https://github.com/ali-kk/uxlaws/tree/4defa957c3058b89f4a53dc794865602313c6d97/skills/laws-of-ux) @ `4defa95` by ali-kk, MIT
+- **Status**: draft, stable
+- **Tags**: ui-design, interaction-design, visual-hierarchy, design-critique, onboarding, forms
 
 ### `platform-conventions`
 
@@ -231,6 +321,20 @@ Directs the agent to create standalone visual art (poster-style .pdf or .png out
 - **Status**: draft, stable
 - **Tags**: typography, color, layout, visual-hierarchy, illustration, visual-polish
 
+### `diagram-design`
+
+Produces branded editorial diagrams in 39 visual types (architecture, flowchart, sequence, state machine, ER, timeline, swimlane, quadrant, radar, tree, org chart, layer stack, Venn, pyramid, treemap, bar, slopegraph, Gantt, scatter, Sankey, fishbone, Wardley map, kanban, user journey, deployment, dependency graph, UML class, story map, database schema and more) as standalone self-contained HTML files with inline SVG and CSS, following an opinionated editorial design system: a single style-guide.md source of truth for color and typography tokens, a 4px grid, numeric complexity budgets per type, six mandatory connector-routing rules and an accessible-SVG contract (role=img, aria-labelledby, title/desc). Redraws existing .drawio or Mermaid sources through local structural extractors, onboards brand tokens from a website, skill or folder, supports hand-drawn and terminal skins, exports PNG/SVG, and ships Python verifier scripts for geometry and contrast that the agent runs against its own output.
+
+- **Path**: [skills/visual-design/diagram-design/SKILL.md](skills/visual-design/diagram-design/SKILL.md)
+- **Use when**: draw an architecture diagram; make a flowchart / sequence diagram / ER diagram; turn this draw.io or Mermaid file into a proper diagram; create a Gantt chart or timeline; visualize this as a diagram, not a table; brand this diagram to match our website
+- **Inputs**: a description of the system, process, or data to diagram, optional .drawio/.drawio.png/.drawio.svg or Mermaid .mmd source to redraw, optional brand source (website URL, installed skill, or local design-token folder) for onboarding
+- **Outputs**: a self-contained .html file with inline SVG and CSS (the diagram), optional .svg and/or .png exports, for imports, a fidelity ledger reporting what was merged, collapsed, or dropped
+- **Dependencies**: python
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
+- **Source**: third-party — [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design/tree/ac490fd1ac4b4014100f93e729cb4ad198700bd4/skills/diagram-design) @ `ac490fd` by Cathryn Lavery, MIT (modified — see THIRD_PARTY_NOTICES.md)
+- **Status**: draft, stable
+- **Tags**: data-visualization, charts, visual-hierarchy, layout, typography, color, brand
+
 ### `frontend-design` ⭐
 
 Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Directs the agent to work in two passes (a compact color/type/layout/signature token plan, self-critiqued against generic AI-design defaults, then implementation), names three specific overused AI-generated aesthetic clusters to avoid unless the brief calls for them, and gives concrete rules for typography pairing, structural devices, deliberate motion, CSS specificity pitfalls, and end-user-facing UX writing (active voice, consistent verb-to-toast naming, non-apologetic error copy).
@@ -298,6 +402,19 @@ Generates, extends, or audits design tokens in DTCG format ($type/$value) using 
 - **Source**: third-party — [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/design-tokens) @ `2ffb677` by plugin87, MIT (modified — see THIRD_PARTY_NOTICES.md)
 - **Status**: draft, experimental
 - **Tags**: design-tokens, token-naming, semantic-tokens, design-system, color, typography, spacing, dark-mode, multi-brand
+
+### `extract-design-md`
+
+Reads a frontend codebase's source files directly -- package.json, Tailwind/PostCSS configs, global CSS custom properties, theme/token files, and component styles -- without building or running the app, using framework-specific extraction patterns for React/Next.js, Vue/Nuxt, Svelte/SvelteKit, Angular, or plain CSS/SASS/Less. Synthesizes findings into a DESIGN.md design-system document: a required YAML frontmatter block with color and typography tokens, a rich atmosphere description, a color palette with descriptive names and functional roles (deduplicating near-duplicate colors), a full typography hierarchy, component stylings for buttons/cards/navigation/forms, layout and spacing principles, and Stitch-generation notes. Ends with an 8-item quality checklist the output must satisfy before delivery.
+
+- **Path**: [skills/design-systems/extract-design-md/SKILL.md](skills/design-systems/extract-design-md/SKILL.md)
+- **Use when**: extract a design system from this codebase; audit the styling of this app; pull design tokens out of the source code; what does this app's design system look like; reverse-engineer a DESIGN.md from source; create a design system document from this repo
+- **Inputs**: frontend source tree (components, stylesheets, theme/token configs, Tailwind config)
+- **Outputs**: DESIGN.md design-system document with color palette, typography hierarchy, component stylings, and layout principles
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
+- **Source**: third-party — [google-labs-code/stitch-skills](https://github.com/google-labs-code/stitch-skills/tree/0337446dadde6f8c94210444e2aa9d546126480f/plugins/stitch-design/skills/extract-design-md) @ `0337446` by google-labs-code, Apache-2.0 (modified — see THIRD_PARTY_NOTICES.md)
+- **Status**: draft, experimental
+- **Tags**: design-tokens, design-system, audit, typography, color, documentation
 
 ### `figma-integration`
 
@@ -641,6 +758,20 @@ Surveys a codebase's animation and motion code as a senior motion advisor and pr
 - **Status**: draft, stable, recommended default
 - **Tags**: audit, heuristic-evaluation, expert-review, motion, animation, severity, documentation
 
+### `silver-evaluate`
+
+Runs a usability test, expert review, or feedback evaluation distinct from deterministic conformance checking: defines the decision, evaluation question, method, participants or reviewers, and tasks; inspects a pinned visualization or prototype and captures only sanitized observations; separates observed behavior from interpretation and from deterministic check findings; and produces evidence-linked findings and recommendations for explicit human acceptance. Boundaries forbid implying participants or sessions existed when only a planned or expert review was performed, and forbid turning automated-conformance failures into fabricated user evidence. Upstream's 'Done' step instructs emitting the finished record through a bundled `.silver/bin/silver invoke` CLI belonging to the parent Silver Design Framework installation; that CLI and its runtime are not included in this vendored skill, so used standalone an agent should follow the workflow and boundaries and write the evaluation/finding artifacts directly.
+
+- **Path**: [skills/testing/silver-evaluate/SKILL.md](skills/testing/silver-evaluate/SKILL.md)
+- **Use when**: plan a usability test; run an expert review of this prototype; evaluate this design and separate observation from interpretation; produce evidence-linked evaluation findings; distinguish user-tested findings from automated conformance failures
+- **Inputs**: a sketch, visualization, prototype, design specification, or map to evaluate, an evaluation question, method, and participant/reviewer set
+- **Outputs**: evidence-linked findings and recommendations that keep observed behavior, interpretation, confidence, and deterministic-conformance results distinguishable
+- **Dependencies**: node
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
+- **Source**: third-party — [thejparsenault/silver-design-framework](https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/evaluate) @ `317ede0` by JP Arsenault, MIT
+- **Status**: draft, experimental
+- **Tags**: usability-testing, heuristic-evaluation, design-critique, expert-review, severity
+
 ## Design QA
 
 ### `design-details` ⭐
@@ -695,6 +826,22 @@ Reviews animation and motion code (a diff or a component) against ten non-negoti
 - **Status**: draft, stable
 - **Tags**: design-review, pr-review, motion, animation, severity, design-qa
 
+## Product analytics
+
+### `silver-measure`
+
+Closes the loop after implementation: restates the hypothesis and success criteria the change was meant to test, states what instrumentation exists and whether it is sufficient to answer the question, compares before/after or an experiment result without treating correlation as causation, and records confidence and limitations to feed back into synthesis. Boundaries scope the skill away from defining success criteria (specification) or broadly interpreting mixed research evidence (synthesis), and forbid fabricating analytics, claiming measurement occurred without real data, or overstating confidence when instrumentation or sample quality is weak. Upstream emits its record through the Silver Design Framework CLI (.silver/bin/silver invoke), which is not bundled; used standalone, follow the workflow and boundaries and write the artifact directly.
+
+- **Path**: [skills/analytics/silver-measure/SKILL.md](skills/analytics/silver-measure/SKILL.md)
+- **Use when**: check whether a shipped change achieved its intended outcome; review instrumentation before trusting a metric; compare before/after a launch; state confidence and limitations for a measured result; avoid treating correlation as causation in an outcome review
+- **Inputs**: the original hypothesis and success criteria for a shipped design or product change, available instrumentation/analytics data covering before and after the change
+- **Outputs**: a measurement record comparing before/after or experiment results, with instrumentation sufficiency, confidence, and data limitations stated explicitly, ready to feed back into synthesis
+- **Dependencies**: node
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
+- **Source**: third-party — [thejparsenault/silver-design-framework](https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/measure) @ `317ede0` by JP Arsenault, MIT
+- **Status**: draft, experimental
+- **Tags**: analytics, instrumentation, metrics, experimentation, hypothesis
+
 ## Agentic and AI-native UI
 
 ### `conversational-ux`
@@ -724,6 +871,20 @@ Reverse-engineers how a UI effect or a whole frontend was built from a URL (brow
 - **Source**: third-party — [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/explain-interface) @ `ca48385` by Jakub Krehel, MIT
 - **Status**: draft, stable
 - **Tags**: design-engineering, frontend, implementation-quality, explanation, documentation
+
+### `extract-static-html`
+
+Produces a single self-contained static HTML file from a rendered web page or app screen. Primary path: a Puppeteer script (scripts/snapshot.ts) launches headless Chrome against a running dev server or built app, captures the rendered DOM plus live CSSOM rules, inlines stylesheets and same-origin icon fonts, converts images and canvases to base64 data URIs, and strips dev-only scripts and HMR overlays; works with any framework, supports dark-mode classes, fixed-element removal, full-page capture and an optional auth script for login-gated pages. Fallback: a browser-subagent DOM capture for pages needing interaction first. Last resort: scripts/extract_inline_html.ts flattens a hand-written React mock into static HTML via Babel, and scripts/post_process.ts inlines remaining local images. Used to capture a specific UI state or produce a portable snapshot for design handoff or documentation.
+
+- **Path**: [skills/design-engineering/extract-static-html/SKILL.md](skills/design-engineering/extract-static-html/SKILL.md)
+- **Use when**: save this page as a static self-contained HTML file; capture the rendered UI state of this app; extract standalone HTML from my dev server; share a static snapshot of this page; flatten this React mock into standalone HTML
+- **Inputs**: a running local dev server URL, or a built app directory, optional React mock component (.jsx) plus its CSS files for the fallback path, optional auth script for login-gated pages
+- **Outputs**: a single self-contained HTML file with inlined CSS, base64 images/icon-fonts, and no external references
+- **Dependencies**: node, npm:puppeteer, npm:@babel/parser, npm:@babel/traverse, npm:@babel/generator, browser
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
+- **Source**: third-party — [google-labs-code/stitch-skills](https://github.com/google-labs-code/stitch-skills/tree/0337446dadde6f8c94210444e2aa9d546126480f/plugins/stitch-design/skills/extract-static-html) @ `0337446` by google-labs-code, Apache-2.0 (modified — see THIRD_PARTY_NOTICES.md)
+- **Status**: draft, experimental
+- **Tags**: frontend, handoff, documentation, implementation-quality
 
 ### `web-artifacts-builder`
 
@@ -803,7 +964,10 @@ Cross-discipline interface-review orchestrator: resolves review scope, routes a 
 | [`design-review`](skills/testing/design-review/SKILL.md) | testing | third-party | draft |
 | [`design-system-governance`](skills/design-systems/design-system-governance/SKILL.md) | design-systems | third-party | draft |
 | [`design-tokens`](skills/design-systems/design-tokens/SKILL.md) | design-systems | third-party | draft |
+| [`diagram-design`](skills/visual-design/diagram-design/SKILL.md) | visual-design | third-party | draft |
 | [`explain-interface`](skills/design-engineering/explain-interface/SKILL.md) | design-engineering | third-party | draft |
+| [`extract-design-md`](skills/design-systems/extract-design-md/SKILL.md) | design-systems | third-party | draft |
+| [`extract-static-html`](skills/design-engineering/extract-static-html/SKILL.md) | design-engineering | third-party | draft |
 | [`figma-integration`](skills/design-systems/figma-integration/SKILL.md) | design-systems | third-party | draft |
 | [`find-animation-opportunities`](skills/testing/find-animation-opportunities/SKILL.md) | testing | third-party | draft |
 | [`frontend-design`](skills/visual-design/frontend-design/SKILL.md) | visual-design | third-party | draft |
@@ -811,6 +975,7 @@ Cross-discipline interface-review orchestrator: resolves review scope, routes a 
 | [`frontend-ui-dark-ts`](skills/design-systems/frontend-ui-dark-ts/SKILL.md) | design-systems | third-party | draft |
 | [`improve-animations`](skills/testing/improve-animations/SKILL.md) | testing | third-party | draft |
 | [`interface-review`](skills/design-qa/interface-review/SKILL.md) | design-qa | third-party | draft |
+| [`laws-of-ux`](skills/interaction-design/laws-of-ux/SKILL.md) | interaction-design | third-party | draft |
 | [`localization-design`](skills/content-design/localization-design/SKILL.md) | content-design | third-party | draft |
 | [`motion-system`](skills/design-systems/motion-system/SKILL.md) | design-systems | third-party | draft |
 | [`perspective-audit`](skills/accessibility/perspective-audit/SKILL.md) | accessibility | third-party | draft |
@@ -820,10 +985,17 @@ Cross-discipline interface-review orchestrator: resolves review scope, routes a 
 | [`review-a11y`](skills/accessibility/review-a11y/SKILL.md) | accessibility | third-party | draft |
 | [`review-animations`](skills/design-qa/review-animations/SKILL.md) | design-qa | third-party | draft |
 | [`service-blueprint`](skills/research/service-blueprint/SKILL.md) | research | third-party | draft |
+| [`silver-evaluate`](skills/testing/silver-evaluate/SKILL.md) | testing | third-party | draft |
+| [`silver-ideate`](skills/discovery/silver-ideate/SKILL.md) | discovery | third-party | draft |
+| [`silver-measure`](skills/analytics/silver-measure/SKILL.md) | analytics | third-party | draft |
+| [`silver-research`](skills/research/silver-research/SKILL.md) | research | third-party | draft |
+| [`silver-structure`](skills/information-architecture/silver-structure/SKILL.md) | information-architecture | third-party | draft |
+| [`silver-synthesize`](skills/research/silver-synthesize/SKILL.md) | research | third-party | draft |
 | [`survey-design`](skills/research/survey-design/SKILL.md) | research | third-party | draft |
 | [`theme-factory`](skills/visual-design/theme-factory/SKILL.md) | visual-design | third-party | draft |
 | [`token-build`](skills/design-systems/token-build/SKILL.md) | design-systems | third-party | draft |
 | [`ultra11y`](skills/accessibility/ultra11y/SKILL.md) | accessibility | third-party | draft |
+| [`user-research-cookiy`](skills/research/user-research-cookiy/SKILL.md) | research | third-party | draft |
 | [`ux-writing`](skills/content-design/ux-writing/SKILL.md) | content-design | third-party | draft |
 | [`variant`](skills/prototyping/variant/SKILL.md) | prototyping | third-party | draft |
 | [`web-artifacts-builder`](skills/design-engineering/web-artifacts-builder/SKILL.md) | design-engineering | third-party | draft |

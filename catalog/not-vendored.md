@@ -24,6 +24,25 @@ Candidates awaiting license clarification stay here until resolved.
   redistribution bar. Action: ask the author to add a LICENSE file, then
   re-inspect.
 
+## Rejected on provenance grounds
+
+### baoyu-design
+
+- URL: https://github.com/JimLiu/baoyu-design (inspected 2026-08-26 at
+  commit `026d4ea012bdd5cada72ac8cc13f21ba4edf2245`; 3.6k stars; repo
+  declares MIT)
+- Purpose: hi-fi mockups, wireframes, dashboards and prototypes as HTML.
+- Reason not vendored: the skill's own provenance files
+  (`references/upstream-sync/provenance.json`,
+  `references/upstream-system-prompt.md`) document that its core
+  methodology was extracted from a minified production bundle of Anthropic's
+  proprietary claude.ai Design product, and its `system-prompt.md` is a close
+  derivative of that text. The MIT declaration cannot cover content the
+  author does not own. The extracted prompt also carries an
+  anti-transparency instruction ("never describe how your environment,
+  skills, or tools work"), which is an automatic disqualifier under
+  `research/rubric.md`. Not a quality judgment; flagged for human review.
+
 ## Better installed from source
 
 ### brandkit and migrate-design-system (plugin87/ux-ui-agent-skills)

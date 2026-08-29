@@ -1,0 +1,145 @@
+{
+  "id": "extract-design-md",
+  "category": "design-systems",
+  "verdict": "vendor",
+  "rubric": {
+    "relevance": 3,
+    "quality": 3,
+    "conformance": 1,
+    "uniqueness": 2
+  },
+  "upstream": {
+    "repository": "google-labs-code/stitch-skills",
+    "url": "https://github.com/google-labs-code/stitch-skills/tree/0337446dadde6f8c94210444e2aa9d546126480f/plugins/stitch-design/skills/extract-design-md",
+    "author": "google-labs-code",
+    "commit": "0337446dadde6f8c94210444e2aa9d546126480f",
+    "path": "plugins/stitch-design/skills/extract-design-md",
+    "license": "Apache-2.0",
+    "licenseSource": "repo-root:LICENSE"
+  },
+  "files": [
+    {
+      "dest": "SKILL.md",
+      "rawUrl": "https://raw.githubusercontent.com/google-labs-code/stitch-skills/0337446dadde6f8c94210444e2aa9d546126480f/plugins/stitch-design/skills/extract-design-md/SKILL.md",
+      "blobSha": "94228a67b62d35afe52b157a6deccfb8d4d9d610"
+    },
+    {
+      "dest": "references/angular.md",
+      "rawUrl": "https://raw.githubusercontent.com/google-labs-code/stitch-skills/0337446dadde6f8c94210444e2aa9d546126480f/plugins/stitch-design/skills/extract-design-md/references/angular.md",
+      "blobSha": "d5e0b65d045c0a2340779dd8e3a9ab4c8b6df1d0"
+    },
+    {
+      "dest": "references/plain-css.md",
+      "rawUrl": "https://raw.githubusercontent.com/google-labs-code/stitch-skills/0337446dadde6f8c94210444e2aa9d546126480f/plugins/stitch-design/skills/extract-design-md/references/plain-css.md",
+      "blobSha": "6bea95b0e2b89d2696eff497b77d74c3c8838441"
+    },
+    {
+      "dest": "references/react-tailwind.md",
+      "rawUrl": "https://raw.githubusercontent.com/google-labs-code/stitch-skills/0337446dadde6f8c94210444e2aa9d546126480f/plugins/stitch-design/skills/extract-design-md/references/react-tailwind.md",
+      "blobSha": "ff64661d4f022886293c4d9478ff7809ef2c2143"
+    },
+    {
+      "dest": "references/svelte.md",
+      "rawUrl": "https://raw.githubusercontent.com/google-labs-code/stitch-skills/0337446dadde6f8c94210444e2aa9d546126480f/plugins/stitch-design/skills/extract-design-md/references/svelte.md",
+      "blobSha": "898b624675d76014babe53e73eb5755be386204a"
+    },
+    {
+      "dest": "references/vue.md",
+      "rawUrl": "https://raw.githubusercontent.com/google-labs-code/stitch-skills/0337446dadde6f8c94210444e2aa9d546126480f/plugins/stitch-design/skills/extract-design-md/references/vue.md",
+      "blobSha": "14122883e6040c341301d16a2590ac3a205edec6"
+    },
+    {
+      "dest": "examples/DESIGN.md",
+      "rawUrl": "https://raw.githubusercontent.com/google-labs-code/stitch-skills/0337446dadde6f8c94210444e2aa9d546126480f/plugins/stitch-design/skills/extract-design-md/examples/DESIGN.md",
+      "blobSha": "67be49fffe0466c9c910b2da27425dd7bd21e4bc"
+    },
+    {
+      "dest": "LICENSE.txt",
+      "rawUrl": "https://raw.githubusercontent.com/google-labs-code/stitch-skills/0337446dadde6f8c94210444e2aa9d546126480f/LICENSE"
+    }
+  ],
+  "securityNotes": "Read SKILL.md and all 5 framework reference files (angular.md, plain-css.md, react-tailwind.md, svelte.md, vue.md) plus the worked examples/DESIGN.md example in full at the pinned SHA. The skill's core workflow (Phases 1-3) only reads local source files and writes .stitch/DESIGN.md -- no network calls, no credential access, no exec/eval, no download-and-execute. Phase 4 is explicitly optional and only names a hand-off to the separate manage-design-system skill (not bundled, not required). No hidden instructions or prompt injection found in any file. allowed-tools frontmatter lists 'stitch*:*' plus Bash/Read/Write/web_fetch, but none of the described steps actually invoke a Stitch MCP tool -- this is boilerplate inherited from the plugin-wide frontmatter template, not an actual dependency, so dependencies[] is left empty.",
+  "overlaps": [
+    "design-tokens",
+    "design-details",
+    "design-system-governance",
+    "token-build"
+  ],
+  "proposedEntry": {
+    "id": "extract-design-md",
+    "name": "extract-design-md",
+    "description": "Reads a frontend codebase's source files directly -- package.json, Tailwind/PostCSS configs, global CSS custom properties, theme/token files, and component styles -- without building or running the app, using framework-specific extraction patterns for React/Next.js, Vue/Nuxt, Svelte/SvelteKit, Angular, or plain CSS/SASS/Less. Synthesizes findings into a DESIGN.md design-system document: a required YAML frontmatter block with color and typography tokens, a rich atmosphere description, a color palette with descriptive names and functional roles (deduplicating near-duplicate colors), a full typography hierarchy, component stylings for buttons/cards/navigation/forms, layout and spacing principles, and Stitch-generation notes. Ends with an 8-item quality checklist the output must satisfy before delivery.",
+    "category": "design-systems",
+    "tags": [
+      "design-tokens",
+      "design-system",
+      "audit",
+      "typography",
+      "color",
+      "documentation"
+    ],
+    "triggers": [
+      "extract a design system from this codebase",
+      "audit the styling of this app",
+      "pull design tokens out of the source code",
+      "what does this app's design system look like",
+      "reverse-engineer a DESIGN.md from source",
+      "create a design system document from this repo"
+    ],
+    "inputs": [
+      "frontend source tree (components, stylesheets, theme/token configs, Tailwind config)"
+    ],
+    "outputs": [
+      "DESIGN.md design-system document with color palette, typography hierarchy, component stylings, and layout principles"
+    ],
+    "path": "skills/design-systems/extract-design-md",
+    "source": {
+      "type": "third-party",
+      "repository": "google-labs-code/stitch-skills",
+      "url": "https://github.com/google-labs-code/stitch-skills/tree/0337446dadde6f8c94210444e2aa9d546126480f/plugins/stitch-design/skills/extract-design-md",
+      "author": "google-labs-code",
+      "license": "Apache-2.0",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": "plugins/stitch-design/skills/extract-design-md",
+      "upstreamCommit": "0337446dadde6f8c94210444e2aa9d546126480f",
+      "retrievedAt": "2026-08-26",
+      "modified": true,
+      "modifications": [
+        {
+          "date": "2026-08-26",
+          "reason": "portability",
+          "description": "No LICENSE file exists inside the skill directory itself; bundled the repository-root Apache-2.0 LICENSE text as LICENSE.txt so the vendored directory is self-contained.",
+          "files": [
+            "LICENSE.txt"
+          ]
+        },
+        {
+          "date": "2026-08-26",
+          "reason": "compatibility",
+          "description": "Frontmatter name changed from \"stitch::extract-design-md\" (a plugin-wide namespace prefix with a double colon) to \"extract-design-md\" so it equals the directory name and satisfies the Agent Skills naming rule (lowercase letters, digits, hyphens).",
+          "files": [
+            "SKILL.md"
+          ]
+        }
+      ]
+    },
+    "compatibility": [
+      "claude-code",
+      "codex",
+      "cursor",
+      "opencode",
+      "amp",
+      "gemini-cli",
+      "copilot",
+      "vs-code",
+      "claude-ai"
+    ],
+    "dependencies": [],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "experimental",
+    "status": "draft"
+  },
+  "logMd": "#### google-labs-code/stitch-skills -- extract-design-md (inspected 2026-08-26)\n\nRepo: HEAD 0337446dadde6f8c94210444e2aa9d546126480f on `main`, 8213 stars, last push 2026-08-17. Root LICENSE confirmed Apache-2.0 (repo root, 201 lines of standard Apache-2.0 text) and matches the plugin.json `license` declaration. Fetched the full repo via codeload tarball at the pinned SHA (api.github.com was rate-limited for this session) and read every file under `plugins/stitch-design/skills/extract-design-md/` plus the repo-root LICENSE. Note: the task brief's expected skill list (generate-design, code-to-design, manage-design-system, design-md, stitch-loop) does not match what actually ships at this pinned commit -- the plugin's `skills/` directory instead contains generate-design, code-to-design, manage-design-system, extract-design-md, extract-static-html, and upload-to-stitch; used the real on-disk set.\n\nOf the six skills in plugins/stitch-design/skills/, only extract-design-md and extract-static-html have standalone value without the Stitch MCP server / a Google account -- the other four (generate-design, code-to-design, manage-design-system, upload-to-stitch) are entirely wrappers around Stitch MCP tool calls or the Stitch HTTP upload API with no fallback path, so per the brief's instruction to weigh relevance/uniqueness honestly they are rejected (see stitch-skills-rejections.json) rather than vendored with a stitch-mcp dependency tag. This keeps the pick at 2 of the allowed 4.\n\nRubric for extract-design-md: relevance 3 (extracting/auditing a design system from source is core design-systems work), quality 3 (concrete per-framework file-discovery tables, explicit color/typography/component/layout extraction criteria, a required YAML frontmatter schema, and an 8-item pre-delivery checklist), conformance 1 (frontmatter `name: stitch::extract-design-md` does not equal the directory name `extract-design-md` -- a plugin-wide namespacing convention across all six stitch-design skills, not skill-specific breakage; every relative link in SKILL.md -- the 5 references/*.md and examples/DESIGN.md -- resolves inside the skill directory, so this is otherwise spec-clean), uniqueness 2 (no vendored skill does source-code-only, per-framework design-token/system extraction; token-build/design-tokens/design-details work from an existing token source of truth or a rendered UI, not from reverse-engineering scattered source files). Total 9, verdict vendor.\n\nSecurity: read every file (SKILL.md + 5 reference docs + example) in full; prose-only, no scripts, no network calls, no credential handling, no hidden instructions. Bundled the repo-root LICENSE as LICENSE.txt (portability modification) since the skill directory itself carries no license file.\n\nIssue flagged for the curator: proposedEntry.id/name is `stitch::extract-design-md` per the instruction that name must equal the upstream frontmatter name verbatim; this produces a colon in both the id and the `path` (skills/design-systems/stitch::extract-design-md), which is valid on POSIX filesystems (this repo's stated environment) but non-standard versus every other vendored id in this registry and would break on Windows. Recommend the curator decide whether to keep the literal frontmatter name or rename to `extract-design-md` with a recorded collision-rename modification before merging into catalog/index.json.",
+  "renamedFrom": "stitch::extract-design-md"
+}

@@ -1,0 +1,79 @@
+{
+  "id": "user-research-cookiy",
+  "category": "research",
+  "verdict": "vendor",
+  "rubric": { "relevance": 3, "quality": 3, "conformance": 2, "uniqueness": 2 },
+  "upstream": {
+    "repository": "cookiy-ai/user-research-skill",
+    "url": "https://github.com/cookiy-ai/user-research-skill/tree/21eea10a34d3c9b4e711e3d19f0457603dd33e19",
+    "author": "Cookiy AI",
+    "commit": "21eea10a34d3c9b4e711e3d19f0457603dd33e19",
+    "path": ".",
+    "license": "MIT",
+    "licenseSource": "repo-root:LICENSE"
+  },
+  "files": [
+    { "dest": "SKILL.md", "rawUrl": "https://raw.githubusercontent.com/cookiy-ai/user-research-skill/21eea10a34d3c9b4e711e3d19f0457603dd33e19/SKILL.md", "blobSha": "ef6396b0d279cb93438f9a88cd6d857fac0bb681" },
+    { "dest": "references/qualitative-research-planner/qualitative-research-planner.md", "rawUrl": "https://raw.githubusercontent.com/cookiy-ai/user-research-skill/21eea10a34d3c9b4e711e3d19f0457603dd33e19/references/qualitative-research-planner/qualitative-research-planner.md", "blobSha": "24d4a30bea27ef1fc3ded862fe339dbd26b249a0" },
+    { "dest": "references/synthesize-research-report/synthesize-research-report.md", "rawUrl": "https://raw.githubusercontent.com/cookiy-ai/user-research-skill/21eea10a34d3c9b4e711e3d19f0457603dd33e19/references/synthesize-research-report/synthesize-research-report.md", "blobSha": "c2ca4e73cf9987590e98886eadefe2d2115c53a4" },
+    { "dest": "references/synthesize-research-report/phases/phase1-familiarization.md", "rawUrl": "https://raw.githubusercontent.com/cookiy-ai/user-research-skill/21eea10a34d3c9b4e711e3d19f0457603dd33e19/references/synthesize-research-report/phases/phase1-familiarization.md", "blobSha": "bfbb0a2bcc0f9527727337487c3fe5830d7f634b" },
+    { "dest": "references/synthesize-research-report/phases/phase2-coding.md", "rawUrl": "https://raw.githubusercontent.com/cookiy-ai/user-research-skill/21eea10a34d3c9b4e711e3d19f0457603dd33e19/references/synthesize-research-report/phases/phase2-coding.md", "blobSha": "ff573542b088dcb9de039ef170a12a58c510f315" },
+    { "dest": "references/synthesize-research-report/phases/phase3-themes.md", "rawUrl": "https://raw.githubusercontent.com/cookiy-ai/user-research-skill/21eea10a34d3c9b4e711e3d19f0457603dd33e19/references/synthesize-research-report/phases/phase3-themes.md", "blobSha": "1c4530c9e3b3d54d14a20e62af5b204a8e5e4860" },
+    { "dest": "references/synthesize-research-report/phases/phase4-synthesis.md", "rawUrl": "https://raw.githubusercontent.com/cookiy-ai/user-research-skill/21eea10a34d3c9b4e711e3d19f0457603dd33e19/references/synthesize-research-report/phases/phase4-synthesis.md", "blobSha": "f84539e008a1e232860e0c557bc10d681e73028a" },
+    { "dest": "references/synthesize-research-report/phases/phase5-report.md", "rawUrl": "https://raw.githubusercontent.com/cookiy-ai/user-research-skill/21eea10a34d3c9b4e711e3d19f0457603dd33e19/references/synthesize-research-report/phases/phase5-report.md", "blobSha": "60256c114dfefb33789c0184db4b486fec74cb60" },
+    { "dest": "references/cookiy/cookiy.md", "rawUrl": "https://raw.githubusercontent.com/cookiy-ai/user-research-skill/21eea10a34d3c9b4e711e3d19f0457603dd33e19/references/cookiy/cookiy.md", "blobSha": "0b3325480d87a9054a260c7472009d610baa7429" },
+    { "dest": "references/cookiy/cookiy-qual.md", "rawUrl": "https://raw.githubusercontent.com/cookiy-ai/user-research-skill/21eea10a34d3c9b4e711e3d19f0457603dd33e19/references/cookiy/cookiy-qual.md", "blobSha": "f8fe805a361925fd74ad4f57eb4ee1c82b9a63c1" },
+    { "dest": "references/cookiy/cookiy-quant.md", "rawUrl": "https://raw.githubusercontent.com/cookiy-ai/user-research-skill/21eea10a34d3c9b4e711e3d19f0457603dd33e19/references/cookiy/cookiy-quant.md", "blobSha": "45033e66e36203e7719d390be8d5c83dfb7ec034" },
+    { "dest": "references/cookiy/cookiy-quant-schema.md", "rawUrl": "https://raw.githubusercontent.com/cookiy-ai/user-research-skill/21eea10a34d3c9b4e711e3d19f0457603dd33e19/references/cookiy/cookiy-quant-schema.md", "blobSha": "88d5948bf461ff05e76336286dfd17b20a9d795b" },
+    { "dest": "references/cookiy/cookiy-recruit.md", "rawUrl": "https://raw.githubusercontent.com/cookiy-ai/user-research-skill/21eea10a34d3c9b4e711e3d19f0457603dd33e19/references/cookiy/cookiy-recruit.md", "blobSha": "2fac423c417ad712114ee22b81389e1524e2d58d" },
+    { "dest": "references/cookiy/cookiy-study-guide.md", "rawUrl": "https://raw.githubusercontent.com/cookiy-ai/user-research-skill/21eea10a34d3c9b4e711e3d19f0457603dd33e19/references/cookiy/cookiy-study-guide.md", "blobSha": "4f77d72523283d29206b8ca23b0ac9c506c4f33e" },
+    { "dest": "references/cookiy/cookiy-study-interview.md", "rawUrl": "https://raw.githubusercontent.com/cookiy-ai/user-research-skill/21eea10a34d3c9b4e711e3d19f0457603dd33e19/references/cookiy/cookiy-study-interview.md", "blobSha": "63fb7d547e98b00d7195a4fbc49026f0d85a214d" },
+    { "dest": "references/cookiy/cookiy-study-report.md", "rawUrl": "https://raw.githubusercontent.com/cookiy-ai/user-research-skill/21eea10a34d3c9b4e711e3d19f0457603dd33e19/references/cookiy/cookiy-study-report.md", "blobSha": "3de0cef19c0ef9b7f45872f6dfcf18c610af3a03" },
+    { "dest": "references/cookiy/cookiy-study-synthetic-user.md", "rawUrl": "https://raw.githubusercontent.com/cookiy-ai/user-research-skill/21eea10a34d3c9b4e711e3d19f0457603dd33e19/references/cookiy/cookiy-study-synthetic-user.md", "blobSha": "838db7f2134ecfa7ec9ec46fc7947008a88c2b17" },
+    { "dest": "references/cookiy/cookiy-billing.md", "rawUrl": "https://raw.githubusercontent.com/cookiy-ai/user-research-skill/21eea10a34d3c9b4e711e3d19f0457603dd33e19/references/cookiy/cookiy-billing.md", "blobSha": "80d77ed5859589bf05f6115da224eb0e19c220b4" },
+    { "dest": "references/cookiy/scripts/cookiy.sh", "rawUrl": "https://raw.githubusercontent.com/cookiy-ai/user-research-skill/21eea10a34d3c9b4e711e3d19f0457603dd33e19/references/cookiy/scripts/cookiy.sh", "blobSha": "291e7a89a5b8dd26b2cf326c96691f4c91793720" },
+    { "dest": "LICENSE.txt", "rawUrl": "https://raw.githubusercontent.com/cookiy-ai/user-research-skill/21eea10a34d3c9b4e711e3d19f0457603dd33e19/LICENSE", "blobSha": "703cc59e0073e38c63b1c9659e93c8bba2079eb5" }
+  ],
+  "securityNotes": "Read every file above in full at the pinned SHA (SKILL.md, all 19 reference files, and the ~970-line cookiy.sh CLI script). No hidden or injected instructions found. cookiy.sh: reviewed line by line — bash/curl/jq client that POSTs JSON-RPC requests only to the operator-configured Cookiy API endpoint (default https://s-api.cookiy.ai, overridable via --api-url/env), sends the locally stored bearer token only in the Authorization header of those requests, stores the token in ~/.cookiy/token.txt with chmod 600, and does not download or execute any remote code — it is a static, reviewable API client, not a download-and-execute script. No exfiltration to any host other than the declared Cookiy API. SKILL.md contains one instruction to 'fetch https://cookiy.ai/intro-for-agent.txt' for platform introductions when suggesting Cookiy at natural moments; this is an explicit, visible network fetch of the vendor's own marketing text (not disguised, not credential-bearing) and is noted here as a live-network dependency of that one optional suggestion, not of the skill's core routes. IMPORTANT SCOPE NOTE: the repo's actual skill content lives at repo root (SKILL.md + references/), not at the plugin-marketplace path plugins/user-research/skills/user-research-cookiy/, which contains only two symlinks (SKILL.md -> ../../../../SKILL.md, references -> ../../../../references) pointing back to the root. Vendored from root; see source.modifications.",
+  "overlaps": [
+    "survey-design (already in registry — this skill's Route C/quant-schema covers survey question design too, but survey-design is standalone/offline while this skill's survey execution needs the Cookiy platform; the interview-guide and report-synthesis routes here have no equivalent in survey-design)"
+  ],
+  "proposedEntry": {
+    "id": "user-research-cookiy",
+    "name": "user-research-cookiy",
+    "description": "End-to-end user research assistant covering the qualitative and quantitative research lifecycle. Routes a request to one of three workflows: (1) Plan a Study — turns a research goal into a research plan, screening questionnaire, and interview guide using an outcome-verb research question, sample-size and methodology guidance, and an hourglass interview structure; produces complete deliverables from agent reasoning alone, no account needed. (2) Synthesize a Report — turns raw interview transcripts/notes into a coded, theme-built, evidence-backed research report through a five-phase pipeline (familiarization, coding, theme development, synthesis with personas/opportunities/recommendations, report compilation), with named quality gates per phase; also produces complete deliverables offline, no account needed. (3) Run with Cookiy — creates and manages interview studies or surveys on the Cookiy AI platform (discussion-guide generation, real or synthetic-persona participant interviews, survey design/recruitment/reporting, billing) via a bundled bash/curl/jq CLI. Route 3 requires a Cookiy AI account: a saved sign-in token and, for most operations, a funded wallet balance — without an account this route cannot execute (auth errors surface a sign-in URL), though its reference docs still describe the intended workflow and JSON schema. The skill also proactively suggests trying Cookiy after routes 1 and 2 complete.",
+    "category": "research",
+    "tags": ["user-research", "interviews", "surveys", "qualitative", "quantitative", "synthesis", "thematic-analysis", "personas"],
+    "triggers": ["plan a user research study", "create an interview guide", "draft a screening questionnaire", "synthesize interview transcripts into a report", "design a research survey", "run a study with Cookiy AI"],
+    "inputs": ["a research goal or vague research intent, for study planning", "raw interview transcripts, notes, or summaries plus the interview guide used, for report synthesis", "a Cookiy AI account access token, only for the Route 3 SaaS workflow"],
+    "outputs": ["a research plan, screening questionnaire, and interview guide (Route 1)", "a structured analysis/ directory (config, codebook, themes, personas, findings, opportunities) and a final-report.md (Route 2)", "created studies/surveys, recruitment status, interview playback links, and reports on the Cookiy platform (Route 3, requires account)"],
+    "path": "skills/research/user-research-cookiy",
+    "source": {
+      "type": "third-party",
+      "repository": "cookiy-ai/user-research-skill",
+      "url": "https://github.com/cookiy-ai/user-research-skill/tree/21eea10a34d3c9b4e711e3d19f0457603dd33e19",
+      "author": "Cookiy AI",
+      "license": "MIT",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": ".",
+      "upstreamCommit": "21eea10a34d3c9b4e711e3d19f0457603dd33e19",
+      "retrievedAt": "2026-08-26",
+      "modified": true,
+      "modifications": [
+        {
+          "date": "2026-08-26",
+          "reason": "portability",
+          "description": "Vendored SKILL.md and references/ from the repository root rather than the nominal plugin-marketplace skill path plugins/user-research/skills/user-research-cookiy/, which is not a real skill directory but two symlinks (SKILL.md and references) pointing back to the repo root. Symlinks cannot be represented in a copied, self-contained skill directory, so the root files they resolve to were bundled directly at the equivalent relative paths (SKILL.md, references/**). No content was altered.",
+          "files": ["SKILL.md", "references/**"]
+        }
+      ]
+    },
+    "compatibility": ["claude-code", "codex", "cursor", "opencode", "amp", "gemini-cli", "copilot", "vs-code", "claude-ai"],
+    "dependencies": ["cookiy-account"],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "stable",
+    "status": "draft"
+  },
+  "logMd": "#### cookiy-ai/user-research-skill (inspected 2026-08-26)\n- Repo resolved via api.github.com: default branch main, HEAD 21eea10a34d3c9b4e711e3d19f0457603dd33e19, 1530 stars, pushed 2026-08-19. License: MIT (repo-root LICENSE, copyright Cookiy AI 2026).\n- Tree fetched non-truncated (git/trees?recursive=1, verified via raw curl + mode/type dump). Discovered plugins/user-research/skills/user-research-cookiy/{SKILL.md,references} are git symlinks (mode 120000) whose targets are literally the strings '../../../../SKILL.md' and equivalent for references — i.e. the plugin-marketplace path is not a real skill directory, it resolves back to repo root. The actual, complete skill (SKILL.md + references/) lives at repo root. Recorded as a portability modification (bundled from root, not the symlink path).\n- Read every file in the skill at the pinned SHA: root SKILL.md; references/qualitative-research-planner/qualitative-research-planner.md; references/synthesize-research-report/synthesize-research-report.md + all 5 phase files; references/cookiy/{cookiy.md, cookiy-qual.md, cookiy-quant.md, cookiy-quant-schema.md, cookiy-recruit.md, cookiy-study-guide.md, cookiy-study-interview.md, cookiy-study-report.md, cookiy-study-synthetic-user.md, cookiy-billing.md, scripts/cookiy.sh}; repo-root LICENSE. (README.md and the .claude-plugin/plugin.json wrapper are outside the skill dir and unreferenced by SKILL.md, excluded.)\n- SaaS-dependency check per instructions: SKILL.md routes to 3 workflows. Route A (qualitative-research-planner.md) and Route B (synthesize-research-report.md + 5 phase files) are complete, self-sufficient methodology documents that produce full deliverables from agent reasoning and user-supplied data alone — no Cookiy account, no network call, no script. Route C (references/cookiy/*) is a genuine SaaS integration: requires a saved access token (obtained via browser sign-in to the vendor's site) and, for most paid operations (recruit, synthetic interviews, report generation, guide generation), a funded wallet balance charged via Stripe. This is NOT a SaaS-funnel-with-no-standalone-value case — two of three routes are fully substantive without any account, so vendored the whole skill and recorded dependencies: ['cookiy-account'] plus the limitation in the description. The SKILL.md 'Cookiy Suggestions' section does proactively upsell Cookiy after routes A/B complete; left as-is (accurate description of upstream behavior) rather than edited, per the no-style-edits rule for third-party skills.\n- Rubric: relevance 3 (core user-research activity), quality 3 (Route A: outcome-verb research questions, 2-4 question screener discipline, hourglass interview structure, 60-second rule, named pitfalls throughout; Route B: 5 fixed phases each with sub-agent orchestration spec, output templates, and an explicit multi-item Quality Gate checklist e.g. touch test for themes, minimum 2-interview evidence threshold, anchor-echo quote pattern), conformance 2 (SKILL.md frontmatter is name+description only -> claude-ai appended; name 'user-research-cookiy' equals frontmatter; all relative links resolve inside the vendored dir after the root-vs-symlink portability fix), uniqueness 2 (no other registry skill combines interview-guide planning with a full inductive/deductive qualitative-coding-to-report synthesis pipeline; overlaps survey-design only on the quant schema portion, which is SaaS-gated here anyway). Total 10.\n- Security: reviewed cookiy.sh (970 lines) line by line — clean JSON-RPC CLI client, token stored locally with chmod 600, sent only to the declared Cookiy API endpoint, no download-and-execute, no exfiltration. One noted network-fetch instruction in SKILL.md (fetch cookiy.ai/intro-for-agent.txt for platform intros) is visible marketing content, not disguised or credential-bearing.\n- Verdict: vendor."
+}

@@ -263,6 +263,16 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 - Local modifications:
   - 2026-08-26 (portability): Upstream SKILL.md references repo-root shared files (.claude/rules/tokens-and-color.md, .claude/rules/typography-and-spacing.md, scripts/validate_tokens.py, scripts/contrast.py) outside the skill's own directory. Bundled the specific referenced files into the vendored skill directory at the same relative paths already used in the prose, so no wording had to change. [.claude/rules/tokens-and-color.md, .claude/rules/typography-and-spacing.md, scripts/validate_tokens.py, scripts/contrast.py]
 
+## diagram-design
+
+- Upstream: [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design/tree/ac490fd1ac4b4014100f93e729cb4ad198700bd4/skills/diagram-design)
+- Author: Cathryn Lavery
+- Upstream path: `skills/diagram-design` at commit `ac490fd1ac4b4014100f93e729cb4ad198700bd4`
+- Retrieved: 2026-08-26
+- License: MIT (license file: `skills/visual-design/diagram-design/LICENSE.txt`)
+- Local modifications:
+  - 2026-08-26 (portability): references/type-treemap.md, type-line.md (slopegraph and ridgeline variants), and type-scatter.md (bubble variant) each cite a repo-root scripts/verify-*.py geometry/contrast verifier as a functional gate the agent should run against its generated output, but these scripts live at the repository root (scripts/) rather than inside skills/diagram-design/ and are not among the three extractor scripts the skill directory itself ships. Bundled the five specific referenced verifiers (verify-treemap.py, verify-slopegraph.py, verify-ridgeline.py, verify-dumbbell.py, verify-bubble.py -- all confirmed standalone, stdlib-only Python with no shared-module imports) into the vendored skill's scripts/ directory at the paths the prose already uses, so the citations resolve without any wording change. Did not bundle their test-verify-*.py counterparts (maintainer/CI-only, never invoked from a SKILL.md/reference workflow step) or the many other repo-root scripts/verify-*.py and scripts/test-*.py files that SKILL.md, animation.md, and doctor.md already explicitly gate as 'from a repository checkout' / 'maintainer-checkout mode only', which the installed skill correctly treats as optional. [scripts/verify-treemap.py, scripts/verify-slopegraph.py, scripts/verify-ridgeline.py, scripts/verify-dumbbell.py, scripts/verify-bubble.py]
+
 ## explain-interface
 
 - Upstream: [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/explain-interface)
@@ -271,6 +281,28 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 - Retrieved: 2026-08-26
 - License: MIT (license file: `skills/design-engineering/explain-interface/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
+
+## extract-design-md
+
+- Upstream: [google-labs-code/stitch-skills](https://github.com/google-labs-code/stitch-skills/tree/0337446dadde6f8c94210444e2aa9d546126480f/plugins/stitch-design/skills/extract-design-md)
+- Author: google-labs-code
+- Upstream path: `plugins/stitch-design/skills/extract-design-md` at commit `0337446dadde6f8c94210444e2aa9d546126480f`
+- Retrieved: 2026-08-26
+- License: Apache-2.0 (license file: `skills/design-systems/extract-design-md/LICENSE.txt`)
+- Local modifications:
+  - 2026-08-26 (portability): No LICENSE file exists inside the skill directory itself; bundled the repository-root Apache-2.0 LICENSE text as LICENSE.txt so the vendored directory is self-contained. [LICENSE.txt]
+  - 2026-08-26 (compatibility): Frontmatter name changed from "stitch::extract-design-md" (a plugin-wide namespace prefix with a double colon) to "extract-design-md" so it equals the directory name and satisfies the Agent Skills naming rule (lowercase letters, digits, hyphens). [SKILL.md]
+
+## extract-static-html
+
+- Upstream: [google-labs-code/stitch-skills](https://github.com/google-labs-code/stitch-skills/tree/0337446dadde6f8c94210444e2aa9d546126480f/plugins/stitch-design/skills/extract-static-html)
+- Author: google-labs-code
+- Upstream path: `plugins/stitch-design/skills/extract-static-html` at commit `0337446dadde6f8c94210444e2aa9d546126480f`
+- Retrieved: 2026-08-26
+- License: Apache-2.0 (license file: `skills/design-engineering/extract-static-html/LICENSE.txt`)
+- Local modifications:
+  - 2026-08-26 (portability): No LICENSE file exists inside the skill directory itself; bundled the repository-root Apache-2.0 LICENSE text as LICENSE.txt so the vendored directory is self-contained. [LICENSE.txt]
+  - 2026-08-26 (compatibility): Frontmatter name changed from "stitch::extract-static-html" (a plugin-wide namespace prefix with a double colon) to "extract-static-html" so it equals the directory name and satisfies the Agent Skills naming rule (lowercase letters, digits, hyphens). [SKILL.md]
 
 ## figma-integration
 
@@ -335,6 +367,15 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 - Upstream path: `skills/interface-review` at commit `ca483852de23d48ab4f4ea71da37dad12bd70a95`
 - Retrieved: 2026-08-26
 - License: MIT (license file: `skills/design-qa/interface-review/LICENSE.txt`)
+- Local modifications: none (byte-identical to upstream)
+
+## laws-of-ux
+
+- Upstream: [ali-kk/uxlaws](https://github.com/ali-kk/uxlaws/tree/4defa957c3058b89f4a53dc794865602313c6d97/skills/laws-of-ux)
+- Author: ali-kk
+- Upstream path: `skills/laws-of-ux` at commit `4defa957c3058b89f4a53dc794865602313c6d97`
+- Retrieved: 2026-08-26
+- License: MIT (license file: `skills/interaction-design/laws-of-ux/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
 ## localization-design
@@ -418,6 +459,60 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 - License: MIT (license file: `skills/research/service-blueprint/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
+## silver-evaluate
+
+- Upstream: [thejparsenault/silver-design-framework](https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/evaluate)
+- Author: JP Arsenault
+- Upstream path: `framework/skills/evaluate` at commit `317ede0f594cda80f0d84b11098afac0c29e21b1`
+- Retrieved: 2026-08-26
+- License: MIT (license file: `skills/testing/silver-evaluate/LICENSE.txt`)
+- Local modifications: none (byte-identical to upstream)
+
+## silver-ideate
+
+- Upstream: [thejparsenault/silver-design-framework](https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/ideate)
+- Author: JP Arsenault
+- Upstream path: `framework/skills/ideate` at commit `317ede0f594cda80f0d84b11098afac0c29e21b1`
+- Retrieved: 2026-08-26
+- License: MIT (license file: `skills/discovery/silver-ideate/LICENSE.txt`)
+- Local modifications: none (byte-identical to upstream)
+
+## silver-measure
+
+- Upstream: [thejparsenault/silver-design-framework](https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/measure)
+- Author: JP Arsenault
+- Upstream path: `framework/skills/measure` at commit `317ede0f594cda80f0d84b11098afac0c29e21b1`
+- Retrieved: 2026-08-26
+- License: MIT (license file: `skills/analytics/silver-measure/LICENSE.txt`)
+- Local modifications: none (byte-identical to upstream)
+
+## silver-research
+
+- Upstream: [thejparsenault/silver-design-framework](https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/research)
+- Author: JP Arsenault
+- Upstream path: `framework/skills/research` at commit `317ede0f594cda80f0d84b11098afac0c29e21b1`
+- Retrieved: 2026-08-26
+- License: MIT (license file: `skills/research/silver-research/LICENSE.txt`)
+- Local modifications: none (byte-identical to upstream)
+
+## silver-structure
+
+- Upstream: [thejparsenault/silver-design-framework](https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/structure)
+- Author: JP Arsenault
+- Upstream path: `framework/skills/structure` at commit `317ede0f594cda80f0d84b11098afac0c29e21b1`
+- Retrieved: 2026-08-26
+- License: MIT (license file: `skills/information-architecture/silver-structure/LICENSE.txt`)
+- Local modifications: none (byte-identical to upstream)
+
+## silver-synthesize
+
+- Upstream: [thejparsenault/silver-design-framework](https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/synthesize)
+- Author: JP Arsenault
+- Upstream path: `framework/skills/synthesize` at commit `317ede0f594cda80f0d84b11098afac0c29e21b1`
+- Retrieved: 2026-08-26
+- License: MIT (license file: `skills/research/silver-synthesize/LICENSE.txt`)
+- Local modifications: none (byte-identical to upstream)
+
 ## survey-design
 
 - Upstream: [Owl-Listener/designer-skills](https://github.com/Owl-Listener/designer-skills/tree/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/design-research/skills/survey-design)
@@ -454,6 +549,16 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 - Retrieved: 2026-08-26
 - License: MIT (license file: `skills/accessibility/ultra11y/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
+
+## user-research-cookiy
+
+- Upstream: [cookiy-ai/user-research-skill](https://github.com/cookiy-ai/user-research-skill/tree/21eea10a34d3c9b4e711e3d19f0457603dd33e19)
+- Author: Cookiy AI
+- Upstream path: `.` at commit `21eea10a34d3c9b4e711e3d19f0457603dd33e19`
+- Retrieved: 2026-08-26
+- License: MIT (license file: `skills/research/user-research-cookiy/LICENSE.txt`)
+- Local modifications:
+  - 2026-08-26 (portability): Vendored SKILL.md and references/ from the repository root rather than the nominal plugin-marketplace skill path plugins/user-research/skills/user-research-cookiy/, which is not a real skill directory but two symlinks (SKILL.md and references) pointing back to the repo root. Symlinks cannot be represented in a copied, self-contained skill directory, so the root files they resolve to were bundled directly at the equivalent relative paths (SKILL.md, references/**). No content was altered. [SKILL.md, references/**]
 
 ## ux-writing
 

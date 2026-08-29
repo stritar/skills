@@ -3,6 +3,64 @@
   "version": 1,
   "skills": [
     {
+      "id": "silver-ideate",
+      "name": "silver-ideate",
+      "description": "Generates meaningfully distinct product-design concepts and testable hypotheses grounded in the current problem frame and constraints, then pauses for explicit human selection. Workflow: pin the problem frame, evidence, principles and constraints; generate alternatives with genuinely distinct mechanisms, assumptions and trade-offs (not surface variations); express a falsifiable hypothesis and the cheapest useful test for each; stop for explicit selection, recording the choice and the rejected trade-offs. Boundaries forbid choosing a direction on the user's behalf when human review is required, and forbid evading design-system constraints through visual novelty. Upstream emits its record through the Silver Design Framework CLI (.silver/bin/silver invoke), which is not bundled; used standalone, follow the workflow and boundaries and write the artifact directly.",
+      "category": "discovery",
+      "tags": [
+        "opportunity-mapping",
+        "assumption-mapping",
+        "product-discovery",
+        "hypothesis"
+      ],
+      "triggers": [
+        "generate distinct concept alternatives for this problem",
+        "produce testable hypotheses from a problem frame",
+        "diverge before committing to a design direction",
+        "pause for explicit concept selection",
+        "propose alternatives that differ in mechanism, not just visuals"
+      ],
+      "inputs": [
+        "a problem frame (required)",
+        "optional findings, design principles, and constraints"
+      ],
+      "outputs": [
+        "multiple concepts with distinct mechanisms, assumptions, and tradeoffs, each paired with a falsifiable hypothesis and its cheapest useful test, awaiting explicit human selection with rejected tradeoffs recorded"
+      ],
+      "path": "skills/discovery/silver-ideate",
+      "source": {
+        "type": "third-party",
+        "repository": "thejparsenault/silver-design-framework",
+        "url": "https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/ideate",
+        "author": "JP Arsenault",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "framework/skills/ideate",
+        "upstreamCommit": "317ede0f594cda80f0d84b11098afac0c29e21b1",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [
+        "node"
+      ],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "experimental",
+      "status": "draft"
+    },
+    {
       "id": "service-blueprint",
       "name": "service-blueprint",
       "description": "Makes the agent map service delivery as a five-lane blueprint (physical evidence, user actions, frontstage, backstage, support processes) separated by lines of interaction, visibility, and internal interaction; a nine-step construction process from scoping one scenario to validation with operations teams; a blueprint-vs-journey-map decision table; and diagnostic reading rules (gaps between lanes, dense backstage clusters, single points of failure, silent user waits).",
@@ -58,6 +116,122 @@
       "relatedSkills": [],
       "recommended": false,
       "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "silver-research",
+      "name": "silver-research",
+      "description": "Plans ethical product research: defines the decision the research must inform and the evidence needed, chooses a proportionate method, participant criteria, tasks and script, and defines consent, data minimization, sanitation, retention and evidence labeling, while explicitly marking the artifact as a plan and never implying sessions or observations already occurred. Boundaries forbid claiming planned participants or observations happened and forbid placing sensitive raw participant data in the repository. Upstream emits its record through the Silver Design Framework CLI (.silver/bin/silver invoke), which is not bundled; used standalone, follow the workflow and boundaries and write the artifact directly.",
+      "category": "research",
+      "tags": [
+        "user-research",
+        "interviews",
+        "qualitative",
+        "quantitative"
+      ],
+      "triggers": [
+        "plan ethical user research",
+        "define research questions and participant criteria",
+        "write a research plan without claiming it was conducted",
+        "plan evaluation or usability-test recruitment",
+        "define consent and data minimization for a study"
+      ],
+      "inputs": [
+        "a decision that needs research evidence and the question it must answer",
+        "optional existing product, problem-frame, or design-specification context"
+      ],
+      "outputs": [
+        "a research plan covering method, participant criteria, script, and consent/minimization/sanitation/retention handling, explicitly marked as planned rather than conducted"
+      ],
+      "path": "skills/research/silver-research",
+      "source": {
+        "type": "third-party",
+        "repository": "thejparsenault/silver-design-framework",
+        "url": "https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/research",
+        "author": "JP Arsenault",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "framework/skills/research",
+        "upstreamCommit": "317ede0f594cda80f0d84b11098afac0c29e21b1",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [
+        "node"
+      ],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "experimental",
+      "status": "draft"
+    },
+    {
+      "id": "silver-synthesize",
+      "name": "silver-synthesize",
+      "description": "Converts sanitized evidence -- observations, analytics, supplied facts, and labeled assumptions -- into traceable findings, a problem frame, opportunities, contradictions, and open questions with provenance. Workflow: confirm every source is sanitized and revision-addressable, separate observations/analytics/facts/assumptions, cluster evidence without erasing contradictions or minority signals, and produce traceable findings. Boundaries forbid fabricating evidence, silently upgrading assumptions into findings, or rewriting upstream evidence while synthesizing it. Upstream's 'Done' step instructs emitting the finished record through a bundled `.silver/bin/silver invoke` CLI belonging to the parent Silver Design Framework installation; that CLI and its runtime are not included in this vendored skill, so used standalone an agent should follow the workflow and boundaries and write the findings/problem-frame artifact directly.",
+      "category": "research",
+      "tags": [
+        "synthesis",
+        "thematic-analysis",
+        "affinity-mapping",
+        "insights"
+      ],
+      "triggers": [
+        "synthesize research evidence into findings",
+        "turn feedback and analytics into a problem frame",
+        "cluster evidence without losing contradictions",
+        "separate assumptions from findings",
+        "produce traceable findings with provenance"
+      ],
+      "inputs": [
+        "sanitized evidence with provenance: observations, analytics, supplied facts, labeled assumptions",
+        "optional prior evaluation or map artifacts"
+      ],
+      "outputs": [
+        "findings and a problem frame that keep observation, interpretation, confidence, contradiction, and open questions distinguishable and traceable to their sources"
+      ],
+      "path": "skills/research/silver-synthesize",
+      "source": {
+        "type": "third-party",
+        "repository": "thejparsenault/silver-design-framework",
+        "url": "https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/synthesize",
+        "author": "JP Arsenault",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "framework/skills/synthesize",
+        "upstreamCommit": "317ede0f594cda80f0d84b11098afac0c29e21b1",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [
+        "node"
+      ],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "experimental",
       "status": "draft"
     },
     {
@@ -121,6 +295,82 @@
       "status": "draft"
     },
     {
+      "id": "user-research-cookiy",
+      "name": "user-research-cookiy",
+      "description": "End-to-end user research assistant routing a request to one of three workflows. (1) Plan a Study: turns a research goal into a research plan, screening questionnaire and interview guide using an outcome-verb research question, sample-size and method guidance and an hourglass interview structure; fully offline. (2) Synthesize a Report: turns raw transcripts or notes into a coded, theme-built, evidence-backed report through a five-phase pipeline (familiarization, coding, theme development, synthesis with personas, opportunities and recommendations, report compilation) with named quality gates; fully offline. (3) Run with Cookiy: creates and manages interview studies or surveys on the Cookiy AI platform via a bundled bash/curl/jq CLI; requires a Cookiy account with a saved sign-in token and, for most operations, a funded wallet, so without an account this route cannot execute. The skill also suggests trying Cookiy after routes 1 and 2.",
+      "category": "research",
+      "tags": [
+        "user-research",
+        "interviews",
+        "surveys",
+        "qualitative",
+        "quantitative",
+        "synthesis",
+        "thematic-analysis",
+        "personas"
+      ],
+      "triggers": [
+        "plan a user research study",
+        "create an interview guide",
+        "draft a screening questionnaire",
+        "synthesize interview transcripts into a report",
+        "design a research survey",
+        "run a study with Cookiy AI"
+      ],
+      "inputs": [
+        "a research goal or vague research intent, for study planning",
+        "raw interview transcripts, notes, or summaries plus the interview guide used, for report synthesis",
+        "a Cookiy AI account access token, only for the Route 3 SaaS workflow"
+      ],
+      "outputs": [
+        "a research plan, screening questionnaire, and interview guide (Route 1)",
+        "a structured analysis/ directory (config, codebook, themes, personas, findings, opportunities) and a final-report.md (Route 2)",
+        "created studies/surveys, recruitment status, interview playback links, and reports on the Cookiy platform (Route 3, requires account)"
+      ],
+      "path": "skills/research/user-research-cookiy",
+      "source": {
+        "type": "third-party",
+        "repository": "cookiy-ai/user-research-skill",
+        "url": "https://github.com/cookiy-ai/user-research-skill/tree/21eea10a34d3c9b4e711e3d19f0457603dd33e19",
+        "author": "Cookiy AI",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": ".",
+        "upstreamCommit": "21eea10a34d3c9b4e711e3d19f0457603dd33e19",
+        "retrievedAt": "2026-08-26",
+        "modified": true,
+        "modifications": [
+          {
+            "date": "2026-08-26",
+            "reason": "portability",
+            "description": "Vendored SKILL.md and references/ from the repository root rather than the nominal plugin-marketplace skill path plugins/user-research/skills/user-research-cookiy/, which is not a real skill directory but two symlinks (SKILL.md and references) pointing back to the repo root. Symlinks cannot be represented in a copied, self-contained skill directory, so the root files they resolve to were bundled directly at the equivalent relative paths (SKILL.md, references/**). No content was altered.",
+            "files": [
+              "SKILL.md",
+              "references/**"
+            ]
+          }
+        ]
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [
+        "cookiy-account"
+      ],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
       "id": "design-negotiation",
       "name": "design-negotiation",
       "description": "Makes the agent coach a designer through cross-functional negotiations: four scripted contexts (timeline compression, scope cut without review, stakeholder override, resource requests) each with a concrete approach; an evidence hierarchy (research counts, metrics, competitive context, WCAG/legal risk, system precedent) replacing taste and authority arguments; negotiation principles (lead with the user problem, name constraints first, make trade-offs explicit, document decisions that go against design); and long-term credibility building.",
@@ -177,6 +427,64 @@
       "relatedSkills": [],
       "recommended": false,
       "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "silver-structure",
+      "name": "silver-structure",
+      "description": "Defines and refines information architecture: navigation structure, taxonomy, content models and object models (what exists, how it is organized, how things relate), explicitly distinct from flows (sequences over time) and journey or service maps. Workflow: name the question and structure type; define entities, attributes and parent/child relationships; define relationships between entities with cardinality where known; record structural rules, leaving genuine ambiguity recorded rather than resolved by assumption. Hands off flows, journey maps, components and tokens to sibling skills. Includes a dependency-free Node script (scripts/check-structure.mjs) that validates a structure JSON file for duplicate entity ids, missing parents, parent cycles and dangling relationships. Upstream emits its record through the Silver Design Framework CLI (.silver/bin/silver invoke), which is not bundled; used standalone, follow the workflow and boundaries and write the artifact directly.",
+      "category": "information-architecture",
+      "tags": [
+        "information-architecture",
+        "taxonomy",
+        "content-hierarchy",
+        "mental-models"
+      ],
+      "triggers": [
+        "define the information architecture for this product",
+        "model entities and relationships",
+        "build a taxonomy or content model",
+        "distinguish structure from flow and from journey maps",
+        "check a structure definition for cycles or missing references"
+      ],
+      "inputs": [
+        "a product or design-specification context needing structural definition",
+        "optionally, existing findings or maps that inform the structure"
+      ],
+      "outputs": [
+        "named entities, attributes, and parent/child relationships; explicit relationships with cardinality where known; and structural rules, with genuine ambiguity recorded rather than assumed"
+      ],
+      "path": "skills/information-architecture/silver-structure",
+      "source": {
+        "type": "third-party",
+        "repository": "thejparsenault/silver-design-framework",
+        "url": "https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/structure",
+        "author": "JP Arsenault",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "framework/skills/structure",
+        "upstreamCommit": "317ede0f594cda80f0d84b11098afac0c29e21b1",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [
+        "node"
+      ],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "experimental",
       "status": "draft"
     },
     {
@@ -383,6 +691,67 @@
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "skills/apple-design",
         "upstreamCommit": "d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "laws-of-ux",
+      "name": "laws-of-ux",
+      "description": "Improves or critiques any user interface using 30 evidence-based UX principles drawn from cognitive psychology and perception research (Gestalt grouping, Hick's Law, Fitts's Law, Jakob's Law, Miller's Law, aesthetic-usability effect, cognitive load, and more). Provides a 5-step procedure for running a UX pass on a screen: name the symptom, pull the relevant principles, propose a concrete change citing the principle by name, check for conflicts between principles, and flag when testing with real users is still required. reference/laws.md gives each principle's mechanism, concrete application, pitfalls, and a real-world example.",
+      "category": "interaction-design",
+      "tags": [
+        "ui-design",
+        "interaction-design",
+        "visual-hierarchy",
+        "design-critique",
+        "onboarding",
+        "forms"
+      ],
+      "triggers": [
+        "review this UI against UX principles",
+        "why does this screen feel cluttered",
+        "apply Hick's Law / Fitts's Law",
+        "critique this design",
+        "diagnose why users abandon this form",
+        "cite a UX law for this decision"
+      ],
+      "inputs": [
+        "a screen, flow, or component to design or critique",
+        "optionally, a named symptom (e.g. 'too many buttons', 'feels slow')"
+      ],
+      "outputs": [
+        "1-3 cited UX principles relevant to the symptom",
+        "a concrete proposed change with the principle named",
+        "a note on any conflicting principles and how they were resolved"
+      ],
+      "path": "skills/interaction-design/laws-of-ux",
+      "source": {
+        "type": "third-party",
+        "repository": "ali-kk/uxlaws",
+        "url": "https://github.com/ali-kk/uxlaws/tree/4defa957c3058b89f4a53dc794865602313c6d97/skills/laws-of-ux",
+        "author": "ali-kk",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/laws-of-ux",
+        "upstreamCommit": "4defa957c3058b89f4a53dc794865602313c6d97",
         "retrievedAt": "2026-08-26",
         "modified": false,
         "modifications": []
@@ -819,6 +1188,84 @@
       "status": "draft"
     },
     {
+      "id": "diagram-design",
+      "name": "diagram-design",
+      "description": "Produces branded editorial diagrams in 39 visual types (architecture, flowchart, sequence, state machine, ER, timeline, swimlane, quadrant, radar, tree, org chart, layer stack, Venn, pyramid, treemap, bar, slopegraph, Gantt, scatter, Sankey, fishbone, Wardley map, kanban, user journey, deployment, dependency graph, UML class, story map, database schema and more) as standalone self-contained HTML files with inline SVG and CSS, following an opinionated editorial design system: a single style-guide.md source of truth for color and typography tokens, a 4px grid, numeric complexity budgets per type, six mandatory connector-routing rules and an accessible-SVG contract (role=img, aria-labelledby, title/desc). Redraws existing .drawio or Mermaid sources through local structural extractors, onboards brand tokens from a website, skill or folder, supports hand-drawn and terminal skins, exports PNG/SVG, and ships Python verifier scripts for geometry and contrast that the agent runs against its own output.",
+      "category": "visual-design",
+      "tags": [
+        "data-visualization",
+        "charts",
+        "visual-hierarchy",
+        "layout",
+        "typography",
+        "color",
+        "brand"
+      ],
+      "triggers": [
+        "draw an architecture diagram",
+        "make a flowchart / sequence diagram / ER diagram",
+        "turn this draw.io or Mermaid file into a proper diagram",
+        "create a Gantt chart or timeline",
+        "visualize this as a diagram, not a table",
+        "brand this diagram to match our website"
+      ],
+      "inputs": [
+        "a description of the system, process, or data to diagram",
+        "optional .drawio/.drawio.png/.drawio.svg or Mermaid .mmd source to redraw",
+        "optional brand source (website URL, installed skill, or local design-token folder) for onboarding"
+      ],
+      "outputs": [
+        "a self-contained .html file with inline SVG and CSS (the diagram)",
+        "optional .svg and/or .png exports",
+        "for imports, a fidelity ledger reporting what was merged, collapsed, or dropped"
+      ],
+      "path": "skills/visual-design/diagram-design",
+      "source": {
+        "type": "third-party",
+        "repository": "cathrynlavery/diagram-design",
+        "url": "https://github.com/cathrynlavery/diagram-design/tree/ac490fd1ac4b4014100f93e729cb4ad198700bd4/skills/diagram-design",
+        "author": "Cathryn Lavery",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/diagram-design",
+        "upstreamCommit": "ac490fd1ac4b4014100f93e729cb4ad198700bd4",
+        "retrievedAt": "2026-08-26",
+        "modified": true,
+        "modifications": [
+          {
+            "date": "2026-08-26",
+            "reason": "portability",
+            "description": "references/type-treemap.md, type-line.md (slopegraph and ridgeline variants), and type-scatter.md (bubble variant) each cite a repo-root scripts/verify-*.py geometry/contrast verifier as a functional gate the agent should run against its generated output, but these scripts live at the repository root (scripts/) rather than inside skills/diagram-design/ and are not among the three extractor scripts the skill directory itself ships. Bundled the five specific referenced verifiers (verify-treemap.py, verify-slopegraph.py, verify-ridgeline.py, verify-dumbbell.py, verify-bubble.py -- all confirmed standalone, stdlib-only Python with no shared-module imports) into the vendored skill's scripts/ directory at the paths the prose already uses, so the citations resolve without any wording change. Did not bundle their test-verify-*.py counterparts (maintainer/CI-only, never invoked from a SKILL.md/reference workflow step) or the many other repo-root scripts/verify-*.py and scripts/test-*.py files that SKILL.md, animation.md, and doctor.md already explicitly gate as 'from a repository checkout' / 'maintainer-checkout mode only', which the installed skill correctly treats as optional.",
+            "files": [
+              "scripts/verify-treemap.py",
+              "scripts/verify-slopegraph.py",
+              "scripts/verify-ridgeline.py",
+              "scripts/verify-dumbbell.py",
+              "scripts/verify-bubble.py"
+            ]
+          }
+        ]
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [
+        "python"
+      ],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
+    },
+    {
       "id": "frontend-design",
       "name": "frontend-design",
       "description": "Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Directs the agent to work in two passes (a compact color/type/layout/signature token plan, self-critiqued against generic AI-design defaults, then implementation), names three specific overused AI-generated aesthetic clusters to avoid unless the brief calls for them, and gives concrete rules for typography pairing, structural devices, deliberate motion, CSS specificity pitfalls, and end-user-facing UX writing (active voice, consistent verb-to-toast naming, non-apologetic error copy).",
@@ -1130,6 +1577,81 @@
       "dependencies": [
         "python"
       ],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "experimental",
+      "status": "draft"
+    },
+    {
+      "id": "extract-design-md",
+      "name": "extract-design-md",
+      "description": "Reads a frontend codebase's source files directly -- package.json, Tailwind/PostCSS configs, global CSS custom properties, theme/token files, and component styles -- without building or running the app, using framework-specific extraction patterns for React/Next.js, Vue/Nuxt, Svelte/SvelteKit, Angular, or plain CSS/SASS/Less. Synthesizes findings into a DESIGN.md design-system document: a required YAML frontmatter block with color and typography tokens, a rich atmosphere description, a color palette with descriptive names and functional roles (deduplicating near-duplicate colors), a full typography hierarchy, component stylings for buttons/cards/navigation/forms, layout and spacing principles, and Stitch-generation notes. Ends with an 8-item quality checklist the output must satisfy before delivery.",
+      "category": "design-systems",
+      "tags": [
+        "design-tokens",
+        "design-system",
+        "audit",
+        "typography",
+        "color",
+        "documentation"
+      ],
+      "triggers": [
+        "extract a design system from this codebase",
+        "audit the styling of this app",
+        "pull design tokens out of the source code",
+        "what does this app's design system look like",
+        "reverse-engineer a DESIGN.md from source",
+        "create a design system document from this repo"
+      ],
+      "inputs": [
+        "frontend source tree (components, stylesheets, theme/token configs, Tailwind config)"
+      ],
+      "outputs": [
+        "DESIGN.md design-system document with color palette, typography hierarchy, component stylings, and layout principles"
+      ],
+      "path": "skills/design-systems/extract-design-md",
+      "source": {
+        "type": "third-party",
+        "repository": "google-labs-code/stitch-skills",
+        "url": "https://github.com/google-labs-code/stitch-skills/tree/0337446dadde6f8c94210444e2aa9d546126480f/plugins/stitch-design/skills/extract-design-md",
+        "author": "google-labs-code",
+        "license": "Apache-2.0",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "plugins/stitch-design/skills/extract-design-md",
+        "upstreamCommit": "0337446dadde6f8c94210444e2aa9d546126480f",
+        "retrievedAt": "2026-08-26",
+        "modified": true,
+        "modifications": [
+          {
+            "date": "2026-08-26",
+            "reason": "portability",
+            "description": "No LICENSE file exists inside the skill directory itself; bundled the repository-root Apache-2.0 LICENSE text as LICENSE.txt so the vendored directory is self-contained.",
+            "files": [
+              "LICENSE.txt"
+            ]
+          },
+          {
+            "date": "2026-08-26",
+            "reason": "compatibility",
+            "description": "Frontmatter name changed from \"stitch::extract-design-md\" (a plugin-wide namespace prefix with a double colon) to \"extract-design-md\" so it equals the directory name and satisfies the Agent Skills naming rule (lowercase letters, digits, hyphens).",
+            "files": [
+              "SKILL.md"
+            ]
+          }
+        ]
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
       "relatedSkills": [],
       "recommended": false,
       "maturity": "experimental",
@@ -2730,6 +3252,65 @@
       "status": "draft"
     },
     {
+      "id": "silver-evaluate",
+      "name": "silver-evaluate",
+      "description": "Runs a usability test, expert review, or feedback evaluation distinct from deterministic conformance checking: defines the decision, evaluation question, method, participants or reviewers, and tasks; inspects a pinned visualization or prototype and captures only sanitized observations; separates observed behavior from interpretation and from deterministic check findings; and produces evidence-linked findings and recommendations for explicit human acceptance. Boundaries forbid implying participants or sessions existed when only a planned or expert review was performed, and forbid turning automated-conformance failures into fabricated user evidence. Upstream's 'Done' step instructs emitting the finished record through a bundled `.silver/bin/silver invoke` CLI belonging to the parent Silver Design Framework installation; that CLI and its runtime are not included in this vendored skill, so used standalone an agent should follow the workflow and boundaries and write the evaluation/finding artifacts directly.",
+      "category": "testing",
+      "tags": [
+        "usability-testing",
+        "heuristic-evaluation",
+        "design-critique",
+        "expert-review",
+        "severity"
+      ],
+      "triggers": [
+        "plan a usability test",
+        "run an expert review of this prototype",
+        "evaluate this design and separate observation from interpretation",
+        "produce evidence-linked evaluation findings",
+        "distinguish user-tested findings from automated conformance failures"
+      ],
+      "inputs": [
+        "a sketch, visualization, prototype, design specification, or map to evaluate",
+        "an evaluation question, method, and participant/reviewer set"
+      ],
+      "outputs": [
+        "evidence-linked findings and recommendations that keep observed behavior, interpretation, confidence, and deterministic-conformance results distinguishable"
+      ],
+      "path": "skills/testing/silver-evaluate",
+      "source": {
+        "type": "third-party",
+        "repository": "thejparsenault/silver-design-framework",
+        "url": "https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/evaluate",
+        "author": "JP Arsenault",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "framework/skills/evaluate",
+        "upstreamCommit": "317ede0f594cda80f0d84b11098afac0c29e21b1",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [
+        "node"
+      ],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "experimental",
+      "status": "draft"
+    },
+    {
       "id": "design-details",
       "name": "design-details",
       "description": "Parent router and full-audit contract for a suite of seven UI-craft sub-skills (animation, layout, copy, typography, color, accessibility, analytics). Enforces a Design System Protocol (check for existing tokens/CSS variables/theme objects before proposing any value; propose additions instead of overrides), a Context Gathering Protocol (audience, use cases, tone, platform - stop and ask if missing, with a /design-details init flow that persists answers to .design-details.md so the interview happens once per project), and a full-audit contract: run every applicable sub-skill, cover a named surface checklist (narrow viewport, modals, error/empty/loading states, keyboard traversal, reduced motion, live regions), open with a scope preamble stating what was and was not audited, and present findings as lettered sections of Before | After | Why tables, closing with an optional row-by-row walkthrough mode (Apply / Decline / Discuss / Stop per item).",
@@ -2965,6 +3546,65 @@
       "status": "draft"
     },
     {
+      "id": "silver-measure",
+      "name": "silver-measure",
+      "description": "Closes the loop after implementation: restates the hypothesis and success criteria the change was meant to test, states what instrumentation exists and whether it is sufficient to answer the question, compares before/after or an experiment result without treating correlation as causation, and records confidence and limitations to feed back into synthesis. Boundaries scope the skill away from defining success criteria (specification) or broadly interpreting mixed research evidence (synthesis), and forbid fabricating analytics, claiming measurement occurred without real data, or overstating confidence when instrumentation or sample quality is weak. Upstream emits its record through the Silver Design Framework CLI (.silver/bin/silver invoke), which is not bundled; used standalone, follow the workflow and boundaries and write the artifact directly.",
+      "category": "analytics",
+      "tags": [
+        "analytics",
+        "instrumentation",
+        "metrics",
+        "experimentation",
+        "hypothesis"
+      ],
+      "triggers": [
+        "check whether a shipped change achieved its intended outcome",
+        "review instrumentation before trusting a metric",
+        "compare before/after a launch",
+        "state confidence and limitations for a measured result",
+        "avoid treating correlation as causation in an outcome review"
+      ],
+      "inputs": [
+        "the original hypothesis and success criteria for a shipped design or product change",
+        "available instrumentation/analytics data covering before and after the change"
+      ],
+      "outputs": [
+        "a measurement record comparing before/after or experiment results, with instrumentation sufficiency, confidence, and data limitations stated explicitly, ready to feed back into synthesis"
+      ],
+      "path": "skills/analytics/silver-measure",
+      "source": {
+        "type": "third-party",
+        "repository": "thejparsenault/silver-design-framework",
+        "url": "https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/measure",
+        "author": "JP Arsenault",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "framework/skills/measure",
+        "upstreamCommit": "317ede0f594cda80f0d84b11098afac0c29e21b1",
+        "retrievedAt": "2026-08-26",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [
+        "node"
+      ],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "experimental",
+      "status": "draft"
+    },
+    {
       "id": "conversational-ux",
       "name": "conversational-ux",
       "description": "Makes the agent design voice and chat interfaces around the conversation turn: a confirmation-strategy table (explicit/implicit/none by stakes), a three-step error reprompt ladder that never repeats the same prompt, voice-specific writing rules (short sentences, no visual-only references, max three-item lists, sub-8s responses, earcons), multimodal voice+screen rules, text-chat affordances (quick replies, typing indicators, structured cards), persona/tone decisions including no false humanity, and guidance on when conversation is the wrong pattern.",
@@ -3078,6 +3718,87 @@
       "relatedSkills": [],
       "recommended": false,
       "maturity": "stable",
+      "status": "draft"
+    },
+    {
+      "id": "extract-static-html",
+      "name": "extract-static-html",
+      "description": "Produces a single self-contained static HTML file from a rendered web page or app screen. Primary path: a Puppeteer script (scripts/snapshot.ts) launches headless Chrome against a running dev server or built app, captures the rendered DOM plus live CSSOM rules, inlines stylesheets and same-origin icon fonts, converts images and canvases to base64 data URIs, and strips dev-only scripts and HMR overlays; works with any framework, supports dark-mode classes, fixed-element removal, full-page capture and an optional auth script for login-gated pages. Fallback: a browser-subagent DOM capture for pages needing interaction first. Last resort: scripts/extract_inline_html.ts flattens a hand-written React mock into static HTML via Babel, and scripts/post_process.ts inlines remaining local images. Used to capture a specific UI state or produce a portable snapshot for design handoff or documentation.",
+      "category": "design-engineering",
+      "tags": [
+        "frontend",
+        "handoff",
+        "documentation",
+        "implementation-quality"
+      ],
+      "triggers": [
+        "save this page as a static self-contained HTML file",
+        "capture the rendered UI state of this app",
+        "extract standalone HTML from my dev server",
+        "share a static snapshot of this page",
+        "flatten this React mock into standalone HTML"
+      ],
+      "inputs": [
+        "a running local dev server URL, or a built app directory",
+        "optional React mock component (.jsx) plus its CSS files for the fallback path",
+        "optional auth script for login-gated pages"
+      ],
+      "outputs": [
+        "a single self-contained HTML file with inlined CSS, base64 images/icon-fonts, and no external references"
+      ],
+      "path": "skills/design-engineering/extract-static-html",
+      "source": {
+        "type": "third-party",
+        "repository": "google-labs-code/stitch-skills",
+        "url": "https://github.com/google-labs-code/stitch-skills/tree/0337446dadde6f8c94210444e2aa9d546126480f/plugins/stitch-design/skills/extract-static-html",
+        "author": "google-labs-code",
+        "license": "Apache-2.0",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "plugins/stitch-design/skills/extract-static-html",
+        "upstreamCommit": "0337446dadde6f8c94210444e2aa9d546126480f",
+        "retrievedAt": "2026-08-26",
+        "modified": true,
+        "modifications": [
+          {
+            "date": "2026-08-26",
+            "reason": "portability",
+            "description": "No LICENSE file exists inside the skill directory itself; bundled the repository-root Apache-2.0 LICENSE text as LICENSE.txt so the vendored directory is self-contained.",
+            "files": [
+              "LICENSE.txt"
+            ]
+          },
+          {
+            "date": "2026-08-26",
+            "reason": "compatibility",
+            "description": "Frontmatter name changed from \"stitch::extract-static-html\" (a plugin-wide namespace prefix with a double colon) to \"extract-static-html\" so it equals the directory name and satisfies the Agent Skills naming rule (lowercase letters, digits, hyphens).",
+            "files": [
+              "SKILL.md"
+            ]
+          }
+        ]
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [
+        "node",
+        "npm:puppeteer",
+        "npm:@babel/parser",
+        "npm:@babel/traverse",
+        "npm:@babel/generator",
+        "browser"
+      ],
+      "relatedSkills": [],
+      "recommended": false,
+      "maturity": "experimental",
       "status": "draft"
     },
     {

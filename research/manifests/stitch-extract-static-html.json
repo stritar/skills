@@ -1,0 +1,131 @@
+{
+  "id": "extract-static-html",
+  "category": "design-engineering",
+  "verdict": "vendor",
+  "rubric": {
+    "relevance": 2,
+    "quality": 3,
+    "conformance": 1,
+    "uniqueness": 2
+  },
+  "upstream": {
+    "repository": "google-labs-code/stitch-skills",
+    "url": "https://github.com/google-labs-code/stitch-skills/tree/0337446dadde6f8c94210444e2aa9d546126480f/plugins/stitch-design/skills/extract-static-html",
+    "author": "google-labs-code",
+    "commit": "0337446dadde6f8c94210444e2aa9d546126480f",
+    "path": "plugins/stitch-design/skills/extract-static-html",
+    "license": "Apache-2.0",
+    "licenseSource": "repo-root:LICENSE"
+  },
+  "files": [
+    {
+      "dest": "SKILL.md",
+      "rawUrl": "https://raw.githubusercontent.com/google-labs-code/stitch-skills/0337446dadde6f8c94210444e2aa9d546126480f/plugins/stitch-design/skills/extract-static-html/SKILL.md",
+      "blobSha": "914d1bb2776ace06a982ea1710d3d0751c5cd77f"
+    },
+    {
+      "dest": "scripts/extract_inline_html.ts",
+      "rawUrl": "https://raw.githubusercontent.com/google-labs-code/stitch-skills/0337446dadde6f8c94210444e2aa9d546126480f/plugins/stitch-design/skills/extract-static-html/scripts/extract_inline_html.ts",
+      "blobSha": "c22063039cbc53d0e75d4335531b5d757343a294"
+    },
+    {
+      "dest": "scripts/post_process.ts",
+      "rawUrl": "https://raw.githubusercontent.com/google-labs-code/stitch-skills/0337446dadde6f8c94210444e2aa9d546126480f/plugins/stitch-design/skills/extract-static-html/scripts/post_process.ts",
+      "blobSha": "0facbc72f889951e2f6c8a3f9949da6f3bb7c78a"
+    },
+    {
+      "dest": "scripts/snapshot.ts",
+      "rawUrl": "https://raw.githubusercontent.com/google-labs-code/stitch-skills/0337446dadde6f8c94210444e2aa9d546126480f/plugins/stitch-design/skills/extract-static-html/scripts/snapshot.ts",
+      "blobSha": "88c9cd238ce4b3dce203558d520235b27772ace4"
+    },
+    {
+      "dest": "LICENSE.txt",
+      "rawUrl": "https://raw.githubusercontent.com/google-labs-code/stitch-skills/0337446dadde6f8c94210444e2aa9d546126480f/LICENSE"
+    }
+  ],
+  "securityNotes": "Read SKILL.md in full and reviewed all three scripts (snapshot.ts 1469 lines, extract_inline_html.ts 1025 lines, post_process.ts 498 lines) at the pinned SHA -- read fully in editor plus a targeted grep for eval/exec/child_process/process.env/fetch/http.request/apikey/token/credential/curl/wget/download/spawn across all three files. Findings: post_process.ts and extract_inline_html.ts's own top-level code have none of those patterns except extract_inline_html.ts's documented node:http/node:https imports, used only to fetch image URLs the user's own MockPage.jsx already references, for base64 inlining (its stated purpose) -- no arbitrary or hidden endpoints. snapshot.ts's fetch() calls run inside page.evaluate() (i.e. inside the Puppeteer-controlled browser page, same-origin credentials mode) purely to inline the page's own stylesheet/image/font resources -- no exfiltration, no external network calls beyond the target app itself. No eval/exec/child_process/env access, no download-and-execute pattern, no hidden instructions. The auth-script example in SKILL.md documents that a user-supplied script can inject credentials into the Puppeteer session for auth-gated pages, which is expected, disclosed, and user-authored, not embedded in this skill.",
+  "overlaps": [],
+  "proposedEntry": {
+    "id": "extract-static-html",
+    "name": "extract-static-html",
+    "description": "Produces a single self-contained static HTML file from a rendered web page or app screen. Primary path (Strategy A): a Puppeteer script (scripts/snapshot.ts) launches headless Chrome against a running dev server or built app, captures the fully rendered DOM plus live CSSOM rules, inlines all stylesheets and same-origin icon fonts, converts img/srcset/canvas content to base64 data URIs, and strips dev-only script tags/HMR overlays -- works with any framework, supports dark-mode classes, fixed-element removal, full-page height capture, and an optional user-supplied auth script for login-gated pages. Fallback path (Strategy B): a browser-subagent DOM capture for pages needing interaction first. Last-resort path: scripts/extract_inline_html.ts flattens a hand-written React mock component into static HTML via Babel AST parsing, and scripts/post_process.ts inlines that HTML's remaining local image references as base64. Used to capture a specific UI state or produce a portable, shareable snapshot of a page for design handoff, documentation, or further processing.",
+    "category": "design-engineering",
+    "tags": [
+      "frontend",
+      "handoff",
+      "documentation",
+      "implementation-quality"
+    ],
+    "triggers": [
+      "save this page as a static self-contained HTML file",
+      "capture the rendered UI state of this app",
+      "extract standalone HTML from my dev server",
+      "share a static snapshot of this page",
+      "flatten this React mock into standalone HTML"
+    ],
+    "inputs": [
+      "a running local dev server URL, or a built app directory",
+      "optional React mock component (.jsx) plus its CSS files for the fallback path",
+      "optional auth script for login-gated pages"
+    ],
+    "outputs": [
+      "a single self-contained HTML file with inlined CSS, base64 images/icon-fonts, and no external references"
+    ],
+    "path": "skills/design-engineering/extract-static-html",
+    "source": {
+      "type": "third-party",
+      "repository": "google-labs-code/stitch-skills",
+      "url": "https://github.com/google-labs-code/stitch-skills/tree/0337446dadde6f8c94210444e2aa9d546126480f/plugins/stitch-design/skills/extract-static-html",
+      "author": "google-labs-code",
+      "license": "Apache-2.0",
+      "licenseFile": "LICENSE.txt",
+      "upstreamPath": "plugins/stitch-design/skills/extract-static-html",
+      "upstreamCommit": "0337446dadde6f8c94210444e2aa9d546126480f",
+      "retrievedAt": "2026-08-26",
+      "modified": true,
+      "modifications": [
+        {
+          "date": "2026-08-26",
+          "reason": "portability",
+          "description": "No LICENSE file exists inside the skill directory itself; bundled the repository-root Apache-2.0 LICENSE text as LICENSE.txt so the vendored directory is self-contained.",
+          "files": [
+            "LICENSE.txt"
+          ]
+        },
+        {
+          "date": "2026-08-26",
+          "reason": "compatibility",
+          "description": "Frontmatter name changed from \"stitch::extract-static-html\" (a plugin-wide namespace prefix with a double colon) to \"extract-static-html\" so it equals the directory name and satisfies the Agent Skills naming rule (lowercase letters, digits, hyphens).",
+          "files": [
+            "SKILL.md"
+          ]
+        }
+      ]
+    },
+    "compatibility": [
+      "claude-code",
+      "codex",
+      "cursor",
+      "opencode",
+      "amp",
+      "gemini-cli",
+      "copilot",
+      "vs-code",
+      "claude-ai"
+    ],
+    "dependencies": [
+      "node",
+      "npm:puppeteer",
+      "npm:@babel/parser",
+      "npm:@babel/traverse",
+      "npm:@babel/generator",
+      "browser"
+    ],
+    "relatedSkills": [],
+    "recommended": false,
+    "maturity": "experimental",
+    "status": "draft"
+  },
+  "logMd": "#### google-labs-code/stitch-skills -- extract-static-html (inspected 2026-08-26)\n\nSee stitch-extract-design-md.json for shared repo-level evidence (HEAD SHA, license, star count, fetch method). Read SKILL.md in full and reviewed the three bundled TypeScript scripts (2992 lines total) for security. All three are self-contained npx-tsx scripts with clear CLI flags documented in SKILL.md; no exec/eval/child_process/credential harvesting found anywhere. This skill's frontmatter declares 'stitch*:*' in allowed-tools (inherited plugin-wide boilerplate) but nothing in the SKILL.md workflow actually calls a Stitch MCP tool -- the whole skill is a generic 'capture this rendered page as portable static HTML' utility, useful independent of Stitch, so dependencies[] lists only the real runtime needs (node, puppeteer, browser, the three @babel packages used by extract_inline_html.ts) and omits stitch-mcp.\n\nRubric: relevance 2 (a devtools capture utility that supports design handoff/documentation/QA rather than being a design judgment activity itself, but squarely applicable to design-engineering scope), quality 3 (two clearly compared strategies with a pros/cons table, an exhaustive flag reference, a framework-compatibility table, a troubleshooting table, and a documented auth-script escape hatch), conformance 1 (same plugin-wide `stitch::` frontmatter-name-vs-dirname mismatch as extract-design-md; all SKILL.md relative references -- <SKILL_DIR>/scripts/*.ts -- resolve inside the skill directory), uniqueness 2 (no vendored skill produces a portable self-contained HTML snapshot of a live rendered app; closest neighbors like frontend-design-review or design-review are review/critique skills, not capture/extraction tooling). Total 8, verdict vendor.\n\nSame curator flag as extract-design-md applies: id/name carries the literal `stitch::` frontmatter prefix, producing a colon in the vendored path.",
+  "renamedFrom": "stitch::extract-static-html"
+}
