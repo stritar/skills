@@ -11,9 +11,9 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="page-head">
-<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=interaction-design">Interaction design</a></nav>
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=prototyping">Prototyping</a></nav>
 <h1>wireframe</h1>
-<p class="badges"></p>
+<p class="badges"><span class="il badge badge-rec"><span class="il-icon" aria-hidden="true">★</span><span class="il-label">Recommended</span></span><span class="il badge badge-exp"><span class="il-label">Experimental</span></span></p>
 <p class="lede">Guides the agent to explore a design space quickly with many rough, structurally distinct low-fidelity wireframes rather than one polished direction.</p>
 </header>
 
@@ -23,7 +23,7 @@
 <ul class="toc">
 <li><a href="#install">Install</a></li>
 <li><a href="#about">About this skill</a></li>
-
+<li><a href="#related">Works with</a></li>
 <li><a href="#instructions">Instructions</a></li>
 <li class="toc-sub"><a href="#output-location">Output location</a></li>
 <li class="toc-sub"><a href="#role-framing">Role framing</a></li>
@@ -46,13 +46,13 @@
 <li>
 <h3>Claude Code, as a plugin</h3>
 <div class="cmd"><pre><code>/plugin marketplace add stritar/skills
-/plugin install product-design-interaction-design@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
-/plugin install product-design-interaction-design@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Installs the whole <code>interaction-design</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
+/plugin install product-design-prototyping@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-prototyping@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Installs the whole <code>prototyping</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
 </li>
 <li>
 <h3>From a clone, copied by hand</h3>
-<div class="cmd"><pre><code>cp -r skills/interaction-design/wireframe ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/interaction-design/wireframe ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<div class="cmd"><pre><code>cp -r skills/prototyping/wireframe ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/prototyping/wireframe ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
 <p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
 </li>
 </ul>
@@ -74,11 +74,18 @@
 </details>
 </section>
 
-
+<section id="related">
+<h2>Works with</h2>
+<ul class="related">
+<li><a href="wireframe-json.html"><span class="rel-id">wireframe-json</span></a> <span class="rel-cat">Prototyping</span></li>
+<li><a href="prototype.html"><span class="rel-id">prototype</span></a> <span class="rel-cat">Prototyping</span></li>
+<li><a href="interactive-prototype.html"><span class="rel-id">interactive-prototype</span></a> <span class="rel-cat">Prototyping</span></li>
+</ul>
+</section>
 
 <article class="skill-body" id="instructions">
 <h2 class="body-head">Instructions</h2>
-<p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/interaction-design/wireframe/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
+<p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/prototyping/wireframe/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
 <p>Loaded when the user wants to explore the design space quickly — many rough ideas, not one polished direction.</p>
 <h3 id="output-location">Output location</h3>
 <p>Write all output files to <code>./opendesign/mockups/&lt;task-slug&gt;/</code>. Derive the slug from the task name (e.g. <code>dashboard-redesign</code>, <code>onboarding-flow</code>).</p>

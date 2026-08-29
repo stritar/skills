@@ -881,7 +881,7 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 - Author: manalkaff
 - Upstream path: `skills/wireframe` at commit `cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb`
 - Retrieved: 2026-08-29
-- License: MIT (license file: `skills/interaction-design/wireframe/LICENSE.txt`)
+- License: MIT (license file: `skills/prototyping/wireframe/LICENSE.txt`)
 - Local modifications:
   - 2026-08-29 (portability): Bundled the repo-root MIT LICENSE into the skill directory as LICENSE.txt; the skill directory itself ships no license file. [LICENSE.txt]
 
@@ -891,7 +891,7 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 - Author: yhassy
 - Upstream path: `.` at commit `948d4331343b18d913d5bc502da72ed0c5f19101`
 - Retrieved: 2026-08-29
-- License: MIT (license file: `skills/interaction-design/wireframe-json/LICENSE.txt`)
+- License: MIT (license file: `skills/prototyping/wireframe-json/LICENSE.txt`)
 - Local modifications:
   - 2026-08-29 (collision-rename): Upstream frontmatter name is 'wireframe', which collides with an already-vendored 'wireframe' skill from manalkaff/opendesign selected earlier in this same research pass (research/manifests/wireframe.json). Renamed this skill's id/frontmatter name to 'wireframe-json' to disambiguate — the two skills do genuinely different things (opendesign's wireframe produces multiple rough divergent low-fi sketches; this one produces one precise, schema-validated, machine-readable wireframe with an editable preview) so both are worth keeping rather than dropping one. [SKILL.md]
   - 2026-08-29 (broken-reference): Upstream SKILL.md hard-codes the install path '.claude/skills/wireframe/' when referencing its own sibling files (wireframe-designer.md in Step 2, and wireframe-template.html in the Step 4 python splice command) — a Claude-Code-specific absolute convention that breaks for any other harness, and would in any case now be wrong after the collision-rename since the installed directory name changes. Rewrote the wireframe-designer.md reference to a same-directory relative path, and replaced the hard-coded template path in the Step 4 script with a '{skill_dir}' placeholder the invoking agent fills in with this skill's own installed directory, with an explanatory sentence added after the code block. [SKILL.md]

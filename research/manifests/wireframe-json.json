@@ -1,8 +1,13 @@
 {
   "id": "wireframe-json",
-  "category": "interaction-design",
+  "category": "prototyping",
   "verdict": "vendor",
-  "rubric": {"relevance": 3, "quality": 3, "conformance": 1, "uniqueness": 2},
+  "rubric": {
+    "relevance": 3,
+    "quality": 3,
+    "conformance": 1,
+    "uniqueness": 2
+  },
   "upstream": {
     "repository": "yhassy/wireframe-skill",
     "url": "https://github.com/yhassy/wireframe-skill/tree/948d4331343b18d913d5bc502da72ed0c5f19101",
@@ -17,23 +22,56 @@
       "dest": "SKILL.md",
       "content": "---\nname: wireframe-json\ndescription: Generate JSON wireframe with HTML preview\n---\n\n# /wireframe\n\nGenerate a JSON wireframe definition and render it as a self-contained HTML preview.\n\n## Mode: Generate\n\n## Input\n\nTwo modes:\n\n1. **Conversation**: Describe the layout you want to wireframe. Claude generates JSON from the description.\n2. **design-id argument**: `wireframe {design-id}` — reads `designs/{design-id}/output/design-spec.md` and extracts layout structure from the Information Architecture section.\n\n## Output\n\nTwo files per screen:\n\n- `{name}.wireframe.json` — AI-readable wireframe definition\n- `{name}.wireframe.html` — self-contained HTML preview (open in browser)\n\n**HTML preview features:**\n- Collapsible right panel showing live JSON (syncs on every edit)\n- Drag-and-drop reordering within the same parent\n- Save button (Chrome/Edge — uses File System Access API, first save opens picker, subsequent saves write directly)\n- Copy JSON and Download JSON buttons (all browsers)\n- Panel collapse state persists across sessions via localStorage\n\n**Output path:**\n- With design-id: `designs/{design-id}/output/wireframe/` (automatic)\n- Without: prompted — ask user for directory path\n\n## Execution Steps\n\n### Step 1: Determine input\n\nIf a `{design-id}` argument is provided:\n1. Read `designs/{design-id}/output/design-spec.md`\n2. Extract layout structure from the Information Architecture section\n3. Identify all views/screens described\n\nIf no argument:\n1. Use the conversation context to understand the desired layout\n2. Ask clarifying questions if the layout description is ambiguous\n\n### Step 2: Load cognitive model and generate wireframe JSON\n\n1. Load the wireframe designer cognitive model from `wireframe-designer.md` (in this skill's own directory)\n2. Follow the perception sequence (Phases 1–7) to reason about the layout before producing JSON\n3. Produce a JSON object following the schema below\n\n**Schema rules** (mechanical — these constrain the JSON format, not design judgment):\n\n- Every node MUST have a `name`\n- Layout containers MUST have `direction` and `children`\n- Leaf elements SHOULD have a `type`\n- The JSON maps 1:1 to CSS flexbox — think in flex terms\n- Apply the sizing constraints from the Element types table. In particular: buttons, links, inputs, tags, and inline text must never have fixed `width` — use `height` only and let content determine width\n\n### Step 3: Determine output location\n\nDerive the filename from the JSON `name` field (slugified, e.g., \"KAI 回答ビュー\" → `kai-answer-view`).\n\n**If `design-id` was provided:**\n- Output directory is `designs/{design-id}/output/wireframe/` (no prompt needed)\n\n**If no `design-id`:**\n- Ask the user where to save the JSON: \"Where should I save the wireframe JSON? Provide a directory path.\"\n- Use `AskUserQuestion` with a simple text prompt\n- Create the directory if it doesn't exist\n\nBoth `.wireframe.json` and `.wireframe.html` go in the same output directory.\n\n### Step 4: Generate HTML preview\n\nUse a Bash command to splice the JSON into the template. This avoids outputting the ~1000-line template through the Write tool (which is slow because every line becomes output tokens):\n\n```bash\npython3 -c \"\nt = open('{skill_dir}/wireframe-template.html').read()\nd = open('{json_path}').read()\nopen('{html_path}', 'w').write(t.replace('const WIREFRAME_DATA = null;', 'const WIREFRAME_DATA = ' + d + ';'))\n\"\n```\n\nReplace `{skill_dir}` with this skill's own installed directory, and `{json_path}` and `{html_path}` with the actual output paths from Step 3. Use absolute paths.\n\n**Do NOT** read the template with the Read tool or write the HTML with the Write tool. The Python script handles both file operations directly on disk.\n\n### Step 5: Output\n\n1. Write both `.wireframe.json` and `.wireframe.html` files to the output directory from Step 3\n2. Open the HTML preview in the browser: `open {path}.wireframe.html`\n3. Confirm to the user:\n   ```\n   Wireframe generated:\n   - JSON: {path}.wireframe.json\n   - Preview: {path}.wireframe.html (opened in browser)\n   ```\n\n---\n\n## JSON Wireframe Schema\n\n```json\n{\n  \"name\": \"Screen Name\",\n  \"viewport\": { \"width\": 1280, \"height\": 800 },\n  \"root\": {\n    \"name\": \"Root\",\n    \"direction\": \"vertical\",\n    \"children\": []\n  }\n}\n```\n\n### Top-level fields\n\n| Field | Type | Required | Description |\n|-------|------|----------|-------------|\n| `name` | string | Yes | Screen/wireframe name |\n| `viewport` | `{ width, height }` | Yes | Canvas dimensions in px |\n| `root` | node | Yes | Root layout node |\n\n### Node fields\n\n**Identity:**\n\n| Field | Type | Required | Description |\n|-------|------|----------|-------------|\n| `name` | string | Yes | Node label (shown in wireframe) |\n| `type` | string | No | Element type for placeholder rendering |\n| `variant` | string | No | Text hierarchy: `\"display\"` (32px), `\"heading\"` (24px), `\"caption\"` (12px). Default body (16px). Only for `type: \"text\"`. |\n\n**Layout (for containers with children):**\n\n| Field | Type | Default | CSS equivalent |\n|-------|------|---------|---------------|\n| `direction` | `\"vertical\"` / `\"horizontal\"` | `\"vertical\"` | flex-direction |\n| `children` | node[] | — | child elements |\n| `gap` | number | 0 | gap (px) |\n| `padding` | number or [v, h] | 0 | padding (px) |\n| `justify` | string | `\"flex-start\"` | justify-content |\n| `align` | string | `\"stretch\"` | align-items |\n| `wrap` | boolean | false | flex-wrap: wrap |\n\n**Sizing:**\n\n| Field | Type | Default | CSS equivalent |\n|-------|------|---------|---------------|\n| `width` | number | — | width (px) |\n| `height` | number | — | height (px) |\n| `grow` | boolean | false | flex: 1 |\n| `maxWidth` | number | — | max-width (px) |\n\n### Element types\n\n| Type | Rendered as | Use for | Sizing |\n|------|------------|---------|--------|\n| `\"text\"` | Gray text label | Labels, headings, body text | `height` only. No `width` — text reflows naturally |\n| `\"image\"` | Gray box with image icon | Photos, thumbnails, hero images | `width` + `height`, or `height` + `grow` |\n| `\"icon\"` | Small gray circle | Action icons, status indicators | Fixed `width` + `height` always |\n| `\"button\"` | Rounded rectangle | CTAs, primary actions | `height` only. Never `width` — label length varies |\n| `\"link\"` | Underlined text | Navigation items, secondary actions, text links | `height` only. Never `width` — label length varies |\n| `\"input\"` | Bordered rectangle | Search fields, form inputs, dropdowns | `height` + `grow` or `maxWidth`. Never fixed `width` alone |\n| `\"card\"` | Bordered box with shadow | Content cards, list items | `height` + `grow`, or `height` alone in vertical lists |\n| `\"table\"` | Header row + placeholder data rows | Data tables, lists with columns | `grow` or omit. Column widths via `columns[].width` / `columns[].grow` |\n| `\"divider\"` | Thin horizontal line | Section separators | No sizing needed |\n| (none) | Transparent container | Structural grouping only | `grow` for flexible, `width` for fixed (e.g., sidebar) |\n\n### Table properties\n\nTables use `columns` and `rows` instead of `children`:\n\n| Field | Type | Default | Description |\n|-------|------|---------|-------------|\n| `columns` | array | — | Column definitions (required for table) |\n| `columns[].name` | string | — | Column header text |\n| `columns[].grow` | boolean | false | Flexible width (flex: 1) |\n| `columns[].width` | number | — | Fixed width in px |\n| `rows` | number | 3 | Number of placeholder data rows |\n\n```json\n{\n  \"name\": \"Users Table\",\n  \"type\": \"table\",\n  \"columns\": [\n    { \"name\": \"Name\", \"grow\": true },\n    { \"name\": \"Email\", \"grow\": true },\n    { \"name\": \"Role\", \"width\": 120 },\n    { \"name\": \"Status\", \"width\": 100 }\n  ],\n  \"rows\": 5\n}\n```\n\n### Style properties (optional)\n\nVisual properties for downstream consumers. These are **purely additive** — a wireframe JSON with zero style properties is 100% valid and renders as a monochrome wireframe (current behavior, unchanged). The wireframe HTML renderer ignores style properties.\n\nThe `/wireframe` skill itself produces plain wireframes. Style properties are added by `/ui-prompts` when a design system is specified, creating a \"styled wireframe\" that downstream consumers (pencil-generate, stitch-generate, Figma Make) use directly.\n\n| Field | Type | Description | Applies to |\n|-------|------|-------------|------------|\n| `fill` | string (hex) | Background fill color | Containers, cards, buttons |\n| `color` | string (hex) | Text/icon foreground color | Text, icons, links |\n| `fontSize` | number | Font size in px | Text |\n| `fontWeight` | number | Font weight (400, 600) | Text |\n| `borderRadius` | number | Corner radius in px | Containers, cards, buttons, inputs |\n| `stroke` | `{ color, width }` | Border definition | Containers, cards, inputs |\n| `shadow` | `{ x, y, blur, color }` | Drop shadow | Containers, cards |\n| `opacity` | number (0–1) | Element opacity | Any node |\n\n**Rules:**\n- Values MUST be resolved (hex colors, px numbers) — never token names\n- Absence means \"use consumer defaults\" — omit properties you don't need to specify\n- `fill` on a container = background; `color` on text = foreground (avoid ambiguity)\n- `stroke` and `shadow` use object notation for clean parsing\n\n**Annotation fields:**\n\n| Field | Type | Description |\n|-------|------|-------------|\n| `_solves` | string | Traces this element to a PRD problem or user need. Metadata only — ignored by all renderers. |\n\n**Canonical schema:** This JSON schema is the canonical layout format used across the pipeline. The `## Layout` section in UI prompt files (`prompts/*.md`) uses this same schema inline, optionally with style properties. Skills that generate prompts (`/ui-prompts`, `/style-exploration`, `/figma-variation`) produce wireframe JSON. Skills that consume prompts (`/pencil-generate`, `/stitch-generate`) parse it directly.\n\n---\n\n## Example\n\nA dashboard with proper typographic hierarchy, spacing rhythm, and proportional heights:\n\n```json\n{\n  \"name\": \"Dashboard\",\n  \"viewport\": { \"width\": 1280, \"height\": 800 },\n  \"root\": {\n    \"name\": \"Page\",\n    \"direction\": \"vertical\",\n    \"children\": [\n      {\n        \"name\": \"Header\",\n        \"direction\": \"horizontal\",\n        \"height\": 56,\n        \"padding\": [0, 24],\n        \"justify\": \"space-between\",\n        \"align\": \"center\",\n        \"children\": [\n          { \"name\": \"Logo\", \"type\": \"image\", \"width\": 100, \"height\": 28 },\n          { \"name\": \"Search\", \"type\": \"input\", \"grow\": true, \"maxWidth\": 400, \"height\": 40 },\n          { \"name\": \"Avatar\", \"type\": \"icon\", \"width\": 32, \"height\": 32 }\n        ]\n      },\n      {\n        \"name\": \"Body\",\n        \"direction\": \"horizontal\",\n        \"grow\": true,\n        \"children\": [\n          {\n            \"name\": \"Sidebar\",\n            \"width\": 240,\n            \"direction\": \"vertical\",\n            \"padding\": 16,\n            \"gap\": 4,\n            \"children\": [\n              { \"name\": \"Overview\", \"type\": \"link\", \"height\": 40 },\n              { \"name\": \"Projects\", \"type\": \"link\", \"height\": 40 },\n              { \"name\": \"Settings\", \"type\": \"link\", \"height\": 40 }\n            ]\n          },\n          {\n            \"name\": \"Main\",\n            \"grow\": true,\n            \"direction\": \"vertical\",\n            \"padding\": 32,\n            \"gap\": 24,\n            \"children\": [\n              { \"name\": \"Dashboard\", \"type\": \"text\", \"variant\": \"display\", \"height\": 48 },\n              {\n                \"name\": \"Stats Row\",\n                \"direction\": \"horizontal\",\n                \"gap\": 16,\n                \"children\": [\n                  { \"name\": \"Total Users\", \"type\": \"card\", \"grow\": true, \"height\": 100 },\n                  { \"name\": \"Revenue\", \"type\": \"card\", \"grow\": true, \"height\": 100 },\n                  { \"name\": \"Active Today\", \"type\": \"card\", \"grow\": true, \"height\": 100 }\n                ]\n              },\n              {\n                \"name\": \"Recent Activity\",\n                \"direction\": \"vertical\",\n                \"gap\": 12,\n                \"children\": [\n                  { \"name\": \"Recent Activity\", \"type\": \"text\", \"variant\": \"heading\", \"height\": 36 },\n                  {\n                    \"name\": \"Activity Table\",\n                    \"type\": \"table\",\n                    \"columns\": [\n                      { \"name\": \"User\", \"grow\": true },\n                      { \"name\": \"Action\", \"grow\": true },\n                      { \"name\": \"Status\", \"width\": 120 },\n                      { \"name\": \"Time\", \"width\": 140 }\n                    ],\n                    \"rows\": 6\n                  }\n                ]\n              }\n            ]\n          }\n        ]\n      }\n    ]\n  }\n}\n```\n\n**Cognitive reasoning behind this wireframe:**\n\n- **Phase 3 (Task & Scanning):** Dashboard = monitoring intent → F-pattern → top-to-bottom primary content flow, important information along left edge and top\n- **Phase 4 (Grid):** Two major zones — sidebar (240px, fixed, persistent navigation) + content area (`grow: true`). Sidebar exists because content inventory includes navigation that aids the monitoring task.\n- **Phase 5 (Hierarchy):** Three levels — `display` for page identity (\"Dashboard\"), `heading` for section identity (\"Recent Activity\"), body (default) for data content. Caption reserved for table column headers (chrome, not content). Sidebar nav uses `link` (navigation aids the task but isn't the task itself). Primary CTAs in the content area would use `button`.\n- **Phase 6 (Spacing):** Proximity tightens inward — root padding 32 > section gap 24 > card gap 16 > internal gap 12. Each step inward signals increasing relatedness. Container padding (32) ≥ child gap (24) everywhere.\n- **Phase 7 (Rhythm):** Progressive density — spacious at top (title, 48px display text), medium in middle (stat cards, 100px), dense at bottom (table with 6 data rows). Heights accommodate content proportionally.\n"
     },
-    {"dest": "wireframe-designer.md", "rawUrl": "https://raw.githubusercontent.com/yhassy/wireframe-skill/948d4331343b18d913d5bc502da72ed0c5f19101/wireframe-designer.md"},
-    {"dest": "wireframe-template.html", "rawUrl": "https://raw.githubusercontent.com/yhassy/wireframe-skill/948d4331343b18d913d5bc502da72ed0c5f19101/wireframe-template.html"},
-    {"dest": "README.md", "rawUrl": "https://raw.githubusercontent.com/yhassy/wireframe-skill/948d4331343b18d913d5bc502da72ed0c5f19101/README.md"},
-    {"dest": "LICENSE.txt", "rawUrl": "https://raw.githubusercontent.com/yhassy/wireframe-skill/948d4331343b18d913d5bc502da72ed0c5f19101/LICENSE"}
+    {
+      "dest": "wireframe-designer.md",
+      "rawUrl": "https://raw.githubusercontent.com/yhassy/wireframe-skill/948d4331343b18d913d5bc502da72ed0c5f19101/wireframe-designer.md"
+    },
+    {
+      "dest": "wireframe-template.html",
+      "rawUrl": "https://raw.githubusercontent.com/yhassy/wireframe-skill/948d4331343b18d913d5bc502da72ed0c5f19101/wireframe-template.html"
+    },
+    {
+      "dest": "README.md",
+      "rawUrl": "https://raw.githubusercontent.com/yhassy/wireframe-skill/948d4331343b18d913d5bc502da72ed0c5f19101/README.md"
+    },
+    {
+      "dest": "LICENSE.txt",
+      "rawUrl": "https://raw.githubusercontent.com/yhassy/wireframe-skill/948d4331343b18d913d5bc502da72ed0c5f19101/LICENSE"
+    }
   ],
   "securityNotes": "Read all 5 repo files in full at the pinned SHA (repo root = skill directory; this is a single-skill repo). SKILL.md is prose plus a python3 -c one-liner that only does a local string-splice of a JSON string into a local HTML template file (no network, no eval of untrusted remote code, no shell-injection risk beyond normal local path handling the calling agent controls). wireframe-template.html (1333 lines, read in full across two passes) is a self-contained client-side JS/CSS wireframe editor: drag-and-drop reorder, undo/redo, JSON syntax highlighting, clipboard copy, browser download, and the File System Access API for local save-to-disk. Grepped for fetch/XMLHttpRequest/<script src=/eval/document.write/http(s) links — zero matches; confirmed by full read, no network calls, no remote script loads, no eval, no exfiltration, no hidden or injected instructions anywhere in any file. wireframe-designer.md is pure prose (a 7-phase design-reasoning framework) with no executable content. Clean.",
-  "overlaps": ["wireframe (manalkaff/opendesign, this same campaign, verdict vendor)"],
+  "overlaps": [
+    "wireframe (manalkaff/opendesign, this same campaign, verdict vendor)"
+  ],
   "proposedEntry": {
     "id": "wireframe-json",
     "name": "wireframe-json",
     "description": "Generates a machine-readable JSON wireframe definition from a natural-language screen description (or from a design-spec's Information Architecture section) plus a self-contained, editable HTML preview. Applies a 7-phase design-reasoning framework before producing JSON: displacement check, content inventory, task/scanning-pattern selection, grid establishment, hierarchy assignment via a 4-level type scale, spacing via an 8-point grid, and a rhythm-verification pass with named failure modes (pixel perfectionism, hierarchy collapse, arbitrary spacing, grid amnesia, density monotony, action-hierarchy collapse) each with symptom/root-cause/fix. The JSON maps 1:1 to CSS flexbox and is the same schema used across a wider design pipeline (styled by other skills, consumed by Figma Make / Google Stitch style tools). The HTML preview supports drag-and-drop reordering, direction toggling, copy/paste, undo/redo, and JSON export/save, entirely client-side with no server or build step.",
-    "category": "interaction-design",
-    "tags": ["wireframing", "ui-design", "interaction-design", "layout", "grids", "spacing", "visual-hierarchy", "figma"],
-    "triggers": ["generate a wireframe from this description", "wireframe this screen as JSON", "produce a structured wireframe I can hand to Figma Make", "build a machine-readable wireframe definition"],
-    "inputs": ["a natural-language layout description, or a design-id pointing at an existing design-spec's Information Architecture section"],
-    "outputs": ["a `.wireframe.json` machine-readable layout definition following the documented schema", "a self-contained `.wireframe.html` editable preview (drag-and-drop, undo/redo, JSON export)"],
-    "path": "skills/interaction-design/wireframe-json",
+    "category": "prototyping",
+    "tags": [
+      "wireframing",
+      "ui-design",
+      "interaction-design",
+      "layout",
+      "grids",
+      "spacing",
+      "visual-hierarchy",
+      "figma"
+    ],
+    "triggers": [
+      "generate a wireframe from this description",
+      "wireframe this screen as JSON",
+      "produce a structured wireframe I can hand to Figma Make",
+      "build a machine-readable wireframe definition"
+    ],
+    "inputs": [
+      "a natural-language layout description, or a design-id pointing at an existing design-spec's Information Architecture section"
+    ],
+    "outputs": [
+      "a `.wireframe.json` machine-readable layout definition following the documented schema",
+      "a self-contained `.wireframe.html` editable preview (drag-and-drop, undo/redo, JSON export)"
+    ],
+    "path": "skills/prototyping/wireframe-json",
     "source": {
       "type": "third-party",
       "repository": "yhassy/wireframe-skill",
@@ -50,18 +88,33 @@
           "date": "2026-08-29",
           "reason": "collision-rename",
           "description": "Upstream frontmatter name is 'wireframe', which collides with an already-vendored 'wireframe' skill from manalkaff/opendesign selected earlier in this same research pass (research/manifests/wireframe.json). Renamed this skill's id/frontmatter name to 'wireframe-json' to disambiguate — the two skills do genuinely different things (opendesign's wireframe produces multiple rough divergent low-fi sketches; this one produces one precise, schema-validated, machine-readable wireframe with an editable preview) so both are worth keeping rather than dropping one.",
-          "files": ["SKILL.md"]
+          "files": [
+            "SKILL.md"
+          ]
         },
         {
           "date": "2026-08-29",
           "reason": "broken-reference",
           "description": "Upstream SKILL.md hard-codes the install path '.claude/skills/wireframe/' when referencing its own sibling files (wireframe-designer.md in Step 2, and wireframe-template.html in the Step 4 python splice command) — a Claude-Code-specific absolute convention that breaks for any other harness, and would in any case now be wrong after the collision-rename since the installed directory name changes. Rewrote the wireframe-designer.md reference to a same-directory relative path, and replaced the hard-coded template path in the Step 4 script with a '{skill_dir}' placeholder the invoking agent fills in with this skill's own installed directory, with an explanatory sentence added after the code block.",
-          "files": ["SKILL.md"]
+          "files": [
+            "SKILL.md"
+          ]
         }
       ]
     },
-    "compatibility": ["claude-code", "codex", "cursor", "opencode", "amp", "gemini-cli", "copilot", "vs-code"],
-    "dependencies": ["python3"],
+    "compatibility": [
+      "claude-code",
+      "codex",
+      "cursor",
+      "opencode",
+      "amp",
+      "gemini-cli",
+      "copilot",
+      "vs-code"
+    ],
+    "dependencies": [
+      "python3"
+    ],
     "relatedSkills": [],
     "recommended": false,
     "maturity": "stable",

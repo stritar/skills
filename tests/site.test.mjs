@@ -41,6 +41,38 @@ test('every card links to a page that exists', () => {
   for (const h of hrefs) assert.ok(outputs[h], `index links ${h}, which is not generated`);
 });
 
+test('the index orients a first visit: install command, category filter, active-filter row', () => {
+  const html = outputs['docs/index.html'];
+  assert.match(html, /npx skills add [^ ]+\/[^ ]+ --skill &lt;id&gt;/, 'the header shows no install command');
+  assert.match(html, /id="active-filters"/, 'no active-filter row');
+  assert.match(html, /id="no-results"[\s\S]*?data-clear/, 'the empty state has no clear button');
+  const used = new Set(active.map((s) => s.category));
+  for (const c of used) {
+    assert.match(html, new RegExp(`name="category" value="${c}"`), `no category filter for ${c}`);
+  }
+  assert.match(html, /name="category" value="" checked/, 'no "all categories" default');
+});
+
+test('a skill page leads with install and folds provenance away', () => {
+  const s = active.find((x) => x.source.type === 'third-party') || active[0];
+  const html = outputs[`docs/skills/${s.id}.html`];
+  const install = html.indexOf('<section id="install">');
+  const about = html.indexOf('<section id="about"');
+  const body = html.indexOf('id="instructions"');
+  assert.ok(install > -1 && install < about && about < body, 'sections are out of order');
+  assert.match(html, /<details id="source"/, 'provenance is not folded');
+  assert.ok(html.includes(`npx skills add`), 'no install command');
+});
+
+test('firstSentence cuts on a sentence, then on a word', async () => {
+  const { firstSentence } = await import('../scripts/lib/site.mjs');
+  assert.equal(firstSentence('Does one thing. Then another.'), 'Does one thing.');
+  assert.equal(firstSentence('Uses e.g. this and that. Then more.'), 'Uses e.g. this and that.');
+  const long = `${'word '.repeat(60)}end`;
+  const cut = firstSentence(long);
+  assert.ok(cut.length <= 161 && cut.endsWith('…'));
+});
+
 test('every "works with" link resolves to a generated page', () => {
   for (const s of active) {
     const html = outputs[`docs/skills/${s.id}.html`];

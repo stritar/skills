@@ -121,6 +121,56 @@ categories (see `coverage-gaps.md`).
 (posters, generative art) without a recommended flag. Anthropic's
 `brand-guidelines` was rejected as hard-coded to one brand.
 
+## Round 2 additions (2026-08-29, waves 5-7)
+
+- **Journey mapping**: `journey-mapper` (derives a map from the codebase,
+  Apache-2.0) is the default; `customer-journey-mapper` (workshop-style
+  seven-stage map with Mermaid output) is kept as the participant-driven
+  alternative. Both relate to `service-blueprint`, which owns backstage.
+- **Research planning and synthesis**: `research-planning` (designpowers) is
+  the default planning specialist and `user-research-cookiy` stays the
+  default for generating instruments and synthesising transcripts;
+  `research-synthesis` (Anthropic knowledge-work, connector-oriented) and
+  `ux-researcher-designer` (alirezarezvani, broad) are alternatives.
+- **Personas**: `inclusive-personas` is the default (disability and
+  situational dimensions); `persona` (synthetic panels driven by local CLI
+  subprocesses, heavy Python dependencies) is `experimental`.
+- **Usability evaluation**: `usability-testing` (planning and moderation)
+  and `design-critique` (Kiro's NN/g-severity heuristic protocol) are the
+  defaults; `synthetic-user-testing` is a rehearsal aid; itsual's templated
+  `heuristic-evaluation` was dropped after re-reading.
+- **Discovery**: `product-discovery` (alirezarezvani) is the default over
+  the framework-coupled `silver-ideate`; `market-command-matrix` is a
+  strategy alternative (`experimental`, marketing-adjacent).
+- **Analytics**: `instrumentation-plan` (original) owns instrumentation,
+  `product-analytics` owns analysis and dashboards, `experiment-designer`
+  owns A/B design; all three recommended, `silver-measure` alternative.
+  marketingskills' `analytics` and `ab-testing` were rejected as duplicates.
+- **Wireframing**: `wireframe` (opendesign, divergent sketches) is the
+  default; `wireframe-json` (renamed from yhassy's `wireframe`, machine-
+  readable schema for Figma Make and Stitch) and `interactive-prototype`
+  are alternatives; `design-and-refine` overlaps `variant`/`prototype`.
+- **Design systems**: `design-system-governance` and `design-debt-audit`
+  remain the defaults; Anthropic's `design-system` (connector-oriented),
+  `ui-design-system` (generator) and the WordPress `wpds`/`wp-block-themes`/
+  `wp-patterns` trio (GPL-2.0-or-later, platform-specific) are alternatives.
+- **Handoff**: `pre-handoff-review` (original) is the default; Anthropic's
+  `design-handoff` and opendesign's `handoff-to-claude-code` are
+  alternatives with different outputs.
+- **Onboarding and sign-up flows**: `onboarding` is recommended (nothing
+  else covers it); `signup` is `experimental` (conversion-flavoured).
+- **Review cluster**: `web-design-reviewer` (browser QA-and-fix loop) joins
+  as an alternative; humbleteam's `design-review` (a stronger single-file
+  heuristic review than plugin87's) was not vendored because of the exact
+  id collision and the cluster's saturation — a candidate for a future swap.
+- **Accessibility and content**: `cognitive-accessibility` and
+  `accessible-content` add dimensions nothing else covered and are
+  recommended; humbleteam's `ux-writing` collided with the recommended
+  `ux-writing` and was weaker.
+- **Motion**: `design-motion-principles` (three-practitioner audit) is an
+  alternative to `animate`/`review-animations`; `apple-hig-expert` an
+  alternative to `apple-design`.
+
 ## Not vendored because a better skill exists
 
 Recorded in the inspection manifests (`research/manifests/*-rejections.json`):

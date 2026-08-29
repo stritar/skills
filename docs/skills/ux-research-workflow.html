@@ -85,6 +85,10 @@
 <li><a href="design-negotiation.html"><span class="rel-id">design-negotiation</span></a> <span class="rel-cat">Product strategy</span></li>
 <li><a href="instrumentation-plan.html"><span class="rel-id">instrumentation-plan</span></a> <span class="rel-cat">Product analytics</span></li>
 <li><a href="silver-measure.html"><span class="rel-id">silver-measure</span></a> <span class="rel-cat">Product analytics</span></li>
+<li><a href="research-planning.html"><span class="rel-id">research-planning</span></a> <span class="rel-cat">User research</span></li>
+<li><a href="usability-testing.html"><span class="rel-id">usability-testing</span></a> <span class="rel-cat">Testing and evaluation</span></li>
+<li><a href="journey-mapper.html"><span class="rel-id">journey-mapper</span></a> <span class="rel-cat">User research</span></li>
+<li><a href="product-discovery.html"><span class="rel-id">product-discovery</span></a> <span class="rel-cat">Discovery</span></li>
 </ul>
 </section>
 
@@ -109,18 +113,25 @@ would change it. If the question is answerable from existing material, skip
 to step 4. If the decision is not clear, stop and get it clarified; research
 without a decision produces reports nobody uses.</p>
 <h4 id="2-plan-the-study">2. Plan the study</h4>
-<p>Run <code>user-research-cookiy</code> (route &quot;Plan a Study&quot;) to produce the research
-plan, screener and interview guide. When consent, data minimisation and
-retention need explicit treatment, run <code>silver-research</code> for its ethics and
-data-handling plan section and merge it into the plan. Confirm the plan is
-labelled a plan and claims no sessions happened.</p>
+<p>Run <code>research-planning</code> to choose a proportionate method and turn the
+decision into a research plan, or <code>user-research-cookiy</code> (route &quot;Plan a
+Study&quot;) when you also need the screener and interview guide generated. When
+consent, data minimisation and retention need explicit treatment, run
+<code>silver-research</code> for its ethics and data-handling section and merge it in.
+Confirm the plan is labelled a plan and claims no sessions happened.</p>
 <p>Choose the instrument:</p>
 <ul>
 <li>Interviews or contextual sessions: the interview guide from step 2.</li>
 <li>Questionnaire: <code>survey-design</code>, which owns question wording, scales and
 sample-size guidance.</li>
+<li>Usability sessions on a prototype or product: <code>usability-testing</code>, which
+owns task design, moderation and severity; <code>synthetic-user-testing</code> only
+as a rehearsal before real participants, never as a substitute.</li>
 <li>Findability or grouping questions: <code>ia-evaluation</code>, which owns card sorts,
 tree tests and first-click tests.</li>
+<li>No participants available yet and the question is about the current
+product's flows: <code>journey-mapper</code> derives a first journey map from the
+codebase to focus later sessions.</li>
 </ul>
 <p>Handover artifact: the plan with instruments attached and the correct
 answers or hypotheses recorded before fielding.</p>

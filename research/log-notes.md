@@ -145,6 +145,32 @@ and the analytics, research-artifact, strategy and AI-native families still
 produce new material. A further round should be code-search-led and
 family-targeted rather than list-led.
 
+### Session 5 — inspection waves 5-7 and round-2 curation (2026-08-29)
+
+Three waves of two Sonnet agents each (six agent runs, two interrupted by
+the session limit and resumed with their context) inspected 18 further
+repositories: anthropics/knowledge-work-plugins, Owl-Listener/designpowers,
+alirezarezvani/claude-skills, mckinsey/vizro, leoyeai/openclaw-master-skills,
+figma/mcp-server-guide, WordPress/agent-skills, chromium/chromium
+(chrome-design-system), its-thepoe/skills, coreyhaines31/marketingskills,
+joeyvansommeren/journey-mapper, OneWave-AI/claude-skills,
+nexu-io/html-anything, manalkaff/opendesign, yhassy/wireframe-skill,
+humbleteam/design-review, humbleteam/ux-writing, takechanman1228/claude-persona,
+itsual/agent-skills-collection, galaxy-dawn/claude-scholar,
+kirodotdev/kirocrew and uxuiprinciples/agent-skills.
+
+Outcomes: 39 vendor verdicts, of which 35 remain after the curator re-read
+(four itsual skills dropped as templated advice); 12 Figma skills, 6
+Chromium skills, Vizro's dashboard-design and two aggregation-hub skills
+recorded as keepers; five uxuiprinciples skills quarantined; humbleteam's
+design-review and ux-writing not vendored on exact id collisions; ~70
+skills rejected inside grouped rejection manifests. Three manifests needed
+curator fixes before vendoring (a truncated blob SHA, a category tag used
+as a tag, two over-long descriptions).
+
+Registry after round 2: 105 skills (98 vendored, 7 original), 52
+recommended, 35 experimental, 2 draft. Repositories inspected in total: 37.
+
 ### Canonical search verification
 
 Appended after the final validation run; see the end of this log.
@@ -172,3 +198,18 @@ survey-design, a11y-check-code and laws-of-ux re-fetched at their pinned
 commits are byte-identical to the vendored copies, and every pinned commit
 resolves on GitHub. The online link check reported one dead link inside an
 upstream file (zivtech's own README reference), recorded as a warning.
+
+Second run on 2026-08-29 against the 105-skill index, top three with scores:
+
+| Query | 1st | 2nd | 3rd |
+| --- | --- | --- | --- |
+| accessible forms | a11y-planner (58) | ultra11y (53) | accessible-content (50) |
+| responsive dashboard | ui-design-system (52) | web-design-reviewer (48) | frontend-ui-dark-ts (45) |
+| UX research synthesis | research-synthesis (145) | ux-research-workflow (134) | ux-researcher-designer (131) |
+| design token audit | design-debt-audit (160) | design-system (151) | design-tokens (147) |
+| agentic interface trust | agentic-ui-review (124) | conversational-ux (64) | interface-review (57) |
+| design-system governance | design-system-governance (236) | design-system (161) | ui-design-system (157) |
+| usability testing | synthetic-user-testing (163) | usability-testing (155) | silver-evaluate (90) |
+| product analytics instrumentation | product-analytics (128) | instrumentation-plan (117) | silver-measure (108) |
+
+All eight return a directly relevant first result; "usability testing" now resolves to the dedicated usability-testing skill.

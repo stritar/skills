@@ -59,10 +59,15 @@
       "dependencies": [
         "python3"
       ],
-      "relatedSkills": [],
-      "recommended": false,
-      "maturity": "experimental",
-      "status": "draft"
+      "relatedSkills": [
+        "silver-ideate",
+        "ux-research-workflow",
+        "design-negotiation",
+        "market-command-matrix"
+      ],
+      "recommended": true,
+      "maturity": "stable",
+      "status": "verified"
     },
     {
       "id": "silver-ideate",
@@ -121,7 +126,8 @@
         "silver-synthesize",
         "silver-evaluate",
         "design-negotiation",
-        "ux-research-workflow"
+        "ux-research-workflow",
+        "product-discovery"
       ],
       "recommended": false,
       "maturity": "experimental",
@@ -190,10 +196,13 @@
         "vs-code"
       ],
       "dependencies": [],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "journey-mapper",
+        "service-blueprint"
+      ],
       "recommended": false,
       "maturity": "experimental",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "inclusive-personas",
@@ -248,10 +257,14 @@
         "claude-ai"
       ],
       "dependencies": [],
-      "relatedSkills": [],
-      "recommended": false,
+      "relatedSkills": [
+        "persona",
+        "cognitive-accessibility",
+        "user-research-cookiy"
+      ],
+      "recommended": true,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "journey-mapper",
@@ -314,10 +327,14 @@
         "vs-code"
       ],
       "dependencies": [],
-      "relatedSkills": [],
-      "recommended": false,
+      "relatedSkills": [
+        "customer-journey-mapper",
+        "service-blueprint",
+        "ux-research-workflow"
+      ],
+      "recommended": true,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "persona",
@@ -407,10 +424,14 @@
         "seaborn",
         "claude-cli-or-codex-cli"
       ],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "inclusive-personas",
+        "synthetic-user-testing",
+        "user-research-cookiy"
+      ],
       "recommended": false,
-      "maturity": "stable",
-      "status": "draft"
+      "maturity": "experimental",
+      "status": "verified"
     },
     {
       "id": "research-planning",
@@ -463,10 +484,16 @@
         "claude-ai"
       ],
       "dependencies": [],
-      "relatedSkills": [],
-      "recommended": false,
+      "relatedSkills": [
+        "ux-research-workflow",
+        "user-research-cookiy",
+        "silver-research",
+        "survey-design",
+        "usability-testing"
+      ],
+      "recommended": true,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "research-synthesis",
@@ -529,10 +556,14 @@
         "vs-code"
       ],
       "dependencies": [],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "user-research-cookiy",
+        "silver-synthesize",
+        "ux-research-workflow"
+      ],
       "recommended": false,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "service-blueprint",
@@ -588,7 +619,8 @@
       ],
       "dependencies": [],
       "relatedSkills": [
-        "silver-structure"
+        "silver-structure",
+        "journey-mapper"
       ],
       "recommended": true,
       "maturity": "stable",
@@ -856,7 +888,9 @@
         "survey-design",
         "silver-research",
         "silver-synthesize",
-        "ux-research-workflow"
+        "ux-research-workflow",
+        "research-planning",
+        "research-synthesis"
       ],
       "recommended": true,
       "maturity": "stable",
@@ -924,10 +958,14 @@
       "dependencies": [
         "python3"
       ],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "user-research-cookiy",
+        "research-planning",
+        "survey-design"
+      ],
       "recommended": false,
-      "maturity": "experimental",
-      "status": "draft"
+      "maturity": "stable",
+      "status": "verified"
     },
     {
       "id": "design-negotiation",
@@ -1053,10 +1091,13 @@
         "vs-code"
       ],
       "dependencies": [],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "design-negotiation",
+        "product-discovery"
+      ],
       "recommended": false,
       "maturity": "experimental",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "ia-evaluation",
@@ -1422,7 +1463,8 @@
       "relatedSkills": [
         "animate",
         "platform-conventions",
-        "animate-expo"
+        "animate-expo",
+        "apple-hig-expert"
       ],
       "recommended": true,
       "maturity": "stable",
@@ -1487,10 +1529,13 @@
       "dependencies": [
         "python3"
       ],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "apple-design",
+        "platform-conventions"
+      ],
       "recommended": false,
-      "maturity": "experimental",
-      "status": "draft"
+      "maturity": "stable",
+      "status": "verified"
     },
     {
       "id": "design-motion-principles",
@@ -1556,10 +1601,14 @@
         "vs-code"
       ],
       "dependencies": [],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "animate",
+        "review-animations",
+        "motion-system"
+      ],
       "recommended": false,
-      "maturity": "experimental",
-      "status": "draft"
+      "maturity": "stable",
+      "status": "verified"
     },
     {
       "id": "laws-of-ux",
@@ -1689,10 +1738,14 @@
         "vs-code"
       ],
       "dependencies": [],
-      "relatedSkills": [],
-      "recommended": false,
+      "relatedSkills": [
+        "signup",
+        "laws-of-ux",
+        "better-writing"
+      ],
+      "recommended": true,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "platform-conventions",
@@ -1822,153 +1875,13 @@
         "vs-code"
       ],
       "dependencies": [],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "onboarding",
+        "laws-of-ux"
+      ],
       "recommended": false,
-      "maturity": "stable",
-      "status": "draft"
-    },
-    {
-      "id": "wireframe",
-      "name": "wireframe",
-      "description": "Guides the agent to explore a design space quickly with many rough, structurally distinct low-fidelity wireframes rather than one polished direction. Directs producing 3-5 structurally different options per idea (not recolors), using sketchy hand-written fonts, mostly black-and-white shapes with sparing color accents, plain-language section labels, and a minimal tweak surface (variant toggle, density, optional-section swap), while explicitly avoiding polish, hover states, and visual convergence across options.",
-      "category": "interaction-design",
-      "tags": [
-        "wireframing",
-        "low-fidelity",
-        "ui-design",
-        "interaction-design",
-        "prototyping"
-      ],
-      "triggers": [
-        "explore the design space",
-        "rough wireframes",
-        "low-fi wireframe options",
-        "sketch some layout ideas",
-        "give me a few structurally different layouts"
-      ],
-      "inputs": [
-        "a feature or screen description",
-        "an existing product/problem context to riff on"
-      ],
-      "outputs": [
-        "a set of 3-5 structurally distinct low-fidelity HTML wireframes laid out for side-by-side comparison, with plain-language section labels and interaction annotations"
-      ],
-      "path": "skills/interaction-design/wireframe",
-      "source": {
-        "type": "third-party",
-        "repository": "manalkaff/opendesign",
-        "url": "https://github.com/manalkaff/opendesign/tree/cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb/skills/wireframe",
-        "author": "manalkaff",
-        "license": "MIT",
-        "licenseFile": "LICENSE.txt",
-        "upstreamPath": "skills/wireframe",
-        "upstreamCommit": "cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb",
-        "retrievedAt": "2026-08-29",
-        "modified": true,
-        "modifications": [
-          {
-            "date": "2026-08-29",
-            "reason": "portability",
-            "description": "Bundled the repo-root MIT LICENSE into the skill directory as LICENSE.txt; the skill directory itself ships no license file.",
-            "files": [
-              "LICENSE.txt"
-            ]
-          }
-        ]
-      },
-      "compatibility": [
-        "claude-code",
-        "codex",
-        "cursor",
-        "opencode",
-        "amp",
-        "gemini-cli",
-        "copilot",
-        "vs-code",
-        "claude-ai"
-      ],
-      "dependencies": [],
-      "relatedSkills": [],
-      "recommended": false,
-      "maturity": "stable",
-      "status": "draft"
-    },
-    {
-      "id": "wireframe-json",
-      "name": "wireframe-json",
-      "description": "Generates a machine-readable JSON wireframe definition from a natural-language screen description (or from a design-spec's Information Architecture section) plus a self-contained, editable HTML preview. Applies a 7-phase design-reasoning framework before producing JSON: displacement check, content inventory, task/scanning-pattern selection, grid establishment, hierarchy assignment via a 4-level type scale, spacing via an 8-point grid, and a rhythm-verification pass with named failure modes (pixel perfectionism, hierarchy collapse, arbitrary spacing, grid amnesia, density monotony, action-hierarchy collapse) each with symptom/root-cause/fix. The JSON maps 1:1 to CSS flexbox and is the same schema used across a wider design pipeline (styled by other skills, consumed by Figma Make / Google Stitch style tools). The HTML preview supports drag-and-drop reordering, direction toggling, copy/paste, undo/redo, and JSON export/save, entirely client-side with no server or build step.",
-      "category": "interaction-design",
-      "tags": [
-        "wireframing",
-        "ui-design",
-        "interaction-design",
-        "layout",
-        "grids",
-        "spacing",
-        "visual-hierarchy",
-        "figma"
-      ],
-      "triggers": [
-        "generate a wireframe from this description",
-        "wireframe this screen as JSON",
-        "produce a structured wireframe I can hand to Figma Make",
-        "build a machine-readable wireframe definition"
-      ],
-      "inputs": [
-        "a natural-language layout description, or a design-id pointing at an existing design-spec's Information Architecture section"
-      ],
-      "outputs": [
-        "a `.wireframe.json` machine-readable layout definition following the documented schema",
-        "a self-contained `.wireframe.html` editable preview (drag-and-drop, undo/redo, JSON export)"
-      ],
-      "path": "skills/interaction-design/wireframe-json",
-      "source": {
-        "type": "third-party",
-        "repository": "yhassy/wireframe-skill",
-        "url": "https://github.com/yhassy/wireframe-skill/tree/948d4331343b18d913d5bc502da72ed0c5f19101",
-        "author": "yhassy",
-        "license": "MIT",
-        "licenseFile": "LICENSE.txt",
-        "upstreamPath": ".",
-        "upstreamCommit": "948d4331343b18d913d5bc502da72ed0c5f19101",
-        "retrievedAt": "2026-08-29",
-        "modified": true,
-        "modifications": [
-          {
-            "date": "2026-08-29",
-            "reason": "collision-rename",
-            "description": "Upstream frontmatter name is 'wireframe', which collides with an already-vendored 'wireframe' skill from manalkaff/opendesign selected earlier in this same research pass (research/manifests/wireframe.json). Renamed this skill's id/frontmatter name to 'wireframe-json' to disambiguate — the two skills do genuinely different things (opendesign's wireframe produces multiple rough divergent low-fi sketches; this one produces one precise, schema-validated, machine-readable wireframe with an editable preview) so both are worth keeping rather than dropping one.",
-            "files": [
-              "SKILL.md"
-            ]
-          },
-          {
-            "date": "2026-08-29",
-            "reason": "broken-reference",
-            "description": "Upstream SKILL.md hard-codes the install path '.claude/skills/wireframe/' when referencing its own sibling files (wireframe-designer.md in Step 2, and wireframe-template.html in the Step 4 python splice command) — a Claude-Code-specific absolute convention that breaks for any other harness, and would in any case now be wrong after the collision-rename since the installed directory name changes. Rewrote the wireframe-designer.md reference to a same-directory relative path, and replaced the hard-coded template path in the Step 4 script with a '{skill_dir}' placeholder the invoking agent fills in with this skill's own installed directory, with an explanatory sentence added after the code block.",
-            "files": [
-              "SKILL.md"
-            ]
-          }
-        ]
-      },
-      "compatibility": [
-        "claude-code",
-        "codex",
-        "cursor",
-        "opencode",
-        "amp",
-        "gemini-cli",
-        "copilot",
-        "vs-code"
-      ],
-      "dependencies": [
-        "python3"
-      ],
-      "relatedSkills": [],
-      "recommended": false,
-      "maturity": "stable",
-      "status": "draft"
+      "maturity": "experimental",
+      "status": "verified"
     },
     {
       "id": "algorithmic-art",
@@ -2554,10 +2467,12 @@
         "claude-ai"
       ],
       "dependencies": [],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "canvas-design"
+      ],
       "recommended": false,
-      "maturity": "stable",
-      "status": "draft"
+      "maturity": "experimental",
+      "status": "verified"
     },
     {
       "id": "redesign-existing-projects",
@@ -2621,10 +2536,13 @@
         "vs-code"
       ],
       "dependencies": [],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "design-debt-audit",
+        "frontend-design"
+      ],
       "recommended": false,
-      "maturity": "experimental",
-      "status": "draft"
+      "maturity": "stable",
+      "status": "verified"
     },
     {
       "id": "theme-factory",
@@ -2758,10 +2676,14 @@
       "dependencies": [
         "node"
       ],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "wp-patterns",
+        "wpds",
+        "theme-factory"
+      ],
       "recommended": false,
-      "maturity": "stable",
-      "status": "draft"
+      "maturity": "experimental",
+      "status": "verified"
     },
     {
       "id": "wp-patterns",
@@ -2837,10 +2759,13 @@
       "dependencies": [
         "node"
       ],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "wp-block-themes",
+        "wpds"
+      ],
       "recommended": false,
-      "maturity": "stable",
-      "status": "draft"
+      "maturity": "experimental",
+      "status": "verified"
     },
     {
       "id": "design-debt-audit",
@@ -2971,10 +2896,14 @@
         "vs-code"
       ],
       "dependencies": [],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "design-system-governance",
+        "design-tokens",
+        "ui-design-system"
+      ],
       "recommended": false,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "design-system-governance",
@@ -3036,7 +2965,8 @@
         "design-tokens",
         "token-build",
         "extract-design-md",
-        "pre-handoff-review"
+        "pre-handoff-review",
+        "design-system"
       ],
       "recommended": true,
       "maturity": "stable",
@@ -3602,10 +3532,14 @@
       "dependencies": [
         "python3"
       ],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "design-system",
+        "design-tokens",
+        "theme-factory"
+      ],
       "recommended": false,
-      "maturity": "experimental",
-      "status": "draft"
+      "maturity": "stable",
+      "status": "verified"
     },
     {
       "id": "wpds",
@@ -3661,10 +3595,14 @@
       "dependencies": [
         "wpds-mcp"
       ],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "wp-block-themes",
+        "wp-patterns",
+        "design-system"
+      ],
       "recommended": false,
       "maturity": "experimental",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "a11y-audit",
@@ -4156,7 +4094,8 @@
         "a11y-planner",
         "a11y-critic",
         "review-a11y",
-        "better-colors"
+        "better-colors",
+        "cognitive-accessibility"
       ],
       "recommended": true,
       "maturity": "stable",
@@ -4214,10 +4153,14 @@
         "claude-ai"
       ],
       "dependencies": [],
-      "relatedSkills": [],
-      "recommended": false,
+      "relatedSkills": [
+        "better-accessibility",
+        "inclusive-personas",
+        "accessible-content"
+      ],
+      "recommended": true,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "perspective-audit",
@@ -4479,10 +4422,14 @@
         "claude-ai"
       ],
       "dependencies": [],
-      "relatedSkills": [],
-      "recommended": false,
+      "relatedSkills": [
+        "ux-writing",
+        "cognitive-accessibility",
+        "better-writing"
+      ],
+      "recommended": true,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "better-writing",
@@ -4753,10 +4700,13 @@
         "vs-code"
       ],
       "dependencies": [],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "prototype",
+        "variant"
+      ],
       "recommended": false,
       "maturity": "experimental",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "interactive-prototype",
@@ -4816,10 +4766,13 @@
         "claude-ai"
       ],
       "dependencies": [],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "prototype",
+        "wireframe"
+      ],
       "recommended": false,
-      "maturity": "stable",
-      "status": "draft"
+      "maturity": "experimental",
+      "status": "verified"
     },
     {
       "id": "prototype",
@@ -4871,7 +4824,9 @@
       ],
       "dependencies": [],
       "relatedSkills": [
-        "variant"
+        "variant",
+        "wireframe",
+        "interactive-prototype"
       ],
       "recommended": false,
       "maturity": "stable",
@@ -4932,6 +4887,156 @@
         "better-interface"
       ],
       "recommended": true,
+      "maturity": "stable",
+      "status": "verified"
+    },
+    {
+      "id": "wireframe",
+      "name": "wireframe",
+      "description": "Guides the agent to explore a design space quickly with many rough, structurally distinct low-fidelity wireframes rather than one polished direction. Directs producing 3-5 structurally different options per idea (not recolors), using sketchy hand-written fonts, mostly black-and-white shapes with sparing color accents, plain-language section labels, and a minimal tweak surface (variant toggle, density, optional-section swap), while explicitly avoiding polish, hover states, and visual convergence across options.",
+      "category": "prototyping",
+      "tags": [
+        "wireframing",
+        "low-fidelity",
+        "ui-design",
+        "interaction-design",
+        "prototyping"
+      ],
+      "triggers": [
+        "explore the design space",
+        "rough wireframes",
+        "low-fi wireframe options",
+        "sketch some layout ideas",
+        "give me a few structurally different layouts"
+      ],
+      "inputs": [
+        "a feature or screen description",
+        "an existing product/problem context to riff on"
+      ],
+      "outputs": [
+        "a set of 3-5 structurally distinct low-fidelity HTML wireframes laid out for side-by-side comparison, with plain-language section labels and interaction annotations"
+      ],
+      "path": "skills/prototyping/wireframe",
+      "source": {
+        "type": "third-party",
+        "repository": "manalkaff/opendesign",
+        "url": "https://github.com/manalkaff/opendesign/tree/cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb/skills/wireframe",
+        "author": "manalkaff",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/wireframe",
+        "upstreamCommit": "cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb",
+        "retrievedAt": "2026-08-29",
+        "modified": true,
+        "modifications": [
+          {
+            "date": "2026-08-29",
+            "reason": "portability",
+            "description": "Bundled the repo-root MIT LICENSE into the skill directory as LICENSE.txt; the skill directory itself ships no license file.",
+            "files": [
+              "LICENSE.txt"
+            ]
+          }
+        ]
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
+      "relatedSkills": [
+        "wireframe-json",
+        "prototype",
+        "interactive-prototype"
+      ],
+      "recommended": true,
+      "maturity": "experimental",
+      "status": "verified"
+    },
+    {
+      "id": "wireframe-json",
+      "name": "wireframe-json",
+      "description": "Generates a machine-readable JSON wireframe definition from a natural-language screen description (or from a design-spec's Information Architecture section) plus a self-contained, editable HTML preview. Applies a 7-phase design-reasoning framework before producing JSON: displacement check, content inventory, task/scanning-pattern selection, grid establishment, hierarchy assignment via a 4-level type scale, spacing via an 8-point grid, and a rhythm-verification pass with named failure modes (pixel perfectionism, hierarchy collapse, arbitrary spacing, grid amnesia, density monotony, action-hierarchy collapse) each with symptom/root-cause/fix. The JSON maps 1:1 to CSS flexbox and is the same schema used across a wider design pipeline (styled by other skills, consumed by Figma Make / Google Stitch style tools). The HTML preview supports drag-and-drop reordering, direction toggling, copy/paste, undo/redo, and JSON export/save, entirely client-side with no server or build step.",
+      "category": "prototyping",
+      "tags": [
+        "wireframing",
+        "ui-design",
+        "interaction-design",
+        "layout",
+        "grids",
+        "spacing",
+        "visual-hierarchy",
+        "figma"
+      ],
+      "triggers": [
+        "generate a wireframe from this description",
+        "wireframe this screen as JSON",
+        "produce a structured wireframe I can hand to Figma Make",
+        "build a machine-readable wireframe definition"
+      ],
+      "inputs": [
+        "a natural-language layout description, or a design-id pointing at an existing design-spec's Information Architecture section"
+      ],
+      "outputs": [
+        "a `.wireframe.json` machine-readable layout definition following the documented schema",
+        "a self-contained `.wireframe.html` editable preview (drag-and-drop, undo/redo, JSON export)"
+      ],
+      "path": "skills/prototyping/wireframe-json",
+      "source": {
+        "type": "third-party",
+        "repository": "yhassy/wireframe-skill",
+        "url": "https://github.com/yhassy/wireframe-skill/tree/948d4331343b18d913d5bc502da72ed0c5f19101",
+        "author": "yhassy",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": ".",
+        "upstreamCommit": "948d4331343b18d913d5bc502da72ed0c5f19101",
+        "retrievedAt": "2026-08-29",
+        "modified": true,
+        "modifications": [
+          {
+            "date": "2026-08-29",
+            "reason": "collision-rename",
+            "description": "Upstream frontmatter name is 'wireframe', which collides with an already-vendored 'wireframe' skill from manalkaff/opendesign selected earlier in this same research pass (research/manifests/wireframe.json). Renamed this skill's id/frontmatter name to 'wireframe-json' to disambiguate — the two skills do genuinely different things (opendesign's wireframe produces multiple rough divergent low-fi sketches; this one produces one precise, schema-validated, machine-readable wireframe with an editable preview) so both are worth keeping rather than dropping one.",
+            "files": [
+              "SKILL.md"
+            ]
+          },
+          {
+            "date": "2026-08-29",
+            "reason": "broken-reference",
+            "description": "Upstream SKILL.md hard-codes the install path '.claude/skills/wireframe/' when referencing its own sibling files (wireframe-designer.md in Step 2, and wireframe-template.html in the Step 4 python splice command) — a Claude-Code-specific absolute convention that breaks for any other harness, and would in any case now be wrong after the collision-rename since the installed directory name changes. Rewrote the wireframe-designer.md reference to a same-directory relative path, and replaced the hard-coded template path in the Step 4 script with a '{skill_dir}' placeholder the invoking agent fills in with this skill's own installed directory, with an explanatory sentence added after the code block.",
+            "files": [
+              "SKILL.md"
+            ]
+          }
+        ]
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code"
+      ],
+      "dependencies": [
+        "python3"
+      ],
+      "relatedSkills": [
+        "wireframe",
+        "prototype"
+      ],
+      "recommended": false,
       "maturity": "stable",
       "status": "verified"
     },
@@ -5123,10 +5228,15 @@
         "node",
         "playwright"
       ],
-      "relatedSkills": [],
-      "recommended": false,
+      "relatedSkills": [
+        "design-review",
+        "interface-review",
+        "laws-of-ux",
+        "usability-testing"
+      ],
+      "recommended": true,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "design-review",
@@ -5202,7 +5312,8 @@
         "frontend-design-review",
         "design-details",
         "laws-of-ux",
-        "critique-information-density"
+        "critique-information-density",
+        "design-critique"
       ],
       "recommended": false,
       "maturity": "experimental",
@@ -5451,10 +5562,13 @@
         "claude-ai"
       ],
       "dependencies": [],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "usability-testing",
+        "persona"
+      ],
       "recommended": false,
-      "maturity": "stable",
-      "status": "draft"
+      "maturity": "experimental",
+      "status": "verified"
     },
     {
       "id": "usability-testing",
@@ -5510,10 +5624,16 @@
         "claude-ai"
       ],
       "dependencies": [],
-      "relatedSkills": [],
-      "recommended": false,
+      "relatedSkills": [
+        "synthetic-user-testing",
+        "design-critique",
+        "research-planning",
+        "silver-evaluate",
+        "ux-research-workflow"
+      ],
+      "recommended": true,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "design-details",
@@ -5825,10 +5945,13 @@
         "vs-code"
       ],
       "dependencies": [],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "frontend-design-review",
+        "design-review"
+      ],
       "recommended": false,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "experiment-designer",
@@ -5888,10 +6011,14 @@
       "dependencies": [
         "python3"
       ],
-      "relatedSkills": [],
-      "recommended": false,
-      "maturity": "experimental",
-      "status": "draft"
+      "relatedSkills": [
+        "instrumentation-plan",
+        "product-analytics",
+        "silver-measure"
+      ],
+      "recommended": true,
+      "maturity": "stable",
+      "status": "verified"
     },
     {
       "id": "instrumentation-plan",
@@ -5936,7 +6063,9 @@
         "silver-measure",
         "ux-research-workflow",
         "pre-handoff-review",
-        "survey-design"
+        "survey-design",
+        "product-analytics",
+        "experiment-designer"
       ],
       "source": {
         "type": "original",
@@ -6026,10 +6155,14 @@
       "dependencies": [
         "python3"
       ],
-      "relatedSkills": [],
-      "recommended": false,
-      "maturity": "experimental",
-      "status": "draft"
+      "relatedSkills": [
+        "instrumentation-plan",
+        "experiment-designer",
+        "silver-measure"
+      ],
+      "recommended": true,
+      "maturity": "stable",
+      "status": "verified"
     },
     {
       "id": "silver-measure",
@@ -6087,7 +6220,9 @@
       ],
       "relatedSkills": [
         "silver-evaluate",
-        "instrumentation-plan"
+        "instrumentation-plan",
+        "product-analytics",
+        "experiment-designer"
       ],
       "recommended": false,
       "maturity": "experimental",
@@ -6357,10 +6492,13 @@
         "vs-code"
       ],
       "dependencies": [],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "pre-handoff-review",
+        "handoff-to-claude-code"
+      ],
       "recommended": false,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "explain-interface",
@@ -6562,10 +6700,13 @@
         "claude-ai"
       ],
       "dependencies": [],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "design-handoff",
+        "pre-handoff-review"
+      ],
       "recommended": false,
-      "maturity": "stable",
-      "status": "draft"
+      "maturity": "experimental",
+      "status": "verified"
     },
     {
       "id": "image-to-code",
@@ -6629,10 +6770,13 @@
         "vs-code"
       ],
       "dependencies": [],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "extract-static-html",
+        "frontend-design"
+      ],
       "recommended": false,
       "maturity": "experimental",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "web-artifacts-builder",
@@ -6805,7 +6949,8 @@
         "animation-vocabulary",
         "platform-conventions",
         "instrumentation-plan",
-        "product-design-review"
+        "product-design-review",
+        "design-handoff"
       ],
       "source": {
         "type": "original",
@@ -6952,7 +7097,11 @@
         "silver-ideate",
         "design-negotiation",
         "instrumentation-plan",
-        "silver-measure"
+        "silver-measure",
+        "research-planning",
+        "usability-testing",
+        "journey-mapper",
+        "product-discovery"
       ],
       "source": {
         "type": "original",

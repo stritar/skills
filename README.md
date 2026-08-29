@@ -22,9 +22,10 @@ testing, design QA, product analytics, agentic interfaces, and design ethics.
 
 - Not every design skill on the internet. It is systematically researched
   and broadly sourced, comprehensive as of the latest research pass
-  (2026-08-26), and built to be continuously maintainable. The research
-  pass did not reach its own saturation criteria; what it did not get to is
-  listed in [catalog/coverage-gaps.md](catalog/coverage-gaps.md).
+  (2026-08-29, two discovery rounds), and built to be continuously
+  maintainable. The passes did not reach their own numeric saturation
+  criterion; what they did not get to is listed in
+  [catalog/coverage-gaps.md](catalog/coverage-gaps.md).
 - Not a product application. Nothing here executes on its own; skills are
   instructions that agents load.
 
@@ -66,27 +67,27 @@ uses the same ranking code as the CLI, so both agree on what comes first.
 
 To publish it, point GitHub Pages at "deploy from branch", `main`, `/docs`.
 
-## Catalog statistics (2026-08-26)
+## Catalog statistics (2026-08-29)
 
-70 skills: 63 vendored third-party, 7 original. 33 are marked as recommended
-defaults; 14 are experimental; 2 remain in draft status pending a full
-line-by-line review of a bundled engine.
+105 skills: 98 vendored third-party, 7 original. 52 are marked as
+recommended defaults; 35 are experimental; 2 remain in draft status pending
+a full line-by-line review of a bundled engine.
 
 | Category | Skills | Category | Skills |
 | --- | --- | --- | --- |
-| accessibility | 10 | content-design | 3 |
-| visual-design | 9 | design-engineering | 3 |
-| design-systems | 9 | information-architecture | 2 |
-| interaction-design | 6 | prototyping | 2 |
-| testing | 6 | analytics | 2 |
-| research | 5 | agentic-ui | 2 |
-| design-qa | 4 | discovery | 1 |
-| orchestration | 4 | strategy | 1 |
+| visual-design | 13 | design-engineering | 6 |
+| research | 12 | prototyping | 6 |
+| design-systems | 12 | design-qa | 5 |
+| accessibility | 11 | analytics | 4 |
+| interaction-design | 10 | content-design | 4 |
+| testing | 9 | orchestration | 4 |
+| | | discovery, strategy, agentic-ui, information-architecture | 2 each |
 | | | ethics-and-safety | 1 |
 
-Licenses: MIT (most), Apache-2.0 (Anthropic, Google), ISC, GPL-3.0-or-later
-(four accessibility skills; the copyleft license travels with them and is
-visible in the catalog so you can filter on it).
+Licenses: MIT (most), Apache-2.0 (Anthropic, Google, journey-mapper), ISC,
+GPL-3.0-or-later (four accessibility skills) and GPL-2.0-or-later (three
+WordPress skills); copyleft licenses travel with their skills and are
+visible in the catalog so you can filter on them.
 
 ## Installing skills
 
@@ -175,19 +176,25 @@ checked for drift.
 
 ## Known gaps and limitations
 
-- Discovery round 2 was not run, so the pass's saturation criteria were not
-  met; a dozen high-priority leads and about fifteen candidate repositories
-  remain uninspected (listed in
+- Two discovery rounds ran (2026-08-26 and 2026-08-29; 947 unique
+  candidates, 37 repositories inspected file by file). The numeric
+  saturation rule was not met because authenticated code search keeps
+  surfacing skills kept inside unrelated product repositories; a triaged
+  shortlist of 155 candidates awaits inspection (see
   [catalog/coverage-gaps.md](catalog/coverage-gaps.md)).
-- `discovery`, `strategy`, `ethics-and-safety`, `analytics`, `agentic-ui`
-  and `information-architecture` hold one or two skills each; usability-test
-  planning, journey mapping, visual regression and data visualisation have
-  no dedicated skill yet.
+- `ethics-and-safety`, `agentic-ui`, `strategy`, `discovery` and
+  `information-architecture` hold one or two skills each; cognitive
+  walkthroughs, visual regression, data visualisation and decision records
+  have no dedicated skill yet.
+- Twelve official Figma skills and five uxuiprinciples skills were found
+  but not vendored because their repositories carry no license file; they
+  are listed in [catalog/not-vendored.md](catalog/not-vendored.md).
 - Compatibility lists reflect documented conventions, not per-tool test
   runs. Skills using non-spec frontmatter fields (marked by the absence of
   `claude-ai` in `compatibility`) work in Claude Code and other tolerant
   clients but fail claude.ai upload.
-- Six `silver-*` skills and several plugin87 skills are thin or coupled to
-  their upstream tooling; they carry `experimental` maturity.
+- Thirty-five skills carry `experimental` maturity: thin single-file
+  skills, skills coupled to their upstream tooling (the `silver-*` family,
+  WordPress, opendesign), or heavy dependencies (`persona`).
 
-Latest deep-research pass: 2026-08-26.
+Latest deep-research pass: 2026-08-29.

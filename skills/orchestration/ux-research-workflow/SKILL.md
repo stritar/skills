@@ -32,19 +32,26 @@ without a decision produces reports nobody uses.
 
 ### 2. Plan the study
 
-Run `user-research-cookiy` (route "Plan a Study") to produce the research
-plan, screener and interview guide. When consent, data minimisation and
-retention need explicit treatment, run `silver-research` for its ethics and
-data-handling plan section and merge it into the plan. Confirm the plan is
-labelled a plan and claims no sessions happened.
+Run `research-planning` to choose a proportionate method and turn the
+decision into a research plan, or `user-research-cookiy` (route "Plan a
+Study") when you also need the screener and interview guide generated. When
+consent, data minimisation and retention need explicit treatment, run
+`silver-research` for its ethics and data-handling section and merge it in.
+Confirm the plan is labelled a plan and claims no sessions happened.
 
 Choose the instrument:
 
 - Interviews or contextual sessions: the interview guide from step 2.
 - Questionnaire: `survey-design`, which owns question wording, scales and
   sample-size guidance.
+- Usability sessions on a prototype or product: `usability-testing`, which
+  owns task design, moderation and severity; `synthetic-user-testing` only
+  as a rehearsal before real participants, never as a substitute.
 - Findability or grouping questions: `ia-evaluation`, which owns card sorts,
   tree tests and first-click tests.
+- No participants available yet and the question is about the current
+  product's flows: `journey-mapper` derives a first journey map from the
+  codebase to focus later sessions.
 
 Handover artifact: the plan with instruments attached and the correct
 answers or hypotheses recorded before fielding.

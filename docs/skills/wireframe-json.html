@@ -11,7 +11,7 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="page-head">
-<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=interaction-design">Interaction design</a></nav>
+<nav aria-label="Breadcrumb"><a href="../index.html">All skills</a> <span aria-hidden="true">/</span> <a href="../index.html?category=prototyping">Prototyping</a></nav>
 <h1>wireframe-json</h1>
 <p class="badges"><span class="il badge badge-dep"><span class="il-label">Other tooling</span></span></p>
 <p class="lede">Generates a machine-readable JSON wireframe definition from a natural-language screen description (or from a design-spec's Information Architecture section) plus a self-contained, editable HTML preview.</p>
@@ -23,7 +23,7 @@
 <ul class="toc">
 <li><a href="#install">Install</a></li>
 <li><a href="#about">About this skill</a></li>
-
+<li><a href="#related">Works with</a></li>
 <li><a href="#instructions">Instructions</a></li>
 <li class="toc-sub"><a href="#wireframe">/wireframe</a></li>
 <li class="toc-sub"><a href="#mode-generate">Mode: Generate</a></li>
@@ -46,13 +46,13 @@
 <li>
 <h3>Claude Code, as a plugin</h3>
 <div class="cmd"><pre><code>/plugin marketplace add stritar/skills
-/plugin install product-design-interaction-design@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
-/plugin install product-design-interaction-design@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
-<p class="note">Installs the whole <code>interaction-design</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
+/plugin install product-design-prototyping@product-design-skills</code></pre><button type="button" class="button copy js-only" data-copy="/plugin marketplace add stritar/skills
+/plugin install product-design-prototyping@product-design-skills"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<p class="note">Installs the whole <code>prototyping</code> bundle, not only this skill. Use <code>product-design-all</code> for everything.</p>
 </li>
 <li>
 <h3>From a clone, copied by hand</h3>
-<div class="cmd"><pre><code>cp -r skills/interaction-design/wireframe-json ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/interaction-design/wireframe-json ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
+<div class="cmd"><pre><code>cp -r skills/prototyping/wireframe-json ~/.claude/skills/</code></pre><button type="button" class="button copy js-only" data-copy="cp -r skills/prototyping/wireframe-json ~/.claude/skills/"><span class="il"><span class="il-label">Copy</span></span></button></div>
 <p class="note">Copy the whole directory. Other tools use different folders: see <a href="https://github.com/stritar/skills/blob/main/docs/install/generic.md">the install notes</a>.</p>
 </li>
 </ul>
@@ -74,11 +74,17 @@
 </details>
 </section>
 
-
+<section id="related">
+<h2>Works with</h2>
+<ul class="related">
+<li><a href="wireframe.html"><span class="rel-id">wireframe</span></a> <span class="rel-cat">Prototyping</span></li>
+<li><a href="prototype.html"><span class="rel-id">prototype</span></a> <span class="rel-cat">Prototyping</span></li>
+</ul>
+</section>
 
 <article class="skill-body" id="instructions">
 <h2 class="body-head">Instructions</h2>
-<p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/interaction-design/wireframe-json/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
+<p class="body-note">The full text of <a href="https://github.com/stritar/skills/blob/main/skills/prototyping/wireframe-json/SKILL.md">SKILL.md</a>, as the agent reads it.</p>
 <h2 id="wireframe">/wireframe</h2>
 <p>Generate a JSON wireframe definition and render it as a self-contained HTML preview.</p>
 <h3 id="mode-generate">Mode: Generate</h3>

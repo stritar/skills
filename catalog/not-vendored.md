@@ -24,6 +24,18 @@ Candidates awaiting license clarification stay here until resolved.
   redistribution bar. Action: ask the author to add a LICENSE file, then
   re-inspect.
 
+### uxuiprinciples/agent-skills (5 skills)
+
+- URL: https://github.com/uxuiprinciples/agent-skills (inspected 2026-08-29
+  at commit `2dc7f30ce8e5…`; 14 stars)
+- Purpose: ai-interface-reviewer (44-principle AI-interface audit),
+  uxui-evaluator, interface-auditor, flow-checker, vibe-coding-advisor.
+- Reason not vendored: no LICENSE file and no SPDX declaration; the README
+  says only "free to use and distribute", which is a claim, not a grant.
+  All five also embed an optional, undeclared paid API (uxuiprinciples.com);
+  flow-checker is gated on it for its core data. Quarantined until a
+  license file exists and the API dependency is declared.
+
 ## Rejected on provenance grounds
 
 ### baoyu-design

@@ -1,8 +1,13 @@
 {
   "id": "wireframe",
-  "category": "interaction-design",
+  "category": "prototyping",
   "verdict": "vendor",
-  "rubric": {"relevance": 3, "quality": 3, "conformance": 2, "uniqueness": 2},
+  "rubric": {
+    "relevance": 3,
+    "quality": 3,
+    "conformance": 2,
+    "uniqueness": 2
+  },
   "upstream": {
     "repository": "manalkaff/opendesign",
     "url": "https://github.com/manalkaff/opendesign/tree/cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb/skills/wireframe",
@@ -13,21 +18,46 @@
     "licenseSource": "repo-root:LICENSE"
   },
   "files": [
-    {"dest": "SKILL.md", "rawUrl": "https://raw.githubusercontent.com/manalkaff/opendesign/cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb/skills/wireframe/SKILL.md"},
-    {"dest": "LICENSE.txt", "rawUrl": "https://raw.githubusercontent.com/manalkaff/opendesign/cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb/LICENSE"}
+    {
+      "dest": "SKILL.md",
+      "rawUrl": "https://raw.githubusercontent.com/manalkaff/opendesign/cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb/skills/wireframe/SKILL.md"
+    },
+    {
+      "dest": "LICENSE.txt",
+      "rawUrl": "https://raw.githubusercontent.com/manalkaff/opendesign/cecd9bb6b59408cb96a3974449b8e6ef9f5b17bb/LICENSE"
+    }
   ],
   "securityNotes": "Prose-only SKILL.md, no scripts, no network calls, no credential handling, no hidden or injected instructions. Only instruction with any external effect is writing output files under a project-relative ./opendesign/mockups/<task-slug>/ path, which is a soft convention, not a functional dependency on other software.",
-  "overlaps": ["prototype"],
+  "overlaps": [
+    "prototype"
+  ],
   "proposedEntry": {
     "id": "wireframe",
     "name": "wireframe",
     "description": "Guides the agent to explore a design space quickly with many rough, structurally distinct low-fidelity wireframes rather than one polished direction. Directs producing 3-5 structurally different options per idea (not recolors), using sketchy hand-written fonts, mostly black-and-white shapes with sparing color accents, plain-language section labels, and a minimal tweak surface (variant toggle, density, optional-section swap), while explicitly avoiding polish, hover states, and visual convergence across options.",
-    "category": "interaction-design",
-    "tags": ["wireframing", "low-fidelity", "ui-design", "interaction-design", "prototyping"],
-    "triggers": ["explore the design space", "rough wireframes", "low-fi wireframe options", "sketch some layout ideas", "give me a few structurally different layouts"],
-    "inputs": ["a feature or screen description", "an existing product/problem context to riff on"],
-    "outputs": ["a set of 3-5 structurally distinct low-fidelity HTML wireframes laid out for side-by-side comparison, with plain-language section labels and interaction annotations"],
-    "path": "skills/interaction-design/wireframe",
+    "category": "prototyping",
+    "tags": [
+      "wireframing",
+      "low-fidelity",
+      "ui-design",
+      "interaction-design",
+      "prototyping"
+    ],
+    "triggers": [
+      "explore the design space",
+      "rough wireframes",
+      "low-fi wireframe options",
+      "sketch some layout ideas",
+      "give me a few structurally different layouts"
+    ],
+    "inputs": [
+      "a feature or screen description",
+      "an existing product/problem context to riff on"
+    ],
+    "outputs": [
+      "a set of 3-5 structurally distinct low-fidelity HTML wireframes laid out for side-by-side comparison, with plain-language section labels and interaction annotations"
+    ],
+    "path": "skills/prototyping/wireframe",
     "source": {
       "type": "third-party",
       "repository": "manalkaff/opendesign",
@@ -40,10 +70,27 @@
       "retrievedAt": "2026-08-29",
       "modified": true,
       "modifications": [
-        {"date": "2026-08-29", "reason": "portability", "description": "Bundled the repo-root MIT LICENSE into the skill directory as LICENSE.txt; the skill directory itself ships no license file.", "files": ["LICENSE.txt"]}
+        {
+          "date": "2026-08-29",
+          "reason": "portability",
+          "description": "Bundled the repo-root MIT LICENSE into the skill directory as LICENSE.txt; the skill directory itself ships no license file.",
+          "files": [
+            "LICENSE.txt"
+          ]
+        }
       ]
     },
-    "compatibility": ["claude-code", "codex", "cursor", "opencode", "amp", "gemini-cli", "copilot", "vs-code", "claude-ai"],
+    "compatibility": [
+      "claude-code",
+      "codex",
+      "cursor",
+      "opencode",
+      "amp",
+      "gemini-cli",
+      "copilot",
+      "vs-code",
+      "claude-ai"
+    ],
     "dependencies": [],
     "relatedSkills": [],
     "recommended": false,
