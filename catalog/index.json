@@ -55,10 +55,15 @@
       "dependencies": [
         "node"
       ],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "silver-synthesize",
+        "silver-evaluate",
+        "design-negotiation",
+        "ux-research-workflow"
+      ],
       "recommended": false,
       "maturity": "experimental",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "service-blueprint",
@@ -113,10 +118,12 @@
         "claude-ai"
       ],
       "dependencies": [],
-      "relatedSkills": [],
-      "recommended": false,
+      "relatedSkills": [
+        "silver-structure"
+      ],
+      "recommended": true,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "silver-research",
@@ -171,10 +178,14 @@
       "dependencies": [
         "node"
       ],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "user-research-cookiy",
+        "survey-design",
+        "silver-synthesize"
+      ],
       "recommended": false,
       "maturity": "experimental",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "silver-synthesize",
@@ -229,10 +240,14 @@
       "dependencies": [
         "node"
       ],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "silver-research",
+        "user-research-cookiy",
+        "silver-ideate"
+      ],
       "recommended": false,
       "maturity": "experimental",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "survey-design",
@@ -289,10 +304,13 @@
         "claude-ai"
       ],
       "dependencies": [],
-      "relatedSkills": [],
-      "recommended": false,
+      "relatedSkills": [
+        "user-research-cookiy",
+        "silver-research"
+      ],
+      "recommended": true,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "user-research-cookiy",
@@ -365,10 +383,15 @@
       "dependencies": [
         "cookiy-account"
       ],
-      "relatedSkills": [],
-      "recommended": false,
+      "relatedSkills": [
+        "survey-design",
+        "silver-research",
+        "silver-synthesize",
+        "ux-research-workflow"
+      ],
+      "recommended": true,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "design-negotiation",
@@ -424,10 +447,80 @@
         "claude-ai"
       ],
       "dependencies": [],
-      "relatedSkills": [],
-      "recommended": false,
+      "relatedSkills": [
+        "silver-ideate"
+      ],
+      "recommended": true,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
+    },
+    {
+      "id": "ia-evaluation",
+      "name": "ia-evaluation",
+      "description": "Plans, runs and analyses information-architecture studies: matches the question to open, closed or hybrid card sorts, tree tests or first-click tests; designs cards, trees, goal-language tasks and participant targets; analyses similarity matrices, clusters and standardised labels for sorts, and success, directness, time and wrong-path distributions for tree tests, using field thresholds; and turns results into a sitemap or navigation recommendation with the contested items resolved and the follow-up study named.",
+      "category": "information-architecture",
+      "tags": [
+        "information-architecture",
+        "card-sorting",
+        "tree-testing",
+        "navigation",
+        "taxonomy",
+        "sitemap",
+        "user-research"
+      ],
+      "triggers": [
+        "run a card sort",
+        "tree test this navigation",
+        "users cannot find the settings",
+        "validate these category labels",
+        "reorganise the menu",
+        "first-click test"
+      ],
+      "inputs": [
+        "the structure question",
+        "content inventory or proposed tree",
+        "participant access or recruitment plan"
+      ],
+      "outputs": [
+        "study plan with instruments",
+        "results tables with thresholds",
+        "sitemap or navigation recommendation"
+      ],
+      "path": "skills/information-architecture/ia-evaluation",
+      "relatedSkills": [
+        "silver-structure",
+        "service-blueprint",
+        "ux-research-workflow",
+        "better-writing"
+      ],
+      "source": {
+        "type": "original",
+        "repository": null,
+        "url": null,
+        "author": "Denis Stritar with Claude Fable 5",
+        "license": "MIT",
+        "licenseFile": null,
+        "upstreamPath": null,
+        "upstreamCommit": null,
+        "retrievedAt": null,
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
+      "recommended": true,
+      "maturity": "experimental",
+      "status": "verified"
     },
     {
       "id": "silver-structure",
@@ -482,10 +575,13 @@
       "dependencies": [
         "node"
       ],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "service-blueprint",
+        "ia-evaluation"
+      ],
       "recommended": false,
       "maturity": "experimental",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "animate",
@@ -540,10 +636,17 @@
         "claude-ai"
       ],
       "dependencies": [],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "better-ui",
+        "review-animations",
+        "animation-vocabulary",
+        "animate-expo",
+        "find-animation-opportunities",
+        "improve-animations"
+      ],
       "recommended": true,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "animate-expo",
@@ -598,10 +701,13 @@
         "claude-ai"
       ],
       "dependencies": [],
-      "relatedSkills": [],
-      "recommended": true,
+      "relatedSkills": [
+        "animate",
+        "apple-design"
+      ],
+      "recommended": false,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "animation-vocabulary",
@@ -652,10 +758,12 @@
         "claude-ai"
       ],
       "dependencies": [],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "animate"
+      ],
       "recommended": false,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "apple-design",
@@ -707,10 +815,14 @@
         "claude-ai"
       ],
       "dependencies": [],
-      "relatedSkills": [],
-      "recommended": false,
+      "relatedSkills": [
+        "animate",
+        "platform-conventions",
+        "animate-expo"
+      ],
+      "recommended": true,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "laws-of-ux",
@@ -768,10 +880,13 @@
         "claude-ai"
       ],
       "dependencies": [],
-      "relatedSkills": [],
-      "recommended": false,
+      "relatedSkills": [
+        "design-review",
+        "better-layout"
+      ],
+      "recommended": true,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "platform-conventions",
@@ -829,10 +944,13 @@
         "claude-ai"
       ],
       "dependencies": [],
-      "relatedSkills": [],
-      "recommended": false,
+      "relatedSkills": [
+        "apple-design",
+        "better-layout"
+      ],
+      "recommended": true,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "algorithmic-art",
@@ -887,10 +1005,12 @@
       "dependencies": [
         "browser"
       ],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "canvas-design"
+      ],
       "recommended": false,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "better-colors",
@@ -949,10 +1069,14 @@
         "claude-ai"
       ],
       "dependencies": [],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "better-accessibility",
+        "design-tokens",
+        "theme-factory"
+      ],
       "recommended": true,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "better-layout",
@@ -1007,10 +1131,15 @@
         "claude-ai"
       ],
       "dependencies": [],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "better-typography",
+        "platform-conventions",
+        "better-ui",
+        "critique-information-density"
+      ],
       "recommended": true,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "better-typography",
@@ -1064,10 +1193,13 @@
         "claude-ai"
       ],
       "dependencies": [],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "better-layout",
+        "better-writing"
+      ],
       "recommended": true,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "better-ui",
@@ -1124,10 +1256,15 @@
         "claude-ai"
       ],
       "dependencies": [],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "animate",
+        "motion-system",
+        "review-animations",
+        "better-layout"
+      ],
       "recommended": true,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "canvas-design",
@@ -1182,10 +1319,12 @@
         "claude-ai"
       ],
       "dependencies": [],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "algorithmic-art"
+      ],
       "recommended": false,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "diagram-design",
@@ -1261,9 +1400,9 @@
         "python"
       ],
       "relatedSkills": [],
-      "recommended": false,
+      "recommended": true,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "frontend-design",
@@ -1326,10 +1465,15 @@
         "claude-ai"
       ],
       "dependencies": [],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "frontend-design-review",
+        "theme-factory",
+        "better-ui",
+        "pick-ui-library"
+      ],
       "recommended": true,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "theme-factory",
@@ -1382,10 +1526,13 @@
         "claude-ai"
       ],
       "dependencies": [],
-      "relatedSkills": [],
-      "recommended": false,
+      "relatedSkills": [
+        "frontend-design",
+        "better-colors"
+      ],
+      "recommended": true,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "design-debt-audit",
@@ -1442,10 +1589,14 @@
         "claude-ai"
       ],
       "dependencies": [],
-      "relatedSkills": [],
-      "recommended": false,
+      "relatedSkills": [
+        "design-system-governance",
+        "interface-review",
+        "improve-animations"
+      ],
+      "recommended": true,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "design-system-governance",
@@ -1502,10 +1653,16 @@
         "claude-ai"
       ],
       "dependencies": [],
-      "relatedSkills": [],
-      "recommended": false,
+      "relatedSkills": [
+        "design-debt-audit",
+        "design-tokens",
+        "token-build",
+        "extract-design-md",
+        "pre-handoff-review"
+      ],
+      "recommended": true,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "design-tokens",
@@ -1577,10 +1734,15 @@
       "dependencies": [
         "python"
       ],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "token-build",
+        "extract-design-md",
+        "design-system-governance",
+        "better-colors"
+      ],
       "recommended": false,
       "maturity": "experimental",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "extract-design-md",
@@ -1652,10 +1814,15 @@
         "claude-ai"
       ],
       "dependencies": [],
-      "relatedSkills": [],
-      "recommended": false,
-      "maturity": "experimental",
-      "status": "draft"
+      "relatedSkills": [
+        "design-tokens",
+        "design-system-governance",
+        "design-details",
+        "extract-static-html"
+      ],
+      "recommended": true,
+      "maturity": "stable",
+      "status": "verified"
     },
     {
       "id": "figma-integration",
@@ -1724,10 +1891,12 @@
         "python",
         "figma-mcp"
       ],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "design-tokens"
+      ],
       "recommended": false,
       "maturity": "experimental",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "frontend-ui-dark-ts",
@@ -1794,10 +1963,13 @@
       "dependencies": [
         "node"
       ],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "design-tokens",
+        "frontend-design-review"
+      ],
       "recommended": false,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "motion-system",
@@ -1853,10 +2025,13 @@
         "claude-ai"
       ],
       "dependencies": [],
-      "relatedSkills": [],
-      "recommended": false,
+      "relatedSkills": [
+        "better-ui",
+        "animate"
+      ],
+      "recommended": true,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "pick-ui-library",
@@ -1906,10 +2081,12 @@
         "vs-code"
       ],
       "dependencies": [],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "frontend-design"
+      ],
       "recommended": false,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "token-build",
@@ -1977,10 +2154,12 @@
         "node",
         "python"
       ],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "design-tokens"
+      ],
       "recommended": false,
       "maturity": "experimental",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "a11y-audit",
@@ -2056,10 +2235,13 @@
         "python",
         "node"
       ],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "better-accessibility",
+        "a11y-check-code"
+      ],
       "recommended": false,
       "maturity": "experimental",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "a11y-check-code",
@@ -2122,10 +2304,15 @@
       "dependencies": [
         "node"
       ],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "a11y-check-page",
+        "better-accessibility",
+        "review-a11y",
+        "a11y-audit"
+      ],
       "recommended": false,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "a11y-check-page",
@@ -2190,10 +2377,14 @@
         "playwright",
         "axe-core"
       ],
-      "relatedSkills": [],
-      "recommended": false,
+      "relatedSkills": [
+        "a11y-check-code",
+        "ultra11y",
+        "perspective-audit"
+      ],
+      "recommended": true,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "a11y-critic",
@@ -2252,10 +2443,14 @@
         "claude-ai"
       ],
       "dependencies": [],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "a11y-planner",
+        "perspective-audit",
+        "a11y-role-audit"
+      ],
       "recommended": false,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "a11y-planner",
@@ -2314,10 +2509,15 @@
         "claude-ai"
       ],
       "dependencies": [],
-      "relatedSkills": [],
-      "recommended": false,
+      "relatedSkills": [
+        "a11y-critic",
+        "a11y-role-audit",
+        "perspective-audit",
+        "better-accessibility"
+      ],
+      "recommended": true,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "a11y-role-audit",
@@ -2375,10 +2575,13 @@
         "claude-ai"
       ],
       "dependencies": [],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "perspective-audit",
+        "a11y-critic"
+      ],
       "recommended": false,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "better-accessibility",
@@ -2441,10 +2644,18 @@
         "claude-ai"
       ],
       "dependencies": [],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "a11y-check-code",
+        "a11y-check-page",
+        "a11y-audit",
+        "a11y-planner",
+        "a11y-critic",
+        "review-a11y",
+        "better-colors"
+      ],
       "recommended": true,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "perspective-audit",
@@ -2502,10 +2713,14 @@
         "vs-code"
       ],
       "dependencies": [],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "a11y-role-audit",
+        "a11y-critic",
+        "a11y-check-page"
+      ],
       "recommended": false,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "review-a11y",
@@ -2568,9 +2783,13 @@
       "dependencies": [
         "node"
       ],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "ultra11y",
+        "a11y-check-code",
+        "better-accessibility"
+      ],
       "recommended": false,
-      "maturity": "stable",
+      "maturity": "experimental",
       "status": "draft"
     },
     {
@@ -2638,9 +2857,12 @@
         "browser",
         "playwright"
       ],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "review-a11y",
+        "a11y-check-page"
+      ],
       "recommended": false,
-      "maturity": "stable",
+      "maturity": "experimental",
       "status": "draft"
     },
     {
@@ -2699,10 +2921,15 @@
         "claude-ai"
       ],
       "dependencies": [],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "ux-writing",
+        "localization-design",
+        "better-interface",
+        "dark-pattern-review"
+      ],
       "recommended": true,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "localization-design",
@@ -2760,10 +2987,13 @@
         "claude-ai"
       ],
       "dependencies": [],
-      "relatedSkills": [],
-      "recommended": false,
+      "relatedSkills": [
+        "better-writing",
+        "better-layout"
+      ],
+      "recommended": true,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "ux-writing",
@@ -2833,10 +3063,12 @@
         "claude-ai"
       ],
       "dependencies": [],
-      "relatedSkills": [],
-      "recommended": false,
+      "relatedSkills": [
+        "better-writing"
+      ],
+      "recommended": true,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "prototype",
@@ -2887,10 +3119,12 @@
         "vs-code"
       ],
       "dependencies": [],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "variant"
+      ],
       "recommended": false,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "variant",
@@ -2942,10 +3176,13 @@
         "vs-code"
       ],
       "dependencies": [],
-      "relatedSkills": [],
-      "recommended": false,
+      "relatedSkills": [
+        "prototype",
+        "better-interface"
+      ],
+      "recommended": true,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "break",
@@ -2998,10 +3235,13 @@
         "vs-code"
       ],
       "dependencies": [],
-      "relatedSkills": [],
-      "recommended": false,
+      "relatedSkills": [
+        "better-interface",
+        "interface-review"
+      ],
+      "recommended": true,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "critique-information-density",
@@ -3055,10 +3295,13 @@
         "claude-ai"
       ],
       "dependencies": [],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "better-layout",
+        "design-review"
+      ],
       "recommended": false,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "design-review",
@@ -3129,10 +3372,16 @@
       "dependencies": [
         "python"
       ],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "interface-review",
+        "frontend-design-review",
+        "design-details",
+        "laws-of-ux",
+        "critique-information-density"
+      ],
       "recommended": false,
       "maturity": "experimental",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "find-animation-opportunities",
@@ -3186,10 +3435,13 @@
         "claude-ai"
       ],
       "dependencies": [],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "animate",
+        "improve-animations"
+      ],
       "recommended": false,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "improve-animations",
@@ -3246,10 +3498,14 @@
         "claude-ai"
       ],
       "dependencies": [],
-      "relatedSkills": [],
-      "recommended": true,
+      "relatedSkills": [
+        "find-animation-opportunities",
+        "animate",
+        "design-debt-audit"
+      ],
+      "recommended": false,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "silver-evaluate",
@@ -3305,10 +3561,14 @@
       "dependencies": [
         "node"
       ],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "silver-ideate",
+        "silver-measure",
+        "interface-review"
+      ],
       "recommended": false,
       "maturity": "experimental",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "design-details",
@@ -3367,10 +3627,15 @@
         "vs-code"
       ],
       "dependencies": [],
-      "relatedSkills": [],
-      "recommended": true,
+      "relatedSkills": [
+        "interface-review",
+        "frontend-design-review",
+        "design-review",
+        "extract-design-md"
+      ],
+      "recommended": false,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "frontend-design-review",
@@ -3426,10 +3691,15 @@
         "vs-code"
       ],
       "dependencies": [],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "interface-review",
+        "frontend-design",
+        "design-details",
+        "frontend-ui-dark-ts"
+      ],
       "recommended": true,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "interface-review",
@@ -3483,10 +3753,16 @@
         "vs-code"
       ],
       "dependencies": [],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "better-interface",
+        "frontend-design-review",
+        "design-details",
+        "design-review",
+        "break"
+      ],
       "recommended": true,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "review-animations",
@@ -3540,10 +3816,88 @@
         "vs-code"
       ],
       "dependencies": [],
-      "relatedSkills": [],
-      "recommended": false,
+      "relatedSkills": [
+        "animate",
+        "better-ui",
+        "better-interface"
+      ],
+      "recommended": true,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
+    },
+    {
+      "id": "instrumentation-plan",
+      "name": "instrumentation-plan",
+      "description": "Turns a feature or flow into an instrumentation plan: the questions the data must answer, success and guardrail metrics with owners and baselines, activation and retention definitions, an event taxonomy under one naming convention (object_action snake_case, typed properties, shared context properties), identity and consent rules with data minimisation, funnel and segment definitions, an experiment block, and a QA checklist. Grounded in the Segment, Amplitude, GA4 and PostHog conventions so it ports between vendors.",
+      "category": "analytics",
+      "tags": [
+        "analytics",
+        "instrumentation",
+        "event-taxonomy",
+        "funnel",
+        "activation",
+        "retention",
+        "experimentation",
+        "ab-testing",
+        "metrics",
+        "kpis",
+        "data-minimization"
+      ],
+      "triggers": [
+        "write the tracking plan for this feature",
+        "define analytics events",
+        "what should we measure after launch",
+        "name these events",
+        "set up the A/B test metrics",
+        "define activation and retention"
+      ],
+      "inputs": [
+        "feature or flow",
+        "the decision the data must inform",
+        "existing analytics conventions"
+      ],
+      "outputs": [
+        "metrics table",
+        "tracking plan table",
+        "identity and consent rules",
+        "funnel and experiment definitions",
+        "QA checklist"
+      ],
+      "path": "skills/analytics/instrumentation-plan",
+      "relatedSkills": [
+        "silver-measure",
+        "ux-research-workflow",
+        "pre-handoff-review",
+        "survey-design"
+      ],
+      "source": {
+        "type": "original",
+        "repository": null,
+        "url": null,
+        "author": "Denis Stritar with Claude Fable 5",
+        "license": "MIT",
+        "licenseFile": null,
+        "upstreamPath": null,
+        "upstreamCommit": null,
+        "retrievedAt": null,
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
+      "recommended": true,
+      "maturity": "experimental",
+      "status": "verified"
     },
     {
       "id": "silver-measure",
@@ -3599,10 +3953,86 @@
       "dependencies": [
         "node"
       ],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "silver-evaluate",
+        "instrumentation-plan"
+      ],
       "recommended": false,
       "maturity": "experimental",
-      "status": "draft"
+      "status": "verified"
+    },
+    {
+      "id": "agentic-ui-review",
+      "name": "agentic-ui-review",
+      "description": "Reviews interfaces where an AI agent acts on the user's behalf for the trust and control patterns they need: intent echo, plan preview, approval scaled to blast radius, live state, tool-use transparency, honest uncertainty, interruptibility, reversibility, error recovery, scope and memory disclosure, accessible streaming and generated-UI governance. Traces each capability through before, during, after and failure moments, rates findings against Microsoft HAX, Google PAIR, Apple HIG and WCAG 2.2 SC 4.1.3, and reports severity-ranked fixes with a Block or Approve verdict.",
+      "category": "agentic-ui",
+      "tags": [
+        "agentic-ui",
+        "human-in-the-loop",
+        "approval-patterns",
+        "agent-state",
+        "transparency",
+        "uncertainty",
+        "interruptibility",
+        "reversibility",
+        "error-recovery",
+        "trust",
+        "ai-safety",
+        "ai-accessibility",
+        "review"
+      ],
+      "triggers": [
+        "review our AI assistant UI",
+        "design the approval flow for agent actions",
+        "is the agent state visible enough",
+        "audit copilot trust patterns",
+        "review streaming output accessibility"
+      ],
+      "inputs": [
+        "agent interface screens or components",
+        "tool list with blast radius and reversibility",
+        "autonomy model"
+      ],
+      "outputs": [
+        "findings by lifecycle moment with severity",
+        "concrete fixes",
+        "Block/Approve verdict"
+      ],
+      "path": "skills/agentic-ui/agentic-ui-review",
+      "relatedSkills": [
+        "conversational-ux",
+        "product-design-review",
+        "better-accessibility",
+        "dark-pattern-review"
+      ],
+      "source": {
+        "type": "original",
+        "repository": null,
+        "url": null,
+        "author": "Denis Stritar with Claude Fable 5",
+        "license": "MIT",
+        "licenseFile": null,
+        "upstreamPath": null,
+        "upstreamCommit": null,
+        "retrievedAt": null,
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
+      "recommended": true,
+      "maturity": "experimental",
+      "status": "verified"
     },
     {
       "id": "conversational-ux",
@@ -3659,10 +4089,79 @@
         "claude-ai"
       ],
       "dependencies": [],
-      "relatedSkills": [],
-      "recommended": false,
+      "relatedSkills": [
+        "better-writing",
+        "agentic-ui-review"
+      ],
+      "recommended": true,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
+    },
+    {
+      "id": "dark-pattern-review",
+      "name": "dark-pattern-review",
+      "description": "Reviews a flow, screen or copy for deceptive and manipulative design patterns (sneaking, obstruction, interface interference, false urgency and scarcity, unverifiable social proof, forced action, asymmetric consent) against the taxonomies regulators cite (deceptive.design, Mathur et al. 2019, FTC 2022, EDPB 03/2022, OECD 2022, EU DSA Art. 25), rates each finding by user harm and regulatory exposure, proposes the honest alternative with the concrete element and step count, and ends with Block or Approve plus a not-legal-advice note.",
+      "category": "ethics-and-safety",
+      "tags": [
+        "ethics",
+        "dark-patterns",
+        "manipulation",
+        "consent",
+        "privacy",
+        "trust-and-safety",
+        "review"
+      ],
+      "triggers": [
+        "is this flow manipulative",
+        "review the cancellation flow",
+        "check the consent banner",
+        "dark pattern audit",
+        "review pricing and checkout for deceptive patterns"
+      ],
+      "inputs": [
+        "flow screenshots, prototype or source with copy",
+        "business context and applicable jurisdictions"
+      ],
+      "outputs": [
+        "findings table with severity, harm and exposure",
+        "honest alternatives",
+        "Block/Approve verdict"
+      ],
+      "path": "skills/ethics-and-safety/dark-pattern-review",
+      "relatedSkills": [
+        "product-design-review",
+        "better-writing",
+        "better-accessibility",
+        "agentic-ui-review"
+      ],
+      "source": {
+        "type": "original",
+        "repository": null,
+        "url": null,
+        "author": "Denis Stritar with Claude Fable 5",
+        "license": "MIT",
+        "licenseFile": null,
+        "upstreamPath": null,
+        "upstreamCommit": null,
+        "retrievedAt": null,
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
+      "recommended": true,
+      "maturity": "experimental",
+      "status": "verified"
     },
     {
       "id": "explain-interface",
@@ -3715,10 +4214,12 @@
         "vs-code"
       ],
       "dependencies": [],
-      "relatedSkills": [],
-      "recommended": false,
+      "relatedSkills": [
+        "better-interface"
+      ],
+      "recommended": true,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "extract-static-html",
@@ -3796,10 +4297,12 @@
         "npm:@babel/generator",
         "browser"
       ],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "extract-design-md"
+      ],
       "recommended": false,
       "maturity": "experimental",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "web-artifacts-builder",
@@ -3854,10 +4357,12 @@
         "node",
         "pnpm"
       ],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "frontend-design"
+      ],
       "recommended": false,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
     },
     {
       "id": "better-interface",
@@ -3912,10 +4417,241 @@
         "claude-ai"
       ],
       "dependencies": [],
-      "relatedSkills": [],
+      "relatedSkills": [
+        "better-accessibility",
+        "better-layout",
+        "better-writing",
+        "better-typography",
+        "better-colors",
+        "better-ui",
+        "interface-review",
+        "variant",
+        "break",
+        "explain-interface",
+        "product-design-review"
+      ],
       "recommended": true,
       "maturity": "stable",
-      "status": "draft"
+      "status": "verified"
+    },
+    {
+      "id": "pre-handoff-review",
+      "name": "pre-handoff-review",
+      "description": "Orchestrates a completeness check before design is handed to engineering: inventories screens and states, then runs the owning skills for responsive behaviour (better-layout), localisation (localization-design), accessibility annotations (a11y-planner, better-accessibility), final copy (better-writing), tokens and components (design-system-governance, extract-design-md), motion (motion-system, animation-vocabulary), platform (platform-conventions) and analytics (instrumentation-plan), classifies gaps as blocker, gap or note, and produces a readiness table with owners and the artifact list to hand over.",
+      "category": "orchestration",
+      "tags": [
+        "orchestration",
+        "handoff",
+        "review",
+        "workflow",
+        "documentation"
+      ],
+      "triggers": [
+        "is this ready for development",
+        "design handoff checklist",
+        "what is missing from this spec",
+        "review before dev handoff",
+        "spec completeness check"
+      ],
+      "inputs": [
+        "design files or exported screens with any spec",
+        "target platform, design system and locales"
+      ],
+      "outputs": [
+        "readiness table with blockers, gaps and owners",
+        "artifact list for handover",
+        "Ready / Ready with assumptions / Not ready"
+      ],
+      "path": "skills/orchestration/pre-handoff-review",
+      "relatedSkills": [
+        "better-layout",
+        "localization-design",
+        "a11y-planner",
+        "better-accessibility",
+        "better-writing",
+        "design-system-governance",
+        "extract-design-md",
+        "motion-system",
+        "animation-vocabulary",
+        "platform-conventions",
+        "instrumentation-plan",
+        "product-design-review"
+      ],
+      "source": {
+        "type": "original",
+        "repository": null,
+        "url": null,
+        "author": "Denis Stritar with Claude Fable 5",
+        "license": "MIT",
+        "licenseFile": null,
+        "upstreamPath": null,
+        "upstreamCommit": null,
+        "retrievedAt": null,
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
+      "recommended": true,
+      "maturity": "experimental",
+      "status": "verified"
+    },
+    {
+      "id": "product-design-review",
+      "name": "product-design-review",
+      "description": "Orchestrates a complete product-design review: selects the smallest set of specialist lenses the input needs (accessibility for source or live page, layout, platform conventions, copy, typography, color, UI polish, animation, agentic interface, deceptive patterns, design-system compliance, diff scoping), confirms each is installed or marks it Not reviewed, runs them foundations-first, merges duplicate findings under the owning skill with a shared severity ladder and a 20-finding cap, and produces one report with a Block or Approve verdict and the list of skills used.",
+      "category": "orchestration",
+      "tags": [
+        "orchestration",
+        "review",
+        "design-review",
+        "workflow",
+        "severity"
+      ],
+      "triggers": [
+        "full design review",
+        "pre-launch review of this feature",
+        "review this whole flow",
+        "holistic UX review",
+        "design audit before shipping"
+      ],
+      "inputs": [
+        "source, URL, screenshots, prototype or diff",
+        "product context: platform, AI agent presence, money or consent steps, design system"
+      ],
+      "outputs": [
+        "consolidated severity-ranked findings",
+        "Block/Approve verdict",
+        "skills used"
+      ],
+      "path": "skills/orchestration/product-design-review",
+      "relatedSkills": [
+        "better-interface",
+        "interface-review",
+        "better-accessibility",
+        "a11y-check-page",
+        "better-layout",
+        "platform-conventions",
+        "better-writing",
+        "better-typography",
+        "better-colors",
+        "better-ui",
+        "review-animations",
+        "agentic-ui-review",
+        "dark-pattern-review",
+        "design-debt-audit"
+      ],
+      "source": {
+        "type": "original",
+        "repository": null,
+        "url": null,
+        "author": "Denis Stritar with Claude Fable 5",
+        "license": "MIT",
+        "licenseFile": null,
+        "upstreamPath": null,
+        "upstreamCommit": null,
+        "retrievedAt": null,
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
+      "recommended": true,
+      "maturity": "experimental",
+      "status": "verified"
+    },
+    {
+      "id": "ux-research-workflow",
+      "name": "ux-research-workflow",
+      "description": "Orchestrates a research effort from the decision it must inform to a recommendation: frames the decision, plans the study and instruments (user-research-cookiy, silver-research, survey-design, ia-evaluation), records collection, synthesises transcripts or mixed evidence (user-research-cookiy, silver-synthesize), maps structure when the question is structural (service-blueprint, ia-evaluation), converts findings into options with hypotheses (silver-ideate, design-negotiation) and plans measurement (instrumentation-plan, silver-measure), with handover artifacts and stop conditions defined between steps.",
+      "category": "orchestration",
+      "tags": [
+        "orchestration",
+        "workflow",
+        "user-research",
+        "synthesis",
+        "interviews",
+        "surveys"
+      ],
+      "triggers": [
+        "plan research for this decision",
+        "what research should we do",
+        "synthesise these interviews into a recommendation",
+        "research workflow",
+        "discovery research plan"
+      ],
+      "inputs": [
+        "the decision and its deadline",
+        "existing research, analytics or transcripts",
+        "participant and data-handling constraints"
+      ],
+      "outputs": [
+        "research plan with instruments",
+        "findings with evidence",
+        "options with hypotheses",
+        "recommendation and measurement plan"
+      ],
+      "path": "skills/orchestration/ux-research-workflow",
+      "relatedSkills": [
+        "user-research-cookiy",
+        "silver-research",
+        "survey-design",
+        "ia-evaluation",
+        "silver-synthesize",
+        "service-blueprint",
+        "silver-ideate",
+        "design-negotiation",
+        "instrumentation-plan",
+        "silver-measure"
+      ],
+      "source": {
+        "type": "original",
+        "repository": null,
+        "url": null,
+        "author": "Denis Stritar with Claude Fable 5",
+        "license": "MIT",
+        "licenseFile": null,
+        "upstreamPath": null,
+        "upstreamCommit": null,
+        "retrievedAt": null,
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [],
+      "recommended": true,
+      "maturity": "experimental",
+      "status": "verified"
     }
   ]
 }

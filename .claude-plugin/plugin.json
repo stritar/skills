@@ -14,6 +14,7 @@
     "./skills/research/survey-design",
     "./skills/research/user-research-cookiy",
     "./skills/strategy/design-negotiation",
+    "./skills/information-architecture/ia-evaluation",
     "./skills/information-architecture/silver-structure",
     "./skills/interaction-design/animate",
     "./skills/interaction-design/animate-expo",
@@ -64,11 +65,17 @@
     "./skills/design-qa/frontend-design-review",
     "./skills/design-qa/interface-review",
     "./skills/design-qa/review-animations",
+    "./skills/analytics/instrumentation-plan",
     "./skills/analytics/silver-measure",
+    "./skills/agentic-ui/agentic-ui-review",
     "./skills/agentic-ui/conversational-ux",
+    "./skills/ethics-and-safety/dark-pattern-review",
     "./skills/design-engineering/explain-interface",
     "./skills/design-engineering/extract-static-html",
     "./skills/design-engineering/web-artifacts-builder",
-    "./skills/orchestration/better-interface"
+    "./skills/orchestration/better-interface",
+    "./skills/orchestration/pre-handoff-review",
+    "./skills/orchestration/product-design-review",
+    "./skills/orchestration/ux-research-workflow"
   ]
 }
