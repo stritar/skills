@@ -1,2 +1,4 @@
 * text=auto eol=lf
+# Vendored skills are byte-identical to upstream: never normalize their line endings.
+skills/** -text
 skills/**/*.md linguist-detectable
