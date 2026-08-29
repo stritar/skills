@@ -108,6 +108,48 @@ product analytics and instrumentation (3 candidates), design ethics (2),
 agentic interfaces (4), information architecture (5 small repositories),
 usability testing (none dedicated).
 
+### Session 4 — discovery round 2 (2026-08-29)
+
+Run three days after round 1, with an authenticated `gh` available outside
+the sandbox (the sandboxed `gh` still fails on TLS interception). Three
+tracks, at most two agents at a time plus one deterministic script:
+
+- **T9 — authenticated GitHub search** (`scripts/research/github-code-search.mjs`):
+  36 code-search queries (`filename:SKILL.md` plus design terms) and 13
+  repository-search queries, 0 errors, 600 repositories with metadata (stars,
+  license, last push), 571 not previously known. The largest query families
+  were dashboard design (19,840 files), typography (4,688), design tokens
+  (3,496), design-system audit (2,960) and accessibility/WCAG (2,848); most
+  hits are skills kept inside unrelated product repositories.
+- **T10 — lead expansion** (Sonnet agent): 9 round-1 leads opened, 42 URLs,
+  14 new candidates, 11 known skipped. The awesome lists and the
+  officialskills.sh catalog mostly pointed back to round-1 repositories;
+  genuinely new: figma/mcp-server-guide (12 skill directories, no LICENSE
+  file found), WordPress/agent-skills (GPL-2.0-or-later), its-thepoe/skills
+  (MIT). 404: claude-skills/claude-skills-library, oneskill/skills,
+  google-labs-code/enhance-prompt and shadcn-ui (officialskills.sh
+  mislabels them; they are the already-vendored stitch-skills).
+- **T11 — gap-category searches** (Sonnet agent): 41 searches across ten
+  families, 43 URLs, 13 new candidates, 25 known skipped. Usability testing,
+  information architecture and design QA are close to keyword saturation;
+  analytics, research artifacts, strategy and AI-native families still have
+  named unopened threads (jahonn/pm-agent-skill, lishix520/jtbd-skills,
+  wdavidturner/product-skills, a secondhand "humane agentic design" repo).
+
+Merge: 947 unique candidates (330 from round 1, 617 new). Deterministic
+triage (`research/round-2-triage.json`: keyword relevance over skill path
+and description, license, stars, penalty for project-internal skill
+directories) shortlists 155 candidates, 55 of them strongly.
+
+**Saturation, restated.** The numeric rule (new unique below 10% of
+cumulative) is not met: round 2 added 65%. That figure is dominated by the
+code-search long tail of internal skills in unrelated products, which round
+1 could not see. Read by track, the picture is mixed: lead expansion and the
+saturated gap families re-surfaced known repositories, while code search
+and the analytics, research-artifact, strategy and AI-native families still
+produce new material. A further round should be code-search-led and
+family-targeted rather than list-led.
+
 ### Canonical search verification
 
 Appended after the final validation run; see the end of this log.
@@ -279,6 +321,124 @@ upstream file (zivtech's own README reference), recorded as a warning.
 **New queries generated from findings:** enumerate skills.sh design category; chase RAMS repo/npm; mine heilcheng + helloianneo + laolaoshiren + travisvn awesome lists item-by-item; check getdesign.md for SKILL.md outputs; search mp.weixin.qq.com and bilibili (zh), note.com (ja), tistory (ko) which this round only grazed.
 
 **Could not verify/access:** zhihu article bodies (403), CSDN article (521), pasqualepillitteri.it 20-skills article (socket hang up x3), so.gitee.com search results (JS-only), exact per-skill SKILL.md paths inside freshtechbro/claudedesignskills and bear2u/my-skills (repo-level verified, paths not pinned), anthropics/skills star count taken from a juejin article (127k) not the repo page.
+
+### Round 2 - Track T10 (lead expansion)
+2026-08-29. Platforms: officialskills.sh, github.com, raw.githubusercontent.com, one Claude web search.
+
+**Dedup setup:** parsed research/candidates.json (328 round-1 entries, extracted 226 unique owner/repo pairs) and catalog/index.json (16 vendored repos) before opening any lead.
+
+**Lead 1 (officialskills.sh):** the site is a registry aggregator with per-skill pages under /org/skills/name. Followed 5 of its listed pages to their real GitHub source:
+- figma/skills/figma-generate-design -> real repo github.com/figma/mcp-server-guide (skills/ dir, 12 skill subdirs, 1.9k stars, no LICENSE file found). NEW, not in round 1 or vendored. Recorded 6 of the 12 skill dirs as candidates (figma-generate-design, figma-generate-library, figma-design-to-code, figma-generate-diagram, figma-use-figjam, figma-implement-motion); the other 6 (figma-code-connect, figma-create-new-file, figma-swiftui, figma-use-motion, figma-use-slides, figma-use) exist but were left as a lead for a closer pass.
+- WordPress/skills/wpds -> real repo github.com/WordPress/agent-skills (skills/wpds/SKILL.md confirmed via raw fetch, GPL-2.0-or-later, 2.1k stars). NEW. Recorded as a candidate; only design-relevant skill among ~14 WordPress-dev skills in that repo.
+- garrytan/skills/design-review -> resolves to garrytan/gstack, already known-from-round-1. Rejected.
+- google-labs-code/skills/enhance-prompt and .../shadcn-ui -> officialskills.sh's claimed standalone repos (google-labs-code/enhance-prompt, google-labs-code/shadcn-ui) both 404. A web search confirmed both actually live inside google-labs-code/stitch-skills, which is already vendored in catalog/index.json. Rejected as vendored/mislabeled.
+
+**Lead 2 (bergside/awesome-design-skills):** confirmed real - 67 skill folders each with SKILL.md + DESIGN.md, MIT license, distributed via `npx typeui.sh pull <name>`. Repository was already in round-1's candidates.json queue, so rejected as known-from-round-1 (verification recorded for completeness).
+
+**Leads 3-5 (VoltAgent, ComposioHQ, travisvn awesome-* lists):** none of the three has a dedicated design/UX section. All design-tagged entries resolve to repos already known or already vendored (figma, google-labs-code, microsoft, openai, anthropics orgs). ComposioHQ additionally surfaced uxKero/anydesign (already known-from-round-1) and two Composio platform 'automation' actions (Figma Automation, Canva Automation) that are API wrappers, not SKILL.md-based agent skills - rejected as not-a-skill.
+
+**Lead 6 (alirezarezvani/claude-skills):** repo and its product-team/* design/UX subset (ui-design-system, ux-researcher-designer, product-discovery, product-analytics, experiment-designer, competitive-teardown, product-strategist, landing-page-generator) were already thoroughly recorded in round 1. No new entries. Rejected as known.
+
+**Lead 7 (JimLiu/baoyu-skills, excluding already-rejected baoyu-design):** opened and enumerated all 21 skills. All are content/graphic-generation tools (social image cards, infographics, comics, cover images, slide decks, posting bots, translation, transcript/markdown tooling) - none touch strategy, research, IA, interaction design, design systems, accessibility, or design QA. Rejected the whole repo as out-of-scope for product design.
+
+**Lead 8 (conductor-oss/awesome-skills, claude-skills/claude-skills-library, wondelai/skills, its-thepoe/skills, oneskill/skills):**
+- conductor-oss/awesome-skills: no design section, repo is about skill-authoring architecture. Rejected, no relevant content.
+- claude-skills/claude-skills-library: 404, listed inaccessible.
+- wondelai/skills: already thoroughly known-from-round-1 (8 design/UX skills already recorded). Rejected as known.
+- **its-thepoe/skills: genuinely NEW, not in round 1 or vendored.** MIT license, npm-workspace repo with design/ (23 skill subdirs), web-design/ (76 subdirs, mostly narrow aesthetic/motion CSS-JS treatment packs), writing/, prototypes/, agent/ folders. Verified 5 skills by raw-fetching their SKILL.md content directly (all real, substantive, non-prompt-dump workflows): design-engineering (UI-craft/motion review methodology), prototype (5-direction UI concept generator), design-motion-principles (3-practitioner motion audit framework, internally versioned 1.2), design-and-refine (multi-variant Design Lab workflow with persistent DESIGN_PLAN.md/DESIGN_MEMORY.md), writing/copywriting (product+marketing UX-writing skill with surface guards and an anti-manipulation stance). A 6th skill, design/alt-text (accessibility, claimed in the repo's own install table), could not be located at two guessed paths (both 404) and was left unrecorded - flagged as a lead for next round. 18 more design/ subdirs and 76 web-design/ subdirs were enumerated by directory listing but not individually content-verified this round; left as medium/low-priority leads.
+- oneskill/skills: 404, listed inaccessible.
+
+**Lead 9 (bergside/design-md-figma, mariespreitzer/screens-to-ia-figma):** both verified real and design-relevant. design-md-figma is a Figma plugin (MIT, 147 stars) that extracts a live file's design tokens/styles into DESIGN.md + SKILL.md blueprints in the TypeUI format - recorded as a candidate but flagged for closer inspection since it generates a skill for the user's project rather than shipping one canonical installable SKILL.md itself. screens-to-ia-figma is a small (2-star, 1-commit) but clearly on-target Claude Code + Figma MCP skill that turns app screens into an information-architecture sitemap/content-hierarchy page - recorded as a candidate; it is a rare IA-specific find.
+
+**Saturation:** most aggregator/awesome-list leads (3, 4, 5, part of 6, 8's conductor-oss) mostly re-surfaced repositories already known from round 1 or already vendored, plus one repo-attribution error on officialskills.sh's own site (enhance-prompt/shadcn-ui mislabeled). The genuinely new material this round came from three sources: figma/mcp-server-guide (official Figma skill repo, 6 candidates recorded of 12 available), WordPress/agent-skills (wpds, 1 candidate), and its-thepoe/skills (a previously-unindexed personal collection, 5 candidates recorded, ~18 more design/ subdirs left unverified as a lead), plus the two direct lead-9 repos (bergside/design-md-figma, mariespreitzer/screens-to-ia-figma).
+
+### Round 2 - Track T11 (gap-category searches)
+
+Date 2026-08-29. Deduplicated against research/candidates.json (328 round-1 candidates, 239 unique repos) and catalog/index.json (16 vendored repos) before recording anything as new.
+
+**Platforms used:** WebSearch (primary, all 10 families, 3-4 query variants each), registry.npmjs.org search API (families 1, 2, 3, 6, 7, 10), GitHub code search HTML (families 2, 3 - both blocked by sign-in wall), skills.sh (families 7, 8 - client-rendered SPA, no results reachable via WebFetch), skillpm.dev (family 7 - 404, could not find a working search route), grep.app (family 2 - 429 rate limited), skillsmp.com (family 7 - returned stale/generic content not matching the query).
+
+**Family 1 (product analytics):** Strong yield. New: coreyhaines31/marketingskills (analytics + ab-testing + site-architecture, MIT, full content verified), sickn33/antigravity-awesome-skills#analytics-product (MIT, verified). npm search for 'tracking-plan'/'usability' keywords surfaced only generic skill-infrastructure packages (vercel-labs/skills, skill-check, skillfish) - no analytics-specific npm-native packages found beyond what web search already found.
+
+**Family 2 (usability testing/evaluation):** Thin. chairy/claude-skill-ai-heuristics-eval found and verified as a real heuristic-eval skill but rejected on license grounds (all rights reserved/proprietary). Cognitive-walkthrough and design-critique-facilitation search terms returned no concrete new repos - only generic articles about the SKILL.md format itself. uxuiprinciples/agent-skills#ai-interface-reviewer was recorded under family 8 but its siblings (uxui-evaluator, interface-auditor) are plausible family-2 leads not yet content-verified. GitHub code search and grep.app were both inaccessible for this family's most targeted queries.
+
+**Family 3 (research artifacts):** Good yield. New: OneWave-AI/claude-skills#customer-journey-mapper (MIT, verified), takechanman1228/claude-persona (MIT, verified, persona-panel simulation with subprocess isolation), joeyvansommeren/journey-mapper (Apache-2.0, verified, novel codebase-scanning mechanism). No standalone affinity-mapping or research-repository/insight-management skill was found as its own dedicated repo - these concepts only appear as sub-sections within broader UX-researcher or journey-mapping skills (e.g. saeed-vayghan/gemini-agent-skills, left as a low-priority lead because it targets the Gemini CLI .gemini/skills convention rather than a generic SKILL.md layout).
+
+**Family 4 (IA/navigation):** Weak beyond what family 1's marketingskills repo already covers (site-architecture). AgriciDaniel/claude-seo#seo-sitemap and uxuiprinciples/agent-skills surfaced but the latter's IA relevance is folded into its ai-interface-reviewer/family-8 recording. No dedicated search-UX or taxonomy-specific skill repo was found.
+
+**Family 5 (strategy/discovery):** Strong yield, mostly concentrated in one new repo: deanpeters/Product-Manager-Skills (JTBD, opportunity-solution-tree, prioritization-advisor for RICE/ICE/Kano, competitive-analysis-process, roadmap-planning, discovery-process) - recorded with a prominent license flag since it is CC BY-NC-SA 4.0, non-commercial and not freely redistributable, unlike most other candidates found. levnikolaevich/claude-code-skills#ln-51-opportunity-evaluator (MIT) also recorded. jahonn/pm-agent-skill, lishix520/jtbd-skills, wdavidturner/product-skills, simota/agent-skills were surfaced but not independently content-verified this round due to time budget - not recorded as candidates, not formally listed as leads either since they overlap heavily with deanpeters' and phuryn's (already-known) coverage.
+
+**Family 6 (prototyping):** Moderate. New: yhassy/wireframe-skill (MIT, verified, JSON+HTML wireframe generator). its-thepoe/skills has a 'prototype' skill (5 HTML UI iterations) but three different raw-path guesses for its SKILL.md all 404'd - left as a medium-priority lead rather than forced into a candidate record with an unverified path. Most other wireframe/prototype hits (magdoub, jimliu/baoyu-design, jiji262) were already known-from-round-1.
+
+**Family 7 (ethics/privacy):** Moderate. New: mukul975/Privacy-Data-Protection-Skills (Apache-2.0, verified, 282+ skills across 20 domains) recorded with a caveat that it leans regulatory-compliance over UX-pattern design and does not isolate dark-pattern-detection or youth-safety-design as standalone domains. Ashutos1997/claude-design-auditor-skill (has a dedicated Ethics Score / dark-pattern category) and edbx (21-method ethics collection) were both already known-from-round-1. No dedicated youth-safety-design skill was found anywhere this round.
+
+**Family 8 (AI-native interfaces):** Moderate. New: uxuiprinciples/agent-skills#ai-interface-reviewer (44-principle AI-interface audit taxonomy, license caveat - no formal LICENSE file) and felixgeelhaar/skills#ai-expert (MIT, AI product-evaluation partner with build-vs-buy tiering and AI-UX pattern guidance). thesysdev's OpenUI generative-UI SDK skill was investigated and rejected as SDK-scaffolding rather than design methodology.
+
+**Family 9 (data visualization/charts):** Good yield. New: nickcrew/claude-cortex#dashboard-designer (MIT, verified, concrete KPI/layout/color heuristics) and markdown-viewer/skills#vega (GPL-3.0, verified, Vega-Lite chart-design skill with sibling infographic and canvas skills). seb1n/awesome-ai-agent-skills was already known.
+
+**Family 10 (design QA):** Weakest family this round. PramodDutta/qaskills has a Visual Regression Testing skill but its exact SKILL.md path could not be resolved (left as a medium-priority lead); the repo's other 19 skills are generic software-testing (Playwright, Jest, k6, Postman) rather than design QA. mattpocock/skills#handoff was investigated and rejected - it is conversational session-handoff, not design/dev handoff. Uwayxt/agent-skills, mohitagw15856/pm-claude-skills, and anthropics/knowledge-work-plugins - the strongest design-QA/handoff repos found - were all already known-from-round-1.
+
+**What could not be verified:** exact SKILL.md paths for its-thepoe/skills' prototype skill and PramodDutta/qaskills' visual-regression-testing skill (both left as leads, not candidates, per the rule against inventing paths); whether saeed-vayghan/gemini-agent-skills counts as a 'close equivalent' installable skill given its .gemini/skills directory convention rather than the generic top-level SKILL.md layout; the exact location of a 'humane-agentic-design'/'humane plugin' repo referenced secondhand in glebis/claude-skills' README as the new home of a Nielsen-heuristics skill removed from that repo.
+
+**Families with results but weak/thin:** 2 (usability testing/evaluation) and 10 (design QA) and 4 (IA/navigation) produced the fewest genuinely new, fully-verified candidates relative to query volume - most hits in these families circled back to round-1-known repos, suggesting those pockets of the ecosystem are close to saturated for straightforward keyword search and would benefit from a different discovery strategy (e.g. browsing marketplace category pages directly rather than keyword search) in a future round.
+
+### Round 2 - Track T9 (authenticated GitHub code and repository search, 2026-08-29)
+
+- Tool: `gh api` against `search/code` (legacy `filename:SKILL.md` syntax) and `search/repositories`, run by `scripts/research/github-code-search.mjs`.
+- 36 code-search queries and 13 repository-search queries; results per query are in the `queries` array of this track file.
+- 1525 unique repositories hit; 600 recorded with metadata (stars, license, last push), of which 29 were already known from round 1 or already vendored and 571 are new.
+- 0 dropped at this stage (low-star forks, metadata failures). Relevance and file-level verification are left to inspection; this track records what the searches returned.
+
+Queries:
+- `filename:SKILL.md accessibility WCAG` (github-code-search): 2848 results; 50 items returned, 13 new repos
+- `filename:SKILL.md "design tokens"` (github-code-search): 3496 results; 50 items returned, 11 new repos
+- `filename:SKILL.md "design system" audit` (github-code-search): 2960 results; 50 items returned, 13 new repos
+- `filename:SKILL.md "user research" interview` (github-code-search): 410 results; 50 items returned, 25 new repos
+- `filename:SKILL.md "usability testing"` (github-code-search): 172 results; 50 items returned, 23 new repos
+- `filename:SKILL.md wireframe prototype` (github-code-search): 288 results; 50 items returned, 25 new repos
+- `filename:SKILL.md typography hierarchy` (github-code-search): 4688 results; 50 items returned, 14 new repos
+- `filename:SKILL.md "color palette" contrast` (github-code-search): 2688 results; 50 items returned, 9 new repos
+- `filename:SKILL.md "UX writing" microcopy` (github-code-search): 741 results; 50 items returned, 37 new repos
+- `filename:SKILL.md "heuristic evaluation"` (github-code-search): 183 results; 50 items returned, 24 new repos
+- `filename:SKILL.md "information architecture"` (github-code-search): 1392 results; 50 items returned, 5 new repos
+- `filename:SKILL.md "card sort"` (github-code-search): 334 results; 50 items returned, 16 new repos
+- `filename:SKILL.md dashboard design` (github-code-search): 19840 results; 50 items returned, 5 new repos
+- `filename:SKILL.md "design review" severity` (github-code-search): 551 results; 50 items returned, 23 new repos
+- `filename:SKILL.md "design QA"` (github-code-search): 137 results; 50 items returned, 19 new repos
+- `filename:SKILL.md "visual regression"` (github-code-search): 914 results; 50 items returned, 10 new repos
+- `filename:SKILL.md "product analytics" events` (github-code-search): 306 results; 50 items returned, 14 new repos
+- `filename:SKILL.md instrumentation "tracking plan"` (github-code-search): 358 results; 50 items returned, 30 new repos
+- `filename:SKILL.md "journey map"` (github-code-search): 546 results; 50 items returned, 1 new repos
+- `filename:SKILL.md persona segmentation` (github-code-search): 583 results; 50 items returned, 9 new repos
+- `filename:SKILL.md "conversational design" agent` (github-code-search): 3 results; 3 items returned, 3 new repos
+- `filename:SKILL.md "AI agent" interface trust` (github-code-search): 349 results; 50 items returned, 24 new repos
+- `filename:SKILL.md "dark patterns"` (github-code-search): 241 results; 50 items returned, 10 new repos
+- `filename:SKILL.md "design critique"` (github-code-search): 296 results; 50 items returned, 10 new repos
+- `filename:SKILL.md "design handoff"` (github-code-search): 163 results; 50 items returned, 23 new repos
+- `filename:SKILL.md "motion design" easing` (github-code-search): 219 results; 50 items returned, 28 new repos
+- `filename:SKILL.md "data visualization" chart` (github-code-search): 936 results; 50 items returned, 15 new repos
+- `filename:SKILL.md onboarding "empty state"` (github-code-search): 1162 results; 50 items returned, 5 new repos
+- `filename:SKILL.md Figma "design system"` (github-code-search): 976 results; 50 items returned, 3 new repos
+- `filename:SKILL.md "jobs to be done"` (github-code-search): 256 results; 50 items returned, 12 new repos
+- `filename:SKILL.md "competitive analysis" product` (github-code-search): 559 results; 50 items returned, 10 new repos
+- `filename:SKILL.md prioritization roadmap design` (github-code-search): 323 results; 50 items returned, 18 new repos
+- `filename:SKILL.md "service blueprint"` (github-code-search): 60 results; 50 items returned, 12 new repos
+- `filename:SKILL.md localization RTL design` (github-code-search): 184 results; 50 items returned, 19 new repos
+- `filename:SKILL.md "responsive design" breakpoints` (github-code-search): 468 results; 50 items returned, 12 new repos
+- `filename:SKILL.md "form design" validation` (github-code-search): 359 results; 50 items returned, 12 new repos
+- `topic:agent-skills design` (github-repo-search): 975 results; 100 items returned, 97 new repos
+- `topic:agent-skills ux` (github-repo-search): 174 results; 100 items returned, 88 new repos
+- `topic:claude-skills design` (github-repo-search): 457 results; 100 items returned, 74 new repos
+- `topic:claude-skills ux` (github-repo-search): 106 results; 100 items returned, 70 new repos
+- `topic:claude-code-skills design` (github-repo-search): 96 results; 96 items returned, 81 new repos
+- `topic:codex-skills design` (github-repo-search): 82 results; 82 items returned, 58 new repos
+- `"agent skills" design ux in:name,description,readme` (github-repo-search): 11077 results; 100 items returned, 96 new repos
+- `"SKILL.md" design system in:readme` (github-repo-search): 63482 results; 100 items returned, 89 new repos
+- `"SKILL.md" accessibility in:readme` (github-repo-search): 17915 results; 100 items returned, 55 new repos
+- `"SKILL.md" "user research" in:readme` (github-repo-search): 904 results; 100 items returned, 91 new repos
+- `"skills" "product design" claude in:name,description` (github-repo-search): 64 results; 64 items returned, 59 new repos
+- `cursor skills design ux in:name,description` (github-repo-search): 37 results; 37 items returned, 31 new repos
+- `opencode skills design in:name,description` (github-repo-search): 107 results; 100 items returned, 94 new repos
 
 ## Inspection sessions
 

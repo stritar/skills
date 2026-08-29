@@ -103,6 +103,48 @@ product analytics and instrumentation (3 candidates), design ethics (2),
 agentic interfaces (4), information architecture (5 small repositories),
 usability testing (none dedicated).
 
+### Session 4 — discovery round 2 (2026-08-29)
+
+Run three days after round 1, with an authenticated `gh` available outside
+the sandbox (the sandboxed `gh` still fails on TLS interception). Three
+tracks, at most two agents at a time plus one deterministic script:
+
+- **T9 — authenticated GitHub search** (`scripts/research/github-code-search.mjs`):
+  36 code-search queries (`filename:SKILL.md` plus design terms) and 13
+  repository-search queries, 0 errors, 600 repositories with metadata (stars,
+  license, last push), 571 not previously known. The largest query families
+  were dashboard design (19,840 files), typography (4,688), design tokens
+  (3,496), design-system audit (2,960) and accessibility/WCAG (2,848); most
+  hits are skills kept inside unrelated product repositories.
+- **T10 — lead expansion** (Sonnet agent): 9 round-1 leads opened, 42 URLs,
+  14 new candidates, 11 known skipped. The awesome lists and the
+  officialskills.sh catalog mostly pointed back to round-1 repositories;
+  genuinely new: figma/mcp-server-guide (12 skill directories, no LICENSE
+  file found), WordPress/agent-skills (GPL-2.0-or-later), its-thepoe/skills
+  (MIT). 404: claude-skills/claude-skills-library, oneskill/skills,
+  google-labs-code/enhance-prompt and shadcn-ui (officialskills.sh
+  mislabels them; they are the already-vendored stitch-skills).
+- **T11 — gap-category searches** (Sonnet agent): 41 searches across ten
+  families, 43 URLs, 13 new candidates, 25 known skipped. Usability testing,
+  information architecture and design QA are close to keyword saturation;
+  analytics, research artifacts, strategy and AI-native families still have
+  named unopened threads (jahonn/pm-agent-skill, lishix520/jtbd-skills,
+  wdavidturner/product-skills, a secondhand "humane agentic design" repo).
+
+Merge: 947 unique candidates (330 from round 1, 617 new). Deterministic
+triage (`research/round-2-triage.json`: keyword relevance over skill path
+and description, license, stars, penalty for project-internal skill
+directories) shortlists 155 candidates, 55 of them strongly.
+
+**Saturation, restated.** The numeric rule (new unique below 10% of
+cumulative) is not met: round 2 added 65%. That figure is dominated by the
+code-search long tail of internal skills in unrelated products, which round
+1 could not see. Read by track, the picture is mixed: lead expansion and the
+saturated gap families re-surfaced known repositories, while code search
+and the analytics, research-artifact, strategy and AI-native families still
+produce new material. A further round should be code-search-led and
+family-targeted rather than list-led.
+
 ### Canonical search verification
 
 Appended after the final validation run; see the end of this log.

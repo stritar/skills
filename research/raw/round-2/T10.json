@@ -1,0 +1,538 @@
+{
+  "track": "T10",
+  "round": 2,
+  "date": "2026-08-29",
+  "queries": [
+    {
+      "engine": "websearch",
+      "query": "github.com/google-labs-code enhance-prompt shadcn-ui skill",
+      "url": "n/a",
+      "results": 10,
+      "outcome": "Confirmed enhance-prompt and shadcn-ui are NOT separate google-labs-code repos (both 404 standalone); both actually live at google-labs-code/stitch-skills/skills/{enhance-prompt,shadcn-ui}, a repo already vendored in catalog/index.json. officialskills.sh mislabels their source repo."
+    }
+  ],
+  "urlsOpened": [
+    {
+      "url": "https://officialskills.sh",
+      "why": "Lead 1: enumerate vendor skills claimed for figma/*, openai/frontend-skill, WordPress/wpds, google-labs-code",
+      "outcome": "Listed figma-*, frontend-design/frontend-skill, enhance-prompt, canvas-design, brand-guidelines etc. as registry entries with /org/skills/name links; no wpds or shadcn-ui shown on the landing page itself"
+    },
+    {
+      "url": "https://officialskills.sh/figma/skills/figma-generate-design",
+      "why": "resolve backing repo for a figma/* entry",
+      "outcome": "Found real source: github.com/figma/mcp-server-guide/tree/main/skills/figma-generate-design"
+    },
+    {
+      "url": "https://officialskills.sh/garrytan/skills/design-review",
+      "why": "resolve backing repo",
+      "outcome": "Resolves to github.com/garrytan/gstack (design-review dir) - already known from round 1"
+    },
+    {
+      "url": "https://officialskills.sh/google-labs-code/skills/enhance-prompt",
+      "why": "resolve backing repo per lead",
+      "outcome": "Page claims github.com/google-labs-code/enhance-prompt but that repo 404s; real source found via search to be google-labs-code/stitch-skills (vendored)"
+    },
+    {
+      "url": "https://officialskills.sh/WordPress/skills/wpds",
+      "why": "resolve backing repo for WordPress/wpds",
+      "outcome": "Found real source: github.com/WordPress/agent-skills/tree/trunk/skills/wpds"
+    },
+    {
+      "url": "https://officialskills.sh/google-labs-code/skills/shadcn-ui",
+      "why": "resolve backing repo per lead",
+      "outcome": "Page claims github.com/google-labs-code/shadcn-ui but that repo 404s; real source is google-labs-code/stitch-skills (vendored)"
+    },
+    {
+      "url": "https://github.com/figma/mcp-server-guide",
+      "why": "verify repo holds SKILL.md files, license, stars",
+      "outcome": "Confirmed: skills/ dir with 12 skill subdirectories, 1.9k stars, 66 commits; no LICENSE file visible in repo root"
+    },
+    {
+      "url": "https://github.com/google-labs-code/enhance-prompt",
+      "why": "verify claimed standalone repo",
+      "outcome": "404 Not Found - repo does not exist standalone"
+    },
+    {
+      "url": "https://github.com/google-labs-code/shadcn-ui",
+      "why": "verify claimed standalone repo",
+      "outcome": "404 Not Found - repo does not exist standalone"
+    },
+    {
+      "url": "https://github.com/WordPress/agent-skills",
+      "why": "verify repo, license, other design-relevant skills",
+      "outcome": "Confirmed: GPL-2.0-or-later, 2.1k stars, 91 commits; wpds is the only design-related skill among ~14 (rest are wp-block-dev, wp-plugin-dev, wp-rest-api etc.)"
+    },
+    {
+      "url": "https://github.com/figma/mcp-server-guide/tree/main/skills",
+      "why": "enumerate all 12 skill subdirectories",
+      "outcome": "Listed: figma-code-connect, figma-create-new-file, figma-design-to-code, figma-generate-design, figma-generate-diagram, figma-generate-library, figma-implement-motion, figma-swiftui, figma-use-figjam, figma-use-motion, figma-use-slides, figma-use"
+    },
+    {
+      "url": "https://github.com/WordPress/agent-skills/tree/trunk/skills/wpds",
+      "why": "verify SKILL.md exists in wpds dir",
+      "outcome": "Confirmed SKILL.md present, only file in dir"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/figma/mcp-server-guide/main/skills/figma-generate-design/SKILL.md",
+      "why": "verify real SKILL.md content, not a stub",
+      "outcome": "Confirmed real frontmatter and workflow content about reusing published design-system components/variables when building Figma screens"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/WordPress/agent-skills/trunk/skills/wpds/SKILL.md",
+      "why": "verify real SKILL.md content",
+      "outcome": "Confirmed real frontmatter and workflow content for WordPress Design System (WPDS) MCP-backed skill"
+    },
+    {
+      "url": "https://github.com/figma/mcp-server-guide/blob/main/LICENSE",
+      "why": "check license",
+      "outcome": "404 - no LICENSE file found at that path"
+    },
+    {
+      "url": "https://github.com/bergside/awesome-design-skills",
+      "why": "Lead 2: verify 67 style packs via typeui.sh, check license",
+      "outcome": "Confirmed: skills/ dir with 67 design-system skill folders (SKILL.md + DESIGN.md each), distributed via `npx typeui.sh pull <name>`, MIT license. Repo already present in round-1 candidates.json (known)."
+    },
+    {
+      "url": "https://github.com/VoltAgent/awesome-agent-skills",
+      "why": "Lead 3: design section only",
+      "outcome": "No dedicated design section; design entries scattered across org-based sections, all pointing to already-known repos (figma, google-labs-code, microsoft, openai, anthropics)"
+    },
+    {
+      "url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "why": "Lead 4: design section",
+      "outcome": "No dedicated design section. Found uxKero/anydesign (already known from round 1), canvas-design/theme-factory pointing to anthropics/skills (vendored), plus Composio 'Figma Automation'/'Canva Automation' integration actions (not SKILL.md-based agent skills)"
+    },
+    {
+      "url": "https://github.com/travisvn/awesome-claude-skills",
+      "why": "Lead 5: design section",
+      "outcome": "Closest is 'Design & Creative' under Official Skills, listing algorithmic-art, canvas-design, slack-gif-creator, frontend-design - all anthropics/skills (already vendored)"
+    },
+    {
+      "url": "https://github.com/alirezarezvani/claude-skills",
+      "why": "Lead 6: design/UX subset",
+      "outcome": "Repo already known-from-round-1 with product-team/* design skills (ui-design-system, ux-researcher-designer, product-discovery etc.) already recorded in candidates.json; no new subset found"
+    },
+    {
+      "url": "https://github.com/JimLiu/baoyu-skills",
+      "why": "Lead 7: design-relevant skills only (baoyu-design itself already rejected)",
+      "outcome": "21 skills, all content/graphic generation (infographics, social cards, diagrams, comics, translation, publishing bots) - none are product-design workflow skills (strategy/research/IA/interaction/systems/a11y); out of scope"
+    },
+    {
+      "url": "https://github.com/conductor-oss/awesome-skills",
+      "why": "Lead 8: enumerate design-relevant skills",
+      "outcome": "No design/UX section found; repo is about skill-authoring architecture itself, not a skill catalog with design entries"
+    },
+    {
+      "url": "https://github.com/claude-skills/claude-skills-library",
+      "why": "Lead 8: enumerate design-relevant skills",
+      "outcome": "404 Not Found"
+    },
+    {
+      "url": "https://github.com/wondelai/skills",
+      "why": "Lead 8: enumerate design-relevant skills",
+      "outcome": "Repo already known-from-round-1 (refactoring-ui, ux-heuristics, design-everyday-things, lean-ux, microinteractions, hooked-ux, web-typography, ios-hig-design already recorded)"
+    },
+    {
+      "url": "https://github.com/its-thepoe/skills",
+      "why": "Lead 8: enumerate design-relevant skills",
+      "outcome": "NEW repo, not previously found. its-thepoe/skills, MIT, 1 star, 50 commits, npm-workspace repo with thematic folders design/ (23 subdirs), web-design/ (76 subdirs), writing/, prototypes/, agent/ etc. Each skill dir self-contained with a SKILL.md at root."
+    },
+    {
+      "url": "https://github.com/its-thepoe/skills/tree/main",
+      "why": "enumerate top-level folders",
+      "outcome": "Listed design/, web-design/, prototypes/, writing/, agent/, tools/, docs/, meta/, plans/, scripts/, media/ plus LICENSE (MIT), AGENTS.md"
+    },
+    {
+      "url": "https://github.com/its-thepoe/skills/tree/main/design",
+      "why": "enumerate design/ skill subdirs",
+      "outcome": "23 subdirs incl. design-engineering, design-and-refine, design-motion-principles, prototype, better-typography, better-ui, family-taste, figma-plugin-builder, industrial-brutalist-ui, redesign-existing-projects"
+    },
+    {
+      "url": "https://github.com/its-thepoe/skills/tree/main/web-design",
+      "why": "enumerate web-design/ skill subdirs",
+      "outcome": "76 subdirs of mostly aesthetic/motion/webgl treatment skills (glassmorphism, animation-on-scroll, gsap, threejs, landing-page etc.) - visual-design/interaction-design adjacent"
+    },
+    {
+      "url": "https://github.com/its-thepoe/skills/tree/main/prototypes",
+      "why": "check for prototyping artifacts",
+      "outcome": "Just one sample HTML output file, not a skill directory"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/its-thepoe/skills/main/design/design-engineering/SKILL.md",
+      "why": "verify real SKILL.md content",
+      "outcome": "Confirmed real, substantive workflow (Emil Kowalski-style UI craft/motion review methodology)"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/its-thepoe/skills/main/design/prototype/SKILL.md",
+      "why": "verify real SKILL.md content",
+      "outcome": "Confirmed real, substantive workflow (5 distinct UI direction generator)"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/its-thepoe/skills/main/design/design-motion-principles/SKILL.md",
+      "why": "verify real SKILL.md content",
+      "outcome": "Confirmed real, substantive workflow (3-practitioner motion-design audit framework, versioned 1.2)"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/its-thepoe/skills/main/writing/copywriting/SKILL.md",
+      "why": "verify real SKILL.md content",
+      "outcome": "Confirmed real, substantive UX-writing/copy workflow with marketing+product surface guards"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/its-thepoe/skills/main/design/design-and-refine/SKILL.md",
+      "why": "verify real SKILL.md content",
+      "outcome": "Confirmed real, substantive multi-variant UI design-lab workflow"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/its-thepoe/skills/main/design/alt-text/SKILL.md",
+      "why": "verify accessibility skill claimed in install table",
+      "outcome": "404 - path guess wrong, could not verify; not recorded as candidate"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/its-thepoe/skills/main/agent/alt-text/SKILL.md",
+      "why": "alternate path guess for alt-text skill",
+      "outcome": "404 - still unverifiable, dropped"
+    },
+    {
+      "url": "https://github.com/oneskill/skills",
+      "why": "Lead 8: enumerate design-relevant skills",
+      "outcome": "404 Not Found"
+    },
+    {
+      "url": "https://github.com/bergside/design-md-figma",
+      "why": "Lead 9: verify",
+      "outcome": "Confirmed real: Figma plugin generating SKILL.md + DESIGN.md design-system blueprints (TypeUI format), MIT, 147 stars, 20 forks, 11 commits"
+    },
+    {
+      "url": "https://github.com/mariespreitzer/screens-to-ia-figma",
+      "why": "Lead 9: verify",
+      "outcome": "Confirmed real: Claude Code + Figma MCP skill that generates an IA sitemap/content-hierarchy page from screens, MIT, 2 stars, 1 commit"
+    },
+    {
+      "url": "https://github.com/its-thepoe/skills",
+      "why": "get last-activity signal",
+      "outcome": "Could not extract exact last-commit date from fetched summary; 50 commits total confirmed"
+    },
+    {
+      "url": "https://github.com/figma/mcp-server-guide",
+      "why": "get last-activity signal",
+      "outcome": "Could not extract exact date; 66 commits, description 'A guide on how to use the Figma MCP server'"
+    },
+    {
+      "url": "https://github.com/WordPress/agent-skills",
+      "why": "get last-activity signal",
+      "outcome": "Could not extract exact date; 91 commits, description 'Expert-level WordPress knowledge for AI coding assistants'"
+    }
+  ],
+  "candidates": [
+    {
+      "candidateId": "gh:figma/mcp-server-guide#skills/figma-generate-design",
+      "name": "figma-generate-design",
+      "repoUrl": "https://github.com/figma/mcp-server-guide",
+      "skillPath": "skills/figma-generate-design/SKILL.md",
+      "ref": "main",
+      "categoryGuess": "design-systems",
+      "licenseHint": "none found (no LICENSE file in repo root)",
+      "stars": 1900,
+      "lastActivity": "unknown exact date; 66 commits, active",
+      "whyRelevant": "Official Figma skill: translates app pages/views/multi-section layouts into Figma by reusing published design-system components, variables and styles rather than hardcoded primitives - direct design-systems + prototyping workflow",
+      "discoveredVia": "link-from: https://officialskills.sh/figma/skills/figma-generate-design",
+      "knowledgeSource": "fresh",
+      "notes": "One of 12 skill dirs under skills/ in this repo (others: figma-code-connect, figma-create-new-file, figma-design-to-code, figma-generate-diagram, figma-generate-library, figma-implement-motion, figma-swiftui, figma-use-figjam, figma-use-motion, figma-use-slides, figma-use). officialskills.sh had mislabeled some sibling google-labs-code skills' source repo (see rejected); this figma/mcp-server-guide attribution was independently confirmed via WebFetch of the raw SKILL.md."
+    },
+    {
+      "candidateId": "gh:figma/mcp-server-guide#skills/figma-generate-library",
+      "name": "figma-generate-library",
+      "repoUrl": "https://github.com/figma/mcp-server-guide",
+      "skillPath": "skills/figma-generate-library/SKILL.md",
+      "ref": "main",
+      "categoryGuess": "design-systems",
+      "licenseHint": "none found (no LICENSE file in repo root)",
+      "stars": 1900,
+      "lastActivity": "unknown exact date; 66 commits, active",
+      "whyRelevant": "Builds or updates a design system (components, variables, styles) inside Figma from code or intent - design-systems authoring workflow",
+      "discoveredVia": "link-from: https://officialskills.sh (figma section)",
+      "knowledgeSource": "fresh",
+      "notes": "Directory presence confirmed via repo tree listing; SKILL.md content not individually fetched (sibling figma-generate-design was, confirming the pattern is real)."
+    },
+    {
+      "candidateId": "gh:figma/mcp-server-guide#skills/figma-design-to-code",
+      "name": "figma-design-to-code",
+      "repoUrl": "https://github.com/figma/mcp-server-guide",
+      "skillPath": "skills/figma-design-to-code/SKILL.md",
+      "ref": "main",
+      "categoryGuess": "design-engineering",
+      "licenseHint": "none found (no LICENSE file in repo root)",
+      "stars": 1900,
+      "lastActivity": "unknown exact date; 66 commits, active",
+      "whyRelevant": "Design-to-code translation from Figma - core design-engineering workflow, complements officialskills.sh's listed 'figma-implement-design'",
+      "discoveredVia": "link-from: https://officialskills.sh (figma section)",
+      "knowledgeSource": "fresh",
+      "notes": "Directory presence confirmed via repo tree listing only, content not individually fetched."
+    },
+    {
+      "candidateId": "gh:figma/mcp-server-guide#skills/figma-generate-diagram",
+      "name": "figma-generate-diagram",
+      "repoUrl": "https://github.com/figma/mcp-server-guide",
+      "skillPath": "skills/figma-generate-diagram/SKILL.md",
+      "ref": "main",
+      "categoryGuess": "information-architecture",
+      "licenseHint": "none found (no LICENSE file in repo root)",
+      "stars": 1900,
+      "lastActivity": "unknown exact date; 66 commits, active",
+      "whyRelevant": "Generates diagrams/FigJam boards (flows, structure) from intent - supports IA and flow-mapping work",
+      "discoveredVia": "link-from: https://officialskills.sh (figma section)",
+      "knowledgeSource": "fresh",
+      "notes": "Directory presence confirmed via repo tree listing only, content not individually fetched."
+    },
+    {
+      "candidateId": "gh:figma/mcp-server-guide#skills/figma-use-figjam",
+      "name": "figma-use-figjam",
+      "repoUrl": "https://github.com/figma/mcp-server-guide",
+      "skillPath": "skills/figma-use-figjam/SKILL.md",
+      "ref": "main",
+      "categoryGuess": "prototyping",
+      "licenseHint": "none found (no LICENSE file in repo root)",
+      "stars": 1900,
+      "lastActivity": "unknown exact date; 66 commits, active",
+      "whyRelevant": "FigJam-specific workflow support (whiteboarding, collaborative artifacts) - discovery/prototyping adjacent",
+      "discoveredVia": "link-from: https://officialskills.sh (figma section)",
+      "knowledgeSource": "fresh",
+      "notes": "Directory presence confirmed via repo tree listing only, content not individually fetched."
+    },
+    {
+      "candidateId": "gh:figma/mcp-server-guide#skills/figma-implement-motion",
+      "name": "figma-implement-motion",
+      "repoUrl": "https://github.com/figma/mcp-server-guide",
+      "skillPath": "skills/figma-implement-motion/SKILL.md",
+      "ref": "main",
+      "categoryGuess": "interaction-design",
+      "licenseHint": "none found (no LICENSE file in repo root)",
+      "stars": 1900,
+      "lastActivity": "unknown exact date; 66 commits, active",
+      "whyRelevant": "Implements motion/animation specs from Figma designs into code - interaction-design implementation workflow, not covered by any currently vendored skill",
+      "discoveredVia": "link-from: https://officialskills.sh (figma section)",
+      "knowledgeSource": "fresh",
+      "notes": "Directory presence confirmed via repo tree listing only, content not individually fetched."
+    },
+    {
+      "candidateId": "gh:WordPress/agent-skills#skills/wpds",
+      "name": "wpds",
+      "repoUrl": "https://github.com/WordPress/agent-skills",
+      "skillPath": "skills/wpds/SKILL.md",
+      "ref": "trunk",
+      "categoryGuess": "design-systems",
+      "licenseHint": "GPL-2.0-or-later",
+      "stars": 2100,
+      "lastActivity": "unknown exact date; 91 commits, active",
+      "whyRelevant": "Official WordPress Design System skill: teaches an agent to build UIs using WPDS components, tokens and patterns via an MCP server - direct design-tokens/design-system workflow, GPL-licensed (redistribution needs care)",
+      "discoveredVia": "link-from: https://officialskills.sh/WordPress/skills/wpds",
+      "knowledgeSource": "fresh",
+      "notes": "Only design-related skill among ~14 in this repo; siblings are wp-block-development, wp-plugin-development, wp-rest-api etc. (out of scope). SKILL.md content verified via raw fetch."
+    },
+    {
+      "candidateId": "gh:its-thepoe/skills#design/design-engineering",
+      "name": "design-engineering",
+      "repoUrl": "https://github.com/its-thepoe/skills",
+      "skillPath": "design/design-engineering/SKILL.md",
+      "ref": "main",
+      "categoryGuess": "design-engineering",
+      "licenseHint": "MIT",
+      "stars": 1,
+      "lastActivity": "unknown exact date; 50 commits, active repo",
+      "whyRelevant": "UI craft/motion/component-feel review methodology (Emil Kowalski style) - concrete design-QA/design-engineering audit workflow with specific rules (avoid transition:all, respect prefers-reduced-motion, animate only transform/opacity)",
+      "discoveredVia": "link-from: lead-8 direct enumeration of its-thepoe/skills",
+      "knowledgeSource": "fresh",
+      "notes": "New repo not found in round 1. Owner describes it as 'A collection of Agent Skills I use in my workflow', npm-workspace layout with design/, web-design/, writing/ thematic folders. SKILL.md content verified via raw fetch."
+    },
+    {
+      "candidateId": "gh:its-thepoe/skills#design/prototype",
+      "name": "prototype",
+      "repoUrl": "https://github.com/its-thepoe/skills",
+      "skillPath": "design/prototype/SKILL.md",
+      "ref": "main",
+      "categoryGuess": "prototyping",
+      "licenseHint": "MIT",
+      "stars": 1,
+      "lastActivity": "unknown exact date; 50 commits, active repo",
+      "whyRelevant": "Generates five genuinely distinct, working UI design directions in one self-contained HTML prototype, explicitly rejecting cosmetic-only variation - strong divergent-prototyping workflow",
+      "discoveredVia": "link-from: lead-8 direct enumeration of its-thepoe/skills",
+      "knowledgeSource": "fresh",
+      "notes": "SKILL.md content verified via raw fetch."
+    },
+    {
+      "candidateId": "gh:its-thepoe/skills#design/design-motion-principles",
+      "name": "design-motion-principles",
+      "repoUrl": "https://github.com/its-thepoe/skills",
+      "skillPath": "design/design-motion-principles/SKILL.md",
+      "ref": "main",
+      "categoryGuess": "interaction-design",
+      "licenseHint": "MIT",
+      "stars": 1,
+      "lastActivity": "unknown exact date; 50 commits, active repo; versioned v1.2 internally",
+      "whyRelevant": "Motion/interaction-design audit framework synthesizing three named practitioners' philosophies with a 3-step context-reconnaissance -> audit -> structured-report process and an explicit stop-for-confirmation gate",
+      "discoveredVia": "link-from: lead-8 direct enumeration of its-thepoe/skills",
+      "knowledgeSource": "fresh",
+      "notes": "SKILL.md content verified via raw fetch; carries internal version 1.2, suggesting active maintenance."
+    },
+    {
+      "candidateId": "gh:its-thepoe/skills#design/design-and-refine",
+      "name": "design-and-refine",
+      "repoUrl": "https://github.com/its-thepoe/skills",
+      "skillPath": "design/design-and-refine/SKILL.md",
+      "ref": "main",
+      "categoryGuess": "visual-design",
+      "licenseHint": "MIT",
+      "stars": 1,
+      "lastActivity": "unknown exact date; 50 commits, active repo",
+      "whyRelevant": "Runs a 'Design Lab' style workflow generating multiple real (not static) UI variations at a side-by-side comparison route, synthesizes feedback, and persists DESIGN_PLAN.md/DESIGN_MEMORY.md - a distinct multi-variant design-exploration workflow",
+      "discoveredVia": "link-from: lead-8 direct enumeration of its-thepoe/skills",
+      "knowledgeSource": "fresh",
+      "notes": "SKILL.md content verified via raw fetch; references an '0x Designer' plugin/marketplace origin."
+    },
+    {
+      "candidateId": "gh:its-thepoe/skills#writing/copywriting",
+      "name": "copywriting",
+      "repoUrl": "https://github.com/its-thepoe/skills",
+      "skillPath": "writing/copywriting/SKILL.md",
+      "ref": "main",
+      "categoryGuess": "content-design",
+      "licenseHint": "MIT",
+      "stars": 1,
+      "lastActivity": "unknown exact date; 50 commits, active repo",
+      "whyRelevant": "Product/UX copywriting workflow covering onboarding, forms, buttons, empty states, errors, notifications with guarded surfaces (marketing vs product vs both) and explicit anti-manipulation stance - solid content-design/UX-writing skill",
+      "discoveredVia": "link-from: lead-8 direct enumeration of its-thepoe/skills",
+      "knowledgeSource": "fresh",
+      "notes": "SKILL.md content verified via raw fetch."
+    },
+    {
+      "candidateId": "gh:bergside/design-md-figma",
+      "name": "design-md-figma",
+      "repoUrl": "https://github.com/bergside/design-md-figma",
+      "skillPath": "(Figma plugin repo; verify SKILL.md location on install, not confirmed via raw fetch)",
+      "ref": "main",
+      "categoryGuess": "design-systems",
+      "licenseHint": "MIT",
+      "stars": 147,
+      "lastActivity": "unknown exact date; 11 commits, 20 forks",
+      "whyRelevant": "Figma plugin that extracts local styles/system signals from a live Figma file and generates editable DESIGN.md + SKILL.md design-system blueprints in the open TypeUI format, for use by Claude Code/Cursor - design-systems extraction/authoring tool",
+      "discoveredVia": "link-from: lead-9 direct URL",
+      "knowledgeSource": "fresh",
+      "notes": "Confirmed real and design-relevant via WebFetch summary; the exact in-repo SKILL.md path was not independently verified with a raw fetch (the repo is a plugin that GENERATES skill output for a user's own project rather than shipping one canonical installable skill) - flag for a closer look before vendoring."
+    },
+    {
+      "candidateId": "gh:mariespreitzer/screens-to-ia-figma",
+      "name": "screens-to-ia-figma",
+      "repoUrl": "https://github.com/mariespreitzer/screens-to-ia-figma",
+      "skillPath": "SKILL.md (root, per WebFetch summary; not independently raw-fetched)",
+      "ref": "main",
+      "categoryGuess": "information-architecture",
+      "licenseHint": "MIT",
+      "stars": 2,
+      "lastActivity": "unknown exact date; 1 commit",
+      "whyRelevant": "Claude Code + Figma MCP skill that reads app screens/file structure and generates an information-architecture page in Figma (sitemap + content-hierarchy cards), sized for PDF export - direct, rare IA-specific workflow",
+      "discoveredVia": "link-from: lead-9 direct URL",
+      "knowledgeSource": "fresh",
+      "notes": "Very small/new repo (1 star... actually 2 stars, 1 commit) - low activity signal, but the workflow is genuinely IA-specific and uses get_metadata/get_design_context/get_screenshot/use_figma tools per the WebFetch summary."
+    }
+  ],
+  "leads": [
+    {
+      "url": "https://github.com/its-thepoe/skills/tree/main/design",
+      "kind": "repo-subdirectory",
+      "priority": "medium",
+      "note": "18 more design/ subdirs not individually verified this round (better-colors, better-typography, better-ui, design-first-ui-prompting, design-taste-frontend, frontend-design, full-output-enforcement, gpt-taste, high-end-visual-design, hugeicons, iconsax, image-to-code, industrial-brutalist-ui, market-command-matrix, minimalist-ui, redesign-existing-projects, seo-audit, stitch-design-taste, figma-plugin-builder, family-taste)"
+    },
+    {
+      "url": "https://github.com/its-thepoe/skills/tree/main/web-design",
+      "kind": "repo-subdirectory",
+      "priority": "low",
+      "note": "76 subdirs, mostly narrow aesthetic/motion/WebGL treatment packs (glass morphism, mesh gradients, GSAP scroll storytelling) - visual-design adjacent but many are single-effect CSS/JS snippets rather than full design workflows; worth a skim, lower value than design/"
+    },
+    {
+      "url": "https://github.com/its-thepoe/skills/tree/main/agent",
+      "kind": "repo-subdirectory",
+      "priority": "low",
+      "note": "Not opened this round; alt-text (accessibility) skill is claimed to live somewhere in this repo per the install table but its path could not be located (two guesses 404'd)"
+    },
+    {
+      "url": "https://github.com/bergside",
+      "kind": "org/user profile",
+      "priority": "medium",
+      "note": "Same author behind both awesome-design-skills (67 typeui.sh style packs, known) and design-md-figma (new). Worth a profile scan next round for other typeui.sh-ecosystem repos"
+    },
+    {
+      "url": "https://typeui.sh",
+      "kind": "package registry/CLI site",
+      "priority": "low",
+      "note": "Distribution CLI behind bergside's design-system SKILL.md packs; not opened this round, could reveal additional style-pack sources beyond the 67 already known"
+    }
+  ],
+  "rejected": [
+    {
+      "target": "gh:garrytan/gstack (design-review, design-consultation skills surfaced via officialskills.sh)",
+      "reason": "known-from-round-1: garrytan/gstack repository already present in research/candidates.json"
+    },
+    {
+      "target": "gh:openai/skills (frontend-skill surfaced via officialskills.sh)",
+      "reason": "known-from-round-1: openai/skills repository already present in research/candidates.json"
+    },
+    {
+      "target": "gh:google-labs-code/enhance-prompt (claimed standalone repo)",
+      "reason": "does-not-exist: 404 as a standalone repo; actual skill lives at google-labs-code/stitch-skills/skills/enhance-prompt, which is already vendored in catalog/index.json. officialskills.sh's per-skill page mislabels the source."
+    },
+    {
+      "target": "gh:google-labs-code/shadcn-ui (claimed standalone repo)",
+      "reason": "does-not-exist: 404 as a standalone repo; actual skill lives at google-labs-code/stitch-skills/skills/shadcn-ui, already vendored in catalog/index.json"
+    },
+    {
+      "target": "gh:bergside/awesome-design-skills",
+      "reason": "known-from-round-1: already present in research/candidates.json; this round only re-verified it holds 67 real SKILL.md+DESIGN.md pairs under MIT, distributed via typeui.sh, no changes to record"
+    },
+    {
+      "target": "VoltAgent/awesome-agent-skills design entries",
+      "reason": "known-from-round-1/vendored: all linked design skills resolve to figma, google-labs-code, microsoft, openai, or anthropics org repos already known or vendored; aggregator produced no new repos"
+    },
+    {
+      "target": "ComposioHQ/awesome-claude-skills: canvas-design, theme-factory",
+      "reason": "vendored: both resolve to anthropics/skills, already vendored in catalog/index.json"
+    },
+    {
+      "target": "ComposioHQ/awesome-claude-skills: 'Figma Automation', 'Canva Automation' (Composio integration actions)",
+      "reason": "not-a-skill: these are Composio platform API automation actions (file/comment/team management), not installable SKILL.md agent skills - prompt-dump/API-wrapper, no executable skill workflow"
+    },
+    {
+      "target": "gh:uxKero/anydesign (surfaced via ComposioHQ list)",
+      "reason": "known-from-round-1: already present in research/candidates.json"
+    },
+    {
+      "target": "travisvn/awesome-claude-skills 'Design & Creative' entries (algorithmic-art, canvas-design, slack-gif-creator, frontend-design)",
+      "reason": "vendored: all resolve to anthropics/skills, already vendored"
+    },
+    {
+      "target": "gh:alirezarezvani/claude-skills (design/UX subset)",
+      "reason": "known-from-round-1: product-team/* design skills (ui-design-system, ux-researcher-designer, product-discovery, product-analytics, experiment-designer, competitive-teardown, product-strategist, landing-page-generator) already fully recorded in research/candidates.json; no new entries surfaced"
+    },
+    {
+      "target": "gh:wondelai/skills (design/UX subset)",
+      "reason": "known-from-round-1: refactoring-ui, ux-heuristics, design-everyday-things, lean-ux, microinteractions, hooked-ux, web-typography, ios-hig-design already fully recorded in research/candidates.json"
+    },
+    {
+      "target": "gh:JimLiu/baoyu-skills (whole repo, 21 skills)",
+      "reason": "out-of-scope: all skills are content/graphic generation (Xiaohongshu image cards, infographics, comics, cover images, slide decks, social posting bots, translation, transcript/markdown conversion) rather than product-design workflow (no strategy, research, IA, interaction design, design systems, accessibility, or design-QA skill present). Note per instructions: JimLiu/baoyu-design itself was already rejected on provenance grounds in an earlier round; this is the separate baoyu-skills repo, independently rejected here on scope grounds."
+    },
+    {
+      "target": "gh:conductor-oss/awesome-skills",
+      "reason": "no-relevant-content: no design/UX/product-design section found; repo documents general skill-authoring architecture (Anatomy of a skill, Why skills+workflows) with no linked design repos or skills"
+    }
+  ],
+  "inaccessible": [
+    "https://github.com/claude-skills/claude-skills-library (404 Not Found)",
+    "https://github.com/oneskill/skills (404 Not Found)",
+    "https://github.com/google-labs-code/enhance-prompt (404 Not Found, standalone repo does not exist)",
+    "https://github.com/google-labs-code/shadcn-ui (404 Not Found, standalone repo does not exist)",
+    "https://github.com/figma/mcp-server-guide/blob/main/LICENSE (404 Not Found, no LICENSE file at that path)",
+    "https://raw.githubusercontent.com/its-thepoe/skills/main/design/alt-text/SKILL.md (404, could not locate correct path for the alt-text skill claimed in the repo's own install table)",
+    "https://raw.githubusercontent.com/its-thepoe/skills/main/agent/alt-text/SKILL.md (404, alternate path guess also failed)"
+  ],
+  "logMd": "### Round 2 - Track T10 (lead expansion)\n2026-08-29. Platforms: officialskills.sh, github.com, raw.githubusercontent.com, one Claude web search.\n\n**Dedup setup:** parsed research/candidates.json (328 round-1 entries, extracted 226 unique owner/repo pairs) and catalog/index.json (16 vendored repos) before opening any lead.\n\n**Lead 1 (officialskills.sh):** the site is a registry aggregator with per-skill pages under /org/skills/name. Followed 5 of its listed pages to their real GitHub source:\n- figma/skills/figma-generate-design -> real repo github.com/figma/mcp-server-guide (skills/ dir, 12 skill subdirs, 1.9k stars, no LICENSE file found). NEW, not in round 1 or vendored. Recorded 6 of the 12 skill dirs as candidates (figma-generate-design, figma-generate-library, figma-design-to-code, figma-generate-diagram, figma-use-figjam, figma-implement-motion); the other 6 (figma-code-connect, figma-create-new-file, figma-swiftui, figma-use-motion, figma-use-slides, figma-use) exist but were left as a lead for a closer pass.\n- WordPress/skills/wpds -> real repo github.com/WordPress/agent-skills (skills/wpds/SKILL.md confirmed via raw fetch, GPL-2.0-or-later, 2.1k stars). NEW. Recorded as a candidate; only design-relevant skill among ~14 WordPress-dev skills in that repo.\n- garrytan/skills/design-review -> resolves to garrytan/gstack, already known-from-round-1. Rejected.\n- google-labs-code/skills/enhance-prompt and .../shadcn-ui -> officialskills.sh's claimed standalone repos (google-labs-code/enhance-prompt, google-labs-code/shadcn-ui) both 404. A web search confirmed both actually live inside google-labs-code/stitch-skills, which is already vendored in catalog/index.json. Rejected as vendored/mislabeled.\n\n**Lead 2 (bergside/awesome-design-skills):** confirmed real - 67 skill folders each with SKILL.md + DESIGN.md, MIT license, distributed via `npx typeui.sh pull <name>`. Repository was already in round-1's candidates.json queue, so rejected as known-from-round-1 (verification recorded for completeness).\n\n**Leads 3-5 (VoltAgent, ComposioHQ, travisvn awesome-* lists):** none of the three has a dedicated design/UX section. All design-tagged entries resolve to repos already known or already vendored (figma, google-labs-code, microsoft, openai, anthropics orgs). ComposioHQ additionally surfaced uxKero/anydesign (already known-from-round-1) and two Composio platform 'automation' actions (Figma Automation, Canva Automation) that are API wrappers, not SKILL.md-based agent skills - rejected as not-a-skill.\n\n**Lead 6 (alirezarezvani/claude-skills):** repo and its product-team/* design/UX subset (ui-design-system, ux-researcher-designer, product-discovery, product-analytics, experiment-designer, competitive-teardown, product-strategist, landing-page-generator) were already thoroughly recorded in round 1. No new entries. Rejected as known.\n\n**Lead 7 (JimLiu/baoyu-skills, excluding already-rejected baoyu-design):** opened and enumerated all 21 skills. All are content/graphic-generation tools (social image cards, infographics, comics, cover images, slide decks, posting bots, translation, transcript/markdown tooling) - none touch strategy, research, IA, interaction design, design systems, accessibility, or design QA. Rejected the whole repo as out-of-scope for product design.\n\n**Lead 8 (conductor-oss/awesome-skills, claude-skills/claude-skills-library, wondelai/skills, its-thepoe/skills, oneskill/skills):**\n- conductor-oss/awesome-skills: no design section, repo is about skill-authoring architecture. Rejected, no relevant content.\n- claude-skills/claude-skills-library: 404, listed inaccessible.\n- wondelai/skills: already thoroughly known-from-round-1 (8 design/UX skills already recorded). Rejected as known.\n- **its-thepoe/skills: genuinely NEW, not in round 1 or vendored.** MIT license, npm-workspace repo with design/ (23 skill subdirs), web-design/ (76 subdirs, mostly narrow aesthetic/motion CSS-JS treatment packs), writing/, prototypes/, agent/ folders. Verified 5 skills by raw-fetching their SKILL.md content directly (all real, substantive, non-prompt-dump workflows): design-engineering (UI-craft/motion review methodology), prototype (5-direction UI concept generator), design-motion-principles (3-practitioner motion audit framework, internally versioned 1.2), design-and-refine (multi-variant Design Lab workflow with persistent DESIGN_PLAN.md/DESIGN_MEMORY.md), writing/copywriting (product+marketing UX-writing skill with surface guards and an anti-manipulation stance). A 6th skill, design/alt-text (accessibility, claimed in the repo's own install table), could not be located at two guessed paths (both 404) and was left unrecorded - flagged as a lead for next round. 18 more design/ subdirs and 76 web-design/ subdirs were enumerated by directory listing but not individually content-verified this round; left as medium/low-priority leads.\n- oneskill/skills: 404, listed inaccessible.\n\n**Lead 9 (bergside/design-md-figma, mariespreitzer/screens-to-ia-figma):** both verified real and design-relevant. design-md-figma is a Figma plugin (MIT, 147 stars) that extracts a live file's design tokens/styles into DESIGN.md + SKILL.md blueprints in the TypeUI format - recorded as a candidate but flagged for closer inspection since it generates a skill for the user's project rather than shipping one canonical installable SKILL.md itself. screens-to-ia-figma is a small (2-star, 1-commit) but clearly on-target Claude Code + Figma MCP skill that turns app screens into an information-architecture sitemap/content-hierarchy page - recorded as a candidate; it is a rare IA-specific find.\n\n**Saturation:** most aggregator/awesome-list leads (3, 4, 5, part of 6, 8's conductor-oss) mostly re-surfaced repositories already known from round 1 or already vendored, plus one repo-attribution error on officialskills.sh's own site (enhance-prompt/shadcn-ui mislabeled). The genuinely new material this round came from three sources: figma/mcp-server-guide (official Figma skill repo, 6 candidates recorded of 12 available), WordPress/agent-skills (wpds, 1 candidate), and its-thepoe/skills (a previously-unindexed personal collection, 5 candidates recorded, ~18 more design/ subdirs left unverified as a lead), plus the two direct lead-9 repos (bergside/design-md-figma, mariespreitzer/screens-to-ia-figma)."
+}

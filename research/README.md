@@ -67,12 +67,22 @@ Rules encoded in the pipeline:
 
 ## Environment notes
 
-- The `gh` CLI is not usable in this environment (invalid auth token, TLS
-  interception in the sandbox). All fetching is plain HTTPS:
-  `api.github.com` (sparingly — unauthenticated rate limits) and
-  `raw.githubusercontent.com`.
-- Fallback code-search surfaces when GitHub code search is unavailable:
-  grep.app, sourcegraph.com, GitHub topic and repository search pages.
+- Inside the Claude Code sandbox the `gh` CLI fails on TLS interception and
+  reports its token as invalid; outside the sandbox (or on a normal shell)
+  an authenticated `gh` works and unlocks code search. Discovery agents
+  therefore never use `gh`; they fetch `api.github.com` sparingly and
+  `raw.githubusercontent.com` freely.
+- `node scripts/research/github-code-search.mjs --round <n> --track <id>`
+  runs the authenticated GitHub code search (`filename:SKILL.md` plus design
+  terms) and repository search, fetches metadata (stars, license, last push)
+  for every hit, marks repositories already known from earlier rounds or
+  already vendored, and writes a track file that `merge-candidates.mjs`
+  ingests. It paces itself to the search rate limits (10 code-search and 30
+  repository-search requests per minute). Run it from a shell where
+  `gh auth status` succeeds.
+- Fallback code-search surfaces when authenticated search is unavailable:
+  grep.app, sourcegraph.com, GitHub topic and repository search pages (all
+  three were rate-limited or login-gated during the first pass).
 
 ## Saturation criteria
 

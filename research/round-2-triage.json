@@ -1,0 +1,2341 @@
+{
+  "generated": "2026-08-29",
+  "method": "keyword relevance over skill path, name and description; +2 permissive license, +1 copyleft, -1 unknown, -2 other; +log10(stars) capped 3; -2 for project-internal skill dirs in non-skill repos; shortlist = score >= 6",
+  "counts": {
+    "round2Candidates": 617,
+    "shortlist": 155
+  },
+  "shortlist": [
+    {
+      "candidateId": "gh:chromium/chromium#agents/projects/chrome-design-system/skills/figma-design-review",
+      "score": 16,
+      "stars": 24650,
+      "license": "BSD-3-Clause",
+      "repoUrl": "https://github.com/chromium/chromium",
+      "skillPath": "agents/projects/chrome-design-system/skills/figma-design-review",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "design-system",
+        "figma",
+        "design-review"
+      ],
+      "notes": "The official GitHub mirror of the Chromium source"
+    },
+    {
+      "candidateId": "gh:michaelschecht/my-prompt-library#site/library/3_skills/design/ux-writing-microcopy",
+      "score": 14,
+      "stars": 0,
+      "license": "unknown",
+      "repoUrl": "https://github.com/michaelschecht/my-prompt-library",
+      "skillPath": "site/library/3_Skills/Design/ux-writing-microcopy",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "ux-",
+        "/ux",
+        "ux-writing",
+        "microcopy"
+      ],
+      "notes": "my-prompt-library"
+    },
+    {
+      "candidateId": "gh:alirezarezvani/claude-skills#product-team/skills/ui-design-system",
+      "score": 13,
+      "stars": 25182,
+      "license": "MIT",
+      "repoUrl": "https://github.com/alirezarezvani/claude-skills",
+      "skillPath": "product-team/skills/ui-design-system",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "design-system",
+        "ui-design"
+      ],
+      "notes": "380 Claude Code skills & agent skills & plugins (30+ Agents, 70+ custom commands, 380+ skills, customizable references, scripts)for Claude C"
+    },
+    {
+      "candidateId": "gh:deanpeters/product-manager-skills",
+      "score": 13,
+      "stars": 0,
+      "license": "CC BY-NC-SA 4.0 (non-commercial, share-alike - NOT permissively redistributable)",
+      "repoUrl": "https://github.com/deanpeters/Product-Manager-Skills",
+      "skillPath": "skills/{jobs-to-be-done,opportunity-solution-tree,prioritization-advisor,competitive-analysis-process,roadmap-planning,customer-journey-map,discovery-process,swot-analysis,porters-five-forces}/SKILL.md",
+      "foundBy": [
+        "round-2/T11"
+      ],
+      "hits": [
+        "journey",
+        "jobs-to-be-done",
+        "competitive-analysis",
+        "prioritiz",
+        "roadmap"
+      ],
+      "notes": "License is CC BY-NC-SA 4.0 - explicitly forbids repackaging into a paid product/course/service without permission; per AGENTS.md a skill wit"
+    },
+    {
+      "candidateId": "gh:foryourhealth111-pixel/vibe-skills#bundled/skills/ux-researcher-designer",
+      "score": 13,
+      "stars": 3052,
+      "license": "Apache-2.0",
+      "repoUrl": "https://github.com/foryourhealth111-pixel/Vibe-Skills",
+      "skillPath": "bundled/skills/ux-researcher-designer",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "ux-",
+        "/ux"
+      ],
+      "notes": "VibeSkills is a general-purpose Skill that automatically routes local Skills and intelligently orchestrates harness workflows."
+    },
+    {
+      "candidateId": "gh:majiayu000/claude-skill-registry#skills/development/ux-research-plan",
+      "score": 11.8,
+      "stars": 580,
+      "license": "MIT",
+      "repoUrl": "https://github.com/majiayu000/claude-skill-registry",
+      "skillPath": "skills/development/ux-research-plan",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "ux-",
+        "/ux"
+      ],
+      "notes": "The most comprehensive Claude Code skills registry | Web Search: https://majiayu000.github.io/claude-skill-registry-core/"
+    },
+    {
+      "candidateId": "gh:recomposesh/recompose#.agents/skills/ux-writing",
+      "score": 11.3,
+      "stars": 21,
+      "license": "MIT",
+      "repoUrl": "https://github.com/recomposesh/recompose",
+      "skillPath": ".agents/skills/ux-writing",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "ux-",
+        "/ux",
+        "ux-writing"
+      ],
+      "notes": "Every model, in every harness, one gateway to run."
+    },
+    {
+      "candidateId": "gh:yelpin/ux-ui-design-website",
+      "score": 11.3,
+      "stars": 1,
+      "license": "MIT",
+      "repoUrl": "https://github.com/Yelpin/ux-ui-design-website",
+      "skillPath": null,
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "ux-",
+        "~ux/",
+        "ui-design"
+      ],
+      "notes": "UX/UI design website · Claude Code skills для сборки сайтов уровня студии — дирижёр процесса, GSAP-движение, ворота качества, SEO"
+    },
+    {
+      "candidateId": "gh:mrstev3n/balise-skills#skills/balise-ux-writing",
+      "score": 11.1,
+      "stars": 11,
+      "license": "Apache-2.0",
+      "repoUrl": "https://github.com/mrstev3n/balise-skills",
+      "skillPath": "skills/balise-ux-writing",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "ux-",
+        "~figma",
+        "ux-writing"
+      ],
+      "notes": "Catalogue francophone de skills portables pour Claude Code, Codex, Cursor, le Figma Agent et Figma Make, fondé sur le standard Agent Skills."
+    },
+    {
+      "candidateId": "gh:kirodotdev/kirocrew#src/kiro_crew/apps/builtins/design_critique/skills/design-critique",
+      "score": 11,
+      "stars": 3366,
+      "license": "Apache-2.0",
+      "repoUrl": "https://github.com/kirodotdev/KiroCrew",
+      "skillPath": "src/kiro_crew/apps/builtins/design_critique/skills/design-critique",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "design-critique"
+      ],
+      "notes": "A persistent workspace for development work that self-improves and continues beyond one session."
+    },
+    {
+      "candidateId": "gh:plugin87/ux-ui-agent-skills#.claude/skills/prototype",
+      "score": 10.9,
+      "stars": 813,
+      "license": "unknown",
+      "repoUrl": "https://github.com/plugin87/ux-ui-agent-skills",
+      "skillPath": ".claude/skills/prototype",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "~accessib",
+        "~wcag",
+        "ux-",
+        "prototype"
+      ],
+      "notes": "Turn Claude into a Senior Design Architect — DTCG design tokens, 42 components, WCAG 2.2 accessibility, any-framework code, 138 design syste"
+    },
+    {
+      "candidateId": "gh:bonnguyenitc/antigravity-superpowers#.agent/skills/ux-designer",
+      "score": 10.3,
+      "stars": 19,
+      "license": "MIT",
+      "repoUrl": "https://github.com/bonnguyenitc/antigravity-superpowers",
+      "skillPath": ".agent/skills/ux-designer",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "ux-",
+        "/ux"
+      ],
+      "notes": "Superpowers for Google Antigravity — composable skills, smart workflows, and always-on rules that turn your AI agent into a senior engineer."
+    },
+    {
+      "candidateId": "gh:humbleteam/ux-writing",
+      "score": 10.3,
+      "stars": 1,
+      "license": "MIT",
+      "repoUrl": "https://github.com/humbleteam/ux-writing",
+      "skillPath": null,
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "ux-",
+        "ux-writing",
+        "~microcopy"
+      ],
+      "notes": "Claude Code skill: interface microcopy rules plus an AI-tell strip pass for buttons and errors"
+    },
+    {
+      "candidateId": "gh:dhananjaym182/ai-ui-design-skills",
+      "score": 10.2,
+      "stars": 15,
+      "license": "MIT",
+      "repoUrl": "https://github.com/dhananjaym182/ai-ui-design-skills",
+      "skillPath": null,
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "~/ux",
+        "~typography",
+        "ui-design"
+      ],
+      "notes": "Production-ready AI skills for modern SaaS UI/UX design, typography systems, and brand asset generation. Compatible with Claude   Code, Curs"
+    },
+    {
+      "candidateId": "gh:jewbetcha/opentrace#.agents/skills/ux-researcher-designer",
+      "score": 10.1,
+      "stars": 116,
+      "license": "MIT",
+      "repoUrl": "https://github.com/jewbetcha/opentrace",
+      "skillPath": ".agents/skills/ux-researcher-designer",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "ux-",
+        "/ux"
+      ],
+      "notes": "matched 1 query/queries; 1 SKILL.md path(s) matched: .agents/skills/ux-researcher-designer/SKILL.md"
+    },
+    {
+      "candidateId": "gh:anthropics/knowledge-work-plugins#design/skills/user-research",
+      "score": 10,
+      "stars": 23728,
+      "license": "Apache-2.0",
+      "repoUrl": "https://github.com/anthropics/knowledge-work-plugins",
+      "skillPath": "design/skills/user-research",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "user-research"
+      ],
+      "notes": "Open source repository of plugins primarily intended for knowledge workers to use in Claude Cowork"
+    },
+    {
+      "candidateId": "gh:galaxy-dawn/claude-scholar#skills/web-design-reviewer",
+      "score": 10,
+      "stars": 5248,
+      "license": "MIT",
+      "repoUrl": "https://github.com/Galaxy-Dawn/claude-scholar",
+      "skillPath": "skills/web-design-reviewer",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "design-review"
+      ],
+      "notes": "Semi-automated research assistant for academic research and software development. Supports Claude Code, Codex CLI, Kimi Code CLI, and OpenCo"
+    },
+    {
+      "candidateId": "gh:mohitagw15856/pm-claude-skills#plugins/pm-figma/skills/figma-component-audit",
+      "score": 10,
+      "stars": 1320,
+      "license": "MIT",
+      "repoUrl": "https://github.com/mohitagw15856/pm-claude-skills",
+      "skillPath": "plugins/pm-figma/skills/figma-component-audit",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "figma"
+      ],
+      "notes": "1098 professional Agent Skills for Claude, ChatGPT, Gemini, Cursor & Codex — from PRDs and postmortems to appealing a disability benefit, bu"
+    },
+    {
+      "candidateId": "gh:nextlevelbuilder/ui-ux-pro-max-skill#cli/assets/skills/slides",
+      "score": 10,
+      "stars": 122706,
+      "license": "MIT",
+      "repoUrl": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+      "skillPath": "cli/assets/skills/slides",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "ux-",
+        "~/ux"
+      ],
+      "notes": "An AI skill that provides design intelligence for building professional UI/UX across multiple platforms."
+    },
+    {
+      "candidateId": "gh:hybridlabor-api/bdb-dev-optimized-agent-skills#skills/global_config/ux-audit",
+      "score": 9.8,
+      "stars": 5,
+      "license": "Apache-2.0",
+      "repoUrl": "https://github.com/hybridlabor-api/bdb-dev-optimized-agent-skills",
+      "skillPath": "skills/global_config/ux-audit",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "ux-",
+        "/ux"
+      ],
+      "notes": "A Curated AI AGENT OS – Optimized agent skills and add-ons like memB, OpenWiki, Heimdall Token  Saver, and Godmode architectures."
+    },
+    {
+      "candidateId": "gh:itsual/agent-skills-collection#skills/design-ux/heuristic-evaluation",
+      "score": 9.8,
+      "stars": 6,
+      "license": "MIT",
+      "repoUrl": "https://github.com/itsual/agent-skills-collection",
+      "skillPath": "skills/design-ux/heuristic-evaluation",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "ux/",
+        "heuristic"
+      ],
+      "notes": "A comprehensive, production-ready collection of Agent Skills for AI coding agents. High-quality modular skills covering engineering, product"
+    },
+    {
+      "candidateId": "gh:haaaiawd/anws#src/anws/templates_en/.agents/skills/design-reviewer",
+      "score": 9.2,
+      "stars": 141,
+      "license": "MIT",
+      "repoUrl": "https://github.com/Haaaiawd/ANWS",
+      "skillPath": "src/anws/templates_en/.agents/skills/design-reviewer",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "design-review"
+      ],
+      "notes": "🚀 A spec-driven workflow framework for AI-assisted development. Empowers prompt engineers to build production-ready software through struct"
+    },
+    {
+      "candidateId": "gh:14790897/miqroforge-desktop#miqi/skills/kwp/design/user-research",
+      "score": 9,
+      "stars": 10,
+      "license": "MIT",
+      "repoUrl": "https://github.com/14790897/MiqroForge-Desktop",
+      "skillPath": "miqi/skills/kwp/design/user-research",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "user-research",
+        "~roadmap"
+      ],
+      "notes": "matched 5 query/queries; 3 SKILL.md path(s) matched: miqi/skills/kwp/design/user-research/SKILL.md, miqi/skills/kwp/product-management/compe"
+    },
+    {
+      "candidateId": "gh:agent-skills-hub/agent-skills-hub#skills/ui-ux-designer",
+      "score": 9,
+      "stars": 90,
+      "license": "MIT",
+      "repoUrl": "https://github.com/agent-skills-hub/agent-skills-hub",
+      "skillPath": "skills/ui-ux-designer",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "ux-"
+      ],
+      "notes": "Agent Skills Hub is a global library of AI agent skills that work across OpenClaw, Claude Code, Gemini, Cursor, Antigravity, and more."
+    },
+    {
+      "candidateId": "gh:davila7/claude-code-templates#cli-tool/components/skills/development/accessibility",
+      "score": 9,
+      "stars": 30438,
+      "license": "MIT",
+      "repoUrl": "https://github.com/davila7/claude-code-templates",
+      "skillPath": "cli-tool/components/skills/development/accessibility",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "accessib"
+      ],
+      "notes": "CLI tool for configuring and monitoring Claude Code"
+    },
+    {
+      "candidateId": "gh:klotzkette/claude-fuer-deutsches-recht#kanzlei-mandant-lifecycle/skills/dashboard-design-qualitygate",
+      "score": 9,
+      "stars": 1520,
+      "license": "Apache-2.0",
+      "repoUrl": "https://github.com/Klotzkette/claude-fuer-deutsches-recht",
+      "skillPath": "kanzlei-mandant-lifecycle/skills/dashboard-design-qualitygate",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "dashboard-design"
+      ],
+      "notes": "⚠️ Experimentelle Skill-Sammlung für deutsches Recht (Arbeits-, Gesellschafts-, Insolvenz-, Datenschutz-, Prozessrecht u.a.) – inzwischen ve"
+    },
+    {
+      "candidateId": "gh:leoyeai/openclaw-master-skills#skills/product-analytics",
+      "score": 9,
+      "stars": 2129,
+      "license": "MIT",
+      "repoUrl": "https://github.com/LeoYeAI/openclaw-master-skills",
+      "skillPath": "skills/product-analytics",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "product-analytics"
+      ],
+      "notes": "🧠 Curated collection of 1209+ best OpenClaw skills — weekly updated by MyClaw.ai"
+    },
+    {
+      "candidateId": "gh:mckinsey/vizro#vizro-e2e-flow/skills/dashboard-design",
+      "score": 9,
+      "stars": 3785,
+      "license": "Apache-2.0",
+      "repoUrl": "https://github.com/mckinsey/vizro",
+      "skillPath": "vizro-e2e-flow/skills/dashboard-design",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "dashboard-design"
+      ],
+      "notes": "Vizro is a low-code toolkit for building high-quality data visualization apps."
+    },
+    {
+      "candidateId": "gh:nexu-io/html-anything#next/src/lib/templates/skills/wireframe-sketch",
+      "score": 9,
+      "stars": 8538,
+      "license": "Apache-2.0",
+      "repoUrl": "https://github.com/nexu-io/html-anything",
+      "skillPath": "next/src/lib/templates/skills/wireframe-sketch",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "wireframe",
+        "~prototype"
+      ],
+      "notes": "✨ The agentic HTML editor — your local AI agent writes the HTML, you ship it. 🚀 75 Skills × 9 Surfaces (magazine · deck · poster · XHS / tw"
+    },
+    {
+      "candidateId": "gh:open-mercato/open-mercato#.ai/skills/om-figma-design-with-ds",
+      "score": 9,
+      "stars": 1690,
+      "license": "MIT",
+      "repoUrl": "https://github.com/open-mercato/open-mercato",
+      "skillPath": ".ai/skills/om-figma-design-with-ds",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "figma"
+      ],
+      "notes": "The AI-Engineering Foundation Framework for CRM/ERP and commerce: open-source TypeScript, with multi-tenancy, RBAC, events and domain module"
+    },
+    {
+      "candidateId": "gh:rlaope/oh-my-hermes#skills/omh-accessibility-audit",
+      "score": 9,
+      "stars": 1266,
+      "license": "MIT",
+      "repoUrl": "https://github.com/rlaope/oh-my-hermes",
+      "skillPath": "skills/omh-accessibility-audit",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "accessib"
+      ],
+      "notes": "The agent engineering intelligence harness, optimized tools, memory system, subagents and mixture of models packages ⚚ "
+    },
+    {
+      "candidateId": "gh:xpert-ai/xpert-plugins#xpertai/skills/product-design/skills/design-qa",
+      "score": 9,
+      "stars": 8,
+      "license": "AGPL-3.0",
+      "repoUrl": "https://github.com/xpert-ai/xpert-plugins",
+      "skillPath": "xpertai/skills/product-design/skills/design-qa",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "product-design",
+        "design-qa"
+      ],
+      "notes": "Open source XpertAI platform plugins code repository"
+    },
+    {
+      "candidateId": "gh:aidotnet/opencowork#resources/extensions/product-design/skills/product-design-index",
+      "score": 8.8,
+      "stars": 631,
+      "license": "Apache-2.0",
+      "repoUrl": "https://github.com/AIDotNet/OpenCowork",
+      "skillPath": "resources/extensions/product-design/skills/product-design-index",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "product-design"
+      ],
+      "notes": "Open Cowork - Opensource Claude Cowork for Windows & macOS & Linux. "
+    },
+    {
+      "candidateId": "gh:martinholovsky/claude-skills-generator#skills/ui-ux-expert",
+      "score": 8.7,
+      "stars": 45,
+      "license": "Unlicense",
+      "repoUrl": "https://github.com/martinholovsky/claude-skills-generator",
+      "skillPath": "skills/ui-ux-expert",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "ux-",
+        "~motion-design"
+      ],
+      "notes": "matched 5 query/queries; 2 SKILL.md path(s) matched: skills/ui-ux-expert/SKILL.md, skills/motion-design/SKILL.md"
+    },
+    {
+      "candidateId": "gh:ovachiever/droid-tings#skills/ux-researcher-designer",
+      "score": 8.7,
+      "stars": 52,
+      "license": "unknown",
+      "repoUrl": "https://github.com/ovachiever/droid-tings",
+      "skillPath": "skills/ux-researcher-designer",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "ux-",
+        "/ux"
+      ],
+      "notes": "Comprehensive collection of 100+ custom Droids & 300+ Skills for FactoryAI Droid system"
+    },
+    {
+      "candidateId": "gh:humbleteam/design-review",
+      "score": 8.5,
+      "stars": 2,
+      "license": "MIT",
+      "repoUrl": "https://github.com/humbleteam/design-review",
+      "skillPath": null,
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "~wcag",
+        "design-review"
+      ],
+      "notes": "Claude Code skill: scored UX critique with Before/After/Why fixes and Nielsen/WCAG citations"
+    },
+    {
+      "candidateId": "gh:infometa/workbuddyskills#experts/design-prototype-expert/skills/wireframe",
+      "score": 8.4,
+      "stars": 262,
+      "license": "unknown",
+      "repoUrl": "https://github.com/infometa/workbuddyskills",
+      "skillPath": "experts/design-prototype-expert/skills/wireframe",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "wireframe",
+        "prototype"
+      ],
+      "notes": "WorkBuddy skills / connectors / experts archive for offline study"
+    },
+    {
+      "candidateId": "gh:lingxling/awesome-skills-cn#ui-ux-pro-max-skill/cli/assets/skills/ui-styling",
+      "score": 8.4,
+      "stars": 267,
+      "license": "MIT",
+      "repoUrl": "https://github.com/lingxling/awesome-skills-cn",
+      "skillPath": "ui-ux-pro-max-skill/cli/assets/skills/ui-styling",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "ux-"
+      ],
+      "notes": "热门Skills中文cn学习版+教程，提供7000+Skills，集成claude skills (11w+Star) | awesome-openclaw-skills (4w+Star) | ui-ux-pro-max-skill (4w+Star)等10余个热门Skill项"
+    },
+    {
+      "candidateId": "gh:manalkaff/opendesign#skills/wireframe",
+      "score": 8.4,
+      "stars": 255,
+      "license": "MIT",
+      "repoUrl": "https://github.com/manalkaff/opendesign",
+      "skillPath": "skills/wireframe",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "wireframe"
+      ],
+      "notes": "claude.ai/design open-sourced!"
+    },
+    {
+      "candidateId": "gh:owl-listener/designpowers#skills/usability-testing",
+      "score": 8.4,
+      "stars": 240,
+      "license": "MIT",
+      "repoUrl": "https://github.com/Owl-Listener/designpowers",
+      "skillPath": "skills/usability-testing",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "usability"
+      ],
+      "notes": "An agent design team you control: 10 agents that run an inclusive design process while you direct."
+    },
+    {
+      "candidateId": "gh:eugenelim/agent-ready-repo#packs/experience-design/.apm/skills/design-review",
+      "score": 8.3,
+      "stars": 18,
+      "license": "Apache-2.0",
+      "repoUrl": "https://github.com/eugenelim/agent-ready-repo",
+      "skillPath": "packs/experience-design/.apm/skills/design-review",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "design-review"
+      ],
+      "notes": "The complete AI operating model for software teams — from first idea to production. Three peer-supervised loops (discovery → build → release"
+    },
+    {
+      "candidateId": "gh:genapohub/ux-design-guide",
+      "score": 8.3,
+      "stars": 1,
+      "license": "MIT",
+      "repoUrl": "https://github.com/genapohub/ux-design-guide",
+      "skillPath": null,
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "ux-",
+        "~/ux"
+      ],
+      "notes": "AI Agent Skill：UI/UX设计师方案产出指南，自动识别 5 类设计场景，按清单产出交互设计/设计系统/组件规范/无障碍方案等完整交付物。兼容 WorkBuddy / Codex / Trae / Cursor。"
+    },
+    {
+      "candidateId": "gh:maiconlara/design-system-extraction",
+      "score": 8.3,
+      "stars": 1,
+      "license": "MIT",
+      "repoUrl": "https://github.com/maiconlara/design-system-extraction",
+      "skillPath": null,
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "design-system",
+        "~wcag",
+        "~typography"
+      ],
+      "notes": "Extract design tokens (colors, typography, spacing, border radius, shadows, component states, motion) from any public website by reading its"
+    },
+    {
+      "candidateId": "gh:bergside/design-md-figma",
+      "score": 8.2,
+      "stars": 147,
+      "license": "MIT",
+      "repoUrl": "https://github.com/bergside/design-md-figma",
+      "skillPath": "(Figma plugin repo; verify SKILL.md location on install, not confirmed via raw fetch)",
+      "foundBy": [
+        "round-2/T10"
+      ],
+      "hits": [
+        "figma"
+      ],
+      "notes": "Confirmed real and design-relevant via WebFetch summary; the exact in-repo SKILL.md path was not independently verified with a raw fetch (th"
+    },
+    {
+      "candidateId": "gh:affaan-m/ecc#skills/accessibility",
+      "score": 8,
+      "stars": 244044,
+      "license": "MIT",
+      "repoUrl": "https://github.com/affaan-m/ECC",
+      "skillPath": "skills/accessibility",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "accessib"
+      ],
+      "notes": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Code"
+    },
+    {
+      "candidateId": "gh:forcedotcom/sf-skills#skills/experience-accessibility-validate",
+      "score": 8,
+      "stars": 946,
+      "license": "Apache-2.0",
+      "repoUrl": "https://github.com/forcedotcom/sf-skills",
+      "skillPath": "skills/experience-accessibility-validate",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "accessib"
+      ],
+      "notes": "Salesforce's curated collection of agent skills for building applications. Optimized for Agentforce Vibes, compatible with all AI tools."
+    },
+    {
+      "candidateId": "gh:gsd-build/gsd-2#src/resources/skills/accessibility",
+      "score": 8,
+      "stars": 7771,
+      "license": "MIT",
+      "repoUrl": "https://github.com/gsd-build/gsd-2",
+      "skillPath": "src/resources/skills/accessibility",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "accessib"
+      ],
+      "notes": "A powerful meta-prompting, context engineering and spec-driven development system that enables agents to work for long periods of time auton"
+    },
+    {
+      "candidateId": "gh:johnpevien/skills-vault#skills/ux-heuristics",
+      "score": 8,
+      "stars": 0,
+      "license": "unknown",
+      "repoUrl": "https://github.com/JohnPevien/skills-vault",
+      "skillPath": "skills/ux-heuristics",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "ux-",
+        "/ux",
+        "heuristic"
+      ],
+      "notes": "A skill vault + orchestrator of the skills, prevents from crowding the whole global skills."
+    },
+    {
+      "candidateId": "gh:kilo-org/kilocode#.kilocode/skills/vscode-visual-regression",
+      "score": 8,
+      "stars": 27057,
+      "license": "MIT",
+      "repoUrl": "https://github.com/Kilo-Org/kilocode",
+      "skillPath": ".kilocode/skills/vscode-visual-regression",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "visual-regression"
+      ],
+      "notes": "Kilo is the all-in-one agentic engineering platform. Build, ship, and iterate faster with the most popular open source coding agent."
+    },
+    {
+      "candidateId": "gh:mengto/skills#agent-skills/ui/audit-ai-design-slop",
+      "score": 8,
+      "stars": 5566,
+      "license": "MIT",
+      "repoUrl": "https://github.com/MengTo/Skills",
+      "skillPath": "agent-skills/ui/audit-ai-design-slop",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [],
+      "notes": "Agent skills for designers and builders using Codex, Claude, Cursor, and other AI coding agents"
+    },
+    {
+      "candidateId": "gh:nteract/semiotic#agent-skill/semiotic-charts",
+      "score": 8,
+      "stars": 2691,
+      "license": "Apache-2.0",
+      "repoUrl": "https://github.com/nteract/semiotic",
+      "skillPath": "agent-skill/semiotic-charts",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "chart"
+      ],
+      "notes": "React data visualization library for streaming, networks, and AI-assisted development"
+    },
+    {
+      "candidateId": "gh:onvoyage-ai/gtm-engineer-skills#create-geo-charts",
+      "score": 8,
+      "stars": 1291,
+      "license": "MIT",
+      "repoUrl": "https://github.com/onvoyage-ai/gtm-engineer-skills",
+      "skillPath": "create-geo-charts",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "chart"
+      ],
+      "notes": "Claude Code skill for improving website AEO (AI Engine Optimization) and GEO (Generative Engine Optimization) scores — 16 foundational check"
+    },
+    {
+      "candidateId": "gh:paperclipai/paperclip#packages/skills-catalog/catalog/bundled/product/wireframe",
+      "score": 8,
+      "stars": 79596,
+      "license": "MIT",
+      "repoUrl": "https://github.com/paperclipai/paperclip",
+      "skillPath": "packages/skills-catalog/catalog/bundled/product/wireframe",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "wireframe"
+      ],
+      "notes": "The open-source app everyone uses to manage agents at work"
+    },
+    {
+      "candidateId": "gh:sickn33/agentic-awesome-skills#skills/fixing-accessibility",
+      "score": 8,
+      "stars": 45622,
+      "license": "MIT",
+      "repoUrl": "https://github.com/sickn33/agentic-awesome-skills",
+      "skillPath": "skills/fixing-accessibility",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "accessib"
+      ],
+      "notes": "AAS Core is the local, agent-first control plane for complete catalog discovery, agent-owned selection, stack validation, and planning, back"
+    },
+    {
+      "candidateId": "gh:tjboudreaux/cc-thinking-skills#skills/thinking-jobs-to-be-done",
+      "score": 8,
+      "stars": 1272,
+      "license": "MIT",
+      "repoUrl": "https://github.com/tjboudreaux/cc-thinking-skills",
+      "skillPath": "skills/thinking-jobs-to-be-done",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "jobs-to-be-done"
+      ],
+      "notes": "28 eval-informed mental models and critical-thinking skills for Claude Code, GitHub Copilot, Codex, Cursor, and other Agent Skills-compatibl"
+    },
+    {
+      "candidateId": "gh:jorgerosal/wordpress-skills#claude-skills/wp-accessibility-review",
+      "score": 7.9,
+      "stars": 79,
+      "license": "MIT",
+      "repoUrl": "https://github.com/jorgerosal/wordpress-skills",
+      "skillPath": "claude-skills/wp-accessibility-review",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "accessib"
+      ],
+      "notes": "✅ 🎉 Claude skills and Codex skills for Wordpress development❗️"
+    },
+    {
+      "candidateId": "gh:aitytech/agentkits-marketing#skills/onboarding-cro",
+      "score": 7.8,
+      "stars": 589,
+      "license": "MIT",
+      "repoUrl": "https://github.com/aitytech/agentkits-marketing",
+      "skillPath": "skills/onboarding-cro",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "onboarding"
+      ],
+      "notes": "Enterprise-grade AI marketing automation for Claude Code, Cursor, GitHub Copilot, and any AI assistant supporting agents & skills"
+    },
+    {
+      "candidateId": "gh:fabricioctelles/skills#skills/ultimate-design-system-master",
+      "score": 7.8,
+      "stars": 58,
+      "license": "Apache-2.0",
+      "repoUrl": "https://github.com/fabricioctelles/skills",
+      "skillPath": "skills/ultimate-design-system-master",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "design-system"
+      ],
+      "notes": "A collection of skills for AI agents (Kiro, Cursor, Windsurf, Claude Code, and others). Each skill is a reusable module that teaches the age"
+    },
+    {
+      "candidateId": "gh:product-on-purpose/pm-skills#skills/define-prioritization-framework",
+      "score": 7.8,
+      "stars": 574,
+      "license": "Apache-2.0",
+      "repoUrl": "https://github.com/product-on-purpose/pm-skills",
+      "skillPath": "skills/define-prioritization-framework",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "prioritiz"
+      ],
+      "notes": "68 plug-and-play, best-practice product management skills for AI agents: 30 Triple Diamond phase + 11 foundation + 12 utility + 15 tool (Fou"
+    },
+    {
+      "candidateId": "gh:proffesor-for-testing/agentic-qe#.kiro/skills/qe-visual-accessibility",
+      "score": 7.7,
+      "stars": 471,
+      "license": "MIT",
+      "repoUrl": "https://github.com/proffesor-for-testing/agentic-qe",
+      "skillPath": ".kiro/skills/qe-visual-accessibility",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "accessib"
+      ],
+      "notes": "Agentic QE Fleet is an open-source AI-powered QA/QE platform designed for use with Coding Agents (works best with Claude Code) featuring spe"
+    },
+    {
+      "candidateId": "gh:craftos-dev/craftbot#skills/marketing-skills/references/onboarding-cro",
+      "score": 7.6,
+      "stars": 376,
+      "license": "MIT",
+      "repoUrl": "https://github.com/CraftOS-dev/CraftBot",
+      "skillPath": "skills/marketing-skills/references/onboarding-cro",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "onboarding"
+      ],
+      "notes": "One agent. Every kind of work."
+    },
+    {
+      "candidateId": "gh:ignvvcio254/jarvis-254-agent#skills/ui-ux-designer",
+      "score": 7.6,
+      "stars": 3,
+      "license": "MIT",
+      "repoUrl": "https://github.com/Ignvvcio254/Jarvis-254-Agent",
+      "skillPath": "skills/ui-ux-designer",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "ux-"
+      ],
+      "notes": "Transform Claude into Jarvis — an autonomous engineering co-pilot with self-improving skills, persistent memory, and agentic workflows"
+    },
+    {
+      "candidateId": "gh:georgekhananaev/claude-skills-vault#.claude/skills/uiux-toolkit",
+      "score": 7.5,
+      "stars": 28,
+      "license": "MIT",
+      "repoUrl": "https://github.com/georgekhananaev/claude-skills-vault",
+      "skillPath": ".claude/skills/uiux-toolkit",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "ux-"
+      ],
+      "notes": "A curated collection of high impact skills for Claude Code designed to supercharge the senior full stack workflow. This vault automates the "
+    },
+    {
+      "candidateId": "gh:monang404/lunawave#.agent/skills/ui-ux-designer",
+      "score": 7.5,
+      "stars": 2,
+      "license": "MIT",
+      "repoUrl": "https://github.com/monang404/lunawave",
+      "skillPath": ".agent/skills/ui-ux-designer",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "ux-"
+      ],
+      "notes": "matched 2 query/queries; 1 SKILL.md path(s) matched: .agent/skills/ui-ux-designer/SKILL.md"
+    },
+    {
+      "candidateId": "gh:felvieira/claude-skills-fv#skills/12-motion-design",
+      "score": 7.4,
+      "stars": 22,
+      "license": "Apache-2.0",
+      "repoUrl": "https://github.com/felvieira/claude-skills-fv",
+      "skillPath": "skills/12-motion-design",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "motion-design"
+      ],
+      "notes": "matched 1 query/queries; 1 SKILL.md path(s) matched: skills/12-motion-design/SKILL.md"
+    },
+    {
+      "candidateId": "gh:maslennikov-ig/claude-code-orchestrator-kit#.claude/skills/ux-researcher-designer",
+      "score": 7.4,
+      "stars": 248,
+      "license": "unknown",
+      "repoUrl": "https://github.com/maslennikov-ig/claude-code-orchestrator-kit",
+      "skillPath": ".claude/skills/ux-researcher-designer",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "ux-",
+        "/ux"
+      ],
+      "notes": "🎼 Turn Claude Code into a production powerhouse. 33+ AI agents automate bug fixing, security scanning,   and dependency management. 19 slas"
+    },
+    {
+      "candidateId": "gh:cin12211/orca-q#.agent/skills/accessibility-expert",
+      "score": 7.3,
+      "stars": 220,
+      "license": "MIT",
+      "repoUrl": "https://github.com/cin12211/orca-q",
+      "skillPath": ".agent/skills/accessibility-expert",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "accessib"
+      ],
+      "notes": "The open source | Next Generation database editor"
+    },
+    {
+      "candidateId": "gh:majiayu000/claude-skill-registry-data#development/ux-research-plan",
+      "score": 7.3,
+      "stars": 18,
+      "license": "unknown",
+      "repoUrl": "https://github.com/majiayu000/claude-skill-registry-data",
+      "skillPath": "development/ux-research-plan",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "ux-",
+        "/ux"
+      ],
+      "notes": "Raw skills archive data for the Claude skill registry"
+    },
+    {
+      "candidateId": "gh:bitovi/ai-enablement-prompts#figma/figma-explore",
+      "score": 7.1,
+      "stars": 121,
+      "license": "MIT",
+      "repoUrl": "https://github.com/bitovi/ai-enablement-prompts",
+      "skillPath": "figma/figma-explore",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "figma"
+      ],
+      "notes": "Prompts Bitovi uses for software development"
+    },
+    {
+      "candidateId": "gh:lightspeedwp/.github#skills/design-md-agent/audit-design-system",
+      "score": 7.1,
+      "stars": 13,
+      "license": "GPL-3.0",
+      "repoUrl": "https://github.com/lightspeedwp/.github",
+      "skillPath": "skills/design-md-agent/audit-design-system",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "design-system"
+      ],
+      "notes": "LightSpeed Default Community Health Files"
+    },
+    {
+      "candidateId": "gh:1arley/ornn#skills/frontend/animation-review",
+      "score": 7,
+      "stars": 0,
+      "license": "MIT",
+      "repoUrl": "https://github.com/1arley/ornn",
+      "skillPath": "skills/frontend/animation-review",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "animation"
+      ],
+      "notes": "Agent skills for audit, security, UX, and code quality"
+    },
+    {
+      "candidateId": "gh:8gg-git/knowledge-work-plugins#design/skills/user-research",
+      "score": 7,
+      "stars": 0,
+      "license": "Apache-2.0",
+      "repoUrl": "https://github.com/8GG-Git/knowledge-work-plugins",
+      "skillPath": "design/skills/user-research",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "user-research"
+      ],
+      "notes": "matched 2 query/queries; 1 SKILL.md path(s) matched: design/skills/user-research/SKILL.md"
+    },
+    {
+      "candidateId": "gh:billydeeii136/black-opps-gstack#ios-design-review/skill.md.tmpl",
+      "score": 7,
+      "stars": 0,
+      "license": "MIT",
+      "repoUrl": "https://github.com/billydeeii136/black-opps-gstack",
+      "skillPath": "ios-design-review/SKILL.md.tmpl",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "design-review"
+      ],
+      "notes": "Migrated from black12-ag/gstack"
+    },
+    {
+      "candidateId": "gh:clausfonnesbech/agentic-framework#skills/ui-ux-research-skill.md",
+      "score": 7,
+      "stars": 0,
+      "license": "MIT",
+      "repoUrl": "https://github.com/clausfonnesbech/agentic-framework",
+      "skillPath": "skills/ui-ux-research-skill.md",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "ux-"
+      ],
+      "notes": "Production-ready framework for orchestrating specialized AI agents in software development workflows. 10 agents, 21 skills, 9 templates, 12 "
+    },
+    {
+      "candidateId": "gh:collanteslu/ai-app-builder#skills/ux-design",
+      "score": 7,
+      "stars": 0,
+      "license": "unknown",
+      "repoUrl": "https://github.com/Collanteslu/ai-app-builder",
+      "skillPath": "skills/ux-design",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "ux-",
+        "/ux"
+      ],
+      "notes": "matched 1 query/queries; 1 SKILL.md path(s) matched: skills/ux-design/SKILL.md"
+    },
+    {
+      "candidateId": "gh:comet-ml/opik#.agents/skills/analytics-instrumentation",
+      "score": 7,
+      "stars": 21662,
+      "license": "Apache-2.0",
+      "repoUrl": "https://github.com/comet-ml/opik",
+      "skillPath": ".agents/skills/analytics-instrumentation",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "instrumentation"
+      ],
+      "notes": "Debug, evaluate, and monitor your LLM applications, RAG systems, and agentic workflows with comprehensive tracing, automated evaluations, an"
+    },
+    {
+      "candidateId": "gh:d-subrahmanyam/deno-fresh-microservices#.agents/skills/ux-design",
+      "score": 7,
+      "stars": 0,
+      "license": "MIT",
+      "repoUrl": "https://github.com/d-subrahmanyam/deno-fresh-microservices",
+      "skillPath": ".agents/skills/ux-design",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "ux-",
+        "/ux"
+      ],
+      "notes": "A production-ready microservices-based online store application built with Deno, Fresh framework, PostgreSQL, and Redis. Features a complete"
+    },
+    {
+      "candidateId": "gh:goldenberry-so/pace#plugins/design/skills/user-research",
+      "score": 7,
+      "stars": 0,
+      "license": "Apache-2.0",
+      "repoUrl": "https://github.com/GoldenBerry-SO/Pace",
+      "skillPath": "plugins/design/skills/user-research",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "user-research"
+      ],
+      "notes": "Pace: company-wide skills for AI coding agents. Engineering, product, ops, marketing: one router, many commands."
+    },
+    {
+      "candidateId": "gh:gonadotrophic-tangent41/ux-ui-skills",
+      "score": 7,
+      "stars": 0,
+      "license": "MIT",
+      "repoUrl": "https://github.com/Gonadotrophic-tangent41/ux-ui-skills",
+      "skillPath": null,
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "ux-",
+        "~ux/"
+      ],
+      "notes": "Get structured AI assistance for UX/UI audits, dashboard redesigns, design system reviews, and AI product design."
+    },
+    {
+      "candidateId": "gh:inematds/open-design#skills/wireframe-sketch",
+      "score": 7,
+      "stars": 9,
+      "license": "Apache-2.0",
+      "repoUrl": "https://github.com/inematds/open-design",
+      "skillPath": "skills/wireframe-sketch",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "wireframe"
+      ],
+      "notes": "Alternativa open-source ao Claude Design: sua CLI de agente vira o motor de design"
+    },
+    {
+      "candidateId": "gh:joaomonteiro100/ux-design-skills",
+      "score": 7,
+      "stars": 0,
+      "license": "MIT",
+      "repoUrl": "https://github.com/JoaoMonteiro100/ux-design-skills",
+      "skillPath": null,
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "ux-",
+        "~product-design"
+      ],
+      "notes": "A collection of 7 UX & product-design skills for Claude"
+    },
+    {
+      "candidateId": "gh:lscheffel/ignite-agents-skills#skills/ui-ux-pro-max",
+      "score": 7,
+      "stars": 0,
+      "license": "MIT",
+      "repoUrl": "https://github.com/lscheffel/ignite-agents-skills",
+      "skillPath": "skills/ui-ux-pro-max",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "ux-",
+        "~/ux"
+      ],
+      "notes": "matched 5 query/queries; 2 SKILL.md path(s) matched: skills/ui-ux-pro-max/SKILL.md, skills/ux-researcher-designer/SKILL.md"
+    },
+    {
+      "candidateId": "gh:moumen-soliman/uitripled#.agents/skills/better-typography",
+      "score": 7,
+      "stars": 1319,
+      "license": "MIT",
+      "repoUrl": "https://github.com/moumen-soliman/uitripled",
+      "skillPath": ".agents/skills/better-typography",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "typography"
+      ],
+      "notes": "Production-ready UI blocks, components, and full pages available in shadcn/ui and Base UI, powered by Framer Motion, with a Landing Page Bui"
+    },
+    {
+      "candidateId": "gh:nexu-io/open-design#skills/wpds",
+      "score": 7,
+      "stars": 92491,
+      "license": "Apache-2.0",
+      "repoUrl": "https://github.com/nexu-io/open-design",
+      "skillPath": "skills/wpds",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "~prototype"
+      ],
+      "notes": "🎨 Best DeepSeek Harness Design Plugin. The open-source Claude Design alternative. 🖥️ Local-first desktop app. 🖼️ Your coding agent become"
+    },
+    {
+      "candidateId": "gh:openai/plugins#plugins/product-design/skills/audit",
+      "score": 7,
+      "stars": 5265,
+      "license": "unknown",
+      "repoUrl": "https://github.com/openai/plugins",
+      "skillPath": "plugins/product-design/skills/audit",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "product-design"
+      ],
+      "notes": "OpenAI Plugins"
+    },
+    {
+      "candidateId": "gh:org2ai/org2#.orgii/skills/frontend-ui-audit",
+      "score": 7,
+      "stars": 2659,
+      "license": "AGPL-3.0",
+      "repoUrl": "https://github.com/org2AI/ORG2",
+      "skillPath": ".orgii/skills/frontend-ui-audit",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [],
+      "notes": "System of record for how agents build software: Built-in rust harness & 20+ CLIs."
+    },
+    {
+      "candidateId": "gh:patriciotabilo/datealo#.claude/skills/ux-writing",
+      "score": 7,
+      "stars": 0,
+      "license": "unknown",
+      "repoUrl": "https://github.com/PatricioTabilo/datealo",
+      "skillPath": ".claude/skills/ux-writing",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "ux-",
+        "/ux",
+        "ux-writing"
+      ],
+      "notes": "matched 1 query/queries; 1 SKILL.md path(s) matched: .claude/skills/ux-writing/SKILL.md"
+    },
+    {
+      "candidateId": "gh:riadchaban994-bot/tracking-os#skills/tracking-plan-discovery",
+      "score": 7,
+      "stars": 0,
+      "license": "MIT",
+      "repoUrl": "https://github.com/riadchaban994-bot/tracking-os",
+      "skillPath": "skills/tracking-plan-discovery",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "~figma",
+        "tracking-plan",
+        "~product-analytics"
+      ],
+      "notes": "Build a product-analytics tracking plan from what your app actually does, not from what you remember. Walks any app through an emulator, sim"
+    },
+    {
+      "candidateId": "gh:sleeppyx/e-cmis-a7-demo#memory/02-designs/figma-exports/wireframe-skill.md",
+      "score": 7,
+      "stars": 0,
+      "license": "unknown",
+      "repoUrl": "https://github.com/SleeppyX/e-cmis-a7-demo",
+      "skillPath": "memory/02-designs/figma-exports/wireframe-skill.md",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "wireframe",
+        "~prototype",
+        "figma"
+      ],
+      "notes": "E-CMIS Activity 7 demo - static prototype deploy"
+    },
+    {
+      "candidateId": "gh:trycompai/comp#.claude/skills/audit-design-system",
+      "score": 7,
+      "stars": 1902,
+      "license": "AGPL-3.0",
+      "repoUrl": "https://github.com/trycompai/comp",
+      "skillPath": ".claude/skills/audit-design-system",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "design-system"
+      ],
+      "notes": "AI Native platform to get companies compliant - Vanta & Drata Alternative"
+    },
+    {
+      "candidateId": "gh:uxuiprinciples/agent-skills#ai-interface-reviewer",
+      "score": 7,
+      "stars": 0,
+      "license": "custom (README: \"free to use and distribute\"; no LICENSE file found)",
+      "repoUrl": "https://github.com/uxuiprinciples/agent-skills",
+      "skillPath": "ai-interface-reviewer/SKILL.md (siblings: uxui-evaluator, interface-auditor, flow-checker, vibe-coding-advisor)",
+      "foundBy": [
+        "round-2/T11"
+      ],
+      "hits": [
+        "~ux-",
+        "~/ux",
+        "~heuristic",
+        "ai-interface"
+      ],
+      "notes": "Verified via raw fetch on master branch (main branch 404s). No formal LICENSE file - licensing is asserted only in README prose, flag for le"
+    },
+    {
+      "candidateId": "gh:xza2792/ui-ux-audit-skill",
+      "score": 7,
+      "stars": 0,
+      "license": "MIT",
+      "repoUrl": "https://github.com/Xza2792/ui-ux-audit-skill",
+      "skillPath": null,
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "ux-"
+      ],
+      "notes": "Audit web and mobile UI code with AI to detect layout failures, responsiveness errors, and design system drift before deployment."
+    },
+    {
+      "candidateId": "gh:initmahesh/minipm#skills/user-research",
+      "score": 6.9,
+      "stars": 7,
+      "license": "MIT",
+      "repoUrl": "https://github.com/initmahesh/miniPM",
+      "skillPath": "skills/user-research",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "user-research"
+      ],
+      "notes": "matched 1 query/queries; 1 SKILL.md path(s) matched: skills/user-research/SKILL.md"
+    },
+    {
+      "candidateId": "gh:lumatones/predator#.agents/skills/ux-heuristics",
+      "score": 6.8,
+      "stars": 5,
+      "license": "unknown",
+      "repoUrl": "https://github.com/lumatones/Predator",
+      "skillPath": ".agents/skills/ux-heuristics",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "ux-",
+        "/ux",
+        "heuristic"
+      ],
+      "notes": "Чекер на читы для Majestic\\GTA 5 RP"
+    },
+    {
+      "candidateId": "gh:agisota/old-one#skills/cs-ux-researcher",
+      "score": 6.6,
+      "stars": 3,
+      "license": "MIT",
+      "repoUrl": "https://github.com/agisota/old-one",
+      "skillPath": "skills/cs-ux-researcher",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "ux-"
+      ],
+      "notes": "matched 4 query/queries; 2 SKILL.md path(s) matched: skills/cs-ux-researcher/SKILL.md, skills/cs-product-strategist/SKILL.md"
+    },
+    {
+      "candidateId": "gh:claude-office-skills/skills#brand-guidelines",
+      "score": 6.6,
+      "stars": 423,
+      "license": "MIT",
+      "repoUrl": "https://github.com/claude-office-skills/skills",
+      "skillPath": "brand-guidelines",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [],
+      "notes": "A curated collection of practical Claude Skills for real-world office tasks"
+    },
+    {
+      "candidateId": "gh:deftai/directive#content/skills/deft-directive-design-critique",
+      "score": 6.5,
+      "stars": 31,
+      "license": "unknown",
+      "repoUrl": "https://github.com/deftai/directive",
+      "skillPath": "content/skills/deft-directive-design-critique",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "design-critique"
+      ],
+      "notes": "Best practices and guidelines for AI agents in software development"
+    },
+    {
+      "candidateId": "gh:frogobox/frogo-sdk#.agents/skills/ui-ux-designer",
+      "score": 6.3,
+      "stars": 21,
+      "license": "Apache-2.0",
+      "repoUrl": "https://github.com/frogobox/frogo-sdk",
+      "skillPath": ".agents/skills/ui-ux-designer",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "ux-"
+      ],
+      "notes": "Frogo SDK - SDK Core for Easy Development Support AI Agent Skill"
+    },
+    {
+      "candidateId": "gh:its-thepoe/skills#design/prototype",
+      "score": 6.3,
+      "stars": 1,
+      "license": "MIT",
+      "repoUrl": "https://github.com/its-thepoe/skills",
+      "skillPath": "design/prototype/SKILL.md",
+      "foundBy": [
+        "round-2/T10"
+      ],
+      "hits": [
+        "prototype"
+      ],
+      "notes": "SKILL.md content verified via raw fetch."
+    },
+    {
+      "candidateId": "gh:jacobhgruber-dev/supervisor#skills/motion-design",
+      "score": 6.3,
+      "stars": 1,
+      "license": "MIT",
+      "repoUrl": "https://github.com/jacobhgruber-dev/Supervisor",
+      "skillPath": "skills/motion-design",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "motion-design"
+      ],
+      "notes": "Agent orchestration for OpenCode: supervisor + 9 specialized subagents. Shareable starter kit."
+    },
+    {
+      "candidateId": "gh:vivaldi007/ux-psychology-skill",
+      "score": 6.3,
+      "stars": 1,
+      "license": "MIT",
+      "repoUrl": "https://github.com/vivaldi007/ux-psychology-skill",
+      "skillPath": null,
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "ux-",
+        "~heuristic"
+      ],
+      "notes": "Make AI agents design like product psychologists — 21 evidence-based UX principles (persuasion, interaction laws, Nielsen's heuristics) with"
+    },
+    {
+      "candidateId": "gh:wso2/labs-agentic-engineer#skills/wireframes",
+      "score": 6.3,
+      "stars": 20,
+      "license": "Apache-2.0",
+      "repoUrl": "https://github.com/wso2/labs-agentic-engineer",
+      "skillPath": "skills/wireframes",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "wireframe"
+      ],
+      "notes": "An AI-driven software development platform built on top of OpenChoreo."
+    },
+    {
+      "candidateId": "gh:naderelewa/product-to-prod",
+      "score": 6.2,
+      "stars": 16,
+      "license": "MIT",
+      "repoUrl": "https://github.com/naderelewa/Product-to-Prod",
+      "skillPath": null,
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "~ux/",
+        "~prioritiz",
+        "~roadmap"
+      ],
+      "notes": "AI product management skills and plugin for Claude Code, Cowork, Codex and other AI agents: evidence-tagged PRDs, specs, requirements, RICE "
+    },
+    {
+      "candidateId": "gh:terrene-foundation/kailash-coc-claude-py#.claude/skills/23-uiux-design-principles",
+      "score": 6.1,
+      "stars": 12,
+      "license": "Apache-2.0",
+      "repoUrl": "https://github.com/terrene-foundation/kailash-coc-claude-py",
+      "skillPath": ".claude/skills/23-uiux-design-principles",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "ux-"
+      ],
+      "notes": "AI Assistant Configuration and Documentation for Kailash SDK Ecosystem"
+    },
+    {
+      "candidateId": "gh:agentscope-ai/qwenpaw#src/qwenpaw/agents/skills/pptx-en",
+      "score": 6,
+      "stars": 34633,
+      "license": "Apache-2.0",
+      "repoUrl": "https://github.com/agentscope-ai/QwenPaw",
+      "skillPath": "src/qwenpaw/agents/skills/pptx-en",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "~persona"
+      ],
+      "notes": "Your Personal AI Assistant; easy to install, deploy on your own machine or on the cloud; supports multiple chat apps with easily extensible "
+    },
+    {
+      "candidateId": "gh:ali-heydari-1989/opendesignwithlogin#plugins/_official/examples/wireframe-sketch",
+      "score": 6,
+      "stars": 0,
+      "license": "Apache-2.0",
+      "repoUrl": "https://github.com/ali-heydari-1989/openDesignWithLogin",
+      "skillPath": "plugins/_official/examples/wireframe-sketch",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "wireframe"
+      ],
+      "notes": "matched 1 query/queries; 1 SKILL.md path(s) matched: plugins/_official/examples/wireframe-sketch/SKILL.md"
+    },
+    {
+      "candidateId": "gh:android/skills#performance/r8-analyzer",
+      "score": 6,
+      "stars": 7086,
+      "license": "Apache-2.0",
+      "repoUrl": "https://github.com/android/skills",
+      "skillPath": "performance/r8-analyzer",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [],
+      "notes": "matched 1 query/queries; 1 SKILL.md path(s) matched: performance/r8-analyzer/SKILL.md"
+    },
+    {
+      "candidateId": "gh:asgeirtj/system_prompts_leaks#anthropic/claude-design/skills/handoff-to-claude-code",
+      "score": 6,
+      "stars": 63773,
+      "license": "CC0-1.0",
+      "repoUrl": "https://github.com/asgeirtj/system_prompts_leaks",
+      "skillPath": "Anthropic/claude-design/skills/handoff-to-claude-code",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [],
+      "notes": "Extracted system prompts from Anthropic - Claude Fable 5, Opus 5, Claude Design, Claude Code. OpenAI - ChatGPT GPT-5.6-Sol, Codex. Google - "
+    },
+    {
+      "candidateId": "gh:attentiondotnet/open-design#plugins/_official/examples/wireframe-greybox",
+      "score": 6,
+      "stars": 0,
+      "license": "Apache-2.0",
+      "repoUrl": "https://github.com/attentiondotnet/open-design",
+      "skillPath": "plugins/_official/examples/wireframe-greybox",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "wireframe"
+      ],
+      "notes": "Open Design: The open-source Claude Design alternative"
+    },
+    {
+      "candidateId": "gh:bergside/awesome-design-skills#skills/ant",
+      "score": 6,
+      "stars": 2574,
+      "license": "MIT",
+      "repoUrl": "https://github.com/bergside/awesome-design-skills",
+      "skillPath": "skills/ant",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [],
+      "notes": "List of 67 awesome DESIGN.md and SKILL.md design skill files for agentic tools like Claude Design, Google Stitch, Codex, Cursor, and other A"
+    },
+    {
+      "candidateId": "gh:chakra-ui/chakra-ui#skills/chakra-ui-builder",
+      "score": 6,
+      "stars": 40602,
+      "license": "MIT",
+      "repoUrl": "https://github.com/chakra-ui/chakra-ui",
+      "skillPath": "skills/chakra-ui-builder",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [],
+      "notes": "Chakra UI is a component system for building SaaS products with speed ⚡️"
+    },
+    {
+      "candidateId": "gh:cockroachdb/cockroach#pkg/ui/.claude/skills/ui-visual-regression",
+      "score": 6,
+      "stars": 32429,
+      "license": "unknown",
+      "repoUrl": "https://github.com/cockroachdb/cockroach",
+      "skillPath": "pkg/ui/.claude/skills/ui-visual-regression",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "visual-regression"
+      ],
+      "notes": "CockroachDB — the cloud native, distributed SQL database designed for high availability, effortless scale, and control over data placement."
+    },
+    {
+      "candidateId": "gh:conardli/garden-skills#skills/web-design-engineer",
+      "score": 6,
+      "stars": 11608,
+      "license": "MIT",
+      "repoUrl": "https://github.com/ConardLi/garden-skills",
+      "skillPath": "skills/web-design-engineer",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [],
+      "notes": "ConardLi's open-source Skills collection, featuring web design, knowledge retrieval, image generation, and more."
+    },
+    {
+      "candidateId": "gh:conorbronsdon/avoid-ai-writing",
+      "score": 6,
+      "stars": 3683,
+      "license": "MIT",
+      "repoUrl": "https://github.com/conorbronsdon/avoid-ai-writing",
+      "skillPath": "",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [],
+      "notes": "Skill that audits and rewrites content to remove AI writing patterns. Use it with your favorite agents including Claude Code, OpenClaw, Code"
+    },
+    {
+      "candidateId": "gh:dadmin88/hermes-profile-packs#hermes-agency/profiles/agency-user-researcher/skills/user-research",
+      "score": 6,
+      "stars": 8,
+      "license": "AGPL-3.0",
+      "repoUrl": "https://github.com/Dadmin88/hermes-profile-packs",
+      "skillPath": "hermes-agency/profiles/agency-user-researcher/skills/user-research",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "user-research"
+      ],
+      "notes": "Curated Hermes Agent profile packs"
+    },
+    {
+      "candidateId": "gh:danielmiessler/lifeos#lifeos/install/skills/webdesign",
+      "score": 6,
+      "stars": 18779,
+      "license": "MIT",
+      "repoUrl": "https://github.com/danielmiessler/LifeOS",
+      "skillPath": "LifeOS/install/skills/Webdesign",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [],
+      "notes": "⛰️ The Life Operating System — an intent engineering platform that moves you from your current state to your ideal state, in life and work."
+    },
+    {
+      "candidateId": "gh:felixgeelhaar/skills#ai-expert",
+      "score": 6,
+      "stars": 0,
+      "license": "MIT",
+      "repoUrl": "https://github.com/felixgeelhaar/skills",
+      "skillPath": "ai-expert/SKILL.md (siblings: ux-expert, product-expert, data-expert, content-expert)",
+      "foundBy": [
+        "round-2/T11"
+      ],
+      "hits": [
+        "ux-"
+      ],
+      "notes": "Verified via raw SKILL.md fetch of ai-expert. Repo has 32 expert-level skills total; ux-expert and product-expert siblings also design-relev"
+    },
+    {
+      "candidateId": "gh:fengshao1227/ccg-workflow#templates/skills/impeccable/critique",
+      "score": 6,
+      "stars": 5855,
+      "license": "MIT",
+      "repoUrl": "https://github.com/fengshao1227/ccg-workflow",
+      "skillPath": "templates/skills/impeccable/critique",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [],
+      "notes": "多模型协作工作流引擎 — /ccg:go 一个命令，AI 自动分析意图、选择策略、编排 Codex + Gemini + Claude 协作执行"
+    },
+    {
+      "candidateId": "gh:figma/mcp-server-guide#skills/figma-swiftui",
+      "score": 6,
+      "stars": 1932,
+      "license": "unknown",
+      "repoUrl": "https://github.com/figma/mcp-server-guide",
+      "skillPath": "skills/figma-swiftui",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "figma"
+      ],
+      "notes": "A guide on how to use the Figma MCP server"
+    },
+    {
+      "candidateId": "gh:garrytan/gstack#design-html",
+      "score": 6,
+      "stars": 130265,
+      "license": "MIT",
+      "repoUrl": "https://github.com/garrytan/gstack",
+      "skillPath": "design-html",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [],
+      "notes": "Use Garry Tan's exact Claude Code setup: 23 opinionated tools that serve as CEO, Designer, Eng Manager, Release Manager, Doc Engineer, and Q"
+    },
+    {
+      "candidateId": "gh:gcwing/bitfun#src/crates/assembly/core/builtin_skills/gstack-ship",
+      "score": 6,
+      "stars": 1857,
+      "license": "MIT",
+      "repoUrl": "https://github.com/GCWing/BitFun",
+      "skillPath": "src/crates/assembly/core/builtin_skills/gstack-ship",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [],
+      "notes": "BitFun combines a high-performance agent runtime written in Rust with a polished desktop application. It pairs the depth of a Code Agent wit"
+    },
+    {
+      "candidateId": "gh:google-labs-code/stitch-skills#plugins/stitch-build/skills/react-vite-dashboard",
+      "score": 6,
+      "stars": 8214,
+      "license": "Apache-2.0",
+      "repoUrl": "https://github.com/google-labs-code/stitch-skills",
+      "skillPath": "plugins/stitch-build/skills/react-vite-dashboard",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [],
+      "notes": "A library of Agent Skills designed to work with the Stitch MCP server. Each skill follows the Agent Skills open standard, for compatibility "
+    },
+    {
+      "candidateId": "gh:googleapis/mcp-toolbox#skills/maintainer/review-prs",
+      "score": 6,
+      "stars": 16274,
+      "license": "Apache-2.0",
+      "repoUrl": "https://github.com/googleapis/mcp-toolbox",
+      "skillPath": "skills/maintainer/review-prs",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [],
+      "notes": "MCP Toolbox for Databases is an open source MCP server for databases."
+    },
+    {
+      "candidateId": "gh:googlechrome/modern-web-guidance-src#skills-src/privacy",
+      "score": 6,
+      "stars": 998,
+      "license": "Apache-2.0",
+      "repoUrl": "https://github.com/GoogleChrome/modern-web-guidance-src",
+      "skillPath": "skills-src/privacy",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [],
+      "notes": "matched 1 query/queries; 1 SKILL.md path(s) matched: skills-src/privacy/SKILL.md"
+    },
+    {
+      "candidateId": "gh:happier-dev/happier#skills/happier-review",
+      "score": 6,
+      "stars": 1559,
+      "license": "MIT",
+      "repoUrl": "https://github.com/happier-dev/happier",
+      "skillPath": "skills/happier-review",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [],
+      "notes": "Web, Desktop & Mobile client for Codex, Claude Code, OpenCode, Kimi, Augment Code, Qwen, fully end-to-end encrypted"
+    },
+    {
+      "candidateId": "gh:iflytek/skillhub#builtin-skills/skills/meeting-note-summarizer",
+      "score": 6,
+      "stars": 4914,
+      "license": "Apache-2.0",
+      "repoUrl": "https://github.com/iflytek/skillhub",
+      "skillPath": "builtin-skills/skills/meeting-note-summarizer",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [],
+      "notes": "Self-hosted, open-source agent skill registry for enterprises. Publish & version skill packages, govern with RBAC and audit logs, deploy   o"
+    },
+    {
+      "candidateId": "gh:jezweb/claude-skills#plugins/dev-tools/skills/deep-research",
+      "score": 6,
+      "stars": 981,
+      "license": "MIT",
+      "repoUrl": "https://github.com/jezweb/claude-skills",
+      "skillPath": "plugins/dev-tools/skills/deep-research",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [],
+      "notes": "Skills for Claude Code CLI such as full stack dev Cloudflare, React, Tailwind v4, and AI integrations."
+    },
+    {
+      "candidateId": "gh:kjooncho/ux-motion-skills",
+      "score": 6,
+      "stars": 0,
+      "license": "MIT",
+      "repoUrl": "https://github.com/kjooncho/ux-motion-skills",
+      "skillPath": null,
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "ux-",
+        "~design-critique"
+      ],
+      "notes": "Motion & design judgment skills for Claude Code — distilled from the past 11 years of production UX motion work in an 18-year design career "
+    },
+    {
+      "candidateId": "gh:mananritwik/ux-proofsheet",
+      "score": 6,
+      "stars": 0,
+      "license": "MIT",
+      "repoUrl": "https://github.com/mananritwik/ux-proofsheet",
+      "skillPath": null,
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "ux-",
+        "~/ux"
+      ],
+      "notes": "Benchmark a UI/UX design against how real apps ship, in your industry and outside it. A Claude Agent Skill."
+    },
+    {
+      "candidateId": "gh:manojbajaj95/claude-gtm-plugin#skills/copywriting-core",
+      "score": 6,
+      "stars": 93,
+      "license": "MIT",
+      "repoUrl": "https://github.com/manojbajaj95/claude-gtm-plugin",
+      "skillPath": "skills/copywriting-core",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [],
+      "notes": "Skills for GTM teams"
+    },
+    {
+      "candidateId": "gh:maxrave-dev/simpmusic#.claude/skills/ui-ux-pro-max",
+      "score": 6,
+      "stars": 10776,
+      "license": "GPL-3.0",
+      "repoUrl": "https://github.com/maxrave-dev/SimpMusic",
+      "skillPath": ".claude/skills/ui-ux-pro-max",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "ux-"
+      ],
+      "notes": "A cross-platform music app using YouTube Music for backend"
+    },
+    {
+      "candidateId": "gh:mukul975/anthropic-cybersecurity-skills#skills/building-incident-response-dashboard",
+      "score": 6,
+      "stars": 31556,
+      "license": "Apache-2.0",
+      "repoUrl": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills",
+      "skillPath": "skills/building-incident-response-dashboard",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [],
+      "notes": "817 structured cybersecurity skills for AI agents · Mapped to 6 frameworks: MITRE ATT&CK, NIST CSF 2.0, MITRE ATLAS, D3FEND, NIST AI RMF & M"
+    },
+    {
+      "candidateId": "gh:naiksatyam05-afk/open-design#design-templates/wireframe-sketch",
+      "score": 6,
+      "stars": 0,
+      "license": "Apache-2.0",
+      "repoUrl": "https://github.com/naiksatyam05-afk/open-design",
+      "skillPath": "design-templates/wireframe-sketch",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "wireframe"
+      ],
+      "notes": "matched 2 query/queries; 2 SKILL.md path(s) matched: design-templates/wireframe-sketch/SKILL.md, design-templates/hyperframes/SKILL.md"
+    },
+    {
+      "candidateId": "gh:nickcrew/claude-cortex#skills/dashboard-designer",
+      "score": 6,
+      "stars": 0,
+      "license": "MIT",
+      "repoUrl": "https://github.com/nickcrew/Claude-Cortex",
+      "skillPath": "skills/dashboard-designer/SKILL.md",
+      "foundBy": [
+        "round-2/T11"
+      ],
+      "hits": [
+        "dashboard-design"
+      ],
+      "notes": "Verified via raw SKILL.md fetch. Repo name casing is Claude-Cortex (owner nickcrew)."
+    },
+    {
+      "candidateId": "gh:openakita/openakita#skills/content-research-writer",
+      "score": 6,
+      "stars": 1977,
+      "license": "AGPL-3.0",
+      "repoUrl": "https://github.com/openakita/openakita",
+      "skillPath": "skills/content-research-writer",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [],
+      "notes": "An open-source AI assistant framework with skills and agent architecture"
+    },
+    {
+      "candidateId": "gh:opendataloader-project/opendataloader-pdf#skills/odl-pdf",
+      "score": 6,
+      "stars": 28856,
+      "license": "Apache-2.0",
+      "repoUrl": "https://github.com/opendataloader-project/opendataloader-pdf",
+      "skillPath": "skills/odl-pdf",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "~accessib"
+      ],
+      "notes": "PDF Parser for AI-ready data. Automate PDF accessibility. Open-source."
+    },
+    {
+      "candidateId": "gh:phuryn/pm-skills#pm-toolkit/skills/review-resume",
+      "score": 6,
+      "stars": 25764,
+      "license": "MIT",
+      "repoUrl": "https://github.com/phuryn/pm-skills",
+      "skillPath": "pm-toolkit/skills/review-resume",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [],
+      "notes": "PM Skills Marketplace: 100+ agentic skills, commands, and plugins — from discovery to strategy, execution, launch, and growth."
+    },
+    {
+      "candidateId": "gh:poorvith-mp/skills-design",
+      "score": 6,
+      "stars": 0,
+      "license": "MIT",
+      "repoUrl": "https://github.com/poorvith-mp/skills-design",
+      "skillPath": null,
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "~accessib",
+        "~/ux",
+        "~typography"
+      ],
+      "notes": "29 Claude skills for designers. UI/UX, brand identity, typography, frontend design, accessibility, and visual storytelling."
+    },
+    {
+      "candidateId": "gh:purpleailab/decepticon#packages/decepticon/decepticon/skills/standard/decepticon/kali-mcp-bridge",
+      "score": 6,
+      "stars": 5355,
+      "license": "Apache-2.0",
+      "repoUrl": "https://github.com/PurpleAILAB/Decepticon",
+      "skillPath": "packages/decepticon/decepticon/skills/standard/decepticon/kali-mcp-bridge",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [],
+      "notes": "Autonomous Hacking Agent for Red Team"
+    },
+    {
+      "candidateId": "gh:riwansyah99/careeros-preview#.agents/skills/ux-copy",
+      "score": 6,
+      "stars": 0,
+      "license": "unknown",
+      "repoUrl": "https://github.com/riwansyah99/CareerOS-Preview",
+      "skillPath": ".agents/skills/ux-copy",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "ux-",
+        "~ux/",
+        "/ux"
+      ],
+      "notes": "matched 2 query/queries; 2 SKILL.md path(s) matched: .agents/skills/ux-copy/SKILL.md, .agents/skills/design-ux/SKILL.md"
+    },
+    {
+      "candidateId": "gh:rpamis/comet#assets/skills/comet-build",
+      "score": 6,
+      "stars": 2863,
+      "license": "MIT",
+      "repoUrl": "https://github.com/rpamis/comet",
+      "skillPath": "assets/skills/comet-build",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [],
+      "notes": "Comet: agent skill harness for turning ideas into evaluated workflows"
+    },
+    {
+      "candidateId": "gh:ruvnet/ruflo#plugins/ruflo-browser/skills/browser-screenshot-diff",
+      "score": 6,
+      "stars": 69684,
+      "license": "MIT",
+      "repoUrl": "https://github.com/ruvnet/ruflo",
+      "skillPath": "plugins/ruflo-browser/skills/browser-screenshot-diff",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "~conversational"
+      ],
+      "notes": "🌊 The original agent meta-harness. Deploy intelligent multi-player swarms, coordinate autonomous workflows, and build conversational AI sys"
+    },
+    {
+      "candidateId": "gh:sickn33/antigravity-awesome-skills#skills/analytics-product",
+      "score": 6,
+      "stars": 0,
+      "license": "MIT",
+      "repoUrl": "https://github.com/sickn33/antigravity-awesome-skills",
+      "skillPath": "skills/analytics-product/SKILL.md",
+      "foundBy": [
+        "round-2/T11"
+      ],
+      "hits": [
+        "analytics-product"
+      ],
+      "notes": "Verified via raw fetch of SKILL.md and LICENSE (MIT). Repo is a large community-curated 'antigravity' skill collection with 2000+ files; onl"
+    },
+    {
+      "candidateId": "gh:subsy/ralph-tui#skills/ralph-tui-prd",
+      "score": 6,
+      "stars": 2432,
+      "license": "MIT",
+      "repoUrl": "https://github.com/subsy/ralph-tui",
+      "skillPath": "skills/ralph-tui-prd",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [],
+      "notes": "matched 1 query/queries; 1 SKILL.md path(s) matched: skills/ralph-tui-prd/SKILL.md"
+    },
+    {
+      "candidateId": "gh:sunchaokun/ppt-design-skill",
+      "score": 6,
+      "stars": 1048,
+      "license": "MIT",
+      "repoUrl": "https://github.com/sunchaokun/PPT-Design-Skill",
+      "skillPath": null,
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [],
+      "notes": "Precision PPT design skill for OpenCode/Claude Code/Codex, with 40,000+ styles, pixel-perfect Build Mode control, AI image generation, and f"
+    },
+    {
+      "candidateId": "gh:talebook/talebook#.agents/skills/better-accessibility",
+      "score": 6,
+      "stars": 5716,
+      "license": "BSD-2-Clause",
+      "repoUrl": "https://github.com/talebook/talebook",
+      "skillPath": ".agents/skills/better-accessibility",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "accessib"
+      ],
+      "notes": "一个简单好用的个人书库"
+    },
+    {
+      "candidateId": "gh:thedotmack/claude-mem#plugin/skills/design-is",
+      "score": 6,
+      "stars": 92538,
+      "license": "Apache-2.0",
+      "repoUrl": "https://github.com/thedotmack/claude-mem",
+      "skillPath": "plugin/skills/design-is",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [],
+      "notes": "Persistent Context Across Sessions for Every Agent –  Captures everything your agent does during sessions, compresses it with AI, and inject"
+    },
+    {
+      "candidateId": "gh:trobias/portfolio-nextjs-v2#.agents/skills/ux-heuristics",
+      "score": 6,
+      "stars": 0,
+      "license": "unknown",
+      "repoUrl": "https://github.com/trobias/portfolio-nextjs-v2",
+      "skillPath": ".agents/skills/ux-heuristics",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "ux-",
+        "/ux",
+        "heuristic"
+      ],
+      "notes": "Portfolio editorial de Tobías Tarnowski con Next.js, React, Motion y 28 casos"
+    },
+    {
+      "candidateId": "gh:tw93/waza#skills/ui",
+      "score": 6,
+      "stars": 6935,
+      "license": "MIT",
+      "repoUrl": "https://github.com/tw93/Waza",
+      "skillPath": "skills/ui",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [],
+      "notes": "🥷 Engineering habits you already know, turned into skills Claude can run."
+    },
+    {
+      "candidateId": "gh:wang1021-learner/vesprism#.agents/skills/ui-design",
+      "score": 6,
+      "stars": 0,
+      "license": "Apache-2.0",
+      "repoUrl": "https://github.com/wang1021-learner/vesprism",
+      "skillPath": ".agents/skills/ui-design",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "ui-design",
+        "~design-review"
+      ],
+      "notes": "matched 2 query/queries; 2 SKILL.md path(s) matched: .agents/skills/ui-design/SKILL.md, .agents/skills/frontend-design-review/SKILL.md"
+    },
+    {
+      "candidateId": "gh:wanshuiyin/auto-claude-code-research-in-sleep#skills/mermaid-diagram",
+      "score": 6,
+      "stars": 15410,
+      "license": "MIT",
+      "repoUrl": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep",
+      "skillPath": "skills/mermaid-diagram",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [],
+      "notes": "ARIS ⚔️ (Auto-Research-In-Sleep) — Lightweight Markdown-only skills for autonomous ML research: cross-model review loops, idea discovery, an"
+    },
+    {
+      "candidateId": "gh:wondelai/skills#improve-app",
+      "score": 6,
+      "stars": 2051,
+      "license": "MIT",
+      "repoUrl": "https://github.com/wondelai/skills",
+      "skillPath": "improve-app",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [
+        "~journey"
+      ],
+      "notes": "Wondel.ai Agent Skills — Business, Marketing, UX & Coding Frameworks from Bestselling Books. 50 skills + 12 guided journeys for Claude Code,"
+    },
+    {
+      "candidateId": "gh:xiaomimimo/mimo-code#packages/opencode/src/skill/builtin/.bundle/pptx-official",
+      "score": 6,
+      "stars": 12894,
+      "license": "MIT",
+      "repoUrl": "https://github.com/XiaomiMiMo/MiMo-Code",
+      "skillPath": "packages/opencode/src/skill/builtin/.bundle/pptx-official",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [],
+      "notes": "MiMo Code: Where Models and Agents Co-Evolve"
+    },
+    {
+      "candidateId": "gh:yc-software/qm#skills-seed/popular-web-designs",
+      "score": 6,
+      "stars": 14314,
+      "license": "MIT",
+      "repoUrl": "https://github.com/yc-software/qm",
+      "skillPath": "skills-seed/popular-web-designs",
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [],
+      "notes": "Multiplayer agent harness for work."
+    },
+    {
+      "candidateId": "gh:zanwei/design-dna",
+      "score": 6,
+      "stars": 1568,
+      "license": "MIT",
+      "repoUrl": "https://github.com/zanwei/design-dna",
+      "skillPath": null,
+      "foundBy": [
+        "round-2/T9"
+      ],
+      "hits": [],
+      "notes": "Turn reference UIs (images, screenshots, URLs) into quantified Design DNA JSON—tokens, qualitative style, visual effects—then generate match"
+    }
+  ]
+}
