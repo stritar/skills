@@ -1,5 +1,5 @@
-# Working caches for the research pipeline (raw evidence in research/raw/ IS committed)
-research/cache/
+# The maintainer's private research archive (stritar/skills-research), cloned in place
+research/
 
 # Machine-local agent settings
 .claude/settings.local.json
