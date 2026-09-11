@@ -103,6 +103,26 @@ was rejected as thinner than `design-system-governance`; its `brandkit` and
 `migrate-design-system` were dropped for depending on a 138-file library
 (see `not-vendored.md`).
 
+## Token naming
+
+Three vendored skills each carry a token grammar and are not edited to
+agree: `design-tokens` (dotted `{category}.{property}.{variant}-{state}`,
+where `action.primary` is the main affirmative action colour),
+`better-colors` (hyphenated role-first CSS custom properties, `primary`
+reserved for "most prominent of its group", `accent` for the brand) and
+`ui-design-system` (`{category}-{property}-{variant}-{state}`, where
+`color-primary-500` is the brand ramp). The original `token-naming`
+(added 2026-09-11 from Romina Kavcic's Design Tokens Naming Playbook) is
+the **default for choosing and declaring a grammar, tier model, scale
+types, composite tokens and token documentation across categories**. It
+lists the three vendored grammars as valid declared instances and records
+the `primary` conflict with a procedural resolution: the project declares
+one meaning in its token docs, and `better-colors` governs colour tokens
+when it is loaded. Ownership elsewhere is unchanged: `better-colors` for
+the colour role inventory, `design-tokens` for token values and file
+layout, `token-build` for the pipeline, `design-system-governance` for
+deprecation timelines and breaking-change policy.
+
 ## User research
 
 `user-research-cookiy` is the default for planning a study and synthesizing

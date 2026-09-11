@@ -1,0 +1,28 @@
+{
+  "primitive": {
+    "font": {
+      "family": {
+        "sans": { "$type": "fontFamily", "$value": "Inter, system-ui, sans-serif" }
+      },
+      "size": {
+        "300": { "$type": "dimension", "$value": "14px" }
+      },
+      "lineHeight": {
+        "normal": { "$type": "number", "$value": 1.5 }
+      }
+    }
+  },
+  "semantic": {
+    "typography": {
+      "body": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{primitive.font.family.sans}",
+          "fontSize": "{primitive.font.size.300}",
+          "fontWeight": 400,
+          "lineHeight": "{primitive.font.lineHeight.normal}"
+        }
+      }
+    }
+  }
+}

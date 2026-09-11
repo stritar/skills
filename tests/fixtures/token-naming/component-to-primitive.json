@@ -1,0 +1,24 @@
+{
+  "primitive": {
+    "blue": {
+      "600": { "$type": "color", "$value": "#1D4ED8" }
+    }
+  },
+  "semantic": {
+    "action": {
+      "primary": { "$type": "color", "$value": "{primitive.blue.600}" }
+    },
+    "text": {
+      "2": { "$type": "color", "$value": "{primitive.blue.600}" },
+      "level-2": { "$type": "color", "$value": "{primitive.blue.600}" }
+    }
+  },
+  "component": {
+    "button": {
+      "bg": { "$type": "color", "$value": "{primitive.blue.600}" }
+    },
+    "badge": {
+      "bg": { "$type": "color", "$value": "{semantic.action.missing}" }
+    }
+  }
+}

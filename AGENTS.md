@@ -60,7 +60,22 @@ You are working in some other repository and want design expertise from here.
 - The web edition embeds each skill's `SKILL.md` body, so **editing a
   `SKILL.md` also requires `npm run catalog:build`** — `catalog:check` fails
   until the pages are rebuilt. That is deliberate: it is what stops the
-  published site from drifting away from the skills it documents.
+  `docs/` edition from drifting away from the skills it documents.
+- The published documentation site lives in `site/` (Next.js + Fumadocs,
+  static export). It is the only part of the repository with npm
+  dependencies; the root tooling stays zero-dependency. Every site build
+  regenerates its content with `scripts/lib/docs-content.mjs` (link
+  resolution in `scripts/lib/docs-links.mjs`, copied byte-for-byte into the
+  site) into the gitignored `site/.content/`, `site/public/raw/` and
+  `site/public/llms.txt` — never commit or hand-edit those. Skill files are
+  rendered as plain Markdown, never MDX; HTML supporting files are shown as
+  escaped source and never served raw. A new skill needs no site change:
+  `tests/docs-content.test.mjs` (part of `npm test`) proves every skill has a
+  page and every relative link resolves.
+- `.github/workflows/docs-site.yml` runs the gate, then lints, type-checks,
+  builds and checks the export on pull requests, and deploys `main` to GitHub
+  Pages. The same checks locally, in `site/`: `npm run lint`,
+  `npm run typecheck`, `npm run build`, `npm run check:export`.
 - Every change must keep `npm run validate && npm run catalog:check && npm test`
   green.
 - Third-party skills are never edited for style. Allowed modification reasons

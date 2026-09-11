@@ -1,0 +1,108 @@
+# Builds the documentation site in site/ from the skill files and deploys it to
+# GitHub Pages. Pull requests run the same checks and build, without deploying.
+#
+# One-time repository setting: Settings > Pages > Build and deployment >
+# Source: GitHub Actions.
+
+name: Docs site
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'skills/**'
+      - 'catalog/**'
+      - 'scripts/**'
+      - 'tests/**'
+      - 'site/**'
+      - 'package.json'
+      - '.github/workflows/docs-site.yml'
+  pull_request:
+    paths:
+      - 'skills/**'
+      - 'catalog/**'
+      - 'scripts/**'
+      - 'tests/**'
+      - 'site/**'
+      - 'package.json'
+      - '.github/workflows/docs-site.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: docs-site-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      # configure-pages reads the Pages address and base path.
+      pages: read
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+
+      # The library's own gate: zero dependencies, runs from the repository root.
+      - name: Validate skills and catalog
+        run: npm run validate && npm run catalog:check && npm test
+
+      - name: Read the GitHub Pages address
+        id: pages
+        if: github.event_name != 'pull_request'
+        uses: actions/configure-pages@v6
+
+      - name: Install site dependencies
+        working-directory: site
+        run: npm ci
+
+      - name: Lint
+        working-directory: site
+        run: npm run lint
+
+      - name: Type check
+        working-directory: site
+        run: npm run typecheck
+
+      # Pull requests have no Pages step, so they build under /<repository>.
+      - name: Build the static site
+        working-directory: site
+        env:
+          NEXT_PUBLIC_BASE_PATH: ${{ github.event_name == 'pull_request' && format('/{0}', github.event.repository.name) || steps.pages.outputs.base_path }}
+          SITE_URL: ${{ github.event_name == 'pull_request' && format('https://{0}.github.io/{1}', github.repository_owner, github.event.repository.name) || steps.pages.outputs.base_url }}
+        run: npm run build
+
+      - name: Check the export
+        working-directory: site
+        run: npm run check:export
+
+      - name: Upload the site
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: site/out
+
+  deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v5

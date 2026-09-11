@@ -1,0 +1,27 @@
+import type { Metadata } from 'next';
+import { GeistMono } from 'geist/font/mono';
+import { GeistSans } from 'geist/font/sans';
+import type { ReactNode } from 'react';
+import { Provider } from '@/components/provider';
+import { getManifest } from '@/lib/content';
+import { siteUrl } from '@/lib/site';
+import './global.css';
+
+export function generateMetadata(): Metadata {
+  const { title, counts } = getManifest();
+  return {
+    metadataBase: new URL(`${siteUrl}/`),
+    title: { default: title, template: `%s · ${title}` },
+    description: `${counts.skills} agent skills for product design work, with the full instructions of each skill.`,
+  };
+}
+
+export default function RootLayout({ children }: { children: ReactNode }) {
+  return (
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`} suppressHydrationWarning>
+      <body className="flex min-h-screen flex-col">
+        <Provider>{children}</Provider>
+      </body>
+    </html>
+  );
+}

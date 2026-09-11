@@ -9,5 +9,16 @@ research/cache/
 Thumbs.db
 *.log
 
-# Node (the tooling is zero-dependency; nothing should ever install here)
+# Node. The root tooling is zero-dependency and nothing installs at the root;
+# the documentation site in site/ has its own package.json and lockfile.
 node_modules/
+
+# Documentation site: build output and content generated from skills/ by
+# `npm run content` (scripts/lib/docs-content.mjs)
+site/.next/
+site/out/
+site/.content/
+site/public/raw/
+site/public/llms.txt
+site/next-env.d.ts
+*.tsbuildinfo

@@ -2,7 +2,7 @@
 
 <!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
 
-105 skills (98 vendored third-party, 7 original).
+106 skills (98 vendored third-party, 8 original).
 
 Search locally instead of reading this whole file: `npm run search -- "your query"`. The machine-readable index is [catalog/index.json](catalog/index.json).
 
@@ -16,7 +16,7 @@ Search locally instead of reading this whole file: `npm run search -- "your quer
 - [Information architecture](#information-architecture) (2)
 - [Interaction design](#interaction-design) (10)
 - [Visual design](#visual-design) (13)
-- [Design systems](#design-systems) (12)
+- [Design systems](#design-systems) (13)
 - [Accessibility](#accessibility) (11)
 - [Content design](#content-design) (4)
 - [Prototyping](#prototyping) (6)
@@ -490,7 +490,7 @@ Color-system design and audit guidance: ramps named by role rather than picked b
 - **Source**: third-party — [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-colors) @ `ca48385` by Jakub Krehel, MIT
 - **Status**: verified, stable, recommended default
 - **Tags**: color, design-tokens, token-naming, semantic-tokens, dark-mode, themes, contrast
-- **Related**: `better-accessibility`, `design-tokens`, `theme-factory`
+- **Related**: `better-accessibility`, `design-tokens`, `theme-factory`, `token-naming`
 
 ### `better-layout` ⭐
 
@@ -676,7 +676,7 @@ Audits, documents, or extends a design system in one of three modes. Audit: scor
 - **Source**: third-party — [anthropics/knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins/tree/8c3ec5534fc6948b461c6a0275bdfdb8ab0c9888/design/skills/design-system) @ `8c3ec55` by Anthropic, Apache-2.0 (modified — see THIRD_PARTY_NOTICES.md)
 - **Status**: verified, stable
 - **Tags**: design-system, design-tokens, component-api, component-docs, pattern-library, audit, documentation
-- **Related**: `design-system-governance`, `design-tokens`, `ui-design-system`
+- **Related**: `design-system-governance`, `design-tokens`, `ui-design-system`, `token-naming`
 
 ### `design-system-governance` ⭐
 
@@ -690,7 +690,7 @@ Makes the agent define how a design system evolves: seven core governance questi
 - **Source**: third-party — [Owl-Listener/designer-skills](https://github.com/Owl-Listener/designer-skills/tree/20e34c4a587e5eb09fcdf8351fa97b3ad761b31e/design-systems/skills/design-system-governance) @ `20e34c4` by Owl-Listener, MIT
 - **Status**: verified, stable, recommended default
 - **Tags**: design-system, governance, versioning, migration, component-docs
-- **Related**: `design-debt-audit`, `design-tokens`, `token-build`, `extract-design-md`, `pre-handoff-review`, `design-system`
+- **Related**: `design-debt-audit`, `design-tokens`, `token-build`, `extract-design-md`, `pre-handoff-review`, `design-system`, `token-naming`
 
 ### `design-tokens`
 
@@ -705,7 +705,7 @@ Generates, extends, or audits design tokens in DTCG format ($type/$value) using 
 - **Source**: third-party — [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/design-tokens) @ `2ffb677` by plugin87, MIT (modified — see THIRD_PARTY_NOTICES.md)
 - **Status**: verified, experimental
 - **Tags**: design-tokens, token-naming, semantic-tokens, design-system, color, typography, spacing, dark-mode, multi-brand
-- **Related**: `token-build`, `extract-design-md`, `design-system-governance`, `better-colors`
+- **Related**: `token-build`, `extract-design-md`, `design-system-governance`, `better-colors`, `token-naming`
 
 ### `extract-design-md` ⭐
 
@@ -792,7 +792,22 @@ Sets up or runs the build pipeline that turns the project's DTCG tokens/*.json s
 - **Source**: third-party — [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/token-build) @ `2ffb677` by plugin87, MIT (modified — see THIRD_PARTY_NOTICES.md)
 - **Status**: verified, experimental
 - **Tags**: design-tokens, design-system, versioning, multi-brand, governance
-- **Related**: `design-tokens`
+- **Related**: `design-tokens`, `token-naming`
+
+### `token-naming` ⭐
+
+Chooses and applies one naming convention for design tokens across every category: picks and declares a grammar (dotted category.property.variant, role-first CSS custom properties, or functional order), fixes the primitive, semantic and component tier model, selects a scale type per category (numeric, t-shirt, word set, level) without mixing types among siblings, names composite tokens (text style, border, shadow, gradient) with a DTCG example, and produces token documentation with an owner per token group plus a deprecation and rename path, verified by a bundled zero-dependency lint over DTCG JSON and CSS custom properties. Defers to better-colors for colour role names and records the conflicting meanings of primary across library skills instead of resolving them. Written from Romina Kavcic's Design Tokens Naming Playbook with a source-versus-interpretation ledger.
+
+- **Path**: [skills/design-systems/token-naming/SKILL.md](skills/design-systems/token-naming/SKILL.md)
+- **Use when**: name design tokens; token naming convention; composite tokens; token scale; token documentation; which token grammar should we use; rename a deprecated token; too many tokens
+- **Inputs**: existing token files (DTCG JSON), CSS custom properties or a Figma variables export, the token categories and target platforms in play, who reads the names
+- **Outputs**: a declared grammar and tier statement, a token inventory with naming problems, a scale table per category, composite token definitions, token documentation with an owner table and rename map, a lint report from scripts/check-token-names.mjs
+- **Dependencies**: node
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
+- **Source**: original to this repository (MIT)
+- **Status**: verified, experimental, recommended default
+- **Tags**: token-naming, semantic-tokens, design-tokens, design-system, documentation, governance, themes, multi-brand, migration
+- **Related**: `better-colors`, `design-tokens`, `token-build`, `design-system-governance`, `design-system`, `motion-system`
 
 ### `ui-design-system`
 
@@ -1613,6 +1628,7 @@ Orchestrates a research effort from the decision it must inform to a recommendat
 - [`design-system-governance`](skills/design-systems/design-system-governance/SKILL.md) (design-systems) — Makes the agent define how a design system evolves: seven core governance questions, three ownership models (centralized/federated/hybrid) with trade-offs, a seven-stage contribution lifecycle from proposal to communicated release, semver as the consumer contract with a patch/minor/major table, a deprecation process with timelines and in-product warnings, breaking-change policy (migration guides, codemods, shims), and component quality entry standards.
 - [`extract-design-md`](skills/design-systems/extract-design-md/SKILL.md) (design-systems) — Reads a frontend codebase's source files directly -- package.json, Tailwind/PostCSS configs, global CSS custom properties, theme/token files, and component styles -- without building or running the app, using framework-specific extraction patterns for React/Next.js, Vue/Nuxt, Svelte/SvelteKit, Angular, or plain CSS/SASS/Less. Synthesizes findings into a DESIGN.md design-system document: a required YAML frontmatter block with color and typography tokens, a rich atmosphere description, a color palette with descriptive names and functional roles (deduplicating near-duplicate colors), a full typography hierarchy, component stylings for buttons/cards/navigation/forms, layout and spacing principles, and Stitch-generation notes. Ends with an 8-item quality checklist the output must satisfy before delivery.
 - [`motion-system`](skills/design-systems/motion-system/SKILL.md) (design-systems) — Makes the agent define motion as a token layer rather than one-off animations: a named duration scale (50-600ms with use cases), easing tokens with actual cubic-bezier values mapped to semantic uses, choreography rules (30-50ms stagger, 500ms sequence cap, direction consistency), a system-level prefers-reduced-motion strategy using a global duration override token, and implementation guidance for CSS custom properties inside the token export pipeline.
+- [`token-naming`](skills/design-systems/token-naming/SKILL.md) (design-systems) — Chooses and applies one naming convention for design tokens across every category: picks and declares a grammar (dotted category.property.variant, role-first CSS custom properties, or functional order), fixes the primitive, semantic and component tier model, selects a scale type per category (numeric, t-shirt, word set, level) without mixing types among siblings, names composite tokens (text style, border, shadow, gradient) with a DTCG example, and produces token documentation with an owner per token group plus a deprecation and rename path, verified by a bundled zero-dependency lint over DTCG JSON and CSS custom properties. Defers to better-colors for colour role names and records the conflicting meanings of primary across library skills instead of resolving them. Written from Romina Kavcic's Design Tokens Naming Playbook with a source-versus-interpretation ledger.
 - [`a11y-check-page`](skills/accessibility/a11y-check-page/SKILL.md) (accessibility) — Audits a live, running web page for WCAG 2.2 AA accessibility using browser automation (Playwright MCP, Chrome DevTools MCP, or playwright-cli): runs the bundled axe-core build, walks keyboard focus order in both directions, injects CSS/viewport changes to test 200% zoom, 320px reflow, and text-spacing, inspects the accessibility tree, and re-runs checks per distinct UI state (modals, loading, errors). Enforces credential-safety rules for login-gated pages (never store or echo credentials, screenshot only pre-input states, explicit permission before destructive actions) and writes a severity-rated Markdown report to a11y-report/ with screenshots saved under a11y-report/assets/.
 - [`a11y-planner`](skills/accessibility/a11y-planner/SKILL.md) (accessibility) — Designs an accessible implementation before code is written: runs a 9-phase protocol covering scope/context, semantic structure, WAI-ARIA Authoring Practices Guide pattern mapping for every interactive widget, focus management (tab order, modal traps, restoration, roving tabindex), state communication to assistive technology, visual accessibility (contrast, touch targets, motion), content accessibility (alt text, link text, form labels), a testing strategy, and an implementation task breakdown with review checkpoints. Every decision cites a WCAG 2.2 success criterion or APG pattern section. Guards against nine known failure modes (e.g. per-event live-region spam, color-only state indicators, title-attribute-only accessible names). Writes the plan to docs/a11y-plans/YYYY-MM-DD-<feature-name>-a11y-plan.md.
 - [`better-accessibility`](skills/accessibility/better-accessibility/SKILL.md) (accessibility) — Accessibility engineering guidance for building or reviewing UI components and custom widgets: native-element-first ARIA rules, exact focus-ring and tabindex/roving-tabindex recipes, WCAG 2.5.8 hit-area sizing with pseudo-element expansion, form labeling and error-announcement patterns, prefers-reduced-motion and autoplay/zoom rules, live-region and screen-reader announcement selection, alt-text-by-purpose table, and a calibrated HIGH/MEDIUM/LOW severity report format ending in Block/Approve.
@@ -1735,6 +1751,7 @@ Orchestrates a research effort from the decision it must inform to a recommendat
 | [`synthetic-user-testing`](skills/testing/synthetic-user-testing/SKILL.md) | testing | third-party | verified |
 | [`theme-factory`](skills/visual-design/theme-factory/SKILL.md) | visual-design | third-party | verified |
 | [`token-build`](skills/design-systems/token-build/SKILL.md) | design-systems | third-party | verified |
+| [`token-naming`](skills/design-systems/token-naming/SKILL.md) | design-systems | original | verified |
 | [`ui-design-system`](skills/design-systems/ui-design-system/SKILL.md) | design-systems | third-party | verified |
 | [`ultra11y`](skills/accessibility/ultra11y/SKILL.md) | accessibility | third-party | draft |
 | [`usability-testing`](skills/testing/usability-testing/SKILL.md) | testing | third-party | verified |

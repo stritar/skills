@@ -1,0 +1,57 @@
+{
+  "primitive": {
+    "blue": {
+      "500": { "$type": "color", "$value": "#2563EB" }
+    },
+    "neutral": {
+      "700": { "$type": "color", "$value": "#374151" }
+    },
+    "font": {
+      "family": {
+        "sans": { "$type": "fontFamily", "$value": "Inter, system-ui, sans-serif" }
+      },
+      "size": {
+        "400": { "$type": "dimension", "$value": "16px" }
+      },
+      "weight": {
+        "bold": { "$type": "fontWeight", "$value": 700 }
+      },
+      "lineHeight": {
+        "tight": { "$type": "number", "$value": 1.25 }
+      }
+    },
+    "space": {
+      "100": { "$type": "dimension", "$value": "4px" },
+      "200": { "$type": "dimension", "$value": "8px" },
+      "300": { "$type": "dimension", "$value": "12px" }
+    }
+  },
+  "semantic": {
+    "text": {
+      "primary": { "$type": "color", "$value": "{primitive.neutral.700}" }
+    },
+    "action": {
+      "primary": { "$type": "color", "$value": "{primitive.blue.500}" }
+    },
+    "space": {
+      "inline": { "$type": "dimension", "$value": "{primitive.space.200}" },
+      "stack": { "$type": "dimension", "$value": "{primitive.space.300}" }
+    },
+    "typography": {
+      "heading": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{primitive.font.family.sans}",
+          "fontSize": "{primitive.font.size.400}",
+          "fontWeight": "{primitive.font.weight.bold}",
+          "lineHeight": "{primitive.font.lineHeight.tight}"
+        }
+      }
+    }
+  },
+  "component": {
+    "button": {
+      "primary-bg": { "$type": "color", "$value": "{semantic.action.primary}" }
+    }
+  }
+}

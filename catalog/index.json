@@ -2003,7 +2003,8 @@
       "relatedSkills": [
         "better-accessibility",
         "design-tokens",
-        "theme-factory"
+        "theme-factory",
+        "token-naming"
       ],
       "recommended": true,
       "maturity": "stable",
@@ -2899,7 +2900,8 @@
       "relatedSkills": [
         "design-system-governance",
         "design-tokens",
-        "ui-design-system"
+        "ui-design-system",
+        "token-naming"
       ],
       "recommended": false,
       "maturity": "stable",
@@ -2966,7 +2968,8 @@
         "token-build",
         "extract-design-md",
         "pre-handoff-review",
-        "design-system"
+        "design-system",
+        "token-naming"
       ],
       "recommended": true,
       "maturity": "stable",
@@ -3046,7 +3049,8 @@
         "token-build",
         "extract-design-md",
         "design-system-governance",
-        "better-colors"
+        "better-colors",
+        "token-naming"
       ],
       "recommended": false,
       "maturity": "experimental",
@@ -3463,9 +3467,89 @@
         "python"
       ],
       "relatedSkills": [
-        "design-tokens"
+        "design-tokens",
+        "token-naming"
       ],
       "recommended": false,
+      "maturity": "experimental",
+      "status": "verified"
+    },
+    {
+      "id": "token-naming",
+      "name": "token-naming",
+      "description": "Chooses and applies one naming convention for design tokens across every category: picks and declares a grammar (dotted category.property.variant, role-first CSS custom properties, or functional order), fixes the primitive, semantic and component tier model, selects a scale type per category (numeric, t-shirt, word set, level) without mixing types among siblings, names composite tokens (text style, border, shadow, gradient) with a DTCG example, and produces token documentation with an owner per token group plus a deprecation and rename path, verified by a bundled zero-dependency lint over DTCG JSON and CSS custom properties. Defers to better-colors for colour role names and records the conflicting meanings of primary across library skills instead of resolving them. Written from Romina Kavcic's Design Tokens Naming Playbook with a source-versus-interpretation ledger.",
+      "category": "design-systems",
+      "tags": [
+        "token-naming",
+        "semantic-tokens",
+        "design-tokens",
+        "design-system",
+        "documentation",
+        "governance",
+        "themes",
+        "multi-brand",
+        "migration"
+      ],
+      "triggers": [
+        "name design tokens",
+        "token naming convention",
+        "composite tokens",
+        "token scale",
+        "token documentation",
+        "which token grammar should we use",
+        "rename a deprecated token",
+        "too many tokens"
+      ],
+      "inputs": [
+        "existing token files (DTCG JSON), CSS custom properties or a Figma variables export",
+        "the token categories and target platforms in play",
+        "who reads the names"
+      ],
+      "outputs": [
+        "a declared grammar and tier statement",
+        "a token inventory with naming problems",
+        "a scale table per category",
+        "composite token definitions",
+        "token documentation with an owner table and rename map",
+        "a lint report from scripts/check-token-names.mjs"
+      ],
+      "path": "skills/design-systems/token-naming",
+      "relatedSkills": [
+        "better-colors",
+        "design-tokens",
+        "token-build",
+        "design-system-governance",
+        "design-system",
+        "motion-system"
+      ],
+      "source": {
+        "type": "original",
+        "repository": null,
+        "url": null,
+        "author": "Denis Stritar with Claude Fable 5",
+        "license": "MIT",
+        "licenseFile": null,
+        "upstreamPath": null,
+        "upstreamCommit": null,
+        "retrievedAt": null,
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [
+        "node"
+      ],
+      "recommended": true,
       "maturity": "experimental",
       "status": "verified"
     },

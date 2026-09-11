@@ -1,8 +1,8 @@
 # Coverage gaps
 
 State of the registry after discovery rounds 1 and 2 (2026-08-26 and
-2026-08-29): 105 skills (98 vendored, 7 original) across all 17 categories.
-This file lists what is thin, what is missing, and what the passes did not
+2026-08-29) and one original skill authored on 2026-09-11: 106 skills (98
+vendored, 8 original) across all 17 categories. This file lists what is thin, what is missing, and what the passes did not
 get to, so the next pass starts from evidence rather than memory. Counts
 per category are in `CATALOG.md`.
 
@@ -26,6 +26,14 @@ design as distinct patterns (Vizro's dashboard-design is a keeper), search
 UX, empty-state and notification design beyond copy, design decision
 records, product principles, inclusive research with disabled participants,
 performance as a UX concern.
+
+Closed on 2026-09-11: cross-category token naming (grammar choice, scale
+types, composite tokens, token documentation and ownership, token
+deprecation) by the original `token-naming`, which also ships a lint for
+DTCG JSON and CSS custom properties. Still open inside that topic: a
+default list of appearance and opinion words for the semantic tier (the
+lint takes one via `--opinion-words`; none ships, to avoid false positives
+against names such as `--color-border-subtle`).
 
 ## What the passes did not reach
 

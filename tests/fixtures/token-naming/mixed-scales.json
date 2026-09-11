@@ -1,0 +1,14 @@
+{
+  "primitive": {
+    "space": {
+      "sm": { "$type": "dimension", "$value": "8px" },
+      "200": { "$type": "dimension", "$value": "16px" },
+      "large": { "$type": "dimension", "$value": "32px" }
+    },
+    "radius": {
+      "1": { "$type": "dimension", "$value": "2px" },
+      "2": { "$type": "dimension", "$value": "4px" },
+      "pill": { "$type": "dimension", "$value": "9999px" }
+    }
+  }
+}

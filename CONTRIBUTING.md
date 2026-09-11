@@ -20,6 +20,13 @@ match `catalog/index.json`.
 each skill's `SKILL.md` text, **any change to a `SKILL.md` needs a rebuild
 too**, not only a change to the index. `catalog:check` will say so.
 
+The documentation site in `site/` needs no step of its own. It reads the skill
+files and the index when it builds, so CI publishes a new or changed skill with
+the next deploy. To preview one, run `npm run dev` in `site/`, with
+`npm run content:watch` in a second terminal to pick up edits.
+`tests/docs-content.test.mjs`, part of `npm test`, checks that every skill gets
+a page and that every relative link in its Markdown resolves.
+
 ## Adding an original skill
 
 1. Pick the category directory (see `catalog/taxonomy.md`) and create

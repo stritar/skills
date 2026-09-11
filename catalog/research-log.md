@@ -219,6 +219,30 @@ Second run on 2026-08-29 against the 105-skill index, top three with scores:
 
 All eight return a directly relevant first result; "usability testing" now resolves to the dedicated usability-testing skill.
 
+### Original skill from a web source (2026-09-11)
+
+`token-naming` (design-systems) was authored in the registry, not vendored:
+its source is a web page (Romina Kavcic, Design Tokens Naming Playbook,
+thedesignsystem.guide) rather than a repository, so there is no commit to
+pin. Three Sonnet Explore agents extracted the page's statements, mapped
+them against the vendored token skills and checked the repo's gate rules;
+the skill's `references/source-notes.md` records what was read, what was
+unreadable, and which statements are verbatim, interpreted or local
+decisions. Search check against the 106-skill index, top three with scores:
+
+| Query | 1st | 2nd | 3rd |
+| --- | --- | --- | --- |
+| name design tokens | token-naming (185) | design-tokens (157) | better-colors (149) |
+| token naming convention | token-naming (232) | design-tokens (82) | better-colors (75) |
+| composite tokens | token-naming (140) | design-tokens (77) | design-handoff (52) |
+| token scale | token-naming (169) | design-tokens (85) | token-build (57) |
+| token documentation | token-naming (189) | design-tokens (60) | token-build (57) |
+| design tokens | design-tokens (192) | extract-design-md (170) | ui-design-system (167) |
+
+The generic "design tokens" query still resolves to `design-tokens`, so
+the new skill takes the naming questions without displacing the value
+generator.
+
 ## Discovery sessions
 
 ### Round 1 - Track T1 (GitHub code search for SKILL.md across product-design topics)
