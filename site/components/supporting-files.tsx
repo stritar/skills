@@ -69,7 +69,7 @@ function FileRow({ file, folder }: { file: SkillFile; folder: string }) {
 export function SupportingFiles({ skill }: { skill: Skill }) {
   return (
     <section aria-labelledby="supporting-files" className="mt-12 flex flex-col gap-3">
-      <h2 id="supporting-files" className="scroll-mt-28 text-xl font-semibold tracking-tight">
+      <h2 id="supporting-files" className="scroll-mt-28 font-heading text-xl font-bold">
         Supporting files
       </h2>
       <p className="text-sm text-fd-muted-foreground">

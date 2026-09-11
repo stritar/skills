@@ -3,8 +3,8 @@ import { ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/cn';
 
 const field = [
-  'flex h-9 w-full min-w-0 items-center gap-0 rounded-md border border-input bg-background text-sm shadow-xs',
-  'transition-[color,box-shadow] dark:bg-input/30',
+  'flex h-9 w-full min-w-0 items-center gap-0 rounded-md border border-input bg-background text-sm',
+  'transition-[color,box-shadow]',
   'focus-within:border-ring focus-within:ring-2 focus-within:ring-ring',
   '[--input-label-padding-inline:6px] [--input-padding-inline:10px]',
 ].join(' ');

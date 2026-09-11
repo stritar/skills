@@ -72,6 +72,15 @@ You are working in some other repository and want design expertise from here.
   escaped source and never served raw. A new skill needs no site change:
   `tests/docs-content.test.mjs` (part of `npm test`) proves every skill has a
   page and every relative link resolves.
+- The site wears the denisstritar.com foundations.
+  `site/app/styles/tokens.core.css` and `tokens.semantic.css` are
+  byte-identical copies of `app/styles/` in the `stritar.github.io`
+  repository — change them there and copy them across, never here (`cmp`
+  proves parity). `site/app/global.css` points Fumadocs' colours, Tailwind's
+  type ramp and the radii at them; next-themes writes `data-theme` alongside
+  `.dark` because the semantic tier flips on the attribute. The faces are
+  Outfit, Inter and Roboto Mono under the portfolio's variable names
+  (`site/lib/fonts.ts`).
 - `.github/workflows/docs-site.yml` runs the gate, then lints, type-checks,
   builds and checks the export on pull requests, and deploys `main` to GitHub
   Pages. The same checks locally, in `site/`: `npm run lint`,

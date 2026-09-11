@@ -1,0 +1,173 @@
+/* ==================================================================== */
+/*  Tier 1 — core primitives.                                           */
+/*                                                                      */
+/*  Raw values with no meaning attached. Nothing in a component may read */
+/*  these directly as a primary value; they exist to be the terminal of  */
+/*  a fallback chain that starts in the component's own namespace:       */
+/*                                                                      */
+/*      --st-footer-gap: var(--st-core-spacing--0200, .5rem);           */
+/*      gap: var(--st-footer-gap, .5rem);                               */
+/*                                                                      */
+/*  Theme-invariant by definition. Anything that changes between light   */
+/*  and dark belongs in tokens.semantic.css.                            */
+/*                                                                      */
+/*  Scale steps are double-dashed and zero-padded, step 0100 = 4px.      */
+/* ==================================================================== */
+
+:root {
+  /* ---------------------------------------------------------------- */
+  /*  Colour — one warm-neutral ramp, light to dark, plus two chromatic */
+  /*  values (the status green and the bento accent orange). Every      */
+  /*  other surface, ink and rim is a step on this ramp or an alpha of  */
+  /*  one, which is why the palette can be re-pointed wholesale by two  */
+  /*  blocks in the semantic tier.                                      */
+  /*                                                                    */
+  /*  0050 and 0100 sit within 1% luminance of each other and are not   */
+  /*  interchangeable: 0050 is the card white (cool), 0100 is the ink   */
+  /*  on dark (warm). Collapsing them would tint every card.            */
+  /* ---------------------------------------------------------------- */
+  --st-core-color-neutral--0000: #ffffff;
+  --st-core-color-neutral--0050: #f7f6f7;
+  --st-core-color-neutral--0100: #f7f5f4;
+  --st-core-color-neutral--0150: #f4f2f4; /* the card illustration well */
+  --st-core-color-neutral--0200: #edeceb;
+  --st-core-color-neutral--0300: #d6d5db;
+  --st-core-color-neutral--0600: #484542;
+  /* The 2026 grid's ink and button solid — Figma 118:967's #434343. A true
+     neutral, unlike the warm 0600/0700 around it, because the chromatic
+     harmonization happens in the semantic theme blocks, not here. */
+  --st-core-color-neutral--0650: #434343;
+  --st-core-color-neutral--0700: #2f2f2f;
+  --st-core-color-neutral--0750: #2a2724;
+  --st-core-color-neutral--0800: #24211e;
+  --st-core-color-neutral--0900: #1a1714;
+  --st-core-color-neutral--0950: #141516;
+  --st-core-color-neutral--1000: #000000;
+
+  /* The footer's live dot. A status colour, not a brand colour, and
+     deliberately the same in both themes — see --st-sem-status-live. */
+  --st-core-color-green--0500: #34c759;
+
+  /* The bento accent: action tiles and the pill hover sweep. One colour
+     re-tuned per theme, not two — 0500 is the comp value and light's, 0600
+     is dark's. Same hue (oklch ≈38°); dark drops lightness .684 → .561 and
+     chroma .195 → .173, a 45% cut in relative luminance. At full strength the
+     orange is the only saturated thing on a near-black page and it shouts.
+
+     The dim is bounded on both sides, and the window is narrow. Lighter than
+     this and it is not a visibly different orange at all — the previous value
+     cut only 24% and read as the same colour on a 112px tile. Darker and the
+     surface drops under the 3:1 it owes the page (this sits at 3.55:1). The
+     band is roughly oklch L .535–.565; .561 takes the visible end of it.
+
+     Unlike the green, this one is NOT theme-invariant — the pair is bound
+     together in --st-sem-accent, and dark's rung is dim enough that the label
+     ink has to cross the neutral ramp to stay legible on it. See
+     --st-sem-accent-ink--text in the semantic tier. */
+  --st-core-color-orange--0500: #f96230;
+  --st-core-color-orange--0600: #c44412;
+
+  /* ---------------------------------------------------------------- */
+  /*  Spacing — 4px steps, in rem so the scale follows the reader's     */
+  /*  browser font size. At the default 16px root these are byte-for-   */
+  /*  byte the px values they replace.                                  */
+  /* ---------------------------------------------------------------- */
+  --st-core-spacing--0000: 0;
+  --st-core-spacing--0025: 0.0625rem; /* 1 */
+  --st-core-spacing--0050: 0.125rem; /* 2 */
+  --st-core-spacing--0100: 0.25rem; /* 4 */
+  --st-core-spacing--0150: 0.375rem; /* 6 */
+  --st-core-spacing--0200: 0.5rem; /* 8 */
+  --st-core-spacing--0300: 0.75rem; /* 12 */
+  --st-core-spacing--0400: 1rem; /* 16 */
+  --st-core-spacing--0500: 1.25rem; /* 20 */
+  --st-core-spacing--0600: 1.5rem; /* 24 */
+  --st-core-spacing--0800: 2rem; /* 32 */
+  --st-core-spacing--1200: 3rem; /* 48 */
+  --st-core-spacing--1600: 4rem; /* 64 */
+  --st-core-spacing--2400: 6rem; /* 96 */
+
+  /* Control sizes — tap targets and glyph boxes. */
+  --st-core-size--0200: 0.5rem; /* 8   footer dot */
+  --st-core-size--0300: 0.75rem; /* 12  badge glyph */
+  --st-core-size--0400: 1rem; /* 16  glyph */
+  --st-core-size--0600: 1.5rem; /* 24  bento tile glyph */
+  --st-core-size--0800: 2rem; /* 32  hero logo, 4-col */
+  --st-core-size--0900: 2.25rem; /* 36  button sm */
+  --st-core-size--1000: 2.5rem; /* 40  hero logo, 8-col */
+  --st-core-size--1100: 2.75rem; /* 44  button default */
+  --st-core-size--1200: 3rem; /* 48  icon button; hero logo, 12-col */
+  --st-core-size--1300: 3.25rem; /* 52  button lg */
+  --st-core-size--1600: 4rem; /* 64  tile button */
+  --st-core-size--2800: 7rem; /* 112 bento action tile */
+
+  --st-core-border-radius--000: 0;
+  --st-core-border-radius--100: 0.25rem; /* 4  — was --radius-xs */
+  --st-core-border-radius--150: 0.375rem; /* 6  — was --radius-sm */
+  --st-core-border-radius--200: 0.5rem; /* 8  — was --radius-md */
+  --st-core-border-radius--300: 0.75rem; /* 12 — was --radius-lg */
+  --st-core-border-radius--400: 1rem; /* 16 — was --radius-xl */
+  --st-core-border-radius--800: 2rem; /* 32 — the bento box corner */
+  /* The pill. Was a literal 999px at both use sites; large enough that the
+     corner is always a semicircle, small enough to stay well inside any
+     engine's clamp. */
+  --st-core-border-radius--full: 62.4375rem;
+
+  --st-core-border-width--000: 0;
+  --st-core-border-width--025: 0.0625rem; /* 1 */
+  --st-core-border-width--050: 0.125rem; /* 2 */
+
+  /* ---------------------------------------------------------------- */
+  /*  Type. The families carry the next/font variables from lib/fonts.  */
+  /*  Sizes here are the *endpoints* of the fluid scale — the scale     */
+  /*  itself is a composition and lives in the semantic tier.           */
+  /* ---------------------------------------------------------------- */
+  --st-core-font-family--display: var(--font-outfit), ui-sans-serif, system-ui,
+    sans-serif;
+  --st-core-font-family--reading: var(--font-inter), ui-sans-serif, system-ui,
+    sans-serif;
+  --st-core-font-family--mono: var(--font-roboto-mono), ui-monospace, monospace;
+
+  --st-core-font-size--3xs: 0.6875rem; /* 11 */
+  --st-core-font-size--2xs: 0.75rem; /* 12 */
+  --st-core-font-size--xs: 0.8125rem; /* 13 */
+  --st-core-font-size--sm: 0.875rem; /* 14 */
+  --st-core-font-size--md: 1rem; /* 16 */
+  --st-core-font-size--lg: 1.125rem; /* 18 */
+  --st-core-font-size--xl: 1.25rem; /* 20 */
+  --st-core-font-size--2xl: 1.5rem; /* 24 */
+  --st-core-font-size--3xl: 2rem; /* 32 */
+  --st-core-font-size--3xl5: 2.5rem; /* 40 — the hero rung's top */
+  --st-core-font-size--4xl: 3rem; /* 48 */
+
+  --st-core-font-weight--light: 300;
+  --st-core-font-weight--regular: 400;
+  --st-core-font-weight--medium: 500;
+  --st-core-font-weight--semibold: 600;
+  --st-core-font-weight--bold: 700;
+
+  --st-core-line-height--tight: 1.1;
+  --st-core-line-height--snug: 1.2;
+  --st-core-line-height--flat: 1.25;
+  --st-core-line-height--heading: 1.3;
+  --st-core-line-height--caption: 1.4;
+  --st-core-line-height--relaxed: 1.5;
+  --st-core-line-height--body: 1.55;
+  --st-core-line-height--code: 1.6;
+  /* The UA/normal-flow default preflight established on <html>. */
+  --st-core-line-height--base: 1.5;
+
+  /* ---------------------------------------------------------------- */
+  /*  Motion. One curve for the whole site — easeOutQuint — plus its    */
+  /*  mirror for exits: things that leave the viewport accelerate away  */
+  /*  (the bento fly-out and scatter), things that arrive decelerate.   */
+  /* ---------------------------------------------------------------- */
+  --st-core-motion-duration--fast: 180ms; /* lightbox */
+  --st-core-motion-duration--feedback: 300ms; /* hover, interaction */
+  --st-core-motion-duration--base: 600ms; /* the site clock */
+  --st-core-motion-duration--ink: 500ms; /* body colour */
+  --st-core-motion-duration--theme: 800ms; /* body background */
+  --st-core-motion-easing--quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --st-core-motion-easing--quint-accel: cubic-bezier(0.64, 0, 0.78, 0);
+  --st-core-motion-easing--standard: ease;
+}

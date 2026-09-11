@@ -2,79 +2,78 @@
 @import 'fumadocs-ui/css/shadcn.css';
 @import 'fumadocs-ui/css/preset.css';
 
+/* The denisstritar.com foundations. Both files are byte-identical copies of
+   app/styles/tokens.core.css and app/styles/tokens.semantic.css in the
+   stritar.github.io repository, which owns the portfolio's colours, type,
+   radii and motion. Change them there and copy them across, never here; cmp
+   against the portfolio proves they still match. Their comments describe the
+   portfolio, not this site.
+
+   The semantic tier flips on [data-theme], which next-themes writes alongside
+   the .dark class (components/provider.tsx). Imported without a layer, like
+   every colour rule in this file: most of Fumadocs' colour rules are unlayered,
+   and a layered rule would lose to them. */
+@import './styles/tokens.core.css';
+@import './styles/tokens.semantic.css';
+
 /* Generate classes from the site's own code only. .content/ and public/raw/
    hold copies of the skill files, which must not turn into CSS. */
 @source '../app';
 @source '../components';
 @source '../lib';
 
-/* The shadcn/ui neutral theme, as published at
-   ui.shadcn.com/r/styles/new-york-v4/theme-neutral.json.
-   fumadocs-ui/css/shadcn.css maps Fumadocs' own colours onto these variables.
+/* Fumadocs' colours, pointed at the portfolio's semantic tier.
+   fumadocs-ui/css/shadcn.css maps --color-fd-* onto these shadcn names, so this
+   block is the whole palette. One block serves both themes: every --st-sem-*
+   value it reads is re-pointed by [data-theme] on the same element.
 
-   One deliberate change: --ring and --sidebar-ring take the muted-foreground
-   values, so a keyboard focus ring is as visible as a muted label. The
-   published values are oklch(0.708 0 0) in light and oklch(0.556 0 0) in dark,
-   which are too faint against the page for a focus indicator. */
+   The site is the portfolio's reading surface, the case-study drawer. The panel
+   is the ground, and the sidebar shares it, set apart by its hairline. The page
+   colour is the well under tables, callouts and inline code; code blocks sit on
+   the untinted surface instead (see the rule at the end). Ink carries every
+   active and focus state; there is no accent colour.
+
+   Left on Fumadocs' own values, because the portfolio has nothing to map them
+   to: the search overlay, the info, warning, success and idea callout colours,
+   and the diff colours. */
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --background: var(--st-sem-surface-panel);
+  --foreground: var(--st-sem-ink);
+  --card: var(--st-sem-surface-page);
+  --card-foreground: var(--st-sem-ink);
+  --popover: var(--st-sem-surface-panel);
+  --popover-foreground: var(--st-sem-ink);
+  --primary: var(--st-sem-action-background);
+  --primary-foreground: var(--st-sem-action-ink--text);
+  --secondary: var(--st-sem-action-background--subtle);
+  --secondary-foreground: var(--st-sem-ink);
+  --muted: var(--st-sem-surface-page);
+  --muted-foreground: var(--st-sem-ink--muted);
+  --accent: var(--st-sem-surface-panel--hover);
+  --accent-foreground: var(--st-sem-ink);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.556 0 0);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.556 0 0);
+  --border: var(--st-sem-border-hairline);
+  --input: var(--st-sem-border-hairline);
+  --ring: var(--st-sem-focus-ring-color);
+  --sidebar: var(--st-sem-surface-panel);
+  --sidebar-foreground: var(--st-sem-ink);
+  --sidebar-primary-foreground: var(--st-sem-action-ink--text);
+  --sidebar-accent: var(--st-sem-surface-panel--hover);
+  --sidebar-accent-foreground: var(--st-sem-ink);
+  --sidebar-border: var(--st-sem-border-hairline);
+  --sidebar-ring: var(--st-sem-focus-ring-color);
 }
 
+/* The error callout's colour is the one value here that is not the portfolio's,
+   which has no red. Both values are the shadcn neutral theme's. */
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.708 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.708 0 0);
 }
 
+/* Radii use the portfolio's own Tailwind names (docs/tokens.md in
+   stritar.github.io): xs 4, sm 6, md 8, lg 12, xl 16, on its core ramp. md is
+   the portfolio button's corner and xl its figure mat's. 2xl is left to
+   Tailwind. */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -94,26 +93,116 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+  --radius-xs: var(--st-core-border-radius--100);
+  --radius-sm: var(--st-core-border-radius--150);
+  --radius-md: var(--st-core-border-radius--200);
+  --radius-lg: var(--st-core-border-radius--300);
+  --radius-xl: var(--st-core-border-radius--400);
+  /* Inter reads everything by default. Outfit, the display face, is set where
+     it is wanted (font-heading), because it smears at 12 to 14px. */
+  --font-sans: var(--st-sem-font-family-reading);
+  --font-mono: var(--st-sem-font-family-mono);
+  --font-heading: var(--st-sem-font-family-display);
+}
+
+/* The portfolio's fluid type scale in place of Tailwind's fixed ramp, so every
+   Fumadocs text-* class follows it. Each rung is a clamp() between the 390px
+   and 1440px viewports; at 1440 the sizes are Tailwind's own except 3xl, which
+   reaches the display rung's 32px.
+
+   text-sm takes the caption rung's 1.4 leading rather than the label rung's 1.2.
+   The portfolio writes 1.2 for one-line labels, and Fumadocs wraps text-sm in
+   the TOC, the sidebar and callouts.
+
+   Plain @theme, not inline, because the prose plugin reads var(--text-3xl) at
+   runtime. */
+@theme {
+  --text-xs: var(--st-sem-text-caption-font-size);
+  --text-xs--line-height: var(--st-sem-text-caption-line-height);
+  --text-sm: var(--st-sem-text-label-font-size);
+  --text-sm--line-height: var(--st-sem-text-caption-line-height);
+  --text-base: var(--st-sem-text-body-font-size);
+  --text-base--line-height: var(--st-sem-text-body-line-height);
+  --text-lg: var(--st-sem-text-lead-font-size);
+  --text-lg--line-height: var(--st-sem-text-lead-line-height);
+  --text-xl: var(--st-sem-text-heading-font-size);
+  --text-xl--line-height: var(--st-sem-text-heading-line-height);
+  --text-2xl: var(--st-sem-text-title-font-size);
+  --text-2xl--line-height: var(--st-sem-text-title-line-height);
+  --text-3xl: var(--st-sem-text-display-font-size);
+  --text-3xl--line-height: var(--st-sem-text-display-line-height);
+  /* The eyebrow's tracking: mono uppercase labels at 600. */
+  --tracking-label: var(--st-sem-text-label-letter-spacing);
 }
 
 @layer base {
   * {
     @apply border-border;
   }
+
+  /* From the portfolio's base.css: selected text is the page colour on ink. */
+  ::selection {
+    background-color: var(--st-sem-ink);
+    color: var(--st-sem-surface-page);
+  }
 }
 
-/* Skill files hold long unbroken strings (URLs, paths, inline SVG). They wrap
-   instead of widening the page; code blocks and tables scroll in place. */
+/* The reading column takes the case-study column's recipes. These rules are
+   unlayered so they win over the prose plugin, which Fumadocs compiles into
+   the utilities layer. They are scoped to .skill-prose rather than .prose,
+   because the TOC's items carry .prose as well.
+
+   Skill files hold long unbroken strings (URLs, paths, inline SVG). They wrap
+   instead of widening the page; code blocks and tables scroll in place. The
+   text is on the body rung, 14px to 16px, in place of the plugin's fixed 16/28. */
 .skill-prose {
   overflow-wrap: anywhere;
+  font-size: var(--st-sem-text-body-font-size);
+  line-height: var(--st-sem-text-body-line-height);
 }
 
 .skill-prose :where(pre, table) {
   overflow-wrap: normal;
+}
+
+/* Headings in the display face at 700, as the portfolio's base.css sets them. */
+.skill-prose :where(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--st-sem-font-family-display);
+  font-weight: var(--st-core-font-weight--bold, 700);
+}
+
+/* A link reads as the text around it, marked only by an underline at 40% ink
+   that turns full ink on hover. */
+.skill-prose a[href]:not([data-card]) {
+  font-weight: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  text-decoration-color: color-mix(in srgb, var(--st-sem-ink) 40%, transparent);
+  transition: text-decoration-color 200ms var(--st-sem-motion-easing);
+}
+
+.skill-prose a[href]:not([data-card]):hover {
+  opacity: 1;
+  text-decoration-color: currentColor;
+}
+
+/* Inline code sits in the well (--muted) with no rule, on the 4px corner. */
+.skill-prose :not(pre) > code {
+  border: 0;
+  border-radius: var(--st-core-border-radius--100);
+  padding: 0.1em 0.4em;
+  font-size: 0.9em;
+}
+
+/* A code block sits on the untinted surface, white in light and the page
+   colour in dark, on the control corner with no rule and no shadow. Not the
+   well: the github-light token colours are drawn for white, and on the #edeceb
+   well four of the nine measured under 4.5:1, 14.7% of highlighted spans across
+   the export, against one colour and 1.4% on white. In dark the surface is the
+   well's colour anyway. Not scoped to .skill-prose, so the source view matches. */
+figure.shiki:not(.not-fumadocs-codeblock *) {
+  background-color: var(--st-sem-surface-base);
+  border-color: transparent;
+  border-radius: var(--st-sem-radius-control);
+  box-shadow: none;
 }

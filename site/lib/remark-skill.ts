@@ -129,7 +129,9 @@ function toCallout(quote: MdNode) {
     if (first.children?.[0]?.type === 'break') first.children.shift();
   }
   if (first.children?.length === 0) quote.children?.shift();
-  quote.data = { hName: 'Callout', hProperties: { type, title } };
+  // shadow-none replaces the callout's shadow-md: on denisstritar.com only
+  // floating chips carry a shadow.
+  quote.data = { hName: 'Callout', hProperties: { type, title, className: ['shadow-none'] } };
 }
 
 function contains(node: MdNode, test: (n: MdNode) => boolean): boolean {

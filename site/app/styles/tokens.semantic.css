@@ -1,0 +1,690 @@
+/* ==================================================================== */
+/*  Tier 2 — semantics.                                                 */
+/*                                                                      */
+/*  What a value *means*, independent of which component uses it. This   */
+/*  is the layer the theme flips: two blocks below re-point the whole    */
+/*  surface, because every component reads its own token which falls     */
+/*  back to one of these.                                                */
+/*                                                                      */
+/*  Components never declare these; they read them as the fallback in    */
+/*  their own token:                                                     */
+/*                                                                      */
+/*      --st-footer-color: var(--st-sem-ink--muted, …);                 */
+/*                                                                      */
+/*  The one sanctioned exception is a *surface-scoped re-point*: a       */
+/*  container that changes what a semantic token means for its whole     */
+/*  subtree — the case-study panel does this with the control hover fill,*/
+/*  so every ghost control inside it picks up the panel's version with   */
+/*  no per-component override. Do not "fix" that into a component token. */
+/* ==================================================================== */
+
+/* -------------------------------------------------------------------- */
+/*  Theme-invariant semantics.                                           */
+/* -------------------------------------------------------------------- */
+:root {
+  /* ---- Type ramp -------------------------------------------------- */
+  /* Families. Three names, two faces plus the mono: `display` is the
+     chrome and the headings, `reading` is anything read end to end (the
+     case-study column, the tooltip pill, the footer bar) because Outfit
+     smears at 12–14px and both of those are a sentence rather than a
+     label. */
+  --st-sem-font-family-display: var(
+    --st-core-font-family--display,
+    ui-sans-serif,
+    system-ui,
+    sans-serif
+  );
+  --st-sem-font-family-reading: var(
+    --st-core-font-family--reading,
+    ui-sans-serif,
+    system-ui,
+    sans-serif
+  );
+  --st-sem-font-family-mono: var(
+    --st-core-font-family--mono,
+    ui-monospace,
+    monospace
+  );
+
+  /* The fluid scale. Eight rungs, each a clamp() interpolating between the
+     viewport bounds 390px and 1440px — the mobile grid boundary and the
+     container max, so type stops growing exactly where the container does.
+     Outside that range clamp() pins to the endpoints.
+
+     These live in the *semantic* tier rather than the core one because a
+     rung is not a primitive: it is a composition of two core sizes plus a
+     slope, and it carries a paired line-height. Both endpoints are written
+     as core tokens so the ramp stays legible.
+
+     The slope term is `rem + vw`, never a bare vw: a bare-vw size ignores
+     the reader's browser font-size setting and fails WCAG 1.4.4.
+
+     Weight is deliberately NOT paired in. The same size legitimately
+     appears at two weights (h1 is 700, the hero tagline is 400), so a
+     paired weight would contradict one of them. */
+  --st-sem-text-caption-font-size: clamp(
+    var(--st-core-font-size--3xs, 0.6875rem),
+    0.6643rem + 0.0952vw,
+    var(--st-core-font-size--2xs, 0.75rem)
+  );
+  --st-sem-text-caption-line-height: var(--st-core-line-height--caption, 1.4);
+
+  --st-sem-text-label-font-size: clamp(
+    var(--st-core-font-size--xs, 0.8125rem),
+    0.7893rem + 0.0952vw,
+    var(--st-core-font-size--sm, 0.875rem)
+  );
+  --st-sem-text-label-line-height: var(--st-core-line-height--snug, 1.2);
+
+  --st-sem-text-body-font-size: clamp(
+    var(--st-core-font-size--sm, 0.875rem),
+    0.8286rem + 0.1905vw,
+    var(--st-core-font-size--md, 1rem)
+  );
+  --st-sem-text-body-line-height: var(--st-core-line-height--body, 1.55);
+
+  --st-sem-text-lead-font-size: clamp(
+    var(--st-core-font-size--md, 1rem),
+    0.9536rem + 0.1905vw,
+    var(--st-core-font-size--lg, 1.125rem)
+  );
+  --st-sem-text-lead-line-height: var(--st-core-line-height--relaxed, 1.5);
+
+  --st-sem-text-heading-font-size: clamp(
+    var(--st-core-font-size--lg, 1.125rem),
+    1.0786rem + 0.1905vw,
+    var(--st-core-font-size--xl, 1.25rem)
+  );
+  --st-sem-text-heading-line-height: var(--st-core-line-height--heading, 1.3);
+
+  --st-sem-text-title-font-size: clamp(
+    var(--st-core-font-size--xl, 1.25rem),
+    1.1571rem + 0.381vw,
+    var(--st-core-font-size--2xl, 1.5rem)
+  );
+  --st-sem-text-title-line-height: var(--st-core-line-height--flat, 1.25);
+
+  /* 1.25 is the comp's 30/24 exactly, and being unitless it holds at every
+     step of the clamp — 40px at the 32px end. */
+  --st-sem-text-display-font-size: clamp(
+    var(--st-core-font-size--2xl, 1.5rem),
+    1.3143rem + 0.7619vw,
+    var(--st-core-font-size--3xl, 2rem)
+  );
+  --st-sem-text-display-line-height: var(--st-core-line-height--flat, 1.25);
+
+  --st-sem-text-display-lg-font-size: clamp(
+    var(--st-core-font-size--3xl, 2rem),
+    1.6286rem + 1.5238vw,
+    var(--st-core-font-size--4xl, 3rem)
+  );
+  --st-sem-text-display-lg-line-height: var(--st-core-line-height--tight, 1.1);
+
+  /* The bento hero — name and tagline share it at different weights (700 /
+     300), which is exactly why weight is not paired into a rung. 24 → 32,
+     the 2026 comp's 32/1.4 (Figma 118:985): same endpoints as the display
+     rung but kept as its own token, because the pairing (two weights, 1.4
+     leading) is the hero's own and the two can legitimately diverge. Its
+     floor must stay readable in a 100%-wide tile on a phone. */
+  --st-sem-text-hero-font-size: clamp(
+    var(--st-core-font-size--2xl, 1.5rem),
+    1.3143rem + 0.7619vw,
+    var(--st-core-font-size--3xl, 2rem)
+  );
+  --st-sem-text-hero-line-height: var(--st-core-line-height--caption, 1.4);
+
+  /* Tracking. The eyebrow is a mono uppercase label and needs far more than
+     any general scale would carry; the article labels sit a rung up and
+     carry weight, so 0.3em stopped them reading as a word at all
+     ("W I T H O U T   A   G A T E"). */
+  --st-sem-text-eyebrow-letter-spacing: 0.3em;
+  --st-sem-text-label-letter-spacing: 0.12em;
+
+  /* ---- Measure and rhythm ----------------------------------------- */
+  --st-sem-measure-container: 1440px;
+  --st-sem-measure-content: 1136px;
+
+  /* The chrome's distance from the viewport edge. px rather than rem, and
+     deliberately: the 769px step below and the 1076px crossover where the
+     content column stops being the wider of the two are both viewport-pixel
+     facts, and a rem inset would move that crossover with the reader's font
+     size while the media query stayed put. */
+  --st-sem-space-page-inset: 16px;
+
+  /* The air above the bento frame — the comp's 160px on a wide screen, easing
+     down to 2rem on a phone. Its own token rather than a bigger page inset,
+     because that one is four things at once: the inline gutter, the floor under
+     --st-sem-space-content-inset (and therefore the 1200 crossover), the
+     footer's inset and the drawer's. Widening it to reach 160 would move all of
+     them and drag the crossover out past the measure.
+
+     clamp() rather than a third layout rung, for the same reason the content
+     inset uses max() above: the site turns on 769 and 391 and nothing else
+     (Bento.module.css), and a top-of-page value that stepped on its own
+     breakpoint would be one more number to keep in sync. 10vw is the whole
+     ramp — the ceiling lands at 1600 and holds from there up through the comp's
+     2560 frame, the floor engages below 320, and every viewport between reads
+     off one multiplication. */
+  --st-sem-space-page-top: clamp(2rem, 10vw, 10rem);
+
+  /* The content column — the bento frame, Figma node 118:967 ("new grid",
+     Breakpoint/2560). One centred measure carrying everything: the hero tile,
+     the icon-button rail and the card grid. So the column is a token rather
+     than a number restated per component.
+
+     1136 is the comp's own number, taken as-is: the 2560 frame draws three
+     357.33px cards with two 32px gaps (3 × 357.333 + 64 = 1136), and the top
+     row re-derives from the same total — hero 1039 + gap 32 + rail 65. The
+     card edge is deliberately fractional (the comp itself carries 357.33); the
+     rail button is (357.333 − 3×32) / 4 = 65.33, the comp's 65 within a
+     hairline. Whole-pixel arithmetic was the old 1012 frame's constraint and
+     is not this comp's.
+
+     The gaps are the one constant in the composition (see docs/tokens.md) and
+     do not scale with the frame.
+
+     max(), not a media query: the column can never sit tighter than the chrome
+     inset, so the padding falls back to the page inset on its own once the
+     viewport narrows past 1200 (= 1136 + 2 × 32) and there is no breakpoint to
+     keep in sync. That crossover moved with the measure, which is exactly the
+     point of deriving it — nothing had to be kept in sync by hand.
+
+     The 100% is safe inside a custom property. Custom properties substitute as
+     tokens and resolve percentages at the *using* property, so this is the
+     padding box's containing block — for the bento frame, a full-width block
+     in the page column, that is the viewport. */
+  --st-sem-space-content-inset: max(
+    var(--st-sem-space-page-inset),
+    calc((100% - var(--st-sem-measure-content)) / 2)
+  );
+
+  /* The gap between two shots in a case study's two-up plate (§4d
+     .article-grid-2). Once also the tile rail's gutter, which is where the
+     name comes from; the rail is gone and the plate keeps the token. */
+  --st-sem-tile-gutter: 8px;
+
+  /* ---- Motion ------------------------------------------------------ */
+  --st-sem-motion-easing: var(
+    --st-core-motion-easing--quint,
+    cubic-bezier(0.22, 1, 0.36, 1)
+  );
+
+  /* The bento ⇄ drawer sequence. One choreography split across two files:
+     the boxes live in a CSS Module scoped to .frame, the drawer is page
+     chrome in globals.css §4c. A module's custom properties are scoped to
+     its own subtree and the panel is a sibling, so the numbers that both
+     halves have to agree on sit here at :root instead.
+
+     The rule is that the stage empties before anything arrives — the boxes
+     fly out, a beat of empty page, then the drawer. Reversed on close. */
+  --st-sem-motion-fly-duration: 320ms;
+  --st-sem-motion-fly-stagger: 80ms;
+  /* The largest --st-bento-i, i.e. the last card to leave (CARD_MOTION in
+     components/Bento/index.tsx). Stated rather than derived because CSS
+     cannot ask the DOM for a maximum — a seventh card moves this. */
+  --st-sem-motion-fly-last-index: 4.5;
+  /* The beat itself. Short: long enough to read as a hand-off, not as a
+     stall. */
+  --st-sem-motion-stage-hold: 80ms;
+  /* The drawer bolts rather than glides — deliberately off the site's 600ms
+     clock and onto the bento's, because it now arrives onto an empty stage
+     and the whole interaction would otherwise run past 1.3s. */
+  --st-sem-motion-drawer-duration: 420ms;
+
+  /* Derived: when the last box has landed off-screen, plus the beat. 760ms
+     — what the drawer waits on the way in. */
+  --st-sem-motion-stage-clear: calc(
+    var(--st-sem-motion-fly-last-index) * var(--st-sem-motion-fly-stagger) +
+      var(--st-sem-motion-fly-duration) + var(--st-sem-motion-stage-hold)
+  );
+  /* Derived: when the drawer has left, plus the beat. 500ms — what the
+     boxes wait on the way home. Both directions settle at 1180ms. */
+  --st-sem-motion-drawer-clear: calc(
+    var(--st-sem-motion-drawer-duration) + var(--st-sem-motion-stage-hold)
+  );
+
+  /* ---- Radii with a meaning ---------------------------------------- */
+  --st-sem-radius-control: var(--st-core-border-radius--200, 0.5rem);
+  --st-sem-radius-figure: var(--st-core-border-radius--400, 1rem);
+  /* The 2026 grid's corners — Figma 118:967: tiles (hero + cards) sit on 16,
+     the icon buttons on 12. The old plate's 32 retired with it. */
+  --st-sem-radius-tile: var(--st-core-border-radius--400, 1rem);
+  --st-sem-radius-action: var(--st-core-border-radius--300, 0.75rem);
+  --st-sem-radius-pill: var(--st-core-border-radius--full, 62.4375rem);
+
+  /* ---- Grain -------------------------------------------------------- */
+  /* The page-wide film grain. The texture is invariant and only its
+     strength flips, so the tile lives here and the two opacities live in
+     the theme blocks below.
+
+     An inline feTurbulence tile rather than a PNG in public/: it is a few
+     hundred bytes, costs no request on a static export, and rasterises
+     once. `stitchTiles` makes the noise tile seamlessly, so the repeat
+     shows no seam.
+
+     The filter chain matters. `saturate 0` greys the turbulence, then the
+     feFuncA forces alpha to 1 so the layer is an OPAQUE mid-grey — which is
+     what soft-light needs: grey 0.5 against any backdrop is a no-op, so
+     only the deviations lighten and darken. Leaving feTurbulence's own
+     noisy alpha would make the blend *strength* vary with the noise as well
+     as its value, and that reads as dirt rather than grain.
+
+     Page-wide rather than per-surface on purpose: at the scale of a single
+     control the texture measures inside 8-bit noise, so it only reads as
+     tooth across a whole ramp. See docs/tokens.md §Grain. */
+  --st-sem-grain-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0' intercept='1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)'/%3E%3C/svg%3E");
+  --st-sem-grain-size: 200px;
+
+  /* ---- Focus ring --------------------------------------------------- */
+  /* An outset box-shadow, not an outline: that is what it has always been
+     (Tailwind's `ring-2` compiled to a shadow), and a shadow follows
+     border-radius differently from an outline. Switching is a visible
+     change, so it stays a shadow. */
+  --st-sem-focus-ring-width: var(--st-core-border-width--050, 0.125rem);
+
+  /* ---- Elevation ---------------------------------------------------- */
+  /* The site's one shadow: the floating chip — the tooltip pill and the
+     cursor's labelled pill, two objects that sit *above* the page rather
+     than in it. Both are solid chips on the action colour, and on a busy
+     ground (the rail floats over the WebGL model) a flat chip reads as a
+     patch of colour rather than as a thing on top.
+
+     Black, and NOT derived from --st-sem-ink the way --st-sem-focus-ring-color
+     above is. A ring is ink; a shadow is the absence of light. --st-sem-ink
+     flips to near-white in dark, so deriving would paint a glow.
+
+     Two layers, because one cannot do both jobs. The 2px contact layer sets
+     the pill down on the page; the 20px ambient layer is the light the pill
+     blocks. The ambient's −4px spread pulls it back in so it does not fringe
+     out sideways past the pill's ends, which at this radius reads as a
+     smudge rather than as height.
+
+     The geometry is invariant and only the two alphas flip, the same split
+     the grain makes above — so the recipe lives here and the strengths live
+     in the theme blocks below. Retune the percentages, never the offsets:
+     the two pills stay one object only while they share the geometry. */
+  --st-sem-shadow-color: var(--st-core-color-neutral--1000, #000000);
+  --st-sem-shadow-floating:
+    0 2px 4px
+      color-mix(
+        in srgb,
+        var(--st-sem-shadow-color) var(--st-sem-shadow-contact-strength),
+        transparent
+      ),
+    0 8px 20px -4px
+      color-mix(
+        in srgb,
+        var(--st-sem-shadow-color) var(--st-sem-shadow-ambient-strength),
+        transparent
+      );
+
+  /* Status. The same in both themes on purpose — a live indicator that
+     changed colour with the theme would read as two different states. */
+  --st-sem-status-live: var(--st-core-color-green--0500, #34c759);
+
+  /* The accent's GLYPH ink — the 24px marks on the three action tiles. White
+     in both themes, and it can stay invariant while the accent itself does
+     not: as the orange dims for dark, white only gains headroom (3.08:1 on
+     light's #f96230, 3.86:1 on dark's #d75b33, against a 3:1 non-text bar).
+
+     The accent colour itself lives in the two theme blocks below, as does
+     --st-sem-accent-ink--text. That second ink is not a duplicate of this
+     one: white is for glyphs and answers to 3:1, the text ink is dark and
+     answers to 4.5:1, and the two move in OPPOSITE directions as the orange
+     shifts — dimming the orange helps white and hurts the dark ink. One
+     token cannot serve both. Text set on the accent must use neither
+     --st-sem-ink (it flips light in dark theme) nor this. */
+  --st-sem-accent-ink: var(--st-core-color-neutral--0000, #ffffff);
+}
+
+/* 769 is the site's own desktop step, not a framework default. It is the one
+   breakpoint the whole layout turns on. */
+@media (min-width: 769px) {
+  :root {
+    --st-sem-space-page-inset: 32px;
+  }
+}
+
+/* The grain tile halves on a 2× display, and this belongs to the token rather
+   than to either consumer. feTurbulence's baseFrequency is in the SVG's own
+   user space, so a 200px CSS tile rasterises each speck to two device pixels
+   and the grain reads as blobs instead of grain. At 100px one user unit maps
+   to one device pixel. It is the same bitmap either way, so this costs
+   nothing. */
+@media (min-resolution: 2dppx) {
+  :root {
+    --st-sem-grain-size: 100px;
+  }
+}
+
+/* -------------------------------------------------------------------- */
+/*  Light. Also the default: :root alone carries it, so a document with   */
+/*  no [data-theme] yet (the instant before ThemeScript runs) is light    */
+/*  rather than unstyled.                                                 */
+/* -------------------------------------------------------------------- */
+:root,
+:root[data-theme="light"] {
+  /* A real property, not a token, in a file that is otherwise all --st-sem-*.
+     Deliberate: it is the same axis as everything below, and only the UA can
+     act on it — it paints the scrollbar the `scrollbar-gutter: stable` strip
+     in base.css reserves, and the canvas behind the backdrop's overscroll.
+     Not in base.css, whose html block is inside @layer base: a layered rule
+     loses to every unlayered one, and this file is unlayered. */
+  color-scheme: light;
+
+  /* The 2026 grid's ink — Figma 118:967's #434343, now on the #f1f3f4 panel
+     (8.9:1). */
+  --st-sem-ink: var(--st-core-color-neutral--0650, #434343);
+  --st-sem-surface-page: var(--st-core-color-neutral--0200, #edeceb);
+
+  /* The panel-tint machinery, light half. The panel itself is DERIVED once,
+     at the bottom of this file: base + this theme's tint at this strength.
+     White as the base — not the old neutral 0050 — because the light anchor
+     is exact there: #ffffff + #94a0a7 at 13% is #f1f3f4 to the pixel.
+     The tint is tuned FROM the backdrop's top stop, so the paper follows the
+     sky — keep it in sync with GradientBackdrop.module.css.
+
+     Moved off the old teal #8ca3a3 with the backdrop (option B "Blue Slate"):
+     oklch h 196.6 → 235, chroma ×0.65, lightness untouched. Holding L is what
+     kept every measured ratio in this file valid — the ink still reads 8.89:1
+     on the derived panel, against 8.87 before. */
+  --st-sem-surface-base: var(--st-core-color-neutral--0000, #ffffff);
+  --st-sem-panel-tint: #94a0a7;
+  --st-sem-panel-tint-strength: 13%;
+
+  /* The bento accent — the three action tiles and the pill hover sweep. Light
+     runs the comp's full-strength orange; dark dims it (see the core tier).
+     The text ink is the one the pill flips to: #24211e measures 5.20:1 on
+     this orange, clearing AA for 14px text. The comp's #2f2f2f measures 4.35
+     and does not. */
+  --st-sem-accent: var(--st-core-color-orange--0500, #f96230);
+  --st-sem-accent-ink--text: var(--st-core-color-neutral--0800, #24211e);
+
+  /* Grain strength. Measured, not guessed: at this value the tile moves a
+     flat area by ~2.5/255 on the gradient and ~0.7 on a card. That is the
+     top of "only visible when you toggle it off".
+
+     Three times dark's number, which looks wrong and is not — see the note
+     there. */
+  --st-sem-grain-opacity: 0.4;
+
+  /* Shadow strength. Black on paper, where every unit of alpha costs a full
+     unit of value, so this is the quieter of the two pairs. */
+  --st-sem-shadow-contact-strength: 8%;
+  --st-sem-shadow-ambient-strength: 20%;
+
+  /* The card illustration well — Figma node 58:818, a flat #f4f2f4. One
+     step below the card surface, and that step is the whole job: the well's
+     old light value was the same #f7f6f7 as surface-panel, and now that the
+     well sits *inside* a panel-coloured card the two must differ or the
+     split line vanishes. */
+  --st-sem-surface-media: var(--st-core-color-neutral--0150, #f4f2f4);
+
+  /* The work card's wallpaper ink — a flat, opaque value that should register
+     as paper, not as a picture behind the text. The anchor has moved a few
+     times: 25:1228045 drew a neutral #c5c7c7 at 1.52:1, a later comp drew
+     #c7d3d3, it sat at #d2dbdb for a while, then #a3b6b6. It now sits at
+     1.91:1 on the panel — the same ratio #a3b6b6 held, because this moved with
+     the rest of the light family rather than being re-picked: oklch h 196.7 →
+     235, chroma ×0.65, lightness untouched.
+
+     Stated as a LITERAL, where this used to be a color-mix of the panel and its
+     tint at a strength. The derivation was accurate and still cost more than it
+     paid: the value it produced was the value drawn in Figma, so the
+     indirection only made the hex hard to find and easy to move by accident
+     when the tint is retuned. If the panel changes enough that the wallpaper
+     stops reading as its own paper, re-pick this against the comp rather than
+     reinstating the mix. */
+  --st-sem-pattern-ink: #aab3b9;
+
+  /* --st-sem-surface-panel is NOT declared here: it derives from the tint
+     machinery above, once for both themes, in the derived block at the
+     bottom of this file. */
+
+  /* Hover fill for transparent icon chrome — Figma component 81:277,
+     state=hover, measured there as a flat #f7f6f7. Kept *translucent* rather
+     than that literal: the header floats over the WebGL model, and an opaque
+     chip would punch a rectangle out of it on hover. 0.5 white over the page
+     resolves to #f6f6f5 — within 2/255 of the comp — and stays honest over
+     the model. */
+  --st-sem-surface-control--hover: rgba(255, 255, 255, 0.5);
+
+  --st-sem-border-hairline: rgba(47, 47, 47, 0.12);
+}
+
+/* -------------------------------------------------------------------- */
+/*  Dark.                                                                */
+/* -------------------------------------------------------------------- */
+:root[data-theme="dark"] {
+  /* See the light block: a real property, deliberately here. Without it the
+     reserved scrollbar strip stays light against the dark page. */
+  color-scheme: dark;
+
+  /* The warm off-white, matching the dark backdrop's temperature. Measures
+     14.7:1 on the derived panel below. It is also what --surface-control--hover
+     and --border-hairline at the bottom of this block were always keyed to:
+     both are rgba(247,245,244,…), and they drifted from the ink while the
+     backdrop was teal. */
+  --st-sem-ink: var(--st-core-color-neutral--0100, #f7f5f4);
+  --st-sem-surface-page: var(--st-core-color-neutral--0900, #1a1714);
+
+  /* The panel-tint machinery, dark half. The base is the PAGE colour, not
+     light's white: a dark card is the page lifted, where a light card is a
+     tinted white. The tint is the backdrop's brightest stop — the ground
+     actually behind the cards — so the paper follows the sky here too.
+     Resolves to #24211e exactly, which is the neutral ramp's 0800 and the
+     value this surface was hand-tuned to: the page lifted +10/255, the step
+     that separates a card from its ground without becoming a second page. */
+  --st-sem-surface-base: var(--st-core-color-neutral--0900, #1a1714);
+  --st-sem-panel-tint: var(--st-core-color-neutral--0750, #2a2724);
+  --st-sem-panel-tint-strength: 65%;
+
+  /* The dimmed accent, and the one place the ink crosses the neutral ramp.
+     The surface separates from the page at 3.55:1, over the 3:1 a UI
+     component owes its ground. But the dim is deep enough that a dark label
+     no longer clears AA on it — #1a1714 measures 3.55:1 on this orange — so
+     the pill's 14px label flips to the *light* neutral, at 4.62:1. Light goes
+     the other way, dark ink on a bright orange. That inversion is the whole
+     cost of a dim you can actually see; nothing else on the page is set on
+     the orange. */
+  --st-sem-accent: var(--st-core-color-orange--0600, #c44412);
+  --st-sem-accent-ink--text: var(--st-core-color-neutral--0100, #f7f5f4);
+
+  /* A THIRD of light's 0.30, and the asymmetry is the whole point.
+     soft-light is not symmetric about mid-grey: its lightening branch runs
+     D(b) − b, and near black that is enormous (b = 0.09 lifts to 0.27, an
+     excursion of 0.18) while its darkening branch near white is only
+     b(1−b) ≈ 0.07. The same tile therefore hits a dark page roughly 2.6×
+     harder than a light one, and dark needs *less* opacity, not more.
+
+     Measured at 0.30 before this was understood: 6.5/255 on the gradient
+     and 8.4 on a card, which is a visible texture rather than a grain. At
+     0.10 both land near 2–3, matching light. Re-measure with the probe
+     rather than reasoning about it if this is ever retuned. */
+  --st-sem-grain-opacity: 0.2;
+
+  /* Stronger than light, and this is the opposite of the grain directly
+     above — read that note before assuming one rule covers both. Black over
+     a near-black ground has almost nothing left to take away: 20% over the
+     dark page moves it ~5/255, which is no shadow at all, where the same 20%
+     over paper moves it 51. The alpha rises until the *step* matches. */
+  --st-sem-shadow-contact-strength: 12%;
+  --st-sem-shadow-ambient-strength: 32%;
+
+  /* No dark comp exists for the well, so this is matched on *delta*: the
+     light well steps down off its card, and #484542 steps the same visible
+     amount up off the dark card. Holds the palette's warm ramp too. */
+  --st-sem-surface-media: var(--st-core-color-neutral--0600, #484542);
+
+  /* No dark comp exists for the wallpaper, so this one is derived on paper and
+     then written down flat, the same way light is: #3f3d3a, opaque.
+
+     Matched to light on LIGHTNESS, not on contrast ratio. Light's #c4d0d0 sits
+     13.0 L* off its panel; #3f3d3a sits 12.9 off the dark panel (#24211e). It
+     is the near-white ink at 13% over that panel, which is where the number
+     came from — but 13% is the recipe, not the token, and the recipe is not
+     what the card should read at runtime.
+
+     The two anchors want different numbers here and diverge further the
+     stronger the ink gets, which is exactly what the step from #d2dbdb to
+     #c4d0d0 did: contrast wants ~11% against lightness's 13.2%, where at the
+     old fainter ink they were a single percent apart. That is the WCAG ratio's
+     +0.05 flare term compressing dark pairs, so contrast-matching under-serves
+     dark. Lightness wins. If light's wallpaper moves again, redo the same
+     arithmetic and check the result by eye against the light card.
+
+     Note the ingredient that differs from light: this is the panel carrying its
+     own INK, where light carries its TINT. Light's tint is a teal against a
+     near-white paper, so pushing toward it darkens and cools. Dark's tint is
+     #2a2724, barely a step off its own panel, so the same move would give a
+     1.02:1 pattern nobody can see; and carrying light's teal across instead
+     would set a cool wallpaper on a warm brown panel, which is the one thing
+     this palette does not do anywhere else. */
+  --st-sem-pattern-ink: #53514c;
+
+  /* --st-sem-surface-panel derives from the machinery above — see the
+     derived block at the bottom of this file. */
+
+  /* Matched on delta, like the media well. What is actually behind the header
+     is the gradient backdrop, not the flat page colour: ~#141516 up here, so
+     0.09 lands on ~#282624, about +20/255. The light chip over its own
+     gradient lands +20 too. The two lifts read the same, which is the point.
+     Alpha-based, so it tracked the palette going darker on its own. Keep it
+     an alpha: a measured hex would need re-measuring every time the ramp
+     moves, which is the whole reason this one did not. */
+  --st-sem-surface-control--hover: rgba(247, 245, 244, 0.09);
+
+  --st-sem-border-hairline: rgba(247, 245, 244, 0.14);
+}
+
+/* The page's gradient ground is deliberately NOT in this tier. Both of its
+   layers stay mounted and crossfade, so each has to keep painting its own
+   colours while it is the one fading out — a token that flipped with
+   [data-theme] would recolour the outgoing layer mid-transition. They live as
+   component tokens on GradientBackdrop, reading the invariant neutral ramp.
+
+   That rule protects the CROSSFADING gradient only. The tint pairs in the two
+   theme blocks above are fine: a card surface is one element painting one
+   background, so a token flipping under it recolours exactly the thing it
+   should — provided the consumer transitions background-color on the 600ms
+   site clock so the flip rides the backdrop crossfade instead of snapping
+   over it. */
+
+/* -------------------------------------------------------------------- */
+/*  Derived inks — declared once for both themes.                        */
+/*                                                                       */
+/*  var(--st-sem-ink) resolves against whichever block above is live, so  */
+/*  these track the theme by construction rather than by a second         */
+/*  hand-set value.                                                       */
+/* -------------------------------------------------------------------- */
+:root {
+  /* The card / hero / drawer surface — one declaration serving both themes,
+     because every part it reads is theme-scoped above. `in srgb` because the
+     light anchor was tuned there: #ffffff + #94a0a7 at 13% = #f1f3f4 exactly
+     (Figma 160:1022). */
+  --st-sem-surface-panel: color-mix(
+    in srgb,
+    var(--st-sem-surface-base, #ffffff),
+    var(--st-sem-panel-tint, #94a0a7) var(--st-sem-panel-tint-strength, 13%)
+  );
+
+  /* --st-sem-pattern-ink is NOT derived here, unlike the panel above. It used
+     to be — a color-mix of the panel with a theme-scoped partner and strength —
+     and it is now a literal hex in each theme block. Both themes' values are
+     drawn or hand-picked against a comp, so the machinery reproduced a decision
+     rather than making one. */
+
+  /* The action chip — the rail's icon buttons, the tooltip pill, the cursor.
+     The chip is the ink solid and its glyph is the panel colour, so the pair
+     harmonizes with the theme and flips polarity for dark by construction —
+     Figma 118:837's #434343 chip with a #f1f3f4 glyph, in light. The hover is
+     a nudge toward the panel rather than an alpha: the chip is opaque now
+     (the comp's is), so the old rgba lift has nothing to shine through. */
+  --st-sem-action-background: var(--st-sem-ink);
+  --st-sem-action-background--hover: color-mix(
+    in srgb,
+    var(--st-sem-ink) 88%,
+    var(--st-sem-surface-panel)
+  );
+  --st-sem-action-ink: var(--st-sem-surface-panel);
+
+  /* The chip's TEXT ink — the tooltip pill and the cursor pill, the only two
+     places the action chip carries words rather than a glyph. The untinted
+     surface, so it is the panel ink minus exactly the 13% panel tint.
+
+     Not a retune of the token above, and the split is the same one the accent
+     chip already makes for the same reason (see --st-sem-accent-ink): the
+     glyph and the text are different jobs and one value cannot serve both.
+     The 16px vector glyph on the rail button is Figma 118:837 exactly and is
+     not what looks wrong. The labels are 11–12px, and at that size a light
+     stem on a dark solid is thinned by the body's grayscale smoothing until
+     the tinted panel colour reads grey — worse, #f1f3f4 IS the panel, so a
+     label set in it can never read brighter than the card floating beside it.
+     Dropping the tint is what buys back the difference.
+
+     Light: #ffffff on the #434343 chip is 9.90:1, and 7.12:1 on the cursor's
+     lifted #585858 ground. Dark inverts to #1a1714 on the #f7f5f4 pill,
+     16.4:1. All well past AA's 4.5 for text at this size. */
+  --st-sem-action-ink--text: var(--st-sem-surface-base);
+
+  /* The action chip's quiet sibling — a low-alpha ink tint for status-grade
+     chips (the work card's Shipped badge) that must read as a chip without
+     competing with the text above them. Alpha over transparent rather than an
+     opaque mix over the panel, like --st-sem-surface-panel--hover, so the pair
+     stays honest if the ground under it ever changes, and tracks both themes
+     through --st-sem-ink by construction. Full ink text on the 8% fill reads
+     8.8:1 on the light panel and 11.8:1 on the dark one (AA needs 4.5); the
+     hover's 14% is the same ~+20/255 visible step the panel hover uses. */
+  --st-sem-action-background--subtle: color-mix(
+    in srgb,
+    var(--st-sem-ink) 8%,
+    transparent
+  );
+  --st-sem-action-background--subtle-hover: color-mix(
+    in srgb,
+    var(--st-sem-ink) 14%,
+    transparent
+  );
+
+  /* 80%, not the 60% the comps ask for, and the reason is contrast.
+     Composited on the panel the mix reads 6.72:1 light / 9.87:1 dark; at 60%
+     light was 3.73:1, under WCAG AA's 4.5 for normal text. Every consumer is
+     11–14px, so the 3:1 large-text exemption never applied. 70% cleared that
+     bar on paper (4.96:1) but read as barely-there on the smaller rungs — the
+     stat labels worst of all, where 11px muted ink sits under a 600-weight
+     number and loses the comparison. 80% is the first step that reads as text
+     rather than as a shadow of it, and it still clears AA on the page-colour
+     code well (6.34:1 light).
+
+     `in srgb` deliberately: this is the site's own mix and always has been.
+     The mixes that replaced Tailwind's alpha modifier use `in oklab`, because
+     that is what Tailwind compiled to and the two spaces give different
+     colours. Both are correct; which one a token uses is decided by which one
+     it used before. */
+  --st-sem-ink--muted: color-mix(in srgb, var(--st-sem-ink) 80%, transparent);
+
+  /* Hover fill for transparent icon chrome standing on the panel — the
+     case-study drawer's × and the lightbox's. The control hover fill cannot
+     serve here: it is half white because the header floats over the WebGL
+     model, and the panel is opaque with no model behind it, so that
+     constraint never reaches this surface — and half white over a #f7f6f7
+     card lifts it +4/255, which is no hover at all.
+
+     What is being matched is the *step*, not the alpha. The header chip lifts
+     ~+20/255 off its ground in both themes; 10% ink lands −20 on the light
+     panel (#e3e2e3) and +21 on the dark one (#393633) — the same visible
+     step, inverted on a light card. */
+  --st-sem-surface-panel--hover: color-mix(
+    in srgb,
+    var(--st-sem-ink) 10%,
+    transparent
+  );
+
+  /* The focus ring colour. `in oklab` because it replaces Tailwind's
+     `ring-fg/40`, which compiled to an oklab mix — see the note above. */
+  --st-sem-focus-ring-color: color-mix(
+    in oklab,
+    var(--st-sem-ink) 40%,
+    transparent
+  );
+}

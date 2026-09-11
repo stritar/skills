@@ -82,7 +82,9 @@ export function SkillMeta({ skill, categoryLabel }: { skill: Skill; categoryLabe
     <dl className="my-6 grid grid-cols-1 gap-x-6 gap-y-1 rounded-lg border p-4 text-sm sm:grid-cols-[9rem_minmax(0,1fr)] sm:gap-y-3">
       {rows.map(([label, value]) => (
         <Fragment key={label}>
-          <dt className="font-medium text-fd-muted-foreground max-sm:mt-2 max-sm:first:mt-0">{label}</dt>
+          <dt className="font-mono text-xs font-semibold tracking-label text-fd-foreground uppercase max-sm:mt-2 max-sm:first:mt-0">
+            {label}
+          </dt>
           <dd className="min-w-0 break-words">{value}</dd>
         </Fragment>
       ))}

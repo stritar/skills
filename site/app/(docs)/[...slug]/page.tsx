@@ -89,11 +89,13 @@ async function SkillPage({ skill }: { skill: Skill }) {
   return (
     <DocsPage toc={toc} breadcrumb={{ enabled: false }}>
       <Breadcrumbs items={crumbs(skill, { label: skill.name })} />
-      <DocsTitle className="break-words">{skill.name}</DocsTitle>
+      <DocsTitle className="font-heading text-3xl font-bold break-words">{skill.name}</DocsTitle>
       {skill.description ? <DocsDescription className="mb-0 text-base">{skill.description}</DocsDescription> : null}
       <PageActions rawUrl={skill.rawUrl} sourceUrl={skill.sourceUrl} />
       <SkillMeta skill={skill} categoryLabel={getCategory(skill.category)?.label} />
-      <p className="border-t pt-6 text-xs font-medium tracking-wide text-fd-muted-foreground uppercase">Instructions from SKILL.md</p>
+      <p className="border-t pt-6 font-mono text-xs font-semibold tracking-label text-fd-foreground uppercase">
+        Instructions from SKILL.md
+      </p>
       <DocsBody className="skill-prose">
         <SkillMarkdown body={skill.body} doc={{ skillId: skill.id, docPath: 'SKILL.md' }} />
       </DocsBody>
@@ -111,7 +113,7 @@ async function DocumentPage({ skill, path }: { skill: Skill; path: string }) {
   return (
     <DocsPage toc={toc} breadcrumb={{ enabled: false }}>
       <Breadcrumbs items={crumbs(skill, { label: skill.name, href: skill.url }, { label: path })} />
-      <DocsTitle className="break-all">{path}</DocsTitle>
+      <DocsTitle className="font-heading text-3xl font-bold break-all">{path}</DocsTitle>
       <DocsDescription className="mb-0 text-base">
         A supporting file of the{' '}
         <Link href={skill.url} className="underline underline-offset-4 hover:text-fd-foreground">
@@ -132,7 +134,7 @@ function SourceViewPage({ skill, file }: { skill: Skill; file: SkillFile }) {
   return (
     <DocsPage full breadcrumb={{ enabled: false }} tableOfContent={{ enabled: false }} tableOfContentPopover={{ enabled: false }}>
       <Breadcrumbs items={crumbs(skill, { label: skill.name, href: skill.url }, { label: file.path })} />
-      <DocsTitle className="break-all">{file.path}</DocsTitle>
+      <DocsTitle className="font-heading text-3xl font-bold break-all">{file.path}</DocsTitle>
       <DocsDescription className="mb-0 text-base">
         A supporting file of the{' '}
         <Link href={skill.url} className="underline underline-offset-4 hover:text-fd-foreground">

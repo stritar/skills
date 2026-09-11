@@ -1,4 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="7" fill="#171717"/>
-  <path d="M10 11h12M10 16h12M10 21h8" stroke="#fafafa" stroke-width="2.5" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <title>Denis Stritar</title>
+  <!--
+    The spiral-D mark from denisstritar.com. The source of truth is public/icon.svg
+    in the stritar.github.io repository; favicon.ico and apple-icon.png beside this
+    file are byte-identical copies of that repository's favicon.ico and
+    apple-touch-icon.png. Change them there and copy them across, never here.
+
+    A favicon renders outside the document, so it never inherits currentColor;
+    the fill is declared here and flips with the OS scheme, not the site theme.
+    Note: no double hyphens in this comment, XML forbids them.
+  -->
+  <style>
+    path { fill: #2f2f2f }
+    @media (prefers-color-scheme: dark) { path { fill: #f7f5f4 } }
+  </style>
+  <g transform="translate(2 2) scale(0.875)">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 16C0 7.16344 7.16344 0 16 0C24.8366 0 32 7.16344 32 16C32 24.8366 24.8366 32 16 32H0V29.3333H16C23.3638 29.3333 29.3333 23.3638 29.3333 16C29.3333 8.6362 23.3638 2.66667 16 2.66667C8.6362 2.66667 2.66667 8.6362 2.66667 16V21.3333H0V16ZM5.33333 16C5.33333 10.109 10.109 5.33333 16 5.33333C21.891 5.33333 26.6667 10.109 26.6667 16C26.6667 21.891 21.891 26.6667 16 26.6667H0V24H16C20.4183 24 24 20.4183 24 16C24 11.5817 20.4183 8 16 8C11.5817 8 8 11.5817 8 16V21.3333H5.33333V16ZM10.6667 16C10.6667 13.0545 13.0545 10.6667 16 10.6667C18.9455 10.6667 21.3333 13.0545 21.3333 16C21.3333 18.9455 18.9455 21.3333 16 21.3333H10.6667V16ZM13.3333 18.6667H16C17.4728 18.6667 18.6667 17.4728 18.6667 16C18.6667 14.5272 17.4728 13.3333 16 13.3333C14.5272 13.3333 13.3333 14.5272 13.3333 16V18.6667Z" />
+  </g>
 </svg>

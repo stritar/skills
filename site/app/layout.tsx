@@ -1,9 +1,8 @@
 import type { Metadata } from 'next';
-import { GeistMono } from 'geist/font/mono';
-import { GeistSans } from 'geist/font/sans';
 import type { ReactNode } from 'react';
 import { Provider } from '@/components/provider';
 import { getManifest } from '@/lib/content';
+import { fontVariables } from '@/lib/fonts';
 import { siteUrl } from '@/lib/site';
 import './global.css';
 
@@ -18,8 +17,8 @@ export function generateMetadata(): Metadata {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`} suppressHydrationWarning>
-      <body className="flex min-h-screen flex-col">
+    <html lang="en" className={fontVariables} suppressHydrationWarning>
+      <body className="flex min-h-screen flex-col antialiased">
         <Provider>{children}</Provider>
       </body>
     </html>

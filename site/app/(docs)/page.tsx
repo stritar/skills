@@ -28,11 +28,10 @@ export default function DirectoryPage() {
       tableOfContent={{ enabled: false }}
       tableOfContentPopover={{ enabled: false }}
     >
-      <DocsTitle>Skills</DocsTitle>
+      <DocsTitle className="font-heading text-3xl font-bold">Skills</DocsTitle>
       <DocsDescription className="mb-6 text-base">
-        Agent skills for product design work, from user research and interaction design to accessibility, design systems
-        and design QA. Each skill is a SKILL.md file of instructions for an AI agent, and many come with reference files or
-        scripts.
+        AI agent skills for product design, covering research, interactions, accessibility, design systems and QA. Each
+        skill is a SKILL.md instruction file, sometimes with supporting references or scripts.
       </DocsDescription>
       <SkillDirectory entries={entries} categories={categories} />
       <p className="mt-10 border-t pt-4 text-sm text-fd-muted-foreground">
