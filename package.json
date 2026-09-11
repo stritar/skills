@@ -1,7 +1,7 @@
 {
   "name": "product-design-skills",
   "version": "0.1.0",
-  "description": "A researched, validated registry of agent skills for agentic product design. Zero-dependency tooling for search, validation and catalog generation.",
+  "description": "Agent skills for product design, with zero-dependency tooling for search, validation and catalog generation.",
   "private": true,
   "type": "module",
   "license": "MIT",
@@ -9,7 +9,7 @@
     "type": "git",
     "url": "git+https://github.com/stritar/skills.git"
   },
-  "homepage": "https://stritar.github.io/skills/",
+  "homepage": "https://denisstritar.com/skills/",
   "engines": {
     "node": ">=18"
   },

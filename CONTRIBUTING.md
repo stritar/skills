@@ -15,10 +15,8 @@ agreement, frontmatter rules, taxonomy conformance, provenance completeness,
 a secret scan and link resolution; `catalog:check` proves the generated files
 match `catalog/index.json`.
 
-`npm run catalog:build` regenerates `CATALOG.md`, `THIRD_PARTY_NOTICES.md`,
-`.claude-plugin/*` and the web edition in `docs/`. Because the web pages carry
-each skill's `SKILL.md` text, **any change to a `SKILL.md` needs a rebuild
-too**, not only a change to the index. `catalog:check` will say so.
+`npm run catalog:build` regenerates `CATALOG.md`, `THIRD_PARTY_NOTICES.md` and
+`.claude-plugin/*` from the index.
 
 The documentation site in `site/` needs no step of its own. It reads the skill
 files and the index when it builds, so CI publishes a new or changed skill with
@@ -51,13 +49,14 @@ a page and that every relative link in its Markdown resolves.
 
 ## Vendoring a third-party skill
 
-Follow `research/README.md`. The short version:
+Discovery evidence, inspection manifests and the research log live in the
+maintainer's private research archive. Every vendored skill follows these
+rules:
 
 1. Verify the license **at the pinned commit SHA** — a LICENSE file in the
    skill directory or repo root, or an unambiguous machine-readable
    declaration. A README claim alone is not enough. If redistribution rights
-   are unclear, the skill goes to `catalog/not-vendored.md`, not into
-   `skills/`.
+   are unclear, the skill is not vendored.
 2. Copy the files byte-identical from that SHA, including the upstream
    license text as `LICENSE.txt` in the skill directory. Do not restyle,
    reformat, or "improve" upstream content.
@@ -67,20 +66,18 @@ Follow `research/README.md`. The short version:
 4. Fill the complete `source` block: repository, url, author, license
    (SPDX id), licenseFile, upstreamPath, upstreamCommit (40-hex), retrievedAt.
 5. Run `npm run catalog:build` and the gate. New entries start as
-   `status: "draft"`; `verified` requires the full inspection trail in
-   `catalog/research-log.md`.
+   `status: "draft"`; `verified` requires a completed inspection.
 
 ## Updating a vendored skill from upstream
 
-1. Find the entry in `catalog/index.json` and its inspection manifest in
-   `research/manifests/<id>.json`.
+1. Find the entry in `catalog/index.json`; its `source` block names the
+   upstream path and the pinned commit.
 2. Fetch the upstream repository's current HEAD; diff the upstream path
    against the local copy.
-3. Re-run the inspection checklist (`research/rubric.md`) on the changed
-   files — an update is a new inspection, not a blind pull. Re-verify the
-   license at the new SHA.
-4. Update the files, `source.upstreamCommit`, `source.retrievedAt`, and the
-   manifest; keep `source.modifications` accurate (upstream updates do not
+3. Re-inspect the changed files — an update is a new inspection, not a blind
+   pull. Re-verify the license at the new SHA.
+4. Update the files, `source.upstreamCommit` and `source.retrievedAt`; keep
+   `source.modifications` accurate (upstream updates do not
    clear local modification records unless the upstream absorbed them).
 5. Run the gate.
 

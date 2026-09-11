@@ -100,8 +100,7 @@ defaults for governance and audits. `design-tokens`, `token-build` and
 are `experimental`. `extract-design-md` (Google Stitch) is the default for
 extracting a DESIGN.md from an existing codebase. plugin87's `governance`
 was rejected as thinner than `design-system-governance`; its `brandkit` and
-`migrate-design-system` were dropped for depending on a 138-file library
-(see `not-vendored.md`).
+`migrate-design-system` were dropped for depending on a 138-file library.
 
 ## Token naming
 
@@ -131,7 +130,7 @@ transcripts (both routes work offline); `survey-design` for questionnaires;
 prompts coupled to the Silver framework CLI and stay `experimental`; they are
 the only vendored coverage of ideation, evaluation, measurement and
 information-architecture structure, which is why original skills fill those
-categories (see `coverage-gaps.md`).
+categories.
 
 ## Visual generation
 
@@ -193,7 +192,7 @@ categories (see `coverage-gaps.md`).
 
 ## Not vendored because a better skill exists
 
-Recorded in the inspection manifests (`research/manifests/*-rejections.json`):
+Recorded in the inspection manifests:
 plugin87 `design-code`, `design-component`, `design-qa`, `governance`,
 `redesign`, `ux-writing`, `prototype` (exact id collision with a stronger
 skill); silver-design-framework `silver-map`, `silver-pitch`, `silver-voice`,
