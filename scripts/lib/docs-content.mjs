@@ -17,7 +17,6 @@ import { ROOT, loadIndex, loadSchema, categoriesFromSchema, loadCategoryScopes }
 import { CATEGORY_LABELS } from './generate.mjs';
 import { parseFrontmatter } from './frontmatter.mjs';
 import { scanText, isProbablyBinary } from './secrets.mjs';
-import { firstSentence } from './site.mjs';
 import { RESERVED_IDS, createLinkResolver, filePageUrl, isBrowserActive, rawUrl, skillUrl } from './docs-links.mjs';
 
 const LIB_DIR = dirname(fileURLToPath(import.meta.url));
@@ -36,6 +35,40 @@ const BINARY_EXT = /\.(?:ttf|otf|woff2?|eot|pdf|gz|tgz|zip|tar|png|jpe?g|gif|web
 export const PREVIEW_LIMIT = 256 * 1024;
 
 export const SITE_TITLE = 'Product design skills';
+
+// The first sentence of a description, for the one line a card or lede can
+// afford. Descriptions here open with what the skill does and go on to
+// detail, so the first sentence is the useful one. Most are a single long
+// sentence whose opening clause ends at a colon ("Web typography guidance:
+// font-format rules, …"); that clause is the summary. Only when there is no
+// such clause is the text cut on a word.
+export function firstSentence(text, max = 160) {
+  // A full stop ends a sentence unless it closes an abbreviation.
+  const m = /(?<!\b(?:e\.g|i\.e|etc|vs|cf))\.\s+(?=[A-Z("'])/.exec(text);
+  let out = m ? text.slice(0, m.index + 1) : text;
+  if (out.length <= max) return out;
+  const colon = out.indexOf(': ');
+  if (colon >= 20 && colon <= max) return `${out.slice(0, colon)}.`;
+  // Failing that, the last clause boundary that does not leave a bracket
+  // open: the start of a bracketed aside, or a comma that introduces a new
+  // clause rather than the next item of a list ("a bundled, install-free
+  // engine" must not be cut at its comma).
+  const boundaries = [];
+  const CLAUSE = /, (?=(?:then|and|or|but|so|with|which|who|plus|including|from|via|not|rather|where|when|while|\w+ing)\b)| \(/g;
+  for (const re = CLAUSE; ;) {
+    const b = re.exec(out);
+    if (!b || b.index > max) break;
+    if (b.index >= 60) boundaries.push(b.index);
+  }
+  for (const i of boundaries.reverse()) {
+    const head = out.slice(0, i);
+    if ((head.match(/\(/g) || []).length === (head.match(/\)/g) || []).length) {
+      return `${head}.`;
+    }
+  }
+  const cut = out.slice(0, max);
+  return `${cut.slice(0, cut.lastIndexOf(' '))}…`;
+}
 
 export function defaultInputs() {
   return {

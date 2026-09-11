@@ -4,11 +4,19 @@ import { existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, 
 import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
 import { ROOT, loadIndex } from '../scripts/lib/index-io.mjs';
-import { buildDocsManifest, extractMarkdownLinks, renderLlmsTxt, writeDocsContent } from '../scripts/lib/docs-content.mjs';
+import { buildDocsManifest, extractMarkdownLinks, firstSentence, renderLlmsTxt, writeDocsContent } from '../scripts/lib/docs-content.mjs';
 import { RESERVED_IDS, createLinkResolver } from '../scripts/lib/docs-links.mjs';
 
 const manifest = buildDocsManifest();
 const BLOB = 'https://github.com/owner/repo/blob/main';
+
+test('firstSentence cuts on a sentence, then on a word', () => {
+  assert.equal(firstSentence('Does one thing. Then another.'), 'Does one thing.');
+  assert.equal(firstSentence('Uses e.g. this and that. Then more.'), 'Uses e.g. this and that.');
+  const long = `${'word '.repeat(60)}end`;
+  const cut = firstSentence(long);
+  assert.ok(cut.length <= 161 && cut.endsWith('…'));
+});
 
 // A throwaway repository holding only the files a test names.
 function fixture(t, files, { index = { skills: [] } } = {}) {
