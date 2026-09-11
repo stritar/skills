@@ -1,4 +1,4 @@
-# Product-design skills
+# Product design skills
 
 A researched, validated registry of agent skills for **agentic product design**:
 skills that make coding and design agents (Claude Code, Codex, Cursor, OpenCode

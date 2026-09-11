@@ -35,7 +35,7 @@ const BINARY_EXT = /\.(?:ttf|otf|woff2?|eot|pdf|gz|tgz|zip|tar|png|jpe?g|gif|web
 // through the raw mirror only.
 export const PREVIEW_LIMIT = 256 * 1024;
 
-export const SITE_TITLE = 'Product-design skills';
+export const SITE_TITLE = 'Product design skills';
 
 export function defaultInputs() {
   return {

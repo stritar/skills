@@ -8082,7 +8082,7 @@
       "whyRelevant": "matched 2 query/queries; 0 SKILL.md path(s) matched: ",
       "discoveredVia": "repo: topic:claude-skills ux | repo: \"skills\" \"product design\" claude in:name,description",
       "knowledgeSource": "fresh",
-      "notes": "A collection of 7 UX & product-design skills for Claude",
+      "notes": "A collection of 7 UX & Product design skills for Claude",
       "foundBy": [
         "round-2/T9"
       ],
@@ -17824,7 +17824,7 @@
       "licenseHint": "MIT",
       "stars": 0,
       "lastActivity": "2026-08-25",
-      "whyRelevant": "41 product-design skills spanning strategy (product-discovery, mvp-scoping, business-model-thinking), research (user-research-synthesis), IA (information-architecture, user-flow-mapping), design systems, a11y, usability heuristics, motion, QA.",
+      "whyRelevant": "41 Product design skills spanning strategy (product-discovery, mvp-scoping, business-model-thinking), research (user-research-synthesis), IA (information-architecture, user-flow-mapping), design systems, a11y, usability heuristics, motion, QA.",
       "discoveredVia": "query: npm registry search (keywords:agent-skill / claude-skill / claude-plugin families + design text searches)",
       "knowledgeSource": "fresh",
       "notes": "Spot-read user-research-synthesis/SKILL.md: real stepwise synthesis workflow (atomic observations, affinity clustering, frequency x severity). Verified in tarball. npm monthly downloads: 400.",
