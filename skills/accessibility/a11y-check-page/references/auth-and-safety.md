@@ -1,92 +1,113 @@
-# 認証と、ブラウザ操作の安全性
+# Authentication and browser-operation safety
 
-ログインを伴うページや、データを変更しうるページをチェックするときの規則。
-**ログインを伴うチェックでは、操作を始める前に必ずこのファイルを読む。**
+Rules for when checking pages that involve login or pages that can change data.
+**For a check involving login, always read this file before starting to operate the
+browser.**
 
-## 資格情報の取り扱い
+## Handling credentials
 
-利用者から渡された ID、パスワード、トークン、ワンタイムパスワードなどについて、以下を守る。
+For IDs, passwords, tokens, one-time passwords, and the like given by the user, observe the
+following.
 
-- **レポートファイルに書かない。** 「テストアカウントでログインして確認した」という
-  記述に留め、値そのものは書かない
-- **会話に再出力しない。** 確認のために復唱することもしない
-- **スクリーンショットに写さない。** ログインフォームに値を入力した状態は撮影しない。
-  ログイン画面自体をチェックする必要がある場合は、入力前の状態を撮影する
-- **`browser_evaluate` のコードに埋め込まない。** 入力は `browser_type` などの
-  専用のツールで行う
-- チェック終了後、ログアウトできる場合はログアウトする
+- **Do not write them in the report file.** Limit the description to something like
+  "logged in with a test account and verified"; do not write the values themselves
+- **Do not output them again in the conversation.** Do not even repeat them back for
+  confirmation
+- **Do not show them in screenshots.** Do not photograph the state where values have been
+  entered into a login form. If the login screen itself needs to be checked, photograph the
+  state before entry
+- **Do not embed them in `browser_evaluate` code.** Perform input using a dedicated tool
+  such as `browser_type`
+- After the check ends, log out if logout is possible
 
-## 環境の確認
+## Confirming the environment
 
-チェックを始める前に、対象が本番環境かどうかを利用者に確認する。
+Before starting the check, confirm with the user whether the target is a production
+environment.
 
-- **本番環境の場合**: 実データが表示され、他の利用者に影響する操作が発生しうる。
-  破壊的操作は原則として行わない。個人情報が画面に表示されている場合、
-  スクリーンショットを撮らないか、レポートに含めない
-- **テスト・ステージング環境の場合**: 比較的自由に操作してよいが、それでも破壊的操作の
-  可否は確認する
+- **If it is a production environment**: real data is displayed, and operations may occur
+  that affect other users. As a rule, do not perform destructive operations. If personal
+  information is displayed on screen, either do not take a screenshot of it, or do not
+  include it in the report
+- **If it is a test/staging environment**: relatively free operation is fine, but still
+  confirm whether destructive operations are permitted
 
-本番アカウントではなく、チェック用に用意されたアカウントを使うことを推奨する。
+Using an account prepared for checking, rather than a production account, is recommended.
 
-## 破壊的操作
+## Destructive operations
 
-以下は、**実行する前に必ず利用者に許可を求める**。許可を求めずに実行してはならない。
+For the following, **always ask the user for permission before executing them**. Never
+execute them without asking for permission.
 
-- データの作成、変更、削除
-- フォームの送信（問い合わせ、申し込み、注文、投稿）
-- メール、通知、メッセージの送信
-- 決済、課金、ポイントの消費
-- 設定の変更（特に他の利用者に影響するもの）
-- ファイルのアップロード、ダウンロード
-- アカウントの状態を変える操作（退会、パスワード変更、権限変更）
+- Creating, changing, or deleting data
+- Submitting a form (inquiry, application, order, post)
+- Sending email, notifications, or messages
+- Payment, billing, or consuming points
+- Changing settings (especially ones that affect other users)
+- Uploading or downloading files
+- Operations that change account state (withdrawal, password change, permission change)
 
-許可を求めるときは、何をしようとしているか、なぜ必要かを具体的に伝える。
+When asking for permission, communicate specifically what you are about to do and why it is
+needed.
 
 ```
-VIS-31（SC 3.3.4 エラー回避）の確認のため、この申し込みフォームを実際に送信して、
-送信前に確認画面が出るか、送信後に取り消せるかを見たいです。
-テストデータが1件作成されます。実行してよいですか。
+To verify VIS-31 (SC 3.3.4 Error Prevention), I would like to actually submit this
+application form and see whether a confirmation screen appears before submission, and
+whether it can be undone after submission.
+One piece of test data will be created. May I proceed?
 ```
 
-**許可が得られない場合は、その観点を「判定不能」として記録し、レポートの
-「要追加確認」に理由とともに記載する。** 推測で「問題なし」としてはならない。
+**If permission is not granted, record that check point as "cannot be determined" and note the
+reason in the report's "needs further verification".** Never mark it "no issue" based on
+guesswork.
 
-### 送信せずに確認できること
+### What can be verified without submitting
 
-破壊的操作の許可が得られない場合でも、以下は確認できる。
+Even when permission for a destructive operation is not granted, the following can still be
+verified.
 
-- 送信ボタンを押す前の段階でのバリデーション表示（不正な値を入れてフォーカスを外す）
-- 確認画面へ進む導線があるか（ボタンのラベルが「確認する」か「送信する」か）
-- 入力欄のラベル、説明、`autocomplete`、エラー表示の実装
+- Validation display at the stage before pressing the submit button (enter an invalid value
+  and move focus away)
+- Whether there is a path leading to a confirmation screen (whether the button label is
+  "Confirm" or "Submit")
+- The implementation of input field labels, descriptions, `autocomplete`, and error display
 
-これらで判定できた範囲を明示し、残りを「要追加確認」に回す。
+State clearly the extent that could be judged from these, and move the rest to "needs
+further verification".
 
-## 操作の範囲
+## Scope of operation
 
-- **指定された対象の範囲を超えて操作しない。** 外部サイトへのリンクを辿らない。
-  別ドメインへ遷移した場合は戻る
-- 認証が必要なページでチェックしているとき、意図せずログアウトされる操作
-  （「ログアウト」リンクを押すなど）に注意する。フォーカス巡回の確認中に `Enter` を
-  押してしまわないよう、リンクやボタンでは `Enter` を押さずにフォーカス位置の記録に留める
-  （操作の確認が必要な要素は、個別に選んで実行する）
-- 意図しない遷移が起きた場合は、元の画面に戻ってから続行する。どこまで確認済みだったかを
-  見失わないよう、状態ごとの進捗を記録しておく
+- **Do not operate beyond the specified target's scope.** Do not follow links to external
+  sites. If navigation to a different domain occurs, go back
+- When checking a page that requires authentication, be careful of operations that
+  unintentionally log you out (such as pressing a "Log out" link). To avoid accidentally
+  pressing `Enter` while verifying the focus walk, do not press `Enter` on links or buttons —
+  limit yourself to recording the focus position (elements that need their operation
+  verified should be selected and run individually)
+- If an unintended navigation occurs, return to the original screen before continuing. Keep
+  a record of progress per state so as not to lose track of how far verification had
+  reached
 
-## 多要素認証
+## Multi-factor authentication
 
-多要素認証がある場合、コードの入力は自動化できない。以下のいずれかを利用者に相談する。
+When multi-factor authentication is present, entering the code cannot be automated. Consult
+the user about one of the following.
 
-- 利用者が手動でログインした状態のブラウザを使う（Playwright MCP の永続プロファイル）
-- 多要素認証が無効なテストアカウントを使う
-- 利用者にコードを都度伝えてもらう（この場合もコードをレポートに書かない）
+- Use a browser in a state where the user has already logged in manually (Playwright MCP's
+  persistent profile)
+- Use a test account with multi-factor authentication disabled
+- Have the user tell you the code each time (in this case too, do not write the code in the
+  report)
 
-なお、**多要素認証の入力欄そのものもチェック対象になりうる**（SPEC-03、SEM-05、VIS-29）。
-コードの入力欄が1文字ずつ分割されていて貼り付けができない実装は、SPEC-03 の問題である。
+Note that **the multi-factor authentication input field itself can also be a check target**
+(SPEC-03, SEM-05, VIS-29). An implementation where the code input field is split into one
+character per box and does not allow pasting is a SPEC-03 issue.
 
-## 個人情報
+## Personal information
 
-チェック中に実在の利用者の個人情報が表示された場合、以下を守る。
+If a real user's personal information is displayed during the check, observe the following.
 
-- スクリーンショットに含めない。含まざるを得ない場合は、その部分を避けて撮影する
-- レポートに転記しない。要素を特定する必要がある場合は、セレクタや構造で示す
-- 会話に出力しない
+- Do not include it in screenshots. If it cannot be avoided, photograph around that part
+- Do not transcribe it into the report. If an element needs to be identified, show it by
+  selector or structure
+- Do not output it in the conversation

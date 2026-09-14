@@ -188,9 +188,10 @@ mechanics (a project's actual `sample.pages`) live in `.ultra11yrc.json`, never 
 configured pages' name/notes/url and reports the missing kinds. It is purely **advisory**
 (the sample is opt-in, the missing kinds are guidance not a gate), so a malformed
 `sampleMethodology` is a validator **warning** and the field is ignored — never a hard
-failure that blocks the pack from deriving reports. RGAA ships the reference list (accueil,
-contact, mentions légales, déclaration d'accessibilité, plan du site, aide, authentification,
-pages représentatives + éléments transverses).
+failure that blocks the pack from deriving reports. RGAA ships the reference list (accueil
+(home), contact, mentions légales (legal notice), déclaration d'accessibilité (accessibility
+statement), plan du site (sitemap), aide (help), authentification,
+pages représentatives (representative pages) + éléments transverses (cross-cutting elements)).
 
 ## Gate-compatibility note (id grammar)
 

@@ -1,26 +1,28 @@
 #!/usr/bin/env node
-// 同梱の axe.min.js を使って、指定 URL のページで axe-core を実行し、結果を JSON で出力する。
+// Uses the bundled axe.min.js to run axe-core on the page at the given URL and outputs the result as JSON.
 //
-// このスキルの基本は Playwright MCP でのブラウザ操作だが、axe.min.js (約 570KB) は
-// browser_evaluate に一度に渡すには大きすぎることがある。その場合の確実な代替として使う
-// (SKILL.md 手順4 / references/playwright-workflow.md「axe-core の実行」)。
+// This skill's basic approach is browser operation via Playwright MCP, but axe.min.js
+// (roughly 570KB) can be too large to pass to browser_evaluate in one go. Use this as a
+// reliable alternative in that case (SKILL.md Step 4 / references/playwright-workflow.md
+// "Running axe-core").
 //
-// 対象タグ・出力形式は playwright-workflow.md のスニペットと揃えてある。CDN は使わず、
-// 常に同梱の assets/axe.min.js を読み込む (サプライチェーン対策)。
+// The target tags and output format are kept aligned with the playwright-workflow.md snippet.
+// No CDN is used; the bundled assets/axe.min.js is always loaded (supply-chain precaution).
 //
-// 使い方:
-//   node run-axe.mjs <url> [オプション]
+// Usage:
+//   node run-axe.mjs <url> [options]
 //
-// オプション:
-//   --width <px>       ビューポート幅 (既定: 1280)
-//   --height <px>      ビューポート高さ (既定: 900)
-//   --wait <state>     goto の待機条件 load|domcontentloaded|networkidle (既定: networkidle)
-//   --nodes <n>        1 ルールあたり出力するノード数の上限 (既定: 10)
-//   --out <file>       結果をファイルに書き出す (既定: 標準出力)
-//   --help             このヘルプを表示
+// Options:
+//   --width <px>       Viewport width (default: 1280)
+//   --height <px>      Viewport height (default: 900)
+//   --wait <state>     goto wait condition load|domcontentloaded|networkidle (default: networkidle)
+//   --nodes <n>        Max number of nodes to output per rule (default: 10)
+//   --out <file>       File to write the result to (default: stdout)
+//   --help             Show this help
 //
-// 状態を変えた画面 (モーダルを開いた等) を対象にしたい場合は、Playwright MCP 側でその状態を
-// 作ってから axe を注入する。このスクリプトは初期表示や、URL だけで再現できる状態に向く。
+// To target a screen in a changed state (e.g. a modal opened), create that state on the
+// Playwright MCP side first, then inject axe. This script is suited to the initial display,
+// or a state reproducible from the URL alone.
 
 import { readFile, writeFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
@@ -29,21 +31,21 @@ import { launchChromium } from "./browser.mjs";
 
 const AXE_PATH = fileURLToPath(new URL("../assets/axe.min.js", import.meta.url));
 
-const USAGE = `使い方:
-  node run-axe.mjs <url> [オプション]
+const USAGE = `Usage:
+  node run-axe.mjs <url> [options]
 
-オプション:
-  --width <px>    ビューポート幅 (既定: 1280)
-  --height <px>   ビューポート高さ (既定: 900)
-  --wait <state>  load|domcontentloaded|networkidle (既定: networkidle)
-  --nodes <n>     1 ルールあたりのノード数上限 (既定: 10)
-  --out <file>    結果の出力先ファイル (既定: 標準出力)
-  --help          このヘルプを表示
+Options:
+  --width <px>    Viewport width (default: 1280)
+  --height <px>   Viewport height (default: 900)
+  --wait <state>  load|domcontentloaded|networkidle (default: networkidle)
+  --nodes <n>     Max number of nodes per rule (default: 10)
+  --out <file>    File to write the result to (default: stdout)
+  --help          Show this help
 
-対象タグ: wcag2a wcag2aa wcag21a wcag21aa wcag22aa best-practice
+Target tags: wcag2a wcag2aa wcag21a wcag21aa wcag22aa best-practice
 `;
 
-/** ページ内で実行する axe。playwright-workflow.md のスニペットと同一の出力形。 */
+/** axe run within the page. Same output shape as the playwright-workflow.md snippet. */
 function axeRunner(maxNodes) {
   return async (limit) => {
     const r = await axe.run(document, {
@@ -85,9 +87,9 @@ function parseArgs(argv) {
     else if (a === "--wait") opts.wait = argv[++i];
     else if (a === "--nodes") opts.nodes = parseInt(argv[++i], 10);
     else if (a === "--out") opts.out = argv[++i];
-    else if (a.startsWith("--")) throw new Error(`不明なオプション: ${a}`);
+    else if (a.startsWith("--")) throw new Error(`Unknown option: ${a}`);
     else if (!opts.url) opts.url = a;
-    else throw new Error(`余分な引数: ${a}`);
+    else throw new Error(`Extra argument: ${a}`);
   }
   return opts;
 }
@@ -106,8 +108,8 @@ async function main(argv) {
   }
   if (!existsSync(AXE_PATH)) {
     process.stderr.write(
-      `assets/axe.min.js が見つかりません: ${AXE_PATH}\n` +
-        "ビルド (pnpm build) が済んでいないか、スキルが正しく配置されていない可能性があります。\n"
+      `assets/axe.min.js not found: ${AXE_PATH}\n` +
+        "The build (pnpm build) may not have been run, or the skill may not be laid out correctly.\n"
     );
     return 1;
   }
@@ -117,7 +119,7 @@ async function main(argv) {
   try {
     const page = await browser.newPage({ viewport: { width: opts.width, height: opts.height } });
     await page.goto(opts.url, { waitUntil: opts.wait });
-    await page.evaluate(axeSource); // ページに axe を定義する
+    await page.evaluate(axeSource); // Define axe on the page
     const result = await page.evaluate(axeRunner(opts.nodes), opts.nodes);
     result.viewport = { width: opts.width, height: opts.height };
 
@@ -125,7 +127,7 @@ async function main(argv) {
     if (opts.out) {
       await writeFile(opts.out, json + "\n", "utf8");
       process.stderr.write(
-        `${opts.out} に書き出しました (violations: ${result.violations.length}, incomplete: ${result.incomplete.length})\n`
+        `Wrote to ${opts.out} (violations: ${result.violations.length}, incomplete: ${result.incomplete.length})\n`
       );
     } else {
       process.stdout.write(json + "\n");

@@ -1,27 +1,28 @@
 #!/usr/bin/env node
-// WCAG 2.x のコントラスト比を計算する。
-// アクセシビリティチェックで色の組み合わせを判定するために使う。目視や暗算で判断しないこと。
+// Calculates WCAG 2.x contrast ratios.
+// Used to judge color combinations during an accessibility check. Do not judge by eye or mental arithmetic.
 
-const USAGE = `使い方:
-  node contrast.mjs <前景色> <背景色> [オプション]
-  node contrast.mjs --json '[{"label":"本文","fg":"#767676","bg":"#fff"}, ...]'
+const USAGE = `Usage:
+  node contrast.mjs <foreground> <background> [options]
+  node contrast.mjs --json '[{"label":"body","fg":"#767676","bg":"#fff"}, ...]'
 
-引数:
-  前景色 / 背景色   #rgb #rrggbb rgb() rgba() hsl() または CSS の色キーワード
-                    半透明の前景色は、背景色と合成してから計算する
+Arguments:
+  foreground / background   #rgb #rrggbb rgb() rgba() hsl() or a CSS color keyword
+                             A semi-transparent foreground is composited onto the
+                             background before calculating
 
-オプション:
-  --size <px>       フォントサイズ (既定: 16)
-  --bold            太字 (font-weight >= 700) として扱う
-  --large           大きなテキストとして明示的に扱う (--size/--bold より優先)
-  --json <JSON>     複数の組み合わせをまとめて判定する。各要素は
+Options:
+  --size <px>       Font size (default: 16)
+  --bold            Treat as bold (font-weight >= 700)
+  --large           Explicitly treat as large text (takes priority over --size/--bold)
+  --json <JSON>     Judge multiple combinations at once. Each element is
                     { label, fg, bg, size?, bold? }
-  --help            このヘルプを表示
+  --help            Show this help
 
-判定基準 (WCAG 2.2):
-  SC 1.4.3  テキスト        4.5:1 以上 (大きなテキストは 3:1 以上)
-  SC 1.4.11 非テキスト      3:1 以上
-  大きなテキスト = 24px 以上、または 18.66px 以上の太字
+Criteria (WCAG 2.2):
+  SC 1.4.3  Text            4.5:1 or higher (3:1 or higher for large text)
+  SC 1.4.11 Non-text        3:1 or higher
+  Large text = 24px or larger, or bold at 18.66px or larger
 `;
 
 const KEYWORDS = {
@@ -33,9 +34,9 @@ const KEYWORDS = {
   transparent: "rgba(0,0,0,0)",
 };
 
-/** CSS の色文字列を {r,g,b,a} (0-255, 0-1) に変換する */
+/** Converts a CSS color string to {r,g,b,a} (0-255, 0-1) */
 export function parseColor(input) {
-  if (typeof input !== "string") throw new TypeError(`色の指定が文字列ではありません: ${input}`);
+  if (typeof input !== "string") throw new TypeError(`Color value is not a string: ${input}`);
   let s = input.trim().toLowerCase();
   if (KEYWORDS[s]) s = KEYWORDS[s];
 
@@ -88,10 +89,10 @@ export function parseColor(input) {
     return { r: (seg[0] + mm) * 255, g: (seg[1] + mm) * 255, b: (seg[2] + mm) * 255, a };
   }
 
-  throw new Error(`色を解釈できません: ${input}`);
+  throw new Error(`Cannot parse color: ${input}`);
 }
 
-/** 半透明の前景色を背景色の上に合成する */
+/** Composites a semi-transparent foreground color onto the background color */
 export function composite(fg, bg) {
   if (fg.a >= 1) return fg;
   return {
@@ -102,7 +103,7 @@ export function composite(fg, bg) {
   };
 }
 
-/** WCAG 2.x の相対輝度 */
+/** WCAG 2.x relative luminance */
 export function relativeLuminance({ r, g, b }) {
   const lin = (v) => {
     const c = v / 255;
@@ -111,7 +112,7 @@ export function relativeLuminance({ r, g, b }) {
   return 0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b);
 }
 
-/** コントラスト比 (1〜21) */
+/** Contrast ratio (1-21) */
 export function contrastRatio(fgInput, bgInput) {
   const bg = parseColor(bgInput);
   const fg = composite(parseColor(fgInput), bg);
@@ -121,7 +122,7 @@ export function contrastRatio(fgInput, bgInput) {
   return (hi + 0.05) / (lo + 0.05);
 }
 
-/** 大きなテキストか (24px 以上、または 18.66px 以上の太字) */
+/** Whether this counts as large text (24px or larger, or bold at 18.66px or larger) */
 export function isLargeText(size = 16, bold = false) {
   return bold ? size >= 18.66 : size >= 24;
 }
@@ -143,8 +144,8 @@ export function judge({ fg, bg, size = 16, bold = false, large }) {
 
 function formatLine(label, r) {
   const mark = r.passAA ? "PASS" : "FAIL";
-  const kind = r.large ? "大きなテキスト" : "テキスト";
-  return `${mark}  ${r.rounded.toFixed(2)}:1  (${kind} / 必要 ${r.required}:1)${label ? `  ${label}` : ""}`;
+  const kind = r.large ? "large text" : "text";
+  return `${mark}  ${r.rounded.toFixed(2)}:1  (${kind} / required ${r.required}:1)${label ? `  ${label}` : ""}`;
 }
 
 function main(argv) {
@@ -157,14 +158,14 @@ function main(argv) {
   if (jsonIndex !== -1) {
     const raw = argv[jsonIndex + 1];
     if (!raw) {
-      process.stderr.write("--json には JSON 配列を渡してください\n");
+      process.stderr.write("--json requires a JSON array\n");
       return 1;
     }
     let items;
     try {
       items = JSON.parse(raw);
     } catch (e) {
-      process.stderr.write(`JSON を解釈できません: ${e.message}\n`);
+      process.stderr.write(`Cannot parse JSON: ${e.message}\n`);
       return 1;
     }
     let failed = 0;
@@ -178,7 +179,7 @@ function main(argv) {
         process.stdout.write(`ERROR ${item.label ?? ""}: ${e.message}\n`);
       }
     }
-    process.stdout.write(`\n${items.length} 件中 ${failed} 件が AA 基準を満たしません\n`);
+    process.stdout.write(`\n${failed} of ${items.length} combinations do not meet AA\n`);
     return failed > 0 ? 1 : 0;
   }
 
@@ -192,13 +193,13 @@ function main(argv) {
     else if (a === "--bold") { bold = true; }
     else if (a === "--large") { large = true; }
     else if (a.startsWith("--")) {
-      process.stderr.write(`不明なオプション: ${a}\n`);
+      process.stderr.write(`Unknown option: ${a}\n`);
       return 1;
     } else { positional.push(a); }
   }
 
   if (positional.length < 2) {
-    process.stderr.write("前景色と背景色の2つを指定してください\n\n" + USAGE);
+    process.stderr.write("Please specify both a foreground and a background color\n\n" + USAGE);
     return 1;
   }
 
@@ -211,11 +212,11 @@ function main(argv) {
   }
 
   process.stdout.write(
-    `前景色: ${positional[0]}\n背景色: ${positional[1]}\n` +
-    `コントラスト比: ${r.rounded.toFixed(2)}:1\n\n` +
-    `SC 1.4.3 (AA, ${r.large ? "大きなテキスト" : "テキスト"}): ${r.passAA ? "PASS" : "FAIL"} (必要 ${r.required}:1)\n` +
+    `Foreground: ${positional[0]}\nBackground: ${positional[1]}\n` +
+    `Contrast ratio: ${r.rounded.toFixed(2)}:1\n\n` +
+    `SC 1.4.3 (AA, ${r.large ? "large text" : "text"}): ${r.passAA ? "PASS" : "FAIL"} (required ${r.required}:1)\n` +
     `SC 1.4.6 (AAA): ${r.passAAA ? "PASS" : "FAIL"}\n` +
-    `SC 1.4.11 (AA, 非テキスト): ${r.passNonText ? "PASS" : "FAIL"} (必要 3:1)\n`
+    `SC 1.4.11 (AA, non-text): ${r.passNonText ? "PASS" : "FAIL"} (required 3:1)\n`
   );
   return r.passAA ? 0 : 1;
 }

@@ -61,7 +61,8 @@ rules:
    license text as `LICENSE.txt` in the skill directory. Do not restyle,
    reformat, or "improve" upstream content.
 3. Modifications are allowed only for: compatibility, security, portability,
-   broken-reference, defect, collision-rename. Record each one in the index
+   broken-reference, defect, collision-rename, translation (non-English
+   prose rendered in English, meaning unchanged). Record each one in the index
    entry's `source.modifications` with date, reason, description and files.
 4. Fill the complete `source` block: repository, url, author, license
    (SPDX id), licenseFile, upstreamPath, upstreamCommit (40-hex), retrievedAt.

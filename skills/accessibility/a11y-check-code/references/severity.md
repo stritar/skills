@@ -1,84 +1,94 @@
-# 重篤度の判定
+# Severity determination
 
-アクセシビリティチェックの結果は、その修正がどれだけ重要であるかが伝わりにくい場合が多い。
-そのため「重篤度」をもとに課題を整理して伝え、優先的に修正するべきものをトリアージ可能にする。
+Accessibility check results often make it hard to convey how important a given fix is.
+For that reason, issues are organized and conveyed using "severity," making it possible
+to triage what should be fixed as a priority.
 
-## 定義
+## Definitions
 
-| 重篤度 | 定義 |
+| Severity | Definition |
 | --- | --- |
-| **Critical** | その問題があることで、そのページの閲覧に留まらない問題を生じる |
-| **Major** | その問題があることで、そのページの主要な目的を達成することができない |
-| **Normal** | その問題があっても、そのページの主要な目的を達成することができる。ただし、利用者は不便を被る |
-| **Minor** | その問題を解消することで、利用者はより快適にそのページを利用することができる |
+| **Critical** | The problem causes an issue that is not confined to viewing that page |
+| **Major** | The problem prevents the page's main purpose from being achieved |
+| **Normal** | The page's main purpose can still be achieved despite the problem, but the user is inconvenienced |
+| **Minor** | Resolving the problem lets the user use the page more comfortably |
 
-## 判定の手順
+## Determination procedure
 
-上から順に判定し、最初に該当したものを採用する。
+Judge in order from the top, and adopt the first one that applies.
 
-1. その問題は、**このページ以外にも影響するか**（サイト全体が操作不能になる、光感受性発作を
-   誘発する、取り消せない誤操作でデータが失われる、認証を完了できず一切利用できない、など）
-   → **Critical**
-2. その問題があるとき、**このページの主要な目的を達成できるか**。達成できない
-   （フォームを送信できない、コンテンツを読めない、機能を実行できない）→ **Major**
-3. 目的は達成できるが、**利用者が不便を被るか** → **Normal**
-4. 解消すればより快適になる程度か → **Minor**
+1. Does the problem **affect more than just this page** (the whole site becomes
+   inoperable, it triggers a photosensitive seizure, data is lost through an
+   unrecoverable mistaken action, the user cannot complete authentication and cannot use
+   the service at all, etc.) → **Critical**
+2. With the problem present, **can the page's main purpose be achieved?** If not (the
+   form cannot be submitted, the content cannot be read, the function cannot be
+   performed) → **Major**
+3. The purpose can be achieved, but **does the user suffer inconvenience?** → **Normal**
+4. Is it merely something that becomes more comfortable once resolved? → **Minor**
 
-「このページの主要な目的」が何であるかは、チェックの最初の手順で把握した対象の目的に基づいて
-判断する。目的を把握せずに重篤度を判定してはならない。
+What "this page's main purpose" is should be judged based on the target's purpose
+grasped in the check's first step. Severity must not be determined without grasping the
+purpose.
 
-## 影響するユーザーの多さを考慮に入れてはならない
+## The number of users affected must not be taken into account
 
-**これは厳守する。**
+**This must be strictly followed.**
 
-アクセシビリティの問題により影響を受けるのは、常にマイノリティである。「影響を受ける利用者が
-少ないため Minor」「一般的な利用者には影響がないため Normal」といった判断は、してはならない。
-重篤度は、**影響を受ける利用者にとってその問題がどれだけ深刻か**のみで判断する。
+Those affected by accessibility problems are always a minority. Judgements such as
+"Minor because few users are affected" or "Normal because typical users are not
+affected" must not be made. Severity is judged solely by **how serious the problem is
+for the users who are affected**.
 
-たとえば以下のような人たちが、1人でも不便を感じ、ページの目的を達成できない状況になるので
-あれば、問題として指摘されなければならない。
+For example, if even a single person among the following is inconvenienced and ends up
+unable to achieve the page's purpose, it must be flagged as a problem.
 
-- 手や腕に障害があり、すべての操作をキーボードに頼っているユーザー
-- 弱視で、画面を拡大して使用しているユーザー
-- 高齢で、コントラスト比の低い色の識別が難しいユーザー
-- 発達障害で、集中力を保ちづらいユーザー
-- 視覚障害で、スクリーンリーダーを使用しているユーザー
-- 聴覚障害で、音声を聞き取れないユーザー
+- A user with a hand or arm disability who relies on the keyboard for all operations
+- A user with low vision who uses the screen zoomed in
+- An older user who has difficulty distinguishing low-contrast colors
+- A user with a developmental disability who finds it hard to maintain concentration
+- A user with a visual disability who uses a screen reader
+- A user with a hearing disability who cannot hear audio
 
-これらはあくまで例であり、状況は一人一人によって異なる。ここに挙げられていない障害のある
-ユーザーも存在する。WCAG のようなガイドラインに基づいたチェックだけでなく、彼らが実際に
-困っている場合には、その事実に対して向き合わなければならない。
+These are only examples, and each person's situation differs. There are also users with
+disabilities not listed here. Beyond checks based on guidelines such as WCAG, when they
+are actually having difficulty, that fact must be faced directly.
 
-同様に、以下の理由で重篤度を下げてはならない。
+Likewise, severity must not be lowered for the following reasons.
 
-- 修正が技術的に難しい、コストがかかる
-- ライブラリや外部サービスに起因し、自分たちでは直せない
-- 利用者からの問い合わせが来ていない
-- WCAG の達成基準に明示的には違反していない
+- The fix is technically difficult or costly
+- It stems from a library or external service and cannot be fixed by the team itself
+- No inquiries have come in from users
+- It does not explicitly violate a WCAG success criterion
 
-修正の難しさは、重篤度とは独立した情報としてレポートに書く。トリアージは、重篤度と
-修正コストの両方を見て、報告を受けた側が行う。
+Write the difficulty of the fix in the report as information independent of severity.
+Triage is done by the report's recipient, looking at both severity and the cost of the
+fix.
 
-## 観点表の「重篤度の目安」の扱い
+## How to treat the "severity guideline" in the checklists
 
-観点表の各項目に書かれている「重篤度の目安」は出発点であり、機械的に適用してはならない。
-たとえば同じ「コントラスト比不足」でも、本文テキストであれば Major、装飾的な補足文言で
-あれば Normal になりうる。実際の重篤度は、対象ページの目的とその問題が利用者に与える影響から
-判断する。
+The "severity guideline" written in each item of the checklists is a starting point, and
+must not be applied mechanically. For example, even the same "insufficient contrast
+ratio" can be Major for body text but Normal for decorative supplementary text. Actual
+severity is judged from the target page's purpose and the impact the problem has on the
+user.
 
-目安と異なる重篤度を付ける場合は、その理由をレポートに書く。
+When assigning a severity different from the guideline, write the reason in the report.
 
-## 問題の原因フェーズ
+## The problem's originating phase
 
-アクセシビリティの問題が混入する原因は、企画・設計・実装の各フェーズにある。そのため、
-これらの問題をそれぞれのフェーズの関係者に伝える必要がある。各指摘には、可能であれば
-原因フェーズを付記する。
+The causes that let accessibility problems creep in lie in each of the planning, design,
+and implementation phases. For that reason, these problems need to be conveyed to the
+people involved in each respective phase. Note the originating phase on each finding
+where possible.
 
-| フェーズ | 例 |
+| Phase | Examples |
 | --- | --- |
-| **企画** | 動画にキャプションを用意する計画がない。認証手段が CAPTCHA のみと決められている。時間制限のある仕様 |
-| **設計** | 配色の組み合わせがコントラスト比を満たさない。ドラッグ操作前提の UI。色のみで状態を表す設計 |
-| **実装** | `alt` の欠落、`lang` の指定漏れ、`div` にクリックハンドラ、`outline: none`、ラベルの未関連付け |
+| **Planning** | No plan to provide captions for video. Authentication is decided to use only CAPTCHA. A spec with a time limit |
+| **Design** | A color combination that does not meet the contrast ratio. A UI that presupposes drag operations. A design that represents state with color alone |
+| **Implementation** | Missing `alt`, missing `lang` specification, a click handler on a `div`, `outline: none`, unassociated labels |
 
-実装フェーズの問題は実装者が単独で直せるが、設計・企画フェーズの問題は実装者だけでは
-直せない。この区別が付いていると、報告を受けた側が対応を進めやすい。
+Problems in the implementation phase can be fixed by the implementer alone, but problems
+in the design and planning phases cannot be fixed by the implementer alone. Having this
+distinction in place makes it easier for the report's recipient to move the response
+forward.

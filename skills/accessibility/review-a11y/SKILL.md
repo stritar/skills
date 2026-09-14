@@ -38,7 +38,8 @@ with no skill system — `npx -y ultra11y <command>` is the same engine. Per-har
 >    from the code itself, recording a reason — no status without a justified verdict.
 > 4. **Language**: write the review in the conversation's language, but technical tokens
 >    stay in English even in French prose — `aria-live` stays `aria-live` (never
->    « région live »), same for `tabindex`, `alt`, `role="alert"`, landmark role names.
+>    « région live », French for "live region"), same for `tabindex`, `alt`, `role="alert"`,
+>    landmark role names.
 
 ## 1. Scope — review what changed
 

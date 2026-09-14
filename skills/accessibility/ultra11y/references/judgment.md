@@ -31,7 +31,8 @@ This phase makes each verdict defensible and recorded, never invented, never sil
    - `recommendations[]` — a **good practice with no failing normative test** (e.g. "state a
      download link's format/weight", "one `<h1>` per page") is NOT an NC: record it as a
      non-normative recommendation (groundable exactly like an NC, but **no `normativeRef`
-     required**). It renders under « Recommandations (non normatives) » and never flips the
+     required**). It renders under « Recommandations (non normatives) » ("Recommendations
+   (non-normative)") and never flips the
      criterion to NC. A purely UX concern is neither an NC nor a recommendation — leave it out.
 3. **Fold back FAIL-CLOSED**:
    ```
@@ -175,7 +176,7 @@ Inside a coding agent, the judgment criteria are adjudicated by the agent: `veri
 builds the worklist, the agent rules, `verify --apply` folds the verdicts through the gate.
 
 Outside one — a CI job, a browser extension, an E2E run — nobody rules on them, so they stay
-« à évaluer » forever. Honest, and unusable on its own. `judge` closes that through an API or
+« à évaluer » (to be evaluated) forever. Honest, and unusable on its own. `judge` closes that through an API or
 an already authenticated local CLI:
 
 ```

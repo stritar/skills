@@ -1,43 +1,48 @@
-# Playwright MCP による確認手順
+# Verification procedure with Playwright MCP
 
-ツール名は Playwright MCP のバージョンによって異なることがある。ここでは代表的な名前で
-記述しているので、実際に利用可能なツール名に読み替える。
+Tool names may differ depending on the Playwright MCP version. This document uses
+representative names, so read them as the actually available tool names.
 
-## axe-core の実行
+## Running axe-core
 
-スキルに同梱されている `assets/axe.min.js` を使う。CDN からは読み込まない
-（サプライチェーン攻撃の懸念があり、同梱している理由でもある）。パスはこのスキルの
-ディレクトリからの相対パスであり、作業ディレクトリからの相対パスではない。
+Use the `assets/axe.min.js` bundled with the skill. Do not load it from a CDN
+(this is both a supply-chain-attack concern and the reason it is bundled). The path is
+relative to this skill's directory, not relative to the working directory.
 
-### 方法 A: 同梱スクリプト `scripts/run-axe.mjs`（推奨。初期表示・URL で再現できる状態向け）
+### Method A: bundled script `scripts/run-axe.mjs` (recommended, for states reproducible
+from the initial display or a URL)
 
-`axe.min.js` は約 570KB あり、`browser_evaluate` に一度に渡せないことが多い。初期表示や、
-URL だけで再現できる状態が対象なら、同梱のランナーを Bash から実行するのが確実。
+`axe.min.js` is about 570KB, and it often cannot be passed to `browser_evaluate` all at
+once. If the target is the initial display, or a state reproducible from the URL alone,
+running the bundled runner from Bash is reliable.
 
 ```
-node <スキルのディレクトリ>/scripts/run-axe.mjs <url> [--width 1280] [--height 900] [--out result.json]
+node <skill directory>/scripts/run-axe.mjs <url> [--width 1280] [--height 900] [--out result.json]
 ```
 
-- 対象タグ（`wcag2a wcag2aa wcag21a wcag21aa wcag22aa best-practice`）と出力形式は、下記の
-  スニペットと揃えてある。同梱の `assets/axe.min.js` を読み込み、CDN は使わない。
-- Playwright と Chromium は自動的に探す（同 `scripts/browser.mjs` が、Playwright MCP が
-  持ち込む `playwright-core` や `ms-playwright` キャッシュのブラウザを検出する）。見つからない
-  ときはエラーメッセージに従う。
-- `--help` で全オプションを表示できる。
+- The target tags (`wcag2a wcag2aa wcag21a wcag21aa wcag22aa best-practice`) and output
+  format are aligned with the snippet below. It loads the bundled `assets/axe.min.js`; no
+  CDN is used.
+- Playwright and Chromium are found automatically (the same `scripts/browser.mjs` detects
+  the browser brought in by Playwright MCP's `playwright-core` or `ms-playwright` cache).
+  If it cannot be found, follow the error message.
+- `--help` shows all options.
 
-### 方法 B: Playwright MCP に注入（状態を変えた画面が対象のとき）
+### Method B: inject into Playwright MCP (when the target is a screen whose state has been
+changed)
 
-モーダルを開いた・エラーを表示させたなど、**MCP でその状態を作ってからその場で axe を
-かけたい**場合は、注入して実行する。方法 A とは別ブラウザにならないため、状態を保ったまま
-検査できる。
+If you want to **create the state via MCP first and then run axe on the spot** — such as
+opening a modal or displaying an error — inject and run it. Since it does not become a
+separate browser from method A, the state can be kept while inspecting.
 
-1. `assets/axe.min.js` を Read で読み、その内容を `browser_evaluate` で実行して
-   ページに `axe` を定義する。ファイルが大きいため、以下のいずれかの方法を取る。
-   - `browser_evaluate` に、ファイル内容を含む関数を渡して実行する
-   - あるいは、`fetch` を使わずに `<script>` 要素をページに追加する方法として、
-     ファイル内容を文字列として `new Function(source)()` で評価する
+1. Read `assets/axe.min.js` with Read, and run its content with `browser_evaluate` to
+   define `axe` on the page. Since the file is large, take one of the following approaches.
+   - Pass `browser_evaluate` a function that includes the file content, and run it
+   - Or, as a way to add a `<script>` element to the page without using `fetch`,
+     evaluate the file content as a string with `new Function(source)()`
 
-2. `axe` が定義されたことを確認してから実行する。`typeof axe` で確認できる。
+2. Confirm that `axe` has been defined before running it. This can be checked with
+   `typeof axe`.
 
 ```js
 () => axe.run(document, {
@@ -70,57 +75,62 @@ node <スキルのディレクトリ>/scripts/run-axe.mjs <url> [--width 1280] [
 }))
 ```
 
-ノード数を制限しているのは、指摘が多いページで出力が膨大になるのを防ぐため。
-`total` で全体の件数がわかるので、レポートには件数を書き、代表例を挙げる。
+The node count is limited to prevent the output from becoming huge on pages with many
+findings. `total` gives the overall count, so write the count in the report and give
+representative examples.
 
-### 状態を変えて再実行する
+### Re-run after changing state
 
-axe-core は「今その瞬間の DOM」しか見ない。以下のたびに再実行する。
+axe-core only sees "the DOM at this moment". Re-run it every time after the following.
 
-- モーダル、ドロップダウン、メニュー、アコーディオンを開いた状態
-- タブを切り替えた状態
-- バリデーションエラーを表示させた状態
-- 検索結果あり／なしの状態
-- ビューポートを変更した状態（モバイル表示で別の UI が出る場合）
+- A modal, dropdown, menu, or accordion has been opened
+- A tab has been switched
+- A validation error has been displayed
+- Search results are present or absent
+- The viewport has been changed (when mobile display brings up a different UI)
 
-### incomplete の扱い
+### Handling incomplete
 
-`incomplete` は「axe-core が自動では判定できなかった」項目であり、問題がないという意味では
-ない。特に以下は手動確認が必要。
+`incomplete` is a list of items that "axe-core could not judge automatically"; it does not
+mean there is no issue. In particular, the following need manual verification.
 
-| ルール | 手動で確認すること |
+| Rule | What to verify manually |
 | --- | --- |
-| `color-contrast` | 背景が画像・グラデーション・重なりのある箇所。スクリーンショットから色を読み取り、`contrast.mjs` 相当の計算で判定する（VIS-09） |
-| `aria-*` 系 | ページの目的に照らして role や属性が正しいか（SEM-11） |
-| `frame-*` | iframe の中身。同一オリジンでなければ確認できない |
+| `color-contrast` | Places where the background is an image, gradient, or overlap. Read the color from a screenshot and judge with a calculation equivalent to `contrast.mjs` (VIS-09) |
+| `aria-*` family | Whether the role or attributes are correct in light of the page's purpose (SEM-11) |
+| `frame-*` | The contents of an iframe. Cannot be verified unless it is the same origin |
 
-## キーボード操作の確認
+## Checking keyboard operation
 
-### フォーカスの巡回
+### Walking the focus order
 
-要素数が多いページを一気に巡回するなら、同梱スクリプトが速い。実際の `:focus-visible` 適用
-状態でフォーカスインジケーターの有無まで記録する。
+If walking through a page with many elements all at once, the bundled script is fast. It
+records even the presence of a focus indicator under the actual `:focus-visible` applied
+state.
 
 ```
-node <スキルのディレクトリ>/scripts/focus-walk.mjs <url> [--max 60] [--out forward.json]
-node <スキルのディレクトリ>/scripts/focus-walk.mjs <url> --reverse [--out reverse.json]
+node <skill directory>/scripts/focus-walk.mjs <url> [--max 60] [--out forward.json]
+node <skill directory>/scripts/focus-walk.mjs <url> --reverse [--out reverse.json]
 ```
 
-- 各ステップの `tag` `role` `name` `selector` `tabIndex` `rect` `visible` `outline`
-  `boxShadow` `focusIndicator` を JSON で出力する。**`--reverse` で逆方向（Shift+Tab）の巡回も
-  必ず実行し、順方向と比較する。**
-- `focusIndicator` は outline か box-shadow の有無による近似。最終的な視認性はスクリーンショット
-  でも確認する（KBD-08 は「実際に見えるか」が本質）。
-- モーダルを開いた状態などは URL だけで再現できないため、下記の手順で MCP から確認する。
+- Outputs `tag` `role` `name` `selector` `tabIndex` `rect` `visible` `outline`
+  `boxShadow` `focusIndicator` for each step as JSON. **Always also run the reverse-direction
+  (Shift+Tab) walk with `--reverse`, and compare it with the forward direction.**
+- `focusIndicator` is an approximation based on the presence of an outline or box-shadow.
+  Also confirm the final visibility with a screenshot (for KBD-08, "whether it is actually
+  visible" is the essence).
+- States such as an opened modal cannot be reproduced from a URL alone, so verify them from
+  MCP using the procedure below.
 
-MCP で1ステップずつ確認する場合は以下。
+To verify step by step with MCP, do the following.
 
-1. ページ冒頭にフォーカスを戻す（アドレスバーからの `Tab` に相当する状態を作るため、
-   `browser_evaluate` で `document.body.focus()` の後 `document.activeElement.blur()` するか、
-   ページを再読み込みする）
-2. `browser_press_key` で `Tab` を押し、その都度フォーカス位置を取得する
+1. Return focus to the start of the page (to create a state equivalent to `Tab` from the
+   address bar, either call `document.body.focus()` followed by
+   `document.activeElement.blur()` via `browser_evaluate`, or reload the page)
+2. Press `Tab` with `browser_press_key`, and get the focus position each time
 
-フォーカス位置の取得には以下を使う（`scripts/focus-walk.mjs` が出力する項目と同じ）。
+Use the following to get the focus position (the same items output by
+`scripts/focus-walk.mjs`).
 
 ```js
 () => {
@@ -135,7 +145,7 @@ MCP で1ステップずつ確認する場合は以下。
     selector: el.id ? `#${el.id}` : el.className ? `${el.tagName.toLowerCase()}.${String(el.className).split(' ')[0]}` : el.tagName.toLowerCase(),
     tabIndex: el.tabIndex,
     rect: { x: rect.x, y: rect.y, w: rect.width, h: rect.height },
-    // 画面内に見えているか（KBD-07: 見えないものにフォーカスが移動していないか）
+    // Whether it is visible on screen (KBD-07: has focus not moved to something invisible)
     visible: rect.width > 0 && rect.height > 0 &&
              rect.bottom > 0 && rect.top < innerHeight &&
              style.visibility !== 'hidden' && style.opacity !== '0',
@@ -145,51 +155,58 @@ MCP で1ステップずつ確認する場合は以下。
 }
 ```
 
-得られた順序を記録し、以下を判定する。
+Record the order obtained, and judge the following.
 
-- **KBD-07**: 視覚的な配置（`rect` の座標）と移動順序が一致しているか。
-  `visible: false` の要素にフォーカスが移動していないか。`tabIndex` に正数がないか
-- **KBD-08**: `outline` が `none` で、かつ `boxShadow` もない要素がないか。
-  フォーカス時のスクリーンショットで、実際にインジケーターが見えるか
-- **KBD-09**: フォーカス要素の `rect` が、固定ヘッダー・フッターの領域に隠れていないか。
-  疑わしい場合はスクリーンショットで確認する
+- **KBD-07**: Whether the visual layout (the `rect` coordinates) matches the movement order.
+  Whether focus has moved to an element with `visible: false`. Whether any `tabIndex` is a
+  positive number
+- **KBD-08**: Whether there is an element whose `outline` is `none` and which also has no
+  `boxShadow`. Whether the indicator is actually visible in a screenshot taken while focused
+- **KBD-09**: Whether the focused element's `rect` is hidden behind a fixed header/footer
+  area. Check with a screenshot if in doubt
 
-**`Shift+Tab` による逆方向の巡回も必ず行う。** 末尾から冒頭まで戻り、順方向と同じ要素に
-到達できるかを比較する。順方向でしか到達できない要素、逆方向で順序が変わる箇所は問題である。
+**Always also perform the reverse-direction walk with `Shift+Tab`.** Go back from the end to
+the start, and compare whether the same elements are reached as in the forward direction.
+Elements reachable only in the forward direction, or places where the order changes in the
+reverse direction, are issues.
 
-要素数が多い場合は、主要な操作領域（フォーム、ナビゲーション、モーダル）に絞ってよいが、
-絞った範囲をレポートに明記する。
+When there are many elements, it is acceptable to narrow the scope to the main operation
+areas (forms, navigation, modals), but state the narrowed scope clearly in the report.
 
-### UI コンポーネントの操作
+### Operating UI components
 
-- モーダル・ドロップダウン: 開いた状態で `Tab` を繰り返し、フォーカスが外に出ないか
-  （KBD-05）。`Escape` で閉じるか。閉じた後にフォーカスが開いた元の要素に戻るか
-- メニュー・タブ・リストボックス: 矢印キー（`ArrowDown` `ArrowUp` `ArrowRight` `ArrowLeft`）、
-  `Home` `End` での操作
-- ボタン・リンク: `Enter` と `Space`（`<button>` は両方、`<a>` は `Enter` で動作するのが標準）
-- ホバーで出るもの: `Escape` で消えるか（KBD-01）、内部にフォーカスを移動できるか（KBD-02）
+- Modal/dropdown: with it open, repeat `Tab` and check whether focus leaves it (KBD-05).
+  Whether it closes with `Escape`. Whether focus returns to the original triggering element
+  after closing
+- Menu/tabs/listbox: operation with the arrow keys (`ArrowDown` `ArrowUp` `ArrowRight`
+  `ArrowLeft`), `Home`, `End`
+- Buttons/links: `Enter` and `Space` (both for `<button>`; `<a>` standardly works with
+  `Enter`)
+- Things that appear on hover: whether they disappear with `Escape` (KBD-01), whether focus
+  can move inside them (KBD-02)
 
-### マウス操作でしか動かない機能を探す（KBD-04）
+### Finding features that only work with the mouse (KBD-04)
 
-手順 5（マウス操作）で操作できた機能のすべてについて、キーボードのみでも実行できるかを
-試す。ドラッグ＆ドロップ、ホバーで出るメニュー、スワイプ、カルーセルの送りに注意する。
+For every feature that could be operated in step 5 (mouse operation), try whether it can
+also be performed with the keyboard alone. Pay attention to drag and drop, menus that
+appear on hover, swipes, and carousel advancement.
 
-## lang の確認
+## Checking lang
 
 ```js
 () => ({
   htmlLang: document.documentElement.lang || null,
-  // デフォルト以外の lang が指定されている要素
+  // Elements with a lang specified other than the default
   others: [...document.querySelectorAll('[lang]')]
     .filter(el => el !== document.documentElement)
     .map(el => ({ lang: el.lang, text: el.textContent?.trim().slice(0, 60) })),
 })
 ```
 
-`htmlLang` が `null` や空なら SEM-09 の問題。日本語のページで `en` になっている場合も問題
-（テンプレートの初期値が残っている典型的なケース）。
+If `htmlLang` is `null` or empty, that is a SEM-09 issue. A Japanese page set to `en` is
+also an issue (the typical case of a template's default value being left in place).
 
-## ランドマークと見出しのアウトライン
+## Landmark and heading outline
 
 ```js
 () => ({
@@ -215,13 +232,15 @@ MCP で1ステップずつ確認する場合は以下。
 })
 ```
 
-- `main` が1つあるか、その中にそのページ固有のコンテンツがあるか（SEM-07）
-- 見出しレベルが飛んでいないか、`h1` があるか
-- 同じ種類のランドマークが複数あるとき、`name` で区別できるか
+- Whether there is exactly one `main`, and whether it contains content specific to that page
+  (SEM-07)
+- Whether heading levels skip, and whether there is an `h1`
+- When there are multiple landmarks of the same kind, whether they can be distinguished by
+  `name`
 
-## ライブリージョンの確認（SEM-12）
+## Checking live regions (SEM-12)
 
-操作の前に、ライブリージョンとして宣言されている要素を記録する。
+Before the operation, record the elements declared as live regions.
 
 ```js
 () => [...document.querySelectorAll('[aria-live],[role="status"],[role="alert"],[role="log"],[role="progressbar"]')]
@@ -233,37 +252,43 @@ MCP で1ステップずつ確認する場合は以下。
   }))
 ```
 
-その後で操作（フォーム送信、検索、削除など）を行い、再度取得して比較する。
+After that, perform the operation (form submission, search, delete, etc.), then get it
+again and compare.
 
-- 通知したい内容が、ライブリージョンの**中で**変化しているか
-- ライブリージョンの要素そのものが後から挿入されていないか（挿入されると通知されないことが
-  多い）。操作前のスナップショットに要素が存在したかを確認する
-- 変化と同時にフォーカス移動が発生していないか（スクリーンリーダーでは通知が読み上げられない
-  ことがしばしばある）
+- Whether the content meant to be announced changes **inside** the live region
+- Whether the live-region element itself was inserted afterward (when it is inserted, it
+  often does not get announced). Check whether the element existed in the pre-operation
+  snapshot
+- Whether a focus move happens at the same time as the change (with a screen reader, the
+  announcement is often not read out in that case)
 
-## スクリーンショット
+## Screenshots
 
-以下の場面では撮っておくと、レポートの説得力が上がり、後からの確認もできる。
+Taking screenshots in the following situations strengthens the report's persuasiveness and
+also allows later verification.
 
-- 指摘の対象となっている箇所
-- フォーカスインジケーターが見えない／見えにくい状態（KBD-08）
-- 320px 幅、200% ズーム、文字サイズ変更、テキスト間隔変更での表示崩れ（RFL-01〜04）
-- コントラスト比が疑わしい箇所（色の抽出にも使う）
+- The location that is the subject of a finding
+- A state where the focus indicator is invisible or hard to see (KBD-08)
+- Broken layout at 320px width, 200% zoom, changed text size, and changed text spacing
+  (RFL-01 through RFL-04)
+- Places where the contrast ratio is questionable (also used to extract colors)
 
-### 保存先の指定（重要）
+### Specifying the save location (important)
 
-**すべてのスクリーンショットは、必ず `a11y-report/assets/` の下に保存する。**
-`browser_take_screenshot` は保存先を指定しないと作業ディレクトリ（カレントディレクトリ）に
-ファイルを撒き散らす。これを避けるため、**呼び出しのたびに `filename` パラメータに
-`a11y-report/assets/` から始まるパスを明示的に渡す。**
+**All screenshots must always be saved under `a11y-report/assets/`.**
+If no save location is specified, `browser_take_screenshot` scatters files into the working
+directory (the current directory). To avoid this, **explicitly pass a path starting with
+`a11y-report/assets/` in the `filename` parameter every time you call it.**
 
 ```
 browser_take_screenshot: filename=a11y-report/assets/hero-desktop.png
 ```
 
-- ディレクトリが無ければ、先に Bash で `mkdir -p a11y-report/assets` を実行しておく。
-- これは**レポートに載せる最終的なスクリーンショットだけでなく、色の抽出や表示崩れの確認の
-  ために一時的に撮るものも同じ。** 一時ファイルであってもカレントディレクトリには保存しない。
-- レポートからは `assets/…` の相対パスで参照する。
+- If the directory does not exist, run `mkdir -p a11y-report/assets` in Bash first.
+- This applies **not only to the final screenshots included in the report, but also to ones
+  taken temporarily for color extraction or checking broken layout.** Even temporary files
+  must not be saved to the current directory.
+- Reference them from the report using the relative path `assets/…`.
 
-**ログインフォームに資格情報を入力した状態や、個人情報が表示されている画面は撮らない。**
+**Do not take screenshots of a login form with credentials entered, or of a screen showing
+personal information.**

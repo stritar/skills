@@ -1,115 +1,137 @@
-# フレームワーク・ライブラリ別の注意点
+# Notes by framework / library
 
-対象が使用している技術に応じて該当する節を読む。ここに挙げるのは典型的なパターンであり、
-網羅ではない。観点表による確認を置き換えるものではない。
+Read the section that applies to the technology the target uses. What is listed
+here are typical patterns; this is not exhaustive, and it does not replace
+verification via the check point tables.
 
 ## React / Next.js
 
-### 非対話要素へのハンドラ（KBD-04, SEM-11）
+### Handlers on non-interactive elements (KBD-04, SEM-11)
 
 ```jsx
-<div onClick={handleClick}>削除</div>          // フォーカスできず、キーボードで実行できない
-<span onClick={...} role="button" tabIndex={0}> // まだ不足。onKeyDown が必要
+<div onClick={handleClick}>Delete</div>          // Cannot receive focus, cannot be operated by keyboard
+<span onClick={...} role="button" tabIndex={0}> // Still insufficient. onKeyDown is needed
 ```
 
-`<button type="button">` を使うのが正解。`type` を省略するとフォームの中で `submit` に
-なるため、フォーム内のボタンでは `type` の指定漏れも確認する。
+Using `<button type="button">` is the correct answer. Omitting `type` makes it
+`submit` inside a form, so also check for a missing `type` on buttons inside forms.
 
-### フォーカス管理（KBD-05, KBD-09）
+### Focus management (KBD-05, KBD-09)
 
-- モーダルを開いたときに、ダイアログ内へフォーカスを移動しているか
-- 閉じたときに、開いた元の要素へフォーカスを戻しているか
-- `useEffect` でのフォーカス移動が、レンダリングのタイミングに依存して失敗していないか
-- `createPortal` で DOM 上の位置が離れた場合、DOM 順序としてのフォーカス順序が不自然に
-  なっていないか
+- Whether focus is moved into the dialog when a modal is opened
+- Whether focus is returned to the originating element when it is closed
+- Whether focus movement in `useEffect` fails depending on rendering timing
+- When `createPortal` separates the DOM position, whether the focus order as DOM
+  order becomes unnatural
 
-`<dialog>` の `showModal()` を使っている場合、フォーカストラップ・`Esc` での閉鎖・
-背景の不活性化はブラウザが提供する。自前実装の場合はすべて確認が必要。
+When using `<dialog>`'s `showModal()`, the focus trap, closing via `Esc`, and
+inertness of the background are provided by the browser. For a custom
+implementation, all of these need to be checked.
 
-### id の生成（SEM-03, SEM-11）
+### id generation (SEM-03, SEM-11)
 
-`useId()` を使わずにハードコードされた `id` は、コンポーネントが同一ページに複数配置された
-ときに重複する。`id` の重複は `<label for>` や `aria-labelledby` の紐付けを壊す。
+An `id` hardcoded without using `useId()` will collide when the component is
+placed more than once on the same page. A duplicate `id` breaks the association
+of `<label for>` or `aria-labelledby`.
 
-### その他
+### Other
 
-- `dangerouslySetInnerHTML` の中身は静的に判定できない（`component-tracing.md` 参照）
-- `<a>` を `onClick` での画面遷移に使い `href` を持たないもの（フォーカスできない）
-- Next.js: `<html lang>` は `app/layout.tsx` またはカスタム `_document` で指定する（SEM-09）
-- Next.js: ページ遷移時のフォーカス移動とタイトル更新（VIS-17）
-- `next/image` の `alt` は必須プロパティだが、`alt=""` の妥当性は別途判断が必要
+- The contents of `dangerouslySetInnerHTML` cannot be judged statically (see
+  `component-tracing.md`)
+- `<a>` used for navigation via `onClick` without an `href` (cannot receive focus)
+- Next.js: `<html lang>` is specified in `app/layout.tsx` or a custom `_document`
+  (SEM-09)
+- Next.js: focus movement and title updates on page transition (VIS-17)
+- `next/image`'s `alt` is a required prop, but whether `alt=""` is appropriate
+  needs to be judged separately
 
 ## Vue / Nuxt
 
-- 非対話要素への `@click`（React と同じ問題）
-- `v-show` は `display: none` になるため支援技術からも隠れる。`v-if` との使い分けが
-  適切か。逆に、視覚的に隠しているつもりが `opacity: 0` や `height: 0` で、
-  支援技術からは読めてしまう・フォーカスできてしまう箇所がないか
-- `<transition>` の途中の状態でフォーカスやライブリージョンが期待通りに働くか
-- `v-html` の中身は静的に判定できない
-- Nuxt: `<html lang>` は `nuxt.config` の `app.head.htmlAttrs.lang` で指定する
+- `@click` on non-interactive elements (same issue as React)
+- `v-show` results in `display: none`, which also hides it from assistive
+  technology. Is the choice between this and `v-if` appropriate? Conversely,
+  check for places intended to be visually hidden that use `opacity: 0` or
+  `height: 0`, which can still be read by assistive technology and/or still
+  receive focus
+- Whether focus and live regions work as expected during the intermediate states
+  of `<transition>`
+- The contents of `v-html` cannot be judged statically
+- Nuxt: `<html lang>` is specified via `nuxt.config`'s
+  `app.head.htmlAttrs.lang`
 
 ## Svelte / SvelteKit
 
-- Svelte のコンパイラは a11y 警告を出す（`a11y-click-events-have-key-events` など）。
-  警告が抑制（`svelte-ignore`）されている箇所は、**抑制の理由が妥当か**を確認する
-- `{@html}` の中身は静的に判定できない
+- The Svelte compiler emits a11y warnings (such as
+  `a11y-click-events-have-key-events`). Where a warning is suppressed
+  (`svelte-ignore`), check **whether the reason for suppression is valid**
+- The contents of `{@html}` cannot be judged statically
 
 ## Angular
 
-- `(click)` を非対話要素に付けているもの
-- `*ngIf` と `[hidden]` の使い分け
-- `@angular/cdk/a11y` の `FocusTrap` `LiveAnnouncer` が使われているか
+- `(click)` attached to a non-interactive element
+- The choice between `*ngIf` and `[hidden]`
+- Whether `@angular/cdk/a11y`'s `FocusTrap` and `LiveAnnouncer` are used
 
 ## Tailwind CSS
 
-| クラス | 確認すること |
+| Class | What to check |
 | --- | --- |
-| `outline-none` `focus:outline-none` | 代替のフォーカススタイルがあるか（KBD-08）。`focus-visible:ring` のみの場合、ハイコントラストモードで消える |
-| `sr-only` | アイコンのみのボタンに視覚的に隠したラベルが付いているか。逆に `hidden` を使ってしまい支援技術からも消えていないか |
-| `w-4 h-4` などの固定サイズ | ターゲットサイズ 24×24px を満たすか（VIS-24）。padding での拡張を含めて確認する |
-| `text-gray-400` など | 背景色とのコントラスト比を計算する（VIS-09）。薄いグレーは不足しがち |
-| `truncate` `overflow-hidden` | 文字サイズ変更・テキスト間隔変更で切れないか（RFL-02, RFL-04） |
-| `w-[320px]` など固定幅 | 320px 幅でのリフロー（RFL-03） |
-| `pointer-events-none` | 無効化の手段として使われている場合、支援技術からは操作可能に見える |
+| `outline-none` `focus:outline-none` | Whether there is an alternative focus style (KBD-08). With only `focus-visible:ring`, it disappears in high-contrast mode |
+| `sr-only` | Whether icon-only buttons have a visually hidden label. Conversely, check for cases that mistakenly use `hidden`, which also removes it from assistive technology |
+| Fixed sizes like `w-4 h-4` | Whether the 24×24px target size is met (VIS-24). Check this including any expansion from padding |
+| `text-gray-400` etc. | Calculate the contrast ratio against the background color (VIS-09). Light grays are often insufficient |
+| `truncate` `overflow-hidden` | Whether text is cut off when font size or letter spacing is changed (RFL-02, RFL-04) |
+| Fixed widths like `w-[320px]` | Reflow at 320px width (RFL-03) |
+| `pointer-events-none` | When used as a means of disabling, it still appears operable to assistive technology |
 
-`tailwind.config` のカスタムカラーは、コントラスト比の計算のために値を解決する必要がある。
+Custom colors in `tailwind.config` need their values resolved in order to
+calculate contrast ratios.
 
-## CSS-in-JS（styled-components / emotion / vanilla-extract）
+## CSS-in-JS (styled-components / emotion / vanilla-extract)
 
-- 色がテーマオブジェクト経由で決まる場合、テーマ定義まで辿って値を解決する
-- `&:focus { outline: none }` の指定
-- props によって色が変わる実装は、取りうる組み合わせをすべて確認する
+- When a color is determined via a theme object, trace through to the theme
+  definition to resolve the value
+- The `&:focus { outline: none }` declaration
+- For implementations where color varies by props, check all possible
+  combinations
 
 ## Web Components / Shadow DOM
 
-- `aria-labelledby` `aria-describedby` `for` は **Shadow DOM の境界を越えられない**。
-  ホスト側の `id` を Shadow root 内から参照しても解決されない
-- スロットに渡されたコンテンツの扱い
-- `delegatesFocus` の指定とフォーカス順序
+- `aria-labelledby`, `aria-describedby`, and `for` **cannot cross the Shadow DOM
+  boundary.** Referencing a host-side `id` from inside a shadow root does not
+  resolve
+- How content passed into slots is handled
+- The `delegatesFocus` setting and focus order
 
-## UI コンポーネントライブラリ
+## UI component libraries
 
-Radix UI、Headless UI、Ark UI、MUI、Chakra UI、Ant Design などを使っている場合。
+When using Radix UI, Headless UI, Ark UI, MUI, Chakra UI, Ant Design, etc.
 
-- **ライブラリが提供するアクセシビリティ機能を、使い方によって壊していないことを確認する。**
-  よくあるのは以下。
-  - `Dialog.Title` を使わず、ダイアログにアクセシブルネームがない
-  - `asChild` や `as` で別の要素に差し替えた結果、ロールが変わっている
-  - ラベル用のコンポーネントを使わず、独自のテキストを置いている
-  - スタイルの上書きでフォーカスリングを消している
-- ライブラリ内部の実装は辿らない。パッケージ名とバージョンを記録し、確実でない部分は
-  「要追加確認」として実ページでの確認に回す
+- **Confirm that the accessibility features the library provides have not been
+  broken by how they are used.** Common cases include the following.
+  - Not using `Dialog.Title`, leaving the dialog without an accessible name
+  - Swapping out the element via `asChild` or `as`, resulting in a changed role
+  - Not using the label component, and placing custom text instead
+  - A style override that removes the focus ring
+- Do not trace the library's internal implementation. Record the package name and
+  version, and defer anything not certain to "needs further verification" for
+  live-page verification
 
-## テンプレートエンジン（ERB / Blade / Twig / Jinja / Pug / Astro）
+## Template engines (ERB / Blade / Twig / Jinja / Pug / Astro)
 
-- 部分テンプレート（partial / include）を辿って全体のマークアップを組み立てる
-- レイアウトテンプレートに `<html lang>` `<title>` `<main>` があるか（SEM-09, VIS-17, SEM-07）
-- ループ内で生成される `id` が重複していないか
-- エスケープの有無は、アクセシビリティではなくセキュリティの問題だが、気づいたら報告する
+- Trace through partial templates (partials / includes) to assemble the overall
+  markup
+- Whether the layout template has `<html lang>` `<title>` `<main>` (SEM-09,
+  VIS-17, SEM-07)
+- Whether `id`s generated inside a loop are duplicated
+- Whether escaping is present is a security issue rather than an accessibility
+  issue, but report it if noticed
 
-## 静的な HTML
+## Static HTML
 
-- テンプレートから複製されたページ間で、`<title>` が使い回されていないか（VIS-17）
-- ナビゲーションの順序がページ間で一貫しているか（VIS-25）
-- 複数ページある場合、すべてを対象にできているか
+- Whether `<title>` has been left duplicated across pages copied from the same
+  template (VIS-17)
+- Whether the navigation order is consistent across pages (VIS-25)
+- When there are multiple pages, whether all of them can be covered as targets
+</content>
+</invoke>

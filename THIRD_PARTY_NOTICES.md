@@ -25,7 +25,8 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 - Upstream path: `skills/a11y-check-code` at commit `a59f48bbe72c1c4ec710e86ae19f8b39fa4b44f6`
 - Retrieved: 2026-08-26
 - License: ISC (license file: `skills/accessibility/a11y-check-code/LICENSE.txt`)
-- Local modifications: none (byte-identical to upstream)
+- Local modifications:
+  - 2026-09-14 (translation): Upstream is written entirely in Japanese. Translated all prose, the frontmatter description, reference files, the report template, and the comments, usage text and output labels of scripts/contrast.mjs into English so English-reading agents and users can follow it and reports come out in English. Meaning, checklist IDs, rules, code, logic and numbers are unchanged; guidance specific to Japanese pages is kept, stated in English. [SKILL.md, references/README-checklist.md, references/checklist-keyboard.md, references/checklist-reflow.md, references/checklist-semantics.md, references/checklist-spec.md, references/checklist-visual.md, references/report-format.md, references/severity.md, references/component-tracing.md, references/framework-notes.md, scripts/contrast.mjs]
 
 ## a11y-check-page
 
@@ -34,7 +35,8 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 - Upstream path: `skills/a11y-check-page` at commit `a59f48bbe72c1c4ec710e86ae19f8b39fa4b44f6`
 - Retrieved: 2026-08-26
 - License: ISC (license file: `skills/accessibility/a11y-check-page/LICENSE.txt`)
-- Local modifications: none (byte-identical to upstream)
+- Local modifications:
+  - 2026-09-14 (translation): Upstream is written entirely in Japanese. Translated all prose, the frontmatter description, reference files, the report template, and the comments and messages of the bundled scripts into English so English-reading agents and users can follow it and reports come out in English. Meaning, checklist IDs, credential-safety rules, code, logic and numbers are unchanged; guidance specific to Japanese pages is kept, stated in English. assets/axe.min.js is untouched. [SKILL.md, references/README-checklist.md, references/checklist-keyboard.md, references/checklist-reflow.md, references/checklist-semantics.md, references/checklist-spec.md, references/checklist-visual.md, references/report-format.md, references/severity.md, references/playwright-workflow.md, references/auth-and-safety.md, references/injection-snippets.md, scripts/browser.mjs, scripts/run-axe.mjs, scripts/focus-walk.mjs]
 
 ## a11y-critic
 
@@ -671,7 +673,8 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 - Upstream path: `skills/review-a11y` at commit `d1cd14792f3bd1b9ab15958bc4e72081375514dc`
 - Retrieved: 2026-08-26
 - License: MIT (license file: `skills/accessibility/review-a11y/LICENSE.txt`)
-- Local modifications: none (byte-identical to upstream)
+- Local modifications:
+  - 2026-09-14 (translation): Added English glosses in brackets after French terms in SKILL.md (e.g. « région live » (live region)) so the rule against translating technical tokens reads clearly in English. The French wording, the rule and scripts/ultra11y.mjs are unchanged. [SKILL.md]
 
 ## review-animations
 
@@ -808,7 +811,8 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 - Upstream path: `skills/ultra11y` at commit `d1cd14792f3bd1b9ab15958bc4e72081375514dc`
 - Retrieved: 2026-08-26
 - License: MIT (license file: `skills/accessibility/ultra11y/LICENSE.txt`)
-- Local modifications: none (byte-identical to upstream)
+- Local modifications:
+  - 2026-09-14 (translation): Added short English glosses in brackets after the first use of each French RGAA term or quoted French tool string in the Markdown prose (e.g. « à évaluer » (to be evaluated)), plus a short English explanation after the verbatim French examples in audit.md, ci.md, dynamic.md and pages.md. The French wording itself, code blocks, JSON examples, sample output, references/standards.md (its table already gives English equivalents) and scripts/ultra11y.mjs are unchanged, because they are normative or match real tool output. [SKILL.md, references/audit.md, references/ci.md, references/devtools.md, references/dynamic.md, references/e2e.md, references/guidance.md, references/judgment.md, references/packs.md, references/pages.md, references/prd.md, references/runbook.md]
 
 ## usability-testing
 
@@ -895,6 +899,7 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 - Local modifications:
   - 2026-08-29 (collision-rename): Upstream frontmatter name is 'wireframe', which collides with an already-vendored 'wireframe' skill from manalkaff/opendesign selected earlier in this same research pass (research/manifests/wireframe.json). Renamed this skill's id/frontmatter name to 'wireframe-json' to disambiguate — the two skills do genuinely different things (opendesign's wireframe produces multiple rough divergent low-fi sketches; this one produces one precise, schema-validated, machine-readable wireframe with an editable preview) so both are worth keeping rather than dropping one. [SKILL.md]
   - 2026-08-29 (broken-reference): Upstream SKILL.md hard-codes the install path '.claude/skills/wireframe/' when referencing its own sibling files (wireframe-designer.md in Step 2, and wireframe-template.html in the Step 4 python splice command) — a Claude-Code-specific absolute convention that breaks for any other harness, and would in any case now be wrong after the collision-rename since the installed directory name changes. Rewrote the wireframe-designer.md reference to a same-directory relative path, and replaced the hard-coded template path in the Step 4 script with a '{skill_dir}' placeholder the invoking agent fills in with this skill's own installed directory, with an explanatory sentence added after the code block. [SKILL.md]
+  - 2026-09-14 (translation): Translated the Japanese code comments in wireframe-template.html and one label in SKILL.md ("KAI Answer View") into English. README.md had a Japanese half that was a translation of its English half; it was removed rather than kept as a second English copy. No logic, CSS, identifiers or splice markers changed. [README.md, wireframe-template.html, SKILL.md]
 
 ## wp-block-themes
 

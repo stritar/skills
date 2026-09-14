@@ -1,48 +1,57 @@
-# 観点表の読み方
+# How to read the check point lists
 
-このディレクトリの `checklist-*.md` は、アクセシビリティチェックで確認する観点の一覧である。
-`a11y-check-code` と `a11y-check-page` の両スキルが同一のファイルを共有する。
+The `checklist-*.md` files in this directory are lists of the check
+points verified in an accessibility check. Both the `a11y-check-code` and
+`a11y-check-page` skills share the same files.
 
-## 観点 ID
+## Check point IDs
 
-| プレフィックス | 範囲 | ファイル |
-| --- | --- | --- |
-| `SPEC-nn` | 仕様から判断できる問題 | `checklist-spec.md` |
-| `VIS-nn` | 視覚的な確認とマウスポインタによる操作 | `checklist-visual.md` |
-| `KBD-nn` | キーボードのみによる操作 | `checklist-keyboard.md` |
-| `RFL-nn` | ズーム、文字サイズ、ウィンドウサイズの変更 | `checklist-reflow.md` |
-| `SEM-nn` | 機械可読性（マークアップ・アクセシビリティツリー） | `checklist-semantics.md` |
-| `AXE-nn` | axe-core による自動チェック | `checklist-semantics.md` |
+| Prefix    | Scope                                                    | File                     |
+| --------- | --------------------------------------------------------- | ------------------------ |
+| `SPEC-nn` | Issues that can be judged from the specification         | `checklist-spec.md`      |
+| `VIS-nn`  | Visual verification and mouse pointer operation           | `checklist-visual.md`    |
+| `KBD-nn`  | Keyboard-only operation                                    | `checklist-keyboard.md`  |
+| `RFL-nn`  | Zoom, text size, and window size changes                  | `checklist-reflow.md`    |
+| `SEM-nn`  | Machine readability (markup / accessibility tree)          | `checklist-semantics.md` |
+| `AXE-nn`  | Automated checks by axe-core                               | `checklist-semantics.md` |
 
-ID はレポートおよび2つのスキル間の引き継ぎで参照する識別子であり、**変更してはならない**。
-観点を追加するときは、既存の番号を詰めずに末尾へ追加する。
+The ID is an identifier referenced in reports and in the handoff between
+the two skills, and **must not be changed**. When adding a check point,
+append it at the end without renumbering existing ones.
 
-## 確認手段のタグ
+## Verification method tags
 
-各観点には `確認手段:` が付いている。
+Each check point carries a `Verification method:` tag.
 
-- `code` — ソースコードから判定できる
-- `page` — 動作しているページでのみ判定できる
-- `both` — 両方から部分的に判定できる。突き合わせると精度が上がる
+- `code` — can be determined from source code
+- `page` — can only be determined on the running page
+- `both` — can be partially determined from both; cross-checking
+  increases accuracy
 
-**スキルは自分が扱えるタグの観点だけを処理する。**
+**A skill processes only the check points whose tags it can handle.**
 
-- `a11y-check-code` は `code` と `both` を扱う
-- `a11y-check-page` は `page` と `both` を扱う
+- `a11y-check-code` handles `code` and `both`
+- `a11y-check-page` handles `page` and `both`
 
-`both` の観点には、コードから見るときと実ページで見るときの判定方法がそれぞれ書かれている。
+For a `both` check point, the determination method is written separately
+for looking at the code and for looking at the live page.
 
-## 各観点の記録
+## Recording each check point
 
-観点ごとに、以下の4値のいずれかで結果を記録する。「該当なし」を「問題なし」と書いてはならない。
+For each check point, record the result as one of the following four
+values. Do not write "not applicable" as "no issue".
 
-- `問題あり` — 指摘としてレポートに載せる
-- `問題なし` — 確認して問題がなかった
-- `判定不能` — 確認を試みたが、この手段では判定できなかった。レポートの「要追加確認」に載せる
-- `対象なし` — 対象に該当する要素・機能が存在しなかった
+- `issue found` — listed in the report as a finding
+- `no issue` — checked, and there was no issue
+- `cannot be determined` — an attempt was made to check it, but it could not be
+  determined by this means. Listed under "needs further verification" in
+  the report
+- `not applicable` — no element or function corresponding to the target
+  existed
 
-## 重篤度の目安について
+## About the severity guideline
 
-各観点に書かれている「重篤度の目安」は出発点であり、機械的に適用してはならない。
-実際の重篤度は、対象ページの目的とその問題が利用者に与える影響から判断する。
-判定手順は `severity.md` を参照する。
+The "severity guideline" written for each check point is a starting
+point and must not be applied mechanically. The actual severity is
+judged from the purpose of the target page and the impact the issue has
+on the user. See `severity.md` for the determination procedure.

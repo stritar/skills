@@ -285,7 +285,7 @@
   .wf-drag-over { outline: 4px solid var(--drop-indicator) !important; outline-offset: -4px; background: rgba(41,179,241,0.06) !important; }
   .wf-drag-over > .wf-label { color: var(--drop-indicator) !important; }
 
-  /* 選択状態 */
+  /* Selected state */
   .wf-selected { outline: 2px solid var(--accent) !important; outline-offset: -2px; background: rgba(74,144,217,0.06) !important; }
   .wf-selected > .wf-label { color: var(--accent) !important; }
 
@@ -340,9 +340,9 @@
   .wf-grab-bar:hover .wf-grip { opacity: 0.8; }
 
   /* ── Grab bar hover trigger zone ──
-     コンテナ上端にinvisibleなhitゾーンを配置し、
-     子ノードのhoverをブロックしてgrab barへのマウス到達を確保する。
-     :hover時のみ有効にしてドラッグ操作への干渉を防ぐ */
+     Places an invisible hit zone at the top of the container,
+     blocking child-node hover to ensure the mouse can reach the grab bar.
+     Enabled only on :hover to avoid interfering with drag operations */
   .wf-node:has(> .wf-grab-bar)::after,
   #wf-root:has(> .wf-grab-bar)::after {
     content: '';
@@ -580,13 +580,13 @@ const originalFilename = (WIREFRAME_DATA?.name || 'wireframe').replace(/\s+/g, '
 function saveSnapshot() {
   undoStack.push(JSON.stringify(WIREFRAME_DATA.root));
   if (undoStack.length > MAX_UNDO) undoStack.shift();
-  // 新しい操作が入ったらredo履歴をクリア
+  // Clear the redo history when a new operation comes in
   redoStack.length = 0;
 }
 
 function handleUndo() {
   if (undoStack.length === 0) return;
-  // 現在の状態をredo stackに保存
+  // Save the current state to the redo stack
   redoStack.push(JSON.stringify(WIREFRAME_DATA.root));
   WIREFRAME_DATA.root = JSON.parse(undoStack.pop());
   selectedPath = null;
@@ -595,7 +595,7 @@ function handleUndo() {
   updateJSONPanel();
   showToast('Undo');
 
-  // undoで全て戻した場合はeditedバッジを消す
+  // Hide the edited badge once undo has reverted everything
   if (undoStack.length === 0) {
     modified = false;
     document.getElementById('wf-edited-badge').style.display = 'none';
@@ -604,7 +604,7 @@ function handleUndo() {
 
 function handleRedo() {
   if (redoStack.length === 0) return;
-  // 現在の状態をundo stackに保存
+  // Save the current state to the undo stack
   undoStack.push(JSON.stringify(WIREFRAME_DATA.root));
   WIREFRAME_DATA.root = JSON.parse(redoStack.pop());
   selectedPath = null;
@@ -774,7 +774,7 @@ function handleDrop(e) {
   modified = true;
   document.getElementById('wf-edited-badge').style.display = 'inline';
 
-  // 並べ替え後はpathが変わるので選択をリセット
+  // Reset the selection since the path changes after reordering
   selectedPath = null;
 
   // Re-render
@@ -914,7 +914,7 @@ function showToast(message) {
 // ── Direction Toggle ──
 
 function toggleDirection(path) {
-  // pathがnullの場合はrootノード
+  // If path is null, it's the root node
   let node;
   if (path === null) {
     node = WIREFRAME_DATA.root;
@@ -939,7 +939,7 @@ function toggleDirection(path) {
 // ── Selection & Copy/Paste ──
 
 function selectNode(path) {
-  // 同じノードをクリックしたら選択解除
+  // Deselect if the same node is clicked
   if (selectedPath === path) {
     selectedPath = null;
   } else {
@@ -956,7 +956,7 @@ function updateSelection() {
   }
 }
 
-// ノードのディープコピー（nameに " (copy)" を付与）
+// Deep-copy a node (appends " (copy)" to its name)
 function deepCopyNode(node) {
   const copy = JSON.parse(JSON.stringify(node));
   copy.name = (copy.name || '') + ' (copy)';
@@ -978,13 +978,13 @@ function handlePaste() {
 
   saveSnapshot();
   const copy = deepCopyNode(clipboardNode);
-  // 選択中の要素の直後に挿入
+  // Insert immediately after the selected element
   info.parent.children.splice(info.index + 1, 0, copy);
 
   modified = true;
   document.getElementById('wf-edited-badge').style.display = 'inline';
 
-  // ペースト先を選択状態にする
+  // Select the pasted element
   const parts = selectedPath.split('.');
   parts[parts.length - 1] = String(info.index + 1);
   selectedPath = parts.join('.');
@@ -1015,11 +1015,11 @@ function handleDelete() {
 }
 
 function handleKeyDown(e) {
-  // input/textarea/contenteditable にフォーカス中はブラウザのデフォルト動作を優先
+  // Prefer the browser's default behavior while an input/textarea/contenteditable is focused
   const tag = e.target.tagName;
   if (tag === 'INPUT' || tag === 'TEXTAREA' || e.target.isContentEditable) return;
 
-  // Delete/Backspace（修飾キーなし）
+  // Delete/Backspace (no modifier keys)
   if ((e.key === 'Delete' || e.key === 'Backspace') && !e.metaKey && !e.ctrlKey) {
     if (selectedPath === null) return;
     handleDelete();
@@ -1037,7 +1037,7 @@ function handleKeyDown(e) {
     handleUndo();
     e.preventDefault();
   } else if (e.key === 'c') {
-    // JSONパネルのテキスト選択中はブラウザのコピーを優先
+    // Prefer the browser's copy while text is selected in the JSON panel
     if (window.getSelection()?.toString()) return;
     handleCopy();
     e.preventDefault();
@@ -1048,7 +1048,7 @@ function handleKeyDown(e) {
 }
 
 function handleNodeClick(e) {
-  // direction toggleやgrab bar内のボタンクリックは無視
+  // Ignore clicks on the direction toggle or buttons inside the grab bar
   if (e.target.closest('.wf-dir-toggle') || e.target.closest('button')) return;
 
   const nodeEl = e.target.closest('[data-path]');
@@ -1072,7 +1072,7 @@ function createGrabBar(name, path, direction) {
   label.textContent = name;
   bar.appendChild(label);
 
-  // direction切り替えボタン（childrenを持つコンテナのみ）
+  // Direction toggle button (containers with children only)
   if (direction) {
     const toggle = document.createElement('button');
     toggle.className = 'wf-dir-toggle';
@@ -1083,7 +1083,7 @@ function createGrabBar(name, path, direction) {
       e.preventDefault();
       toggleDirection(path);
     });
-    // ドラッグ開始を抑止
+    // Suppress drag start
     toggle.addEventListener('mousedown', (e) => e.stopPropagation());
     toggle.draggable = false;
     bar.appendChild(toggle);
@@ -1272,7 +1272,7 @@ function render() {
       if (WIREFRAME_DATA.root.align) viewport.style.alignItems = WIREFRAME_DATA.root.align;
       if (WIREFRAME_DATA.root.wrap) viewport.style.flexWrap = 'wrap';
 
-      // rootノード用のgrab bar（direction切り替え用）
+      // Grab bar for the root node (for the direction toggle)
       viewport.appendChild(createGrabBar(WIREFRAME_DATA.root.name || 'Root', null, rootDir));
 
       WIREFRAME_DATA.root.children.forEach((child, i) => {
@@ -1281,7 +1281,7 @@ function render() {
     }
   }
 
-  // render後にDOM上の選択状態を再適用
+  // Reapply the DOM selection state after render
   updateSelection();
 }
 
@@ -1312,11 +1312,11 @@ function init() {
   viewport.addEventListener('dragover', handleDragOver);
   viewport.addEventListener('drop', handleDrop);
 
-  // 選択とコピー&ペースト
+  // Selection and copy/paste
   viewport.addEventListener('click', handleNodeClick);
   document.addEventListener('keydown', handleKeyDown);
 
-  // viewport外クリックで選択解除
+  // Deselect on click outside the viewport
   document.getElementById('wf-viewport-wrap').addEventListener('click', (e) => {
     if (e.target.closest('#wf-root [data-path]')) return;
     selectedPath = null;

@@ -82,7 +82,8 @@ You are working in some other repository and want design expertise from here.
   green.
 - Third-party skills are never edited for style. Allowed modification reasons
   (each recorded in the entry's `source.modifications`): compatibility,
-  security, portability, broken-reference, defect, collision-rename.
+  security, portability, broken-reference, defect, collision-rename,
+  translation (non-English prose rendered in English).
 - New skills follow `CONTRIBUTING.md`. Vendored skills also go through the
   research pipeline in the maintainer's private research archive
   (`stritar/skills-research`, cloned into the gitignored `research/`).

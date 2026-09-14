@@ -28,7 +28,7 @@ node scripts/ultra11y.mjs prd --in audit.json --format remediation # legacy dev 
   `references/standards.md` → *Auditor vocabulary*):
   1. **Auditor block** — **theme** (RGAA *Thématique* / WCAG core *Principle · Guideline*),
      **criterion** + its official wording, **test(s)** (RGAA test numbers `11.6.1` / WCAG
-     techniques), **WCAG** mapping + level, **Priorité**, the **finding** (non-conformity,
+     techniques), **WCAG** mapping + level, **Priorité** (priority), the **finding** (non-conformity,
      labelled with the standard's *non-conformant* verdict), the **expected** conformant state,
      a **verification** method, and the occurrence **checklist** (`file:line`) with the
      cross-file **definition site** (`related`) when present.
@@ -51,7 +51,7 @@ node scripts/ultra11y.mjs prd --in audit.json --format remediation # legacy dev 
   « Recommandations (non normatives) » / "Recommendations (non-normative)" with a 💡 marker and
   the « Recommandation (non normative) » tag — a distinct, non-parseable list so `verify` never
   captures it as an NC claim. An advisory finding riding along in an otherwise-NC criterion is
-  split out under « Recommandations associées ». It never enters the occurrence checklist,
+  split out under « Recommandations associées » (related recommendations). It never enters the occurrence checklist,
   never flips a criterion to NC, and never counts toward `conformancePct`.
 - **`--format remediation` (legacy dev backlog)**: the previous developer-oriented block —
   fix(es), an **effort estimate** (S/M/L), a **before/after example** from the implementation
@@ -68,8 +68,9 @@ node scripts/ultra11y.mjs prd --in audit.json --format remediation # legacy dev 
 When you author or extend PRD/issue prose in French (extra context, acceptance criteria,
 issue comments), keep technical tokens in English exactly as the engine's fr catalog does:
 attribute/element/role names and their values are code, not prose — `aria-live` stays
-`aria-live` (never « région live »), same for `tabindex`, `alt`, `role="alert"`. Normative
-standard vocabulary (e.g. RGAA « lien d'évitement ») keeps its official French wording.
+`aria-live` (never « région live », French for "live region"), same for `tabindex`, `alt`,
+`role="alert"`. Normative standard vocabulary (e.g. RGAA « lien d'évitement » (skip link))
+keeps its official French wording.
 
 ## Filing these as tickets
 

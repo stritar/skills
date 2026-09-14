@@ -189,7 +189,7 @@ One row per criterion (the pack's own under `--standard`), one column per page:
 embedded in `report` whenever pages are in scope.
 
 A column is headed by the page's **URL**, not its name. A name is not an address — two routes
-of one app are routinely both called « Accueil », and a `<title>` is written for a browser tab
+of one app are routinely both called « Accueil » (home), and a `<title>` is written for a browser tab
 rather than for a column. When every page in scope shares an origin (what a crawl of one site
 produces) the header is the **path** and the origin is stated once above the table, because
 nine columns of `https://example.fr/mentions-legales.html` is a table nobody reads; a
@@ -308,9 +308,10 @@ it undefined, is read as "unknown", and keeps its recorded basis.
 that page actually decided, and it is **null** when that denominator is empty — rendered `—`,
 never a number, and always beside its denominator: `50 % (2/106)`, `— (0/106)`. Returning 100
 there is how thirty-eight sheets reported a perfect page for an app a human auditor had just
-found sixteen non-conformities in: the criteria were all « à évaluer », so nothing was decided,
-so the rate was 100. The index cell carries the same `(decided/total)` bracket as the sheet's
-« Couverture » line, from one shared computation, so the artefact people paste into a pull
+found sixteen non-conformities in: the criteria were all « à évaluer » (to be evaluated), so
+nothing was decided, so the rate was 100. The index cell carries the same `(decided/total)`
+bracket as the sheet's « Couverture » (coverage) line, from one shared computation, so the
+artefact people paste into a pull
 request can no longer say something its own sheet contradicts.
 
 **3. Silence only decides what the engine CAN decide.** A scope-wide `NC` on a judgment
@@ -322,8 +323,8 @@ nobody's verdict. So only criteria whose test-level matrix opts into `completeBy
 those three only**. A rule that covers one sub-test, one precondition or one allowed mechanism
 cannot close the rest of the criterion. Everything else stays « à évaluer » until `scan`, the
 snapshot tier or an adjudication decides it. Before this rule a page with no images scored 100%
-on « chaque image a-t-elle une alternative pertinente ? », a rate computed over criteria nobody
-had assessed.
+on « chaque image a-t-elle une alternative pertinente ? » ("does each image have a relevant
+alternative?"), a rate computed over criteria nobody had assessed.
 
 What a criterion CAN be decided as, without any of that, is a separate question: since the
 engine learned to prove applicability (`src/audit.ts` `SUBJECT_MATTER`), a criterion whose
@@ -337,7 +338,8 @@ A non-normative recommendation never flips a page criterion to `NC`, exactly as 
 Per-page attribution surfaces design-system defects at their true multiplicity: one DSFR
 link-styling rule can be 472 findings over 38 pages from 7 distinct selectors. A page sheet
 therefore groups occurrences by `(file, ruleId, selectorHint)` under a counted header —
-`` **`a.fr-link`** — lien identifié par la couleur seule · ×12 ``.
+`` **`a.fr-link`** — lien identifié par la couleur seule · ×12 ``
+("link identified by colour alone").
 
 It is a **display** fold. The header is deliberately not checkbox-shaped, every occurrence keeps
 its own parseable line indented beneath it, and the block still announces the raw count — so
@@ -443,7 +445,8 @@ not define, a result naming an undeclared page are each reported, and nothing is
 partial parse, because a partial import looks complete.
 
 The diff sorts each (page, criterion) pair into five buckets: **corrigé · inchangé ·
-partiellement corrigé · régressé · non retesté**. The last one is the one no report surfaces: a
+partiellement corrigé · régressé · non retesté** (fixed · unchanged · partially fixed ·
+regressed · not retested). The last one is the one no report surfaces: a
 criterion that was non-conforming and was left untested in the counter-audit is neither confirmed
 fixed nor confirmed broken. Nothing is re-decided — both sides arrive decided — an undecided
 criterion is never read as agreement, and a page only one side ruled on is reported as a coverage

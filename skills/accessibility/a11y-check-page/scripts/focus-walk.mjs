@@ -1,46 +1,47 @@
 #!/usr/bin/env node
-// キーボードで Tab / Shift+Tab を繰り返し、各ステップのフォーカス位置とフォーカスインジケーターを
-// 実際の :focus-visible 適用状態で記録して JSON 出力する (KBD-07 フォーカス順序 /
-// KBD-08 フォーカスの可視性 / KBD-09 フォーカスの隠蔽の材料)。
+// Repeats Tab / Shift+Tab on the keyboard, recording the focus position and focus indicator at
+// each step under the actual :focus-visible applied state, and outputs it as JSON (material for
+// KBD-07 focus order / KBD-08 focus visibility / KBD-09 focus concealment).
 //
-// Playwright MCP でも browser_press_key + browser_evaluate で同じことはできるが、要素数が多いと
-// 1 ステップごとに往復が発生する。多数の要素をまとめて巡回したいときにこのスクリプトが有効。
-// URL だけで再現できる状態向け。モーダルを開いた状態などは MCP 側で確認する。
+// The same thing can be done with Playwright MCP using browser_press_key + browser_evaluate,
+// but when there are many elements this incurs a round trip per step. This script is useful
+// when you want to walk through many elements at once. Suited to states reproducible from the
+// URL alone; check states such as a modal being open on the MCP side.
 //
-// 使い方:
-//   node focus-walk.mjs <url> [オプション]
+// Usage:
+//   node focus-walk.mjs <url> [options]
 //
-// オプション:
-//   --max <n>       Tab を押す最大回数 (既定: 60)
-//   --reverse       Shift+Tab で逆方向に巡回する (既定: 順方向)
-//   --width <px>    ビューポート幅 (既定: 1280)
-//   --height <px>   ビューポート高さ (既定: 900)
-//   --wait <state>  load|domcontentloaded|networkidle (既定: networkidle)
-//   --out <file>    結果の出力先ファイル (既定: 標準出力)
-//   --help          このヘルプを表示
+// Options:
+//   --max <n>       Maximum number of times to press Tab (default: 60)
+//   --reverse       Walk in reverse with Shift+Tab (default: forward)
+//   --width <px>    Viewport width (default: 1280)
+//   --height <px>   Viewport height (default: 900)
+//   --wait <state>  load|domcontentloaded|networkidle (default: networkidle)
+//   --out <file>    File to write the result to (default: stdout)
+//   --help          Show this help
 //
-// 出力の各ステップ: tag, role, type, name, selector, tabIndex, rect, visible,
-//                   outline, boxShadow, focusIndicator (見た目の指標があるか)
-// focusIndicator は outline か box-shadow のどちらかがあるかの近似。最終的な視認性は
-// スクリーンショットでも確認すること。KBD-08 は「見えるか」が本質。
+// Each output step: tag, role, type, name, selector, tabIndex, rect, visible,
+//                   outline, boxShadow, focusIndicator (whether there is a visible indicator)
+// focusIndicator is an approximation of whether there is either an outline or a box-shadow.
+// Also confirm final visibility with a screenshot. What matters for KBD-08 is "is it visible".
 
 import { writeFile } from "node:fs/promises";
 import { launchChromium } from "./browser.mjs";
 
-const USAGE = `使い方:
-  node focus-walk.mjs <url> [オプション]
+const USAGE = `Usage:
+  node focus-walk.mjs <url> [options]
 
-オプション:
-  --max <n>       Tab を押す最大回数 (既定: 60)
-  --reverse       Shift+Tab で逆方向に巡回する
-  --width <px>    ビューポート幅 (既定: 1280)
-  --height <px>   ビューポート高さ (既定: 900)
-  --wait <state>  load|domcontentloaded|networkidle (既定: networkidle)
-  --out <file>    結果の出力先ファイル (既定: 標準出力)
-  --help          このヘルプを表示
+Options:
+  --max <n>       Maximum number of times to press Tab (default: 60)
+  --reverse       Walk in reverse with Shift+Tab
+  --width <px>    Viewport width (default: 1280)
+  --height <px>   Viewport height (default: 900)
+  --wait <state>  load|domcontentloaded|networkidle (default: networkidle)
+  --out <file>    File to write the result to (default: stdout)
+  --help          Show this help
 `;
 
-/** ページ内で現在のフォーカス要素の情報を返す。playwright-workflow.md のスニペット相当。 */
+/** Returns info about the currently focused element in the page. Equivalent to the playwright-workflow.md snippet. */
 function inspectActive() {
   const el = document.activeElement;
   if (!el || el === document.body || el === document.documentElement) {
@@ -78,9 +79,9 @@ function parseArgs(argv) {
     else if (a === "--height") opts.height = parseInt(argv[++i], 10);
     else if (a === "--wait") opts.wait = argv[++i];
     else if (a === "--out") opts.out = argv[++i];
-    else if (a.startsWith("--")) throw new Error(`不明なオプション: ${a}`);
+    else if (a.startsWith("--")) throw new Error(`Unknown option: ${a}`);
     else if (!opts.url) opts.url = a;
-    else throw new Error(`余分な引数: ${a}`);
+    else throw new Error(`Extra argument: ${a}`);
   }
   return opts;
 }
@@ -121,7 +122,7 @@ async function main(argv) {
     if (opts.out) {
       await writeFile(opts.out, json + "\n", "utf8");
       const noInd = steps.filter((s) => !s.none && !s.focusIndicator).length;
-      process.stderr.write(`${opts.out} に書き出しました (${steps.length} ステップ, インジケーター無し ${noInd} 件)\n`);
+      process.stderr.write(`Wrote to ${opts.out} (${steps.length} steps, ${noInd} with no indicator)\n`);
     } else {
       process.stdout.write(json + "\n");
     }

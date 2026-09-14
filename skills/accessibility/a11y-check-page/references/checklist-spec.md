@@ -1,72 +1,104 @@
-# 観点表: 仕様から判断できる問題
+# Check point list: Issues that can be judged from the specification
 
-対象の仕様（設計書、実装、製作者への確認）から評価する観点。ブラックボックスでの操作では
-発見しづらく、仕様を知らなければ判定できないものが中心となる。
+Check points evaluated from the target's specification (the design
+document, the implementation, or confirmation with the creator). These are
+mainly issues that are hard to find through black-box operation and cannot
+be judged without knowing the specification.
 
-製作者から仕様の説明を受ける場合、**楽観的な回答を信頼してはならない**。製作者自身が把握
-できていないことや、回答に信憑性がないことはしばしばある。可能な限り自分で挙動を確認する。
+When receiving an explanation of the specification from the creator, **do
+not trust an optimistic answer**. It is often the case that the creator
+themselves has not grasped something, or that the answer lacks
+credibility. Verify the behavior yourself wherever possible.
 
 ---
 
-### SPEC-01: 時間制限
+### SPEC-01: Time limits
 
 - WCAG: SC 2.2.1 (A)
-- 確認手段: `both`
-- 判定: コンテンツの操作に時間制限がある場合、以下のいずれかを満たすこと。
-  - 利用者が制限時間に達する前に制限を解除できる
-  - 制限時間が20時間より長い
-  - リアルタイムのイベントと連動するなど、必要不可欠な理由がある
-  - 時間切れの少なくとも20秒前に通知され、簡単な操作で延長できる
-  - 制限時間に達する前に、デフォルトの制限時間の10倍を超える時間に調整できる
-- `code` からの判定: セッションタイムアウト、`setTimeout` / `setInterval` による自動遷移や
-  自動ログアウト、カウントダウン表示、フォームの有効期限トークンを探す。延長・解除の
-  UI と、事前通知の実装があるかを確認する。
-- `page` からの判定: 実際に待つことは現実的でないため、仕様と実装の確認に頼る。
-  短い制限であれば実際に放置して挙動を確認する。
-- よくある問題: セッション切れで入力内容が失われる。予告なくログアウトされる。
-- 重篤度の目安: 入力内容が失われるなら Major。予告なく操作が中断されるなら Major。
+- Verification method: `both`
+- Judgement: when there is a time limit on operating content, one of the
+  following is satisfied.
+  - The user can turn off the time limit before reaching it
+  - The time limit is longer than 20 hours
+  - There is an essential reason, such as being tied to a real-time event
+  - The user is notified at least 20 seconds before time expires and can
+    extend it with a simple action
+  - Before reaching the time limit, the user can adjust it to more than
+    10 times the default limit
+- Determination from `code`: look for session timeouts, automatic
+  navigation or automatic logout via `setTimeout` / `setInterval`, a
+  countdown display, and form expiration tokens. Check whether there is
+  UI for extending or turning off the limit, and whether advance notice
+  is implemented.
+- Determination from `page`: actually waiting is not realistic, so rely
+  on checking the specification and implementation. For a short limit,
+  actually leave it idle and check the behavior.
+- Common issues: input content is lost when the session expires. The
+  user is logged out without warning.
+- Severity guideline: Major if input content is lost. Major if an
+  operation is interrupted without warning.
 
-### SPEC-02: 動きによる起動
+### SPEC-02: Activation by motion
 
 - WCAG: SC 2.5.4 (A)
-- 確認手段: `both`
-- 判定: デバイスの動き（シェイク、傾き）や利用者の動き（ジェスチャー、カメラ入力）で
-  操作できる機能は、通常の UI コンポーネントでも操作でき、かつ偶発的な起動を防ぐために
-  動きへの反応を無効にできること。
-- `code` からの判定: `devicemotion` / `deviceorientation` イベント、`DeviceMotionEvent`、
-  加速度センサー API、カメラを用いたジェスチャー検出の使用を探す。
-- 補足: Web サイトでこの種の機能を持つことは少ない。仕様として存在する場合には注意深く確認する。
-- 重篤度の目安: 動きでしか実行できない機能があるなら Major。
+- Verification method: `both`
+- Judgement: a function that can be operated by device motion (shaking,
+  tilting) or user motion (gestures, camera input) can also be operated
+  through an ordinary UI component, and response to motion can be
+  disabled to prevent accidental activation.
+- Determination from `code`: look for the use of `devicemotion` /
+  `deviceorientation` events, `DeviceMotionEvent`, accelerometer APIs,
+  and camera-based gesture detection.
+- Note: it is rare for a website to have this kind of function. Where it
+  exists as part of the specification, check it carefully.
+- Severity guideline: Major if there is a function that can only be
+  executed by motion.
 
-### SPEC-03: 認知機能テストによる認証
+### SPEC-03: Authentication by cognitive function test
 
 - WCAG: SC 3.3.8 (AA)
-- 確認手段: `both`
-- 判定: 認証プロセスの各ステップにおいて、認知機能テスト（パスワードの記憶、パズルの求解、
-  計算など）に依存しないこと。依存する場合は以下の例外のいずれかを満たすこと。
-  - 代替: 認知機能テストに依存しない別の認証方法がある
-  - メカニズム: 認知機能テストの完了を支援するメカニズムが利用できる
-  - 物体の認識: 認知機能テストが、物体を特定させるものである
-  - 個人特有のコンテンツ: 認知機能テストが、利用者本人が提供した非テキストコンテンツを
-    識別させるものである
-- `code` からの判定: パスワード入力欄に `autocomplete="current-password"` /
-  `"new-password"` が指定され、コピー＆ペーストやパスワードマネージャーによる自動入力が
-  阻害されていないか（`onpaste` の抑止、入力欄の分割など）を確認する。CAPTCHA、
-  ワンタイムパスワードの手入力強制、秘密の質問の実装を探す。
-- `page` からの判定: 実際にパスワードマネージャーによる貼り付けが可能かを試す。
-- よくある問題: パスワード欄で貼り付けが禁止されている。文字認識型 CAPTCHA が唯一の
-  認証手段になっている。ワンタイムパスワードを分割入力欄に手入力させ、貼り付けができない。
-- 重篤度の目安: 認証を完了できない利用者が生じるため、原則 Critical または Major。
+- Verification method: `both`
+- Judgement: each step of the authentication process does not rely on a
+  cognitive function test (recalling a password, solving a puzzle,
+  performing a calculation, etc.). Where it does rely on one, one of the
+  following exceptions is satisfied.
+  - Alternative: another authentication method that does not rely on a
+    cognitive function test is available
+  - Mechanism: a mechanism to assist in completing the cognitive
+    function test is available
+  - Object recognition: the cognitive function test requires identifying
+    an object
+  - Personal content: the cognitive function test requires identifying
+    non-text content provided by the user themselves
+- Determination from `code`: check whether the password input field
+  specifies `autocomplete="current-password"` / `"new-password"`, and
+  whether copy-and-paste or autofill by a password manager is obstructed
+  (suppression of `onpaste`, splitting the input field into multiple
+  fields, etc.). Look for CAPTCHA, forcing manual entry of a one-time
+  password, and implementations of security questions.
+- Determination from `page`: actually try whether pasting via a password
+  manager is possible.
+- Common issues: pasting is disabled in the password field. A
+  character-recognition CAPTCHA is the only authentication method. A
+  one-time password must be typed manually into split input fields and
+  cannot be pasted.
+- Severity guideline: Critical or Major in principle, because some users
+  will be unable to complete authentication.
 
-### SPEC-04: 想定される利用環境と操作フローの網羅
+### SPEC-04: Coverage of expected usage environments and operation flows
 
-- WCAG: （直接対応する達成基準はない。チェックの網羅性を担保するための観点）
-- 確認手段: `both`
-- 判定: チェックの対象範囲が、想定される利用環境と操作フローを網羅していること。
-  - モバイル向けの表示が PC 向けと異なるなら、両方をチェックしたか
-  - 操作フローに分岐があるなら、分岐ごとにチェックしたか
-  - 権限やログイン状態によって表示が変わるなら、それぞれをチェックしたか
-  - 状態によって画面が変化する（メニュー開閉、モーダル、エラー表示）なら、状態ごとに
-    チェックしたか
-- この観点は指摘としてではなく、**チェック自体の網羅性の記録**としてレポートに書く。
-  網羅できなかった範囲は「要追加確認」に明記する。
+- WCAG: (there is no directly corresponding success criterion; this
+  check point ensures the completeness of the check)
+- Verification method: `both`
+- Judgement: the scope of the check covers the expected usage
+  environments and operation flows.
+  - If the mobile display differs from the PC display, were both checked?
+  - If the operation flow has branches, was each branch checked?
+  - If the display changes depending on permissions or login state, was
+    each state checked?
+  - If the screen changes depending on state (menu open/closed, modal,
+    error display), was each state checked?
+- This check point is written in the report not as an issue, but as a
+  **record of the completeness of the check itself**. Any range that
+  could not be covered is noted explicitly under "needs further
+  verification".

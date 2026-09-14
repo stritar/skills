@@ -1,80 +1,106 @@
-# 観点表: ズーム、文字サイズ、ウィンドウサイズの変更
+# Check point list: Zoom, text size, and window size changes
 
-画面の拡大や文字サイズの変更により、レイアウトが崩れたり、文字や UI が隠れたりすることが
-ある。また、スマートフォン用やタブレット用の表示に切り替わることもある。これによって
-マウスポインタによる操作やキーボードによる操作に支障が出ることもあるため、単に表示を
-切り替えるだけでなく、状況によっては**その状態のまま操作も試す**必要がある。
+Enlarging the screen or changing the text size can break the layout, or
+hide text or UI. It can also switch the display to a smartphone or tablet
+layout. Because this can also interfere with mouse-pointer or keyboard
+operation, it is not enough to simply switch the display — depending on
+the situation, **operation must also be tried while in that state**.
 
 ---
 
-### RFL-01: ブラウザのズーム（200%）
+### RFL-01: Browser zoom (200%)
 
 - WCAG: SC 1.4.4 (AA)
-- 確認手段: `both`
-- 判定: ブラウザの拡大機能で 200% 表示にしたとき、利用に問題がないこと。
-  - コンテンツが重なったり、切れたりしない
-  - 操作可能な要素がすべて到達可能で操作できる
-  - 横スクロールを強いられない（RFL-03 と併せて確認する）
-- `code` からの判定: 拡大に追従しない固定サイズの指定（`width` / `height` の固定 px、
-  `overflow: hidden` を伴う固定高さのコンテナ、`vh` に依存した高さ計算）を探す。
-  `<meta name="viewport">` に `user-scalable=no` や `maximum-scale=1` が指定されて
-  いないかも確認する（これは拡大自体を妨げるため、それ自体が問題）。
-- 重篤度の目安: 拡大表示している弱視の利用者が内容を読めない・操作できないなら Major。
+- Verification method: `both`
+- Judgement: there is no problem using the page when displayed at 200%
+  with the browser's zoom function.
+  - Content does not overlap or get cut off
+  - All operable elements are reachable and operable
+  - The user is not forced into horizontal scrolling (check together with
+    RFL-03)
+- Determination from `code`: look for fixed-size specifications that
+  don't follow zoom (fixed px `width` / `height`, a fixed-height
+  container with `overflow: hidden`, height calculations dependent on
+  `vh`). Also check whether `<meta name="viewport">` specifies
+  `user-scalable=no` or `maximum-scale=1` (this itself prevents zooming
+  and is therefore an issue on its own).
+- Severity guideline: Major if a low-vision user viewing the page zoomed
+  in cannot read the content or operate it.
 
-### RFL-02: ブラウザのフォントサイズ変更
+### RFL-02: Browser font-size change
 
 - WCAG: SC 1.4.4 (AA)
-- 確認手段: `both`
-- 判定: ブラウザのフォントサイズ設定を 32 にしたとき、利用に問題がないこと。
-  - 文字サイズが実際に変化することが望ましい。ただし、フォントサイズ設定に従わず同じ表示を
-    維持し続けるように作られている場合もある（その場合、この設定では問題が現れない）
-  - 文字が拡大されたときに、コンテナからはみ出したり、切り詰められたりしない
-- `code` からの判定: `font-size` の `px` 固定指定（ブラウザのフォントサイズ設定に追従しない）、
-  `html { font-size: 62.5% }` のようなリセット、テキストを含むコンテナの固定高さ、
-  `overflow: hidden` や `text-overflow: ellipsis` による切り詰めを探す。
-  `rem` を使っていても、`html` の `font-size` を px で固定していると追従しない。
-- 重篤度の目安: 文字が切れて読めないなら Major。レイアウトが多少崩れる程度なら Normal。
+- Verification method: `both`
+- Judgement: there is no problem using the page when the browser's font
+  size setting is set to 32.
+  - It is desirable that the text size actually change. However, some
+    pages are built to keep the same display regardless of the font-size
+    setting (in that case, this setting reveals no problem)
+  - When text is enlarged, it does not overflow its container or get
+    truncated
+- Determination from `code`: look for `font-size` fixed in `px` (which
+  does not follow the browser's font-size setting), resets such as `html
+  { font-size: 62.5% }`, fixed heights on containers holding text, and
+  truncation via `overflow: hidden` or `text-overflow: ellipsis`. Even
+  when `rem` is used, if `html`'s `font-size` is fixed in px, it will not
+  follow the setting.
+- Severity guideline: Major if text is cut off and unreadable. Normal if
+  the layout is merely somewhat broken.
 
-### RFL-03: リフロー（320px 幅 / 256px 高さ）
+### RFL-03: Reflow (320px width / 256px height)
 
 - WCAG: SC 1.4.10 (AA)
-- 確認手段: `both`
-- 判定: 縦スクロールのコンテンツでは横幅 320px、横スクロールのコンテンツでは縦幅 256px の
-  ブラウザ幅にしたとき、コンテンツの性質上必要なもの（巨大な図表、地図、データテーブルなど）を
-  除いて、二次元のスクロール（縦横両方のスクロール）が発生しないこと。
-  - この確認の主眼は、いわゆる「レスポンシブ」ができているかの確認である
-  - Google Chrome ではウィンドウをこの幅にできないため、開発者ツールの Device toolbar を
-    使用する（Playwright では `browser_resize` で直接指定できる）
-- `code` からの判定: 固定幅のコンテナ、`min-width` の指定、横スクロールを前提とした
-  レイアウト、メディアクエリの最小ブレークポイントが 320px をカバーしているかを確認する。
-- 重篤度の目安: 二次元スクロールを強いられ内容を読めないなら Major。
+- Verification method: `both`
+- Judgement: at a browser width of 320px for vertically scrolling
+  content, or a height of 256px for horizontally scrolling content,
+  two-dimensional scrolling (both vertical and horizontal) does not
+  occur, except for content that requires it by its nature (large
+  diagrams, maps, data tables, etc.).
+  - The main point of this check is to verify whether the page is
+    so-called "responsive"
+  - Google Chrome cannot resize its window to this width, so use the
+    Device toolbar in developer tools (in Playwright, it can be
+    specified directly with `browser_resize`)
+- Determination from `code`: check for fixed-width containers,
+  `min-width` specifications, layouts that assume horizontal scrolling,
+  and whether media queries' smallest breakpoint covers 320px.
+- Severity guideline: Major if the user is forced into two-dimensional
+  scrolling and cannot read the content.
 
-### RFL-04: テキストの間隔
+### RFL-04: Text spacing
 
 - WCAG: SC 1.4.12 (AA)
-- 確認手段: `page`（`code` では原因となる実装の推定まで）
-- 判定: 以下のようにテキストの間隔を変更しても、コンテンツや機能が損なわれないこと。
-  - 行の高さ（行送り）をフォントサイズの少なくとも 1.5 倍にする
-  - 段落に続く間隔をフォントサイズの少なくとも 2 倍にする
-  - 文字の間隔（字間）をフォントサイズの少なくとも 0.12 倍にする
-  - 単語の間隔をフォントサイズの少なくとも 0.16 倍にする
-- 補足: ブラウザ単体ではこの確認ができないため、[ひらくウェブ](https://ymrl.github.io/hiraku-web/)
-  拡張機能や、ブックマークレット、CSS の注入によって確認する。
-- `code` からの判定: テキストを含む要素の固定高さ、`overflow: hidden`、`line-height` を
-  `!important` で固定している箇所、1行に収まる前提のボタンやタブのラベルを探す。
-- 重篤度の目安: 文字が切れて読めないなら Major。それ以外は Normal。
+- Verification method: `page` (with `code`, only as far as estimating
+  the implementation that would cause a problem)
+- Judgement: content or functionality is not lost even when text spacing
+  is changed as follows.
+  - Line height (leading) set to at least 1.5 times the font size
+  - Spacing following paragraphs set to at least 2 times the font size
+  - Letter spacing (character spacing) set to at least 0.12 times the
+    font size
+  - Word spacing set to at least 0.16 times the font size
+- Note: since this cannot be checked with the browser alone, check it
+  using the [Hiraku Web](https://ymrl.github.io/hiraku-web/) extension, a
+  bookmarklet, or CSS injection.
+- Determination from `code`: look for fixed heights on elements
+  containing text, `overflow: hidden`, places that fix `line-height` with
+  `!important`, and button or tab labels that assume they fit on one
+  line.
+- Severity guideline: Major if text is cut off and unreadable. Normal
+  otherwise.
 
-### RFL-05: 拡大・縮小状態での操作
+### RFL-05: Operation while zoomed in or out
 
-- WCAG: （RFL-01〜04 の確認を補完するための観点）
-- 確認手段: `page`
-- 判定: 上記の表示変更を行った状態のまま、マウスポインタとキーボードによる主要な操作が
-  行えること。
-  - モバイル表示に切り替わった場合、ハンバーガーメニューなど PC 表示とは異なる UI が
-    現れる。これらは別途チェックの対象となる（PC 表示で確認済みでも、モバイル表示の
-    UI は未確認である）
-  - 拡大時に固定ヘッダーが画面の大部分を占め、コンテンツやフォーカス位置が見えなくなる
-    ことがある（KBD-09 と関連する）
-- この観点で新たな UI が見つかった場合は、その UI に対して VIS / KBD / SEM の観点を
-  改めて適用する。
-- 重篤度の目安: 発見した問題そのものの重篤度で判断する。
+- WCAG: (a check point to complement the checks in RFL-01 through RFL-04)
+- Verification method: `page`
+- Judgement: the main operations by mouse pointer and keyboard can be
+  performed while remaining in the display states changed above.
+  - When the display switches to a mobile layout, UI different from the
+    PC layout appears, such as a hamburger menu. These are subject to a
+    separate check (even if the PC layout has already been checked, the
+    mobile layout's UI has not)
+  - When zoomed in, a fixed header can occupy most of the screen, making
+    content or the focus position invisible (related to KBD-09)
+- If new UI is found through this check point, apply the VIS / KBD / SEM
+  check points to that UI as well.
+- Severity guideline: judged by the severity of the issue actually found.

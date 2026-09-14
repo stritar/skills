@@ -1,17 +1,17 @@
 #!/usr/bin/env node
-// Playwright と Chromium を「環境に依存せず」に見つけて起動するための共通ヘルパー。
+// Common helper for finding and launching Playwright and Chromium in an "environment-independent" way.
 //
-// このスキルは Playwright MCP を前提にしているが、axe.min.js のように大きすぎて
-// browser_evaluate に一度に渡せないものは、Bash から Playwright を直接動かす方が確実である
-// (SKILL.md 手順4)。その際に run-axe.mjs / focus-walk.mjs から使う。
+// This skill assumes Playwright MCP, but for something too large to pass to browser_evaluate
+// in one go, like axe.min.js, it is more reliable to run Playwright directly from Bash
+// (SKILL.md Step 4). It is used from run-axe.mjs / focus-walk.mjs in that case.
 //
-// このパッケージ自体は playwright に依存していない。実行時には以下の順で探す。
-//   1. 環境変数 PLAYWRIGHT_MODULE で明示されたモジュール指定子/パス
-//   2. import('playwright') / import('playwright-core') (どこかにインストールされていれば)
-//   3. Playwright MCP (@playwright/mcp) が持ち込む playwright-core を、npx キャッシュや
-//      グローバル node_modules から探す
-// Chromium の実行ファイルも、Playwright 同梱のものが無ければ ms-playwright キャッシュから探し、
-// それでも無ければ Chrome/Edge のチャネルを試す。
+// This package itself does not depend on playwright. At runtime it looks in the following order.
+//   1. The module specifier/path given explicitly via the PLAYWRIGHT_MODULE environment variable
+//   2. import('playwright') / import('playwright-core') (if installed anywhere)
+//   3. The playwright-core brought in by Playwright MCP (@playwright/mcp), searched for in the
+//      npx cache or the global node_modules
+// For the Chromium executable too, if none is bundled with Playwright, it searches the
+// ms-playwright cache, and failing that, tries the Chrome/Edge channels.
 
 import { existsSync, readdirSync, statSync } from "node:fs";
 import { homedir, platform } from "node:os";
@@ -21,15 +21,15 @@ import { pathToFileURL } from "node:url";
 
 const require = createRequire(import.meta.url);
 
-/** 与えられた specifier / パスから chromium を取り出す。失敗したら null。 */
+/** Extract chromium from the given specifier / path. Returns null on failure. */
 async function tryImportChromium(specifier) {
   try {
     let target = specifier;
-    // ディレクトリやファイルパスなら file URL に変換して import する
+    // If it's a directory or file path, convert it to a file URL before importing
     if (specifier.includes("/") || specifier.includes("\\")) {
       let entry = specifier;
       if (existsSync(entry) && statSync(entry).isDirectory()) {
-        // package のディレクトリを指している場合は require.resolve で解決する
+        // If it points to a package directory, resolve it with require.resolve
         try {
           entry = require.resolve(specifier);
         } catch {
@@ -39,34 +39,34 @@ async function tryImportChromium(specifier) {
       target = pathToFileURL(entry).href;
     }
     const mod = await import(target);
-    // CommonJS の Playwright は名前付き export を持たず default にぶら下がる
+    // CommonJS Playwright has no named exports and hangs off default instead
     return mod.chromium ?? mod.default?.chromium ?? null;
   } catch {
     return null;
   }
 }
 
-/** npx キャッシュやグローバル node_modules から playwright(-core) のディレクトリを探す */
+/** Search the npx cache and global node_modules for a playwright(-core) directory */
 function findPlaywrightDirs() {
   const dirs = [];
   const roots = [];
 
-  // npm/pnpm のグローバル root
+  // npm/pnpm global root
   for (const env of ["npm_config_prefix", "PNPM_HOME"]) {
     if (process.env[env]) roots.push(join(process.env[env], "lib", "node_modules"), join(process.env[env], "node_modules"));
   }
-  roots.push(join(homedir(), ".npm", "_npx")); // npx キャッシュ (ハッシュ名のサブディレクトリ)
+  roots.push(join(homedir(), ".npm", "_npx")); // npx cache (subdirectories named by hash)
   roots.push("/usr/local/lib/node_modules", "/usr/lib/node_modules", "/opt/homebrew/lib/node_modules");
 
   const names = ["playwright", "playwright-core"];
   for (const root of roots) {
     if (!existsSync(root)) continue;
-    // 直下
+    // Directly under root
     for (const n of names) {
       const p = join(root, n);
       if (existsSync(join(p, "package.json"))) dirs.push(p);
     }
-    // npx キャッシュは <root>/<hash>/node_modules/<name>
+    // The npx cache is <root>/<hash>/node_modules/<name>
     let sub = [];
     try {
       sub = readdirSync(root, { withFileTypes: true }).filter((e) => e.isDirectory());
@@ -83,7 +83,7 @@ function findPlaywrightDirs() {
   return dirs;
 }
 
-/** chromium オブジェクトを取得する。見つからなければ例外。 */
+/** Obtain the chromium object. Throws if not found. */
 export async function getChromium() {
   const attempts = [];
   if (process.env.PLAYWRIGHT_MODULE) attempts.push(process.env.PLAYWRIGHT_MODULE);
@@ -95,15 +95,15 @@ export async function getChromium() {
     if (chromium) return chromium;
   }
   throw new Error(
-    "Playwright が見つかりませんでした。以下のいずれかを行ってください。\n" +
-      "  - 環境変数 PLAYWRIGHT_MODULE に playwright(-core) のパスを指定する\n" +
-      "  - `npm i -g playwright` などでインストールする\n" +
-      "  - あるいはこのスクリプトを使わず、Playwright MCP 側で axe を注入する\n" +
-      "    (assets/axe.min.js の内容を browser_evaluate で評価する)"
+    "Could not find Playwright. Do one of the following.\n" +
+      "  - Set the PLAYWRIGHT_MODULE environment variable to the path of playwright(-core)\n" +
+      "  - Install it with `npm i -g playwright` or similar\n" +
+      "  - Or, instead of using this script, inject axe from the Playwright MCP side\n" +
+      "    (evaluate the contents of assets/axe.min.js with browser_evaluate)"
   );
 }
 
-/** ms-playwright キャッシュから Chromium 系の実行ファイルを探す (ビルド番号の大きい順) */
+/** Search the ms-playwright cache for a Chromium-family executable (largest build number first) */
 function findCachedChromium() {
   const base =
     process.env.PLAYWRIGHT_BROWSERS_PATH ||
@@ -124,7 +124,7 @@ function findCachedChromium() {
     const m = name.match(/-(\d+)$/);
     return m ? parseInt(m[1], 10) : 0;
   };
-  // headless shell を優先し、次に通常の chromium。ビルド番号の大きい順。
+  // Prefer the headless shell, then regular chromium. Largest build number first.
   const prefer = (name) => (name.startsWith("chromium_headless_shell") ? 2 : name.startsWith("chromium") ? 1 : 0);
   const dirs = entries
     .filter((e) => e.name.startsWith("chromium"))
@@ -151,7 +151,7 @@ function findCachedChromium() {
       const p = join(dir, ...rel.split("/"));
       if (existsSync(p)) return p;
     }
-    // 予備: ディレクトリ内を1階層だけ走査して実行ファイル名で拾う
+    // Fallback: scan one level into the directory and pick up by executable name
     try {
       for (const sub of readdirSync(dir, { withFileTypes: true })) {
         if (!sub.isDirectory()) continue;
@@ -168,40 +168,41 @@ function findCachedChromium() {
 }
 
 /**
- * Chromium を起動して { browser } を返す。
- * まず Playwright 同梱ブラウザ、次に ms-playwright キャッシュ、最後に Chrome/Edge チャネルを試す。
- * @param {object} [opts] chromium.launch に渡す追加オプション
+ * Launch Chromium and return { browser }.
+ * Tries the browser bundled with Playwright first, then the ms-playwright cache, and finally
+ * the Chrome/Edge channels.
+ * @param {object} [opts] Additional options passed to chromium.launch
  */
 export async function launchChromium(opts = {}) {
   const chromium = await getChromium();
   const launchOpts = { headless: true, ...opts };
 
-  // 1. 素直に起動 (Playwright 同梱ブラウザ)
+  // 1. Launch directly (browser bundled with Playwright)
   try {
     return await chromium.launch(launchOpts);
   } catch (e1) {
-    // 2. ms-playwright キャッシュから実行ファイルを探して再試行
+    // 2. Look for an executable in the ms-playwright cache and retry
     const cached = findCachedChromium();
     if (cached) {
       try {
         return await chromium.launch({ ...launchOpts, executablePath: cached });
       } catch {
-        /* 次へ */
+        /* next */
       }
     }
-    // 3. システムにインストールされた Chrome / Edge チャネル
+    // 3. A Chrome / Edge channel installed on the system
     for (const channel of ["chrome", "chromium", "msedge"]) {
       try {
         return await chromium.launch({ ...launchOpts, channel });
       } catch {
-        /* 次へ */
+        /* next */
       }
     }
     throw new Error(
-      "Chromium を起動できませんでした。ブラウザがインストールされていない可能性があります。\n" +
-        "  - `npx playwright install chromium` を実行する\n" +
-        "  - もしくは環境変数 PLAYWRIGHT_BROWSERS_PATH でキャッシュ場所を指定する\n" +
-        `元のエラー: ${e1.message}`
+      "Could not launch Chromium. A browser may not be installed.\n" +
+        "  - Run `npx playwright install chromium`\n" +
+        "  - Or set the cache location with the PLAYWRIGHT_BROWSERS_PATH environment variable\n" +
+        `Original error: ${e1.message}`
     );
   }
 }

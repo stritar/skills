@@ -1,128 +1,154 @@
 ---
 name: a11y-check-code
-description: ソースコードを対象にアクセシビリティチェック（a11yチェック）を行う。HTML / JSX / TSX / Vue / Svelte / テンプレートを読み、importしているコンポーネントも辿って、WCAG 2.2 レベルAAを目安に問題を洗い出し、重篤度付きのレポートを出力する。「このコンポーネントのアクセシビリティを見て」「a11yチェックして」「アクセシビリティの問題がないか確認して」などで使う。Use for accessibility (a11y) review of source code files and components against WCAG 2.2 AA.
+description: Performs an accessibility check (a11y check) on source code. Reads HTML / JSX / TSX / Vue / Svelte / templates, also traces imported components, identifies issues against WCAG 2.2 level AA as a guide, and outputs a report with severity ratings. Used for things like "look at this component's accessibility", "run an a11y check", "check whether there are any accessibility issues", and so on. Use for accessibility (a11y) review of source code files and components against WCAG 2.2 AA.
 ---
 
-# ソースコードのアクセシビリティチェック
+# Accessibility check for source code
 
-ソースコードを読んで、アクセシビリティに関して優先的に対処するべき問題を発見する。
-基準は WCAG 2.2 のレベル AA を目安とする。
+Read the source code and find accessibility issues that should be prioritized for
+handling. Use WCAG 2.2 level AA as the guideline.
 
-## このチェックの限界を最初に理解する
+## Understand the limits of this check first
 
-ソースコードから判定できるのは、主に**実装に起因する問題**である。以下は判定できない。
+What can be judged from source code is mainly **issues caused by the implementation**.
+The following cannot be judged:
 
-- 実際のコントラスト比（色が実行時に決まる場合）
-- フォーカス順序が利用者にとって自然かどうか
-- 200% ズームや 320px 幅での表示崩れ
-- ホバーやフォーカスで表示される追加コンテンツの実挙動
-- スクリーンリーダーでの実際の読み上げ
+- Actual contrast ratio (when colors are determined at runtime)
+- Whether the focus order feels natural to the user
+- Layout breakage at 200% zoom or 320px width
+- Actual behavior of additional content shown on hover or focus
+- Actual screen reader announcements
 
-**判定できないものを、判定できたかのように書いてはならない。** 判定できなかった観点は
-「要追加確認」としてレポートに記録し、`a11y-check-page` スキルへの引き継ぎ指示を生成する。
+**Never write as though something was judged when it could not be judged.** Record
+check points that could not be judged in the report as "needs further verification,"
+and generate handoff instructions for the `a11y-check-page` skill.
 
-また、アクセシビリティに留まらない一般的なユーザビリティの問題や、実害はないものの HTML や
-WAI-ARIA の仕様・ベストプラクティスに反するものを見つけた場合も、「アクセシビリティには
-関係ない」という理由で握り潰さずに報告する。
+Also, when general usability issues beyond accessibility are found, or things that
+cause no actual harm but violate HTML or WAI-ARIA specifications or best practices,
+report them too, rather than suppressing them on the grounds that "this isn't related
+to accessibility."
 
-## 手順
+## Steps
 
-### 1. 対象の把握
+### 1. Understand the target
 
-引数でファイルパス、グロブ、ディレクトリが指定されていればそれを対象とする。指定がなければ、
-何を対象とするかを利用者に確認する。
+If a file path, glob, or directory is specified as an argument, treat that as the
+target. If not specified, ask the user what the target should be.
 
-次に、対象の import を辿ってコンポーネントの構成を把握する。
-**手順は `references/component-tracing.md` に従う。** 辿った結果をコンポーネントツリーとして
-利用者に提示し、チェックの範囲を明示してから次に進む。
+Next, trace the target's imports to understand the component structure. **Follow the
+procedure in `references/component-tracing.md`.** Present the traced result to the
+user as a component tree, make the scope of the check explicit, and then proceed.
 
-あわせて、対象が何のための画面かを把握する。重篤度の判定には「そのページの主要な目的」が
-必要であり、目的を把握せずに重篤度は判定できない。コードから読み取れない場合は利用者に尋ねる。
+Also, understand what the target screen is for. Judging severity requires knowing
+"the page's primary purpose," and severity cannot be judged without understanding
+that purpose. If it cannot be read from the code, ask the user.
 
-- どんな人が利用するものか（広く一般の人か、登録された利用者のみか）
-- 想定されている使用デバイス（PC、スマートフォン、タブレット）
-- 利用の目的（フォームの送信か、情報の閲覧か、業務の遂行か）
-- 操作の流れ（画面遷移の順序、操作の順序、システムの挙動）
+- Who uses it (the general public, or only registered users)
+- The intended device (PC, smartphone, tablet)
+- The purpose of use (submitting a form, viewing information, carrying out work
+  tasks)
+- The operation flow (the order of screen transitions, the order of operations,
+  system behavior)
 
-### 2. 状態バリエーションの列挙
+### 2. Enumerate state variations
 
-**この手順を飛ばすと、初期表示しか見ないチェックになる。必ず行う。**
+**Skipping this step results in a check that only looks at the initial display.
+Always do this.**
 
-条件分岐、state、props、権限、データの有無によって出し分けられる表示をすべて列挙する。
+Enumerate all displays that branch based on conditionals, state, props, permissions,
+or the presence/absence of data.
 
-- モーダル・ダイアログ・ドロップダウン・メニュー・アコーディオンの開閉
-- ローディング中、エラー、空状態、権限による表示差
-- フォームのバリデーションエラー表示、送信中、送信完了
-- レスポンシブによる表示の分岐（モバイル用の UI は PC 用とは別のチェック対象になる）
+- Opening/closing of modals, dialogs, dropdowns, menus, accordions
+- Loading, error, empty states, and display differences based on permissions
+- Form validation error display, submitting, submission complete
+- Display branches from responsive design (mobile UI is a separate check target from
+  PC UI)
 
-以降の観点は、**列挙したそれぞれの状態に対して**適用する。
+The following check points are applied **to each of the enumerated states**.
 
-### 3. 観点の適用
+### 3. Apply the check points
 
-`references/` の観点表を読み、`確認手段:` が `code` または `both` の観点を適用する。
+Read the check point tables in `references/` and apply the check points where
+`Verification method:` is `code` or `both`.
 
-- `references/checklist-semantics.md` — 機械可読性（最も指摘が多く出る）
-- `references/checklist-keyboard.md` — キーボード操作
-- `references/checklist-visual.md` — 視覚・マウス操作
-- `references/checklist-reflow.md` — ズーム・文字サイズ・ウィンドウサイズ
-- `references/checklist-spec.md` — 仕様から判断できる問題
+- `references/checklist-semantics.md` — Machine readability (produces the most
+  findings)
+- `references/checklist-keyboard.md` — Keyboard operation
+- `references/checklist-visual.md` — Visual / mouse operation
+- `references/checklist-reflow.md` — Zoom, text size, window size
+- `references/checklist-spec.md` — Issues that can be judged from the spec
 
-**ファイルごとではなく、観点ごとに処理する。** ファイルを順に読んでいくと観点の抜けが
-起きやすい。観点表を上から辿り、各観点について Grep で対象範囲を横断的に検索する。
+**Process by check point, not by file.** Reading files one after another makes it
+easy to miss check points. Work through the check point table from the top, and for
+each check point, use Grep to search across the target scope.
 
-使用しているフレームワークやライブラリに応じて `references/framework-notes.md` を参照する。
-フレームワーク固有の典型的な問題と、その検出方法が書かれている。
+Refer to `references/framework-notes.md` depending on the framework or library in
+use. It describes typical framework-specific issues and how to detect them.
 
-各観点について、`問題あり` / `問題なし` / `判定不能` / `対象なし` の4値で結果を記録する。
-**「該当なし」を「問題なし」と書いてはならない。**
+For each check point, record the result as one of four values: `issue found` /
+`no issue` / `cannot be determined` / `not applicable`. **Never write "not applicable"
+as "no issue."**
 
-### 4. コントラスト比の算出
+### 4. Calculate contrast ratios
 
-色が静的に決まる箇所（Tailwind のクラス、CSS 変数、デザイントークン、CSS-in-JS のリテラル）
-については、同梱のスクリプトで比率を計算する。**目視や暗算で判断してはならない。**
+For places where the color is statically determined (Tailwind classes, CSS
+variables, design tokens, CSS-in-JS literals), calculate the ratio using the
+bundled script. **Never judge it by eye or by mental arithmetic.**
 
 ```
-node <スキルのディレクトリ>/scripts/contrast.mjs "#767676" "#ffffff"
-node <スキルのディレクトリ>/scripts/contrast.mjs "#767676" "#ffffff" --size 24 --bold
+node <skill's directory>/scripts/contrast.mjs "#767676" "#ffffff"
+node <skill's directory>/scripts/contrast.mjs "#767676" "#ffffff" --size 24 --bold
 ```
 
-`<スキルのディレクトリ>` は、この SKILL.md が置かれているディレクトリ（`.claude/skills/
-a11y-check-code` など）。作業ディレクトリからの相対パスではないことに注意する。
+`<skill's directory>` is the directory where this SKILL.md is located (e.g.
+`.claude/skills/a11y-check-code`). Note that this is not a path relative to the
+working directory.
 
-複数の組み合わせをまとめて確認する場合は `--json` にペアの配列を渡せる。
+To check multiple combinations at once, you can pass an array of pairs to `--json`.
 
 ```
-node <スキルのディレクトリ>/scripts/contrast.mjs --json \
-  '[{"label":"本文","fg":"#767676","bg":"#fff"},{"label":"補足","fg":"#aaa","bg":"#fff"}]'
+node <skill's directory>/scripts/contrast.mjs --json \
+  '[{"label":"body text","fg":"#767676","bg":"#fff"},{"label":"caption","fg":"#aaa","bg":"#fff"}]'
 ```
 
-使い方の詳細は `--help` を参照する。
+See `--help` for usage details.
 
-色が実行時に決まる箇所は「判定不能」として実ページでの確認に回す。
+Places where the color is determined at runtime are treated as "cannot be determined"
+and deferred to verification on the live page.
 
-### 5. レポートの出力
+### 5. Output the report
 
-`references/report-format.md` の形式で Markdown ファイルを出力する。重篤度の判定は
-`references/severity.md` の手順に従う。**影響するユーザーの多さを考慮に入れてはならない。**
+Output a Markdown file in the format from `references/report-format.md`. Follow the
+procedure in `references/severity.md` for judging severity. **Never factor in how
+many users are affected.**
 
-ソースコード対象のレポートでは、以下を必ず守る。
+For reports targeting source code, always observe the following.
 
-- すべての指摘に `ファイルパス:行番号` を記載する
-- 「実施しなかった手順」に、実ページでの確認（axe-core、ズーム、実際のフォーカス順序、
-  スクリーンリーダー）を行っていないことを明記する
-- 「要追加確認」の末尾に、`a11y-check-page` への引き継ぎ用の指示文を生成する。
-  対象 URL（不明なら空欄）と、重点的に確認すべき観点 ID を列挙した形にする
+- Include `file path:line number` on every finding
+- State clearly in "Steps not performed" that verification on the live page
+  (axe-core, zoom, actual focus order, screen reader) was not performed
+- At the end of "Needs further verification," generate handoff instructions for
+  `a11y-check-page`, in a form that lists the target URL (blank if unknown) and
+  the IDs of the check points that should be verified with priority
 
-会話には要約のみを出す。
+Output only a summary into the conversation.
 
-## 判断に迷ったとき
+## When in doubt
 
-- **推測で断定しない。** 「`aria-label` は付いているが、表示されている文言と一致するかは
-  実行時の値に依存する」といったものは、指摘ではなく要確認事項として分ける
-- **正しさは対象の目的に依存する。** 何が正しい実装かはページの内容と目的によって変わる。
-  コードだけでは判断できない場合、製作者への確認事項としてレポートに挙げる
-- **ライブラリの内部実装を推測で断定しない。** 直接依存（`dependencies`）については、型定義や
-  JSDoc で **props の契約**（`label` が必須か、`aria-*` を forward するか等）を確認してよいが、
-  そこから**レンダリング結果の DOM を推論して「問題なし」と書いてはならない**。実装が適切かは
-  バージョンによっても変わる。ライブラリ起因の観点は確実でなければ「要追加確認」に回し、
-  実ページでの確認を促す。詳しい範囲は `references/component-tracing.md` に従う
+- **Never assert something based on a guess.** Something like "`aria-label` is
+  present, but whether it matches the displayed text depends on the runtime value"
+  should be separated out as an item needing verification, not as a finding
+- **Correctness depends on the target's purpose.** What counts as a correct
+  implementation varies with the page's content and purpose. When it cannot be
+  judged from the code alone, list it in the report as a question for the author
+  to confirm
+- **Never assert a library's internal implementation based on a guess.** For
+  direct dependencies (`dependencies`), it is fine to check the **props contract**
+  (whether `label` is required, whether `aria-*` is forwarded, etc.) via type
+  definitions or JSDoc, but **never infer the rendered DOM from that and write
+  "no issue."** Whether the implementation is adequate also varies by version.
+  When a library-caused check point is not certain, defer it to "needs further
+  verification" and prompt verification on the live page. Follow
+  `references/component-tracing.md` for the detailed scope
+</content>
+</invoke>

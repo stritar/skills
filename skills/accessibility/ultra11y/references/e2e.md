@@ -73,7 +73,7 @@ reaches. So `sweepSample` turns them on.
 
 This matters more than it looks, because conformity on those criteria is an AND across every
 page in scope. Measured on a real repository: 15 of the 20 recorded pages came from a sweep
-that never probed, so all four criteria stayed « à évaluer » for the whole audit — including on
+that never probed, so all four criteria stayed « à évaluer » (to be evaluated) for the whole audit — including on
 the five pages that HAD been probed. One unprobed page closes the door for all of them.
 
 ```ts

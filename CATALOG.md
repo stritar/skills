@@ -866,7 +866,7 @@ Reviews source files (HTML, JSX, TSX, Vue, Svelte, templates) for WCAG 2.2 AA ac
 - **Outputs**: severity-rated Markdown report with file:line findings and user-impact statements, contrast-ratio calculations from the bundled scripts/contrast.mjs, list of items requiring live-page verification, handed off to a11y-check-page
 - **Dependencies**: node
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
-- **Source**: third-party — [ymrl/a11y-check-skills](https://github.com/ymrl/a11y-check-skills/tree/a59f48bbe72c1c4ec710e86ae19f8b39fa4b44f6/skills/a11y-check-code) @ `a59f48b` by ymrl, ISC
+- **Source**: third-party — [ymrl/a11y-check-skills](https://github.com/ymrl/a11y-check-skills/tree/a59f48bbe72c1c4ec710e86ae19f8b39fa4b44f6/skills/a11y-check-code) @ `a59f48b` by ymrl, ISC (modified — see THIRD_PARTY_NOTICES.md)
 - **Status**: verified, stable
 - **Tags**: a11y, wcag, contrast, keyboard, focus-management, semantic-html, forms, severity, audit, remediation
 - **Related**: `a11y-check-page`, `better-accessibility`, `review-a11y`, `a11y-audit`
@@ -881,7 +881,7 @@ Audits a live, running web page for WCAG 2.2 AA accessibility using browser auto
 - **Outputs**: severity-rated Markdown report in a11y-report/ with screenshots in a11y-report/assets/, per-state axe-core, keyboard-focus, and accessibility-tree findings, list of items excluded from automated testing (e.g. screen-reader behavior, seizure thresholds)
 - **Dependencies**: node, browser, playwright, axe-core
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
-- **Source**: third-party — [ymrl/a11y-check-skills](https://github.com/ymrl/a11y-check-skills/tree/a59f48bbe72c1c4ec710e86ae19f8b39fa4b44f6/skills/a11y-check-page) @ `a59f48b` by ymrl, ISC
+- **Source**: third-party — [ymrl/a11y-check-skills](https://github.com/ymrl/a11y-check-skills/tree/a59f48bbe72c1c4ec710e86ae19f8b39fa4b44f6/skills/a11y-check-page) @ `a59f48b` by ymrl, ISC (modified — see THIRD_PARTY_NOTICES.md)
 - **Status**: verified, stable, recommended default
 - **Tags**: a11y, wcag, aria, keyboard, focus-management, contrast, severity, audit, remediation
 - **Related**: `a11y-check-code`, `ultra11y`, `perspective-audit`
@@ -980,7 +980,7 @@ Reviews changed frontend code (staged files, a working diff, a branch, or a PR) 
 - **Outputs**: severity-ranked WCAG 2.2 AA review scoped to the change, with file:line fixes, list of residual rendering risks requiring a browser scan, pass/fail verdict for the change
 - **Dependencies**: node
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
-- **Source**: third-party — [maxgfr/ultra11y](https://github.com/maxgfr/ultra11y/tree/d1cd14792f3bd1b9ab15958bc4e72081375514dc/skills/review-a11y) @ `d1cd147` by maxgfr, MIT
+- **Source**: third-party — [maxgfr/ultra11y](https://github.com/maxgfr/ultra11y/tree/d1cd14792f3bd1b9ab15958bc4e72081375514dc/skills/review-a11y) @ `d1cd147` by maxgfr, MIT (modified — see THIRD_PARTY_NOTICES.md)
 - **Status**: draft, experimental
 - **Tags**: a11y, wcag, aria, keyboard, focus-management, contrast, semantic-html, severity, remediation, pr-review
 - **Related**: `ultra11y`, `a11y-check-code`, `better-accessibility`
@@ -995,7 +995,7 @@ Audits a repository, site, or page against WCAG 2.2 AA or a pluggable country st
 - **Outputs**: dated Markdown/HTML conformance report with per-criterion status, per-page compliance grid from rendered-page scans, PRD-style backlog and/or filed tickets grouped by WCAG criterion
 - **Dependencies**: node, browser, playwright
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
-- **Source**: third-party — [maxgfr/ultra11y](https://github.com/maxgfr/ultra11y/tree/d1cd14792f3bd1b9ab15958bc4e72081375514dc/skills/ultra11y) @ `d1cd147` by maxgfr, MIT
+- **Source**: third-party — [maxgfr/ultra11y](https://github.com/maxgfr/ultra11y/tree/d1cd14792f3bd1b9ab15958bc4e72081375514dc/skills/ultra11y) @ `d1cd147` by maxgfr, MIT (modified — see THIRD_PARTY_NOTICES.md)
 - **Status**: draft, experimental
 - **Tags**: a11y, wcag, aria, keyboard, focus-management, contrast, semantic-html, forms, severity, audit, remediation, documentation
 - **Related**: `review-a11y`, `a11y-check-page`

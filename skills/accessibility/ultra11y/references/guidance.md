@@ -104,6 +104,6 @@ rendering-dependent rules (alt relevance, computed contrast, reading order) stay
 
 RGAA 4.1.2 © DINUM — Licence Ouverte / Etalab 2.0. The before/after implementation
 patterns are adapted from SocialGouv/skills (`rgaa-html-css`) and the official RGAA
-méthode; the dataset stores short derived summaries + minimal examples, not verbatim prose
+méthode (methodology); the dataset stores short derived summaries + minimal examples, not verbatim prose
 (see `NOTICE`). When ingesting another source, record its license and attribution in the
 dataset header and `NOTICE` before redistributing any text.

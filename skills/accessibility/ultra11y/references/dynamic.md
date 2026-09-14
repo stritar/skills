@@ -183,8 +183,9 @@ node scripts/ultra11y.mjs scan --sample --runtime local --cwd packages/app --mer
 
 `scan --sample` iterates every configured sample page (per-page `--storage-state` supported
 for authenticated pages), keeps each finding's originating **page name + auth flag** as
-provenance (surfaced in the auditor ticket's *Pages / URLs impactées* and *Contexte de
-reproduction*), and `--merge`s them into the audit. `sample check` is an **advisory** lint —
+provenance (surfaced in the auditor ticket's *Pages / URLs impactées* ("Pages / URLs
+affected") and *Contexte de reproduction* ("Reproduction context")), and `--merge`s them into
+the audit. `sample check` is an **advisory** lint —
 it reports which required page kinds the sample lacks (a malformed `sample` block is a hard
 error, exit 2; a merely-incomplete one is guidance, exit 0). See `references/audit.md`
 (sample concept) and `references/packs.md` (`sampleMethodology`).
@@ -197,9 +198,10 @@ certifying audit had been run on. `sample check` now prints the census first, un
 ```
 17 déclarée(s) · 38 instantanée(s) · 22 instantanée(s) non déclarée(s) · 1 déclarée(s) jamais capturée(s)
 ```
+(declared · snapshotted · snapshotted-but-not-declared · declared-but-never-snapshotted)
 
-The required kinds are checked over the **union**, and « Échantillon complet » is never printed
-bare while snapshotted pages are missing from the declared sample — so the verdict cannot be read
+The required kinds are checked over the **union**, and « Échantillon complet » ("sample
+complete") is never printed bare while snapshotted pages are missing from the declared sample — so the verdict cannot be read
 as a statement about an inventory it did not see. `pages discover --from-snapshots --write` folds
 them in.
 
@@ -245,7 +247,7 @@ The consequence was narrow and expensive. `renderedProvesOn` (`src/coverage.ts`)
 conforming verdict from `pageCoverage.scs` / `.axe`, both derived from those two files, so a
 scanned page could report a rendering **violation** and could never conclude **conformity**:
 1.4.4, 1.4.10, 1.4.12 have no offline rule at all, and 1.4.3's canonical decider is axe. On a
-real RGAA run, 3.2 / 10.4 / 10.11 / 10.12 came back « à évaluer » on a page the probes had
+real RGAA run, 3.2 / 10.4 / 10.11 / 10.12 came back « à évaluer » (to be evaluated) on a page the probes had
 zoomed, reflowed and tabbed through.
 
 `probed` is the load-bearing field and it is written honestly: a probe that threw, a viewport

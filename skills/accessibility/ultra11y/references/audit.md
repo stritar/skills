@@ -73,6 +73,9 @@ repo. Declare that sample once in `.ultra11yrc.json`:
     "transverse": ["header", "navigation principale", "pied de page"]
   } }
 ```
+(The page names, labels and notes above are illustrative French RGAA site content — e.g.
+"Page d'accueil" is "home page", "Mon compte" is "my account", "connecté" is "logged in",
+"navigation principale" is "main navigation", "pied de page" is "footer".)
 
 - `sample.pages[]` are the audited URLs (each may sit behind `auth` with a per-page
   `storageState`); `transverse` names the elements audited on **every** page (header, nav,
@@ -80,8 +83,9 @@ repo. Declare that sample once in `.ultra11yrc.json`:
   any output.
 - **Lint the coverage**: `node scripts/ultra11y.mjs sample check` reports which **required
   page kinds** the active standard's `sampleMethodology` expects but the sample lacks (RGAA:
-  accueil, contact, mentions légales, déclaration d'accessibilité, plan du site, aide,
-  authentification…). Advisory (exit 0) unless the `sample` block is malformed (exit 2).
+  accueil (home), contact, mentions légales (legal notice), déclaration d'accessibilité
+  (accessibility statement), plan du site (sitemap), aide (help), authentification…).
+  Advisory (exit 0) unless the `sample` block is malformed (exit 2).
 - **Scan the sample**: `scan --sample --merge audits/audit-latest.json` iterates every page,
   keeps each finding's page name + auth flag as provenance, and merges the rendered verdicts
   in (see `references/dynamic.md`).

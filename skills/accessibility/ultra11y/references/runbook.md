@@ -70,7 +70,7 @@ criterion grid; it does not launch a second WCAG judgment pass.
 ## Why step 2 is not optional
 
 `criterionMeasuredOn` requires page coverage. With no capture, **no mechanical criterion can be
-closed by measurement** — they stay « à évaluer » and go swell the model's bill instead of
+closed by measurement** — they stay « à évaluer » (to be evaluated) and go swell the model's bill instead of
 being decided by the engine for nothing. On this repository's fixture the worklist is 81
 criteria with no scan. Every criterion the scan closes is one you do not pay ~2 000 input
 tokens to have read.

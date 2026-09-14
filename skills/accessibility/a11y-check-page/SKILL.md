@@ -1,176 +1,195 @@
 ---
 name: a11y-check-page
-description: 動作しているWebページを対象にアクセシビリティチェック（a11yチェック）を行う。Playwright MCPでブラウザを操作し、axe-coreによる自動チェック、キーボード操作、ズームやリフロー、アクセシビリティツリーの確認をWCAG 2.2レベルAAを目安に行い、重篤度付きのレポートを出力する。ログインが必要なページも、資格情報と手順を指示すればチェックできる。「このURLのアクセシビリティをチェックして」「ログインして管理画面をa11yチェックして」などで使う。Use for accessibility (a11y) audit of a live web page via browser automation against WCAG 2.2 AA.
+description: Performs an accessibility check (a11y check) on a live web page. Operates the browser via Playwright MCP to run automated checks with axe-core, keyboard operation, zoom and reflow, and accessibility tree checks against WCAG 2.2 level AA as a guideline, and outputs a report with severity ratings. Pages that require login can also be checked if credentials and steps are provided. Used for things like "check the accessibility of this URL" or "log in and run an a11y check on the admin screen". Use for accessibility (a11y) audit of a live web page via browser automation against WCAG 2.2 AA.
 ---
 
-# 動作しているページのアクセシビリティチェック
+# Accessibility check for a live page
 
-ブラウザで実際にページを操作し、アクセシビリティに関して優先的に対処するべき問題を発見する。
-基準は WCAG 2.2 のレベル AA を目安とする。
+Actually operate the page in a browser and find the issues that should be prioritized for
+accessibility. The standard used is WCAG 2.2 level AA as a guideline.
 
-## 前提の確認
+## Confirm the prerequisites
 
-このスキルは **Playwright MCP** を使用する。`browser_navigate` `browser_snapshot`
-`browser_click` `browser_evaluate` `browser_resize` `browser_press_key`
-`browser_take_screenshot` 相当のツールが利用できることを最初に確認する。
+This skill uses **Playwright MCP**. First confirm that tools equivalent to
+`browser_navigate` `browser_snapshot` `browser_click` `browser_evaluate` `browser_resize`
+`browser_press_key` `browser_take_screenshot` are available.
 
-利用できない場合は、以下を案内してチェックを中断する。ツールなしで推測によるチェックを
-行ってはならない。
+If they are not available, guide the user with the following and stop the check. Never
+perform a check based on guesswork without the tools.
 
 ```
 claude mcp add playwright npx @playwright/mcp@latest
 ```
 
-## このチェックの限界を最初に理解する
+## Understand the limits of this check first
 
-実ページからも判定できないものがある。**判定できないものを、判定できたかのように
-書いてはならない。**
+There are things that cannot be judged even from a live page. **Never write about something
+that could not be judged as if it had been judged.**
 
-- スクリーンリーダー実機での実際の読み上げ（アクセシビリティツリーは代替にならない）
-- ハイコントラストモード（強制カラーモード）での表示
-- 実デバイスでの画面回転、タッチ操作、マルチポインタのジェスチャー
-- 動画のキャプションや音声解説の**内容**の妥当性
-- 閃光の一般閃光閾値・赤色閃光閾値の判定
-- 時間制限（長時間の経過を要するもの）
+- Actual reading-out on real screen reader hardware (the accessibility tree is not a
+  substitute)
+- Display under high-contrast mode (forced colors mode)
+- Screen rotation, touch operation, and multi-pointer gestures on a real device
+- The validity of the **content** of video captions or audio descriptions
+- Judgment against the general flash threshold and red flash threshold
+- Time limits (those requiring a long elapsed time)
 
-これらは「実施しなかった手順」または「要追加確認」としてレポートに明記する。
+State these in the report as "steps not performed" or "needs further verification".
 
-アクセシビリティに留まらない一般的なユーザビリティの問題や、実害はないものの HTML や
-WAI-ARIA の仕様・ベストプラクティスに反するものを見つけた場合も、報告する。
+Also report general usability issues that go beyond accessibility, and things that violate
+HTML or WAI-ARIA specifications or best practices even if they cause no actual harm, when
+found.
 
-## 手順
+## Steps
 
-### スクリーンショットの保存先（全手順共通）
+### Where to save screenshots (common to all steps)
 
-**どの手順であっても、スクリーンショットは必ず `a11y-report/assets/` の下に保存する。**
-視覚確認・キーボード操作・リフロー確認など、手順を問わずスクショを撮る場面があるが、いずれも
-同じ規則に従う。`browser_take_screenshot` は `filename` を指定しないと作業ディレクトリ
-（カレントディレクトリ）にファイルを撒き散らすため、**呼び出しのたびに `filename` に
-`a11y-report/assets/…` から始まるパスを毎回明示する。** レポートに載せる最終的なものだけでなく、
-色の抽出や表示崩れの確認のために一時的に撮るものも例外なく同じ。ディレクトリが無ければ
-先に `mkdir -p a11y-report/assets` を実行しておく。詳細は
-`references/playwright-workflow.md` の「スクリーンショット」に従う。
+**In every step, screenshots must always be saved under `a11y-report/assets/`.**
+There are occasions to take screenshots regardless of step — visual verification, keyboard
+operation, reflow verification, and so on — and all of them follow the same rule.
+`browser_take_screenshot` scatters files into the working directory (the current directory)
+if `filename` is not specified, so **every call must explicitly set `filename` to a path
+starting with `a11y-report/assets/…`.** This applies without exception, not only to the
+final screenshots included in the report but also to ones taken temporarily to extract a
+color or check for broken layout. If the directory does not exist, run
+`mkdir -p a11y-report/assets` first. See "Screenshots" in
+`references/playwright-workflow.md` for details.
 
-### 1. 対象と実施内容の確認
+### 1. Confirm the target and scope of work
 
-引数から、対象 URL、ログイン情報、対象画面への到達手順、重点確認箇所を読み取る。
+Read the target URL, login information, steps to reach the target screen, and areas of
+focus from the arguments.
 
 ```
-/a11y-check-page https://app.example.com/ ID:test@example.com / Pass:xxxx でログインして、
-                 設定画面の通知タブをチェックしてください
+/a11y-check-page Log in to https://app.example.com/ with ID:test@example.com / Pass:xxxx,
+                 and check the notification tab of the settings screen
 ```
 
-読み取れない項目のうち、チェックに必要なものだけを利用者に確認する。
+Among the items that cannot be read from the arguments, ask the user only about those
+needed for the check.
 
-- 対象 URL と、チェックの範囲（単一ページか、操作フロー全体か）
-- ログインの要否と資格情報、多要素認証の有無
-- 対象画面への到達手順（どのリンクを辿るか、必要な入力値）
-- 想定される利用者と利用デバイス（PC のみか、スマートフォンも含むか）
-- **破壊的操作の可否**（データの作成・変更・削除、フォームの送信、メール送信、課金）
-- 対象が本番環境かどうか
+- The target URL and the scope of the check (a single page, or an entire operation flow)
+- Whether login is required, the credentials, and whether multi-factor authentication is
+  used
+- Steps to reach the target screen (which links to follow, required input values)
+- The expected users and devices (PC only, or including smartphones as well)
+- **Whether destructive operations are permitted** (creating, changing, or deleting data;
+  submitting forms; sending email; billing)
+- Whether the target is a production environment
 
-**資格情報とブラウザ操作の安全上の規則は `references/auth-and-safety.md` に従う。
-ログインを伴うチェックでは、必ず先にこのファイルを読む。**
+**Follow `references/auth-and-safety.md` for the safety rules on credentials and browser
+operation. For a check involving login, always read this file first.**
 
-### 2. 構成と目的の把握
+### 2. Understand the structure and purpose
 
-`browser_navigate` で対象を開き、`browser_snapshot` でアクセシビリティツリーを取得して、
-ページの構成と操作可能な要素を把握する。必要に応じて関連ページも巡回する。
+Open the target with `browser_navigate`, get the accessibility tree with `browser_snapshot`,
+and understand the page's structure and operable elements. Visit related pages as well if
+needed.
 
-重篤度の判定には「そのページの主要な目的」が必要である。目的を把握せずに重篤度は判定できない。
+Judging severity requires "the page's primary purpose". Severity cannot be judged without
+understanding the purpose.
 
-- どんな人が利用するものか
-- 利用の目的（フォームの送信か、情報の閲覧か、業務の遂行か）
-- 操作の流れ、分岐、ユーザーの操作を受け付ける機構の配置
+- What kind of people use it
+- The purpose of use (submitting a form, browsing information, or carrying out work tasks)
+- The flow of operation, branching, and the placement of mechanisms that accept user input
 
-### 3. 状態バリエーションの列挙
+### 3. Enumerate state variations
 
-**この手順を飛ばすと、初期表示しか見ないチェックになる。必ず行う。**
+**Skipping this step turns the check into one that only looks at the initial display. Always
+do it.**
 
-確認すべき画面と状態をすべて列挙する。
+Enumerate all the screens and states that should be checked.
 
-- 開閉するメニュー、モーダルダイアログ、ドロップダウン、アコーディオン、タブ
-- ローディング中、エラー表示、空状態、検索結果あり／なし
-- フォームのバリデーションエラー、送信中、送信完了
-- PC 表示とモバイル表示（レスポンシブで UI が変わる場合、モバイル用 UI は別のチェック対象）
+- Menus, modal dialogs, dropdowns, accordions, and tabs that open and close
+- Loading, error display, empty state, search results present/absent
+- Form validation errors, submitting, submission complete
+- PC display and mobile display (when the UI changes responsively, the mobile UI is a
+  separate check target)
 
-**対象が複数ページ・複数状態にわたる場合は、「ツールごと」ではなく「画面ごと」に手順を
-組み立てる。** つまり、1つの画面・状態を表示するたびに、以下の 4〜8 をまとめて実施する。
-対象が単一ページで状態変化もない場合のみ、ツールごとに進めてよい。
+**When the target spans multiple pages or multiple states, build the steps "per screen",
+not "per tool".** That is, each time one screen/state is displayed, perform steps 4 through
+8 below together for it. Only when the target is a single page with no state changes may you
+proceed tool by tool.
 
-### 4. axe-core による自動チェック
+### 4. Automated check with axe-core
 
-同梱の `assets/axe.min.js` を使って axe-core を実行する。**手順は
-`references/playwright-workflow.md` の「axe-core の実行」に従う。** 初期表示や URL で再現できる
-状態は同梱の `scripts/run-axe.mjs`（Bash から実行）が確実で速い。モーダルを開いた等、状態を
-変えた画面は Playwright MCP に注入して実行する。
+Run axe-core using the bundled `assets/axe.min.js`. **Follow "Running axe-core" in
+`references/playwright-workflow.md` for the procedure.** For the initial display or states
+that can be reproduced with a URL, the bundled `scripts/run-axe.mjs` (run from Bash) is
+reliable and fast. For screens whose state has been changed, such as an opened modal, inject
+and run it via Playwright MCP.
 
-`violations` は指摘候補、`incomplete` は自動では判定できなかった項目であり、後続の手順で
-手動確認する。特にコントラスト比の `incomplete` は手順 5 で必ず確認する。
+`violations` are candidate issues, and `incomplete` are items that could not be judged
+automatically; check these manually in a later step. In particular, always check the
+`incomplete` items for contrast ratio in step 5.
 
-**状態が変わるたびに実行する。** モーダルを開いた状態、エラーを表示した状態などは、
-初期表示のチェックには含まれていない。
+**Run it again every time the state changes.** States such as an opened modal or a displayed
+error are not included in the initial-display check.
 
-axe-core の説明にある修正方法は、そのまま転記しない（筋の悪い解決方法も紹介されているため）。
-対象の目的に沿った修正方法を自分で組み立てる。
+Do not copy the fix suggestions in axe-core's descriptions verbatim (poor fixes are also
+included among them). Work out a fix that matches the target's purpose yourself.
 
-### 5. 視覚とマウスポインタによる操作
+### 5. Visual and mouse-pointer operation
 
-`references/checklist-visual.md` の `page` と `both` の観点を適用する。
-スクリーンショットを撮り、ホバーで表示される追加コンテンツの挙動、色のみによる情報伝達、
-自動再生や動きの停止手段を確認する。
+Apply the `page` and `both` check points from `references/checklist-visual.md`.
+Take screenshots and check the behavior of additional content shown on hover, information
+conveyed by color alone, and the means of stopping autoplay or motion.
 
-### 6. キーボードのみによる操作
+### 6. Keyboard-only operation
 
-`references/checklist-keyboard.md` の `page` と `both` の観点を適用する。
-**マウス操作とは独立した手順として必ず実施する。** 操作方法は
-`references/playwright-workflow.md` の「キーボード操作の確認」に従う。
+Apply the `page` and `both` check points from `references/checklist-keyboard.md`.
+**Always perform this as a step independent of mouse operation.** Follow "Checking keyboard
+operation" in `references/playwright-workflow.md` for the procedure.
 
-`Tab` でページの末尾まで、`Shift+Tab` で冒頭まで両方向に移動し、各ステップで
-フォーカス位置とフォーカスインジケーターの視認性を確認する。多数の要素をまとめて巡回するには
-同梱の `scripts/focus-walk.mjs`（`--reverse` で逆方向も）を使うとよい。
+Move in both directions — to the end of the page with `Tab`, and back to the start with
+`Shift+Tab` — and at each step check the focus position and the visibility of the focus
+indicator. To walk through many elements at once, the bundled `scripts/focus-walk.mjs`
+(also the reverse direction with `--reverse`) is convenient.
 
-### 7. ズーム、文字サイズ、ウィンドウサイズの変更
+### 7. Changing zoom, text size, and window size
 
-`references/checklist-reflow.md` の観点を適用する。注入する CSS とビューポートの設定は
-`references/injection-snippets.md` にある。
+Apply the check points from `references/checklist-reflow.md`. The CSS to inject and the
+viewport settings are in `references/injection-snippets.md`.
 
-表示を切り替えるだけでなく、**その状態のまま操作も試す**。モバイル表示に切り替わって
-新しい UI（ハンバーガーメニューなど）が現れた場合、その UI は未チェックであり、
-手順 4〜6 を改めて適用する。
+Do not just switch the display — **also try operating it while in that state**. If switching
+to mobile display brings up a new UI (such as a hamburger menu), that UI has not yet been
+checked, and steps 4 through 6 must be applied to it again.
 
-### 8. 機械可読性の確認
+### 8. Machine-readability check
 
-`references/checklist-semantics.md` の観点を適用する。`browser_snapshot` で得られる
-アクセシビリティツリーから、ランドマークと見出しのアウトライン、アクセシブルネーム、
-ロールと状態を確認する。`lang` とライブリージョンの確認方法は
-`references/playwright-workflow.md` にある。
+Apply the check points from `references/checklist-semantics.md`. From the accessibility
+tree obtained via `browser_snapshot`, check the landmark and heading outline, accessible
+names, roles, and states. The method for checking `lang` and live regions is in
+`references/playwright-workflow.md`.
 
-ステータスメッセージ（SEM-12）は、操作の前後でアクセシビリティツリーを比較し、
-ライブリージョンとして通知される実装になっているかを確認する。
+For status messages (SEM-12), compare the accessibility tree before and after the operation
+to check whether the implementation notifies via a live region.
 
-### 9. レポートの出力
+### 9. Output the report
 
-`references/report-format.md` の形式で Markdown ファイルを出力する。重篤度の判定は
-`references/severity.md` の手順に従う。**影響するユーザーの多さを考慮に入れてはならない。**
+Output a Markdown file in the format given in `references/report-format.md`. Follow the
+procedure in `references/severity.md` for judging severity. **Do not take the number of
+affected users into account.**
 
-実ページ対象のレポートでは、以下を必ず守る。
+For a report on a live page, always observe the following.
 
-- 各指摘に、要素を特定できる情報（CSS セレクタ、アクセシブルネーム、画面上の位置）を記載する
-- スクリーンショットは、レポートに載せるものも一時的な確認用のものも、すべて
-  `a11y-report/assets/` の下に保存する（`browser_take_screenshot` の `filename` に
-  そのパスを毎回明示する）。カレントディレクトリには保存しない
-- 「実施しなかった手順」に、スクリーンリーダー実機とハイコントラストモードでの確認を
-  行っていないことを明記する
-- **資格情報をレポート・スクリーンショット・会話のいずれにも出力しない**
-- 使用したブラウザとビューポートサイズ、axe-core のバージョンを記録する
+- For each finding, record information that identifies the element (CSS selector,
+  accessible name, position on screen)
+- Save all screenshots, both the ones included in the report and the ones used for
+  temporary verification, under `a11y-report/assets/` (explicitly set that path in the
+  `filename` of `browser_take_screenshot` every time). Do not save to the current directory
+- In "steps not performed", state clearly that verification with real screen reader hardware
+  and with high-contrast mode was not performed
+- **Do not output credentials in the report, screenshots, or conversation**
+- Record the browser and viewport size used, and the axe-core version
 
-会話には要約のみを出す。
+Output only a summary in the conversation.
 
-## 各観点について
+## About each check point
 
-各観点は `問題あり` / `問題なし` / `判定不能` / `対象なし` の4値で結果を記録する。
-**「該当なし」を「問題なし」と書いてはならない。**
+Record the result of each check point as one of four values: `issue found` / `no issue` /
+`cannot be determined` / `not applicable`.
+**Never write "not applicable" as "no issue".**
 
-観点表の読み方は `references/README-checklist.md` を参照する。
-このスキルは `確認手段:` が `page` または `both` の観点を扱う。
+See `references/README-checklist.md` for how to read the check point table.
+This skill handles check points whose `Verification method:` is `page` or `both`.

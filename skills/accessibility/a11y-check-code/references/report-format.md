@@ -1,159 +1,172 @@
-# レポートの形式
+# Report format
 
-チェック結果は Markdown ファイルとして出力し、会話には要約のみを出す。
+Output the check results as a Markdown file, and output only a summary into the
+conversation.
 
-## 出力先
+## Output location
 
 ```
-./a11y-report/YYYY-MM-DD-<対象名>.md
+./a11y-report/YYYY-MM-DD-<target-name>.md
 ```
 
-- `<対象名>` は、ソースコード対象ならコンポーネント名やディレクトリ名、実ページ対象なら
-  パス由来の識別しやすい名前にする（例: `2026-07-20-checkout-form.md`、
-  `2026-07-20-settings-notifications.md`）。
-- 同名のファイルが既に存在する場合は、上書きせずに連番を付ける。
-- `a11y-report/` ディレクトリがなければ作成する。実ページ対象のチェックでスクリーンショットを
-  保存する場合は `a11y-report/assets/` に置き、レポートから相対パスで参照する。
+- `<target-name>` is a component name or directory name for a source-code target, or an
+  easily identifiable name derived from the path for a live-page target (example:
+  `2026-07-20-checkout-form.md`, `2026-07-20-settings-notifications.md`).
+- When a file of the same name already exists, do not overwrite it; append a sequence
+  number.
+- Create the `a11y-report/` directory if it does not exist. When saving screenshots for a
+  live-page check, place them in `a11y-report/assets/` and reference them from the report
+  with a relative path.
 
-## 会話への出力
+## Output into the conversation
 
-会話には以下のみを出す。全指摘を会話に列挙してはならない（長くなり、かえって読まれない）。
+Output only the following into the conversation. Do not list every finding in the
+conversation (it becomes long and ends up not being read).
 
-- レポートファイルのパス
-- 重篤度別の件数
-- Critical と Major の指摘のタイトルの一覧
-- 「要追加確認」の件数と、特に重要なもの
-- 実施できなかった手順があればその旨
+- The report file's path
+- Counts by severity
+- A list of the titles of Critical and Major findings
+- The count of items "needs further verification," and the especially important ones
+- If any steps could not be performed, a note of that
 
-## レポートの構成
+## Report structure
 
 ````markdown
-# アクセシビリティチェック結果: <対象>
+# Accessibility check results: <target>
 
-## 対象と実施内容
+## Target and work performed
 
-- 対象: <URL、またはファイルパスの一覧>
-- 実施日: <YYYY-MM-DD>
-- 実施方法: <a11y-check-code / a11y-check-page、使用したツールとバージョン>
-- 確認した画面・状態: <列挙。モーダル開閉やエラー表示など状態ごとに>
+- Target: <URL, or list of file paths>
+- Date performed: <YYYY-MM-DD>
+- Method: <a11y-check-code / a11y-check-page, tools used and their versions>
+- Screens/states checked: <list, by state such as modal open/closed or error display>
 
-### 実施した手順
+### Steps performed
 
-<チェックした観点の範囲>
+<The range of check points that were checked>
 
-### 実施しなかった手順
+### Steps not performed
 
-<なぜ実施しなかったかの理由とともに列挙する。以下は必ず該当を明記する>
+<List with the reason each was not performed. Always state explicitly whether the
+following apply>
 
-- スクリーンリーダー実機による確認: 実施していない
-- ハイコントラストモードでの確認: 実施していない
-- <対象の性質上、実施できなかったもの>
+- Checking with an actual screen reader: not performed
+- Checking in high contrast mode: not performed
+- <Anything that could not be performed due to the nature of the target>
 
-## サマリ
+## Summary
 
-| 重篤度 | 件数 |
+| Severity | Count |
 | --- | --- |
 | Critical | 0 |
 | Major | 0 |
 | Normal | 0 |
 | Minor | 0 |
 
-要追加確認: 0 件
+Needs further verification: 0 items
 
-## 指摘事項
+## Findings
 
-### [Major] A-001 モーダルダイアログを Esc キーで閉じられない
+### [Major] A-001 Modal dialog cannot be closed with the Esc key
 
-- **観点**: KBD-05（WCAG SC 2.1.2 レベル A）
-- **該当箇所**: `src/components/SettingsDialog.tsx:48` / `dialog.settings-modal`
-- **原因フェーズ**: 実装
-- **利用者に生じる問題**:
-  キーボードのみを使う利用者は、ダイアログを開いた後に閉じる手段がない。閉じるボタンは
-  ダイアログ内にあるが、フォーカスがダイアログ外へ抜けてしまうため到達できず、この画面から
-  先に進めなくなる。
-- **修正方法の提案**:
-  <具体的な修正内容。コード例を添えられる場合は添える>
-- **根拠**: 手動確認（キーボード操作）/ axe-core rule: <ルール ID>
+- **Check point**: KBD-05 (WCAG SC 2.1.2 Level A)
+- **Location**: `src/components/SettingsDialog.tsx:48` / `dialog.settings-modal`
+- **Originating phase**: Implementation
+- **Problem for the user**:
+  A keyboard-only user has no way to close the dialog after opening it. The close button
+  is inside the dialog, but it cannot be reached because focus escapes outside the
+  dialog, leaving the user unable to proceed past this screen.
+- **Suggested fix**:
+  <The specific fix. Include a code example where one can be given>
+- **Evidence**: Manual check (keyboard operation) / axe-core rule: <rule ID>
 
-<以降、重篤度の高い順に並べる>
+<List the rest in descending order of severity>
 
-## 要追加確認
+## Needs further verification
 
-この手段では判定できなかった観点。確認するには以下が必要である。
+Check points that could not be determined with this method. The following is needed to
+verify them.
 
-| 観点 | 内容 | 必要な確認手段 |
+| Check point | Description | Verification method needed |
 | --- | --- | --- |
-| VIS-09 | ヒーロー画像上のテキストのコントラスト比 | 実ページでの実測 |
-| SEM-01 | `hero.png` の代替テキストの内容の妥当性 | 製作者への確認 |
+| VIS-09 | Contrast ratio of text over the hero image | Measurement on the live page |
+| SEM-01 | Whether the content of `hero.png`'s alternative text is appropriate | Confirmation with the author |
 
-## 重篤度の定義
+## Severity definitions
 
-| 重篤度 | 定義 |
+| Severity | Definition |
 | --- | --- |
-| Critical | その問題があることで、そのページの閲覧に留まらない問題を生じる |
-| Major | その問題があることで、そのページの主要な目的を達成することができない |
-| Normal | その問題があっても、そのページの主要な目的を達成することができる。ただし、利用者は不便を被る |
-| Minor | その問題を解消することで、利用者はより快適にそのページを利用することができる |
+| Critical | The problem causes an issue that is not confined to viewing that page |
+| Major | The problem prevents the page's main purpose from being achieved |
+| Normal | The page's main purpose can still be achieved despite the problem, but the user is inconvenienced |
+| Minor | Resolving the problem lets the user use the page more comfortably |
 
-重篤度の判定には、影響するユーザーの多さを考慮に入れていない。アクセシビリティの問題により
-影響を受けるのは常にマイノリティであり、1人でも目的を達成できない状況になるのであれば
-問題として扱っている。
+Severity judgement does not take into account how many users are affected. Those
+affected by accessibility problems are always a minority, and even if only a single
+person ends up unable to achieve their purpose, it is treated as a problem.
 
-## 確認した観点の一覧
+## List of check points reviewed
 
-<観点 ID ごとに 問題あり / 問題なし / 判定不能 / 対象なし を記録した表>
+<A table recording, for each check point ID, Issue found / No issue / Cannot be
+determined / Not applicable>
 
-| 観点 | 結果 | 備考 |
+| Check point | Result | Notes |
 | --- | --- | --- |
-| SEM-01 | 問題あり | A-003, A-007 |
-| SEM-02 | 問題なし | |
-| SEM-05 | 対象なし | 個人情報を入力する欄がない |
-| VIS-09 | 判定不能 | 色が実行時に決まるため実ページでの確認が必要 |
+| SEM-01 | Issue found | A-003, A-007 |
+| SEM-02 | No issue | |
+| SEM-05 | Not applicable | No fields collecting personal information |
+| VIS-09 | Cannot be determined | Color is decided at runtime, so checking on the live page is required |
 
-## このチェックについて
+## About this check
 
-このチェックの目的は、アクセシビリティに関して優先的に対処するべき問題を発見することにある。
-このチェックは完全なものではない。
+The purpose of this check is to find accessibility problems that should be addressed as
+a priority. This check is not exhaustive.
 
-- このチェックを行ったからといって、WCAG 2.2 のいずれの基準に準拠していることを
-  確認・保証するものではない
-- このチェックで問題がなかったからといって、まったく問題がないということにはならない
-- WCAG 2.2 や ISO/IEC 40500、JIS X 8341-3 などの基準への準拠を確認するには、
-  達成基準ごとの確認が必要である
+- Performing this check does not confirm or guarantee compliance with any WCAG 2.2
+  criterion
+- No issues being found in this check does not mean there are no issues at all
+- Confirming compliance with standards such as WCAG 2.2, ISO/IEC 40500, or JIS X 8341-3
+  requires checking against each success criterion individually
 
-チェックの基準は WCAG 2.2 のレベル AA を目安としている。
+The check's criteria target WCAG 2.2 Level AA as a guideline.
 
-なお、この結果には、アクセシビリティに留まらない一般的なユーザビリティの問題や、実害はない
-ものの HTML や WAI-ARIA などの仕様やベストプラクティスに反するものも含まれる。前者は主に
-設計での考慮不足、後者は主に実装上のミスや知識不足に起因する可能性が高い。
+Note that these results also include general usability problems that go beyond
+accessibility, and things that cause no real harm but go against specifications or best
+practices such as HTML or WAI-ARIA. The former is likely due mainly to insufficient
+consideration during design, and the latter mainly to implementation mistakes or lack of
+knowledge.
 ````
 
-## 指摘の書き方
+## How to write a finding
 
-各指摘には、以下の4項目を必ず含める。
+Each finding must always include the following four items.
 
-1. **発見された問題の内容** — タイトルと該当箇所で示す
-2. **問題の重篤度** — `severity.md` の手順で判定する
-3. **ユーザー側に発生する問題の具体例** — 「スクリーンリーダーのユーザーは、この要素が
-   ボタンであることを知覚できない」のように、**誰が、何をできなくなるか**を具体的に書く。
-   達成基準の文言を言い換えただけの説明にしてはならない
-4. **修正方法の提案** — 対象の目的に沿った修正を提案する。axe-core のドキュメントの提案を
-   そのまま転記しない（筋の悪い解決方法も紹介されているため）
+1. **The content of the problem found** — shown with a title and the location.
+2. **The problem's severity** — determined following the procedure in `severity.md`.
+3. **A concrete example of the problem on the user's side** — write specifically **who
+   is unable to do what**, in the manner of "a screen reader user cannot perceive that
+   this element is a button." Do not write an explanation that is just a rewording of
+   the success criterion's text.
+4. **A suggested fix** — suggest a fix that fits the target's purpose. Do not copy
+   axe-core's documentation suggestions verbatim (since it also introduces poor fixes).
 
-### 指摘 ID
+### Finding ID
 
-`A-001` のような連番を振る。レポート内で参照しやすくするためのものであり、レポートを
-またいで一意である必要はない。
+Assign a sequence number like `A-001`. This is to make it easy to reference within the
+report; it does not need to be unique across reports.
 
-### まとめ方
+### How to group findings
 
-- 同じ原因による同種の問題が多数ある場合は、1つの指摘にまとめ、該当箇所を列挙する
-  （「代替テキストのない画像が12箇所」）。ただし、重篤度が異なるものは分ける
-- 逆に、1箇所に複数の異なる問題がある場合は、観点ごとに分けて書く
-- 推測を断定として書かない。確認できていないことは「要追加確認」に回す
+- When there are many instances of the same kind of problem from the same cause, group
+  them into a single finding and list the locations ("12 places with images lacking
+  alternative text"). However, split ones with different severities apart
+- Conversely, when a single location has multiple different problems, write them
+  separately by check point
+- Do not write a guess as a certainty. Move anything that has not been confirmed to
+  "needs further verification"
 
-## 出力してはならないもの
+## What must not be output
 
-- ログイン情報、トークン、セッション ID、個人情報などの資格情報
-- 実在の利用者のデータ
-- 未確認の内容を確認済みであるかのように書いた記述
+- Credentials such as login information, tokens, session IDs, and personal information
+- Data belonging to real users
+- Statements that write unconfirmed content as if it had been confirmed

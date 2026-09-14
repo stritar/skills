@@ -43,7 +43,7 @@ at it in dev and set `window.__ULTRA11Y_ENDPOINT__` if you moved the port.
 every page you have visited: one row per criterion, one column per page URL, in the standard you
 chose (`--standard rgaa`). It is a self-contained page — no external stylesheet, no script, no
 network — and it accumulates as you browse. Visit five pages of your app and you have the
-beginnings of a real échantillon, snapshotted and re-auditable offline.
+beginnings of a real échantillon (page sample), snapshotted and re-auditable offline.
 
 ## Two things worth knowing
 

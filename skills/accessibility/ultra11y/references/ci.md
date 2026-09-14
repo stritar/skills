@@ -114,7 +114,7 @@ Three properties are worth knowing:
 
 - **A stale verdict is dropped, never carried.** When the code under a criterion changes, the
   evidence changes with it, the fingerprint stops matching, and the criterion returns to « à
-  évaluer » saying so — with the date it was recorded and both evidence counts. A verdict that
+  évaluer » (to be evaluated) saying so — with the date it was recorded and both evidence counts. A verdict that
   silently outlives the code it described is the one thing a conformance deliverable cannot
   afford. The log names every stale and every uncovered criterion, so a refresh pass knows
   exactly what to re-adjudicate.
@@ -664,6 +664,7 @@ An occurrence gains a sub-bullet showing the element, ringed:
 - [ ] `.ultra11y/pages/accueil/dom.html:412` (`div.card`) — <img> without an alt attribute…
   - ![Cropped capture of the img element on the accueil page, outlined](./assets/accueil/c90959b13aa2.png)
 ```
+(`accueil` is French for "home", used here as the page id.)
 
 **Every document that shows a non-conformity shows its crop**: the Markdown conformance
 report, the per-page sheets, and the single-file composite. They all reference one set of

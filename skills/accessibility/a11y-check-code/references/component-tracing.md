@@ -1,89 +1,105 @@
-# コンポーネントの追跡
+# Tracing components
 
-チェック対象のファイルから import を辿り、実際にレンダリングされるマークアップの全体像を
-把握するための手順。
+The procedure for tracing imports from the target file under check, to grasp the
+full picture of the markup that is ultimately rendered.
 
-## 基本方針
+## Basic approach
 
-アクセシビリティの問題は、**マークアップが最終的にどう組み上がるか**によって決まる。
-1つのファイルだけを見ても、以下は判定できない。
+Accessibility issues are determined by **how the markup is ultimately assembled**.
+Looking at just one file cannot tell you the following.
 
-- そのコンポーネントが受け取る `children` に何が入るか
-- ラップしているコンポーネントが `<button>` を出すのか `<div>` を出すのか
-- `id` が正しく `<label for>` と紐付いているか（生成が別ファイルにある場合）
-- そのボタンが `aria-expanded` を持つかどうか（共通コンポーネント側の実装次第）
+- What is contained in the `children` that the component receives
+- Whether the wrapping component outputs a `<button>` or a `<div>`
+- Whether the `id` is correctly tied to `<label for>` (when the generation happens
+  in a different file)
+- Whether the button has `aria-expanded` (depends on the shared component's
+  implementation)
 
-そのため、対象ファイルから import されているコンポーネントを辿る必要がある。
+For this reason, it is necessary to trace the components imported from the target
+file.
 
-## 追跡の範囲
+## Scope of tracing
 
-### 辿るもの
+### What to trace
 
-- 自プロジェクト内のコンポーネント（相対パス、および `@/` `~/` `src/` などの
-  エイリアスによる import）
-- 対象コンポーネントを構成するスタイル定義（CSS Modules、`.css`、`.scss`、
-  Tailwind の設定、デザイントークン）
-- 対象が使われている側のファイル（呼び出し元）。props に何が渡されるかで結論が変わる観点
-  （SEM-01 の代替テキスト、SEM-08 のラベル、SEM-11 のロール）では、呼び出し元の確認が必要になる
+- Components within your own project (imports via relative paths, and via aliases
+  such as `@/` `~/` `src/`)
+- The style definitions that make up the target component (CSS Modules, `.css`,
+  `.scss`, Tailwind config, design tokens)
+- Files on the calling side that use the target (the caller). For check points
+  whose conclusion depends on what is passed in props (SEM-01's alternative text,
+  SEM-08's label, SEM-11's role), the caller needs to be checked
 
-### 限定的に辿るもの — 外部パッケージの API コントラクト
+### What to trace in a limited way — external package API contracts
 
-UI コンポーネントを npm パッケージで提供する例は多く、`node_modules` をまったく見ないと
-判断材料がほとんど得られないことがある。そこで、**`package.json` の `dependencies` に
-直接指定されているパッケージに限り**、その **API コントラクトの確認**のために辿ってよい。
-ただし用途は次に厳しく限定する。
+There are many cases where UI components are provided as npm packages, and not
+looking at `node_modules` at all can leave very little to base a judgment on. So,
+**limited to packages listed directly under `dependencies` in `package.json`**, it
+is acceptable to trace them for the purpose of checking their **API contract**.
+However, the use is strictly limited to the following.
 
-**目的は「props の契約」を確かめること。** 実装を読んで最終的な DOM を推論することではない。
-主に読むのは、そのパッケージの以下である。
+**The goal is to confirm the "props contract."** It is not to read the
+implementation and infer the final DOM. What is mainly read is the following, from
+that package.
 
-- 型定義（`.d.ts`）— どんな props を受け取るか、`alt` / `label` に相当する props が
-  **必須か任意か**、`aria-*` を forward するか
-- README / JSDoc の注記 — props の意図、アクセシビリティに関する使い方の前提
+- Type definitions (`.d.ts`) — what props it accepts, whether props equivalent to
+  `alt` / `label` are **required or optional**, whether it forwards `aria-*`
+- README / JSDoc notes — the intent of the props, assumptions around accessibility
+  usage
 
-これで裏を取れるのは「props 次第で結論が変わる観点」（SEM-01 / SEM-03 / SEM-08 など、
-後述の表）の**呼び出し側の使い方**である。「このコンポーネントは `label` を必須にしている／
-していない」といった設計上の事実は、ここから確実に読める。
+What this can substantiate is "the caller-side usage of check points whose
+conclusion depends on the props" (SEM-01 / SEM-03 / SEM-08, etc., in the table
+below). Design facts such as "this component makes `label` required, or not" can
+be read reliably from this.
 
-**辿らないもの・根拠にしないもの:**
+**What not to trace, and what not to base a judgment on:**
 
-- パッケージの**内部実装（レンダリング結果の DOM）を推論の根拠にしない**。
-  `node_modules` の多くはビルド済み・minify 済みで、型や注記が示すのは API の形であって
-  出力されるマークアップではない。JSDoc の「accessible」表記は意図であって保証ではない
-  （それを根拠に「問題なし」と書くと見逃しに倒れる）
-- **推移的依存（`dependencies` の依存の依存）は辿らない。** a11y の実体を内部パッケージに
-  委譲するライブラリは多いが（例: `@mui/material`→`@mui/base`、Radix の各コンポーネント→
-  `@radix-ui/react-*`）、そこまで追うと深さ・ファイル数の上限を即座に超え、レビュー本体の
-  精度を削る。直接依存の API 契約の確認で止める
-- ソースを同梱していない（読めるのがビルド成果物だけの）パッケージは、無理に読まず
-  「未確認」に回す
-- テストコード、Storybook のストーリー（ただし、状態バリエーションの列挙には役立つので、
-  存在する場合は状態の把握に読んでよい）
+- **Never base a judgment on inferring the package's internal implementation
+  (the rendered DOM).** Much of `node_modules` is built and minified, and what
+  the types and notes show is the shape of the API, not the markup that is
+  output. A JSDoc note saying "accessible" is an intent, not a guarantee (writing
+  "no issue" based on that tends to produce oversights)
+- **Never trace transitive dependencies (dependencies of dependencies in
+  `dependencies`).** Many libraries delegate the substance of a11y to an internal
+  package (e.g. `@mui/material` → `@mui/base`, each Radix component →
+  `@radix-ui/react-*`), but tracing that far immediately exceeds the depth/file
+  count limit and erodes the precision of the review itself. Stop at confirming
+  the API contract of the direct dependency
+- Packages that do not bundle their source (where only the built output can be
+  read) should not be forced open — treat them as "unverified"
+- Test code, Storybook stories (though these are useful for enumerating state
+  variations, so read them for grasping state if they exist)
 
-**そして、API 契約を確認したかどうかにかかわらず、ライブラリ起因の観点は引き続き
-「実ページでの確認が必要」として扱う。** accessible なライブラリほど `useId`・状態フック・
-portal・実行時計算の ARIA を多用し、これは静的追跡では確定できない領域（後述「動的な
-マークアップ」）そのものだからである。パッケージ名とバージョンは、これまで通り必ず記録する
-（`package.json` を確認する）。バージョンによって実装は変わる。
+**And, regardless of whether the API contract was checked, library-caused check
+points continue to be treated as "needing verification on the live page."** The
+more accessible a library is, the more it tends to use `useId`, state hooks,
+portals, and runtime-computed ARIA — and this is exactly the area that static
+tracing cannot pin down (see "Dynamic markup" below). The package name and version
+should always be recorded as before (check `package.json`). The implementation
+varies by version.
 
-## 上限
+## Limits
 
-既定の上限は **深さ3・ファイル数50** とする。これを超える場合は、そこで辿るのをやめ、
-利用者に範囲を確認する。
+The default limit is **depth 3, 50 files**. If this is exceeded, stop tracing
+there and confirm the scope with the user.
 
 ```
-対象から辿ったコンポーネントが50ファイルを超えました。
-以下の範囲に絞ってチェックを進めてよいですか、それとも範囲を分割しますか。
+The components traced from the target exceeded 50 files.
+Should we proceed with the check narrowed to the following scope, or should the
+scope be split?
 ```
 
-範囲が広すぎる状態でチェックを進めると、1つ1つの確認が浅くなり、見落としが増える。
-**広く浅く見るよりも、範囲を区切って深く見るほうがよい。**
+Proceeding with a check when the scope is too broad makes each individual check
+shallower and increases the chance of missing things. **It is better to look
+narrowly and deeply within a bounded scope than broadly and shallowly.**
 
-## 追跡の記録
+## Recording the trace
 
-辿った結果を、以下のような形で利用者に提示してから次の手順に進む。
+Present the traced result to the user in a form like the following before moving
+on to the next step.
 
 ```
-チェック対象のコンポーネントツリー
+Component tree of the check target
 
 src/pages/Checkout.tsx
 ├── src/components/Form/AddressForm.tsx
@@ -93,47 +109,56 @@ src/pages/Checkout.tsx
 │   └── src/components/ui/Table.tsx
 └── src/components/ui/Button.tsx
 
-外部ライブラリ（API 契約のみ確認・内部実装と実挙動は未確認）
+External libraries (API contract only checked — internal implementation and
+actual behavior unverified)
 - @headlessui/react 2.1.2  … Dialog, Listbox
 - react-hook-form 7.51.0
 
-スタイル
+Styles
 - tailwind.config.ts
 - src/styles/tokens.css
 ```
 
-外部ライブラリを別枠で示すのは、そこに起因する問題を「内部実装と実挙動は確認していない」と
-明示するため。型定義や JSDoc で props の契約まで確認した場合も、その結論（例:「`Dialog` は
-`aria-modal` を持つ」）は API の形として読めたことを意味するにすぎず、レンダリング結果や
-実行時の挙動を検証したことにはならない。ここは常に実ページ確認へ回す。
+External libraries are shown in a separate section to make explicit that issues
+originating there have "internal implementation and actual behavior not verified."
+Even when the props contract has been checked via type definitions or JSDoc, that
+conclusion (e.g. "`Dialog` has `aria-modal`") only means the shape of the API could
+be read — it does not mean the rendered result or runtime behavior has been
+verified. This always gets deferred to live-page verification.
 
-## 判定に呼び出し元の確認が必要な観点
+## Check points that require confirming the caller for judgment
 
-以下の観点は、コンポーネント単体では判定できない。呼び出し元を Grep で探す。
+The following check points cannot be judged from the component alone. Search for
+the caller with Grep.
 
-| 観点 | 呼び出し元で確認すること |
+| Check point | What to confirm at the caller |
 | --- | --- |
-| SEM-01 | `alt` に相当する props に、実際に何が渡されているか |
-| SEM-03 | ラベルの props が渡されているか。渡されていない使い方がないか |
-| SEM-07 | 見出しレベルの props（`as="h2"` など）が、ページ全体で整合しているか |
-| SEM-08 | 表示ラベルと `aria-label` に別の値が渡されていないか |
-| SEM-11 | 汎用コンポーネントに、意味に合わない `role` が渡されていないか |
-| VIS-18 | リンクコンポーネントに「こちら」のようなテキストが渡されていないか |
+| SEM-01 | What is actually passed to the props equivalent to `alt` |
+| SEM-03 | Whether the label prop is passed. Whether there is any usage where it is not passed |
+| SEM-07 | Whether the heading-level prop (e.g. `as="h2"`) is consistent across the whole page |
+| SEM-08 | Whether the displayed label and `aria-label` are given different values |
+| SEM-11 | Whether a generic component is given a `role` that does not match its meaning |
+| VIS-18 | Whether the link component is given text like "click here" |
 
-汎用的な UI コンポーネント（`Button`、`TextField` など）をチェックする場合、
-**その使われ方をすべて確認するのは現実的でないことが多い**。その場合は、コンポーネント自体の
-実装の問題と、「この props を渡し忘れるとアクセシビリティの問題が起きる」という設計上の
-リスクを指摘し、使用箇所の網羅は範囲外として明記する。
+When checking a general-purpose UI component (`Button`, `TextField`, etc.), **it is
+often unrealistic to confirm every place it is used.** In that case, point out the
+component's own implementation issues and the design-level risk that "forgetting to
+pass this prop causes an accessibility issue," and state explicitly that full
+coverage of all usages is out of scope.
 
-## 動的なマークアップ
+## Dynamic markup
 
-以下は静的な追跡では最終的なマークアップを確定できない。「判定不能」として扱い、
-実ページでの確認に回す。
+The following cannot have their final markup determined by static tracing. Treat
+them as "cannot be determined" and defer them to verification on the live page.
 
-- `dangerouslySetInnerHTML` / `v-html` / `{@html}` で挿入される HTML
-- CMS やマークダウンから生成されるコンテンツ
-- サードパーティのウィジェット（チャット、広告、埋め込みプレイヤー、同意管理バナー）
-- サーバーから受け取ったデータによってロールや状態が決まる実装
+- HTML inserted via `dangerouslySetInnerHTML` / `v-html` / `{@html}`
+- Content generated from a CMS or Markdown
+- Third-party widgets (chat, ads, embedded players, consent-management banners)
+- Implementations where the role or state is determined by data received from the
+  server
 
-これらは**アクセシビリティの問題が集中しやすい箇所**でもあるため、「判定不能」で終わらせず、
-実ページでの確認が必要な箇所としてレポートに明記する。
+Since these are **also areas where accessibility issues tend to concentrate**, do
+not just leave them as "cannot be determined" — explicitly note them in the report as
+places that need verification on the live page.
+</content>
+</invoke>

@@ -1,13 +1,13 @@
-# 表示変更のためのスニペット
+# Snippets for display changes
 
-RFL-01〜05 の確認で使用する。いずれも `browser_evaluate` および `browser_resize` で行う。
+Used for the RFL-01~05 checks. All of these are done via `browser_evaluate` and `browser_resize`.
 
-**各変更を行った後は、必ず元に戻してから次の確認に進む。** 変更が残ったまま別の観点を
-確認すると、誤った判定につながる。
+**After making each change, always revert it before moving to the next check.** Checking a
+different aspect while a change is still in place leads to incorrect judgments.
 
-## 共通: 変更を戻す
+## Common: reverting a change
 
-各スニペットは `id` を付けた `<style>` を挿入する。以下で除去する。
+Each snippet inserts a `<style>` with an `id`. Remove it with the following.
 
 ```js
 () => {
@@ -18,23 +18,23 @@ RFL-01〜05 の確認で使用する。いずれも `browser_evaluate` および
 }
 ```
 
-ビューポートは `browser_resize` で元のサイズに戻す。
+Restore the viewport to its original size with `browser_resize`.
 
-## RFL-01: ブラウザのズーム 200%
+## RFL-01: browser zoom 200%
 
-ブラウザのズーム機能そのものは Playwright から直接操作できないため、**ビューポートを
-半分にする**ことで等価な状態を作る。ズーム 200% は、CSS ピクセルの利用可能領域が
-半分になることと同義である。
+The browser's zoom function itself cannot be operated directly from Playwright, so an
+equivalent state is created by **halving the viewport**. 200% zoom is equivalent to the
+available area in CSS pixels being halved.
 
 ```
-browser_resize: width=640, height=512   (1280×1024 の 200% 相当)
+browser_resize: width=640, height=512   (equivalent to 200% of 1280x1024)
 ```
 
-CSS の `zoom` による代替も可能だが、`position: fixed` や `vh` の扱いがブラウザのズームとは
-異なるため、**ビューポートを縮める方法を優先する**。
+An alternative using CSS `zoom` is also possible, but since the handling of `position: fixed`
+and `vh` differs from actual browser zoom, **prefer the method of shrinking the viewport**.
 
 ```js
-// 代替手段。挙動が実際のズームと異なる場合があることを念頭に置く
+// Alternative method. Keep in mind the behavior may differ from actual zoom
 () => {
   const s = document.createElement('style');
   s.id = 'a11y-check-zoom';
@@ -44,11 +44,12 @@ CSS の `zoom` による代替も可能だが、`position: fixed` や `vh` の�
 }
 ```
 
-確認すること: コンテンツの重なり、切れ、二次元スクロールの発生、操作可能な要素への到達。
+Check for: content overlap, clipping, occurrence of two-dimensional scrolling, and reachability
+of operable elements.
 
-## RFL-02: フォントサイズ 32
+## RFL-02: font size 32
 
-ブラウザの設定（既定 16px）を 32 にした状態を再現する。
+Reproduces the state where the browser's setting (default 16px) is set to 32.
 
 ```js
 () => {
@@ -60,12 +61,13 @@ CSS の `zoom` による代替も可能だが、`position: fixed` や `vh` の�
 }
 ```
 
-**この方法には限界がある。** ブラウザの設定変更は「フォントサイズを px で固定していない
-要素」にのみ影響するが、上記の CSS は `html` の `font-size` を上書きするだけなので、
-`rem` を使っている箇所には効くが、`px` 固定の箇所には効かない。
+**This method has a limitation.** A browser setting change affects only "elements that don't
+fix their font size in px", but the CSS above only overrides the `font-size` on `html`, so it
+takes effect on places using `rem` but not on places fixed in `px`.
 
-`px` 固定の箇所が多い場合、**それ自体が RFL-02 の問題**である（ブラウザのフォントサイズ設定に
-追従しない）。以下で px 指定されたテキストの量を確認できる。
+If there are many places fixed in `px`, **that itself is an RFL-02 problem** (it does not
+follow the browser's font size setting). The amount of text specified in px can be checked
+with the following.
 
 ```js
 () => {
@@ -79,25 +81,25 @@ CSS の `zoom` による代替も可能だが、`position: fixed` や `vh` の�
 }
 ```
 
-インラインスタイルしか見られないため、スタイルシート側の指定はソースコード側での確認
-（`a11y-check-code` の RFL-02）と突き合わせる。
+Since only inline styles can be seen this way, cross-check against a check of the stylesheet
+side in the source code (the RFL-02 check in `a11y-check-code`).
 
-確認すること: 文字の切れ、コンテナからのはみ出し、レイアウト崩れ、ボタンラベルの重なり。
+Check for: text clipping, overflow from containers, layout breakage, and button label overlap.
 
-## RFL-03: リフロー 320px 幅
+## RFL-03: reflow at 320px width
 
 ```
 browser_resize: width=320, height=800
 ```
 
-横スクロールが発生しているかを判定する。
+Determine whether horizontal scrolling occurs.
 
 ```js
 () => ({
   documentWidth: document.documentElement.scrollWidth,
   viewportWidth: window.innerWidth,
   hasHorizontalScroll: document.documentElement.scrollWidth > window.innerWidth + 1,
-  // はみ出している要素を特定する
+  // Identify the overflowing elements
   overflowing: [...document.querySelectorAll('body *')]
     .filter(el => el.getBoundingClientRect().right > window.innerWidth + 1)
     .slice(0, 20)
@@ -109,14 +111,16 @@ browser_resize: width=320, height=800
 })
 ```
 
-横スクロールのコンテンツの場合は、代わりに `height=256` にして縦方向で同様に判定する。
+For content that scrolls horizontally, instead use `height=256` and judge the same way in the
+vertical direction.
 
-**コンテンツの性質上必要なもの（巨大な図表、地図、データテーブル）は例外**として扱う。
-はみ出している要素がこれらに該当するかを確認してから指摘する。
+**Exclude things that are necessary due to the nature of the content (large diagrams/charts,
+maps, data tables).** Before flagging an overflowing element, check whether it falls into one
+of these categories.
 
-## RFL-04: テキストの間隔
+## RFL-04: text spacing
 
-WCAG SC 1.4.12 の基準値をすべて適用する。
+Apply all of the WCAG SC 1.4.12 threshold values.
 
 ```js
 () => {
@@ -137,13 +141,13 @@ WCAG SC 1.4.12 の基準値をすべて適用する。
 }
 ```
 
-適用後、切り詰めや重なりが起きている要素を検出する。
+After applying, detect elements where truncation or overlap is occurring.
 
 ```js
 () => [...document.querySelectorAll('body *')]
   .filter(el => {
     if (el.children.length > 0 || !el.textContent?.trim()) return false;
-    // 内容が要素の領域からあふれている
+    // Content is overflowing the element's area
     return el.scrollHeight > el.clientHeight + 1 || el.scrollWidth > el.clientWidth + 1;
   })
   .slice(0, 20)
@@ -155,25 +159,27 @@ WCAG SC 1.4.12 の基準値をすべて適用する。
   }))
 ```
 
-この検出は目安であり、`overflow: visible` ではみ出して重なっている場合は検出できない。
-スクリーンショットでの目視も併せて行う。
+This detection is only a guide, and cannot detect cases where content overflows and overlaps
+under `overflow: visible`. Also perform a visual check with a screenshot.
 
-## RFL-05: モバイル表示での確認
+## RFL-05: check on mobile display
 
-スマートフォンの解像度で、縦向き・横向きの両方を確認する（VIS-05 も同時に確認できる）。
+Check both portrait and landscape orientation at smartphone resolution (VIS-05 can be checked
+at the same time).
 
 ```
-browser_resize: width=375, height=667   (iPhone SE 第2〜3世代 相当・縦向き)
-browser_resize: width=667, height=375   (同・横向き)
+browser_resize: width=375, height=667   (equivalent to iPhone SE 2nd-3rd generation, portrait)
+browser_resize: width=667, height=375   (same, landscape)
 ```
 
-**この状態で新たに現れた UI（ハンバーガーメニュー、ボトムシート、モバイル用ナビゲーション）は
-未チェックである。** axe-core の再実行、キーボード操作、機械可読性の確認を改めて行う。
+**Any UI that newly appears in this state (hamburger menu, bottom sheet, mobile navigation) is
+unchecked.** Re-run the axe-core check, keyboard operation, and machine-readability checks for
+it as well.
 
-横向きで「縦向きにしてください」というメッセージが表示され利用できない場合は、VIS-05 の
-問題として指摘する。
+If, in landscape orientation, a message such as "please rotate to portrait" is displayed and
+the page becomes unusable, flag it as a VIS-05 issue.
 
-## ターゲットサイズの実測（VIS-24）
+## Measured target size (VIS-24)
 
 ```js
 () => {
@@ -187,7 +193,7 @@ browser_resize: width=667, height=375   (同・横向き)
         selector: el.id ? `#${el.id}` : `${el.tagName.toLowerCase()}${el.className ? '.' + String(el.className).split(' ')[0] : ''}`,
         name: (el.getAttribute('aria-label') || el.textContent?.trim() || '').slice(0, 40),
         w: Math.round(r.width), h: Math.round(r.height),
-        // 文中のインライン要素は例外規定に該当する可能性がある
+        // Inline elements within running text may fall under the exception rules
         inline: getComputedStyle(el).display.startsWith('inline'),
       };
     })
@@ -195,16 +201,21 @@ browser_resize: width=667, height=375   (同・横向き)
 }
 ```
 
-検出されたものは、そのまま指摘してはならない。VIS-24 の例外規定（間隔、同等、インライン、
-ユーザーエージェントによる制御、必要不可欠）に該当しないかを確認する。文中のリンクテキストと、
-ブラウザのデフォルトスタイルのチェックボックス・ラジオボタンは、通常は例外に該当する。
+Detected items must not be flagged as-is. Check whether they fall under one of the VIS-24
+exceptions (spacing, equivalent, inline, user-agent-controlled, essential). Link text within
+running text, and checkboxes/radio buttons with the browser's default style, usually fall
+under an exception.
 
-## ホバーで表示される追加コンテンツ（VIS-11〜13）
+## Additional content shown on hover (VIS-11~13)
 
-1. `browser_hover` でトリガー要素にポインタを乗せ、追加コンテンツが表示されることを確認する
-2. **VIS-11**: ポインタを動かさずに `browser_press_key` で `Escape` を押し、消えるか確認する
-3. **VIS-12**: 表示されたコンテンツの上に `browser_hover` で移動し、表示が維持されるか確認する。
-   トリガーとコンテンツの間に隙間がある場合、その途中の座標でも消えないかを確認する
-4. **VIS-13**: ホバーしたまま数秒待ち、自動的に消えないかを確認する
+1. Move the pointer onto the trigger element with `browser_hover` and confirm that the
+   additional content appears
+2. **VIS-11**: without moving the pointer, press `Escape` with `browser_press_key` and check
+   whether it disappears
+3. **VIS-12**: move onto the displayed content with `browser_hover` and check whether it stays
+   displayed. If there is a gap between the trigger and the content, also check whether it
+   disappears at the coordinates along the way
+4. **VIS-13**: hover and wait a few seconds, and check whether it disappears automatically
 
-フォーカスによる表示（KBD-01〜03）も、`Tab` でトリガーにフォーカスして同様に確認する。
+Also check display triggered by focus (KBD-01~03) the same way, by tabbing to the trigger with
+`Tab`.

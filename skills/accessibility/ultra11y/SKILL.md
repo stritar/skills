@@ -93,10 +93,10 @@ adjudicates. So the engine's clean run is a starting point, never a verdict — 
 > 8. **Technical tokens stay in English, even in French prose.** In any French deliverable
 >    you write (report commentary, PRD, tracker tickets, judgment verdicts), attribute/
 >    element/role names and their values are code, not prose — never translate them:
->    `aria-live` stays `aria-live` (never « région live »), same for `tabindex`, `alt`,
->    `role="alert"`, landmark role names. The engine's own fr catalog follows this; match
->    it. Normative standard vocabulary (RGAA wording such as « lien d'évitement ») keeps
->    its official French.
+>    `aria-live` stays `aria-live` (never « région live », French for "live region"), same for
+>    `tabindex`, `alt`, `role="alert"`, landmark role names. The engine's own fr catalog
+>    follows this; match it. Normative standard vocabulary (RGAA wording such as « lien
+>    d'évitement » (skip link)) keeps its official French.
 
 ## The reference library
 
@@ -241,7 +241,7 @@ Domain knowledge first, then the tooling. Read the one that matches the question
   the committed audit.json alone. Two rules hold: a finding is attributed to a page only when
   something SAYS so (else it is reported as unattributed, never spread), and `C` by silence is
   earned only by a page whose real DOM was audited — a source-only page keeps its undecided
-  criteria « à évaluer »; read **`references/pages.md`**.
+  criteria « à évaluer » (to be evaluated); read **`references/pages.md`**.
 - **"I want a report PER PAGE, not a matrix"** → `pages --in audits/audit-latest.json
   --standard rgaa --format report --split page --out audits/pages`: one dossier per page —
   identity, its screenshot, its rate, EVERY criterion of the standard with its status on that
@@ -346,7 +346,7 @@ node scripts/ultra11y.mjs pack check ./packs/section508.json                  # 
 **`--standard rgaa` goes on `audit` too, and then everything speaks RGAA.** It is honoured by
 `audit`/`scan`/`fix` as well as `report`/`prd`/`tickets`/`criteria`/`check`/`verify`/`judge`,
 and `.ultra11yrc.json { "standard": "rgaa" }` makes it the default for all of them. Under it,
-`audit` prints an RGAA-titled summary tabulated by thématique with findings tagged `[8.4]`
+`audit` prints an RGAA-titled summary tabulated by thématique (theme) with findings tagged `[8.4]`
 rather than `[3.1.1]`, in the pack's own language; `--json` and `--out` write a pack-keyed
 document (106 criteria, 13 themes) carrying the WCAG core inside `core` for the pipeline; and
 CI annotations, SARIF, the report, the PRD and the per-page sheets name RGAA criteria and

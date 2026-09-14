@@ -1,240 +1,282 @@
-# 観点表: 機械可読性
+# Checklist: Machine readability
 
-支援技術（スクリーンリーダーなど）から、コンテンツの内容・構造・状態が正しく読み取れるかを
-確認する観点。実ページでは Accessibility Visualizer 拡張機能やアクセシビリティツリーで、
-ソースコードではマークアップで確認する。
+The check point for whether assistive technology (such as screen readers) can correctly
+read the content, structure, and state of the content. On a live page, check with the
+Accessibility Visualizer extension or the accessibility tree; in source code, check the
+markup.
 
-**このスキルによる確認は、実機のスクリーンリーダーによる確認の代替にはならない。**
-アクセシビリティツリーやマークアップが妥当に見えても、実際の読み上げでは問題が生じることが
-ある。レポートには「スクリーンリーダー実機による確認は行っていない」ことを明記する。
-
----
-
-### AXE-01: axe-core による自動チェック
-
-- 確認手段: `page`
-- 判定: axe-core を実行し、`violations` を確認する。対象とするタグは
-  `wcag2a` `wcag2aa` `wcag21a` `wcag21aa` `wcag22aa` `best-practice`。
-  - ベストプラクティスは、ただちに WCAG の達成基準に違反することを意味しないが、結果的に
-    違反する状態である可能性や、利用者に何らかの不便をもたらしている可能性を示すものとして
-    扱う
-  - 状態によって画面が変化する場合（メニューの開閉、モーダルダイアログの表示など）には、
-    **その都度実行する**
-  - `incomplete` は「自動では判定できなかった」項目であり、手動確認の対象として
-    後続の手順に引き継ぐ。特にコントラスト比の `incomplete` は VIS-09 で必ず確認する
-- 注意: axe-core のドキュメントや axe DevTools の説明には、**筋の悪い解決方法も紹介されて
-  いる**。修正方法の提案としてそのまま転記せず、対象の目的に沿った修正方法を自分で組み立てる。
-- CI/CD で axe-core を実行している場合でも、設定漏れや表示状態の網羅漏れが起こりやすいため、
-  チェック担当者はあらためて axe-core を実行する。
+**Checks performed by this skill are not a substitute for checking with an actual screen
+reader.** Even when the accessibility tree or markup looks valid, issues can occur in
+actual screen reader announcement. State clearly in the report that "checking with an
+actual screen reader was not performed."
 
 ---
 
-### SEM-01: 画像の代替テキスト
+### AXE-01: Automated check with axe-core
+
+- Verification method: `page`
+- Judgement: Run axe-core and check `violations`. Target tags are
+  `wcag2a` `wcag2aa` `wcag21a` `wcag21aa` `wcag22aa` `best-practice`.
+  - Best-practice items do not immediately mean a violation of a WCAG success criterion,
+    but treat them as indicating a possibility that the state actually is a violation, or
+    that it is causing the user some inconvenience
+  - When the screen changes depending on state (menu open/close, modal dialog display,
+    etc.), **run it each time**
+  - `incomplete` items are ones that "could not be determined automatically"; hand them
+    off to a later step as targets for manual verification. In particular, always check
+    contrast-ratio `incomplete` items in VIS-09
+- Note: the axe-core documentation and axe DevTools explanations **also introduce poor
+  fixes**. Do not copy them verbatim as the suggested fix; work out a fix yourself that
+  fits the purpose of the target.
+- Even when axe-core is run in CI/CD, missing configuration and incomplete coverage of
+  display states are common, so the person doing the check should run axe-core again
+  themselves.
+
+---
+
+### SEM-01: Alternative text for images
 
 - WCAG: SC 1.1.1 (A)
-- 確認手段: `both`
-- 判定: 画像には、簡潔で必要充分な代替テキストが付けられていること。
-  - 純粋な装飾画像など、その画像が知覚できなくなっても利用者への影響が一切ないと判断できる
-    画像には、代替テキストは必要ない
-  - アイコン画像と、そのアイコンが表す事柄を示すテキストが連続して配置されており、アイコンに
-    代替テキストを付けると同じテキストが連続してしまう場合、代替テキストは必要ない
-  - 代替テキストが不要な画像は、支援技術から隠されるようにする（`alt=""`、
-    `aria-hidden="true"` など）。**属性そのものを書かないのは誤り**
-  - 代替テキストの長さは、日本語の場合80文字程度までを目安とする。厳密に守る必要はないが、
-    あまりに長い場合はテキストとしての配置を検討する
-  - 判断には [Alt デシジョンツリー](https://www.w3.org/WAI/tutorials/images/decision-tree/ja)
-    が参考になる
-- `code` からの判定: `<img>` の `alt` 欠落、`alt="画像"` `alt="image"` のような無意味な値、
-  ファイル名がそのまま入っているもの、意味を持つ `<svg>` に `role="img"` と
-  アクセシブルネームがないもの、CSS の `background-image` で表現された意味のある画像を探す。
-  代替テキストの**内容**が適切かは、周囲の文脈から判断する。判断できない場合は「判定不能」と
-  して、製作者への確認事項に挙げる。
-- 重篤度の目安: 画像が情報を伝えている、または操作要素であるなら Major。装飾画像に
-  不要な代替テキストが付いている程度なら Minor。
+- Verification method: `both`
+- Judgement: Images have concise, necessary and sufficient alternative text.
+  - Purely decorative images, and other images that can be judged to have no effect at
+    all on the user even if they cannot be perceived, do not need alternative text
+  - When an icon image is placed immediately next to text that states what the icon
+    represents, and giving the icon alternative text would duplicate that same text,
+    alternative text is not needed
+  - Images that do not need alternative text should be hidden from assistive technology
+    (`alt=""`, `aria-hidden="true"`, etc.). **Omitting the attribute entirely is wrong**
+  - As a guideline, alternative text length for Japanese is up to about 80 characters.
+    This need not be followed strictly, but if it is far too long, consider placing it as
+    regular text instead
+  - The [Alt Decision Tree](https://www.w3.org/WAI/tutorials/images/decision-tree/ja) is
+    useful for making this judgement
+- Judging from `code`: look for missing `alt` on `<img>`, meaningless values such as
+  `alt="image"` (including its Japanese equivalent), ones with the filename entered
+  verbatim, meaningful
+  `<svg>` elements missing `role="img"` and an accessible name, and meaningful images
+  expressed with CSS `background-image`. Judge whether the **content** of the alternative
+  text is appropriate from the surrounding context. When this cannot be judged, mark it
+  "cannot be determined" and list it as a question for the author.
+- Severity guideline: Major if the image conveys information or is an interactive
+  element. Minor if it is merely a decorative image that has unnecessary alternative
+  text.
 
-### SEM-02: 情報および関係性
-
-- WCAG: SC 1.3.1 (A)
-- 確認手段: `both`
-- 判定: 視覚的に表現されている構造や関係性が、支援技術でも読み取れるようにマークアップで
-  表現されていること。
-  - 見出しに見えるものは見出し要素（`<h1>`〜`<h6>`）である。見出しレベルが飛んでいない
-  - 箇条書きに見えるものはリスト要素（`<ul>` `<ol>` `<dl>`）である
-  - 表に見えるものは `<table>` であり、見出しセルは `<th>` で、必要に応じて `scope` が
-    指定されている。レイアウト目的で `<table>` を使っていない
-  - グループ化された入力欄（ラジオボタン群など）は `<fieldset>` と `<legend>`、または
-    同等の `role="group"` と アクセシブルネームでまとめられている
-  - 強調が `<strong>` `<em>` で表現されている（見た目だけの太字・斜体ではない）
-- `code` からの判定: `<div class="heading">` のような見た目だけの見出し、`<br>` を並べた
-  疑似的なリスト、`<table>` によるレイアウト、`font-weight: bold` だけの強調を探す。
-- 重篤度の目安: 構造が読み取れずコンテンツを理解できないなら Major。それ以外は Normal。
-
-### SEM-03: 入力欄とラベルの関連付け
+### SEM-02: Info and relationships
 
 - WCAG: SC 1.3.1 (A)
-- 確認手段: `both`
-- 判定: `<input>` `<textarea>` `<select>` などの入力欄には、その目的を示すテキストが表示されて
-  いるべきであり、その場合 `<label>` などを使って紐付ける形でアクセシブルネームが
-  付けられていること。
-  - `<label for="...">` と `id` の対応、または `<label>` による囲み込みを使う
-  - `aria-label` で表示ラベルと異なる文言を与えると SEM-08 の問題になる
-  - `placeholder` はラベルの代わりにならない（入力すると消える、コントラストが低いことが多い）
-- `code` からの判定: `id` / `for` の対応が取れていない `<label>`、ラベルのない入力欄、
-  `placeholder` のみの入力欄を探す。コンポーネント化されている場合は、`id` が
-  自動生成されて正しく紐付いているかを実装まで辿って確認する。
-- 重篤度の目安: 入力欄の目的がわからずフォームを完了できないため、原則 Major。
+- Verification method: `both`
+- Judgement: Structure and relationships that are expressed visually are also expressed
+  in the markup so that assistive technology can read them.
+  - Anything that looks like a heading is a heading element (`<h1>`–`<h6>`). Heading
+    levels are not skipped
+  - Anything that looks like a bulleted or numbered list is a list element (`<ul>` `<ol>`
+    `<dl>`)
+  - Anything that looks like a table is a `<table>`, header cells are `<th>`, and `scope`
+    is specified where needed. `<table>` is not used for layout purposes
+  - Grouped input fields (such as a set of radio buttons) are grouped with `<fieldset>`
+    and `<legend>`, or the equivalent `role="group"` with an accessible name
+  - Emphasis is expressed with `<strong>` `<em>` (not bold/italic that is only visual)
+- Judging from `code`: look for visual-only headings such as `<div class="heading">`,
+  pseudo-lists made by lining up `<br>`, layout done with `<table>`, and emphasis
+  expressed only with `font-weight: bold`.
+- Severity guideline: Major if the structure cannot be read and the content cannot be
+  understood. Normal otherwise.
 
-### SEM-04: 意味のある順序
+### SEM-03: Associating input fields with labels
+
+- WCAG: SC 1.3.1 (A)
+- Verification method: `both`
+- Judgement: Input fields such as `<input>` `<textarea>` `<select>` should have visible
+  text indicating their purpose, and in that case an accessible name is given by
+  associating it with, for example, a `<label>`.
+  - Use a `<label for="...">` matched to an `id`, or wrap the field in a `<label>`
+  - Giving an `aria-label` wording that differs from the visible label becomes an SEM-08
+    issue
+  - A `placeholder` does not substitute for a label (it disappears once typed into, and
+    its contrast is often low)
+- Judging from `code`: look for `<label>` elements whose `id`/`for` do not match, input
+  fields with no label, and input fields with only a `placeholder`. When the field is
+  implemented as a component, trace into the implementation to check whether the `id` is
+  auto-generated and correctly associated.
+- Severity guideline: Major as a rule, because the user cannot tell the field's purpose
+  and cannot complete the form.
+
+### SEM-04: Meaningful sequence
 
 - WCAG: SC 1.3.2 (A)
-- 確認手段: `both`
-- 判定: コンテンツの順序に意味がある場合、その順序に従って記述される（スクリーンリーダーが
-  読み上げる）こと。
-- `code` からの判定: CSS の `order`、`flex-direction: *-reverse`、`grid-row` /
-  `grid-column` による並べ替え、`position: absolute` による配置で、DOM 順序と視覚的な順序が
-  食い違っている箇所を探す。KBD-07（フォーカス順序）と同じ原因であることが多い。
-- よくある問題: たとえば、縦2列で1列目に項目名、2列目に項目名に紐付く内容が並べられるときには、
-  項目名の羅列の後に内容の連続があると、項目名と内容の紐付きを認識することができない。
-  この場合、項目名-内容の順序で並んでいるべきである（別途、適切な `role` やWAI-ARIA属性を設定するべきである）。
-- 重篤度の目安: 読み上げ順で内容を理解できないなら Major。
+- Verification method: `both`
+- Judgement: When the order of content is meaningful, it is written (announced by the
+  screen reader) in that order.
+- Judging from `code`: look for places where the DOM order and the visual order diverge
+  because of CSS `order`, `flex-direction: *-reverse`, reordering via `grid-row` /
+  `grid-column`, or positioning with `position: absolute`. This often has the same cause
+  as KBD-07 (focus order).
+- Common problem: for example, with two vertical columns where the first column lists
+  item names and the second column lists the content tied to each item name, if a run of
+  item names is followed by a run of content, the association between each item name and
+  its content cannot be recognized. In this case, the items should be ordered
+  name-then-content (and an appropriate `role` or WAI-ARIA attribute should also be set
+  separately).
+- Severity guideline: Major if the content cannot be understood in the reading order.
 
-### SEM-05: 入力の目的（autocomplete）
+### SEM-05: Purpose of input (autocomplete)
 
 - WCAG: SC 1.3.5 (AA)
-- 確認手段: `code`
-- 判定: 利用者自身に関する情報を収集する `<input>` `<textarea>` `<select>` には、適切な
-  `autocomplete` 属性が指定されていること。不必要に `autocomplete="off"` にしてはならない。
-  - 氏名、メールアドレス、電話番号、住所、生年月日、クレジットカード情報、
-    ユーザー名、パスワードなどが対象
-  - 値は [HTML 仕様の autofill field name](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill)
-    から選ぶ（`name` `email` `tel` `postal-code` `street-address` `current-password`
-    `new-password` など）
-- `code` からの判定: 対象となる入力欄への `autocomplete` の欠落、`autocomplete="off"` の
-  指定、無効な値の指定を探す。
-- よくある問題: セキュリティのつもりでパスワード欄に `autocomplete="off"` を指定し、
-  パスワードマネージャーの利用を妨げている（SPEC-03 の問題にもなる）。
-- 重篤度の目安: 自動入力に頼る利用者の入力負担が増えるため Normal。パスワード欄なら Major。
+- Verification method: `code`
+- Judgement: `<input>` `<textarea>` `<select>` fields that collect information about the
+  user themselves have an appropriate `autocomplete` attribute specified.
+  `autocomplete="off"` must not be set unnecessarily.
+  - This covers name, email address, phone number, address, date of birth, credit card
+    information, username, password, and the like
+  - Choose the value from the
+    [HTML spec's autofill field name](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill)
+    list (`name` `email` `tel` `postal-code` `street-address` `current-password`
+    `new-password`, etc.)
+- Judging from `code`: look for missing `autocomplete` on applicable fields,
+  `autocomplete="off"` being set, and invalid values being set.
+- Common problem: `autocomplete="off"` set on a password field for supposed security,
+  which gets in the way of using a password manager (this is also an SPEC-03 issue).
+- Severity guideline: Normal, because it increases the input burden for users who rely on
+  autofill. Major for a password field.
 
-### SEM-06: 文字画像
+### SEM-06: Images of text
 
 - WCAG: SC 1.4.5 (AA)
-- 確認手段: `both`
-- 判定: 必要不可欠なもの（ロゴタイプ、紙の書類を見せるもの、図表内の文字など）を除いて、
-  テキストを画像化して表示していないこと。
-- `code` からの判定: 見出しやボタンのラベルが画像になっている箇所を探す。
-  画像化されたテキストがある場合、そのコントラスト比は axe-core では検出できないため
-  VIS-09 の手動確認対象にもなる。
-- 重篤度の目安: 拡大時に文字がぼやけて読めない、文字色を変更できないため Normal。
+- Verification method: `both`
+- Judgement: Text is not displayed as an image, except where essential (logotypes,
+  things showing a paper document, text within a diagram, etc.).
+- Judging from `code`: look for places where a heading or button label is an image. When
+  text has been turned into an image, its contrast ratio cannot be detected by axe-core,
+  so it also becomes a target for manual verification under VIS-09.
+- Severity guideline: Normal, because the text blurs and becomes unreadable when zoomed
+  in, and its color cannot be changed.
 
-### SEM-07: ランドマークと見出し
+### SEM-07: Landmarks and headings
 
 - WCAG: SC 2.4.1 (A) / SC 1.3.1 (A)
-- 確認手段: `both`
-- 判定: ページに適切にランドマークと見出しが設定されていること。特に、複数のページで共通する
-  部分（ナビゲーションなど）ではない、そのページに固有の部分が `main` ランドマークになって
-  いて、その冒頭に見出しが配置されていること。
-  - `<main>` はページに1つ。`<header>` `<nav>` `<aside>` `<footer>` `<search>` を
-    適切に使う
-  - 同じ種類のランドマークが複数ある場合は、`aria-label` などで区別できるようにする
-  - 見出しはページの構造を表す。`<h1>` から始まり、レベルを飛ばさない
-  - スキップリンク（「本文へ」）があると、繰り返されるブロックを回避しやすい
-- `code` からの判定: `<main>` の有無と数、`<div>` で組まれたヘッダー/ナビゲーション、
-  見出しレベルの飛び、`<h1>` の欠落・重複を確認する。
-- 重篤度の目安: 主要なコンテンツに到達しづらくなるため Normal。ランドマークも見出しも
-  まったくない場合は Major。
+- Verification method: `both`
+- Judgement: The page has landmarks and headings set appropriately. In particular, the
+  part specific to that page — not the parts common to multiple pages, such as
+  navigation — is the `main` landmark, and a heading is placed at its start.
+  - There is exactly one `<main>` per page. `<header>` `<nav>` `<aside>` `<footer>`
+    `<search>` are used appropriately
+  - When there are multiple landmarks of the same type, make them distinguishable with
+    `aria-label` or similar
+  - Headings represent the page's structure. They start at `<h1>` and do not skip levels
+  - A skip link ("Skip to main content") makes it easy to bypass repeated blocks
+- Judging from `code`: check whether `<main>` is present and how many there are,
+  header/navigation built with `<div>`, skipped heading levels, and missing or duplicate
+  `<h1>`.
+- Severity guideline: Normal, because it makes reaching the main content harder. Major if
+  there are no landmarks and no headings at all.
 
-### SEM-08: ラベル イン ネーム
+### SEM-08: Label in name
 
 - WCAG: SC 2.5.3 (A)
-- 確認手段: `both`
-- 判定: 入力欄やボタンなどのコンポーネントが、視覚的に表示されているテキストや文字画像の
-  ラベルを持つ場合、そのコンポーネントのアクセシブルネームは表示されているラベルを
-  **含む**こと。
-  - ベストプラクティスは、表示ラベルをそのままアクセシブルネームとすることである。
-    そのために `<input>` `<textarea>` `<select>` では `<label>` を使い、それ以外の要素で
-    実装されたものでは `aria-labelledby` を使う
-- `code` からの判定: 表示テキストと異なる `aria-label` が指定されている要素を探す。
-  たとえば `<button aria-label="送信">申し込む</button>` は、音声入力の利用者が
-  「申し込む」と発話しても操作できない。
-- 重篤度の目安: 音声入力の利用者が操作できないため Major。
+- Verification method: `both`
+- Judgement: When a component such as an input field or button has a visible text or
+  text-image label, that component's accessible name **includes** the visible label.
+  - Best practice is to use the visible label as the accessible name as is. To that end,
+    use `<label>` for `<input>` `<textarea>` `<select>`, and use `aria-labelledby` for
+    ones implemented with other elements
+- Judging from `code`: look for elements where an `aria-label` different from the visible
+  text is specified. For example, `<button aria-label="Submit">Apply</button>` cannot be
+  operated by a voice-input user who says "Apply."
+- Severity guideline: Major, because voice-input users cannot operate it.
 
-### SEM-09: ページの言語
+### SEM-09: Language of page
 
 - WCAG: SC 3.1.1 (A)
-- 確認手段: `code`
-- 判定: `<html>` 要素の `lang` 属性により、ページのデフォルトの言語が機械可読な形で
-  宣言されていること。
-  - `lang` 属性によって言語エンジンが切り替わるスクリーンリーダーを使うことで、この指定が
-    成功していることを確認できる。指定できていない場合、不自然な読み上げになったり、
-    まったく読み上げなくなったりする。ただし macOS や iOS の VoiceOver ではこの現象が
-    起きないため、この方法では確認できない
-  - Accessibility Visualizer では「ページの言語」として設定値を表示できる
-- `code` からの判定: `<html lang="...">` の有無と値。**HTML テンプレートのデフォルトが
-  `en` になっていることが多く、日本語のページ（`ja` を指定するべき）で `en` のままに
-  なっていることが多い**。SPA やフレームワークでは、レイアウトファイルや設定
-  （Next.js の `app/layout.tsx`、Nuxt の `nuxt.config` など）を確認する。
-- 重篤度の目安: 読み上げが理解できなくなるため Major。
+- Verification method: `code`
+- Judgement: The page's default language is declared in a machine-readable form via the
+  `lang` attribute on the `<html>` element.
+  - You can confirm this declaration is working correctly by using a screen reader whose
+    language engine switches based on the `lang` attribute. If it is not correctly
+    declared, the screen reader announcement becomes unnatural, or stops announcing
+    altogether. However, this does not happen with VoiceOver on macOS or iOS, so it
+    cannot be checked this way
+  - The Accessibility Visualizer can display the set value as "Page language"
+- Judging from `code`: whether `<html lang="...">` is present and its value. **HTML
+  templates often default to `en`, and it is common for a Japanese page — which should
+  declare `ja` — to be left at `en`.** For SPAs and frameworks, check the layout file or
+  configuration (Next.js's `app/layout.tsx`, Nuxt's `nuxt.config`, etc.).
+- Severity guideline: Major, because the screen reader announcement becomes
+  unintelligible.
 
-### SEM-10: 一部分の言語
+### SEM-10: Language of parts
 
 - WCAG: SC 3.1.2 (AA)
-- 確認手段: `code`
-- 判定: デフォルトの言語以外の言語がページ内に含まれる場合、その部分の要素の `lang` 属性に
-  よって言語が機械可読な形で宣言されていること。
-  - 判断の方法は SEM-09 と同様である
-  - Accessibility Visualizer では「言語」のチップで設定値を表示できる
-  - 固有名詞や、その言語に取り込まれている単語は対象外
-- 重篤度の目安: 該当箇所が理解できなくなるため Normal。分量が多いなら Major。
+- Verification method: `code`
+- Judgement: When a language other than the default language appears within the page,
+  the language of that part is declared in machine-readable form via the `lang`
+  attribute on that element.
+  - The method of judgement is the same as SEM-09
+  - The Accessibility Visualizer can display the set value in the "Language" chip
+  - Proper nouns and words that have been absorbed into the surrounding language are not
+    in scope
+- Severity guideline: Normal, because the affected part becomes unintelligible. Major if
+  the amount is large.
 
-### SEM-11: 名前・役割・値
+### SEM-11: Name, role, value
 
 - WCAG: SC 4.1.2 (A)
-- 確認手段: `both`
-- 判定: HTML 要素、WAI-ARIA のロールや属性は目的に沿ったものを使用し、それらがページの
-  目的に沿って正しくスクリーンリーダー等で読み取れる状態になっていること。
-  - 名前（アクセシブルネーム）: すべての操作可能な要素が、何をするものかわかる名前を持つ
-  - 役割（ロール）: ボタンは `<button>`、リンクは `<a href>` のように、適切な要素または
-    `role` で表現されている
-  - 値・状態: 開閉状態（`aria-expanded`）、選択状態（`aria-selected` / `aria-current`）、
-    チェック状態（`aria-checked`）、無効状態（`disabled` / `aria-disabled`）、
-    エラー状態（`aria-invalid`）などが、視覚的な表現と一致して機械可読になっている
-- 補足: **これは文法チェッカーや axe-core のようなアクセシビリティチェッカーだけでは検出
-  できず、ページの目的に基づいて正しいものが用いられているかを確認しなければならない。**
-  スクリーンリーダーでページのすべての部分を読み、すべての部分を操作するのが最も確実だが、
-  ソースコードから確認する、Accessibility Visualizer でおかしな部分を探す、という方法で
-  代替できる。ただし知識や経験が求められ、見落としも発生しやすい。
-  何が「正しい」状態であるかはページの内容や目的に大きく依存するため、この状態で正しいのかを
-  製作者に確認しなければならない場合もある。
-- `code` からの判定: 以下を探す。
-  - `<div>` `<span>` で実装されたボタン・リンク・チェックボックス
-  - `role` は付いているが、その role が要求する属性やキーボード操作が実装されていないもの
-    （`role="button"` に `tabindex` とキーボードハンドラがない、`role="tab"` に
-    `aria-selected` がない、`role="dialog"` にアクセシブルネームがない、など）
-  - 開閉するもの（アコーディオン、ドロップダウン、ハンバーガーメニュー）に `aria-expanded`
-    がない
-  - `aria-labelledby` / `aria-describedby` の参照先 `id` が存在しない、または
-    Shadow DOM をまたいでいて解決されない
-  - 存在しない role や属性名の誤り（`aria-labeledby` のようなタイポ）
-  - `aria-hidden="true"` の中にフォーカス可能な要素がある
-- 重篤度の目安: 操作要素の役割や状態が伝わらず操作できないなら Major。
-  ページの主要な目的に関わるなら Critical。
+- Verification method: `both`
+- Judgement: HTML elements and WAI-ARIA roles/attributes used fit their purpose, and they
+  are in a state where a screen reader or similar can correctly read them in line with
+  the page's purpose.
+  - Name (accessible name): every operable element has a name that makes clear what it
+    does
+  - Role: expressed with the appropriate element or `role`, such as `<button>` for a
+    button and `<a href>` for a link
+  - Value/state: open/closed state (`aria-expanded`), selected state (`aria-selected` /
+    `aria-current`), checked state (`aria-checked`), disabled state (`disabled` /
+    `aria-disabled`), error state (`aria-invalid`), and the like are machine-readable and
+    match the visual presentation
+- Supplementary note: **this cannot be detected by a grammar checker or an accessibility
+  checker such as axe-core alone; it must be confirmed, based on the page's purpose,
+  whether the correct thing is being used.** Reading every part of the page and
+  operating every part of it with a screen reader is the most reliable approach, but
+  checking from the source code, or looking for anything odd with the Accessibility
+  Visualizer, can substitute for it. However, this requires knowledge and experience, and
+  oversights easily occur. What counts as the "correct" state depends heavily on the
+  page's content and purpose, so there are cases where the author must be asked whether a
+  given state is correct.
+- Judging from `code`: look for the following.
+  - Buttons, links, and checkboxes implemented with `<div>` `<span>`
+  - Elements that have a `role` but are missing the attributes or keyboard behavior that
+    role requires (`role="button"` without `tabindex` and a keyboard handler,
+    `role="tab"` without `aria-selected`, `role="dialog"` without an accessible name, and
+    so on)
+  - Things that open and close (accordions, dropdowns, hamburger menus) missing
+    `aria-expanded`
+  - The `id` referenced by `aria-labelledby` / `aria-describedby` does not exist, or is
+    not resolved because it crosses a Shadow DOM boundary
+  - Nonexistent roles or misspelled attribute names (typos such as `aria-labeledby`)
+  - A focusable element inside `aria-hidden="true"`
+- Severity guideline: Major if the role or state of an operable element is not conveyed
+  and it cannot be operated. Critical if it concerns the page's main purpose.
 
-### SEM-12: ステータスメッセージ
+### SEM-12: Status messages
 
 - WCAG: SC 4.1.3 (AA)
-- 確認手段: `both`
-- 判定: ステータスメッセージ（アクションの成功もしくは結果、アプリケーションの処理待ち状態、
-  プロセスの進捗、エラーの存在に関する情報などを伝える、ページの移動や大幅な変化を伴わない
-  コンテンツの変化）が、スクリーンリーダー等の支援技術に通知されること。
-  - WAI-ARIA ライブリージョン（`role="status"` `role="alert"` `aria-live`）を使った通知が
-    行われることが多い。スクリーンリーダーまたは Accessibility Visualizer で、変化を
-    認識できる通知が行われることを確認する
-  - スクリーンリーダーによってライブリージョンの挙動はかなり異なる。変化と同時にフォーカス
-    移動が発生する場合、ライブリージョンの通知が読み上げられないことがしばしば発生する
-- `code` からの判定: 以下を探す。
-  - トースト、スナックバー、フォームの送信結果、検索結果件数、バリデーションエラー、
-    ローディング表示に、ライブリージョンの指定があるか
-  - ライブリージョンの要素が、**通知したい内容が入る前から DOM に存在しているか**
-    （後から要素ごと挿入すると通知されないことが多い）
-  - `role="alert"` を多用していないか（割り込みが多すぎると使いづらい）
-- 重篤度の目安: 操作の成否がわからないため Major。補足的な通知なら Normal。
+- Verification method: `both`
+- Judgement: Status messages (content changes that convey information such as the
+  success or result of an action, an application's waiting-for-processing state,
+  progress of a process, or the presence of an error, without a page navigation or major
+  change) are announced to assistive technology such as a screen reader.
+  - Announcements often use a WAI-ARIA live region (`role="status"` `role="alert"`
+    `aria-live`). Confirm with a screen reader or the Accessibility Visualizer that an
+    announcement recognizable as a change is made
+  - Live-region behavior differs considerably between screen readers. When a focus move
+    happens at the same time as the change, the live-region announcement often fails to
+    be read out
+- Judging from `code`: look for the following.
+  - Whether toasts, snackbars, form submission results, search result counts, validation
+    errors, and loading indicators have a live region specified
+  - Whether the live-region element **already exists in the DOM before the content to be
+    announced is inserted** (inserting the whole element afterward often results in no
+    announcement)
+  - Whether `role="alert"` is overused (too many interruptions makes it hard to use)
+- Severity guideline: Major, because the user cannot tell whether the action succeeded.
+  Normal for a supplementary notification.

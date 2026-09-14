@@ -63,7 +63,7 @@ If no argument:
 
 ### Step 3: Determine output location
 
-Derive the filename from the JSON `name` field (slugified, e.g., "KAI 回答ビュー" → `kai-answer-view`).
+Derive the filename from the JSON `name` field (slugified, e.g., "KAI Answer View" → `kai-answer-view`).
 
 **If `design-id` was provided:**
 - Output directory is `designs/{design-id}/output/wireframe/` (no prompt needed)
