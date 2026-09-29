@@ -2261,7 +2261,7 @@
     {
       "id": "diagram-design",
       "name": "diagram-design",
-      "description": "Produces branded editorial diagrams in 39 visual types (architecture, flowchart, sequence, state machine, ER, timeline, swimlane, quadrant, radar, tree, org chart, layer stack, Venn, pyramid, treemap, bar, slopegraph, Gantt, scatter, Sankey, fishbone, Wardley map, kanban, user journey, deployment, dependency graph, UML class, story map, database schema and more) as standalone self-contained HTML files with inline SVG and CSS, following an opinionated editorial design system: a single style-guide.md source of truth for color and typography tokens, a 4px grid, numeric complexity budgets per type, six mandatory connector-routing rules and an accessible-SVG contract (role=img, aria-labelledby, title/desc). Redraws existing .drawio or Mermaid sources through local structural extractors, onboards brand tokens from a website, skill or folder, supports hand-drawn and terminal skins, exports PNG/SVG, and ships Python verifier scripts for geometry and contrast that the agent runs against its own output.",
+      "description": "Produces branded editorial diagrams in 41 visual types (architecture, flowchart, sequence, state machine, ER, timeline, swimlane, quadrant, tree, org chart, treemap, slopegraph, Gantt, scatter, Sankey, heatmap, waterfall, streamgraph, beeswarm, Wardley map, user journey, dependency graph, UML class, story map and more) as standalone HTML files with inline SVG and CSS, following an opinionated editorial design system: a single style-guide.md source of truth for color and type tokens, a 4px grid, numeric complexity budgets per type, mandatory connector-routing rules and an accessible-SVG contract (role=img, aria-labelledby, title/desc). Redraws .drawio, Mermaid or Excalidraw sources through local extractors, onboards brand tokens from a website, skill or folder, supports hand-drawn and terminal skins, exports standalone SVG (PNG via a host-provided Playwright), and ships Python verifier scripts for geometry and contrast that the agent runs against its own output.",
       "category": "visual-design",
       "tags": [
         "data-visualization",
@@ -2278,11 +2278,13 @@
         "turn this draw.io or Mermaid file into a proper diagram",
         "create a Gantt chart or timeline",
         "visualize this as a diagram, not a table",
-        "brand this diagram to match our website"
+        "brand this diagram to match our website",
+        "turn this Excalidraw file into a proper diagram",
+        "make a waterfall / heatmap / bump chart"
       ],
       "inputs": [
         "a description of the system, process, or data to diagram",
-        "optional .drawio/.drawio.png/.drawio.svg or Mermaid .mmd source to redraw",
+        "optional .drawio/.drawio.png/.drawio.svg, Mermaid .mmd or .excalidraw source to redraw",
         "optional brand source (website URL, installed skill, or local design-token folder) for onboarding"
       ],
       "outputs": [
@@ -2294,13 +2296,13 @@
       "source": {
         "type": "third-party",
         "repository": "cathrynlavery/diagram-design",
-        "url": "https://github.com/cathrynlavery/diagram-design/tree/ac490fd1ac4b4014100f93e729cb4ad198700bd4/skills/diagram-design",
+        "url": "https://github.com/cathrynlavery/diagram-design/tree/57148ac6f7cf8f2d0080f23437ab2929bca15f3e/skills/diagram-design",
         "author": "Cathryn Lavery",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "skills/diagram-design",
-        "upstreamCommit": "ac490fd1ac4b4014100f93e729cb4ad198700bd4",
-        "retrievedAt": "2026-08-26",
+        "upstreamCommit": "57148ac6f7cf8f2d0080f23437ab2929bca15f3e",
+        "retrievedAt": "2026-09-29",
         "modified": true,
         "modifications": [
           {
@@ -2313,6 +2315,21 @@
               "scripts/verify-ridgeline.py",
               "scripts/verify-dumbbell.py",
               "scripts/verify-bubble.py"
+            ]
+          },
+          {
+            "date": "2026-09-29",
+            "reason": "portability",
+            "description": "On updating to upstream 57148ac, the new type references (type-heatmap.md, type-waterfall.md, type-line.md streamgraph and bump variants, type-scatter.md beeswarm variant, type-treemap.md marimekko variant and its legend-polarity gate) and export-registry.md cite repo-root scripts/verify-*.py verifiers as functional gates the agent should run against its output. Bundled the eight referenced verifiers (all standalone, stdlib-only Python) into the skill's scripts/ at the paths the prose already uses, so no wording changed; the five verifiers bundled on 2026-08-26 were re-copied from the new commit. Verifiers the skill gates as repository-checkout or maintainer-only remain unbundled.",
+            "files": [
+              "scripts/verify-heatmap.py",
+              "scripts/verify-waterfall.py",
+              "scripts/verify-streamgraph.py",
+              "scripts/verify-bump.py",
+              "scripts/verify-beeswarm.py",
+              "scripts/verify-marimekko.py",
+              "scripts/verify-skin-polarity.py",
+              "scripts/verify-block-registry.py"
             ]
           }
         ]
@@ -2339,7 +2356,7 @@
     {
       "id": "frontend-design",
       "name": "frontend-design",
-      "description": "Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Directs the agent to work in two passes (a compact color/type/layout/signature token plan, self-critiqued against generic AI-design defaults, then implementation), names three specific overused AI-generated aesthetic clusters to avoid unless the brief calls for them, and gives concrete rules for typography pairing, structural devices, deliberate motion, CSS specificity pitfalls, and end-user-facing UX writing (active voice, consistent verb-to-toast naming, non-apologetic error copy).",
+      "description": "Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Directs the agent to work in two passes (a compact color/type/layout/principles token plan, self-critiqued against generic AI-design defaults, then implementation), names five overused AI-generated design traits to avoid unless the brief calls for them (cream-and-terracotta, near-black with one acid accent, broadsheet hairlines, SaaS-card kit, template chrome), and gives concrete rules for typography (type scale, line length, headline treatments to avoid), structural devices, sparing motion, CSS specificity pitfalls, and end-user-facing UX writing (active voice, consistent verb-to-toast naming, non-apologetic error copy).",
       "category": "visual-design",
       "tags": [
         "typography",
@@ -2366,7 +2383,7 @@
         "any known audience/brand context in memory"
       ],
       "outputs": [
-        "a token plan (4-6 named hex colors, 2+ type roles, layout concept, signature element)",
+        "a token plan (4-6 named hex colors, typefaces with roles, layout concept with alignment, guiding principles)",
         "a self-critique noting what was revised and why",
         "implemented UI code (markup/CSS) following the revised plan",
         "UX copy for labels, errors, and empty states"
@@ -2375,13 +2392,13 @@
       "source": {
         "type": "third-party",
         "repository": "anthropics/skills",
-        "url": "https://github.com/anthropics/skills/tree/3b3fad96af16a10759d930941b4520ba0c40edae/skills/frontend-design",
+        "url": "https://github.com/anthropics/skills/tree/8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4/skills/frontend-design",
         "author": "Anthropic",
         "license": "Apache-2.0",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "skills/frontend-design",
-        "upstreamCommit": "3b3fad96af16a10759d930941b4520ba0c40edae",
-        "retrievedAt": "2026-08-26",
+        "upstreamCommit": "8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4",
+        "retrievedAt": "2026-09-29",
         "modified": false,
         "modifications": []
       },
@@ -3010,13 +3027,13 @@
       "source": {
         "type": "third-party",
         "repository": "plugin87/ux-ui-agent-skills",
-        "url": "https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/design-tokens",
-        "author": "plugin87",
+        "url": "https://github.com/plugin87/ux-ui-agent-skills/tree/f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e/.claude/skills/design-tokens",
+        "author": "Thientan Soparat",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": ".claude/skills/design-tokens",
-        "upstreamCommit": "2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd",
-        "retrievedAt": "2026-08-26",
+        "upstreamCommit": "f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e",
+        "retrievedAt": "2026-09-29",
         "modified": true,
         "modifications": [
           {
@@ -3169,13 +3186,13 @@
       "source": {
         "type": "third-party",
         "repository": "plugin87/ux-ui-agent-skills",
-        "url": "https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/figma-integration",
-        "author": "plugin87",
+        "url": "https://github.com/plugin87/ux-ui-agent-skills/tree/f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e/.claude/skills/figma-integration",
+        "author": "Thientan Soparat",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": ".claude/skills/figma-integration",
-        "upstreamCommit": "2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd",
-        "retrievedAt": "2026-08-26",
+        "upstreamCommit": "f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e",
+        "retrievedAt": "2026-09-29",
         "modified": true,
         "modifications": [
           {
@@ -3431,13 +3448,13 @@
       "source": {
         "type": "third-party",
         "repository": "plugin87/ux-ui-agent-skills",
-        "url": "https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/token-build",
-        "author": "plugin87",
+        "url": "https://github.com/plugin87/ux-ui-agent-skills/tree/f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e/.claude/skills/token-build",
+        "author": "Thientan Soparat",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": ".claude/skills/token-build",
-        "upstreamCommit": "2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd",
-        "retrievedAt": "2026-08-26",
+        "upstreamCommit": "f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e",
+        "retrievedAt": "2026-09-29",
         "modified": true,
         "modifications": [
           {
@@ -3724,13 +3741,13 @@
       "source": {
         "type": "third-party",
         "repository": "plugin87/ux-ui-agent-skills",
-        "url": "https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/a11y-audit",
-        "author": "plugin87",
+        "url": "https://github.com/plugin87/ux-ui-agent-skills/tree/f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e/.claude/skills/a11y-audit",
+        "author": "Thientan Soparat",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": ".claude/skills/a11y-audit",
-        "upstreamCommit": "2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd",
-        "retrievedAt": "2026-08-26",
+        "upstreamCommit": "f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e",
+        "retrievedAt": "2026-09-29",
         "modified": true,
         "modifications": [
           {
@@ -3991,13 +4008,13 @@
       "source": {
         "type": "third-party",
         "repository": "zivtech/accessibility-skills",
-        "url": "https://github.com/zivtech/accessibility-skills/tree/817dedeae90324017ece2d2b104332aec9d20656/.claude/skills/a11y-critic",
+        "url": "https://github.com/zivtech/accessibility-skills/tree/3ffc2cca364456d09e4daca31f54623b02fe9d93/.claude/skills/a11y-critic",
         "author": "zivtech",
         "license": "GPL-3.0-or-later",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": ".claude/skills/a11y-critic",
-        "upstreamCommit": "817dedeae90324017ece2d2b104332aec9d20656",
-        "retrievedAt": "2026-08-26",
+        "upstreamCommit": "3ffc2cca364456d09e4daca31f54623b02fe9d93",
+        "retrievedAt": "2026-09-29",
         "modified": false,
         "modifications": []
       },
@@ -4057,13 +4074,13 @@
       "source": {
         "type": "third-party",
         "repository": "zivtech/accessibility-skills",
-        "url": "https://github.com/zivtech/accessibility-skills/tree/817dedeae90324017ece2d2b104332aec9d20656/.claude/skills/a11y-planner",
+        "url": "https://github.com/zivtech/accessibility-skills/tree/3ffc2cca364456d09e4daca31f54623b02fe9d93/.claude/skills/a11y-planner",
         "author": "zivtech",
         "license": "GPL-3.0-or-later",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": ".claude/skills/a11y-planner",
-        "upstreamCommit": "817dedeae90324017ece2d2b104332aec9d20656",
-        "retrievedAt": "2026-08-26",
+        "upstreamCommit": "3ffc2cca364456d09e4daca31f54623b02fe9d93",
+        "retrievedAt": "2026-09-29",
         "modified": false,
         "modifications": []
       },
@@ -4324,13 +4341,13 @@
       "source": {
         "type": "third-party",
         "repository": "zivtech/accessibility-skills",
-        "url": "https://github.com/zivtech/accessibility-skills/tree/817dedeae90324017ece2d2b104332aec9d20656/.claude/skills/perspective-audit",
+        "url": "https://github.com/zivtech/accessibility-skills/tree/3ffc2cca364456d09e4daca31f54623b02fe9d93/.claude/skills/perspective-audit",
         "author": "zivtech",
         "license": "GPL-3.0-or-later",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": ".claude/skills/perspective-audit",
-        "upstreamCommit": "817dedeae90324017ece2d2b104332aec9d20656",
-        "retrievedAt": "2026-08-26",
+        "upstreamCommit": "3ffc2cca364456d09e4daca31f54623b02fe9d93",
+        "retrievedAt": "2026-09-29",
         "modified": false,
         "modifications": []
       },
@@ -4391,13 +4408,13 @@
       "source": {
         "type": "third-party",
         "repository": "maxgfr/ultra11y",
-        "url": "https://github.com/maxgfr/ultra11y/tree/d1cd14792f3bd1b9ab15958bc4e72081375514dc/skills/review-a11y",
+        "url": "https://github.com/maxgfr/ultra11y/tree/5ccb015c07c651d8a0e0400275fea39d3e767eac/skills/review-a11y",
         "author": "maxgfr",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "skills/review-a11y",
-        "upstreamCommit": "d1cd14792f3bd1b9ab15958bc4e72081375514dc",
-        "retrievedAt": "2026-08-26",
+        "upstreamCommit": "5ccb015c07c651d8a0e0400275fea39d3e767eac",
+        "retrievedAt": "2026-09-29",
         "modified": true,
         "modifications": [
           {
@@ -4472,13 +4489,13 @@
       "source": {
         "type": "third-party",
         "repository": "maxgfr/ultra11y",
-        "url": "https://github.com/maxgfr/ultra11y/tree/d1cd14792f3bd1b9ab15958bc4e72081375514dc/skills/ultra11y",
+        "url": "https://github.com/maxgfr/ultra11y/tree/5ccb015c07c651d8a0e0400275fea39d3e767eac/skills/ultra11y",
         "author": "maxgfr",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "skills/ultra11y",
-        "upstreamCommit": "d1cd14792f3bd1b9ab15958bc4e72081375514dc",
-        "retrievedAt": "2026-08-26",
+        "upstreamCommit": "5ccb015c07c651d8a0e0400275fea39d3e767eac",
+        "retrievedAt": "2026-09-29",
         "modified": true,
         "modifications": [
           {
@@ -5360,13 +5377,13 @@
       "source": {
         "type": "third-party",
         "repository": "kirodotdev/kirocrew",
-        "url": "https://github.com/kirodotdev/kirocrew/tree/00ea2455438450feaebe9d8ee315a612164e03bd/src/kiro_crew/apps/builtins/design_critique/skills/design-critique",
+        "url": "https://github.com/kirodotdev/kirocrew/tree/320d29014b5ab6b09a992d59271cd843178564a8/src/kiro_crew/apps/builtins/design_critique/skills/design-critique",
         "author": "kirocrew",
         "license": "Apache-2.0",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "src/kiro_crew/apps/builtins/design_critique/skills/design-critique",
-        "upstreamCommit": "00ea2455438450feaebe9d8ee315a612164e03bd",
-        "retrievedAt": "2026-08-29",
+        "upstreamCommit": "320d29014b5ab6b09a992d59271cd843178564a8",
+        "retrievedAt": "2026-09-29",
         "modified": true,
         "modifications": [
           {
@@ -5438,13 +5455,13 @@
       "source": {
         "type": "third-party",
         "repository": "plugin87/ux-ui-agent-skills",
-        "url": "https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/design-review",
-        "author": "plugin87",
+        "url": "https://github.com/plugin87/ux-ui-agent-skills/tree/f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e/.claude/skills/design-review",
+        "author": "Thientan Soparat",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": ".claude/skills/design-review",
-        "upstreamCommit": "2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd",
-        "retrievedAt": "2026-08-26",
+        "upstreamCommit": "f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e",
+        "retrievedAt": "2026-09-29",
         "modified": true,
         "modifications": [
           {

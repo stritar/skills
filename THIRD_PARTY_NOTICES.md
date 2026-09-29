@@ -10,10 +10,10 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 
 ## a11y-audit
 
-- Upstream: [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/a11y-audit)
-- Author: plugin87
-- Upstream path: `.claude/skills/a11y-audit` at commit `2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd`
-- Retrieved: 2026-08-26
+- Upstream: [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e/.claude/skills/a11y-audit)
+- Author: Thientan Soparat
+- Upstream path: `.claude/skills/a11y-audit` at commit `f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e`
+- Retrieved: 2026-09-29
 - License: MIT (license file: `skills/accessibility/a11y-audit/LICENSE.txt`)
 - Local modifications:
   - 2026-08-26 (portability): Upstream SKILL.md references repo-root shared files (accessibility/, scripts/, taste/) that live outside the skill's own directory in the source repo, so the skill is not self-contained on its own. Bundled the specific referenced files into the vendored skill directory at the same relative paths the prose already uses, so no wording had to change and the file references now resolve inside the skill directory. [accessibility/wcag-checklist.md, accessibility/aria-patterns.md, scripts/measure_render.mjs, scripts/verify_states.mjs, scripts/contrast.py, taste/motion-choreography.md]
@@ -40,19 +40,19 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 
 ## a11y-critic
 
-- Upstream: [zivtech/accessibility-skills](https://github.com/zivtech/accessibility-skills/tree/817dedeae90324017ece2d2b104332aec9d20656/.claude/skills/a11y-critic)
+- Upstream: [zivtech/accessibility-skills](https://github.com/zivtech/accessibility-skills/tree/3ffc2cca364456d09e4daca31f54623b02fe9d93/.claude/skills/a11y-critic)
 - Author: zivtech
-- Upstream path: `.claude/skills/a11y-critic` at commit `817dedeae90324017ece2d2b104332aec9d20656`
-- Retrieved: 2026-08-26
+- Upstream path: `.claude/skills/a11y-critic` at commit `3ffc2cca364456d09e4daca31f54623b02fe9d93`
+- Retrieved: 2026-09-29
 - License: GPL-3.0-or-later (license file: `skills/accessibility/a11y-critic/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
 ## a11y-planner
 
-- Upstream: [zivtech/accessibility-skills](https://github.com/zivtech/accessibility-skills/tree/817dedeae90324017ece2d2b104332aec9d20656/.claude/skills/a11y-planner)
+- Upstream: [zivtech/accessibility-skills](https://github.com/zivtech/accessibility-skills/tree/3ffc2cca364456d09e4daca31f54623b02fe9d93/.claude/skills/a11y-planner)
 - Author: zivtech
-- Upstream path: `.claude/skills/a11y-planner` at commit `817dedeae90324017ece2d2b104332aec9d20656`
-- Retrieved: 2026-08-26
+- Upstream path: `.claude/skills/a11y-planner` at commit `3ffc2cca364456d09e4daca31f54623b02fe9d93`
+- Retrieved: 2026-09-29
 - License: GPL-3.0-or-later (license file: `skills/accessibility/a11y-planner/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
@@ -258,10 +258,10 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 
 ## design-critique
 
-- Upstream: [kirodotdev/kirocrew](https://github.com/kirodotdev/kirocrew/tree/00ea2455438450feaebe9d8ee315a612164e03bd/src/kiro_crew/apps/builtins/design_critique/skills/design-critique)
+- Upstream: [kirodotdev/kirocrew](https://github.com/kirodotdev/kirocrew/tree/320d29014b5ab6b09a992d59271cd843178564a8/src/kiro_crew/apps/builtins/design_critique/skills/design-critique)
 - Author: kirocrew
-- Upstream path: `src/kiro_crew/apps/builtins/design_critique/skills/design-critique` at commit `00ea2455438450feaebe9d8ee315a612164e03bd`
-- Retrieved: 2026-08-29
+- Upstream path: `src/kiro_crew/apps/builtins/design_critique/skills/design-critique` at commit `320d29014b5ab6b09a992d59271cd843178564a8`
+- Retrieved: 2026-09-29
 - License: Apache-2.0 (license file: `skills/testing/design-critique/LICENSE.txt`)
 - Local modifications:
   - 2026-08-29 (broken-reference): SKILL.md's evidence-pipeline section resolved `<skill-dir>` via a KiroCrew-runtime-specific shell-out (`python3 -c "import kiro_crew, pathlib; print(pathlib.Path(kiro_crew.__file__).parent / 'apps/builtins/design_critique/skills/design-critique')"`), which depends on the kiro_crew Python package and cannot resolve outside the KiroCrew app. Rewrote the paragraph to state that `<skill-dir>` is simply this skill's own directory (the folder containing SKILL.md) -- functionally identical instruction, no host dependency. [SKILL.md]
@@ -315,10 +315,10 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 
 ## design-review
 
-- Upstream: [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/design-review)
-- Author: plugin87
-- Upstream path: `.claude/skills/design-review` at commit `2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd`
-- Retrieved: 2026-08-26
+- Upstream: [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e/.claude/skills/design-review)
+- Author: Thientan Soparat
+- Upstream path: `.claude/skills/design-review` at commit `f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e`
+- Retrieved: 2026-09-29
 - License: MIT (license file: `skills/testing/design-review/LICENSE.txt`)
 - Local modifications:
   - 2026-08-26 (portability): Upstream SKILL.md references repo-root shared files (workflows/design-review.md, accessibility/wcag-checklist.md, scripts/contrast.py, taste/design-taste.md) outside the skill's own directory. Bundled the specific referenced files into the vendored skill directory at the same relative paths already used in the prose, so no wording had to change. [workflows/design-review.md, accessibility/wcag-checklist.md, scripts/contrast.py, taste/design-taste.md]
@@ -344,23 +344,24 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 
 ## design-tokens
 
-- Upstream: [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/design-tokens)
-- Author: plugin87
-- Upstream path: `.claude/skills/design-tokens` at commit `2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd`
-- Retrieved: 2026-08-26
+- Upstream: [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e/.claude/skills/design-tokens)
+- Author: Thientan Soparat
+- Upstream path: `.claude/skills/design-tokens` at commit `f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e`
+- Retrieved: 2026-09-29
 - License: MIT (license file: `skills/design-systems/design-tokens/LICENSE.txt`)
 - Local modifications:
   - 2026-08-26 (portability): Upstream SKILL.md references repo-root shared files (.claude/rules/tokens-and-color.md, .claude/rules/typography-and-spacing.md, scripts/validate_tokens.py, scripts/contrast.py) outside the skill's own directory. Bundled the specific referenced files into the vendored skill directory at the same relative paths already used in the prose, so no wording had to change. [.claude/rules/tokens-and-color.md, .claude/rules/typography-and-spacing.md, scripts/validate_tokens.py, scripts/contrast.py]
 
 ## diagram-design
 
-- Upstream: [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design/tree/ac490fd1ac4b4014100f93e729cb4ad198700bd4/skills/diagram-design)
+- Upstream: [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design/tree/57148ac6f7cf8f2d0080f23437ab2929bca15f3e/skills/diagram-design)
 - Author: Cathryn Lavery
-- Upstream path: `skills/diagram-design` at commit `ac490fd1ac4b4014100f93e729cb4ad198700bd4`
-- Retrieved: 2026-08-26
+- Upstream path: `skills/diagram-design` at commit `57148ac6f7cf8f2d0080f23437ab2929bca15f3e`
+- Retrieved: 2026-09-29
 - License: MIT (license file: `skills/visual-design/diagram-design/LICENSE.txt`)
 - Local modifications:
   - 2026-08-26 (portability): references/type-treemap.md, type-line.md (slopegraph and ridgeline variants), and type-scatter.md (bubble variant) each cite a repo-root scripts/verify-*.py geometry/contrast verifier as a functional gate the agent should run against its generated output, but these scripts live at the repository root (scripts/) rather than inside skills/diagram-design/ and are not among the three extractor scripts the skill directory itself ships. Bundled the five specific referenced verifiers (verify-treemap.py, verify-slopegraph.py, verify-ridgeline.py, verify-dumbbell.py, verify-bubble.py -- all confirmed standalone, stdlib-only Python with no shared-module imports) into the vendored skill's scripts/ directory at the paths the prose already uses, so the citations resolve without any wording change. Did not bundle their test-verify-*.py counterparts (maintainer/CI-only, never invoked from a SKILL.md/reference workflow step) or the many other repo-root scripts/verify-*.py and scripts/test-*.py files that SKILL.md, animation.md, and doctor.md already explicitly gate as 'from a repository checkout' / 'maintainer-checkout mode only', which the installed skill correctly treats as optional. [scripts/verify-treemap.py, scripts/verify-slopegraph.py, scripts/verify-ridgeline.py, scripts/verify-dumbbell.py, scripts/verify-bubble.py]
+  - 2026-09-29 (portability): On updating to upstream 57148ac, the new type references (type-heatmap.md, type-waterfall.md, type-line.md streamgraph and bump variants, type-scatter.md beeswarm variant, type-treemap.md marimekko variant and its legend-polarity gate) and export-registry.md cite repo-root scripts/verify-*.py verifiers as functional gates the agent should run against its output. Bundled the eight referenced verifiers (all standalone, stdlib-only Python) into the skill's scripts/ at the paths the prose already uses, so no wording changed; the five verifiers bundled on 2026-08-26 were re-copied from the new commit. Verifiers the skill gates as repository-checkout or maintainer-only remain unbundled. [scripts/verify-heatmap.py, scripts/verify-waterfall.py, scripts/verify-streamgraph.py, scripts/verify-bump.py, scripts/verify-beeswarm.py, scripts/verify-marimekko.py, scripts/verify-skin-polarity.py, scripts/verify-block-registry.py]
 
 ## experiment-designer
 
@@ -404,10 +405,10 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 
 ## figma-integration
 
-- Upstream: [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/figma-integration)
-- Author: plugin87
-- Upstream path: `.claude/skills/figma-integration` at commit `2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd`
-- Retrieved: 2026-08-26
+- Upstream: [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e/.claude/skills/figma-integration)
+- Author: Thientan Soparat
+- Upstream path: `.claude/skills/figma-integration` at commit `f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e`
+- Retrieved: 2026-09-29
 - License: MIT (license file: `skills/design-systems/figma-integration/LICENSE.txt`)
 - Local modifications:
   - 2026-08-26 (portability): Upstream SKILL.md references repo-root shared files (workflows/figma-integration.md, scripts/validate_tokens.py) outside the skill's own directory. Bundled the specific referenced files into the vendored skill directory at the same relative paths already used in the prose, so no wording had to change. [workflows/figma-integration.md, scripts/validate_tokens.py]
@@ -423,10 +424,10 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 
 ## frontend-design
 
-- Upstream: [anthropics/skills](https://github.com/anthropics/skills/tree/3b3fad96af16a10759d930941b4520ba0c40edae/skills/frontend-design)
+- Upstream: [anthropics/skills](https://github.com/anthropics/skills/tree/8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4/skills/frontend-design)
 - Author: Anthropic
-- Upstream path: `skills/frontend-design` at commit `3b3fad96af16a10759d930941b4520ba0c40edae`
-- Retrieved: 2026-08-26
+- Upstream path: `skills/frontend-design` at commit `8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4`
+- Retrieved: 2026-09-29
 - License: Apache-2.0 (license file: `skills/visual-design/frontend-design/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
@@ -585,10 +586,10 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 
 ## perspective-audit
 
-- Upstream: [zivtech/accessibility-skills](https://github.com/zivtech/accessibility-skills/tree/817dedeae90324017ece2d2b104332aec9d20656/.claude/skills/perspective-audit)
+- Upstream: [zivtech/accessibility-skills](https://github.com/zivtech/accessibility-skills/tree/3ffc2cca364456d09e4daca31f54623b02fe9d93/.claude/skills/perspective-audit)
 - Author: zivtech
-- Upstream path: `.claude/skills/perspective-audit` at commit `817dedeae90324017ece2d2b104332aec9d20656`
-- Retrieved: 2026-08-26
+- Upstream path: `.claude/skills/perspective-audit` at commit `3ffc2cca364456d09e4daca31f54623b02fe9d93`
+- Retrieved: 2026-09-29
 - License: GPL-3.0-or-later (license file: `skills/accessibility/perspective-audit/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
@@ -668,10 +669,10 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 
 ## review-a11y
 
-- Upstream: [maxgfr/ultra11y](https://github.com/maxgfr/ultra11y/tree/d1cd14792f3bd1b9ab15958bc4e72081375514dc/skills/review-a11y)
+- Upstream: [maxgfr/ultra11y](https://github.com/maxgfr/ultra11y/tree/5ccb015c07c651d8a0e0400275fea39d3e767eac/skills/review-a11y)
 - Author: maxgfr
-- Upstream path: `skills/review-a11y` at commit `d1cd14792f3bd1b9ab15958bc4e72081375514dc`
-- Retrieved: 2026-08-26
+- Upstream path: `skills/review-a11y` at commit `5ccb015c07c651d8a0e0400275fea39d3e767eac`
+- Retrieved: 2026-09-29
 - License: MIT (license file: `skills/accessibility/review-a11y/LICENSE.txt`)
 - Local modifications:
   - 2026-09-14 (translation): Added English glosses in brackets after French terms in SKILL.md (e.g. « région live » (live region)) so the rule against translating technical tokens reads clearly in English. The French wording, the rule and scripts/ultra11y.mjs are unchanged. [SKILL.md]
@@ -787,10 +788,10 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 
 ## token-build
 
-- Upstream: [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/token-build)
-- Author: plugin87
-- Upstream path: `.claude/skills/token-build` at commit `2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd`
-- Retrieved: 2026-08-26
+- Upstream: [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e/.claude/skills/token-build)
+- Author: Thientan Soparat
+- Upstream path: `.claude/skills/token-build` at commit `f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e`
+- Retrieved: 2026-09-29
 - License: MIT (license file: `skills/design-systems/token-build/LICENSE.txt`)
 - Local modifications:
   - 2026-08-26 (portability): Upstream SKILL.md references repo-root shared files (workflows/token-build.md, scripts/validate_tokens.py, scripts/contrast.py) outside the skill's own directory. Bundled the specific referenced files into the vendored skill directory at the same relative paths already used in the prose, so no wording had to change. [workflows/token-build.md, scripts/validate_tokens.py, scripts/contrast.py]
@@ -806,10 +807,10 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 
 ## ultra11y
 
-- Upstream: [maxgfr/ultra11y](https://github.com/maxgfr/ultra11y/tree/d1cd14792f3bd1b9ab15958bc4e72081375514dc/skills/ultra11y)
+- Upstream: [maxgfr/ultra11y](https://github.com/maxgfr/ultra11y/tree/5ccb015c07c651d8a0e0400275fea39d3e767eac/skills/ultra11y)
 - Author: maxgfr
-- Upstream path: `skills/ultra11y` at commit `d1cd14792f3bd1b9ab15958bc4e72081375514dc`
-- Retrieved: 2026-08-26
+- Upstream path: `skills/ultra11y` at commit `5ccb015c07c651d8a0e0400275fea39d3e767eac`
+- Retrieved: 2026-09-29
 - License: MIT (license file: `skills/accessibility/ultra11y/LICENSE.txt`)
 - Local modifications:
   - 2026-09-14 (translation): Added short English glosses in brackets after the first use of each French RGAA term or quoted French tool string in the Markdown prose (e.g. « à évaluer » (to be evaluated)), plus a short English explanation after the verbatim French examples in audit.md, ci.md, dynamic.md and pages.md. The French wording itself, code blocks, JSON examples, sample output, references/standards.md (its table already gives English equivalents) and scripts/ultra11y.mjs are unchanged, because they are normative or match real tool output. [SKILL.md, references/audit.md, references/ci.md, references/devtools.md, references/dynamic.md, references/e2e.md, references/guidance.md, references/judgment.md, references/packs.md, references/pages.md, references/prd.md, references/runbook.md]

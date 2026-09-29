@@ -550,28 +550,28 @@ Directs the agent to create standalone visual art (poster-style .pdf or .png out
 
 ### `diagram-design` ⭐
 
-Produces branded editorial diagrams in 39 visual types (architecture, flowchart, sequence, state machine, ER, timeline, swimlane, quadrant, radar, tree, org chart, layer stack, Venn, pyramid, treemap, bar, slopegraph, Gantt, scatter, Sankey, fishbone, Wardley map, kanban, user journey, deployment, dependency graph, UML class, story map, database schema and more) as standalone self-contained HTML files with inline SVG and CSS, following an opinionated editorial design system: a single style-guide.md source of truth for color and typography tokens, a 4px grid, numeric complexity budgets per type, six mandatory connector-routing rules and an accessible-SVG contract (role=img, aria-labelledby, title/desc). Redraws existing .drawio or Mermaid sources through local structural extractors, onboards brand tokens from a website, skill or folder, supports hand-drawn and terminal skins, exports PNG/SVG, and ships Python verifier scripts for geometry and contrast that the agent runs against its own output.
+Produces branded editorial diagrams in 41 visual types (architecture, flowchart, sequence, state machine, ER, timeline, swimlane, quadrant, tree, org chart, treemap, slopegraph, Gantt, scatter, Sankey, heatmap, waterfall, streamgraph, beeswarm, Wardley map, user journey, dependency graph, UML class, story map and more) as standalone HTML files with inline SVG and CSS, following an opinionated editorial design system: a single style-guide.md source of truth for color and type tokens, a 4px grid, numeric complexity budgets per type, mandatory connector-routing rules and an accessible-SVG contract (role=img, aria-labelledby, title/desc). Redraws .drawio, Mermaid or Excalidraw sources through local extractors, onboards brand tokens from a website, skill or folder, supports hand-drawn and terminal skins, exports standalone SVG (PNG via a host-provided Playwright), and ships Python verifier scripts for geometry and contrast that the agent runs against its own output.
 
 - **Path**: [skills/visual-design/diagram-design/SKILL.md](skills/visual-design/diagram-design/SKILL.md)
-- **Use when**: draw an architecture diagram; make a flowchart / sequence diagram / ER diagram; turn this draw.io or Mermaid file into a proper diagram; create a Gantt chart or timeline; visualize this as a diagram, not a table; brand this diagram to match our website
-- **Inputs**: a description of the system, process, or data to diagram, optional .drawio/.drawio.png/.drawio.svg or Mermaid .mmd source to redraw, optional brand source (website URL, installed skill, or local design-token folder) for onboarding
+- **Use when**: draw an architecture diagram; make a flowchart / sequence diagram / ER diagram; turn this draw.io or Mermaid file into a proper diagram; create a Gantt chart or timeline; visualize this as a diagram, not a table; brand this diagram to match our website; turn this Excalidraw file into a proper diagram; make a waterfall / heatmap / bump chart
+- **Inputs**: a description of the system, process, or data to diagram, optional .drawio/.drawio.png/.drawio.svg, Mermaid .mmd or .excalidraw source to redraw, optional brand source (website URL, installed skill, or local design-token folder) for onboarding
 - **Outputs**: a self-contained .html file with inline SVG and CSS (the diagram), optional .svg and/or .png exports, for imports, a fidelity ledger reporting what was merged, collapsed, or dropped
 - **Dependencies**: python
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
-- **Source**: third-party — [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design/tree/ac490fd1ac4b4014100f93e729cb4ad198700bd4/skills/diagram-design) @ `ac490fd` by Cathryn Lavery, MIT (modified — see THIRD_PARTY_NOTICES.md)
+- **Source**: third-party — [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design/tree/57148ac6f7cf8f2d0080f23437ab2929bca15f3e/skills/diagram-design) @ `57148ac` by Cathryn Lavery, MIT (modified — see THIRD_PARTY_NOTICES.md)
 - **Status**: verified, stable, recommended default
 - **Tags**: data-visualization, charts, visual-hierarchy, layout, typography, color, brand
 
 ### `frontend-design` ⭐
 
-Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Directs the agent to work in two passes (a compact color/type/layout/signature token plan, self-critiqued against generic AI-design defaults, then implementation), names three specific overused AI-generated aesthetic clusters to avoid unless the brief calls for them, and gives concrete rules for typography pairing, structural devices, deliberate motion, CSS specificity pitfalls, and end-user-facing UX writing (active voice, consistent verb-to-toast naming, non-apologetic error copy).
+Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Directs the agent to work in two passes (a compact color/type/layout/principles token plan, self-critiqued against generic AI-design defaults, then implementation), names five overused AI-generated design traits to avoid unless the brief calls for them (cream-and-terracotta, near-black with one acid accent, broadsheet hairlines, SaaS-card kit, template chrome), and gives concrete rules for typography (type scale, line length, headline treatments to avoid), structural devices, sparing motion, CSS specificity pitfalls, and end-user-facing UX writing (active voice, consistent verb-to-toast naming, non-apologetic error copy).
 
 - **Path**: [skills/visual-design/frontend-design/SKILL.md](skills/visual-design/frontend-design/SKILL.md)
 - **Use when**: design a landing page; make this UI look distinctive; avoid generic AI-generated design; pick a typography and color direction; critique my design plan before building; write UX copy for this interface
 - **Inputs**: a design brief or existing UI to redesign, any known audience/brand context in memory
-- **Outputs**: a token plan (4-6 named hex colors, 2+ type roles, layout concept, signature element), a self-critique noting what was revised and why, implemented UI code (markup/CSS) following the revised plan, UX copy for labels, errors, and empty states
+- **Outputs**: a token plan (4-6 named hex colors, typefaces with roles, layout concept with alignment, guiding principles), a self-critique noting what was revised and why, implemented UI code (markup/CSS) following the revised plan, UX copy for labels, errors, and empty states
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
-- **Source**: third-party — [anthropics/skills](https://github.com/anthropics/skills/tree/3b3fad96af16a10759d930941b4520ba0c40edae/skills/frontend-design) @ `3b3fad9` by Anthropic, Apache-2.0
+- **Source**: third-party — [anthropics/skills](https://github.com/anthropics/skills/tree/8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4/skills/frontend-design) @ `8a1541c` by Anthropic, Apache-2.0
 - **Status**: verified, stable, recommended default
 - **Tags**: typography, color, layout, visual-hierarchy, ui-design, interaction-design, responsive, motion, ux-writing, voice-and-tone
 - **Related**: `frontend-design-review`, `theme-factory`, `better-ui`, `pick-ui-library`
@@ -702,7 +702,7 @@ Generates, extends, or audits design tokens in DTCG format ($type/$value) using 
 - **Outputs**: DTCG-format token JSON (primitive/semantic/component tiers) with $description preserved, A validation pass confirming JSON validity and alias resolution
 - **Dependencies**: python
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code
-- **Source**: third-party — [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/design-tokens) @ `2ffb677` by plugin87, MIT (modified — see THIRD_PARTY_NOTICES.md)
+- **Source**: third-party — [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e/.claude/skills/design-tokens) @ `f2e2f7f` by Thientan Soparat, MIT (modified — see THIRD_PARTY_NOTICES.md)
 - **Status**: verified, experimental
 - **Tags**: design-tokens, token-naming, semantic-tokens, design-system, color, typography, spacing, dark-mode, multi-brand
 - **Related**: `token-build`, `extract-design-md`, `design-system-governance`, `better-colors`, `token-naming`
@@ -731,7 +731,7 @@ Keeps Figma and code in sync by mapping the project's 3-tier DTCG tokens to Figm
 - **Outputs**: A token-to-Figma-Variable collection/mode mapping, A stated authoritative sync direction, A component parity report (variant/state coverage gaps)
 - **Dependencies**: python, figma-mcp
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code
-- **Source**: third-party — [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/figma-integration) @ `2ffb677` by plugin87, MIT (modified — see THIRD_PARTY_NOTICES.md)
+- **Source**: third-party — [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e/.claude/skills/figma-integration) @ `f2e2f7f` by Thientan Soparat, MIT (modified — see THIRD_PARTY_NOTICES.md)
 - **Status**: verified, experimental
 - **Tags**: figma, figma-to-code, design-tokens, design-system, component-api, multi-brand
 - **Related**: `design-tokens`
@@ -789,7 +789,7 @@ Sets up or runs the build pipeline that turns the project's DTCG tokens/*.json s
 - **Outputs**: Platform-specific generated theme files (CSS, Tailwind, JS/TS, iOS, Android), A CI step that validates tokens and fails on stale generated artifacts
 - **Dependencies**: node, python
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code
-- **Source**: third-party — [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/token-build) @ `2ffb677` by plugin87, MIT (modified — see THIRD_PARTY_NOTICES.md)
+- **Source**: third-party — [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e/.claude/skills/token-build) @ `f2e2f7f` by Thientan Soparat, MIT (modified — see THIRD_PARTY_NOTICES.md)
 - **Status**: verified, experimental
 - **Tags**: design-tokens, design-system, versioning, multi-brand, governance
 - **Related**: `design-tokens`, `token-naming`
@@ -851,7 +851,7 @@ Audits a UI or design against WCAG 2.2 AA/AAA and documented ARIA patterns, prod
 - **Outputs**: A findings table: WCAG criterion, severity (P0/P1/P2), what fails, specific fix, Explicit confirmation of passing checks, Measured contrast ratios (not estimated)
 - **Dependencies**: python, node
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code
-- **Source**: third-party — [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/a11y-audit) @ `2ffb677` by plugin87, MIT (modified — see THIRD_PARTY_NOTICES.md)
+- **Source**: third-party — [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e/.claude/skills/a11y-audit) @ `f2e2f7f` by Thientan Soparat, MIT (modified — see THIRD_PARTY_NOTICES.md)
 - **Status**: verified, experimental
 - **Tags**: a11y, wcag, aria, screen-reader, keyboard, focus-management, contrast, audit, remediation
 - **Related**: `better-accessibility`, `a11y-check-code`
@@ -895,7 +895,7 @@ Reviews accessibility design decisions in an existing component, flow, or interf
 - **Inputs**: an existing component, flow, or interface (code or a written accessibility plan) that has already passed automated accessibility checks
 - **Outputs**: findings list with severity, file:line evidence, affected user group, and WCAG/APG citation, a verdict: ACCEPT / ACCEPT-WITH-RESERVATIONS / REVISE / REJECT
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
-- **Source**: third-party — [zivtech/accessibility-skills](https://github.com/zivtech/accessibility-skills/tree/817dedeae90324017ece2d2b104332aec9d20656/.claude/skills/a11y-critic) @ `817dede` by zivtech, GPL-3.0-or-later
+- **Source**: third-party — [zivtech/accessibility-skills](https://github.com/zivtech/accessibility-skills/tree/3ffc2cca364456d09e4daca31f54623b02fe9d93/.claude/skills/a11y-critic) @ `3ffc2cc` by zivtech, GPL-3.0-or-later
 - **Status**: verified, stable
 - **Tags**: a11y, wcag, aria, keyboard, focus-management, screen-reader, semantic-html, severity, design-critique, expert-review
 - **Related**: `a11y-planner`, `perspective-audit`, `a11y-role-audit`
@@ -909,7 +909,7 @@ Designs an accessible implementation before code is written: runs a 9-phase prot
 - **Inputs**: a description of the component, flow, or interface to be built, the target compliance level and known constraints (framework, existing design system)
 - **Outputs**: a Markdown accessibility plan (docs/a11y-plans/YYYY-MM-DD-<feature-name>-a11y-plan.md) with semantic structure, APG pattern table, focus plan, state-communication table, and task breakdown, a WCAG-EM audit-scope variant for Section 508 conformance sampling when requested
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
-- **Source**: third-party — [zivtech/accessibility-skills](https://github.com/zivtech/accessibility-skills/tree/817dedeae90324017ece2d2b104332aec9d20656/.claude/skills/a11y-planner) @ `817dede` by zivtech, GPL-3.0-or-later
+- **Source**: third-party — [zivtech/accessibility-skills](https://github.com/zivtech/accessibility-skills/tree/3ffc2cca364456d09e4daca31f54623b02fe9d93/.claude/skills/a11y-planner) @ `3ffc2cc` by zivtech, GPL-3.0-or-later
 - **Status**: verified, stable, recommended default
 - **Tags**: a11y, wcag, aria, keyboard, focus-management, contrast, semantic-html, forms, inclusive-design
 - **Related**: `a11y-critic`, `a11y-role-audit`, `perspective-audit`, `better-accessibility`
@@ -965,7 +965,7 @@ Runs a deep, single-dimension accessibility review from one of seven access pers
 - **Inputs**: an artifact (source code or markup) plus the specific perspective(s) flagged MEDIUM or HIGH by an upstream review
 - **Outputs**: per-perspective findings with severity, WCAG citation, ARRM role routing, and file:line evidence, a PASS / REVISE / BLOCK recommendation
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code
-- **Source**: third-party — [zivtech/accessibility-skills](https://github.com/zivtech/accessibility-skills/tree/817dedeae90324017ece2d2b104332aec9d20656/.claude/skills/perspective-audit) @ `817dede` by zivtech, GPL-3.0-or-later
+- **Source**: third-party — [zivtech/accessibility-skills](https://github.com/zivtech/accessibility-skills/tree/3ffc2cca364456d09e4daca31f54623b02fe9d93/.claude/skills/perspective-audit) @ `3ffc2cc` by zivtech, GPL-3.0-or-later
 - **Status**: verified, stable
 - **Tags**: a11y, wcag, keyboard, focus-management, contrast, screen-reader, motion, inclusive-design, severity, expert-review
 - **Related**: `a11y-role-audit`, `a11y-critic`, `a11y-check-page`
@@ -980,7 +980,7 @@ Reviews changed frontend code (staged files, a working diff, a branch, or a PR) 
 - **Outputs**: severity-ranked WCAG 2.2 AA review scoped to the change, with file:line fixes, list of residual rendering risks requiring a browser scan, pass/fail verdict for the change
 - **Dependencies**: node
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
-- **Source**: third-party — [maxgfr/ultra11y](https://github.com/maxgfr/ultra11y/tree/d1cd14792f3bd1b9ab15958bc4e72081375514dc/skills/review-a11y) @ `d1cd147` by maxgfr, MIT (modified — see THIRD_PARTY_NOTICES.md)
+- **Source**: third-party — [maxgfr/ultra11y](https://github.com/maxgfr/ultra11y/tree/5ccb015c07c651d8a0e0400275fea39d3e767eac/skills/review-a11y) @ `5ccb015` by maxgfr, MIT (modified — see THIRD_PARTY_NOTICES.md)
 - **Status**: draft, experimental
 - **Tags**: a11y, wcag, aria, keyboard, focus-management, contrast, semantic-html, severity, remediation, pr-review
 - **Related**: `ultra11y`, `a11y-check-code`, `better-accessibility`
@@ -995,7 +995,7 @@ Audits a repository, site, or page against WCAG 2.2 AA or a pluggable country st
 - **Outputs**: dated Markdown/HTML conformance report with per-criterion status, per-page compliance grid from rendered-page scans, PRD-style backlog and/or filed tickets grouped by WCAG criterion
 - **Dependencies**: node, browser, playwright
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
-- **Source**: third-party — [maxgfr/ultra11y](https://github.com/maxgfr/ultra11y/tree/d1cd14792f3bd1b9ab15958bc4e72081375514dc/skills/ultra11y) @ `d1cd147` by maxgfr, MIT (modified — see THIRD_PARTY_NOTICES.md)
+- **Source**: third-party — [maxgfr/ultra11y](https://github.com/maxgfr/ultra11y/tree/5ccb015c07c651d8a0e0400275fea39d3e767eac/skills/ultra11y) @ `5ccb015` by maxgfr, MIT (modified — see THIRD_PARTY_NOTICES.md)
 - **Status**: draft, experimental
 - **Tags**: a11y, wcag, aria, keyboard, focus-management, contrast, semantic-html, forms, severity, audit, remediation, documentation
 - **Related**: `review-a11y`, `a11y-check-page`
@@ -1185,7 +1185,7 @@ Runs an evidence-bounded heuristic evaluation of a supplied UI artifact (image, 
 - **Outputs**: designer-voiced critique: overall read, what's working, top 3-5 findings each with element/problem/fix, health tally by NN/g severity name (no composite score), list of screens that could not be seen, with the reason, on request: full atom matrix, numeric severities, confidence, and framework badges per finding
 - **Dependencies**: node, playwright
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
-- **Source**: third-party — [kirodotdev/kirocrew](https://github.com/kirodotdev/kirocrew/tree/00ea2455438450feaebe9d8ee315a612164e03bd/src/kiro_crew/apps/builtins/design_critique/skills/design-critique) @ `00ea245` by kirocrew, Apache-2.0 (modified — see THIRD_PARTY_NOTICES.md)
+- **Source**: third-party — [kirodotdev/kirocrew](https://github.com/kirodotdev/kirocrew/tree/320d29014b5ab6b09a992d59271cd843178564a8/src/kiro_crew/apps/builtins/design_critique/skills/design-critique) @ `320d290` by kirocrew, Apache-2.0 (modified — see THIRD_PARTY_NOTICES.md)
 - **Status**: verified, stable, recommended default
 - **Tags**: heuristic-evaluation, design-critique, severity, expert-review, a11y, wcag
 - **Related**: `design-review`, `interface-review`, `laws-of-ux`, `usability-testing`
@@ -1200,7 +1200,7 @@ Runs a structured, scored review of a screen, page, or product. Scores six weigh
 - **Outputs**: Six-dimension scored table plus weighted overall score, Prioritized findings table with severity and concrete fixes, Nielsen heuristic violations flagged by number
 - **Dependencies**: python
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code
-- **Source**: third-party — [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/2ffb677aa02b225c8a3da1b7f31d9ebb7c38f1dd/.claude/skills/design-review) @ `2ffb677` by plugin87, MIT (modified — see THIRD_PARTY_NOTICES.md)
+- **Source**: third-party — [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e/.claude/skills/design-review) @ `f2e2f7f` by Thientan Soparat, MIT (modified — see THIRD_PARTY_NOTICES.md)
 - **Status**: verified, experimental
 - **Tags**: design-review, design-critique, heuristic-evaluation, severity, ui-design, visual-hierarchy, a11y
 - **Related**: `interface-review`, `frontend-design-review`, `design-details`, `laws-of-ux`, `critique-information-density`, `design-critique`
@@ -1621,8 +1621,8 @@ Orchestrates a research effort from the decision it must inform to a recommendat
 - [`better-layout`](skills/visual-design/better-layout/SKILL.md) (visual-design) — Layout-structure guidance for web interfaces: grouping by negative space with a 2x inter/intra-group gap ratio, keeping controls visually distinct from static content, shared-edge alignment, logical (RTL-safe) properties over physical left/right, importance-ordered content, progressive-disclosure affordances (peeking scroll items, disclosure controls), breakpoints driven by content rather than device presets, container queries, safe-area-aware full-bleed vs. floating-control layering, and string-growth/clipping resilience, closing with a calibrated severity report ending in Block/Approve.
 - [`better-typography`](skills/visual-design/better-typography/SKILL.md) (visual-design) — Web typography guidance: font-format and weight-loading rules, CSS properties over raw variable-font/OpenType tags, type-scale construction with descending heading steps, line-height and letter-spacing by role, measure capping (60-75 characters), text-wrap balance/pretty usage, tabular numbers, truncation without losing content, smart punctuation, from-font underline metrics, the 16px iOS input-zoom fix (two documented approaches), font-smoothing and bidi/lang/dir handling, closing with a calibrated severity report ending in Block/Approve, plus a CSS-to-Tailwind cheat sheet for every declaration covered.
 - [`better-ui`](skills/visual-design/better-ui/SKILL.md) (visual-design) — Design-engineering polish guidance for making interfaces feel finished: concentric border-radius math, optical over geometric alignment, shadows-for-elevation vs. borders-for-structure, interruptible CSS transitions vs. one-shot keyframes, split-and-stagger enter animations with subtle exits, exact contextual icon cross-fade values (scale/opacity/blur, spring bounce 0), theme-switch transition suppression, transition-property specificity and will-change usage, icon stroke-weight matching to adjacent text and RTL icon-flip rules, and image-outline recipes, closing with a calibrated severity report ending in Block/Approve.
-- [`diagram-design`](skills/visual-design/diagram-design/SKILL.md) (visual-design) — Produces branded editorial diagrams in 39 visual types (architecture, flowchart, sequence, state machine, ER, timeline, swimlane, quadrant, radar, tree, org chart, layer stack, Venn, pyramid, treemap, bar, slopegraph, Gantt, scatter, Sankey, fishbone, Wardley map, kanban, user journey, deployment, dependency graph, UML class, story map, database schema and more) as standalone self-contained HTML files with inline SVG and CSS, following an opinionated editorial design system: a single style-guide.md source of truth for color and typography tokens, a 4px grid, numeric complexity budgets per type, six mandatory connector-routing rules and an accessible-SVG contract (role=img, aria-labelledby, title/desc). Redraws existing .drawio or Mermaid sources through local structural extractors, onboards brand tokens from a website, skill or folder, supports hand-drawn and terminal skins, exports PNG/SVG, and ships Python verifier scripts for geometry and contrast that the agent runs against its own output.
-- [`frontend-design`](skills/visual-design/frontend-design/SKILL.md) (visual-design) — Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Directs the agent to work in two passes (a compact color/type/layout/signature token plan, self-critiqued against generic AI-design defaults, then implementation), names three specific overused AI-generated aesthetic clusters to avoid unless the brief calls for them, and gives concrete rules for typography pairing, structural devices, deliberate motion, CSS specificity pitfalls, and end-user-facing UX writing (active voice, consistent verb-to-toast naming, non-apologetic error copy).
+- [`diagram-design`](skills/visual-design/diagram-design/SKILL.md) (visual-design) — Produces branded editorial diagrams in 41 visual types (architecture, flowchart, sequence, state machine, ER, timeline, swimlane, quadrant, tree, org chart, treemap, slopegraph, Gantt, scatter, Sankey, heatmap, waterfall, streamgraph, beeswarm, Wardley map, user journey, dependency graph, UML class, story map and more) as standalone HTML files with inline SVG and CSS, following an opinionated editorial design system: a single style-guide.md source of truth for color and type tokens, a 4px grid, numeric complexity budgets per type, mandatory connector-routing rules and an accessible-SVG contract (role=img, aria-labelledby, title/desc). Redraws .drawio, Mermaid or Excalidraw sources through local extractors, onboards brand tokens from a website, skill or folder, supports hand-drawn and terminal skins, exports standalone SVG (PNG via a host-provided Playwright), and ships Python verifier scripts for geometry and contrast that the agent runs against its own output.
+- [`frontend-design`](skills/visual-design/frontend-design/SKILL.md) (visual-design) — Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Directs the agent to work in two passes (a compact color/type/layout/principles token plan, self-critiqued against generic AI-design defaults, then implementation), names five overused AI-generated design traits to avoid unless the brief calls for them (cream-and-terracotta, near-black with one acid accent, broadsheet hairlines, SaaS-card kit, template chrome), and gives concrete rules for typography (type scale, line length, headline treatments to avoid), structural devices, sparing motion, CSS specificity pitfalls, and end-user-facing UX writing (active voice, consistent verb-to-toast naming, non-apologetic error copy).
 - [`theme-factory`](skills/visual-design/theme-factory/SKILL.md) (visual-design) — Applies one of 10 curated color-palette + font-pairing themes (each with named hex colors, header/body font roles, and recommended use cases, shown via a theme-showcase.pdf) to slide decks, documents, or HTML artifacts, or generates a new custom theme on the fly when none of the presets fit, following a show-choices / confirm / apply workflow.
 - [`design-debt-audit`](skills/design-systems/design-debt-audit/SKILL.md) (design-systems) — Makes the agent run a structured design debt audit: five debt categories (visual, structural, accessibility, documentation, implementation), a five-step process from screenshot inventory through classification (severity/category/frequency/effort) to a prioritized remediation plan scored as severity x frequency / effort, split into quick wins, structural projects, accessibility fixes, and documented write-offs, plus a living debt register with owners and quarterly review.
 - [`design-system-governance`](skills/design-systems/design-system-governance/SKILL.md) (design-systems) — Makes the agent define how a design system evolves: seven core governance questions, three ownership models (centralized/federated/hybrid) with trade-offs, a seven-stage contribution lifecycle from proposal to communicated release, semver as the consumer contract with a patch/minor/major table, a deprecation process with timelines and in-product warnings, breaking-change policy (migration guides, codemods, shims), and component quality entry standards.

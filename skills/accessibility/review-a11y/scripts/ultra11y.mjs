@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
 // src/cli.ts
-import { realpathSync as realpathSync6, writeFileSync as writeFileSync21, mkdirSync as mkdirSync18, existsSync as existsSync38, readFileSync as readFileSync34, appendFileSync, copyFileSync as copyFileSync4 } from "fs";
-import { join as join53, relative as relative6, resolve as resolve16, sep as sep7, dirname as dirname16 } from "path";
+import { realpathSync as realpathSync7, writeFileSync as writeFileSync21, mkdirSync as mkdirSync18, existsSync as existsSync39, readFileSync as readFileSync34, appendFileSync, copyFileSync as copyFileSync4 } from "fs";
+import { join as join52, relative as relative6, resolve as resolve17, sep as sep7, dirname as dirname17 } from "path";
 import { fileURLToPath as fileURLToPath5, pathToFileURL as pathToFileURL3 } from "url";
 
 // src/types.ts
-var VERSION = "5.40.0";
+var VERSION = "5.42.1";
 var SCHEMA_VERSION = 2;
 var INAPPLICABLE_STATUS = "C";
 
@@ -437,7 +437,7 @@ var wcag_default = {
       ruleIds: ["rendered-orientation-lock"],
       understanding: "https://www.w3.org/WAI/WCAG22/Understanding/orientation.html",
       text: "Content does not restrict its view and operation to a single display orientation, such as portrait or landscape, unless a specific display orientation is essential.\nNote: Examples where a particular display orientation may be essential are a bank check, a piano application, slides for a projector or television, or virtual reality content where parts of the image (for instance, a status bar or heads-up display) always remain at a fixed orientation relative to the headset screens (and the user's eyes) regardless of the physical orientation of the headset.",
-      textFr: "La consultation et le fonctionnement du contenu ne sont pas limit\xE9s \xE0 une seule orientation de l\u2019affichage, comme le portrait ou le paysage, \xE0 moins qu\u2019une orientation sp\xE9cifique de l\u2019affichage ne soit essentielle.\nNote : On compte parmi les exemples o\xF9 une orientation sp\xE9cifique de l\u2019affichage peut \xEAtre essentielle : un ch\xE8que de banque, une application de piano, des diapositives pour un projecteur ou une t\xE9l\xE9vision, ou un contenu de r\xE9alit\xE9 virtuelle qui n\u2019est pas n\xE9cessairement limit\xE9 \xE0 une orientation d\u2019affichage en mode paysage ou portrait.",
+      textFr: "La consultation et le fonctionnement du contenu ne sont pas limit\xE9s \xE0 une seule orientation de l\u2019affichage, comme le portrait ou le paysage, \xE0 moins qu\u2019une orientation sp\xE9cifique de l\u2019affichage ne soit essentielle.\nNote : On compte parmi les exemples o\xF9 une orientation sp\xE9cifique de l\u2019affichage peut \xEAtre essentielle : un ch\xE8que de banque, une application de piano, des diapositives pour un projecteur ou une t\xE9l\xE9vision, ou un contenu de r\xE9alit\xE9 virtuelle, o\xF9 le contenu n\u2019est pas n\xE9cessairement limit\xE9 \xE0 une orientation d\u2019affichage en mode paysage ou portrait.",
       termsFr: ["essential"],
       terms: ["essential"]
     },
@@ -486,8 +486,8 @@ var wcag_default = {
       understanding: "https://www.w3.org/WAI/WCAG22/Understanding/audio-control.html",
       techniques: ["F23", "F93", "G170", "G171", "G60"],
       text: "If any audio on a web page plays automatically for more than 3 seconds, either a mechanism is available to pause or stop the audio, or a mechanism is available to control audio volume independently from the overall system volume level.\nNote: Since any content that does not meet this success criterion can interfere with a user's ability to use the whole page, all content on the web page (whether or not it is used to meet other success criteria) must meet this success criterion. See Conformance Requirement 5: Non-Interference.",
-      textFr: "Si du son sur une page Web est audible automatiquement pendant plus de 3 secondes, un m\xE9canisme est disponible pour le mettre en pause, l\u2019arr\xEAter ou pour en contr\xF4ler le volume de fa\xE7on ind\xE9pendante du niveau de volume du syst\xE8me g\xE9n\xE9ral.\nNote : Puisque tout contenu ne satisfaisant pas \xE0 ce crit\xE8re de succ\xE8s peut interf\xE9rer avec la capacit\xE9 de l\u2019utilisateur \xE0 exploiter la page enti\xE8re, tout le contenu pr\xE9sent dans la page Web (qu\u2019il soit utilis\xE9 pour satisfaire \xE0 d\u2019autres crit\xE8res de succ\xE8s ou non) doit satisfaire \xE0 ce crit\xE8re de succ\xE8s. Voir l\u2019exigence de conformit\xE9 5 : Non-interf\xE9rence.",
-      termsFr: ["mechanism"],
+      textFr: "Si du son sur une page web est audible automatiquement pendant plus de 3 secondes, un m\xE9canisme est disponible pour le mettre en pause, l\u2019arr\xEAter ou pour en contr\xF4ler le volume de fa\xE7on ind\xE9pendante du niveau de volume du syst\xE8me g\xE9n\xE9ral.\nNote : Puisque tout contenu ne satisfaisant pas \xE0 ce crit\xE8re de succ\xE8s peut interf\xE9rer avec la capacit\xE9 de l\u2019utilisateur \xE0 exploiter la page enti\xE8re, tout le contenu pr\xE9sent dans la page web (qu\u2019il soit utilis\xE9 pour satisfaire \xE0 d\u2019autres crit\xE8res de succ\xE8s ou non) doit satisfaire \xE0 ce crit\xE8re de succ\xE8s. Voir l\u2019exigence de conformit\xE9 5 : Non-interf\xE9rence.",
+      termsFr: ["mechanism", "pause"],
       terms: ["mechanism", "paused"]
     },
     {
@@ -554,8 +554,8 @@ var wcag_default = {
       understanding: "https://www.w3.org/WAI/WCAG22/Understanding/reflow.html",
       techniques: ["C34", "C37"],
       text: "Content can be presented without loss of information or functionality, and without requiring scrolling in two dimensions for:\n\u2022 Vertical scrolling content at a width equivalent to 320 CSS pixels;\n\u2022 Horizontal scrolling content at a height equivalent to 256 CSS pixels.\nExcept for parts of the content which require two-dimensional layout for usage or meaning.\nNote: 320 CSS pixels is equivalent to a starting viewport width of 1280 CSS pixels wide at 400% zoom. For web content which is designed to scroll horizontally (e.g., with vertical text), 256 CSS pixels is equivalent to a starting viewport height of 1024 CSS pixels at 400% zoom.\nNote: Examples of content which requires two-dimensional layout are images required for understanding (such as maps and diagrams), video, games, presentations, data tables (not individual cells), and interfaces where it is necessary to keep toolbars in view while manipulating content. It is acceptable to provide two-dimensional scrolling for such parts of the content.",
-      textFr: "Le contenu peut \xEAtre pr\xE9sent\xE9 sans perte d\u2019information ou de fonctionnalit\xE9 et sans n\xE9cessit\xE9 de d\xE9filement dans les deux dimensions pour :\n\u2022 un contenu \xE0 d\xE9filement vertical avec une largeur \xE9quivalente \xE0 320 pixels CSS ;\n\u2022 un contenu \xE0 d\xE9filement horizontal avec une hauteur \xE9quivalente \xE0 256 pixels CSS.\nSauf pour les parties du contenu dont l\u2019utilisation ou la compr\xE9hension n\xE9cessite une mise en page en deux dimensions.\nNote : 320 pixels CSS \xE9quivaut \xE0 une largeur d\u2019affichage initiale de 1280 pixels CSS avec un zoom de 400 %. Pour un contenu Web con\xE7u pour d\xE9filer horizontalement (par exemple, avec du texte vertical), la valeur de 256 pixels CSS \xE9quivaut \xE0 une hauteur d\u2019affichage initiale de 1024 pixels CSS avec un zoom de 400 %.\nNote : On compte parmi les exemples de contenu n\xE9cessitant une mise en page en deux dimensions les images n\xE9cessaires \xE0 la compr\xE9hension (comme les cartes ou les diagrammes), les vid\xE9os, les jeux, les pr\xE9sentations, les tableaux de donn\xE9es (non pas les cellules individuelles), et les interfaces o\xF9 il est n\xE9cessaire de garder les barres d\u2019outils visibles pendant la manipulation du contenu. Un d\xE9filement bidimensionnel pour ces parties du contenu est acceptable.",
-      termsFr: ["css-pixels"],
+      textFr: "Le contenu peut \xEAtre pr\xE9sent\xE9 sans perte d\u2019information ou de fonctionnalit\xE9 et sans n\xE9cessit\xE9 de d\xE9filement dans les deux dimensions pour :\n\u2022 un contenu \xE0 d\xE9filement vertical avec une largeur \xE9quivalente \xE0 320 pixels CSS ;\n\u2022 un contenu \xE0 d\xE9filement horizontal avec une hauteur \xE9quivalente \xE0 256 pixels CSS.\nSauf pour les parties du contenu dont l\u2019utilisation ou la compr\xE9hension n\xE9cessite une mise en page en deux dimensions.\nNote : 320 pixels CSS \xE9quivaut \xE0 une largeur initiale d\u2019espace de restitution de 1280 pixels CSS avec un zoom de 400 %. Pour un contenu web con\xE7u pour d\xE9filer horizontalement (par exemple, avec du texte vertical), la valeur de 256 pixels CSS \xE9quivaut \xE0 une hauteur d\u2019affichage initiale de 1024 pixels CSS avec un zoom de 400 %.\nNote : On compte parmi les exemples de contenu n\xE9cessitant une mise en page en deux dimensions les images n\xE9cessaires \xE0 la compr\xE9hension (comme les cartes ou les diagrammes), les vid\xE9os, les jeux, les pr\xE9sentations, les tableaux de donn\xE9es (non pas les cellules individuelles), et les interfaces o\xF9 il est n\xE9cessaire de garder les barres d\u2019outils visibles pendant la manipulation du contenu. Un d\xE9filement bidimensionnel pour ces parties du contenu est acceptable.",
+      termsFr: ["css-pixels", "viewport"],
       terms: ["css-pixel", "viewport"]
     },
     {
@@ -572,7 +572,7 @@ var wcag_default = {
       techniques: ["F78", "G145", "G174", "G18", "G183", "G195", "G207"],
       text: "The visual presentation of the following have a contrast ratio of at least 3:1 against adjacent color(s):\nUser Interface Components: Visual information required to identify user interface components and states, except for inactive components or where the appearance of the component is determined by the user agent and not modified by the author;\nGraphical Objects: Parts of graphics required to understand the content, except when a particular presentation of graphics is essential to the information being conveyed.",
       textFr: "La pr\xE9sentation visuelle des \xE9l\xE9ments suivants a un rapport de contraste d\u2019au moins 3:1 avec la ou les couleurs adjacentes :\nComposants d\u2019interface utilisateur: informations visuelles n\xE9cessaires \xE0 l\u2019identification des composants et des \xE9tats de l\u2019interface utilisateur, \xE0 l\u2019exception des composants inactifs ou lorsque l\u2019apparence du composant est d\xE9termin\xE9e par l\u2019agent utilisateur et non modifi\xE9e par l\u2019auteur ;\nObjets graphiques: parties d\u2019\xE9l\xE9ments graphiques n\xE9cessaires \xE0 la compr\xE9hension du contenu, sauf si une pr\xE9sentation sp\xE9cifique de ces \xE9l\xE9ments est essentielle \xE0 l\u2019information transmise.",
-      termsFr: ["presentation", "contrast-ratio", "user-interface-components", "states", "essential"],
+      termsFr: ["presentation", "contrast-ratio", "user-interface-components", "states", "user-agents", "essential"],
       terms: ["presentation", "contrast-ratio", "user-interface-component", "state", "user-agent", "essential"]
     },
     {
@@ -589,7 +589,7 @@ var wcag_default = {
       techniques: ["C21", "C35", "C36", "C8"],
       text: "In content implemented using markup languages that support the following text style properties, no loss of content or functionality occurs by setting all of the following and by changing no other style property:\n\u2022 Line height (line spacing) to at least 1.5 times the font size;\n\u2022 Spacing following paragraphs to at least 2 times the font size;\n\u2022 Letter spacing (tracking) to at least 0.12 times the font size;\n\u2022 Word spacing to at least 0.16 times the font size.\nException: Human languages and scripts that do not make use of one or more of these text style properties in written text can conform using only the properties that exist for that combination of language and script.\nNote: Content is not required to use these text spacing values. The requirement is to ensure that when a user overrides the authored text spacing, content or functionality is not lost.\nNote: Writing systems for some languages use different text spacing settings, such as paragraph start indent. Authors are encouraged to follow locally available guidance for improving readability and legibility of text in their writing system.",
       textFr: "Dans un contenu impl\xE9ment\xE9 via un langage de balisage qui prend en charge les propri\xE9t\xE9s de style de texte suivantes, il n\u2019y a aucune perte de contenu ou de fonctionnalit\xE9 lorsqu\u2019on applique toutes les valeurs ci-dessous sans modifier aucune autre propri\xE9t\xE9 de style :\n\u2022 La hauteur de ligne (interlignage) d\xE9finie \xE0 au moins 1,5 fois la taille de la police ;\n\u2022 L\u2019espacement entre les paragraphes cons\xE9cutifs d\xE9fini \xE0 au moins 2 fois la taille de la police ;\n\u2022 L\u2019espacement des lettres (interlettrage) d\xE9fini \xE0 au moins 0,12 fois la taille de la police ;\n\u2022 L\u2019espacement entre les mots d\xE9fini \xE0 au moins 0,16 fois la taille de la police.\nException : les langues et syst\xE8mes d\u2019\xE9critures qui n\u2019utilisent pas une ou plusieurs de ces propri\xE9t\xE9s de style de texte pour le texte \xE9crit peuvent \xEAtre conformes en utilisant uniquement les propri\xE9t\xE9s qui existent pour cette combinaison de langue et de syst\xE8me d\u2019\xE9criture.\nNote : Il n\u2019est pas obligatoire d\u2019utiliser ces valeurs d\u2019espacement du texte. L\u2019exigence consiste \xE0 s\u2019assurer que, lorsqu\u2019un utilisateur modifie l\u2019espacement du texte d\xE9fini par l\u2019auteur, le contenu ou la fonctionnalit\xE9 ne soient pas perdus.\nNote : Dans certaines langues, les syst\xE8mes d\u2019\xE9criture utilisent des param\xE8tres d\u2019espacement de texte diff\xE9rents, tels que l\u2019indentation au d\xE9but des paragraphes. Les auteurs sont encourag\xE9s \xE0 suivre les recommandations disponibles \xE0 l\u2019\xE9chelle locale pour am\xE9liorer la lisibilit\xE9 et la clart\xE9 du texte dans leur propre syst\xE8me d\u2019\xE9criture.",
-      termsFr: ["style-properties", "text"],
+      termsFr: ["style-properties", "text", "human-language-s"],
       terms: ["text", "style-property", "human-language"]
     },
     {
@@ -606,7 +606,7 @@ var wcag_default = {
       techniques: ["F95"],
       text: "Where receiving and then removing pointer hover or keyboard focus triggers additional content to become visible and then hidden, all of the following are true:\nDismissible: A mechanism is available to dismiss the additional content without moving pointer hover or keyboard focus, unless the additional content communicates an input error or does not obscure or replace other content;\nHoverable: If pointer hover can trigger the additional content, then the pointer can be moved over the additional content without the additional content disappearing;\nPersistent: The additional content remains visible until the hover or focus trigger is removed, the user dismisses it, or its information is no longer valid.\nException: The visual presentation of the additional content is determined by the user agent and is not modified by the author.\nNote: Examples of additional content where the visual presentation is determined by the user agent include browser tooltips created through use of the HTML title attribute [[HTML]].\nNote: Custom tooltips, sub-menus, and other nonmodal popups that display on hover and focus are examples of additional content covered by this criterion.\nNote: This criterion applies to content that appears in addition to the triggering component itself. Since hidden components that are made visible on keyboard focus (such as links used to skip to another part of a page) do not present additional content they are not covered by this criterion.",
       textFr: "Lorsque la r\xE9ception puis le retrait du survol du pointeur ou du focus du clavier d\xE9clenche l\u2019affichage puis le masquage d\u2019un contenu additionnel, les \xE9l\xE9ments suivants sont vrais :\nMasquable: il existe un m\xE9canisme permettant de masquer le contenu additionnel sans d\xE9placer le pointeur ou le focus du clavier, \xE0 moins que le contenu additionnel ne communique une erreur de saisie ou ne masque ni ne remplace un autre contenu ;\nSurvolable: si le survol du pointeur peut d\xE9clencher le contenu additionnel, alors le pointeur peut \xEAtre d\xE9plac\xE9 sur le contenu additionnel sans que celui-ci disparaisse ;\nPersistant: le contenu additionnel reste visible jusqu\u2019\xE0 ce que le survol ou le focus soit retir\xE9, que l\u2019utilisateur le masque ou que ses informations ne soient plus valables.\nException : la pr\xE9sentation visuelle du contenu additionnel est contr\xF4l\xE9e par l\u2019agent utilisateur et n\u2019est pas modifi\xE9e par l\u2019auteur.\nNote : Parmi les exemples de contenu additionnel contr\xF4l\xE9 par l\u2019agent utilisateur figurent les infobulles du navigateur cr\xE9\xE9es \xE0 l\u2019aide de l\u2019attribut HTML title [HTML].\nNote : Les infobulles personnalis\xE9es, les sous-menus et autres fen\xEAtres non modales qui s\u2019affichent au survol et \xE0 la prise de focus sont des exemples de contenu additionnel couvert par ce crit\xE8re.\nNote : Ce crit\xE8re s\u2019applique au contenu qui appara\xEEt en plus du composant d\xE9clencheur lui-m\xEAme. \xC9tant donn\xE9 que les composants cach\xE9s qui deviennent visibles au focus du clavier (comme les liens d\u2019acc\xE8s rapide \xE0 une autre partie d\u2019une page) ne pr\xE9sentent pas de contenu additionnel, ils ne sont pas couverts par ce crit\xE8re.",
-      termsFr: ["mechanism", "input-error"],
+      termsFr: ["mechanism", "input-error", "user-agents"],
       terms: ["mechanism", "input-error", "user-agent"]
     },
     {
@@ -639,7 +639,7 @@ var wcag_default = {
       understanding: "https://www.w3.org/WAI/WCAG22/Understanding/no-keyboard-trap.html",
       techniques: ["F10", "G202", "G21", "G4", "G90", "H91"],
       text: "If keyboard focus can be moved to a component of the page using a keyboard interface, then focus can be moved away from that component using only a keyboard interface, and, if it requires more than unmodified arrow or tab keys or other standard exit methods, the user is advised of the method for moving focus away.\nNote: Since any content that does not meet this success criterion can interfere with a user's ability to use the whole page, all content on the web page (whether it is used to meet other success criteria or not) must meet this success criterion. See Conformance Requirement 5: Non-Interference.",
-      textFr: "Si le focus du clavier peut \xEAtre positionn\xE9 sur un \xE9l\xE9ment de la page \xE0 l\u2019aide d\u2019une interface clavier, r\xE9ciproquement, il peut \xEAtre d\xE9plac\xE9 hors de ce m\xEAme composant simplement \xE0 l\u2019aide d\u2019une interface clavier et, si ce d\xE9placement exige plus que l\u2019utilisation d\u2019une simple touche fl\xE8che ou tabulation ou toute autre m\xE9thode standard de sortie, l\u2019utilisateur est inform\xE9 de la m\xE9thode permettant de d\xE9placer le focus hors de ce composant.\nNote : Puisque tout contenu ne satisfaisant pas \xE0 ce crit\xE8re de succ\xE8s peut interf\xE9rer avec la capacit\xE9 de l\u2019utilisateur \xE0 exploiter la page enti\xE8re, tout le contenu pr\xE9sent dans la page Web (qu\u2019il soit utilis\xE9 pour satisfaire \xE0 d\u2019autres crit\xE8res de succ\xE8s ou non) doit satisfaire \xE0 ce crit\xE8re de succ\xE8s. Voir l\u2019exigence de conformit\xE9 5 : Non-interf\xE9rence.",
+      textFr: "Si le focus du clavier peut \xEAtre positionn\xE9 sur un \xE9l\xE9ment de la page \xE0 l\u2019aide d\u2019une interface clavier, r\xE9ciproquement, il peut \xEAtre d\xE9plac\xE9 hors de ce m\xEAme composant simplement \xE0 l\u2019aide d\u2019une interface clavier et, si ce d\xE9placement exige plus que l\u2019utilisation d\u2019une simple touche fl\xE8che ou tabulation ou toute autre m\xE9thode standard de sortie, l\u2019utilisateur est inform\xE9 de la m\xE9thode permettant de d\xE9placer le focus hors de ce composant.\nNote : Puisque tout contenu ne satisfaisant pas \xE0 ce crit\xE8re de succ\xE8s peut interf\xE9rer avec la capacit\xE9 de l\u2019utilisateur \xE0 exploiter la page enti\xE8re, tout le contenu pr\xE9sent dans la page web (qu\u2019il soit utilis\xE9 pour satisfaire \xE0 d\u2019autres crit\xE8res de succ\xE8s ou non) doit satisfaire \xE0 ce crit\xE8re de succ\xE8s. Voir l\u2019exigence de conformit\xE9 5 : Non-interf\xE9rence.",
       termsFr: ["keyboard-interface"],
       terms: ["keyboard-interface"]
     },
@@ -705,7 +705,7 @@ var wcag_default = {
       ],
       text: 'For each time limit that is set by the content, at least one of the following is true:\nTurn off:\nThe user is allowed to turn off the time limit before encountering it; or\nAdjust:\nThe user is allowed to adjust the time limit before encountering it over a wide range that is at least ten times the length of the default setting; or\nExtend:\nThe user is warned before time expires and given at least 20 seconds to extend the time limit with a simple action (for example, "press the space bar"), and the user is allowed to extend the time limit at least ten times; or\nReal-time Exception:\nThe time limit is a required part of a real-time event (for example, an auction), and no alternative to the time limit is possible; or\nEssential Exception:\nThe time limit is essential and extending it would invalidate the activity; or\n20 Hour Exception:\nThe time limit is longer than 20 hours.\nNote: This success criterion helps ensure that users can complete tasks without unexpected changes in content or context that are a result of a time limit. This success criterion should be considered in conjunction with Success Criterion 3.2.1 On Focus, which puts limits on changes of content or context as a result of user action.',
       textFr: "Pour chaque limite de temps fix\xE9e par le contenu, au moins l\u2019un des points suivants est vrai :\nSuppression:\nl\u2019utilisateur a la possibilit\xE9 de supprimer la limite de temps avant de la rencontrer ; ou\nAjustement:\nl\u2019utilisateur a la possibilit\xE9 d\u2019ajuster la limite de temps avant de la rencontrer dans un intervalle d\u2019au moins dix fois la dur\xE9e param\xE9tr\xE9e par d\xE9faut ; ou\nExtension:\nl\u2019utilisateur est averti avant que la limite de temps n\u2019expire et il lui est accord\xE9 au moins 20 secondes pour \xE9tendre cette limite par une action simple (par exemple, \xAB appuyer sur la barre d\u2019espace \xBB) et l\u2019utilisateur a la possibilit\xE9 d\u2019\xE9tendre la limite de temps au moins dix fois ; ou\nL\u2019exception du temps r\xE9el:\nla limite de temps est une partie constitutive d\u2019un \xE9v\xE9nement en temps r\xE9el (par exemple, une ench\xE8re) et aucune alternative n\u2019est possible ; ou\nL\u2019exception de la limite essentielle:\nla limite de temps est essentielle et l\u2019\xE9tendre invaliderait alors l\u2019activit\xE9 ; ou\nL\u2019exception des 20 heures:\nla limite de temps est sup\xE9rieure \xE0 20 heures.\nNote : Ce crit\xE8re de succ\xE8s permet de s\u2019assurer que les utilisateurs peuvent compl\xE9ter leurs t\xE2ches sans changement inattendu de contenu ou de contexte r\xE9sultant de la limite de temps. Il devrait \xEAtre consid\xE9r\xE9 conjointement avec le crit\xE8re de succ\xE8s 3.2.1, qui pose des limites aux changements de contenu ou de contexte r\xE9sultant d\u2019une action de l\u2019utilisateur.",
-      termsFr: ["essential"],
+      termsFr: ["real-time-events", "essential"],
       terms: ["real-time-event", "essential"]
     },
     {
@@ -752,8 +752,8 @@ var wcag_default = {
         "SVR1"
       ],
       text: "For moving, blinking, scrolling, or auto-updating information, all of the following are true:\nMoving, blinking, scrolling:\nFor any moving, blinking or scrolling information that (1) starts automatically, (2) lasts more than five seconds, and (3) is presented in parallel with other content, there is a mechanism for the user to pause, stop, or hide it unless the movement, blinking, or scrolling is part of an activity where it is essential; and\nAuto-updating:\nFor any auto-updating information that (1) starts automatically and (2) is presented in parallel with other content, there is a mechanism for the user to pause, stop, or hide it or to control the frequency of the update unless the auto-updating is part of an activity where it is essential.\nNote: For requirements related to flickering or flashing content, refer to Guideline 2.3.\nNote: Since any content that does not meet this success criterion can interfere with a user's ability to use the whole page, all content on the web page (whether it is used to meet other success criteria or not) must meet this success criterion. See Conformance Requirement 5: Non-Interference.\nNote: Content that is updated periodically by software or that is streamed to the user agent is not required to preserve or present information that is generated or received between the initiation of the pause and resuming presentation, as this may not be technically possible, and in many situations could be misleading to do so.\nNote: An animation that occurs as part of a preload phase or similar situation can be considered essential if interaction cannot occur during that phase for all users and if not indicating progress could confuse users or cause them to think that content was frozen or broken.",
-      textFr: "Pour toute information en mouvement, clignotante, d\xE9filante ou mise \xE0 jour automatiquement, tous les points suivants sont vrais :\nD\xE9placement, clignotement, d\xE9filement:\npour toute information en mouvement, clignotante ou d\xE9filante qui (1) d\xE9marre automatiquement, (2) dure plus de cinq secondes et (3) est pr\xE9sent\xE9e conjointement avec un autre contenu, il y a un m\xE9canisme \xE0 la disposition de l\u2019utilisateur pour la mettre en pause, l\u2019arr\xEAter ou la masquer, \xE0 moins que le mouvement, le clignotement ou le d\xE9filement s\u2019av\xE8re un \xE9l\xE9ment essentiel au bon d\xE9roulement de l\u2019activit\xE9; et\nMise \xE0 jour automatique:\npour toute information mise \xE0 jour automatiquement qui (1) d\xE9marre automatiquement (2) et est pr\xE9sent\xE9e conjointement avec un autre contenu, il y a un m\xE9canisme \xE0 la disposition de l\u2019utilisateur pour la mettre en pause, l\u2019arr\xEAter ou pour en contr\xF4ler la fr\xE9quence des mises \xE0 jour \xE0 moins que la mise \xE0 jour automatique s\u2019av\xE8re essentielle au bon d\xE9roulement de l\u2019activit\xE9.\nNote : Pour les exigences relatives au contenu scintillant ou flashant, se r\xE9f\xE9rer \xE0 la r\xE8gle 2.3.\nNote : Puisque tout contenu ne satisfaisant pas \xE0 ce crit\xE8re de succ\xE8s peut interf\xE9rer avec la capacit\xE9 de l\u2019utilisateur \xE0 exploiter la page enti\xE8re, tout le contenu pr\xE9sent dans la page Web (qu\u2019il soit utilis\xE9 pour satisfaire \xE0 d\u2019autres crit\xE8res de succ\xE8s ou non) doit satisfaire \xE0 ce crit\xE8re de succ\xE8s. Lire Exigence de conformit\xE9 5 : Non-interf\xE9rence.\nNote : Il n\u2019est pas exig\xE9 que le contenu mis \xE0 jour p\xE9riodiquement par logiciel ou diffus\xE9 en flux \xE0 l\u2019agent utilisateur conserve ou pr\xE9sente l\u2019information g\xE9n\xE9r\xE9e ou re\xE7ue entre la mise en pause et la reprise de la pr\xE9sentation, puisque cela peut ne pas \xEAtre techniquement possible et s\u2019av\xE9rer trompeur dans beaucoup de situations.\nNote : Une animation survenant dans une phase de pr\xE9-chargement ou dans une situation similaire peut \xEAtre consid\xE9r\xE9e comme essentielle si aucune interaction n\u2019est permise \xE0 tous les utilisateurs durant cette phase et si l\u2019absence d\u2019indication de progression est susceptible de perturber les utilisateurs ou de leur faire croire que le contenu est fig\xE9 ou d\xE9fectueux.",
-      termsFr: ["blinking", "pause", "essential"],
+      textFr: "Pour toute information en mouvement, clignotante, d\xE9filante ou mise \xE0 jour automatiquement, tous les points suivants sont vrais :\nD\xE9placement, clignotement, d\xE9filement:\npour toute information en mouvement, clignotante ou d\xE9filante qui (1) d\xE9marre automatiquement, (2) dure plus de cinq secondes et (3) est pr\xE9sent\xE9e conjointement avec un autre contenu, il y a un m\xE9canisme \xE0 la disposition de l\u2019utilisateur pour la mettre en pause, l\u2019arr\xEAter ou la masquer, \xE0 moins que le mouvement, le clignotement ou le d\xE9filement s\u2019av\xE8re un \xE9l\xE9ment essentiel au bon d\xE9roulement de l\u2019activit\xE9; et\nMise \xE0 jour automatique:\npour toute information mise \xE0 jour automatiquement qui (1) d\xE9marre automatiquement (2) et est pr\xE9sent\xE9e conjointement avec un autre contenu, il y a un m\xE9canisme \xE0 la disposition de l\u2019utilisateur pour la mettre en pause, l\u2019arr\xEAter ou pour en contr\xF4ler la fr\xE9quence des mises \xE0 jour \xE0 moins que la mise \xE0 jour automatique s\u2019av\xE8re essentielle au bon d\xE9roulement de l\u2019activit\xE9.\nNote : Pour les exigences relatives au contenu scintillant ou flashant, se r\xE9f\xE9rer \xE0 la r\xE8gle 2.3.\nNote : Puisque tout contenu ne satisfaisant pas \xE0 ce crit\xE8re de succ\xE8s peut interf\xE9rer avec la capacit\xE9 de l\u2019utilisateur \xE0 exploiter la page enti\xE8re, tout le contenu pr\xE9sent dans la page web (qu\u2019il soit utilis\xE9 pour satisfaire \xE0 d\u2019autres crit\xE8res de succ\xE8s ou non) doit satisfaire \xE0 ce crit\xE8re de succ\xE8s. Lire Exigence de conformit\xE9 5 : Non-interf\xE9rence.\nNote : Il n\u2019est pas exig\xE9 que le contenu mis \xE0 jour p\xE9riodiquement par logiciel ou diffus\xE9 en flux \xE0 l\u2019agent utilisateur conserve ou pr\xE9sente l\u2019information g\xE9n\xE9r\xE9e ou re\xE7ue entre la mise en pause et la reprise de la pr\xE9sentation, puisque cela peut ne pas \xEAtre techniquement possible et s\u2019av\xE9rer trompeur dans beaucoup de situations.\nNote : Une animation survenant dans une phase de pr\xE9-chargement ou dans une situation similaire peut \xEAtre consid\xE9r\xE9e comme essentielle si aucune interaction n\u2019est permise \xE0 tous les utilisateurs durant cette phase et si l\u2019absence d\u2019indication de progression est susceptible de perturber les utilisateurs ou de leur faire croire que le contenu est fig\xE9 ou d\xE9fectueux.",
+      termsFr: ["blinking", "mechanism", "pause", "essential"],
       terms: ["blinking", "mechanism", "paused", "essential"]
     },
     {
@@ -769,7 +769,7 @@ var wcag_default = {
       understanding: "https://www.w3.org/WAI/WCAG22/Understanding/three-flashes-or-below-threshold.html",
       techniques: ["G15", "G176", "G19"],
       text: "Web pages do not contain anything that flashes more than three times in any one second period, or the flash is below the general flash and red flash thresholds.\nNote: Since any content that does not meet this success criterion can interfere with a user's ability to use the whole page, all content on the web page (whether it is used to meet other success criteria or not) must meet this success criterion. See Conformance Requirement 5: Non-Interference.",
-      textFr: "Une page Web doit \xEAtre exempte de tout \xE9l\xE9ment qui flashe plus de trois fois dans n\u2019importe quel intervalle d\u2019une seconde ou ce flash doit se situer sous le seuil de flash g\xE9n\xE9rique et le seuil de flash rouge.\nNote : Puisque tout contenu ne satisfaisant pas \xE0 ce crit\xE8re de succ\xE8s peut interf\xE9rer avec la capacit\xE9 de l\u2019utilisateur \xE0 exploiter la page enti\xE8re, tout le contenu pr\xE9sent dans la page Web (qu\u2019il soit utilis\xE9 pour satisfaire \xE0 d\u2019autres crit\xE8res de succ\xE8s ou non) doit satisfaire \xE0 ce crit\xE8re de succ\xE8s. Voir l\u2019exigence de conformit\xE9 5 : Non-interf\xE9rence.",
+      textFr: "Une page web doit \xEAtre exempte de tout \xE9l\xE9ment qui flashe plus de trois fois dans n\u2019importe quel intervalle d\u2019une seconde ou ce flash doit se situer sous le seuil de flash g\xE9n\xE9rique et le seuil de flash rouge.\nNote : Puisque tout contenu ne satisfaisant pas \xE0 ce crit\xE8re de succ\xE8s peut interf\xE9rer avec la capacit\xE9 de l\u2019utilisateur \xE0 exploiter la page enti\xE8re, tout le contenu pr\xE9sent dans la page web (qu\u2019il soit utilis\xE9 pour satisfaire \xE0 d\u2019autres crit\xE8res de succ\xE8s ou non) doit satisfaire \xE0 ce crit\xE8re de succ\xE8s. Voir l\u2019exigence de conformit\xE9 5 : Non-interf\xE9rence.",
       termsFr: ["web-page-s", "flashes", "general-flash-and-red-flash-thresholds"],
       terms: ["web-page", "flash", "general-flash-and-red-flash-thresholds"]
     },
@@ -786,7 +786,7 @@ var wcag_default = {
       understanding: "https://www.w3.org/WAI/WCAG22/Understanding/bypass-blocks.html",
       techniques: ["ARIA11", "ARIA12", "ARIA4", "F15", "F66", "G1", "G10", "G115", "G123", "G124", "G130", "G135", "G141", "G59", "H42", "H69", "SCR28"],
       text: "A mechanism is available to bypass blocks of content that are repeated on multiple web pages.",
-      textFr: "Un m\xE9canisme permet de contourner les blocs de contenu qui sont r\xE9p\xE9t\xE9s sur plusieurs pages Web.",
+      textFr: "Un m\xE9canisme permet de contourner les blocs de contenu qui sont r\xE9p\xE9t\xE9s sur plusieurs pages web.",
       termsFr: ["mechanism", "web-page-s"],
       terms: ["mechanism", "web-page"]
     },
@@ -803,7 +803,7 @@ var wcag_default = {
       understanding: "https://www.w3.org/WAI/WCAG22/Understanding/page-titled.html",
       techniques: ["G127", "G88", "H25"],
       text: "Web pages have titles that describe topic or purpose.",
-      textFr: "Les pages Web pr\xE9sentent un titre qui d\xE9crit leur sujet ou leur but.",
+      textFr: "Les pages web pr\xE9sentent un titre qui d\xE9crit leur sujet ou leur but.",
       termsFr: ["web-page-s"],
       terms: ["web-page"]
     },
@@ -820,7 +820,7 @@ var wcag_default = {
       understanding: "https://www.w3.org/WAI/WCAG22/Understanding/focus-order.html",
       techniques: ["C27", "F1", "F15", "F44", "F66", "F85", "G1", "G10", "G123", "G124", "G135", "G140", "G59", "H4", "SCR26", "SCR27", "SCR28", "SCR37"],
       text: "If a web page can be navigated sequentially and the navigation sequences affect meaning or operation, focusable components receive focus in an order that preserves meaning and operability.",
-      textFr: "Si une page Web peut \xEAtre parcourue de fa\xE7on s\xE9quentielle et que les s\xE9quences de navigation affectent la signification ou l\u2019action, les \xE9l\xE9ments re\xE7oivent le focus dans un ordre qui pr\xE9serve la signification et l\u2019op\xE9rabilit\xE9.",
+      textFr: "Si une page web peut \xEAtre parcourue de fa\xE7on s\xE9quentielle et que les s\xE9quences de navigation affectent la signification ou l\u2019action, les \xE9l\xE9ments re\xE7oivent le focus dans un ordre qui pr\xE9serve la signification et l\u2019op\xE9rabilit\xE9.",
       termsFr: ["web-page-s", "navigated-sequentially"],
       terms: ["web-page", "navigated-sequentially"]
     },
@@ -854,7 +854,7 @@ var wcag_default = {
       understanding: "https://www.w3.org/WAI/WCAG22/Understanding/multiple-ways.html",
       techniques: ["G161", "G61", "G63", "G64"],
       text: "More than one way is available to locate a web page within a set of web pages except where the web page is the result of, or a step in, a process.",
-      textFr: "Une page Web peut \xEAtre situ\xE9e par plus d\u2019un moyen dans un ensemble de pages Web sauf si cette page est le r\xE9sultat ou une \xE9tape d\u2019un processus.",
+      textFr: "Une page web peut \xEAtre situ\xE9e par plus d\u2019un moyen dans un ensemble de pages web sauf si cette page est le r\xE9sultat ou une \xE9tape d\u2019un processus.",
       termsFr: ["web-page-s", "set-of-web-pages", "processes"],
       terms: ["web-page", "set-of-web-pages", "process"]
     },
@@ -888,7 +888,8 @@ var wcag_default = {
       understanding: "https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html",
       techniques: ["C15", "F42", "F54", "F55", "F73", "F78", "G149", "G165", "G183", "G195", "G202", "G90", "SCR2", "SCR20", "SCR29", "SCR31", "SCR35"],
       text: "Any keyboard operable user interface has a mode of operation where the keyboard focus indicator is visible.",
-      textFr: "Toute interface utilisable au clavier comporte un mode de fonctionnement o\xF9 le focus est visible.",
+      textFr: "Toute interface utilisable au clavier comporte un mode de fonctionnement o\xF9 l\u2019indicateur de focus est visible.",
+      termsFr: ["focus-indicator"],
       terms: ["focus-indicator"]
     },
     {
@@ -903,7 +904,7 @@ var wcag_default = {
       ruleIds: [],
       understanding: "https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html",
       text: "When a user interface component receives keyboard focus, the component is not entirely hidden due to author-created content.\nNote: Where content in a configurable interface can be repositioned by the user, then only the initial positions of user-movable content are considered for testing and conformance of this success criterion.\nNote: Content opened by the user may obscure the component receiving focus. If the user can reveal the focused component without advancing the keyboard focus, the component with focus is not considered visually hidden due to author-created content.",
-      textFr: "Lorsqu\u2019un composant d\u2019interface utilisateur re\xE7oit le focus du clavier, ce composant n\u2019est pas enti\xE8rement masqu\xE9 par du contenu cr\xE9\xE9 par l\u2019auteur.\nNote : Lorsqu\u2019un contenu d\u2019une interface configurable peut \xEAtre repositionn\xE9 par l\u2019utilisateur, alors seules les positions initiales du contenu d\xE9pla\xE7able sont prises en compte pour les tests et la conformit\xE9 \xE0 ce crit\xE8re de succ\xE8s.\nNote : Il arrive que du contenu ouvert par l\u2019utilisateur masque le composant qui re\xE7oit le focus. Si l\u2019utilisateur peut r\xE9v\xE9ler le composant ayant le focus sans d\xE9placer le focus du clavier, alors le composant ayant le focus n\u2019est pas consid\xE9r\xE9 comme masqu\xE9 par du contenu cr\xE9\xE9 par l\u2019auteur.",
+      textFr: "Lorsqu\u2019un composant d\u2019interface utilisateur re\xE7oit le focus du clavier, ce composant n\u2019est pas enti\xE8rement masqu\xE9 par du contenu cr\xE9\xE9 par l\u2019auteur.\nNote : Lorsqu\u2019un contenu d\u2019une interface configurable peut \xEAtre repositionn\xE9 par l\u2019utilisateur, alors seules les positions initiales du contenu d\xE9pla\xE7able sont prises en compte pour les tests et la conformit\xE9 \xE0 ce crit\xE8re de succ\xE8s.\nNote : Il arrive que du contenu ouvert par l\u2019utilisateur masque le composant qui re\xE7oit le focus. Si l\u2019utilisateur peut r\xE9v\xE9ler le composant ayant le focus sans d\xE9placer le focus du clavier, alors le composant ayant le focus n\u2019est pas consid\xE9r\xE9 comme visuellement masqu\xE9 par du contenu cr\xE9\xE9 par l\u2019auteur.",
       termsFr: ["user-interface-components"],
       terms: ["user-interface-component"]
     },
@@ -920,7 +921,7 @@ var wcag_default = {
       understanding: "https://www.w3.org/WAI/WCAG22/Understanding/pointer-gestures.html",
       techniques: ["G215", "G216"],
       text: "All functionality that uses multipoint or path-based gestures for operation can be operated with a single pointer without a path-based gesture, unless a multipoint or path-based gesture is essential.\nNote: This requirement applies to web content that interprets pointer actions (i.e., this does not apply to actions that are required to operate the user agent or assistive technology).",
-      textFr: "Toutes les fonctionnalit\xE9s qui utilisent des gestes multipoints ou bas\xE9s sur un trac\xE9 peuvent \xEAtre utilis\xE9es avec un pointage \xE0 contact unique sans geste bas\xE9 sur un trac\xE9, \xE0 moins qu\u2019un geste multipoint ou bas\xE9 sur un trac\xE9 ne soit essentiel.\nNote : Cette exigence s\u2019applique aux contenus Web qui interpr\xE8tent les actions du pointeur (elle ne s\u2019applique donc pas aux actions n\xE9cessaires \xE0 l\u2019utilisation d\u2019un agent utilisateur ou d\u2019une technologie d\u2019assistance).",
+      textFr: "Toutes les fonctionnalit\xE9s qui utilisent des gestes multipoints ou bas\xE9s sur un trac\xE9 peuvent \xEAtre utilis\xE9es avec un pointeur unique sans geste bas\xE9 sur un trac\xE9, \xE0 moins qu\u2019un geste multipoint ou bas\xE9 sur un trac\xE9 ne soit essentiel.\nNote : Cette exigence s\u2019applique aux contenus web qui interpr\xE8tent les actions du pointeur (elle ne s\u2019applique donc pas aux actions n\xE9cessaires \xE0 l\u2019utilisation d\u2019un agent utilisateur ou d\u2019une technologie d\u2019assistance).",
       termsFr: ["functionality", "single-pointer", "essential"],
       terms: ["functionality", "single-pointer", "essential"]
     },
@@ -936,7 +937,7 @@ var wcag_default = {
       ruleIds: [],
       understanding: "https://www.w3.org/WAI/WCAG22/Understanding/pointer-cancellation.html",
       text: "For functionality that can be operated using a single pointer, at least one of the following is true:\nNo Down-Event: The down-event of the pointer is not used to execute any part of the function;\nAbort or Undo: Completion of the function is on the up-event, and a mechanism is available to abort the function before completion or to undo the function after completion;\nUp Reversal: The up-event reverses any outcome of the preceding down-event;\nEssential: Completing the function on the down-event is essential.\nNote: Functions that emulate a keyboard or numeric keypad key press are considered essential.\nNote: This requirement applies to web content that interprets pointer actions (i.e., this does not apply to actions that are required to operate the user agent or assistive technology).",
-      textFr: "Pour une fonctionnalit\xE9 qui peut \xEAtre activ\xE9e avec un dispositif de pointage \xE0 contact unique, au moins une des conditions suivantes est vraie :\nAucun \xE9v\xE9nement descendant: l\u2019\xE9v\xE9nement descendant (down-event) du pointeur n\u2019est pas utilis\xE9 pour ex\xE9cuter une partie ou la totalit\xE9 de la fonction ;\nAbandon ou annulation: l\u2019ach\xE8vement de la fonction se fait sur l\u2019\xE9v\xE9nement ascendant (up-event), et un m\xE9canisme est disponible pour interrompre la fonction avant l\u2019ach\xE8vement ou pour annuler la fonction apr\xE8s l\u2019ach\xE8vement ;\nInversion sur l\u2019\xE9v\xE9nement ascendant: l\u2019\xE9v\xE9nement ascendant inverse tout r\xE9sultat de l\u2019\xE9v\xE9nement descendant pr\xE9c\xE9dent ;\nEssentiel: l\u2019ach\xE8vement de la fonction lors de l\u2019\xE9v\xE9nement descendant est essentiel.\nNote : Les fonctions qui \xE9mulent l\u2019appui d\u2019une touche du clavier ou du pav\xE9 num\xE9rique sont consid\xE9r\xE9es comme essentielles.\nNote : Cette exigence s\u2019applique aux contenus Web qui interpr\xE8tent les actions du pointeur (elle ne s\u2019applique donc pas aux actions n\xE9cessaires \xE0 l\u2019utilisation d\u2019un agent utilisateur ou d\u2019une technologie d\u2019assistance).",
+      textFr: "Pour une fonctionnalit\xE9 qui peut \xEAtre activ\xE9e avec un pointeur unique, au moins une des conditions suivantes est vraie :\nAucun \xE9v\xE9nement descendant: l\u2019\xE9v\xE9nement descendant (down-event) du pointeur n\u2019est pas utilis\xE9 pour ex\xE9cuter une partie ou la totalit\xE9 de la fonction ;\nAbandon ou annulation: l\u2019ach\xE8vement de la fonction se fait sur l\u2019\xE9v\xE9nement ascendant (up-event), et un m\xE9canisme est disponible pour interrompre la fonction avant l\u2019ach\xE8vement ou pour annuler la fonction apr\xE8s l\u2019ach\xE8vement ;\nInversion sur l\u2019\xE9v\xE9nement ascendant: l\u2019\xE9v\xE9nement ascendant inverse tout r\xE9sultat de l\u2019\xE9v\xE9nement descendant pr\xE9c\xE9dent ;\nEssentiel: l\u2019ach\xE8vement de la fonction lors de l\u2019\xE9v\xE9nement descendant est essentiel.\nNote : Les fonctions qui \xE9mulent l\u2019appui d\u2019une touche du clavier ou du pav\xE9 num\xE9rique sont consid\xE9r\xE9es comme essentielles.\nNote : Cette exigence s\u2019applique aux contenus web qui interpr\xE8tent les actions du pointeur (elle ne s\u2019applique donc pas aux actions n\xE9cessaires \xE0 l\u2019utilisation d\u2019un agent utilisateur ou d\u2019une technologie d\u2019assistance).",
       termsFr: ["functionality", "single-pointer", "down-event", "up-event", "mechanism", "essential"],
       terms: ["functionality", "single-pointer", "down-event", "up-event", "mechanism", "essential"]
     },
@@ -1021,7 +1022,7 @@ var wcag_default = {
       ruleIds: [],
       understanding: "https://www.w3.org/WAI/WCAG22/Understanding/dragging-movements.html",
       text: "All functionality that uses a dragging movement for operation can be achieved by a single pointer without dragging, unless dragging is essential or the functionality is determined by the user agent and not modified by the author.\nNote: This requirement applies to web content that interprets pointer actions (i.e., this does not apply to actions that are required to operate the user agent or assistive technology).",
-      textFr: "Toutes les fonctionnalit\xE9s qui utilisent un mouvement de glissement peuvent \xEAtre r\xE9alis\xE9es par un pointage \xE0 contact unique sans glissement, sauf si le glissement est essentiel ou que la fonctionnalit\xE9 est d\xE9termin\xE9e par l\u2019agent utilisateur et non modifi\xE9e par l\u2019auteur.\nNote : Cette exigence s\u2019applique aux contenus Web qui interpr\xE8tent les actions du pointeur (c\u2019est-\xE0-dire qu\u2019elle ne s\u2019applique pas aux actions n\xE9cessaires pour faire fonctionner l\u2019agent utilisateur ou la technologie d\u2019assistance).",
+      textFr: "Toutes les fonctionnalit\xE9s qui utilisent un mouvement de glissement peuvent \xEAtre r\xE9alis\xE9es par un pointeur unique sans glissement, sauf si le glissement est essentiel ou que la fonctionnalit\xE9 est d\xE9termin\xE9e par l\u2019agent utilisateur et non modifi\xE9e par l\u2019auteur.\nNote : Cette exigence s\u2019applique aux contenus web qui interpr\xE8tent les actions du pointeur (c\u2019est-\xE0-dire qu\u2019elle ne s\u2019applique pas aux actions n\xE9cessaires pour faire fonctionner l\u2019agent utilisateur ou la technologie d\u2019assistance).",
       termsFr: ["functionality", "dragging-movements", "single-pointer", "essential", "user-agents"],
       terms: ["functionality", "dragging-movement", "single-pointer", "essential", "user-agent"]
     },
@@ -1037,7 +1038,7 @@ var wcag_default = {
       ruleIds: [],
       understanding: "https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html",
       text: "The size of the target for pointer inputs is at least 24 by 24 CSS pixels, except when:\nSpacing: Undersized targets (those less than 24 by 24 CSS pixels) are positioned so that if a 24 CSS pixel diameter circle is centered on the bounding box of each, the circles do not intersect another target or the circle for another undersized target;\nEquivalent: The function can be achieved through a different control on the same page that meets this criterion;\nInline: The target is in a sentence or its size is otherwise constrained by the line-height of non-target text;\nUser Agent Control: The size of the target is determined by the user agent and is not modified by the author;\nEssential: A particular presentation of the target is essential or is legally required for the information being conveyed.\nNote: Targets that allow for values to be selected spatially based on position within the target are considered one target for the purpose of the success criterion. Examples include sliders, color pickers displaying a gradient of colors, or editable areas where you position the cursor.\nNote: For inline targets the line-height should be interpreted as perpendicular to the flow of text. For example, in a language displayed vertically, the line-height would be horizontal.",
-      textFr: "La taille de la cible pour les entr\xE9es de pointeur est d\u2019au moins 24 par 24 pixels CSS, sauf dans les cas suivants :\n\u2022 Espacement : les cibles de taille r\xE9duite (de moins de 24 par 24 pixels CSS) sont positionn\xE9es de telle sorte que si un cercle de 24 pixels CSS de diam\xE8tre est centr\xE9 sur la bo\xEEte de d\xE9limitation de chacune d\u2019elles, les cercles ne croisent pas d\u2019autre cible ni le cercle d\u2019une autre cible de taille r\xE9duite ;\n\u2022 \xC9quivalence : la fonction peut \xEAtre r\xE9alis\xE9e gr\xE2ce \xE0 un \xE9l\xE9ment de contr\xF4le diff\xE9rent sur la m\xEAme page, et qui satisfait \xE0 ce crit\xE8re ;\n\u2022 En ligne : la cible se trouve dans une phrase, ou bien sa taille est limit\xE9e par la hauteur de ligne du texte non cibl\xE9 ;\n\u2022 Contr\xF4le par l\u2019agent utilisateur : la taille de la cible est d\xE9termin\xE9e par l\u2019agent utilisateur et n\u2019est pas modifi\xE9e par l\u2019auteur ;\n\u2022 Essentiel : une pr\xE9sentation sp\xE9cifique de la cible est essentielle ou est l\xE9galement requise pour transmettre l\u2019information.\nNote : Pour ce crit\xE8re de succ\xE8s, les cibles qui permettent de s\xE9lectionner des valeurs en fonction de leur position dans la cible sont consid\xE9r\xE9es comme une seule cible. Cela inclut par exemple les curseurs (slider), les s\xE9lecteurs de couleurs affichant un d\xE9grad\xE9 de couleurs, ou les zones \xE9ditables o\xF9 l\u2019on positionne le curseur.\nNote : Pour les cibles en ligne, la hauteur de ligne doit \xEAtre interpr\xE9t\xE9e comme \xE9tant perpendiculaire au flux de texte. Par exemple, dans une langue affich\xE9e verticalement, la hauteur de ligne serait horizontale.",
+      textFr: "La taille de la cible pour les entr\xE9es de pointeur est d\u2019au moins 24 par 24 pixels CSS, sauf dans les cas suivants :\nEspacement: les cibles de taille r\xE9duite (de moins de 24 par 24 pixels CSS) sont positionn\xE9es de telle sorte que si un cercle de 24 pixels CSS de diam\xE8tre est centr\xE9 sur la bo\xEEte de d\xE9limitation de chacune d\u2019elles, les cercles ne croisent pas d\u2019autre cible ni le cercle d\u2019une autre cible de taille r\xE9duite ;\n\xC9quivalence: la fonction peut \xEAtre r\xE9alis\xE9e gr\xE2ce \xE0 un \xE9l\xE9ment de contr\xF4le diff\xE9rent sur la m\xEAme page, et qui satisfait \xE0 ce crit\xE8re ;\nEn ligne: la cible se trouve dans une phrase, ou bien sa taille est limit\xE9e par la hauteur de ligne du texte non cibl\xE9 ;\nContr\xF4le par l\u2019agent utilisateur: la taille de la cible est d\xE9termin\xE9e par l\u2019agent utilisateur et n\u2019est pas modifi\xE9e par l\u2019auteur ;\nEssentiel: une pr\xE9sentation sp\xE9cifique de la cible est essentielle ou est l\xE9galement requise pour transmettre l\u2019information.\nNote : Pour ce crit\xE8re de succ\xE8s, les cibles qui permettent de s\xE9lectionner des valeurs en fonction de leur position dans la cible sont consid\xE9r\xE9es comme une seule cible. Cela inclut par exemple les curseurs (slider), les s\xE9lecteurs de couleurs affichant un d\xE9grad\xE9 de couleurs, ou les zones \xE9ditables o\xF9 l\u2019on positionne le curseur.\nNote : Pour les cibles en ligne, la hauteur de ligne doit \xEAtre interpr\xE9t\xE9e comme \xE9tant perpendiculaire au flux de texte. Par exemple, dans une langue affich\xE9e verticalement, la hauteur de ligne serait horizontale.",
       termsFr: ["targets", "pointer-inputs", "css-pixels", "bounding-boxes", "user-agents", "presentation", "essential"],
       terms: ["target", "pointer-input", "css-pixel", "minimum-bounding-box", "user-agent", "presentation", "essential"]
     },
@@ -1054,7 +1055,7 @@ var wcag_default = {
       understanding: "https://www.w3.org/WAI/WCAG22/Understanding/language-of-page.html",
       techniques: ["F15", "G10", "G135", "H57"],
       text: "The default human language of each web page can be programmatically determined.",
-      textFr: "La langue par d\xE9faut de chaque page Web peut \xEAtre d\xE9termin\xE9e par un programme informatique.",
+      textFr: "La langue par d\xE9faut de chaque page web peut \xEAtre d\xE9termin\xE9e par un programme informatique.",
       termsFr: ["human-language-s", "web-page-s", "programmatically-determinable"],
       terms: ["human-language", "web-page", "programmatically-determined"]
     },
@@ -1071,8 +1072,8 @@ var wcag_default = {
       understanding: "https://www.w3.org/WAI/WCAG22/Understanding/language-of-parts.html",
       techniques: ["H58"],
       text: "The human language of each passage or phrase in the content can be programmatically determined except for proper names, technical terms, words of indeterminate language, and words or phrases that have become part of the vernacular of the immediately surrounding text.",
-      textFr: "La langue de chaque passage ou expression du contenu peut \xEAtre d\xE9termin\xE9e par un programme informatique sauf pour un nom propre, pour un terme technique, pour un mot dont la langue est ind\xE9termin\xE9e ou pour un mot ou une expression faisant partie du langage courant de la langue utilis\xE9e dans le contexte imm\xE9diat.",
-      termsFr: ["human-language-s", "programmatically-determinable"],
+      textFr: "La langue de chaque passage ou expression du contenu peut \xEAtre d\xE9termin\xE9e par un programme informatique sauf dans le cas des noms propres, des termes techniques, des mots dont la langue est ind\xE9termin\xE9e, ou des mots ou expressions faisant partie du langage courant de la langue utilis\xE9e dans le texte directement environnant.",
+      termsFr: ["human-language-s", "programmatically-determinable", "text"],
       terms: ["human-language", "programmatically-determined", "text"]
     },
     {
@@ -1122,7 +1123,7 @@ var wcag_default = {
       understanding: "https://www.w3.org/WAI/WCAG22/Understanding/consistent-navigation.html",
       techniques: ["F66", "G1", "G123", "G124", "G59", "G61", "G63", "SCR28"],
       text: "Navigational mechanisms that are repeated on multiple web pages within a set of web pages occur in the same relative order each time they are repeated, unless a change is initiated by the user.",
-      textFr: "Dans un ensemble de pages, les m\xE9canismes de navigation qui se r\xE9p\xE8tent sur plusieurs pages Web se pr\xE9sentent dans le m\xEAme ordre relatif chaque fois qu\u2019ils sont r\xE9p\xE9t\xE9s, \xE0 moins qu\u2019un changement soit initi\xE9 par l\u2019utilisateur.",
+      textFr: "Dans un ensemble de pages web, les m\xE9canismes de navigation qui se r\xE9p\xE8tent sur plusieurs pages web se pr\xE9sentent dans le m\xEAme ordre relatif chaque fois qu\u2019ils sont r\xE9p\xE9t\xE9s, \xE0 moins qu\u2019un changement soit initi\xE9 par l\u2019utilisateur.",
       termsFr: ["set-of-web-pages", "web-page-s", "same-relative-order"],
       terms: ["web-page", "set-of-web-pages", "same-relative-order"]
     },
@@ -1139,7 +1140,7 @@ var wcag_default = {
       understanding: "https://www.w3.org/WAI/WCAG22/Understanding/consistent-identification.html",
       techniques: ["F31"],
       text: "Components that have the same functionality within a set of web pages are identified consistently.",
-      textFr: "Dans un ensemble de pages les composants qui ont la m\xEAme fonctionnalit\xE9 sont identifi\xE9s de la m\xEAme fa\xE7on.",
+      textFr: "Dans un ensemble de pages web les composants qui ont la m\xEAme fonctionnalit\xE9 sont identifi\xE9s de la m\xEAme fa\xE7on.",
       termsFr: ["set-of-web-pages", "same-functionality"],
       terms: ["same-functionality", "set-of-web-pages"]
     },
@@ -1161,7 +1162,7 @@ var wcag_default = {
 \u2022 A fully automated contact mechanism.
 Note: Help mechanisms may be provided directly on the page, or may be provided via a direct link to a different page containing the information.
 Note: For this success criterion, "the same order relative to other page content" can be thought of as how the content is ordered when the page is serialized. The visual position of a help mechanism is likely to be consistent across pages for the same page variation (e.g., CSS breakpoint). The user can initiate a change, such as changing the page's zoom or orientation, which may trigger a different page variation. This criterion is concerned with relative order across pages displayed in the same page variation (e.g., same zoom level and orientation).`,
-      textFr: "Si une page Web contient l\u2019un des m\xE9canismes d\u2019aide suivants et que ces m\xE9canismes sont r\xE9p\xE9t\xE9s sur plusieurs pages d\u2019un ensemble de pages, alors ils se pr\xE9sentent dans le m\xEAme ordre relativement aux autres contenus de la page ; \xE0 moins qu\u2019un changement soit initi\xE9 par l\u2019utilisateur :\n\u2022 des coordonn\xE9es de personnes ;\n\u2022 un m\xE9canisme pour contacter une personne ;\n\u2022 une option d\u2019auto-assistance ;\n\u2022 un m\xE9canisme de contact enti\xE8rement automatis\xE9.\nNote : Les m\xE9canismes d\u2019aide peuvent \xEAtre fournis directement sur la page, ou \xEAtre fournis gr\xE2ce \xE0 un lien direct vers une page distincte contenant les informations.\nNote : Pour ce crit\xE8re de succ\xE8s, \xAB le m\xEAme ordre relativement aux autres contenus de la page \xBB peut \xEAtre consid\xE9r\xE9 comme la mani\xE8re dont le contenu est ordonn\xE9 lorsque la page est lin\xE9aris\xE9e. La position visuelle d\u2019un m\xE9canisme d\u2019aide sera probablement coh\xE9rente d\u2019une page \xE0 l\u2019autre pour la m\xEAme variante de page (par exemple, un point de rupture CSS). L\u2019utilisateur peut initier un changement, comme modifier le zoom de la page ou son orientation, ce qui peut d\xE9clencher l\u2019affichage d\u2019une variante diff\xE9rente de la page. Ce crit\xE8re s\u2019int\xE9resse \xE0 l\u2019ordre relatif dans des pages affich\xE9es avec la m\xEAme variante de page (par exemple, le m\xEAme niveau de zoom et la m\xEAme orientation).",
+      textFr: "Si une page web contient l\u2019un des m\xE9canismes d\u2019aide suivants et que ces m\xE9canismes sont r\xE9p\xE9t\xE9s sur plusieurs pages web d\u2019un ensemble de pages web, alors ils se pr\xE9sentent dans le m\xEAme ordre relativement aux autres contenus de la page ; \xE0 moins qu\u2019un changement soit initi\xE9 par l\u2019utilisateur :\n\u2022 des coordonn\xE9es de personnes ;\n\u2022 un m\xE9canisme pour contacter une personne ;\n\u2022 une option d\u2019auto-assistance ;\n\u2022 un m\xE9canisme de contact enti\xE8rement automatis\xE9.\nNote : Les m\xE9canismes d\u2019aide peuvent \xEAtre fournis directement sur la page, ou \xEAtre fournis gr\xE2ce \xE0 un lien direct vers une page distincte contenant les informations.\nNote : Pour ce crit\xE8re de succ\xE8s, \xAB le m\xEAme ordre relativement aux autres contenus de la page \xBB peut \xEAtre consid\xE9r\xE9 comme la mani\xE8re dont le contenu est ordonn\xE9 lorsque la page est lin\xE9aris\xE9e. La position visuelle d\u2019un m\xE9canisme d\u2019aide sera probablement coh\xE9rente d\u2019une page \xE0 l\u2019autre pour la m\xEAme variante de page (par exemple, un point de rupture CSS). L\u2019utilisateur peut initier un changement, comme modifier le zoom de la page ou son orientation, ce qui peut d\xE9clencher l\u2019affichage d\u2019une variante diff\xE9rente de la page. Ce crit\xE8re s\u2019int\xE9resse \xE0 l\u2019ordre relatif dans des pages affich\xE9es avec la m\xEAme variante de page (par exemple, le m\xEAme niveau de zoom et la m\xEAme orientation).",
       termsFr: ["web-page-s", "mechanism", "set-of-web-pages"],
       terms: ["web-page", "mechanism", "set-of-web-pages"]
     },
@@ -1277,8 +1278,8 @@ Note: For this success criterion, "the same order relative to other page content
       understanding: "https://www.w3.org/WAI/WCAG22/Understanding/error-prevention-legal-financial-data.html",
       techniques: ["G155", "G164", "G168", "G98", "G99"],
       text: "For web pages that cause legal commitments or financial transactions for the user to occur, that modify or delete user-controllable data in data storage systems, or that submit user test responses, at least one of the following is true:\nReversible: Submissions are reversible.\nChecked: Data entered by the user is checked for input errors and the user is provided an opportunity to correct them.\nConfirmed: A mechanism is available for reviewing, confirming, and correcting information before finalizing the submission.",
-      textFr: "Pour les pages Web qui entra\xEEnent des engagements juridiques ou des transactions financi\xE8res de la part de l\u2019utilisateur, qui modifient ou effacent des donn\xE9es contr\xF4lables par l\u2019utilisateur dans des syst\xE8mes de stockages de donn\xE9es, qui enregistrent les r\xE9ponses de l\u2019utilisateur \xE0 un test ou un examen, au moins l\u2019une des conditions suivantes est vraie :\nR\xE9versible: les actions d\u2019envoi sont r\xE9versibles.\nV\xE9rifi\xE9e: les donn\xE9es saisies par l\u2019utilisateur sont v\xE9rifi\xE9es au niveau des erreurs de saisie et la possibilit\xE9 est donn\xE9e \xE0 l\u2019utilisateur de les corriger.\nConfirm\xE9e: un m\xE9canisme est disponible pour revoir, confirmer et corriger les informations avant leur soumission finale.",
-      termsFr: ["web-page-s", "legal-commitments", "user-controllable"],
+      textFr: "Pour les pages web qui entra\xEEnent des engagements juridiques ou des transactions financi\xE8res de la part de l\u2019utilisateur, qui modifient ou effacent des donn\xE9es contr\xF4lables par l\u2019utilisateur dans des syst\xE8mes de stockages de donn\xE9es, qui enregistrent les r\xE9ponses de l\u2019utilisateur \xE0 un test ou un examen, au moins l\u2019une des conditions suivantes est vraie :\nR\xE9versible: les actions d\u2019envoi sont r\xE9versibles.\nV\xE9rifi\xE9e: les donn\xE9es saisies par l\u2019utilisateur sont v\xE9rifi\xE9es au niveau des erreurs de saisie et la possibilit\xE9 est donn\xE9e \xE0 l\u2019utilisateur de les corriger.\nConfirm\xE9e: un m\xE9canisme est disponible pour revoir, confirmer et corriger les informations avant leur soumission finale.",
+      termsFr: ["web-page-s", "legal-commitments", "user-controllable", "input-error", "mechanism"],
       terms: ["web-page", "legal-commitments", "user-controllable", "input-error", "mechanism"]
     },
     {
@@ -1409,12 +1410,13 @@ Note: For this success criterion, "the same order relative to other page content
         "SCR21"
       ],
       text: "For all user interface components (including but not limited to: form elements, links and components generated by scripts), the name and role can be programmatically determined; states, properties, and values that can be set by the user can be programmatically set; and notification of changes to these items is available to user agents, including assistive technologies.\nNote: This success criterion is primarily for web authors who develop or script their own user interface components. For example, standard HTML controls already meet this success criterion when used according to specification.",
-      textFr: "Pour tout composant d\u2019interface utilisateur (comprenant mais n\u2019\xE9tant pas limit\xE9 aux \xE9l\xE9ments de formulaire, liens et composants g\xE9n\xE9r\xE9s par des scripts), le nom et le r\xF4le peuvent \xEAtre d\xE9termin\xE9s par un programme informatique ; les \xE9tats, les propri\xE9t\xE9s et les valeurs qui peuvent \xEAtre param\xE9tr\xE9s par l\u2019utilisateur peuvent \xEAtre d\xE9finis par programmation; et la notification des changements de ces \xE9l\xE9ments est disponible aux agents utilisateurs, incluant les technologies d\u2019assistance.\nNote : Ce crit\xE8re de succ\xE8s s\u2019adresse d\u2019abord aux auteurs qui d\xE9veloppent ou programment leurs propres composants d\u2019interface utilisateur. Toutefois, les contr\xF4les HTML standards se conforment d\xE9j\xE0 \xE0 ce crit\xE8re de succ\xE8s lorsqu\u2019ils sont utilis\xE9s conform\xE9ment \xE0 la sp\xE9cification.",
+      textFr: "Pour tout composant d\u2019interface utilisateur (comprenant mais n\u2019\xE9tant pas limit\xE9 aux \xE9l\xE9ments de formulaire, liens et composants g\xE9n\xE9r\xE9s par des scripts), le nom et le r\xF4le peuvent \xEAtre d\xE9termin\xE9s par un programme informatique ; les \xE9tats, les propri\xE9t\xE9s et les valeurs qui peuvent \xEAtre param\xE9tr\xE9s par l\u2019utilisateur peuvent \xEAtre d\xE9finis par programmation; et la notification des changements de ces \xE9l\xE9ments est disponible aux agents utilisateurs, incluant les technologies d\u2019assistance.\nNote : Ce crit\xE8re de succ\xE8s s\u2019adresse d\u2019abord aux auteurs web qui d\xE9veloppent ou programment leurs propres composants d\u2019interface utilisateur. Toutefois, les contr\xF4les HTML standards se conforment d\xE9j\xE0 \xE0 ce crit\xE8re de succ\xE8s lorsqu\u2019ils sont utilis\xE9s conform\xE9ment \xE0 la sp\xE9cification.",
       termsFr: [
         "user-interface-components",
         "name",
         "role",
         "programmatically-determinable",
+        "states",
         "programmatically-set",
         "user-agents",
         "assistive-technologies"
@@ -1890,7 +1892,7 @@ Note: The 18 and 14 point sizes for roman texts are taken from the minimum size 
     },
     "user-agents": {
       title: "agent utilisateur",
-      body: "tout logiciel qui r\xE9cup\xE8re et pr\xE9sente le contenu Web aux utilisateurs\nExemple\nLes navigateurs Web, les lecteurs de m\xE9dia, les modules d\u2019extensions et les autres programmes \u2014 dont les technologies d\u2019assistance \u2014 qui aident \xE0 r\xE9cup\xE9rer, restituer et interagir avec le contenu Web."
+      body: "tout logiciel qui r\xE9cup\xE8re et pr\xE9sente le contenu web aux utilisateurs\nExemple\nLes navigateurs web, les lecteurs de m\xE9dia, les modules d\u2019extensions et les autres programmes \u2014 dont les technologies d\u2019assistance \u2014 qui aident \xE0 r\xE9cup\xE9rer, restituer et interagir avec le contenu web."
     },
     "large-scale": {
       title: "(texte) agrandi",
@@ -1902,7 +1904,7 @@ Note: The 18 and 14 point sizes for roman texts are taken from the minimum size 
     },
     "ambiguous-to-users-in-general": {
       title: "ambigu pour tout utilisateur",
-      body: "l\u2019intention ne peut \xEAtre d\xE9termin\xE9e \xE0 partir du lien et de toute l\u2019information de la page Web pr\xE9sent\xE9e \xE0 l\u2019utilisateur en m\xEAme temps que ce lien (c\u2019est-\xE0-dire qu\u2019un lecteur sans limitations fonctionnelles ne conna\xEEtrait pas la fonction d\u2019un lien avant de l\u2019activer)\nExemple\nLe mot goyave dans la phrase suivante utilis\xE9 comme lien : \xAB L\u2019une des exportations importantes est la goyave \xBB. Ce lien pourrait conduire \xE0 une d\xE9finition de la goyave, \xE0 un graphe pr\xE9sentant une liste des quantit\xE9s de goyave export\xE9es ou \xE0 une photo de gens r\xE9coltant la goyave. Jusqu\u2019\xE0 ce que le lien soit activ\xE9, tout utilisateur est dans l\u2019incertitude et une personne handicap\xE9e n\u2019est donc pas d\xE9savantag\xE9e."
+      body: "l\u2019intention ne peut \xEAtre d\xE9termin\xE9e \xE0 partir du lien et de toute l\u2019information de la page web pr\xE9sent\xE9e \xE0 l\u2019utilisateur en m\xEAme temps que ce lien (c\u2019est-\xE0-dire qu\u2019un lecteur sans limitations fonctionnelles ne conna\xEEtrait pas la fonction d\u2019un lien avant de l\u2019activer)\nExemple\nLe mot goyave dans la phrase suivante utilis\xE9 comme lien : \xAB L\u2019une des exportations importantes est la goyave \xBB. Ce lien pourrait conduire \xE0 une d\xE9finition de la goyave, \xE0 un graphe pr\xE9sentant une liste des quantit\xE9s de goyave export\xE9es ou \xE0 une photo de gens r\xE9coltant la goyave. Jusqu\u2019\xE0 ce que le lien soit activ\xE9, tout utilisateur est dans l\u2019incertitude et une personne handicap\xE9e n\u2019est donc pas d\xE9savantag\xE9e."
     },
     "motion-animation": {
       title: "animation bas\xE9e sur le mouvement",
@@ -1938,7 +1940,7 @@ Note: The 18 and 14 point sizes for roman texts are taken from the minimum size 
     },
     "change-of-context": {
       title: "changements de contexte",
-      body: "changements majeurs qui, s\u2019ils sont faits sans que l\u2019utilisateur en soit conscient, peuvent d\xE9sorienter les utilisateurs qui ne peuvent voir l\u2019ensemble de la page en m\xEAme temps\nLes changements de contexte comprennent les changements de :\n\u2022 agent utilisateur ;\n\u2022 espace de restitution ;\n\u2022 focus ;\n\u2022 contenu qui modifie la signification de la page Web.\nNote : Un changement de contenu n\u2019est pas toujours un changement de contexte. Un changement dans le contenu comme le d\xE9ploiement d\u2019une arborescence, un menu dynamique ou un d\xE9placement de tabulation ne change pas n\xE9cessairement le contexte \xE0 moins qu\u2019il ne change aussi l\u2019un des \xE9l\xE9ments \xE9num\xE9r\xE9s ci-dessus (par exemple le focus).\nExemple\nL\u2019ouverture d\u2019une nouvelle fen\xEAtre, le d\xE9placement du focus sur un composant diff\xE9rent, le d\xE9placement vers une nouvelle page (y compris tout ce qui, pour l\u2019utilisateur, aurait l\u2019air d\u2019un d\xE9placement vers une autre page) ou la r\xE9organisation significative du contenu d\u2019une page sont autant d\u2019exemples d\u2019un changement de contexte."
+      body: "changements majeurs qui, s\u2019ils sont faits sans que l\u2019utilisateur en soit conscient, peuvent d\xE9sorienter les utilisateurs qui ne peuvent voir l\u2019ensemble de la page en m\xEAme temps\nLes changements de contexte comprennent les changements de :\n\u2022 agent utilisateur ;\n\u2022 espace de restitution ;\n\u2022 focus ;\n\u2022 contenu qui modifie la signification de la page web.\nNote : Un changement de contenu n\u2019est pas toujours un changement de contexte. Un changement dans le contenu comme le d\xE9ploiement d\u2019une arborescence, un menu dynamique ou un d\xE9placement de tabulation ne change pas n\xE9cessairement le contexte \xE0 moins qu\u2019il ne change aussi l\u2019un des \xE9l\xE9ments \xE9num\xE9r\xE9s ci-dessus (par exemple le focus).\nExemple\nL\u2019ouverture d\u2019une nouvelle fen\xEAtre, le d\xE9placement du focus sur un composant diff\xE9rent, le d\xE9placement vers une nouvelle page (y compris tout ce qui, pour l\u2019utilisateur, aurait l\u2019air d\u2019un d\xE9placement vers une autre page) ou la r\xE9organisation significative du contenu d\u2019une page sont autant d\u2019exemples d\u2019un changement de contexte."
     },
     targets: {
       title: "cible",
@@ -1950,7 +1952,7 @@ Note: The 18 and 14 point sizes for roman texts are taken from the minimum size 
     },
     "accessibility-supported": {
       title: "compatible avec l\u2019accessibilit\xE9",
-      body: "compatible avec les technologies d\u2019assistance des utilisateurs ainsi qu\u2019avec les fonctions d\u2019accessibilit\xE9 des navigateurs et des autres agents utilisateurs\nPour que l\u2019utilisation d\u2019une technologie Web (ou d\u2019une fonctionnalit\xE9 d\u2019une technologie) soit consid\xE9r\xE9e comme compatible avec l\u2019accessibilit\xE9, les conditions 1 et 2 doivent toutes deux \xEAtre respect\xE9es pour une technologie Web (ou pour une fonctionnalit\xE9 d\u2019une technologie) :\n\u2022\nLa fa\xE7on dont la technologie Web est utilis\xE9e doit \xEAtre compatible avec les technologies d\u2019assistance des utilisateurs. Cela signifie que la fa\xE7on dont la technologie est utilis\xE9e a \xE9t\xE9 test\xE9e dans une perspective d\u2019interop\xE9rabilit\xE9 avec des utilisateurs des technologies d\u2019assistance dans la ou les langues du contenu ;\nET\n\u2022\nLa technologie Web doit fonctionner avec des agents utilisateurs qui sont compatibles avec l\u2019accessibilit\xE9 et qui sont \xE0 la disposition des utilisateurs. Cela signifie qu\u2019au moins une des quatre affirmations suivantes est vraie :\n\u2022\nLa technologie fonctionne de fa\xE7on native dans des agents utilisateurs largement distribu\xE9s qui sont eux-m\xEAmes compatibles avec l\u2019accessibilit\xE9 (comme HTML et CSS) ;\nOU\n\u2022\nLa technologie fonctionne avec un module d\u2019extension largement distribu\xE9 et qui est lui-m\xEAme compatible avec l\u2019accessibilit\xE9 ;\nOU\n\u2022\nLe contenu est disponible dans un environnement ferm\xE9 comme le r\xE9seau d\u2019une universit\xE9 ou d\u2019une entreprise o\xF9 l\u2019agent utilisateur requis par la technologie et utilis\xE9 par l\u2019organisation est lui-m\xEAme compatible avec l\u2019accessibilit\xE9 ;\nOU\n\u2022\nLes agents utilisateurs avec lesquels fonctionne la technologie sont compatibles avec l\u2019accessibilit\xE9 et sont disponibles en t\xE9l\xE9chargement ou \xE0 l\u2019achat d\u2019une fa\xE7on qui :\n\u2022 ne co\xFBte pas plus cher \xE0 une personne handicap\xE9e qu\u2019\xE0 une personne sans limitations fonctionnelles et\n\u2022 est aussi facile \xE0 trouver et \xE0 obtenir par une personne handicap\xE9e qu\u2019elle l\u2019est pour une personne sans limitations fonctionnelles.\nNote : Le groupe de travail sur les r\xE8gles d\u2019accessibilit\xE9 (AG WG) et le W3C ne pr\xE9cisent pas quel niveau de compatibilit\xE9 avec les technologies d\u2019assistance une technologie Web particuli\xE8re doit avoir pour \xEAtre consid\xE9r\xE9e comme compatible avec l\u2019accessibilit\xE9. Voir le niveau de compatibilit\xE9 avec les technologies d\u2019assistance n\xE9cessaire \xE0 la \xAB compatibilit\xE9 avec l\u2019accessibilit\xE9 \xBB (en anglais).\nNote : Les technologies Web peuvent \xEAtre utilis\xE9es d\u2019une mani\xE8re qui n\u2019est pas compatible avec l\u2019accessibilit\xE9 tant que l\u2019utilisation du contenu n\u2019en d\xE9pend pas et que la page dans son ensemble satisfait aux exigences de conformit\xE9, incluant l\u2019exigence de conformit\xE9 4 et l\u2019exigence de conformit\xE9 5.\nNote : Quand une technologie Web est utilis\xE9e d\u2019une mani\xE8re qui est \xAB compatible avec l\u2019accessibilit\xE9 \xBB, cela n\u2019implique pas que toute la technologie ou que tous les usages de cette technologie sont compatibles. La plupart des technologies, y compris HTML, comportent une fonction ou un usage qui n\u2019est pas compatible. Les pages sont conformes aux WCAG seulement si les usages de la technologie qui sont compatibles avec l\u2019accessibilit\xE9 sont les seuls dont d\xE9pend l\u2019utilisation du contenu et que ces usages permettent de satisfaire aux exigences des WCAG.\nNote : Lorsqu\u2019une technologie Web est cit\xE9e et qu\u2019elle se pr\xE9sente en plusieurs versions, la ou les versions compatibles devraient \xEAtre sp\xE9cifi\xE9es.\nNote : Pour les auteurs, une fa\xE7on de rep\xE9rer les usages d\u2019une technologie qui sont compatibles avec l\u2019accessibilit\xE9 consisterait \xE0 consulter la compilation des usages qui sont document\xE9s comme compatibles avec l\u2019accessibilit\xE9. Voir Comprendre les usages des technologies compatibles avec l\u2019accessibilit\xE9 (en anglais). Les auteurs, les soci\xE9t\xE9s, les vendeurs de technologies ou n\u2019importe qui d\u2019autre peuvent documenter les usages des technologies qui sont compatibles avec l\u2019accessibilit\xE9. Toutefois, tous les usages des technologies document\xE9s devraient satisfaire \xE0 la d\xE9finition des technologies Web compatibles avec l\u2019accessibilit\xE9 telle qu\u2019elle est \xE9nonc\xE9e ci-dessus."
+      body: "compatible avec les technologies d\u2019assistance des utilisateurs ainsi qu\u2019avec les fonctions d\u2019accessibilit\xE9 des navigateurs et des autres agents utilisateurs\nPour que l\u2019utilisation d\u2019une technologie relative aux contenus web (ou d\u2019une fonctionnalit\xE9 d\u2019une technologie) soit consid\xE9r\xE9e comme compatible avec l\u2019accessibilit\xE9, les conditions 1 et 2 doivent toutes deux \xEAtre respect\xE9es pour une technologie relative aux contenus web (ou pour une fonctionnalit\xE9 d\u2019une technologie) :\n\u2022\nLa fa\xE7on dont la technologie relative aux contenus web est utilis\xE9e doit \xEAtre compatible avec les technologies d\u2019assistance des utilisateurs. Cela signifie que la fa\xE7on dont la technologie est utilis\xE9e a \xE9t\xE9 test\xE9e dans une perspective d\u2019interop\xE9rabilit\xE9 avec des utilisateurs des technologies d\u2019assistance dans la ou les langues du contenu ;\nET\n\u2022\nLa technologie relative aux contenus web doit fonctionner avec des agents utilisateurs qui sont compatibles avec l\u2019accessibilit\xE9 et qui sont \xE0 la disposition des utilisateurs. Cela signifie qu\u2019au moins une des quatre affirmations suivantes est vraie :\n\u2022\nLa technologie fonctionne de fa\xE7on native dans des agents utilisateurs largement distribu\xE9s qui sont eux-m\xEAmes compatibles avec l\u2019accessibilit\xE9 (comme HTML et CSS) ;\nOU\n\u2022\nLa technologie fonctionne avec un module d\u2019extension largement distribu\xE9 et qui est lui-m\xEAme compatible avec l\u2019accessibilit\xE9 ;\nOU\n\u2022\nLe contenu est disponible dans un environnement ferm\xE9 comme le r\xE9seau d\u2019une universit\xE9 ou d\u2019une entreprise o\xF9 l\u2019agent utilisateur requis par la technologie et utilis\xE9 par l\u2019organisation est lui-m\xEAme compatible avec l\u2019accessibilit\xE9 ;\nOU\n\u2022\nLes agents utilisateurs avec lesquels fonctionne la technologie sont compatibles avec l\u2019accessibilit\xE9 et sont disponibles en t\xE9l\xE9chargement ou \xE0 l\u2019achat d\u2019une fa\xE7on qui :\n\u2022 ne co\xFBte pas plus cher \xE0 une personne handicap\xE9e qu\u2019\xE0 une personne sans limitations fonctionnelles et\n\u2022 est aussi facile \xE0 trouver et \xE0 obtenir par une personne handicap\xE9e qu\u2019elle l\u2019est pour une personne sans limitations fonctionnelles.\nNote : Le groupe de travail sur les r\xE8gles d\u2019accessibilit\xE9 (AG WG) et le W3C ne pr\xE9cisent pas quel niveau de compatibilit\xE9 avec les technologies d\u2019assistance une technologie web particuli\xE8re doit avoir pour \xEAtre consid\xE9r\xE9e comme compatible avec l\u2019accessibilit\xE9. Voir le niveau de compatibilit\xE9 avec les technologies d\u2019assistance n\xE9cessaire \xE0 la \xAB compatibilit\xE9 avec l\u2019accessibilit\xE9 \xBB (en anglais).\nNote : Les technologies web peuvent \xEAtre utilis\xE9es d\u2019une mani\xE8re qui n\u2019est pas compatible avec l\u2019accessibilit\xE9 tant que l\u2019utilisation du contenu n\u2019en d\xE9pend pas et que la page dans son ensemble satisfait aux exigences de conformit\xE9, incluant l\u2019exigence de conformit\xE9 4 et l\u2019exigence de conformit\xE9 5.\nNote : Quand une technologie web est utilis\xE9e d\u2019une mani\xE8re qui est \xAB compatible avec l\u2019accessibilit\xE9 \xBB, cela n\u2019implique pas que toute la technologie ou que tous les usages de cette technologie sont compatibles. La plupart des technologies, y compris HTML, comportent une fonction ou un usage qui n\u2019est pas compatible. Les pages sont conformes aux WCAG seulement si les usages de la technologie qui sont compatibles avec l\u2019accessibilit\xE9 sont les seuls dont d\xE9pend l\u2019utilisation du contenu et que ces usages permettent de satisfaire aux exigences des WCAG.\nNote : Lorsqu\u2019une technologie relative aux contenus web est cit\xE9e et qu\u2019elle se pr\xE9sente en plusieurs versions, la ou les versions compatibles devraient \xEAtre sp\xE9cifi\xE9es.\nNote : Pour les auteurs, une fa\xE7on de rep\xE9rer les usages d\u2019une technologie qui sont compatibles avec l\u2019accessibilit\xE9 consisterait \xE0 consulter la compilation des usages qui sont document\xE9s comme compatibles avec l\u2019accessibilit\xE9. Voir Comprendre les usages des technologies compatibles avec l\u2019accessibilit\xE9 (en anglais). Les auteurs, les soci\xE9t\xE9s, les vendeurs de technologies ou n\u2019importe qui d\u2019autre peuvent documenter les usages des technologies relatives aux contenus web qui sont compatibles avec l\u2019accessibilit\xE9. Toutefois, tous les usages des technologies document\xE9s devraient satisfaire \xE0 la d\xE9finition des technologies relatives aux contenus web compatibles avec l\u2019accessibilit\xE9 telle qu\u2019elle est \xE9nonc\xE9e ci-dessus."
     },
     "user-interface-components": {
       title: "composant d\u2019interface utilisateur",
@@ -1962,19 +1964,19 @@ Note: The 18 and 14 point sizes for roman texts are taken from the minimum size 
     },
     "supplementary-content": {
       title: "contenu additionnel",
-      body: "contenu suppl\xE9mentaire illustrant ou clarifiant le contenu primaire\nExemple 1\nLa version audio d\u2019une page Web.\nExemple 2\nL\u2019illustration d\u2019un processus complexe.\nExemple 3\nUn paragraphe r\xE9sumant les principales conclusions et recommandations d\u2019un rapport de recherche."
+      body: "contenu suppl\xE9mentaire illustrant ou clarifiant le contenu primaire\nExemple 1\nLa version audio d\u2019une page web.\nExemple 2\nL\u2019illustration d\u2019un processus complexe.\nExemple 3\nUn paragraphe r\xE9sumant les principales conclusions et recommandations d\u2019un rapport de recherche."
     },
     "non-text-content": {
       title: "contenu non textuel",
       body: "tout contenu qui n\u2019est pas une suite de caract\xE8res d\xE9termin\xE9e par un programme informatique ou suite de caract\xE8res sans signification dans aucune langue\nNote : Ceci inclut l\u2019art ASCII (qui est un dessin \xE0 base de caract\xE8res), les \xE9motic\xF4nes, l\u2019\xE9criture \xAB leetspeak \xBB (qui utilise la substitution de caract\xE8res) et les images repr\xE9sentant du texte."
     },
     content: {
-      title: "contenu (contenu Web)",
+      title: "contenu (contenu web)",
       body: "information et exp\xE9rience sensorielle \xE0 communiquer \xE0 l\u2019utilisateur au moyen d\u2019un agent utilisateur, y compris le code ou le balisage qui d\xE9finit la structure, la pr\xE9sentation et les interactions du contenu"
     },
     "programmatically-determined-link-context": {
       title: "contexte du lien d\xE9termin\xE9 par un programme informatique",
-      body: "information suppl\xE9mentaire qui peut \xEAtre d\xE9termin\xE9e par un programme informatique \xE0 partir des relations avec un lien, combin\xE9e avec le texte du lien et pr\xE9sent\xE9e aux utilisateurs sous diff\xE9rentes formes\nExemple\nEn HTML, l\u2019information qui est d\xE9termin\xE9e par un programme informatique \xE0 partir d\u2019un lien en fran\xE7ais, y compris le texte qui est dans le m\xEAme paragraphe, la m\xEAme liste ou la m\xEAme cellule de tableau que le lien, ou une cellule d\u2019en-t\xEAte de tableau associ\xE9e avec la cellule contenant le lien.\nNote :\nPuisque les lecteurs d\u2019\xE9cran interpr\xE8tent la ponctuation, ils peuvent aussi fournir le contexte de la phrase en cours, lorsque le focus est sur le lien contenu dans cette phrase."
+      body: "information suppl\xE9mentaire qui peut \xEAtre d\xE9termin\xE9e par un programme informatique \xE0 partir des relations avec un lien, combin\xE9e avec le texte du lien et pr\xE9sent\xE9e aux utilisateurs sous diff\xE9rentes formes\nExemple\nEn HTML, l\u2019information qui peut \xEAtre d\xE9termin\xE9e par un programme informatique \xE0 partir d\u2019un lien en anglais inclut le texte qui est dans le m\xEAme paragraphe (en anglais), le m\xEAme \xE9l\xE9ment de liste ou la m\xEAme cellule de tableau que le lien, ou une cellule d\u2019en-t\xEAte de tableau associ\xE9e avec la cellule contenant le lien.\nNote :\nPuisque les lecteurs d\u2019\xE9cran interpr\xE8tent la ponctuation, ils peuvent aussi fournir le contexte de la phrase en cours, lorsque le focus est sur le lien contenu dans cette phrase."
     },
     "user-controllable": {
       title: "contr\xF4lable par l\u2019utilisateur",
@@ -2004,17 +2006,13 @@ Note: The 18 and 14 point sizes for roman texts are taken from the minimum size 
       title: "engagements juridiques",
       body: "transactions par lesquelles la personne contracte une obligation ou re\xE7oit un b\xE9n\xE9fice de nature juridique\nExemple\nUn contrat de mariage, un \xE9change d\u2019actions (financier et juridique), un legs, un pr\xEAt, une adoption, un enr\xF4lement dans l\u2019arm\xE9e, un contrat de tout type, etc."
     },
-    enclose: {
-      title: "englobe",
-      body: "d\xE9limite ou entoure compl\xE8tement"
-    },
     "primary-education": {
       title: "enseignement primaire",
       body: "p\xE9riode de six ans qui commence entre l\u2019\xE2ge de 5 et 7 ans, sans forc\xE9ment d\u2019ant\xE9c\xE9dents d\u2019\xE9ducation\nNote : Cette d\xE9finition se fonde sur la norme de Classification internationale type de l\u2019\xE9ducation de l\u2019[UNESCO]."
     },
     "set-of-web-pages": {
-      title: "ensemble de pages Web",
-      body: "groupe de pages Web partageant un objectif commun et cr\xE9\xE9es par le m\xEAme auteur, groupe ou organisation\nExemple\nCela inclut, par exemple :\n\u2022 une publication r\xE9partie sur plusieurs pages Web et dans laquelle chaque page contient un chapitre ou une autre section importante de l\u2019ouvrage. La publication constitue une seule unit\xE9 logique, contigu\xEB, et contient des \xE9l\xE9ments de navigation qui permettent d\u2019acc\xE9der \xE0 l\u2019ensemble des pages.\n\u2022 un site web de commerce \xE9lectronique pr\xE9sente des produits dans un ensemble de pages Web qui partagent toutes la m\xEAme navigation et la m\xEAme identification. Toutefois, lors du processus de paiement, le mod\xE8le change ; la navigation et d\u2019autres \xE9l\xE9ments sont retir\xE9s, de sorte que les pages de ce processus sont fonctionnellement et visuellement diff\xE9rentes. Les pages de paiement ne font pas partie de l\u2019ensemble des pages de produits.\n\u2022 un blog sur un sous-domaine (par exemple blog.example.com) dont la navigation est diff\xE9rente et dont les contenus sont produits par des auteurs distincts des pages du domaine principal (example.com).\nNote : Diff\xE9rentes versions linguistiques seraient consid\xE9r\xE9es comme des ensembles de pages Web distincts."
+      title: "ensemble de pages web",
+      body: "groupe de pages web partageant un objectif commun et cr\xE9\xE9es par le m\xEAme auteur, groupe ou organisation\nExemple\nCela inclut, par exemple :\n\u2022 une publication r\xE9partie sur plusieurs pages web et dans laquelle chaque page contient un chapitre ou une autre section importante de l\u2019ouvrage. La publication constitue une seule unit\xE9 logique, contigu\xEB, et contient des \xE9l\xE9ments de navigation qui permettent d\u2019acc\xE9der \xE0 l\u2019ensemble des pages.\n\u2022 un site web de commerce \xE9lectronique pr\xE9sente des produits dans un ensemble de pages web qui partagent toutes la m\xEAme navigation et la m\xEAme identification. Toutefois, lors du processus de paiement, le mod\xE8le change ; la navigation et d\u2019autres \xE9l\xE9ments sont retir\xE9s, de sorte que les pages de ce processus sont fonctionnellement et visuellement diff\xE9rentes. Les pages de paiement ne font pas partie de l\u2019ensemble des pages de produits.\n\u2022 un blog sur un sous-domaine (par exemple blog.example.com) dont la navigation est diff\xE9rente et dont les contenus sont produits par des auteurs distincts des pages du domaine principal (example.com).\nNote : Diff\xE9rentes versions linguistiques seraient consid\xE9r\xE9es comme des ensembles de pages web distincts."
     },
     "pointer-inputs": {
       title: "entr\xE9e de pointeur",
@@ -2022,11 +2020,11 @@ Note: The 18 and 14 point sizes for roman texts are taken from the minimum size 
     },
     "text-alternative": {
       title: "\xE9quivalent textuel",
-      body: "texte associ\xE9 par programmation \xE0 un contenu non textuel ou dont il est fait mention depuis un texte associ\xE9 par programmation \xE0 un contenu non textuel. Un texte associ\xE9 par programmation est un texte dont l\u2019emplacement peut \xEAtre d\xE9termin\xE9 par programmation depuis le contenu non textuel.\nExemple\nL\u2019image d\u2019un graphique est d\xE9crite textuellement dans le paragraphe suivant le graphique. Le bref \xE9quivalent textuel du graphique indique que la description suit celui-ci.\nNote : Se r\xE9f\xE9rer \xE0 Comprendre les \xE9quivalents textuels (en anglais) pour plus d\u2019informations."
+      body: "texte associ\xE9 par programmation \xE0 un contenu non textuel ou dont il est fait mention depuis un texte associ\xE9 par programmation \xE0 un contenu non textuel. Un texte associ\xE9 par programmation est un texte dont l\u2019emplacement peut \xEAtre d\xE9termin\xE9 par un programme informatique depuis le contenu non textuel.\nExemple\nL\u2019image d\u2019un graphique est d\xE9crite textuellement dans le paragraphe suivant le graphique. Le bref \xE9quivalent textuel du graphique indique que la description suit celui-ci.\nNote : Se r\xE9f\xE9rer \xE0 Comprendre les \xE9quivalents textuels (en anglais) pour plus d\u2019informations."
     },
     "input-error": {
       title: "erreur de saisie",
-      body: "information fournie par l\u2019utilisateur qui n\u2019est pas accept\xE9e\nNote :\nCela inclut :\n\u2022 L\u2019information qui est demand\xE9e par la page Web mais oubli\xE9e par l\u2019utilisateur.\n\u2022 L\u2019information qui est fournie par l\u2019utilisateur mais qui ne correspond pas au format ou aux valeurs des donn\xE9es attendus."
+      body: "information fournie par l\u2019utilisateur qui n\u2019est pas accept\xE9e\nNote :\nCela inclut :\n\u2022 L\u2019information qui est demand\xE9e par la page web mais oubli\xE9e par l\u2019utilisateur.\n\u2022 L\u2019information qui est fournie par l\u2019utilisateur mais qui ne correspond pas au format ou aux valeurs des donn\xE9es attendus."
     },
     viewport: {
       title: "espace de restitution",
@@ -2042,7 +2040,7 @@ Note: The 18 and 14 point sizes for roman texts are taken from the minimum size 
     },
     labels: {
       title: "\xE9tiquette",
-      body: "texte ou autre composant avec un \xE9quivalent textuel qui est restitu\xE9 \xE0 l\u2019utilisateur pour permettre d\u2019identifier un composant dans un contenu Web.\nNote : Une \xE9tiquette est pr\xE9sent\xE9e \xE0 tous les utilisateurs alors que le nom peut \xEAtre masqu\xE9 et seulement restitu\xE9 par une technologie d\u2019assistance. Dans de nombreux cas (mais pas tous) le nom et l\u2019\xE9tiquette sont identiques.\nNote : Le terme \xE9tiquette n\u2019est pas limit\xE9 \xE0 l\u2019\xE9l\xE9ment label en HTML."
+      body: "texte ou autre composant avec un \xE9quivalent textuel qui est restitu\xE9 \xE0 l\u2019utilisateur pour permettre d\u2019identifier un composant dans un contenu web.\nNote : Une \xE9tiquette est pr\xE9sent\xE9e \xE0 tous les utilisateurs alors que le nom peut \xEAtre masqu\xE9 et seulement restitu\xE9 par une technologie d\u2019assistance. Dans de nombreux cas (mais pas tous) le nom et l\u2019\xE9tiquette sont identiques.\nNote : Le terme \xE9tiquette n\u2019est pas limit\xE9 \xE0 l\u2019\xE9l\xE9ment label en HTML."
     },
     "up-event": {
       title: "\xE9v\xE9nement ascendant (up-event)",
@@ -2054,7 +2052,7 @@ Note: The 18 and 14 point sizes for roman texts are taken from the minimum size 
     },
     "real-time-events": {
       title: "\xE9v\xE9nement en temps r\xE9el",
-      body: "\xE9v\xE9nement qui a) se produit en m\xEAme temps que la visualisation et b) n\u2019est pas enti\xE8rement g\xE9n\xE9r\xE9 par le contenu\nExemple 1\nUne diffusion Web d\u2019une repr\xE9sentation en direct (qui se produit en m\xEAme temps que la visualisation et qui n\u2019est pas pr\xE9-enregistr\xE9e).\nExemple 2\nDes ench\xE8res en ligne avec des gens qui ench\xE9rissent (avec une visualisation en direct).\nExemple 3\nDes humains interagissant dans un monde virtuel gr\xE2ce \xE0 des avatars (qui ne sont pas enti\xE8rement g\xE9n\xE9r\xE9s par le contenu et qui se produisent en m\xEAme temps que la visualisation)."
+      body: "\xE9v\xE9nement qui a) se produit en m\xEAme temps que la visualisation et b) n\u2019est pas enti\xE8rement g\xE9n\xE9r\xE9 par le contenu\nExemple 1\nUne diffusion web d\u2019une repr\xE9sentation en direct (qui se produit en m\xEAme temps que la visualisation et qui n\u2019est pas pr\xE9-enregistr\xE9e).\nExemple 2\nDes ench\xE8res en ligne avec des gens qui ench\xE9rissent (avec une visualisation en direct).\nExemple 3\nDes humains interagissant dans un monde virtuel gr\xE2ce \xE0 des avatars (qui ne sont pas enti\xE8rement g\xE9n\xE9r\xE9s par le contenu et qui se produisent en m\xEAme temps que la visualisation)."
     },
     "specific-sensory-experience": {
       title: "exp\xE9rience sensorielle sp\xE9cifique",
@@ -2066,7 +2064,7 @@ Note: The 18 and 14 point sizes for roman texts are taken from the minimum size 
     },
     flashes: {
       title: "flash",
-      body: "alternance de luminance relative qui peut causer des crises chez certaines personnes si leur taille est suffisamment importante dans une gamme de fr\xE9quences sp\xE9cifiques\nNote : Voir seuil de flash g\xE9n\xE9rique et seuil de flash rouge pour plus d\u2019informations sur les types de flashs qui ne sont pas autoris\xE9s.\nNote : Voir aussi clignotement."
+      body: "une paire de variations oppos\xE9es de la luminance relative pouvant provoquer des crises d\u2019\xE9pilepsie chez certaines personnes si elles occupent une surface suffisante et s\u2019inscrivent dans une plage de fr\xE9quences sp\xE9cifique\nNote : Voir seuil de flash g\xE9n\xE9rique et seuil de flash rouge pour plus d\u2019informations sur les types de flashs qui ne sont pas autoris\xE9s.\nNote : Voir aussi clignotement."
     },
     "purpose-of-each-link": {
       title: "fonction du lien",
@@ -2078,11 +2076,11 @@ Note: The 18 and 14 point sizes for roman texts are taken from the minimum size 
     },
     "same-functionality": {
       title: "fonctionnalit\xE9 similaire",
-      body: "produit le m\xEAme r\xE9sultat \xE0 l\u2019utilisation\nExemple\nUn bouton \xAB rechercher \xBB sur une page Web et un bouton \xAB trouver \xBB sur une autre peuvent tous les deux proposer un champ pour saisir un terme et lister les sujets pr\xE9sents dans le site et pertinents par rapport au terme soumis. Dans ce cas, ils offrent la m\xEAme fonctionnalit\xE9 mais ne sont pas nomm\xE9s \xE0 l\u2019identique."
+      body: "produit le m\xEAme r\xE9sultat \xE0 l\u2019utilisation\nExemple\nUn bouton \xAB rechercher \xBB sur une page web et un bouton \xAB trouver \xBB sur une autre peuvent tous les deux proposer un champ pour saisir un terme et lister les sujets pr\xE9sents dans le site et pertinents par rapport au terme soumis. Dans ce cas, ils offrent la m\xEAme fonctionnalit\xE9 mais ne sont pas nomm\xE9s \xE0 l\u2019identique."
     },
     "user-inactivity": {
       title: "inactivit\xE9 de l\u2019utilisateur",
-      body: "intervalle de temps continu pendant lequel l\u2019utilisateur n\u2019effectue aucune action\nLa m\xE9thode de d\xE9tection sera d\xE9termin\xE9e par le site Web ou l\u2019application."
+      body: "intervalle de temps continu pendant lequel l\u2019utilisateur n\u2019effectue aucune action\nLa m\xE9thode de d\xE9tection sera d\xE9termin\xE9e par le site web ou l\u2019application."
     },
     "focus-indicator": {
       title: "indicateur de focus",
@@ -2114,7 +2112,7 @@ Note: The 18 and 14 point sizes for roman texts are taken from the minimum size 
     },
     "relative-luminance": {
       title: "luminance relative",
-      body: 'luminance relative d\u2019un quelconque point de l\u2019espace colorim\xE9trique normalis\xE9 \xE0 0 pour le noir le plus fonc\xE9 et \xE0 1 pour le blanc le plus clair\nNote :\nPour l\u2019espace colorim\xE9trique de couleur sRGB, la luminance relative d\u2019une couleur est d\xE9finie par L = 0,2126 * R + 0,7152 * G + 0,0722 * B o\xF9 R, G et B sont d\xE9finis par :\n\u2022 si RsRGB <= 0,04045 alors R = RsRGB/12,92 sinon R = ((RsRGB+0,055)/1,055) ^ 2,4\n\u2022 si GsRGB <= 0,04045 alors G = GsRGB/12,92 sinon G = ((GsRGB+0,055)/1,055) ^ 2,4\n\u2022 si BsRGB <= 0,04045 alors B = BsRGB/12,92 sinon B = ((BsRGB+0,055)/1,055) ^ 2,4\net RsRGB, GsRGB, et BsRGB sont d\xE9finis par :\n\u2022 RsRGB = R8bit/255\n\u2022 GsRGB = G8bit/255\n\u2022 BsRGB = B8bit/255\nLe caract\xE8re "^" est l\u2019op\xE9rateur exponentiel. (formule tir\xE9e de [SRGB]).\nNote : Avant mai 2021, la valeur de 0,04045 dans la d\xE9finition \xE9tait diff\xE9rente (0,03928). Elle provenait d\u2019une version pr\xE9c\xE9dente de la sp\xE9cification et a \xE9t\xE9 mise \xE0 jour. Cela n\u2019a aucun effet pratique sur les calculs dans le contexte de ces r\xE8gles.\nNote : La plupart des syst\xE8mes utilis\xE9s aujourd\u2019hui pour afficher le contenu Web adoptent l\u2019encodage sRGB. \xC0 moins que l\u2019on sache qu\u2019un autre espace colorim\xE9trique va \xEAtre utilis\xE9 pour traiter et afficher le contenu, les auteurs devraient l\u2019\xE9valuer en utilisant l\u2019espace colorim\xE9trique sRGB. Si l\u2019on utilise d\u2019autres espaces colorim\xE9triques, voir Comprendre le crit\xE8re de succ\xE8s 1.4.3 (en anglais).\nNote : Si un tramage est effectu\xE9 apr\xE8s l\u2019affichage, alors la valeur source de la couleur est utilis\xE9e. Pour les couleurs tram\xE9es \xE0 la source, les valeurs moyennes des couleurs qui sont tram\xE9es devraient \xEAtre utilis\xE9es (R moyen, G moyen, B moyen).\nNote : Il existe des outils qui effectuent automatiquement les calculs lors des tests de contraste et de flash.\nNote : Une page distincte donnant la d\xE9finition de la luminance relative en utilisant MathML pour afficher les formules est disponible.'
+      body: 'la luminosit\xE9 relative de tout point d\u2019un espace colorim\xE9trique, normalis\xE9e \xE0 0 pour le noir le plus fonc\xE9 et \xE0 1 pour le blanc le plus clair\nNote :\nPour l\u2019espace colorim\xE9trique de couleur sRGB, la luminance relative d\u2019une couleur est d\xE9finie par L = 0,2126 * R + 0,7152 * G + 0,0722 * B o\xF9 R, G et B sont d\xE9finis par :\n\u2022 si RsRGB <= 0,04045 alors R = RsRGB/12,92 sinon R = ((RsRGB+0,055)/1,055) ^ 2,4\n\u2022 si GsRGB <= 0,04045 alors G = GsRGB/12,92 sinon G = ((GsRGB+0,055)/1,055) ^ 2,4\n\u2022 si BsRGB <= 0,04045 alors B = BsRGB/12,92 sinon B = ((BsRGB+0,055)/1,055) ^ 2,4\net RsRGB, GsRGB, et BsRGB sont d\xE9finis par :\n\u2022 RsRGB = R8bit/255\n\u2022 GsRGB = G8bit/255\n\u2022 BsRGB = B8bit/255\nLe caract\xE8re "^" est l\u2019op\xE9rateur de puissance. (formule tir\xE9e de [SRGB]).\nNote : Avant mai 2021, la valeur de 0,04045 dans la d\xE9finition \xE9tait diff\xE9rente (0,03928). Elle provenait d\u2019une version ant\xE9rieure de la sp\xE9cification et a \xE9t\xE9 mise \xE0 jour. Cela n\u2019a aucun effet pratique sur les calculs dans le contexte de ces r\xE8gles.\nNote : Presque tous les syst\xE8mes utilis\xE9s aujourd\u2019hui pour afficher le contenu web adoptent l\u2019encodage sRGB. \xC0 moins que l\u2019on sache qu\u2019un autre espace colorim\xE9trique va \xEAtre utilis\xE9 pour traiter et afficher le contenu, les auteurs devraient l\u2019\xE9valuer en utilisant l\u2019espace colorim\xE9trique sRGB. Si l\u2019on utilise d\u2019autres espaces colorim\xE9triques, voir Comprendre le crit\xE8re de succ\xE8s 1.4.3 (en anglais).\nNote : Si un tramage est effectu\xE9 apr\xE8s diffusion, alors la valeur source de la couleur est utilis\xE9e. Pour les couleurs tram\xE9es \xE0 la source, les valeurs moyennes des couleurs qui sont tram\xE9es devraient \xEAtre utilis\xE9es (R moyen, G moyen, B moyen).\nNote : Il existe des outils qui effectuent automatiquement les calculs lors des tests de contraste et de flash.\nNote : Une page distincte donnant la d\xE9finition de la luminance relative en utilisant MathML pour afficher les formules est disponible.'
     },
     mechanism: {
       title: "m\xE9canisme",
@@ -2146,7 +2144,7 @@ Note: The 18 and 14 point sizes for roman texts are taken from the minimum size 
     },
     name: {
       title: "nom",
-      body: "texte gr\xE2ce auquel un logiciel peut identifier pour l\u2019utilisateur un composant du contenu Web\nNote : Le nom peut \xEAtre cach\xE9 et pr\xE9sent\xE9 seulement aux technologies d\u2019assistance, alors qu\u2019une \xE9tiquette est pr\xE9sent\xE9e \xE0 tous les utilisateurs. Dans de nombreux cas (mais pas dans tous), l\u2019\xE9tiquette et le nom sont identiques.\nNote : Celui-ci n\u2019a pas de lien avec l\u2019attribut HTML name."
+      body: "texte gr\xE2ce auquel un logiciel peut identifier pour l\u2019utilisateur un composant du contenu web\nNote : Le nom peut \xEAtre cach\xE9 et pr\xE9sent\xE9 seulement aux technologies d\u2019assistance, alors qu\u2019une \xE9tiquette est pr\xE9sent\xE9e \xE0 tous les utilisateurs. Dans de nombreux cas (mais pas dans tous), l\u2019\xE9tiquette et le nom sont identiques.\nNote : Celui-ci n\u2019a pas de lien avec l\u2019attribut HTML name."
     },
     normative: {
       title: "normatif",
@@ -2157,8 +2155,8 @@ Note: The 18 and 14 point sizes for roman texts are taken from the minimum size 
       body: "tout ordre s\xE9quentiel o\xF9 les mots et les paragraphes sont pr\xE9sent\xE9s dans un ordre qui ne modifie pas la signification du contenu"
     },
     "web-page-s": {
-      title: "page Web",
-      body: "une ressource autonome obtenue depuis un URI unique gr\xE2ce au protocole HTTP, accompagn\xE9e de toutes les autres ressources utilis\xE9es dans la restitution ou con\xE7ues pour \xEAtre restitu\xE9es simultan\xE9ment par un agent utilisateur\nNote : Bien que toutes les \xAB autres ressources \xBB seraient restitu\xE9es avec la ressource primaire, elles ne sont pas n\xE9cessairement restitu\xE9es simultan\xE9ment.\nNote : \xC0 des fins de conformit\xE9 avec ces r\xE8gles, une ressource doit \xEAtre autonome \xE0 l\u2019int\xE9rieur du p\xE9rim\xE8tre de conformit\xE9 pour \xEAtre consid\xE9r\xE9e comme une page Web.\nExemple 1\nUne ressource Web incluant toutes les images et m\xE9dias li\xE9s.\nExemple 2\nUn programme Web de courrier \xE9lectronique (Webmail) d\xE9velopp\xE9 \xE0 l\u2019aide d\u2019AJAX (Asynchronous JavaScript and XML, JavaScript asynchrone et XML). Le programme r\xE9side int\xE9gralement \xE0 l\u2019adresse http://exemple.com/mail, mais comprend une bo\xEEte de r\xE9ception, un carnet d\u2019adresses et un calendrier. Des liens et des boutons permettent d\u2019afficher la bo\xEEte de r\xE9ception, les contacts ou le calendrier, mais ne changent pas globalement l\u2019URI de la page.\nExemple 3\nUn site portail personnalisable, dans lequel les utilisateurs peuvent choisir le contenu \xE0 afficher \xE0 partir d\u2019un ensemble de modules de contenu.\nExemple 4\nQuand on saisit \xAB http://shopping.exemple.com/ \xBB dans son navigateur, on entre dans un environnement commercial anim\xE9 et interactif dans lequel on se d\xE9place visuellement dans une boutique, retirant les produits directement depuis les rayons pour les placer dans un panier d\u2019achat face \xE0 soi. Cliquer sur un produit d\xE9clenche une d\xE9monstration avec la fiche technique juste \xE0 c\xF4t\xE9. Cela peut \xEAtre un site Web \xE0 page unique ou simplement une page \xE0 l\u2019int\xE9rieur d\u2019un site Web."
+      title: "page web",
+      body: "une ressource autonome obtenue depuis un URI unique gr\xE2ce au protocole HTTP, accompagn\xE9e de toutes les autres ressources utilis\xE9es dans la restitution ou con\xE7ues pour \xEAtre restitu\xE9es simultan\xE9ment par un agent utilisateur\nNote : Bien que toutes les \xAB autres ressources \xBB seraient restitu\xE9es avec la ressource primaire, elles ne sont pas n\xE9cessairement restitu\xE9es simultan\xE9ment.\nNote : \xC0 des fins de conformit\xE9 avec ces r\xE8gles, une ressource doit \xEAtre autonome \xE0 l\u2019int\xE9rieur du p\xE9rim\xE8tre de conformit\xE9 pour \xEAtre consid\xE9r\xE9e comme une page web.\nExemple 1\nUne ressource web incluant toutes les images et m\xE9dias li\xE9s.\nExemple 2\nUn programme web de courrier \xE9lectronique (Webmail) d\xE9velopp\xE9 \xE0 l\u2019aide d\u2019AJAX (Asynchronous JavaScript and XML, JavaScript asynchrone et XML). Le programme r\xE9side int\xE9gralement \xE0 l\u2019adresse http://exemple.com/mail, mais comprend une bo\xEEte de r\xE9ception, un carnet d\u2019adresses et un calendrier. Des liens et des boutons permettent d\u2019afficher la bo\xEEte de r\xE9ception, les contacts ou le calendrier, mais ne changent pas globalement l\u2019URI de la page.\nExemple 3\nUn site portail personnalisable, dans lequel les utilisateurs peuvent choisir le contenu \xE0 afficher \xE0 partir d\u2019un ensemble de modules de contenu.\nExemple 4\nQuand on saisit \xAB http://shopping.exemple.com/ \xBB dans son navigateur, on entre dans un environnement commercial anim\xE9 et interactif dans lequel on se d\xE9place visuellement dans une boutique, retirant les produits directement depuis les rayons pour les placer dans un panier d\u2019achat face \xE0 soi. Cliquer sur un produit d\xE9clenche une d\xE9monstration avec la fiche technique juste \xE0 c\xF4t\xE9. Cela peut \xEAtre un site web \xE0 page unique ou simplement une page \xE0 l\u2019int\xE9rieur d\u2019un site web."
     },
     "navigated-sequentially": {
       title: "parcouru de fa\xE7on s\xE9quentielle",
@@ -2177,8 +2175,8 @@ Note: The 18 and 14 point sizes for roman texts are taken from the minimum size 
       body: "angle visuel d\u2019environ 0,0213 degr\xE9\nUn pixel CSS est l\u2019unit\xE9 de mesure canonique pour toutes les longueurs et mesures en CSS. Cette unit\xE9 est ind\xE9pendante de la densit\xE9 et diff\xE9rente des pixels mat\xE9riels r\xE9els pr\xE9sents sur un \xE9cran. Les agents utilisateurs et les syst\xE8mes d\u2019exploitation devraient garantir qu\u2019un pixel CSS repr\xE9sente la meilleure approximation du pixel de r\xE9f\xE9rence d\xE9fini dans le module CSS Values and Units de niveau 3 (en anglais) [css3-values], qui tient compte des dimensions physiques de l\u2019\xE9cran et de la distance de visualisation suppos\xE9e (facteurs qui ne peuvent \xEAtre d\xE9termin\xE9s par les auteurs de contenu)."
     },
     "single-pointer": {
-      title: "pointage \xE0 contact unique",
-      body: "action de pointage qui fonctionne au moyen d\u2019un seul point de contact avec l\u2019\xE9cran, y compris les appuis courts et les simples clics, les doubles appuis et les doubles clics, les appuis longs et les gestes bas\xE9s sur un trac\xE9."
+      title: "pointeur unique",
+      body: "une modalit\xE9 d\u2019entr\xE9e qui ne cible qu\u2019un seul point \xE0 la fois sur la page/l\u2019\xE9cran, comme une souris, un seul doigt sur un \xE9cran tactile ou un stylet.\nNote :\nLes interactions avec pointeur unique comprennent les simples clics, les doubles clics, les appuis courts, les mouvements de glissement et les gestes de balayage \xE0 un doigt. En revanche, les interactions avec pointeurs multiples impliquent l\u2019utilisation simultan\xE9e de deux pointeurs ou plus, comme les interactions \xE0 deux doigts sur un \xE9cran tactile ou l\u2019utilisation simultan\xE9e d\u2019une souris et d\u2019un stylet."
     },
     prerecorded: {
       title: "pr\xE9-enregistr\xE9",
@@ -2194,11 +2192,11 @@ Note: The 18 and 14 point sizes for roman texts are taken from the minimum size 
     },
     processes: {
       title: "processus",
-      body: "s\xE9rie d\u2019actions de l\u2019utilisateur dont l\u2019encha\xEEnement est n\xE9cessaire \xE0 l\u2019accomplissement d\u2019une t\xE2che\nExemple 1\nUtilisation r\xE9ussie par l\u2019utilisateur, sur un site de vente, d\u2019un encha\xEEnement de pages Web permettant de voir diff\xE9rents produits, des prix et des offres, de s\xE9lectionner des produits, de soumettre une commande, de fournir les informations d\u2019envoi et de paiement.\nExemple 2\nUne page permettant de cr\xE9er un compte utilisateur n\xE9cessitant l\u2019accomplissement d\u2019un test de Turing avant de pouvoir acc\xE9der \xE0 cette page de formulaire de cr\xE9ation de compte."
+      body: "s\xE9rie d\u2019actions de l\u2019utilisateur dont l\u2019encha\xEEnement est n\xE9cessaire \xE0 l\u2019accomplissement d\u2019une t\xE2che\nExemple 1\nUtilisation r\xE9ussie par l\u2019utilisateur, sur un site de vente, d\u2019un encha\xEEnement de pages web permettant de voir diff\xE9rents produits, des prix et des offres, de s\xE9lectionner des produits, de soumettre une commande, de fournir les informations d\u2019envoi et de paiement.\nExemple 2\nUne page permettant de cr\xE9er un compte utilisateur n\xE9cessitant l\u2019accomplissement d\u2019un test de Turing avant de pouvoir acc\xE9der \xE0 cette page de formulaire de cr\xE9ation de compte."
     },
     "style-properties": {
       title: "propri\xE9t\xE9 de style",
-      body: "propri\xE9t\xE9 dont la valeur d\xE9termine la pr\xE9sentation (par exemple, la police, la couleur, la taille, l\u2019emplacement, les marges int\xE9rieures (padding), le volume, la prosodie de la synth\xE8se vocale) des \xE9l\xE9ments de contenu lorsqu\u2019ils sont restitu\xE9s (par exemple, \xE0 l\u2019\xE9cran, par un haut-parleur, sur une plage braille) par les agents utilisateurs.\nLes propri\xE9t\xE9s de style peuvent avoir plusieurs origines :\n\u2022 Les styles par d\xE9faut de l\u2019agent utilisateur : les valeurs des propri\xE9t\xE9s de style par d\xE9faut appliqu\xE9es en l\u2019absence de tout style d\u2019auteur ou d\u2019utilisateur. Certaines technologies Web sp\xE9cifient un rendu par d\xE9faut, d\u2019autres non ;\n\u2022 Styles d\u2019auteur : les valeurs des propri\xE9t\xE9s de style qui sont d\xE9finies par l\u2019auteur dans le cadre du contenu (par exemple, les styles en ligne, les feuilles de style de l\u2019auteur) ;\n\u2022 Styles de l\u2019utilisateur : les valeurs des propri\xE9t\xE9s de style qui sont d\xE9finies par l\u2019utilisateur (par exemple, via les param\xE8tres de l\u2019interface de l\u2019agent utilisateur, les feuilles de style de l\u2019utilisateur)."
+      body: "propri\xE9t\xE9 dont la valeur d\xE9termine la pr\xE9sentation (par exemple, la police, la couleur, la taille, l\u2019emplacement, les marges int\xE9rieures (padding), le volume, la prosodie de la synth\xE8se vocale) des \xE9l\xE9ments de contenu lorsqu\u2019ils sont restitu\xE9s (par exemple, \xE0 l\u2019\xE9cran, par un haut-parleur, sur une plage braille) par les agents utilisateurs.\nLes propri\xE9t\xE9s de style peuvent avoir plusieurs origines :\n\u2022 Les styles par d\xE9faut de l\u2019agent utilisateur : les valeurs des propri\xE9t\xE9s de style par d\xE9faut appliqu\xE9es en l\u2019absence de tout style d\u2019auteur ou d\u2019utilisateur. Certaines technologies relatives aux contenus web sp\xE9cifient un rendu par d\xE9faut, d\u2019autres non ;\n\u2022 Styles d\u2019auteur : les valeurs des propri\xE9t\xE9s de style qui sont d\xE9finies par l\u2019auteur dans le cadre du contenu (par exemple, les styles en ligne, les feuilles de style de l\u2019auteur) ;\n\u2022 Styles de l\u2019utilisateur : les valeurs des propri\xE9t\xE9s de style qui sont d\xE9finies par l\u2019utilisateur (par exemple, via les param\xE8tres de l\u2019interface de l\u2019agent utilisateur, les feuilles de style de l\u2019utilisateur)."
     },
     "pure-decoration": {
       title: "purement d\xE9coratif",
@@ -2222,7 +2220,7 @@ Note: The 18 and 14 point sizes for roman texts are taken from the minimum size 
     },
     role: {
       title: "r\xF4le",
-      body: "texte ou nombre par lequel un logiciel peut identifier la fonction d\u2019un composant dans du contenu Web\nExemple\nUn nombre qui indique si une image sert d\u2019hyperlien, de bouton de commande ou de case \xE0 cocher."
+      body: "texte ou nombre par lequel un logiciel peut identifier la fonction d\u2019un composant dans du contenu web\nExemple\nUn nombre qui indique si une image sert d\u2019hyperlien, de bouton de commande ou de case \xE0 cocher."
     },
     satisfies: {
       title: "satisfait \xE0 un crit\xE8re de succ\xE8s",
@@ -2234,7 +2232,7 @@ Note: The 18 and 14 point sizes for roman texts are taken from the minimum size 
     },
     "general-flash-and-red-flash-thresholds": {
       title: "seuil de flash g\xE9n\xE9rique et seuil de flash rouge",
-      body: "un flash ou une s\xE9quence d\u2019images changeant rapidement est en dessous du seuil de flash (c\u2019est-\xE0-dire que le contenu est conforme) si l\u2019une des conditions suivantes est satisfaite :\n\u2022 il n\u2019y a pas plus de trois flashs g\xE9n\xE9riques et pas plus de trois flashs rouges par seconde ; ou\n\u2022 la surface d\u2019affichage combin\xE9e des flashs simultan\xE9s ne repr\xE9sente pas plus de 0,006 st\xE9radian dans chaque champ visuel de 10 degr\xE9s sur l\u2019\xE9cran (soit 25% de chaque champ visuel de 10 degr\xE9s sur l\u2019\xE9cran) \xE0 une distance habituelle de visualisation\no\xF9 :\n\u2022 un flash g\xE9n\xE9rique est d\xE9fini comme une alternance de luminance relative de 10% ou plus par rapport \xE0 la luminance relative maximum (1.0), o\xF9 la luminance relative de l\u2019image la plus sombre est en dessous de 0,80 et o\xF9 \xAB une alternance \xBB est d\xE9finie comme \xE9tant une augmentation suivie d\u2019une diminution ou une diminution suivie d\u2019une augmentation, et\n\u2022 un flash rouge est d\xE9fini comme toute alternance de transition impliquant un rouge satur\xE9.\nException : Le flash qui suit un mod\xE8le pr\xE9cis et \xE9quilibr\xE9 comme du bruit blanc ou un mod\xE8le de damier altern\xE9 avec des \xAB carr\xE9s \xBB dont les c\xF4t\xE9s font moins de 0,1 degr\xE9 (du champ visuel \xE0 une distance habituelle de visualisation) ne d\xE9passe pas le seuil de flash.\nNote : Pour les logiciels ou le contenu Web, un rectangle de 341 x 256 pixels n\u2019importe o\xF9 sur la surface d\u2019affichage de l\u2019\xE9cran, quand la r\xE9solution est \xE0 1024 x 768 pixels, fournit une bonne estimation de ce que repr\xE9sente 10 degr\xE9s du champ visuel sur l\u2019\xE9cran pour un \xE9cran et une distance habituelle de visualisation. Par exemple des \xE9crans de 38 \xE0 43 centim\xE8tres (15 \xE0 17 pouces) \xE0 une distance de 55 \xE0 65 centim\xE8tres (22-26 pouces). Cette r\xE9solution de 75 \xE0 85 ppp est connue pour \xEAtre plus basse, et donc plus conservatrice que la r\xE9solution nominale du pixel CSS de 96 ppp dans les sp\xE9cifications CSS. Un affichage \xE0 une r\xE9solution sup\xE9rieure du m\xEAme contenu produirait des images plus petites et plus s\xFBres, c\u2019est pourquoi des r\xE9solutions inf\xE9rieures sont utilis\xE9es pour d\xE9finir le seuil.\nNote : Une transition est le changement, dans un temps donn\xE9, de luminance relative (ou de luminance relative ou de couleur pour le flash rouge) entre les pics et les creux adjacents dans un ensemble de mesures de luminance relative (ou de luminance relative ou de couleur pour le flash rouge). Un flash est constitu\xE9 de deux transitions oppos\xE9es.\nNote : La nouvelle d\xE9finition utilis\xE9e dans le domaine pour \xAB deux transitions oppos\xE9es de rouge satur\xE9 \xBB (provenant des WCAG 2.2) est : une paire de transitions oppos\xE9es o\xF9 une transition depuis ou vers un \xE9tat avec une valeur R/(R + G + B) qui est sup\xE9rieure ou \xE9gale \xE0 0,8, et la diff\xE9rence entre les \xE9tats est de plus de 0,2 (sans unit\xE9) sur le diagramme de chromaticit\xE9 CIE 1976 UCS. [ISO_9241-391]\nNote : Des outils sont disponibles pour effectuer l\u2019analyse depuis des captures vid\xE9os. Cependant, aucun outil n\u2019est n\xE9cessaire pour \xE9valuer cette condition si le flash est inf\xE9rieur ou \xE9gal \xE0 3 flashs par seconde. Le contenu est automatiquement conforme (voir #1 et #2 ci-dessus)."
+      body: "un flash ou une s\xE9quence d\u2019images changeant rapidement est en dessous du seuil de flash (c\u2019est-\xE0-dire que le contenu est conforme) si l\u2019une des conditions suivantes est satisfaite :\n\u2022 il n\u2019y a pas plus de trois flashs g\xE9n\xE9riques et pas plus de trois flashs rouges par seconde ; ou\n\u2022 la surface d\u2019affichage combin\xE9e des flashs simultan\xE9s ne repr\xE9sente pas plus de 0,006 st\xE9radian dans chaque champ visuel de 10 degr\xE9s sur l\u2019\xE9cran (soit 25% de chaque champ visuel de 10 degr\xE9s sur l\u2019\xE9cran) \xE0 une distance habituelle de visualisation\no\xF9 :\n\u2022 un flash g\xE9n\xE9rique est d\xE9fini comme une alternance de luminance relative de 10% ou plus par rapport \xE0 la luminance relative maximum (1.0), o\xF9 la luminance relative de l\u2019image la plus sombre est en dessous de 0,80 et o\xF9 \xAB une alternance \xBB est d\xE9finie comme \xE9tant une augmentation suivie d\u2019une diminution ou une diminution suivie d\u2019une augmentation, et\n\u2022 un flash rouge est d\xE9fini comme toute alternance de transition impliquant un rouge satur\xE9.\nException : Le flash qui suit un mod\xE8le pr\xE9cis et \xE9quilibr\xE9 comme du bruit blanc ou un mod\xE8le de damier altern\xE9 avec des \xAB carr\xE9s \xBB dont les c\xF4t\xE9s font moins de 0,1 degr\xE9 (du champ visuel \xE0 une distance habituelle de visualisation) ne d\xE9passe pas le seuil de flash.\nNote : Pour les logiciels ou le contenu web, un rectangle de 341 x 256 pixels n\u2019importe o\xF9 sur la surface d\u2019affichage de l\u2019\xE9cran, quand la r\xE9solution est \xE0 1024 x 768 pixels, fournit une bonne estimation de ce que repr\xE9sente 10 degr\xE9s du champ visuel sur l\u2019\xE9cran pour un \xE9cran et une distance habituelle de visualisation. Par exemple des \xE9crans de 38 \xE0 43 centim\xE8tres (15 \xE0 17 pouces) \xE0 une distance de 55 \xE0 65 centim\xE8tres (22-26 pouces). Cette r\xE9solution de 75 \xE0 85 ppp est connue pour \xEAtre plus basse, et donc plus conservatrice que la r\xE9solution nominale du pixel CSS de 96 ppp dans les sp\xE9cifications CSS. Un affichage \xE0 une r\xE9solution sup\xE9rieure du m\xEAme contenu produirait des images plus petites et plus s\xFBres, c\u2019est pourquoi des r\xE9solutions inf\xE9rieures sont utilis\xE9es pour d\xE9finir le seuil.\nNote : Une transition est le changement, dans un temps donn\xE9, de luminance relative (ou de luminance relative ou de couleur pour le flash rouge) entre les pics et les creux adjacents dans un ensemble de mesures de luminance relative (ou de luminance relative ou de couleur pour le flash rouge). Un flash est constitu\xE9 de deux transitions oppos\xE9es.\nNote : La nouvelle d\xE9finition utilis\xE9e dans le domaine pour \xAB deux transitions oppos\xE9es de rouge satur\xE9 \xBB (provenant des WCAG 2.2) est : une paire de transitions oppos\xE9es o\xF9 une transition depuis ou vers un \xE9tat avec une valeur R/(R + G + B) qui est sup\xE9rieure ou \xE9gale \xE0 0,8, et la diff\xE9rence entre les \xE9tats est de plus de 0,2 (sans unit\xE9) sur le diagramme de chromaticit\xE9 CIE 1976 UCS. [ISO_9241-391]\nNote : Des outils sont disponibles pour effectuer l\u2019analyse depuis des captures vid\xE9os. Cependant, aucun outil n\u2019est n\xE9cessaire pour \xE9valuer cette condition si le flash est inf\xE9rieur ou \xE9gal \xE0 3 flashs par seconde. Le contenu est automatiquement conforme (voir #1 et #2 ci-dessus)."
     },
     "audio-only": {
       title: "seulement audio",
@@ -2250,19 +2248,19 @@ Note: The 18 and 14 point sizes for roman texts are taken from the minimum size 
     },
     structure: {
       title: "structure",
-      body: "\u2022 La mani\xE8re dont les parties d\u2019une page Web sont organis\xE9es entre elles ; et\n\u2022 La mani\xE8re dont un groupe de pages Web est organis\xE9"
+      body: "\u2022 La mani\xE8re dont les parties d\u2019une page web sont organis\xE9es entre elles ; et\n\u2022 La mani\xE8re dont un groupe de pages web est organis\xE9"
     },
     "assistive-technologies": {
       title: "technologie d\u2019assistance",
-      body: "(tel qu\u2019utilis\xE9 dans ce document)\nmat\xE9riel ou logiciel qui agit comme agent utilisateur ou simultan\xE9ment avec un agent utilisateur usuel afin de fournir des fonctionnalit\xE9s r\xE9pondant aux besoins des utilisateurs ayant des limitations fonctionnelles, fonctionnalit\xE9s qui vont au-del\xE0 de celles qui sont offertes par les agents utilisateurs usuels\nNote : Les fonctionnalit\xE9s fournies par les technologies d\u2019assistance comprennent des pr\xE9sentations de remplacement (par exemple de la synth\xE8se vocale ou du contenu agrandi), des m\xE9thodes de saisie alternatives (par exemple la voix), des m\xE9canismes de navigation ou d\u2019orientation suppl\xE9mentaires et des transformations de contenu (par exemple pour rendre un tableau plus accessible).\nNote : Les technologies d\u2019assistance communiquent souvent les donn\xE9es et les messages aux agents utilisateurs usuels en utilisant et en surveillant le fonctionnement d\u2019une API (interface de programmation).\nNote : La distinction entre agents utilisateurs usuels et technologies d\u2019assistance n\u2019est pas absolue. Plusieurs agents utilisateurs usuels comportent des fonctions d\u2019assistance aux utilisateurs ayant des limitations fonctionnelles. La principale diff\xE9rence est que ces agents utilisateurs usuels visent un public large et diversifi\xE9 qui comprend des personnes avec et sans limitations fonctionnelles. Les technologies d\u2019assistance visent des populations plus restreintes d\u2019utilisateurs ayant des limitations fonctionnelles particuli\xE8res. L\u2019assistance fournie par une technologie d\u2019assistance est plus sp\xE9cifique et appropri\xE9e aux besoins des utilisateurs vis\xE9s. Un agent utilisateur usuel peut comporter des fonctionnalit\xE9s importantes pour les technologies d\u2019assistance comme l\u2019extraction du contenu Web \xE0 partir d\u2019objets de programmation ou l\u2019analyse syntaxique du balisage par paquets identifiables.\nExemple\nLes technologies d\u2019assistance qui sont importantes dans le contexte du pr\xE9sent document comprennent les technologies suivantes :\n\u2022 les agrandisseurs d\u2019\xE9cran et les autres assistants de lecture visuelle qui sont utilis\xE9s par les personnes ayant des limitations de la vision, de la perception ou d\u2019acc\xE8s physique \xE0 l\u2019imprim\xE9 pour modifier la police de caract\xE8res, la taille, l\u2019espacement, la couleur, la synchronisation avec la synth\xE8se vocale, etc. dans le but d\u2019am\xE9liorer la lisibilit\xE9 visuelle du rendu des textes et des images ;\n\u2022 les lecteurs d\u2019\xE9cran qui sont utilis\xE9s par les personnes aveugles pour lire l\u2019information textuelle en synth\xE8se vocale ou en braille ;\n\u2022 les logiciels de conversion du texte en parole qui sont utilis\xE9s par certaines personnes ayant des limitations cognitives, des limitations du langage et des difficult\xE9s d\u2019apprentissage pour convertir le texte en synth\xE8se vocale ;\n\u2022 les logiciels de reconnaissance vocale qui peuvent \xEAtre utilis\xE9s par les personnes ayant certaines limitations motrices ;\n\u2022 des claviers de remplacement qui sont utilis\xE9s par des personnes ayant certaines limitations motrices pour simuler le clavier (y compris des claviers de remplacement qui utilisent des pointeurs de t\xEAte, des commutateurs simples, des dispositifs d\u2019aspiration/expiration et d\u2019autres dispositifs sp\xE9ciaux d\u2019aide \xE0 la saisie.) ;\n\u2022 des dispositifs de pointage adapt\xE9s qui sont utilis\xE9s par des personnes ayant certaines limitations motrices pour simuler le pointeur de la souris et l\u2019activation des boutons."
+      body: "(tel qu\u2019utilis\xE9 dans ce document)\nmat\xE9riel ou logiciel qui agit comme agent utilisateur ou simultan\xE9ment avec un agent utilisateur usuel afin de fournir des fonctionnalit\xE9s r\xE9pondant aux besoins des utilisateurs ayant des limitations fonctionnelles, fonctionnalit\xE9s qui vont au-del\xE0 de celles qui sont offertes par les agents utilisateurs usuels\nNote : Les fonctionnalit\xE9s fournies par les technologies d\u2019assistance comprennent des pr\xE9sentations de remplacement (par exemple de la synth\xE8se vocale ou du contenu agrandi), des m\xE9thodes de saisie alternatives (par exemple la voix), des m\xE9canismes de navigation ou d\u2019orientation suppl\xE9mentaires et des transformations de contenu (par exemple pour rendre un tableau plus accessible).\nNote : Les technologies d\u2019assistance communiquent souvent les donn\xE9es et les messages aux agents utilisateurs usuels en utilisant et en surveillant le fonctionnement d\u2019une API (interface de programmation).\nNote : La distinction entre agents utilisateurs usuels et technologies d\u2019assistance n\u2019est pas absolue. Plusieurs agents utilisateurs usuels comportent des fonctions d\u2019assistance aux utilisateurs ayant des limitations fonctionnelles. La principale diff\xE9rence est que ces agents utilisateurs usuels visent un public large et diversifi\xE9 qui comprend des personnes avec et sans limitations fonctionnelles. Les technologies d\u2019assistance visent des populations plus restreintes d\u2019utilisateurs ayant des limitations fonctionnelles particuli\xE8res. L\u2019assistance fournie par une technologie d\u2019assistance est plus sp\xE9cifique et appropri\xE9e aux besoins des utilisateurs vis\xE9s. Un agent utilisateur usuel peut comporter des fonctionnalit\xE9s importantes pour les technologies d\u2019assistance comme l\u2019extraction du contenu web \xE0 partir d\u2019objets de programmation ou l\u2019analyse syntaxique du balisage par paquets identifiables.\nExemple\nLes technologies d\u2019assistance qui sont importantes dans le contexte du pr\xE9sent document comprennent les technologies suivantes :\n\u2022 les agrandisseurs d\u2019\xE9cran et les autres assistants de lecture visuelle qui sont utilis\xE9s par les personnes ayant des limitations de la vision, de la perception ou d\u2019acc\xE8s physique \xE0 l\u2019imprim\xE9 pour modifier la police de caract\xE8res, la taille, l\u2019espacement, la couleur, la synchronisation avec la synth\xE8se vocale, etc. dans le but d\u2019am\xE9liorer la lisibilit\xE9 visuelle du rendu des textes et des images ;\n\u2022 les lecteurs d\u2019\xE9cran qui sont utilis\xE9s par les personnes aveugles pour lire l\u2019information textuelle en synth\xE8se vocale ou en braille ;\n\u2022 les logiciels de conversion du texte en parole qui sont utilis\xE9s par certaines personnes ayant des limitations cognitives, des limitations du langage et des difficult\xE9s d\u2019apprentissage pour convertir le texte en synth\xE8se vocale ;\n\u2022 les logiciels de reconnaissance vocale qui peuvent \xEAtre utilis\xE9s par les personnes ayant certaines limitations motrices ;\n\u2022 des claviers de remplacement qui sont utilis\xE9s par des personnes ayant certaines limitations motrices pour simuler le clavier (y compris des claviers de remplacement qui utilisent des pointeurs de t\xEAte, des commutateurs simples, des dispositifs d\u2019aspiration/expiration et d\u2019autres dispositifs sp\xE9ciaux d\u2019aide \xE0 la saisie.) ;\n\u2022 des dispositifs de pointage adapt\xE9s qui sont utilis\xE9s par des personnes ayant certaines limitations motrices pour simuler le pointeur de la souris et l\u2019activation des boutons."
     },
     technologies: {
-      title: "technologie Web",
-      body: "m\xE9canisme pour encoder les instructions devant \xEAtre restitu\xE9es, jou\xE9es ou ex\xE9cut\xE9es par les agents utilisateurs\nNote : Tels qu\u2019employ\xE9s dans ces r\xE8gles, l\u2019expression \xAB technologie Web \xBB et le mot \xAB technologie \xBB (utilis\xE9 seul) d\xE9signent les technologies relatives aux contenus Web.\nNote : Les technologies relatives aux contenus Web comprennent les langages de balisage, les formats de donn\xE9es ou les langages de programmation que les auteurs sont amen\xE9s \xE0 utiliser seuls ou combin\xE9s pour cr\xE9er des exp\xE9riences pour l\u2019utilisateur final qui vont de pages Web statiques jusqu\u2019\xE0 des pr\xE9sentations multim\xE9dia synchronis\xE9es, en passant par des applications Web dynamiques.\nExemple\nOn compte parmi les exemples les plus fr\xE9quents de technologies Web : HTML, CSS, SVG, PNG, PDF, Flash et JavaScript."
+      title: "technologie (relative aux contenus web)",
+      body: "m\xE9canisme pour encoder les instructions devant \xEAtre restitu\xE9es, jou\xE9es ou ex\xE9cut\xE9es par les agents utilisateurs\nNote : Tels qu\u2019employ\xE9s dans ces r\xE8gles, l\u2019expression \xAB technologie web \xBB et le mot \xAB technologie \xBB (utilis\xE9 seul) d\xE9signent les technologies relatives aux contenus web.\nNote : Les technologies relatives aux contenus web comprennent les langages de balisage, les formats de donn\xE9es ou les langages de programmation que les auteurs sont amen\xE9s \xE0 utiliser seuls ou combin\xE9s pour cr\xE9er des exp\xE9riences pour l\u2019utilisateur final qui vont de pages web statiques jusqu\u2019\xE0 des pr\xE9sentations multim\xE9dia synchronis\xE9es, en passant par des applications web dynamiques.\nExemple\nOn compte parmi les exemples les plus fr\xE9quents de technologies relatives aux contenus web : HTML, CSS, SVG, PNG, PDF, Flash et JavaScript."
     },
     "cognitive-function-test": {
       title: "test cognitif",
-      body: "Une t\xE2che qui demande \xE0 l\u2019utilisateur de m\xE9moriser, manipuler ou retranscrire une information. Des exemples comprennent, mais ne se limitent pas \xE0 :\n\u2022 la m\xE9morisation, par exemple se souvenir d\u2019un identifiant, d\u2019un mot de passe, d\u2019un ensemble de caract\xE8res, d\u2019images ou de motifs. Les identifiants courants tels que le nom, l\u2019adresse de courrier \xE9lectronique et le num\xE9ro de t\xE9l\xE9phone ne sont pas consid\xE9r\xE9s comme des tests cognitifs, car ils sont propres \xE0 l\u2019utilisateur et constants d\u2019un site Web \xE0 l\u2019autre ;\n\u2022 la transcription, comme la saisie de caract\xE8res ;\n\u2022 l\u2019utilisation d\u2019une orthographe correcte ;\n\u2022 l\u2019ex\xE9cution de calculs ;\n\u2022 la r\xE9solution d\u2019\xE9nigmes."
+      body: "Une t\xE2che qui demande \xE0 l\u2019utilisateur de m\xE9moriser, manipuler ou retranscrire une information. Des exemples comprennent, mais ne se limitent pas \xE0 :\n\u2022 la m\xE9morisation, par exemple se souvenir d\u2019un identifiant, d\u2019un mot de passe, d\u2019un ensemble de caract\xE8res, d\u2019images ou de motifs. Les identifiants courants tels que le nom, l\u2019adresse de courrier \xE9lectronique et le num\xE9ro de t\xE9l\xE9phone ne sont pas consid\xE9r\xE9s comme des tests cognitifs, car ils sont propres \xE0 l\u2019utilisateur et constants d\u2019un site web \xE0 l\u2019autre ;\n\u2022 la transcription, comme la saisie de caract\xE8res ;\n\u2022 l\u2019utilisation d\u2019une orthographe correcte ;\n\u2022 l\u2019ex\xE9cution de calculs ;\n\u2022 la r\xE9solution d\u2019\xE9nigmes."
     },
     text: {
       title: "texte",
@@ -2278,11 +2276,11 @@ Note: The 18 and 14 point sizes for roman texts are taken from the minimum size 
     },
     "used-in-an-unusual-or-restricted-way": {
       title: "utilis\xE9 de mani\xE8re inhabituelle ou de fa\xE7on limit\xE9e",
-      body: "mots employ\xE9s de telle mani\xE8re qu\u2019ils obligent les utilisateurs \xE0 savoir exactement quelle d\xE9finition appliquer afin de comprendre correctement le contenu\nExemple\nLe terme \xAB m\xE9moire \xBB poss\xE8de une signification diff\xE9rente dans une conversation universitaire de celle qu\u2019il peut avoir dans un article consacr\xE9 au stockage informatique, mais la d\xE9finition pertinente peut \xEAtre d\xE9duite du contexte. \xC0 l\u2019inverse, le mot \xAB texte \xBB est utilis\xE9 de mani\xE8re tr\xE8s sp\xE9cifique dans les WCAG 2.1, \xE0 tel point qu\u2019une d\xE9finition figure dans le glossaire."
+      body: "mots employ\xE9s de telle mani\xE8re qu\u2019ils obligent les utilisateurs \xE0 savoir exactement quelle d\xE9finition appliquer afin de comprendre correctement le contenu\nExemple\nLe terme \xAB m\xE9moire \xBB poss\xE8de une signification diff\xE9rente dans une conversation universitaire de celle qu\u2019il peut avoir dans un article consacr\xE9 au stockage informatique, mais la d\xE9finition pertinente peut \xEAtre d\xE9duite du contexte. \xC0 l\u2019inverse, le mot \xAB texte \xBB est utilis\xE9 de mani\xE8re tr\xE8s sp\xE9cifique dans les WCAG 2, \xE0 tel point qu\u2019une d\xE9finition figure dans le glossaire."
     },
     "conforming-alternate-versions": {
       title: "version de remplacement conforme",
-      body: "version qui\n\u2022 se conforme au niveau d\xE9termin\xE9 et\n\u2022 fournit toutes les informations similaires et les m\xEAmes fonctionnalit\xE9s dans la m\xEAme langue et\n\u2022 est aussi \xE0 jour que le contenu non conforme et\n\u2022\npour laquelle au moins l\u2019une des affirmations suivantes est vraie :\n\u2022 la version conforme peut \xEAtre atteinte \xE0 partir de la page non conforme via un m\xE9canisme compatible avec l\u2019accessibilit\xE9 ou\n\u2022 la version non conforme peut \xEAtre atteinte seulement \xE0 partir de la version conforme ou\n\u2022 la version non conforme peut \xEAtre atteinte seulement \xE0 partir d\u2019une page conforme qui fournit aussi un m\xE9canisme pour atteindre la version conforme.\nNote : Dans cette d\xE9finition, \xAB peut \xEAtre atteinte seulement \xBB signifie qu\u2019il y a un m\xE9canisme comme une redirection conditionnelle, qui emp\xEAche un utilisateur \xAB d\u2019atteindre \xBB (de charger) la page non conforme \xE0 moins que l\u2019utilisateur ne vienne justement de la version conforme de cette m\xEAme page.\nNote : La version de remplacement n\u2019a pas besoin d\u2019\xEAtre appari\xE9e page par page avec la version originale (par exemple la version de remplacement conforme peut se pr\xE9senter en plusieurs pages).\nNote : Si des versions sont propos\xE9es dans plusieurs langues, une version de remplacement conforme est donc requise pour chacune de ces langues.\nNote : Des versions de remplacement peuvent aussi \xEAtre fournies afin d\u2019accommoder diff\xE9rents environnements technologiques ou diff\xE9rents groupes d\u2019utilisateurs. Chaque version devrait \xEAtre aussi conforme que possible. Une version devrait \xEAtre enti\xE8rement conforme afin de satisfaire \xE0 l\u2019exigence de conformit\xE9 1.\nNote : La version de remplacement conforme n\u2019a pas besoin d\u2019\xEAtre situ\xE9e dans le p\xE9rim\xE8tre de conformit\xE9 ni m\xEAme sur le m\xEAme site Web tant qu\u2019elle est aussi librement disponible que la version non conforme.\nNote : Une version de remplacement ne devrait pas \xEAtre confondue avec un contenu additionnel qui s\u2019ajoute \xE0 la page originale pour en am\xE9liorer la compr\xE9hension.\nNote : Permettre la configuration des pr\xE9f\xE9rences de l\u2019utilisateur \xE0 l\u2019int\xE9rieur du contenu afin de produire une version conforme est un m\xE9canisme acceptable pour atteindre une autre version tant que la m\xE9thode utilis\xE9e pour configurer les pr\xE9f\xE9rences est compatible avec l\u2019accessibilit\xE9.\nVoir Comprendre Version de remplacement conforme (en anglais)"
+      body: "version qui\n\u2022 se conforme au niveau d\xE9termin\xE9 et\n\u2022 fournit toutes les informations similaires et les m\xEAmes fonctionnalit\xE9s dans la m\xEAme langue et\n\u2022 est aussi \xE0 jour que le contenu non conforme et\n\u2022\npour laquelle au moins l\u2019une des affirmations suivantes est vraie :\n\u2022 la version conforme peut \xEAtre atteinte \xE0 partir de la page non conforme via un m\xE9canisme compatible avec l\u2019accessibilit\xE9 ou\n\u2022 la version non conforme peut \xEAtre atteinte seulement \xE0 partir de la version conforme ou\n\u2022 la version non conforme peut \xEAtre atteinte seulement \xE0 partir d\u2019une page conforme qui fournit aussi un m\xE9canisme pour atteindre la version conforme.\nNote : Dans cette d\xE9finition, \xAB peut \xEAtre atteinte seulement \xBB signifie qu\u2019il y a un m\xE9canisme comme une redirection conditionnelle, qui emp\xEAche un utilisateur \xAB d\u2019atteindre \xBB (de charger) la page non conforme \xE0 moins que l\u2019utilisateur ne vienne justement de la version conforme de cette m\xEAme page.\nNote : La version de remplacement n\u2019a pas besoin d\u2019\xEAtre appari\xE9e page par page avec la version originale (par exemple la version de remplacement conforme peut se pr\xE9senter en plusieurs pages).\nNote : Si des versions sont propos\xE9es dans plusieurs langues, une version de remplacement conforme est donc requise pour chacune de ces langues.\nNote : Des versions de remplacement peuvent aussi \xEAtre fournies afin d\u2019accommoder diff\xE9rents environnements technologiques ou diff\xE9rents groupes d\u2019utilisateurs. Chaque version devrait \xEAtre aussi conforme que possible. Une version devrait \xEAtre enti\xE8rement conforme afin de satisfaire \xE0 l\u2019exigence de conformit\xE9 1.\nNote : La version de remplacement conforme n\u2019a pas besoin d\u2019\xEAtre situ\xE9e dans le p\xE9rim\xE8tre de conformit\xE9 ni m\xEAme sur le m\xEAme site web tant qu\u2019elle est aussi librement disponible que la version non conforme.\nNote : Une version de remplacement ne devrait pas \xEAtre confondue avec un contenu additionnel qui s\u2019ajoute \xE0 la page originale pour en am\xE9liorer la compr\xE9hension.\nNote : Permettre la configuration des pr\xE9f\xE9rences de l\u2019utilisateur \xE0 l\u2019int\xE9rieur du contenu afin de produire une version conforme est un m\xE9canisme acceptable pour atteindre une autre version tant que la m\xE9thode utilis\xE9e pour configurer les pr\xE9f\xE9rences est compatible avec l\u2019accessibilit\xE9.\nVoir Comprendre Version de remplacement conforme (en anglais)"
     },
     "alternative-for-time-based-media": {
       title: "version de remplacement pour un m\xE9dia temporel",
@@ -2300,7 +2298,7 @@ var wcag_universe_default = {
   wcagVersion: "2.2",
   source: "https://www.w3.org/TR/WCAG22/",
   criteriaSource: "https://github.com/w3c/wcag",
-  provenance: "Full WCAG 2.x SC universe (all levels incl. AAA, and the removed 4.1.1 Parsing) fetched from raw.githubusercontent.com/w3c/wcag@main on 2026-08-28 via `node scripts/build-standards.mjs --refresh-universe`. Classification: core-AA = ships in src/data/wcag.json (the shipped WCAG 2.2 AA core); out-of-core = WCAG AAA; removed = obsolete (4.1.1).",
+  provenance: "Full WCAG 2.x SC universe (all levels incl. AAA, and the removed 4.1.1 Parsing) fetched from raw.githubusercontent.com/w3c/wcag@main on 2026-09-28 via `node scripts/build-standards.mjs --refresh-universe`. Classification: core-AA = ships in src/data/wcag.json (the shipped WCAG 2.2 AA core); out-of-core = WCAG AAA; removed = obsolete (4.1.1).",
   criteria: [
     {
       id: "1.1.1",
@@ -5473,8 +5471,8 @@ function allIds(doc) {
 }
 function snippet(doc, el, max = 120) {
   const lineStart = doc.lineStarts[el.line - 1] ?? 0;
-  let end = doc.source.indexOf("\n", lineStart);
-  if (end === -1) end = doc.source.length;
+  const nextLineStart = doc.lineStarts[el.line];
+  const end = nextLineStart === void 0 ? doc.source.length : Math.max(lineStart, nextLineStart - 1);
   const from = Math.min(Math.max(el.start, lineStart), end);
   const tagEnd = doc.source.indexOf(">", from);
   const to = Math.min(from + max, Math.max(Math.min(end, from + max), tagEnd === -1 ? end : tagEnd + 1));
@@ -19922,8 +19920,8 @@ function opaqueLibrarySpecifiers(ast, elements) {
 }
 
 // src/glob.ts
-import { existsSync as existsSync11, statSync as statSync6 } from "fs";
-import { join as join24, sep as sep3 } from "path";
+import { existsSync as existsSync12, statSync as statSync10 } from "fs";
+import { join as join23, sep as sep3 } from "path";
 
 // src/util.ts
 import { readFileSync } from "fs";
@@ -19955,66 +19953,70 @@ async function readStdin() {
 
 // src/vendor/codeindex-engine.mjs
 import { spawnSync } from "child_process";
-import { readdirSync, statSync, lstatSync, readFileSync as readFileSync2, realpathSync } from "fs";
-import { join, sep, extname as extname2 } from "path";
+import { readdirSync, statSync, lstatSync, readFileSync as readFileSync2, realpathSync, existsSync } from "fs";
+import { join, resolve, sep, extname as extname2 } from "path";
 import { createHash } from "crypto";
-import { readFileSync as readFileSync22, existsSync } from "fs";
+import { readFileSync as readFileSync22, existsSync as existsSync2, statSync as statSync2 } from "fs";
 import { homedir } from "os";
 import { dirname, join as join2 } from "path";
 import { fileURLToPath } from "url";
 import { basename } from "path";
+import { existsSync as existsSync3, statSync as statSync3 } from "fs";
+import * as os from "os";
+import { dirname as dirname2, join as join3 } from "path";
+import { fileURLToPath as fileURLToPath2, pathToFileURL } from "url";
+import { Worker } from "worker_threads";
 import { readFileSync as readFileSync3 } from "fs";
-import { join as join3 } from "path";
+import { join as join4 } from "path";
 import { posix } from "path";
 import { join as join7 } from "path";
 import { posix as posix2 } from "path";
 import { join as join8 } from "path";
 import { join as join9 } from "path";
 import { join as join10 } from "path";
-import { join as join11 } from "path";
-import { readFileSync as readFileSync6, writeFileSync as writeFileSync2 } from "fs";
-import { join as join12 } from "path";
-import { mkdirSync as mkdirSync2, readdirSync as readdirSync2, readFileSync as readFileSync7, rmSync as rmSync2, statSync as statSync3, writeFileSync as writeFileSync3 } from "fs";
-import { dirname as dirname4, join as join13 } from "path";
-import { existsSync as existsSync5, readdirSync as readdirSync3, statSync as statSync4 } from "fs";
-import { join as join14 } from "path";
+import { chmodSync, mkdtempSync as mkdtempSync2, readFileSync as readFileSync6, realpathSync as realpathSync2, renameSync as renameSync2, rmSync as rmSync2, statSync as statSync4, writeFileSync as writeFileSync2 } from "fs";
+import { basename as basename3, dirname as dirname4, join as join11 } from "path";
+import { mkdirSync as mkdirSync2, readdirSync as readdirSync2, readFileSync as readFileSync7, rmSync as rmSync3, statSync as statSync5, writeFileSync as writeFileSync3 } from "fs";
+import { dirname as dirname5, join as join12 } from "path";
+import { existsSync as existsSync6, readdirSync as readdirSync3, statSync as statSync6 } from "fs";
+import { join as join13 } from "path";
 import { createHash as createHash3 } from "crypto";
-import { existsSync as existsSync6, readFileSync as readFileSync8 } from "fs";
-import { join as join16 } from "path";
-import { existsSync as existsSync7, readFileSync as readFileSync9 } from "fs";
-import { join as join17, resolve as resolve2 } from "path";
-import { existsSync as existsSync8, readFileSync as readFileSync10 } from "fs";
-import { join as join18, resolve as resolve3 } from "path";
+import { existsSync as existsSync7, readFileSync as readFileSync8 } from "fs";
+import { join as join15 } from "path";
+import { existsSync as existsSync8, readFileSync as readFileSync9 } from "fs";
+import { join as join16, resolve as resolve3 } from "path";
+import { existsSync as existsSync9, readFileSync as readFileSync10 } from "fs";
+import { join as join17, resolve as resolve4 } from "path";
 import { readFileSync as readFileSync11 } from "fs";
-import { join as join19 } from "path";
+import { join as join18 } from "path";
 import { spawn } from "child_process";
-import { existsSync as existsSync9 } from "fs";
-import { join as join20 } from "path";
+import { existsSync as existsSync10 } from "fs";
+import { join as join19 } from "path";
 import { pathToFileURL as pathToFileURL2 } from "url";
-import { statSync as statSync5 } from "fs";
-import { join as join21 } from "path";
-import { readFileSync as readFileSync12 } from "fs";
-import { isAbsolute, join as join22 } from "path";
+import { statSync as statSync7 } from "fs";
+import { join as join20 } from "path";
+import { readFileSync as readFileSync12, statSync as statSync8, watch as watchFs } from "fs";
+import { isAbsolute, join as join21 } from "path";
 import { createInterface } from "readline";
-import { existsSync as existsSync2, statSync as statSync2 } from "fs";
-import { availableParallelism } from "os";
-import { dirname as dirname2, join as join4 } from "path";
-import { fileURLToPath as fileURLToPath2, pathToFileURL } from "url";
-import { Worker } from "worker_threads";
 import { basename as basename2 } from "path";
-import { existsSync as existsSync3, readFileSync as readFileSync4 } from "fs";
+import { existsSync as existsSync4, readFileSync as readFileSync4 } from "fs";
 import { join as join5 } from "path";
 import { createHash as createHash2 } from "crypto";
-import { existsSync as existsSync4, mkdirSync, mkdtempSync, readFileSync as readFileSync5, renameSync, rmSync, writeFileSync } from "fs";
-import { dirname as dirname3, join as join6, resolve, sep as sep2 } from "path";
+import { existsSync as existsSync5, mkdirSync, mkdtempSync, readFileSync as readFileSync5, renameSync, rmSync, writeFileSync } from "fs";
+import { dirname as dirname3, join as join6, resolve as resolve2, sep as sep2 } from "path";
 import { gunzipSync } from "zlib";
-import { join as join15 } from "path";
-import { existsSync as existsSync10, mkdirSync as mkdirSync3, readFileSync as readFileSync13, writeFileSync as writeFileSync4 } from "fs";
-import { join as join23, resolve as resolve4 } from "path";
+import { join as join14 } from "path";
+import { existsSync as existsSync11, mkdirSync as mkdirSync3, readFileSync as readFileSync13, statSync as statSync9, writeFileSync as writeFileSync4 } from "fs";
+import { join as join22, resolve as resolve5 } from "path";
 var __defProp = Object.defineProperty;
 var __getOwnPropNames = Object.getOwnPropertyNames;
-var __esm = (fn, res) => function __init() {
-  return fn && (res = (0, fn[__getOwnPropNames(fn)[0]])(fn = 0)), res;
+var __esm = (fn, res, err2) => function __init() {
+  if (err2) throw err2[0];
+  try {
+    return fn && (res = (0, fn[__getOwnPropNames(fn)[0]])(fn = 0)), res;
+  } catch (e) {
+    throw err2 = [e], e;
+  }
 };
 var __export = (target, all) => {
   for (var name2 in all)
@@ -20026,9 +20028,9 @@ var EXTRACTOR_VERSION;
 var init_types = __esm({
   "src/types.ts"() {
     "use strict";
-    ENGINE_VERSION = "2.28.0";
+    ENGINE_VERSION = "2.28.2";
     SCHEMA_VERSION2 = 5;
-    EXTRACTOR_VERSION = 13;
+    EXTRACTOR_VERSION = 14;
   }
 });
 function sh(cmd, args2, opts = {}) {
@@ -20354,6 +20356,27 @@ var init_ignore = __esm({
     init_util();
   }
 });
+function isIgnoredDirectory(name2, ignoreDirs) {
+  return name2 === GIT_ENTRY || ignoreDirs.has(name2) || name2.startsWith(".codeindex-edit-");
+}
+function readInfoExclude(root, entries) {
+  const marker = entries.find((e) => e.name === GIT_ENTRY);
+  if (!marker) return "";
+  let gitDir = join(root, GIT_ENTRY);
+  try {
+    if (!marker.isDirectory()) {
+      const m = /^gitdir:[ \t]*(.+?)[ \t]*$/m.exec(readFileSync2(gitDir, "utf8"));
+      if (!m) return "";
+      gitDir = resolve(root, m[1]);
+      const common = join(gitDir, "commondir");
+      if (existsSync(common)) gitDir = resolve(gitDir, readFileSync2(common, "utf8").trim());
+    }
+    const exclude = join(gitDir, "info", "exclude");
+    return existsSync(exclude) ? readText2(exclude) : "";
+  } catch {
+    return "";
+  }
+}
 function walk(root, opts = {}) {
   const maxFileBytes = opts.maxFileBytes ?? 1024 * 1024;
   const maxFiles = opts.maxFiles ?? Infinity;
@@ -20392,7 +20415,15 @@ function walk(root, opts = {}) {
     } catch {
       continue;
     }
+    if (frame.rel && entries.some((e) => e.name === GIT_ENTRY)) {
+      excluded++;
+      continue;
+    }
     let rules = frame.rules;
+    if (useGitignore && !frame.rel) {
+      const parsed = parseGitignore(readInfoExclude(frame.dir, entries), "");
+      if (parsed.length) rules = [...rules, ...parsed];
+    }
     if (useGitignore && entries.some((e) => e.name === ".gitignore")) {
       const parsed = parseGitignore(readText2(join(frame.dir, ".gitignore")), frame.rel);
       if (parsed.length) rules = [...rules, ...parsed];
@@ -20402,7 +20433,8 @@ function walk(root, opts = {}) {
       const abs = join(frame.dir, name2);
       const rel2 = frame.rel ? `${frame.rel}/${name2}` : name2;
       const isLink = entry.isSymbolicLink();
-      if (entry.isDirectory() && ignoreDirs.has(name2)) continue;
+      if (name2 === GIT_ENTRY) continue;
+      if (entry.isDirectory() && isIgnoredDirectory(name2, ignoreDirs)) continue;
       let st;
       try {
         st = isLink ? statSync(abs) : lstatSync(abs);
@@ -20410,7 +20442,7 @@ function walk(root, opts = {}) {
         continue;
       }
       if (st.isDirectory()) {
-        if (ignoreDirs.has(name2)) continue;
+        if (isIgnoredDirectory(name2, ignoreDirs)) continue;
         if (isLink) continue;
         if (useGitignore && rules.length && isIgnored(rules, rel2, true)) continue;
         stack.push({ dir: abs, rel: rel2, rules });
@@ -20474,6 +20506,7 @@ function readText2(abs) {
   }
 }
 var IGNORE_DIRS;
+var GIT_ENTRY;
 var LOCKFILES;
 var BINARY_EXT;
 var DEFAULT_MAX_FILES;
@@ -20515,6 +20548,7 @@ var init_walk = __esm({
       "elm-stuff",
       ".dart_tool"
     ]);
+    GIT_ENTRY = ".git";
     LOCKFILES = /* @__PURE__ */ new Set([
       "package-lock.json",
       "npm-shrinkwrap.json",
@@ -20772,34 +20806,46 @@ function extToLang(ext2) {
   return EXT_LANG[ext2] ?? "other";
 }
 function blankComments(src) {
-  const out2 = src.split("");
-  let i2 = 0;
   const n = src.length;
+  let out2 = "";
+  let kept = 0;
+  let i2 = 0;
   while (i2 < n) {
-    const c2 = src[i2];
-    const next = src[i2 + 1];
-    if (c2 === "/" && next === "/") {
-      while (i2 < n && src[i2] !== "\n") {
-        out2[i2] = " ";
-        i2++;
+    const c2 = src.charCodeAt(i2);
+    if (c2 === SLASH) {
+      const next = src.charCodeAt(i2 + 1);
+      if (next === SLASH) {
+        out2 += src.slice(kept, i2);
+        const start2 = i2;
+        while (i2 < n && src.charCodeAt(i2) !== NEWLINE) i2++;
+        out2 += " ".repeat(i2 - start2);
+        kept = i2;
+        continue;
       }
-      continue;
-    }
-    if (c2 === "/" && next === "*") {
-      while (i2 < n && !(src[i2] === "*" && src[i2 + 1] === "/")) {
-        if (src[i2] !== "\n") out2[i2] = " ";
-        i2++;
+      if (next === STAR) {
+        out2 += src.slice(kept, i2);
+        let run2 = 0;
+        while (i2 < n && !(src.charCodeAt(i2) === STAR && src.charCodeAt(i2 + 1) === SLASH)) {
+          if (src.charCodeAt(i2) === NEWLINE) {
+            out2 += " ".repeat(run2) + "\n";
+            run2 = 0;
+          } else run2++;
+          i2++;
+        }
+        if (i2 < n) run2++;
+        if (i2 + 1 < n) run2++;
+        out2 += " ".repeat(run2);
+        i2 += 2;
+        kept = Math.min(i2, n);
+        continue;
       }
-      if (i2 < n) out2[i2] = " ";
-      if (i2 + 1 < n) out2[i2 + 1] = " ";
-      i2 += 2;
-      continue;
-    }
-    if (c2 === '"' || c2 === "'" || c2 === "`") {
-      const quote = c2;
       i2++;
-      while (i2 < n && src[i2] !== quote) {
-        if (src[i2] === "\\") i2++;
+      continue;
+    }
+    if (c2 === DQUOTE || c2 === SQUOTE || c2 === BACKTICK) {
+      i2++;
+      while (i2 < n && src.charCodeAt(i2) !== c2) {
+        if (src.charCodeAt(i2) === BACKSLASH) i2++;
         i2++;
       }
       i2++;
@@ -20807,14 +20853,28 @@ function blankComments(src) {
     }
     i2++;
   }
-  return out2.join("");
+  return kept === 0 ? src : out2 + src.slice(kept);
 }
 function extractReexports(rel2, content, localSymbols) {
   if (!REEXPORT_EXTS.has(rel2.slice(rel2.lastIndexOf(".")))) return [];
   const lang = /\.(ts|tsx|mts|cts)$/.test(rel2) ? "typescript" : "javascript";
   const out2 = [];
   const seen = /* @__PURE__ */ new Set();
-  const lineAt = (idx) => content.slice(0, idx).split(/\r?\n/).length;
+  let lineStarts;
+  const lineAt = (idx) => {
+    if (!lineStarts) {
+      lineStarts = [0];
+      for (let i2 = 0; i2 < content.length; i2++) if (content.charCodeAt(i2) === 10) lineStarts.push(i2 + 1);
+    }
+    let lo = 0;
+    let hi = lineStarts.length;
+    while (lo < hi) {
+      const mid = lo + hi >>> 1;
+      if (lineStarts[mid] <= idx) lo = mid + 1;
+      else hi = mid;
+    }
+    return lo;
+  };
   const localDeclOf = /* @__PURE__ */ new Map();
   for (const s of localSymbols) if (!localDeclOf.has(s.name)) localDeclOf.set(s.name, s);
   const scanned = blankComments(content);
@@ -20867,6 +20927,13 @@ function extractReexports(rel2, content, localSymbols) {
 }
 var EXT_LANG;
 var REEXPORT_EXTS;
+var SLASH;
+var STAR;
+var NEWLINE;
+var DQUOTE;
+var SQUOTE;
+var BACKTICK;
+var BACKSLASH;
 var MAX_REEXPORTS;
 var init_common = __esm({
   "src/lang/common.ts"() {
@@ -20947,6 +21014,13 @@ var init_common = __esm({
       ".sol": "solidity"
     };
     REEXPORT_EXTS = /* @__PURE__ */ new Set([".ts", ".tsx", ".mts", ".cts", ".js", ".jsx", ".mjs", ".cjs"]);
+    SLASH = 47;
+    STAR = 42;
+    NEWLINE = 10;
+    DQUOTE = 34;
+    SQUOTE = 39;
+    BACKTICK = 96;
+    BACKSLASH = 92;
     MAX_REEXPORTS = 400;
   }
 });
@@ -21974,13 +22048,13 @@ async function Module2(moduleArg = {}) {
       }
       readAsync = /* @__PURE__ */ __name(async (url) => {
         if (isFileURI(url)) {
-          return new Promise((resolve52, reject) => {
+          return new Promise((resolve62, reject) => {
             var xhr = new XMLHttpRequest();
             xhr.open("GET", url, true);
             xhr.responseType = "arraybuffer";
             xhr.onload = () => {
               if (xhr.status == 200 || xhr.status == 0 && xhr.response) {
-                resolve52(xhr.response);
+                resolve62(xhr.response);
                 return;
               }
               reject(xhr.status);
@@ -22176,9 +22250,9 @@ async function Module2(moduleArg = {}) {
     __name(receiveInstantiationResult, "receiveInstantiationResult");
     var info2 = getWasmImports();
     if (Module["instantiateWasm"]) {
-      return new Promise((resolve52, reject) => {
+      return new Promise((resolve62, reject) => {
         Module["instantiateWasm"](info2, (mod, inst) => {
-          resolve52(receiveInstance(mod, inst));
+          resolve62(receiveInstance(mod, inst));
         });
       });
     }
@@ -23509,8 +23583,8 @@ async function Module2(moduleArg = {}) {
   if (runtimeInitialized) {
     moduleRtn = Module;
   } else {
-    moduleRtn = new Promise((resolve52, reject) => {
-      readyPromiseResolve = resolve52;
+    moduleRtn = new Promise((resolve62, reject) => {
+      readyPromiseResolve = resolve62;
       readyPromiseReject = reject;
     });
   }
@@ -25784,10 +25858,10 @@ function resolveGrammarsTier(opts = {}) {
     tier,
     dir,
     cacheDir,
-    dirs: [dir, ...existsSync(join2(dir, "..", EXTENDED_DIR)) ? [join2(dir, "..", EXTENDED_DIR)] : []]
+    dirs: [dir, ...existsSync2(join2(dir, "..", EXTENDED_DIR)) ? [join2(dir, "..", EXTENDED_DIR)] : []]
   });
   const legacy = process.env.CODEINDEX_GRAMMAR_DIR ?? process.env.ULTRAINDEX_GRAMMAR_DIR;
-  if (legacy && legacy.trim() && existsSync(legacy)) return withDirs("env", legacy);
+  if (legacy && legacy.trim() && existsSync2(legacy)) return withDirs("env", legacy);
   const here = opts.moduleDir ?? dirname(fileURLToPath(import.meta.url));
   const adjacent = [
     join2(here, "grammars"),
@@ -25796,10 +25870,10 @@ function resolveGrammarsTier(opts = {}) {
     // dev: src/ast → <repo>/scripts/grammars
     join2(here, "..", "scripts", "grammars")
   ];
-  for (const c2 of adjacent) if (existsSync(c2)) return withDirs("adjacent", c2);
+  for (const c2 of adjacent) if (existsSync2(c2)) return withDirs("adjacent", c2);
   const env = process.env.CODEINDEX_GRAMMARS_DIR;
-  if (env && env.trim() && existsSync(env)) return withDirs("env", env);
-  if (existsSync(cacheDir)) return withDirs("cache", cacheDir);
+  if (env && env.trim() && existsSync2(env)) return withDirs("env", env);
+  if (existsSync2(cacheDir)) return withDirs("cache", cacheDir);
   return { tier: "none", cacheDir, dirs: [] };
 }
 function resolveGrammarsDir(opts) {
@@ -25811,7 +25885,7 @@ async function ensureGrammars(keys) {
   const firstIn = (name2) => {
     for (const d of dirs) {
       const p = join2(d, name2);
-      if (existsSync(p)) return p;
+      if (existsSync2(p)) return p;
     }
     return void 0;
   };
@@ -25823,16 +25897,26 @@ async function ensureGrammars(keys) {
     parser = new Parser3();
   }
   for (const key2 of new Set(keys)) {
-    if (loaded.has(key2) || failed.has(key2)) continue;
+    if (loaded.has(key2)) continue;
     const wasm = firstIn(`${key2}.wasm`);
+    const fingerprint = wasm ? (() => {
+      try {
+        const st = statSync2(wasm);
+        return `${wasm}:${st.size}:${st.mtimeMs}`;
+      } catch {
+        return `${wasm}:unreadable`;
+      }
+    })() : `missing:${dirs.join("|")}`;
+    if (failed.get(key2) === fingerprint) continue;
     if (!wasm) {
-      failed.add(key2);
+      failed.set(key2, fingerprint);
       continue;
     }
     try {
       loaded.set(key2, await Language.load(new Uint8Array(readFileSync22(wasm))));
+      failed.delete(key2);
     } catch {
-      failed.add(key2);
+      failed.set(key2, fingerprint);
     }
   }
 }
@@ -25935,7 +26019,7 @@ var init_loader = __esm({
     runtimeReady = false;
     parser = null;
     loaded = /* @__PURE__ */ new Map();
-    failed = /* @__PURE__ */ new Set();
+    failed = /* @__PURE__ */ new Map();
   }
 });
 function findFirst(node, pred) {
@@ -27181,6 +27265,14 @@ var init_doc = __esm({
     DECORATION = /decorator|annotation|modifiers/;
   }
 });
+function typeFlagsOf(type) {
+  let flags2 = typeFlags.get(type);
+  if (flags2 === void 0) {
+    flags2 = (REF_IDENT_TYPE.test(type) ? T_REF_IDENT : 0) | (COMMENT_NODE.test(type) ? T_COMMENT : 0) | (STRING_NODE.test(type) ? T_STRING : 0) | (NUMBER_NODE.test(type) ? T_NUMBER : 0) | (REGEX_NODE.test(type) ? T_REGEX : 0);
+    typeFlags.set(type, flags2);
+  }
+  return flags2;
+}
 function isPlainString(node) {
   return node.namedChildren.every((c2) => STRING_PART.test(c2.type));
 }
@@ -27221,20 +27313,21 @@ function collectAll(root, spec, defNames, maxCalls, wantImports) {
   const visit = (node) => {
     const type = node.type;
     const kids = node.namedChildren;
-    if (kids.length === 0 && REF_IDENT_TYPE.test(type)) {
+    const flags2 = typeFlagsOf(type);
+    if (kids.length === 0 && flags2 & T_REF_IDENT) {
       const text = node.text;
       if (REF_IDENT_TEXT.test(text) && !defNames.has(text)) identsFound.add(text);
     }
-    if (COMMENT_NODE.test(type)) {
+    if (flags2 & T_COMMENT) {
       for (const line of node.text.split(/\r?\n/)) addTerms2(stripCommentMarkers(line));
-    } else if (kids.length === 0 && STRING_NODE.test(type) && node.endIndex - node.startIndex <= MAX_LITERAL_LEN2) {
+    } else if (kids.length === 0 && flags2 & T_STRING && node.endIndex - node.startIndex <= MAX_LITERAL_LEN2) {
       addTerms2(node.text.replace(/^['"`]+|['"`]+$/g, ""));
     }
     if (!literals.full) {
-      const line = node.startPosition.row + 1;
-      if (STRING_NODE.test(type) && isPlainString(node)) literals.addString(node.text, line);
-      else if (kids.length === 0 && NUMBER_NODE.test(type)) literals.add("number", node.text.trim(), line);
-      else if (REGEX_NODE.test(type)) literals.add("regex", node.text, line);
+      if (flags2 & T_STRING) {
+        if (isPlainString(node)) literals.addString(node.text, node.startPosition.row + 1);
+      } else if (kids.length === 0 && flags2 & T_NUMBER) literals.add("number", node.text.trim(), node.startPosition.row + 1);
+      else if (flags2 & T_REGEX) literals.add("regex", node.text, node.startPosition.row + 1);
     }
     if (wantCalls && !(spec.kindFrom?.[type] && spec.kindFrom[type](node)) && !spec.skipCall?.(node)) {
       const how = spec.calls[type];
@@ -27676,6 +27769,12 @@ var STRING_NODE;
 var NUMBER_NODE;
 var REGEX_NODE;
 var STRING_PART;
+var T_REF_IDENT;
+var T_COMMENT;
+var T_STRING;
+var T_NUMBER;
+var T_REGEX;
+var typeFlags;
 var init_extract = __esm({
   "src/ast/extract.ts"() {
     "use strict";
@@ -27713,6 +27812,12 @@ var init_extract = __esm({
     NUMBER_NODE = /(^|_)(integer|float|number|decimal|numeric)(_literal)?$/;
     REGEX_NODE = /(^|_)(regex|regular_expression)(_pattern|_literal)?$/;
     STRING_PART = /(^|_)(fragment|content|escape_sequence|character)$/;
+    T_REF_IDENT = 1;
+    T_COMMENT = 2;
+    T_STRING = 4;
+    T_NUMBER = 8;
+    T_REGEX = 16;
+    typeFlags = /* @__PURE__ */ new Map();
   }
 });
 function topDocComment(content) {
@@ -28176,6 +28281,7 @@ function buildCodeRecord(rel2, ext2, size, content, hash, lang, opts = {}) {
     record.truncated = code2.truncated;
     record.relations = code2.relations;
     record.terms = code2.terms;
+    record.literals = code2.literals;
   } else {
     record.title = basename(rel2);
   }
@@ -28254,7 +28360,7 @@ function scanRepo(root, opts = {}) {
       files.push(preUsable.record);
       continue;
     }
-    const record = {
+    const record = kind === "code" ? buildCodeRecord(f.rel, f.ext, f.size, content, hash, lang, opts) : {
       rel: f.rel,
       ext: f.ext,
       size: f.size,
@@ -28266,37 +28372,21 @@ function scanRepo(root, opts = {}) {
       symbols: [],
       refs: []
     };
-    if (content) {
-      if (kind === "doc" && MARKDOWN_EXT.has(f.ext)) {
+    if (kind !== "code") {
+      if (content && kind === "doc" && MARKDOWN_EXT.has(f.ext)) {
         const md = extractMarkdown(content);
         record.title = md.title ?? basename(f.rel);
         record.summary = md.summary;
         record.headings = md.headings;
         record.refs = md.refs;
-      } else if (kind === "doc") {
+      } else if (content && kind === "doc") {
         record.title = basename(f.rel);
-      } else if (kind === "code") {
-        const code2 = extractCode(f.rel, f.ext, content, { maxCallsPerFile: opts.maxCallsPerFile });
-        record.title = basename(f.rel);
-        record.summary = code2.summary;
-        record.symbols = code2.symbols;
-        record.refs = code2.refs;
-        record.pkg = code2.pkg;
-        record.idents = code2.idents;
-        record.calls = code2.calls;
-        record.importedNames = code2.importedNames;
-        record.truncated = code2.truncated;
-        record.relations = code2.relations;
-        record.terms = code2.terms;
-        record.literals = code2.literals;
-      } else if (kind === "config") {
+      } else if (content && kind === "config") {
         record.title = basename(f.rel);
         record.literals = extractConfigLiterals(content);
       } else {
         record.title = basename(f.rel);
       }
-    } else {
-      record.title = basename(f.rel);
     }
     if (kind === "doc" && content) docText.set(f.rel, content);
     files.push(record);
@@ -28334,15 +28424,209 @@ var init_scan = __esm({
     init_config();
   }
 });
+function resolveEngineUrl() {
+  try {
+    const here = fileURLToPath2(import.meta.url);
+    if (here.endsWith("engine.mjs")) return pathToFileURL(here).href;
+    const adjacent = join3(dirname2(here), "engine.mjs");
+    if (existsSync3(adjacent)) return pathToFileURL(adjacent).href;
+    return void 0;
+  } catch {
+    return void 0;
+  }
+}
+function workerCount(requested) {
+  const env = process.env["CODEINDEX_WORKERS"];
+  const raw = requested ?? (env !== void 0 && env !== "" ? Number(env) : void 0);
+  if (raw !== void 0) return Number.isFinite(raw) && raw > 0 ? Math.floor(raw) : 0;
+  let cores = 1;
+  try {
+    cores = typeof os.availableParallelism === "function" ? os.availableParallelism() : os.cpus().length;
+  } catch {
+    cores = 1;
+  }
+  return Math.max(0, Math.min(cores - 1, 8));
+}
+async function runExtractWorker(input, post) {
+  await ensureGrammars(input.grammarKeys);
+  const ready = input.grammarKeys.filter((k) => grammarReady(k));
+  const records = [];
+  for (const job of input.jobs) {
+    let size;
+    let mtimeMs;
+    try {
+      const st = statSync3(job.abs);
+      size = st.size;
+      mtimeMs = st.mtimeMs;
+    } catch {
+      continue;
+    }
+    const content = readText2(job.abs);
+    const record = buildCodeRecord(job.rel, job.ext, size, content, sha1(content), extToLang(job.ext), {
+      maxCallsPerFile: input.maxCallsPerFile
+    });
+    records.push({ rel: job.rel, size, mtimeMs, record });
+  }
+  post({ ready, records });
+}
+async function extractInParallel(jobs, grammarKeys, count, opts = {}) {
+  if (count < 2 || jobs.length === 0) return void 0;
+  const engineUrl = resolveEngineUrl();
+  if (!engineUrl) return void 0;
+  const wanted = grammarKeys.filter((k) => grammarReady(k)).sort();
+  const workers = Math.min(count, jobs.length);
+  const bootstrap = `import { runExtractWorker } from ${JSON.stringify(engineUrl)};
+import { parentPort, workerData } from "node:worker_threads";
+const base = workerData.input;
+const post = (o) => parentPort.postMessage(o);
+const fail = (e) => post({ error: String(e) });
+runExtractWorker({ ...base, jobs: [] }, post).then(() => {
+  parentPort.on("message", (m) => {
+    if (m.done) { parentPort.close(); return; }
+    runExtractWorker({ ...base, jobs: m.jobs }, post).catch(fail);
+  });
+}).catch(fail);
+`;
+  const out2 = /* @__PURE__ */ new Map();
+  let next = 0;
+  const takeBatch = () => {
+    const remaining = jobs.length - next;
+    if (remaining <= 0) return [];
+    const size = Math.max(MIN_BATCH_JOBS, Math.ceil(remaining / (workers * BATCHES_PER_WORKER)));
+    const batch = jobs.slice(next, next + size);
+    next += batch.length;
+    return batch;
+  };
+  const spawned = [];
+  try {
+    await Promise.all(
+      Array.from(
+        { length: workers },
+        () => new Promise((resolve62, reject) => {
+          const w = new Worker(bootstrap, {
+            eval: true,
+            workerData: { input: { jobs: [], grammarKeys: wanted, maxCallsPerFile: opts.maxCallsPerFile } }
+          });
+          spawned.push(w);
+          let finished = false;
+          let timer;
+          const arm = () => {
+            if (timer) clearTimeout(timer);
+            timer = setTimeout(() => {
+              settle(() => reject(new Error("extraction worker timed out")));
+              void w.terminate();
+            }, WORKER_TIMEOUT_MS);
+          };
+          const settle = (fn) => {
+            if (timer) clearTimeout(timer);
+            finished = true;
+            fn();
+          };
+          arm();
+          let inflight = 0;
+          const dispatch2 = () => {
+            const batch = takeBatch();
+            if (batch.length === 0) return false;
+            inflight++;
+            w.postMessage({ jobs: batch });
+            return true;
+          };
+          w.on("message", (m) => {
+            if (finished) return;
+            if ("error" in m) {
+              settle(() => reject(new Error(m.error)));
+              void w.terminate();
+              return;
+            }
+            if (m.ready.slice().sort().join(",") !== wanted.join(",")) {
+              settle(() => reject(new Error("extraction worker grammar tier mismatch")));
+              void w.terminate();
+              return;
+            }
+            for (const r of m.records) out2.set(r.rel, { size: r.size, mtimeMs: r.mtimeMs, record: r.record });
+            if (inflight === 0) dispatch2();
+            else inflight--;
+            dispatch2();
+            if (inflight === 0) {
+              settle(() => resolve62());
+              w.postMessage({ done: true });
+              void w.terminate();
+              return;
+            }
+            arm();
+          });
+          w.once("error", (e) => settle(() => reject(e)));
+          w.once("exit", (code2) => {
+            if (!finished && code2 !== 0) settle(() => reject(new Error(`extraction worker exited with ${code2}`)));
+          });
+        })
+      )
+    );
+    return out2;
+  } catch {
+    for (const w of spawned) void w.terminate();
+    return void 0;
+  }
+}
+async function scanRepoParallel(root, opts = {}) {
+  const count = workerCount(opts.workers);
+  if (count < 2) return scanRepo(root, opts);
+  const walked = opts.precomputedWalk ?? walk(root, {
+    maxFileBytes: opts.maxBytes,
+    maxFiles: opts.maxFiles,
+    gitignore: opts.gitignore,
+    ignoreDirs: opts.ignoreDirs
+  });
+  const scanOpts = { ...opts, precomputedWalk: walked };
+  const jobs = [];
+  for (const { f } of keptCodeFiles(root, scanOpts)) {
+    const cached = opts.cache?.get(f.rel);
+    if (!opts.fullHash && cached && cached.size !== void 0 && cached.mtimeMs !== void 0 && cached.size === f.size && cached.mtimeMs === f.mtimeMs) {
+      continue;
+    }
+    jobs.push({ abs: f.abs, rel: f.rel, ext: f.ext });
+  }
+  if (jobs.length === 0) return scanRepo(root, scanOpts);
+  const workersForced = opts.workers !== void 0 || (process.env["CODEINDEX_WORKERS"] ?? "") !== "";
+  if (!workersForced && jobs.length < DEFAULT_MIN_PARALLEL_JOBS) return scanRepo(root, scanOpts);
+  const grammarKeys = grammarKeysForExts(walked.files.map((f) => f.ext));
+  const extracted = await extractInParallel(jobs, grammarKeys, count, { maxCallsPerFile: opts.maxCallsPerFile });
+  return scanRepo(root, extracted ? { ...scanOpts, extracted } : scanOpts);
+}
+var WORKER_TIMEOUT_MS;
+var DEFAULT_MIN_PARALLEL_JOBS;
+var BATCHES_PER_WORKER;
+var MIN_BATCH_JOBS;
+var init_pool = __esm({
+  "src/pool.ts"() {
+    "use strict";
+    init_hash();
+    init_walk();
+    init_registry();
+    init_loader();
+    init_scan();
+    WORKER_TIMEOUT_MS = 10 * 60 * 1e3;
+    DEFAULT_MIN_PARALLEL_JOBS = 200;
+    BATCHES_PER_WORKER = 4;
+    MIN_BATCH_JOBS = 4;
+  }
+});
 function toCacheMap(scan2) {
   const m = /* @__PURE__ */ new Map();
   for (const f of scan2.files) m.set(f.rel, { hash: f.hash, record: f, size: f.size, mtimeMs: scan2.mtimes.get(f.rel) });
   return m;
 }
+function needsGrammarWarm(walked, cache, fullHash = false) {
+  const codeFiles = walked.files.filter((file) => classify(file.rel, file.ext) === "code");
+  return fullHash && codeFiles.length > 0 || codeFiles.some((file) => {
+    const cached = cache.get(file.rel);
+    return !cached || cached.size !== file.size || cached.mtimeMs !== file.mtimeMs;
+  });
+}
 function readPersistedIndex(repo, indexDir = INDEX_DIR) {
   let parsed;
   try {
-    parsed = JSON.parse(readFileSync3(join3(repo, indexDir, "cache.json"), "utf8"));
+    parsed = JSON.parse(readFileSync3(join4(repo, indexDir, "cache.json"), "utf8"));
   } catch {
     return void 0;
   }
@@ -28363,12 +28647,12 @@ function preloadArtifacts(repo, scan2, meta2, indexDir = INDEX_DIR) {
   if (!scan2.contentUnchanged || meta2.engineVersion !== ENGINE_VERSION || meta2.commit !== scan2.commit || meta2.graphSha1 === void 0 || meta2.symbolsSha1 === void 0) {
     return void 0;
   }
-  const dir = join3(repo, indexDir);
+  const dir = join4(repo, indexDir);
   let graphBytes;
   let symbolsBytes;
   try {
-    graphBytes = readFileSync3(join3(dir, "graph.json"));
-    symbolsBytes = readFileSync3(join3(dir, "symbols.json"));
+    graphBytes = readFileSync3(join4(dir, "graph.json"));
+    symbolsBytes = readFileSync3(join4(dir, "symbols.json"));
   } catch {
     return void 0;
   }
@@ -28390,16 +28674,54 @@ function preloadSession(repo, opts, indexDir = INDEX_DIR) {
   const scan2 = scanRepo(repo, { ...opts, cache: persisted.cacheMap });
   return { scan: scan2, cacheMap: toCacheMap(scan2), arts: preloadArtifacts(repo, scan2, persisted.meta, indexDir) };
 }
+async function preloadSessionLazy(repo, opts, warm, indexDir = INDEX_DIR) {
+  const persisted = readPersistedIndex(repo, indexDir);
+  if (!persisted) return void 0;
+  const walked = opts.precomputedWalk ?? walk(repo, {
+    maxFileBytes: opts.maxBytes,
+    maxFiles: opts.maxFiles,
+    gitignore: opts.gitignore,
+    ignoreDirs: opts.ignoreDirs
+  });
+  const needsWarm = needsGrammarWarm(walked, persisted.cacheMap, opts.fullHash);
+  if (needsWarm) {
+    await warm();
+  }
+  const scan2 = await scanRepoParallel(repo, { ...opts, cache: persisted.cacheMap, precomputedWalk: walked });
+  let artifactsTried = false;
+  let artifacts;
+  return {
+    scan: scan2,
+    cacheMap: toCacheMap(scan2),
+    loadArtifacts: () => {
+      if (!artifactsTried) {
+        artifactsTried = true;
+        artifacts = preloadArtifacts(repo, scan2, persisted.meta, indexDir);
+      }
+      return artifacts;
+    }
+  };
+}
 var INDEX_DIR;
 var init_preload = __esm({
   "src/preload.ts"() {
     "use strict";
     init_types();
     init_scan();
+    init_pool();
     init_hash();
+    init_walk();
+    init_classify();
     INDEX_DIR = ".codeindex";
   }
 });
+function filesInDir(ctx, dir, ext2) {
+  const memo = ctx.dirFilesMemo ??= /* @__PURE__ */ new Map();
+  const key2 = ext2 + "\0" + dir;
+  let list = memo.get(key2);
+  if (!list) memo.set(key2, list = (ctx.filesByDir.get(dir) ?? []).filter((f) => f.endsWith(ext2)).sort());
+  return list;
+}
 function distToSrcCandidates(target) {
   const segs = norm(target).split("/").filter((s) => s !== ".");
   const out2 = [];
@@ -28851,7 +29173,7 @@ function resolveGo(fromRel, spec, ctx) {
   if (!ctx.goModules.length) return { kind: "external" };
   const probePkg = (dir) => {
     const d = norm(dir).replace(/^\.$/, "");
-    const inDir = (ctx.filesByDir.get(d) ?? []).filter((f) => f.endsWith(".go")).sort();
+    const inDir = filesInDir(ctx, d, ".go");
     return inDir.length ? { kind: "resolved", target: inDir[0] } : { kind: "dangling", reason: "missing-package" };
   };
   const home = ctx.goModules.find((g) => !g.dir || fromRel === g.dir || fromRel.startsWith(g.dir + "/"));
@@ -28937,7 +29259,7 @@ function resolveJava(spec, ctx) {
       const p = norm(posix.join(root, pkgPath));
       if (p.endsWith("/*") || p === "*") {
         const dir = p === "*" ? "" : p.slice(0, -2);
-        const inDir = (ctx.filesByDir.get(dir) ?? []).filter((f) => f.endsWith(".java")).sort();
+        const inDir = filesInDir(ctx, dir, ".java");
         if (inDir.length) return inDir[0];
         continue;
       }
@@ -29006,7 +29328,14 @@ function resolveImport(fromRel, ext2, spec, ctx) {
   if (dot !== -1 && ASSET_EXT.has(spec.slice(dot).toLowerCase().replace(/[?#].*$/, ""))) {
     return { kind: "external" };
   }
-  if (JS_TS2.has(ext2) || SFC_HTML.has(ext2)) return resolveJs(fromRel, spec, ctx);
+  if (JS_TS2.has(ext2) || SFC_HTML.has(ext2)) {
+    const dir = fromRel.includes("/") ? posix.dirname(fromRel) : "";
+    const key2 = dir + "\0" + spec;
+    const memo = ctx.jsMemo ??= /* @__PURE__ */ new Map();
+    let r = memo.get(key2);
+    if (!r) memo.set(key2, r = resolveJs(fromRel, spec, ctx));
+    return { ...r };
+  }
   if (PY2.has(ext2)) return resolvePython(fromRel, spec, ctx);
   if (ext2 === ".go") return resolveGo(fromRel, spec, ctx);
   if (ext2 === ".rs") return resolveRust(fromRel, spec, ctx);
@@ -29438,6 +29767,7 @@ function computeSymbolRefs(scan2) {
     if (!set) refs.set(name2, set = /* @__PURE__ */ new Set());
     set.add(file);
   };
+  const mentions = docMentionsFor(scan2);
   for (const f of scan2.files) {
     if (f.kind === "code" && f.idents) {
       for (const id of f.idents) {
@@ -29445,9 +29775,9 @@ function computeSymbolRefs(scan2) {
         if (target && target !== f.rel) add2(id, f.rel);
       }
     } else if (f.kind === "doc") {
-      const content = scan2.docText.get(f.rel);
-      if (!content) continue;
-      for (const tok of content.split(/[^A-Za-z0-9_]+/)) {
+      const m = mentions.get(f.rel);
+      if (!m || !m.retained) continue;
+      for (const tok of m.counts.keys()) {
         const target = unique.get(tok);
         if (target && target !== f.rel) add2(tok, f.rel);
       }
@@ -29512,6 +29842,17 @@ function buildCallerIndex(scan2, importPairs, opts = {}) {
       arr.push(s);
     }
   }
+  const defsByFamily = /* @__PURE__ */ new Map();
+  for (const [name2, sites2] of defs) {
+    const families = /* @__PURE__ */ new Map();
+    for (const site of sites2) {
+      const family = familyOf(site.lang);
+      let grouped = families.get(family);
+      if (!grouped) families.set(family, grouped = []);
+      grouped.push(site);
+    }
+    defsByFamily.set(name2, families);
+  }
   const localDefs = /* @__PURE__ */ new Map();
   for (const f of scan2.files) {
     const byName = /* @__PURE__ */ new Map();
@@ -29537,7 +29878,7 @@ function buildCallerIndex(scan2, importPairs, opts = {}) {
           record(local, recall ? { file: f.rel, line: c2.line, confidence: "corroborated" } : { file: f.rel, line: c2.line });
         continue;
       }
-      const cands = (defs.get(c2.name) ?? []).filter((d) => familyOf(d.lang) === family && d.file !== f.rel).map((d) => ({ file: d.file, lang: d.lang }));
+      const cands = (defsByFamily.get(c2.name)?.get(family) ?? []).filter((d) => d.file !== f.rel);
       if (!cands.length) continue;
       const imported = cands.filter((d) => pairs.has(`${f.rel}|${d.file}`));
       const chosen = family === "js" ? imported.length ? pickCandidate(f.rel, imported) : (
@@ -29546,7 +29887,7 @@ function buildCallerIndex(scan2, importPairs, opts = {}) {
         recall && cands.length === 1 ? cands[0] : void 0
       ) : imported.length ? pickCandidate(f.rel, imported) : pickCandidate(f.rel, cands);
       if (!chosen) continue;
-      const def = defs.get(c2.name).find((d) => d.file === chosen.file);
+      const def = chosen;
       record(
         def,
         recall ? { file: f.rel, line: c2.line, confidence: imported.length ? "corroborated" : "unique-name" } : { file: f.rel, line: c2.line }
@@ -30212,15 +30553,25 @@ function betweennessOf(ids, edges) {
     nbSets[b].add(a);
   }
   const adj = nbSets.map((s) => [...s].sort((x, y) => x - y));
-  const cb = new Array(n).fill(0);
+  const cb = new Float64Array(n);
+  const stack = [];
+  const queue = [];
+  const pred = Array.from({ length: n }, () => []);
+  const sigma = new Float64Array(n);
+  const dist = new Int32Array(n).fill(-1);
+  const delta = new Float64Array(n);
   for (let s = 0; s < n; s++) {
-    const stack = [];
-    const pred = Array.from({ length: n }, () => []);
-    const sigma = new Array(n).fill(0);
-    const dist = new Array(n).fill(-1);
+    for (const v of stack) {
+      sigma[v] = 0;
+      dist[v] = -1;
+      delta[v] = 0;
+      pred[v].length = 0;
+    }
+    stack.length = 0;
+    queue.length = 0;
     sigma[s] = 1;
     dist[s] = 0;
-    const queue = [s];
+    queue.push(s);
     for (let qi = 0; qi < queue.length; qi++) {
       const v = queue[qi];
       stack.push(v);
@@ -30235,7 +30586,6 @@ function betweennessOf(ids, edges) {
         }
       }
     }
-    const delta = new Array(n).fill(0);
     for (let si = stack.length - 1; si >= 0; si--) {
       const w = stack[si];
       for (const v of pred[w]) delta[v] += sigma[v] / sigma[w] * (1 + delta[w]);
@@ -30328,6 +30678,25 @@ function cacheFor(scan2) {
   if (!c2) caches.set(scan2, c2 = {});
   return c2;
 }
+function fileByRelFor(scan2) {
+  const c2 = cacheFor(scan2);
+  return c2.fileByRel ??= new Map(scan2.files.map((file) => [file.rel, file]));
+}
+function symbolsByNameFor(scan2) {
+  const c2 = cacheFor(scan2);
+  if (!c2.symbolsByName) {
+    const byName = /* @__PURE__ */ new Map();
+    for (const file of scan2.files) {
+      for (const symbol of file.symbols) {
+        const group = byName.get(symbol.name);
+        if (group) group.push(symbol);
+        else byName.set(symbol.name, [symbol]);
+      }
+    }
+    c2.symbolsByName = byName;
+  }
+  return c2.symbolsByName;
+}
 function resolveContextFor(scan2) {
   const c2 = cacheFor(scan2);
   return c2.resolveCtx ??= buildResolveContext(scan2);
@@ -30360,6 +30729,33 @@ function uniqueDefsFor(scan2) {
 function symbolRefsFor(scan2) {
   const c2 = cacheFor(scan2);
   return c2.symbolRefs ??= computeSymbolRefs(scan2);
+}
+function docMentionsFor(scan2) {
+  const c2 = cacheFor(scan2);
+  if (c2.docMentions) return c2.docMentions;
+  const unique = uniqueDefsFor(scan2);
+  const out2 = /* @__PURE__ */ new Map();
+  if (unique.size) {
+    for (const f of scan2.files) {
+      if (f.kind !== "doc") continue;
+      const retained = scan2.docText.get(f.rel);
+      const content = retained ?? readText2(join9(scan2.root, f.rel));
+      if (!content) continue;
+      const counts = /* @__PURE__ */ new Map();
+      for (const tok of content.split(/[^A-Za-z0-9_]+/)) {
+        if (unique.has(tok)) counts.set(tok, (counts.get(tok) ?? 0) + 1);
+      }
+      out2.set(f.rel, { counts, retained: retained !== void 0 });
+    }
+  }
+  return c2.docMentions = out2;
+}
+function identSetsFor(scan2) {
+  const c2 = cacheFor(scan2);
+  if (c2.identSets) return c2.identSets;
+  const out2 = /* @__PURE__ */ new Map();
+  for (const f of scan2.files) if (f.kind === "code" && f.idents?.length) out2.set(f.rel, new Set(f.idents));
+  return c2.identSets = out2;
 }
 function callerIndexFor(scan2) {
   const c2 = cacheFor(scan2);
@@ -30510,18 +30906,11 @@ function buildGraph(scan2, ctx, modules, moduleOf, meta2) {
     }
   }
   if (unique.size) {
-    for (const f of scan2.files) {
-      if (f.kind !== "doc") continue;
-      const content = scan2.docText.get(f.rel) ?? readText2(join10(scan2.root, f.rel));
-      if (!content) continue;
-      const tokens = /* @__PURE__ */ new Map();
-      for (const tok of content.split(/[^A-Za-z0-9_]+/)) {
-        if (unique.has(tok)) tokens.set(tok, (tokens.get(tok) ?? 0) + 1);
-      }
-      for (const [name2, count] of tokens) {
+    for (const [rel2, { counts }] of docMentionsFor(scan2)) {
+      for (const [name2, count] of counts) {
         const target = unique.get(name2);
-        if (target === f.rel) continue;
-        collect(fileEdgeMap, { from: f.rel, to: target, kind: "mention", weight: Math.min(count, 5) });
+        if (target === rel2) continue;
+        collect(fileEdgeMap, { from: rel2, to: target, kind: "mention", weight: Math.min(count, 5) });
       }
     }
   }
@@ -30623,15 +31012,17 @@ var init_graph = __esm({
     init_calls();
     init_relations();
     init_derived();
-    init_walk();
     init_sort();
     REFERENCE_KINDS4 = /* @__PURE__ */ new Set(["reexport", "reexport-all", "default"]);
     SEP3 = "\0";
     keyOf = (from, to, kind) => `${from}${SEP3}${to}${SEP3}${kind}`;
   }
 });
+function* allSymbols(scan2) {
+  for (const file of scan2.files) yield* file.symbols;
+}
 function symbolsOverview(scan2, rel2) {
-  const f = scan2.files.find((x) => x.rel === rel2);
+  const f = fileByRelFor(scan2).get(rel2);
   if (!f) return [];
   return [...f.symbols].filter((s) => !REFERENCE_KINDS5.has(s.kind)).sort((a, b) => a.line - b.line || byStr(a.name, b.name));
 }
@@ -30642,27 +31033,37 @@ function findSymbol(scan2, namePath, opts = {}) {
   const parents = segments.slice(0, -1);
   const matchName = (name2, wanted) => opts.substring ? name2.toLowerCase().includes(wanted.toLowerCase()) : name2 === wanted;
   const out2 = [];
-  for (const f of scan2.files) {
-    for (const s of f.symbols) {
-      if (REFERENCE_KINDS5.has(s.kind)) continue;
-      if (!matchName(s.name, leaf)) continue;
-      if (parents.length) {
-        const parent = parents[parents.length - 1];
-        if (!s.parent || s.parent !== parent) continue;
-      }
-      out2.push({ ...s });
+  const candidates2 = opts.substring ? allSymbols(scan2) : symbolsByNameFor(scan2).get(leaf) ?? [];
+  for (const s of candidates2) {
+    if (REFERENCE_KINDS5.has(s.kind)) continue;
+    if (!matchName(s.name, leaf)) continue;
+    if (parents.length) {
+      const parent = parents[parents.length - 1];
+      if (!s.parent || s.parent !== parent) continue;
     }
+    out2.push({ ...s });
   }
   out2.sort(
     (a, b) => Number(b.name === leaf) - Number(a.name === leaf) || byStr(a.file, b.file) || a.line - b.line
   );
   const capped = out2.slice(0, opts.maxResults ?? 50);
   if (opts.includeBody) {
+    const linesByFile = /* @__PURE__ */ new Map();
+    const unreadableFiles = /* @__PURE__ */ new Set();
     for (const m of capped) {
       const end = m.endLine ?? m.line;
-      const content = readText2(join11(scan2.root, m.file));
-      if (!content) continue;
-      m.body = content.split("\n").slice(m.line - 1, end).join("\n");
+      if (unreadableFiles.has(m.file)) continue;
+      let lines = linesByFile.get(m.file);
+      if (!lines) {
+        const content = readText2(join10(scan2.root, m.file));
+        if (!content) {
+          unreadableFiles.add(m.file);
+          continue;
+        }
+        lines = content.split("\n");
+        linesByFile.set(m.file, lines);
+      }
+      m.body = lines.slice(m.line - 1, end).join("\n");
     }
   }
   if (opts.concise) {
@@ -30690,14 +31091,14 @@ function findReferences(scan2, name2) {
   const referencingFiles = /* @__PURE__ */ new Set();
   const unique = uniqueDefsFor(scan2);
   const defFile = unique.get(name2);
+  const idents = identSetsFor(scan2);
+  const mention = new RegExp(`\\b${name2.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`);
   for (const f of scan2.files) {
     if (f.rel === defFile) continue;
-    if (f.kind === "code" && f.idents?.includes(name2)) referencingFiles.add(f.rel);
+    if (f.kind === "code" && idents.get(f.rel)?.has(name2)) referencingFiles.add(f.rel);
     else if (f.kind === "doc") {
       const content = scan2.docText.get(f.rel);
-      if (content && new RegExp(`\\b${name2.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`).test(content)) {
-        referencingFiles.add(f.rel);
-      }
+      if (content && mention.test(content)) referencingFiles.add(f.rel);
     }
   }
   for (const site of callSites) referencingFiles.add(site.file);
@@ -30727,18 +31128,46 @@ function resolveUniqueSymbol(scan2, namePath, file) {
 function readLines(abs) {
   return readFileSync6(abs, "utf8").split("\n");
 }
+function atomicWriteText(abs, content, cleanup = rmSync2) {
+  const target = realpathSync2(abs);
+  const mode = statSync4(target).mode;
+  let tempDir;
+  try {
+    tempDir = mkdtempSync2(join11(dirname4(target), ".codeindex-edit-"));
+  } catch {
+    writeFileSync2(target, content);
+    chmodSync(target, mode);
+    return;
+  }
+  const tempFile = join11(tempDir, basename3(target));
+  try {
+    writeFileSync2(tempFile, content);
+    chmodSync(tempFile, mode);
+    try {
+      renameSync2(tempFile, target);
+    } catch {
+      writeFileSync2(target, content);
+      chmodSync(target, mode);
+    }
+  } finally {
+    try {
+      cleanup(tempDir, { recursive: true, force: true });
+    } catch {
+    }
+  }
+}
 function replaceSymbolBody(scan2, namePath, body22, file) {
   const sym = resolveUniqueSymbol(scan2, namePath, file);
   const end = sym.endLine ?? sym.line;
-  const abs = join12(scan2.root, sym.file);
+  const abs = join11(scan2.root, sym.file);
   const lines = readLines(abs);
   const newLines = body22.replace(/^\n+|\n+$/g, "").split("\n");
   lines.splice(sym.line - 1, end - sym.line + 1, ...newLines);
-  writeFileSync2(abs, lines.join("\n"));
+  atomicWriteText(abs, lines.join("\n"));
   return { file: sym.file, startLine: sym.line, endLine: sym.line + newLines.length - 1, lines: newLines.length };
 }
 function insertAt(scan2, sym, body22, index, blankBefore, blankAfter) {
-  const abs = join12(scan2.root, sym.file);
+  const abs = join11(scan2.root, sym.file);
   const lines = readLines(abs);
   const minGap = SEPARATED_KINDS.has(sym.kind) ? 1 : 0;
   const newLines = body22.replace(/^\n+|\n+$/g, "").split("\n");
@@ -30747,7 +31176,7 @@ function insertAt(scan2, sym, body22, index, blankBefore, blankAfter) {
   block.push(...newLines);
   if (blankAfter && minGap && lines[index]?.trim() !== "") block.push("");
   lines.splice(index, 0, ...block);
-  writeFileSync2(abs, lines.join("\n"));
+  atomicWriteText(abs, lines.join("\n"));
   return { file: sym.file, startLine: index + 1, endLine: index + block.length, lines: block.length };
 }
 function insertAfterSymbol(scan2, namePath, body22, file) {
@@ -30780,11 +31209,11 @@ function sanitize(name2) {
   return clean;
 }
 function memoryPath(repo, name2) {
-  return join13(repo, ...MEMORY_DIR, `${sanitize(name2)}.md`);
+  return join12(repo, ...MEMORY_DIR, `${sanitize(name2)}.md`);
 }
 function writeMemory(repo, name2, content) {
   const path = memoryPath(repo, name2);
-  mkdirSync2(dirname4(path), { recursive: true });
+  mkdirSync2(dirname5(path), { recursive: true });
   writeFileSync3(path, content.endsWith("\n") ? content : content + "\n");
   return sanitize(name2);
 }
@@ -30798,15 +31227,15 @@ function readMemory(repo, name2) {
 function deleteMemory(repo, name2) {
   const path = memoryPath(repo, name2);
   try {
-    statSync3(path);
+    statSync5(path);
   } catch {
     return false;
   }
-  rmSync2(path);
+  rmSync3(path);
   return true;
 }
 function listMemories(repo) {
-  const root = join13(repo, ...MEMORY_DIR);
+  const root = join12(repo, ...MEMORY_DIR);
   const out2 = [];
   const walk22 = (dir, prefix2) => {
     let entries;
@@ -30816,7 +31245,7 @@ function listMemories(repo) {
       return;
     }
     for (const e of entries) {
-      if (e.isDirectory()) walk22(join13(dir, e.name), prefix2 ? `${prefix2}/${e.name}` : e.name);
+      if (e.isDirectory()) walk22(join12(dir, e.name), prefix2 ? `${prefix2}/${e.name}` : e.name);
       else if (e.name.endsWith(".md")) out2.push(prefix2 ? `${prefix2}/${e.name.slice(0, -3)}` : e.name.slice(0, -3));
     }
   };
@@ -30880,8 +31309,8 @@ function wsGlobToRegExp(pat) {
   return new RegExp(`^${re}($|/)`);
 }
 function probeNodePkg(root, dir, kind, warnings) {
-  const path = join14(root, dir, "package.json");
-  if (!existsSync5(path)) return void 0;
+  const path = join13(root, dir, "package.json");
+  if (!existsSync6(path)) return void 0;
   const manifest = `${dir}/package.json`;
   const pkg = readJson(path, manifest, warnings);
   const out2 = {
@@ -30894,8 +31323,8 @@ function probeNodePkg(root, dir, kind, warnings) {
   return out2;
 }
 function probeCargo(root, dir) {
-  const path = join14(root, dir, "Cargo.toml");
-  if (!existsSync5(path)) return void 0;
+  const path = join13(root, dir, "Cargo.toml");
+  if (!existsSync6(path)) return void 0;
   const body22 = tomlSectionBody(readText2(path), "package");
   const out2 = {
     name: tomlString(body22, "name") ?? dir,
@@ -30908,19 +31337,19 @@ function probeCargo(root, dir) {
   return out2;
 }
 function probeGoMod(root, dir) {
-  const path = join14(root, dir, "go.mod");
-  if (!existsSync5(path)) return void 0;
+  const path = join13(root, dir, "go.mod");
+  if (!existsSync6(path)) return void 0;
   const name2 = readText2(path).match(/^module\s+(\S+)/m)?.[1] ?? dir;
   return { name: name2, dir, kind: "go", manifest: `${dir}/go.mod` };
 }
 function probeMaven(root, dir) {
-  const path = join14(root, dir, "pom.xml");
-  if (!existsSync5(path)) return void 0;
+  const path = join13(root, dir, "pom.xml");
+  if (!existsSync6(path)) return void 0;
   return { name: ownArtifactId(readText2(path)) ?? dir, dir, kind: "maven", manifest: `${dir}/pom.xml` };
 }
 function probePyproject(root, dir) {
-  const path = join14(root, dir, "pyproject.toml");
-  if (!existsSync5(path)) return void 0;
+  const path = join13(root, dir, "pyproject.toml");
+  if (!existsSync6(path)) return void 0;
   const toml = readText2(path);
   const project = tomlSectionBody(toml, "project");
   const poetry = tomlSectionBody(toml, "tool.poetry");
@@ -30935,8 +31364,8 @@ function probePyproject(root, dir) {
   return out2;
 }
 function probeComposer(root, dir, warnings) {
-  const path = join14(root, dir, "composer.json");
-  if (!existsSync5(path)) return void 0;
+  const path = join13(root, dir, "composer.json");
+  if (!existsSync6(path)) return void 0;
   const manifest = `${dir}/composer.json`;
   const pkg = readJson(path, manifest, warnings);
   const out2 = {
@@ -30949,8 +31378,8 @@ function probeComposer(root, dir, warnings) {
   return out2;
 }
 function probeNxProject(root, dir, warnings) {
-  const path = join14(root, dir, "project.json");
-  if (!existsSync5(path)) return void 0;
+  const path = join13(root, dir, "project.json");
+  if (!existsSync6(path)) return void 0;
   const manifest = `${dir}/project.json`;
   const proj = readJson(path, manifest, warnings);
   return {
@@ -30962,7 +31391,7 @@ function probeNxProject(root, dir, warnings) {
 }
 function probeGradle(root, dir) {
   for (const f of ["build.gradle", "build.gradle.kts"]) {
-    if (existsSync5(join14(root, dir, f))) {
+    if (existsSync6(join13(root, dir, f))) {
       return { name: dir, dir, kind: "gradle", manifest: `${dir}/${f}` };
     }
   }
@@ -30997,7 +31426,7 @@ function addPackage(root, dir, found, kind, warnings) {
 }
 function isDirAt(root, rel2) {
   try {
-    return statSync4(join14(root, rel2)).isDirectory();
+    return statSync6(join13(root, rel2)).isDirectory();
   } catch {
     return false;
   }
@@ -31005,7 +31434,7 @@ function isDirAt(root, rel2) {
 function subdirsOf(root, base) {
   let entries;
   try {
-    entries = readdirSync3(base ? join14(root, base) : root, { withFileTypes: true });
+    entries = readdirSync3(base ? join13(root, base) : root, { withFileTypes: true });
   } catch {
     return [];
   }
@@ -31067,14 +31496,14 @@ function npmFamilyPatterns(root, warnings) {
     if (t3.startsWith("!")) negations.push(t3.slice(1));
     else positives.push({ pattern: t3, kind });
   };
-  const pkg = readJson(join14(root, "package.json"), "package.json", warnings);
+  const pkg = readJson(join13(root, "package.json"), "package.json", warnings);
   const ws = pkg?.workspaces;
   if (Array.isArray(ws)) {
     for (const x of ws) if (typeof x === "string") push(x, "npm");
   } else if (ws && typeof ws === "object" && Array.isArray(ws.packages)) {
     for (const x of ws.packages) if (typeof x === "string") push(x, "npm");
   }
-  const pnpm = readText2(join14(root, "pnpm-workspace.yaml"));
+  const pnpm = readText2(join13(root, "pnpm-workspace.yaml"));
   let inPackages = false;
   for (const line of pnpm.split(/\r?\n/)) {
     if (/^\S/.test(line)) {
@@ -31088,11 +31517,11 @@ function npmFamilyPatterns(root, warnings) {
   return { positives, negations };
 }
 function fallbackNpmPatterns(root, warnings) {
-  const lerna = readJson(join14(root, "lerna.json"), "lerna.json", warnings);
+  const lerna = readJson(join13(root, "lerna.json"), "lerna.json", warnings);
   if (lerna && Array.isArray(lerna.packages)) {
     return lerna.packages.filter((x) => typeof x === "string").map((pattern) => ({ pattern, kind: "lerna" }));
   }
-  const nx = readJson(join14(root, "nx.json"), "nx.json", warnings);
+  const nx = readJson(join13(root, "nx.json"), "nx.json", warnings);
   if (nx) {
     const layout = nx.workspaceLayout ?? {};
     const appsDir = typeof layout.appsDir === "string" ? layout.appsDir : "apps";
@@ -31102,7 +31531,7 @@ function fallbackNpmPatterns(root, warnings) {
   return [];
 }
 function detectCargoMembers(root, found, warnings) {
-  const toml = readText2(join14(root, "Cargo.toml"));
+  const toml = readText2(join13(root, "Cargo.toml"));
   if (!toml) return;
   const body22 = tomlSectionBody(toml, "workspace");
   if (!body22) return;
@@ -31117,7 +31546,7 @@ function detectCargoMembers(root, found, warnings) {
   }
 }
 function detectGoWork(root, found, warnings) {
-  const gowork = readText2(join14(root, "go.work"));
+  const gowork = readText2(join13(root, "go.work"));
   if (!gowork) return;
   const dirs = [];
   for (const block of gowork.matchAll(/^use\s*\(([\s\S]*?)\)/gm)) {
@@ -31133,7 +31562,7 @@ function detectGoWork(root, found, warnings) {
   }
 }
 function detectMavenModules(root, found, warnings) {
-  const pom = readText2(join14(root, "pom.xml"));
+  const pom = readText2(join13(root, "pom.xml"));
   if (!pom) return;
   const modules = pom.match(/<modules>([\s\S]*?)<\/modules>/)?.[1];
   if (!modules) return;
@@ -31142,7 +31571,7 @@ function detectMavenModules(root, found, warnings) {
   }
 }
 function detectUvMembers(root, found, warnings) {
-  const toml = readText2(join14(root, "pyproject.toml"));
+  const toml = readText2(join13(root, "pyproject.toml"));
   if (!toml) return;
   const body22 = tomlSectionBody(toml, "tool.uv.workspace");
   if (!body22) return;
@@ -31157,7 +31586,7 @@ function detectUvMembers(root, found, warnings) {
   }
 }
 function detectComposerPathRepos(root, found, warnings) {
-  const composer = readJson(join14(root, "composer.json"), "composer.json", warnings);
+  const composer = readJson(join13(root, "composer.json"), "composer.json", warnings);
   const repos = composer?.repositories;
   if (!Array.isArray(repos)) return;
   for (const r of repos) {
@@ -31168,7 +31597,7 @@ function detectComposerPathRepos(root, found, warnings) {
 }
 function detectGradleIncludes(root, found, warnings) {
   for (const f of ["settings.gradle", "settings.gradle.kts"]) {
-    const text = readText2(join14(root, f));
+    const text = readText2(join13(root, f));
     if (!text) continue;
     for (const line of text.split(/\r?\n/)) {
       if (!/^\s*include[\s(]/.test(line)) continue;
@@ -31180,7 +31609,7 @@ function detectGradleIncludes(root, found, warnings) {
   }
 }
 function npmEdges(root, pkg, byName, warnings) {
-  const manifest = readJson(join14(root, pkg.dir, "package.json"), `${pkg.dir}/package.json`, warnings);
+  const manifest = readJson(join13(root, pkg.dir, "package.json"), `${pkg.dir}/package.json`, warnings);
   if (!manifest) return [];
   const edges = /* @__PURE__ */ new Set();
   for (const field of ["dependencies", "devDependencies", "peerDependencies"]) {
@@ -31203,7 +31632,7 @@ function normalizeDepPath(fromDir, rel2) {
   return out2.join("/");
 }
 function cargoEdges(root, pkg, byName, byDir) {
-  const toml = readText2(join14(root, pkg.dir, "Cargo.toml"));
+  const toml = readText2(join13(root, pkg.dir, "Cargo.toml"));
   if (!toml) return [];
   const edges = /* @__PURE__ */ new Set();
   for (const section of ["dependencies", "dev-dependencies", "build-dependencies"]) {
@@ -31227,7 +31656,7 @@ function cargoEdges(root, pkg, byName, byDir) {
   return [...edges];
 }
 function goPkgEdges(root, pkg, byName, byDir) {
-  const gomod = readText2(join14(root, pkg.dir, "go.mod"));
+  const gomod = readText2(join13(root, pkg.dir, "go.mod"));
   if (!gomod) return [];
   const edges = /* @__PURE__ */ new Set();
   for (const m of gomod.matchAll(/^\s*(?:require\s+)?([^\s/(][^\s]*)\s+v[^\s]+/gm)) {
@@ -31241,7 +31670,7 @@ function goPkgEdges(root, pkg, byName, byDir) {
   return [...edges];
 }
 function mavenEdges(root, pkg, byName) {
-  const pom = readText2(join14(root, pkg.dir, "pom.xml"));
+  const pom = readText2(join13(root, pkg.dir, "pom.xml"));
   if (!pom) return [];
   const edges = /* @__PURE__ */ new Set();
   for (const m of pom.replace(/<parent>[\s\S]*?<\/parent>/g, "").matchAll(/<dependency>([\s\S]*?)<\/dependency>/g)) {
@@ -31251,7 +31680,7 @@ function mavenEdges(root, pkg, byName) {
   return [...edges];
 }
 function uvEdges(root, pkg, byName) {
-  const toml = readText2(join14(root, pkg.dir, "pyproject.toml"));
+  const toml = readText2(join13(root, pkg.dir, "pyproject.toml"));
   if (!toml) return [];
   const edges = /* @__PURE__ */ new Set();
   const project = tomlSectionBody(toml, "project");
@@ -31271,7 +31700,7 @@ function uvEdges(root, pkg, byName) {
   return [...edges];
 }
 function composerEdges(root, pkg, byName, warnings) {
-  const manifest = readJson(join14(root, pkg.dir, "composer.json"), `${pkg.dir}/composer.json`, warnings);
+  const manifest = readJson(join13(root, pkg.dir, "composer.json"), `${pkg.dir}/composer.json`, warnings);
   if (!manifest) return [];
   const edges = /* @__PURE__ */ new Set();
   for (const field of ["require", "require-dev"]) {
@@ -31285,7 +31714,7 @@ function composerEdges(root, pkg, byName, warnings) {
 }
 function gradleEdges(root, pkg, byName, byDir) {
   for (const f of ["build.gradle", "build.gradle.kts"]) {
-    const text = readText2(join14(root, pkg.dir, f));
+    const text = readText2(join13(root, pkg.dir, f));
     if (!text) continue;
     const edges = /* @__PURE__ */ new Set();
     for (const m of text.matchAll(/project\s*\(\s*["']:?([^"']+)["']\s*\)/g)) {
@@ -31707,13 +32136,20 @@ function isFunctionValued(signature) {
   }
   return false;
 }
-function holderFor(symbols, line) {
-  let best;
+function holderCandidates(symbols) {
+  const out2 = [];
   for (const s of symbols) {
     if (!HOLDER_KINDS.has(s.kind)) continue;
     if (isFunctionValued(s.signature)) continue;
+    if ((s.endLine ?? s.line) - s.line > MAX_HOLDER_SPAN) continue;
+    out2.push(s);
+  }
+  return out2;
+}
+function holderFor(candidates2, line) {
+  let best;
+  for (const s of candidates2) {
     const end = s.endLine ?? s.line;
-    if (end - s.line > MAX_HOLDER_SPAN) continue;
     if (line < s.line || line > end) continue;
     if (!best || s.line > best.line) best = s;
   }
@@ -31726,13 +32162,14 @@ function findLiteralDuplications(scan2, opts = {}) {
   for (const f of scan2.files) {
     if (!f.literals?.length) continue;
     if (!opts.includeTests && isTestPath(f.rel)) continue;
+    let holders;
     for (const lit of f.literals) {
       if (opts.kinds && !opts.kinds.has(lit.kind)) continue;
       if (!isDistinctive2(lit.value, lit.kind)) continue;
       const key2 = `${lit.kind}\0${lit.value}`;
       let g = groups.get(key2);
       if (!g) groups.set(key2, g = { value: lit.value, kind: lit.kind, sites: [] });
-      const holder = holderFor(f.symbols, lit.line);
+      const holder = holderFor(holders ??= holderCandidates(f.symbols), lit.line);
       g.sites.push(
         holder ? { file: f.rel, line: lit.line, holder: holder.name, holderExported: holder.exported } : { file: f.rel, line: lit.line }
       );
@@ -31956,10 +32393,10 @@ function resolveEmbedModelDir(repo) {
   const env = process.env.CODEINDEX_EMBED_DIR;
   const candidates2 = [];
   if (env) candidates2.push(env);
-  if (repo) candidates2.push(join16(repo, ".codeindex", DEFAULT_EMBED_DIRNAME));
-  candidates2.push(join16(process.cwd(), ".codeindex", DEFAULT_EMBED_DIRNAME));
+  if (repo) candidates2.push(join15(repo, ".codeindex", DEFAULT_EMBED_DIRNAME));
+  candidates2.push(join15(process.cwd(), ".codeindex", DEFAULT_EMBED_DIRNAME));
   for (const c2 of candidates2) {
-    if (existsSync6(join16(c2, "model.json"))) return c2;
+    if (existsSync7(join15(c2, "model.json"))) return c2;
   }
   return void 0;
 }
@@ -31992,8 +32429,8 @@ function parseEmbedModel(raw, source) {
 }
 function loadEmbedModel(dir) {
   if (!dir) return void 0;
-  const path = join16(dir, "model.json");
-  if (!existsSync6(path)) return void 0;
+  const path = join15(dir, "model.json");
+  if (!existsSync7(path)) return void 0;
   const raw = JSON.parse(readFileSync8(path, "utf8"));
   return parseEmbedModel(raw, path);
 }
@@ -32155,31 +32592,31 @@ function serializeEmbeddings(index) {
     count: index.records.length,
     records: index.records.map((r) => ({ file: r.file, symbol: r.symbol ?? "", line: r.line ?? 0 }))
   });
-  const headerBuf = Buffer.from(header4, "utf8");
-  const body22 = Buffer.alloc(index.records.length * index.dim);
-  let off = 0;
+  const headerBuf = new TextEncoder().encode(header4);
+  const bodyLength = index.records.length * index.dim;
+  const out2 = new Uint8Array(8 + headerBuf.length + bodyLength);
+  out2.set([67, 73, 69, 49], 0);
+  new DataView(out2.buffer, out2.byteOffset, out2.byteLength).setUint32(4, headerBuf.length, true);
+  out2.set(headerBuf, 8);
+  let off = 8 + headerBuf.length;
   for (const r of index.records) {
-    for (let d = 0; d < index.dim; d++) body22.writeInt8(r.vec[d] ?? 0, off++);
+    for (let d = 0; d < index.dim; d++) out2[off++] = r.vec[d] ?? 0;
   }
-  const out2 = Buffer.alloc(8 + headerBuf.length + body22.length);
-  out2.write(MAGIC, 0, "ascii");
-  out2.writeUInt32LE(headerBuf.length, 4);
-  headerBuf.copy(out2, 8);
-  body22.copy(out2, 8 + headerBuf.length);
   return out2;
 }
 function deserializeEmbeddings(bytes) {
-  const buf = Buffer.from(bytes.buffer, bytes.byteOffset, bytes.byteLength);
-  if (buf.length < 8 || buf.toString("ascii", 0, 4) !== MAGIC) {
+  if (bytes.byteLength < 8 || String.fromCharCode(...bytes.subarray(0, 4)) !== MAGIC) {
     throw new Error("embeddings.bin: bad magic (not a codeindex embeddings artifact)");
   }
-  const headerLen = buf.readUInt32LE(4);
-  const header4 = JSON.parse(buf.toString("utf8", 8, 8 + headerLen));
+  const data2 = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength);
+  const headerLen = data2.getUint32(4, true);
+  if (8 + headerLen > bytes.byteLength) throw new Error("embeddings.bin: truncated header");
+  const header4 = JSON.parse(new TextDecoder().decode(bytes.subarray(8, 8 + headerLen)));
   const bodyOff = 8 + headerLen;
   const { dim } = header4;
+  if (bodyOff + header4.records.length * dim > bytes.byteLength) throw new Error("embeddings.bin: truncated body");
   const records = header4.records.map((m, i2) => {
-    const vec = new Int8Array(dim);
-    for (let d = 0; d < dim; d++) vec[d] = buf.readInt8(bodyOff + i2 * dim + d);
+    const vec = new Int8Array(bytes.buffer.slice(bytes.byteOffset + bodyOff + i2 * dim, bytes.byteOffset + bodyOff + (i2 + 1) * dim));
     const rec = { file: m.file, vec };
     if (m.symbol) rec.symbol = m.symbol;
     if (m.line) rec.line = m.line;
@@ -32420,8 +32857,8 @@ var init_coupling = __esm({
 });
 function tagline(root) {
   for (const name2 of README_NAMES) {
-    const path = join17(root, name2);
-    if (!existsSync7(path)) continue;
+    const path = join16(root, name2);
+    if (!existsSync8(path)) continue;
     let text;
     try {
       text = readFileSync9(path, "utf8");
@@ -32441,7 +32878,7 @@ function tagline(root) {
 }
 function onboardBrief(scan2, graph, opts = {}) {
   const lines = [];
-  const name2 = resolve2(scan2.root).replace(/\/+$/, "").split("/").pop() || "repository";
+  const name2 = resolve3(scan2.root).replace(/\/+$/, "").split("/").pop() || "repository";
   lines.push(`# ${name2}`, "");
   const summary = tagline(scan2.root);
   if (summary) lines.push(summary, "");
@@ -32546,18 +32983,33 @@ function createFramer() {
   };
 }
 function fileUri(root, rel2) {
-  const abs = `${root.replace(/\/+$/, "")}/${rel2.replace(/^\/+/, "")}`;
+  const rootPath = root.replace(/\\/g, "/").replace(/\/+$/, "");
+  const relPath = rel2.replace(/\\/g, "/").replace(/^\/+/, "");
+  const abs = `${rootPath}/${relPath}`;
+  if (abs.startsWith("//")) {
+    const [host = "", ...segments] = abs.slice(2).split("/");
+    return `file://${encodeURIComponent(host)}/${segments.map(encodeURIComponent).join("/")}`;
+  }
   const drive = /^([A-Za-z]):/.exec(abs);
   const path = drive ? `/${abs}` : abs;
-  return "file://" + path.split("/").map((segment, i2) => i2 === 0 ? segment : encodeURIComponent(segment)).join("/");
+  return "file://" + path.split("/").map((segment, i2) => i2 === 0 || i2 === 1 && /^[A-Za-z]:$/.test(segment) ? segment : encodeURIComponent(segment)).join("/");
 }
 function relFromUri(root, uri) {
   if (!uri.startsWith("file://")) return void 0;
-  let path = decodeURIComponent(uri.slice("file://".length));
+  let path;
+  try {
+    const encoded = uri.slice("file://".length);
+    path = decodeURIComponent(encoded.startsWith("/") ? encoded : `//${encoded}`).replace(/\\/g, "/");
+  } catch {
+    return void 0;
+  }
   if (/^\/[A-Za-z]:/.test(path)) path = path.slice(1);
-  const base = root.replace(/\/+$/, "");
-  if (path === base) return "";
-  if (!path.startsWith(`${base}/`)) return void 0;
+  const base = root.replace(/\\/g, "/").replace(/\/+$/, "");
+  const windows = /^[A-Za-z]:/.test(base) || base.startsWith("//");
+  const comparablePath = windows ? path.toLowerCase() : path;
+  const comparableBase = windows ? base.toLowerCase() : base;
+  if (comparablePath === comparableBase) return "";
+  if (!comparablePath.startsWith(`${comparableBase}/`)) return void 0;
   return path.slice(base.length + 1);
 }
 function locationsToRefs(root, raw) {
@@ -32625,13 +33077,13 @@ async function openLspSession(transport, options) {
   const request = (method, params, budget = timeoutMs) => {
     if (dead) return Promise.reject(dead);
     const id = nextId++;
-    return new Promise((resolve52, reject) => {
+    return new Promise((resolve62, reject) => {
       const timer = setTimeout(() => {
         pending.delete(id);
         reject(new LspTimeout(method, budget));
       }, budget);
       timer.unref?.();
-      pending.set(id, { resolve: resolve52, reject, timer });
+      pending.set(id, { resolve: resolve62, reject, timer });
       transport.write(encodeMessage({ jsonrpc: "2.0", id, method, params }));
     });
   };
@@ -32725,12 +33177,12 @@ function resolveLspConfigPath(repo) {
   if (env !== void 0) {
     const trimmed = env.trim();
     if (!trimmed || trimmed === "0" || trimmed.toLowerCase() === "off") return { path: void 0, source: "none" };
-    return { path: resolve3(trimmed), source: "env" };
+    return { path: resolve4(trimmed), source: "env" };
   }
-  const inRepo = join18(repo, LSP_CONFIG_DIR, LSP_CONFIG_NAME);
-  if (existsSync8(inRepo)) return { path: inRepo, source: "repo" };
-  const inCwd = join18(process.cwd(), LSP_CONFIG_DIR, LSP_CONFIG_NAME);
-  if (inCwd !== inRepo && existsSync8(inCwd)) return { path: inCwd, source: "cwd" };
+  const inRepo = join17(repo, LSP_CONFIG_DIR, LSP_CONFIG_NAME);
+  if (existsSync9(inRepo)) return { path: inRepo, source: "repo" };
+  const inCwd = join17(process.cwd(), LSP_CONFIG_DIR, LSP_CONFIG_NAME);
+  if (inCwd !== inRepo && existsSync9(inCwd)) return { path: inCwd, source: "cwd" };
   return { path: void 0, source: "none" };
 }
 function parseLspConfig(payload) {
@@ -32769,7 +33221,7 @@ function parseLspConfig(payload) {
 }
 function loadLspConfig(repo) {
   const { path } = resolveLspConfigPath(repo);
-  if (!path || !existsSync8(path)) return void 0;
+  if (!path || !existsSync9(path)) return void 0;
   let payload;
   try {
     payload = JSON.parse(readFileSync10(path, "utf8"));
@@ -32811,7 +33263,7 @@ function lspUnavailable(server, reason) {
 }
 function columnOfSymbol(root, rel2, line, name2) {
   try {
-    const lines = readFileSync11(join19(root, rel2), "utf8").split(/\r?\n/);
+    const lines = readFileSync11(join18(root, rel2), "utf8").split(/\r?\n/);
     const index = lines[line - 1]?.indexOf(name2) ?? -1;
     return index < 0 ? 0 : index;
   } catch {
@@ -32876,7 +33328,7 @@ function refOrder(a, b) {
 }
 function readTextOrEmpty(root, rel2) {
   try {
-    return readFileSync11(join19(root, rel2), "utf8");
+    return readFileSync11(join18(root, rel2), "utf8");
   } catch {
     return "";
   }
@@ -33241,7 +33693,7 @@ function findDeadCode(scan2) {
   for (const f of scan2.files) {
     for (const s of f.symbols) {
       if (!consider(s)) continue;
-      const entry = callers.get(s.name) ?? callers.get(`${s.name}@${s.file}`);
+      const entry = callers.get(`${s.name}@${s.file}`) ?? callers.get(s.name);
       const hasCallers = !!entry && entry.def.file === s.file && entry.callers.length > 0;
       if (hasCallers) continue;
       const referenced = (refs.get(s.name)?.size ?? 0) > 0;
@@ -33350,9 +33802,13 @@ function validateArgs(schema, args2) {
     if (!spec?.type) continue;
     const actual = Array.isArray(value) ? "array" : typeof value;
     if (spec.type === "number") {
-      if (actual === "number") continue;
-      if (actual === "string" && Number.isFinite(Number(value)) && value.trim() !== "") continue;
-      return `\`${key2}\` must be a number, got ${actual === "string" ? JSON.stringify(value) : actual}`;
+      const numeric = actual === "number" ? value : actual === "string" && value.trim() !== "" ? Number(value) : NaN;
+      if (!Number.isFinite(numeric)) {
+        return `\`${key2}\` must be a number, got ${actual === "string" ? JSON.stringify(value) : actual}`;
+      }
+      if (spec.minimum !== void 0 && numeric < spec.minimum) return `\`${key2}\` must be at least ${spec.minimum}`;
+      if (spec.maximum !== void 0 && numeric > spec.maximum) return `\`${key2}\` must be at most ${spec.maximum}`;
+      continue;
     }
     if (spec.type === "array") {
       if (actual !== "array") return `\`${key2}\` must be an array of strings, got ${actual}`;
@@ -33382,7 +33838,7 @@ function negotiateProtocol(requested) {
 function capResponse(text, tool, repo, maxBytes) {
   const bytes = Buffer.byteLength(text, "utf8");
   if (bytes <= maxBytes) return text;
-  const artifact = ARTIFACT_FOR[tool] ? join20(repo, INDEX_DIR, ARTIFACT_FOR[tool]) : void 0;
+  const artifact = ARTIFACT_FOR[tool] ? join19(repo, INDEX_DIR, ARTIFACT_FOR[tool]) : void 0;
   return JSON.stringify(
     {
       truncated: true,
@@ -33391,7 +33847,7 @@ function capResponse(text, tool, repo, maxBytes) {
       maxBytes,
       reason: "This response exceeds the configured limit and was withheld rather than sent as an unusable partial payload.",
       narrower: NARROWER[tool] ?? "narrow the request with `scope`, `include`/`exclude`, or a `limit`",
-      ...artifact && existsSync9(artifact) ? { artifact, artifactNote: "The full result is already on disk here \u2014 read it directly if you need all of it." } : artifact ? { artifactNote: `Run \`codeindex index --repo ${repo} --out ${join20(repo, INDEX_DIR)}\` to get this as a file.` } : {}
+      ...artifact && existsSync10(artifact) ? { artifact, artifactNote: "The full result is already on disk here \u2014 read it directly if you need all of it." } : artifact ? { artifactNote: `Run \`codeindex index --repo ${repo} --out ${join19(repo, INDEX_DIR)}\` to get this as a file.` } : {}
     },
     null,
     2
@@ -33580,7 +34036,7 @@ var init_tools = __esm({
               type: "boolean",
               description: "Return only name/kind/file/line \u2014 drop the signature, line span, visibility and language. Roughly 2.5x smaller; use it when you are resolving a path and nothing more (default false)."
             },
-            maxResults: { type: "number", description: "Cap matches (default 50)" }
+            maxResults: { type: "number", minimum: 1, description: "Cap matches (default 50)" }
           },
           required: ["repo", "namePath"]
         }
@@ -33620,7 +34076,7 @@ var init_tools = __esm({
           type: "object",
           properties: {
             ...repoProp,
-            budgetTokens: { type: "number", description: "Token budget for the key-files section (default 900)" },
+            budgetTokens: { type: "number", minimum: 1, description: "Token budget for the key-files section (default 900)" },
             remember: { type: "boolean", description: "Persist the brief as the `onboarding` memory (default true)" }
           },
           required: ["repo"]
@@ -33631,7 +34087,7 @@ var init_tools = __esm({
         description: "Token-budgeted map of the repository: the highest-PageRank files with their key exported signatures, deterministically rendered to fit `budgetTokens` (default 1024). The densest single read to understand an unfamiliar codebase.",
         inputSchema: {
           type: "object",
-          properties: { ...repoProp, budgetTokens: { type: "number", description: "Approximate token budget (default 1024)" } },
+          properties: { ...repoProp, budgetTokens: { type: "number", minimum: 1, description: "Approximate token budget (default 1024)" } },
           required: ["repo"]
         }
       },
@@ -33725,7 +34181,7 @@ var init_tools = __esm({
           properties: {
             ...repoProp,
             ...scopeProps,
-            limit: { type: "number", description: "Cap entries (default: all)" }
+            limit: { type: "number", minimum: 0, description: "Cap entries (default: all)" }
           },
           required: ["repo"]
         }
@@ -33738,10 +34194,10 @@ var init_tools = __esm({
           properties: {
             ...repoProp,
             ...scopeProps,
-            minFiles: { type: "number", description: "Distinct files a value must span (default 2)" },
-            minCount: { type: "number", description: "Total occurrences required (default 3)" },
+            minFiles: { type: "number", minimum: 1, description: "Distinct files a value must span (default 2)" },
+            minCount: { type: "number", minimum: 1, description: "Total occurrences required (default 3)" },
             includeTests: { type: "boolean", description: "Count test files too (default false)" },
-            limit: { type: "number", description: "Cap duplications (default: all)" }
+            limit: { type: "number", minimum: 0, description: "Cap duplications (default: all)" }
           },
           required: ["repo"]
         }
@@ -33751,7 +34207,13 @@ var init_tools = __esm({
         description: "Cyclomatic-complexity estimates (branch-token counting over AST line spans), most-complex first. Pass `file` for one file's symbols, omit for the repo-wide top. Combine with hotspots: the `risk` field of this tool's sibling ranks complexity \xD7 churn.",
         inputSchema: {
           type: "object",
-          properties: { ...repoProp, file: { type: "string" }, risk: { type: "boolean", description: "Return complexity \xD7 git-churn risk ranking instead" } },
+          properties: {
+            ...repoProp,
+            file: { type: "string" },
+            risk: { type: "boolean", description: "Return complexity \xD7 git-churn risk ranking instead" },
+            since: { type: "string", description: "Only count risk churn after this ref" },
+            top: { type: "number", minimum: 1, description: "Cap ranked symbols" }
+          },
           required: ["repo"]
         }
       },
@@ -33760,7 +34222,11 @@ var init_tools = __esm({
         description: "Mermaid diagram of the module graph (renders inline in Claude/GitHub \u2014 no graph database). Optionally scoped to one module's neighborhood.",
         inputSchema: {
           type: "object",
-          properties: { ...repoProp, module: { type: "string", description: "Module slug to focus on" } },
+          properties: {
+            ...repoProp,
+            module: { type: "string", description: "Module slug to focus on" },
+            maxEdges: { type: "number", minimum: 1, description: "Cap rendered edges" }
+          },
           required: ["repo"]
         }
       },
@@ -33775,7 +34241,7 @@ var init_tools = __esm({
             scope: { type: "string", description: "Restrict to one directory (repo-relative)" },
             globs: { type: "array", items: { type: "string" }, description: "Restrict to matching paths" },
             ignoreCase: { type: "boolean" },
-            maxHits: { type: "number" }
+            maxHits: { type: "number", minimum: 1 }
           },
           required: ["repo", "pattern"]
         }
@@ -33789,7 +34255,7 @@ var init_tools = __esm({
             ...repoProp,
             ...scopeProps,
             query: { type: "string", description: "Natural-language or identifier query" },
-            limit: { type: "number", description: "Max results (default 20)" },
+            limit: { type: "number", minimum: 0, description: "Max results (default 20)" },
             fuzzy: {
               type: "boolean",
               description: 'Fallback for query terms with zero document frequency: a morphological stem match first ("caching" finds "cache"), then trigram similarity for typos (default true)'
@@ -33823,7 +34289,7 @@ var init_tools = __esm({
             ...repoProp,
             ...scopeProps,
             query: { type: "string", description: "Natural-language or identifier query" },
-            limit: { type: "number", description: "Max results (default 20)" },
+            limit: { type: "number", minimum: 0, description: "Max results (default 20)" },
             fuzzy: { type: "boolean", description: "Stem/trigram fallback for zero-document-frequency terms (default true)" },
             exact: { type: "boolean", description: "Drop results carrying no verbatim term match (default false)" }
           },
@@ -33861,7 +34327,7 @@ var init_tools = __esm({
           properties: {
             ...repoProp,
             symbol: { type: "string", description: "Symbol name to centre on" },
-            depth: { type: "number", description: "Hops to follow (default 2, max 5)" },
+            depth: { type: "number", minimum: 1, maximum: 5, description: "Hops to follow (default 2, max 5)" },
             direction: { type: "string", description: "out | in | both (default both)" }
           },
           required: ["repo", "symbol"]
@@ -34125,7 +34591,7 @@ async function memoizedEmbeddingIndex(key2, build) {
 function memoizedEmbedModel(modelDir) {
   let stat;
   try {
-    stat = statSync5(join21(modelDir, "model.json"));
+    stat = statSync7(join20(modelDir, "model.json"));
   } catch {
     return void 0;
   }
@@ -34152,6 +34618,14 @@ function sessionPut(entry) {
 function sessionClear() {
   sessionCaches.length = 0;
 }
+function sessionInvalidate(repo, rel2) {
+  const prefix2 = repo + "\0";
+  for (const entry of sessionCaches) {
+    if (!entry.key.startsWith(prefix2)) continue;
+    if (rel2) entry.cacheMap.delete(rel2);
+    else entry.cacheMap.clear();
+  }
+}
 function sessionKey(repo, opts) {
   return repo + "\0" + JSON.stringify({
     scope: opts.scope,
@@ -34173,7 +34647,11 @@ function getScan(repo, opts = {}, walked) {
     const fresh = scanRepo(repo, { ...opts, cache: hit.cacheMap, precomputedWalk: walked });
     if (fresh.contentUnchanged) {
       if (fresh.cacheDirty) hit.cacheMap = toCacheMap(fresh);
-      if (hit.scan.commit !== fresh.commit) hit.scan.commit = fresh.commit;
+      if (hit.scan.commit !== fresh.commit) {
+        hit.scan.commit = fresh.commit;
+        hit.arts = void 0;
+        hit.loadArtifacts = void 0;
+      }
       return hit.scan;
     }
     sessionPut({ key: key2, scan: fresh, cacheMap: toCacheMap(fresh) });
@@ -34181,31 +34659,77 @@ function getScan(repo, opts = {}, walked) {
   }
   const preloaded = preloadSession(repo, { ...opts, precomputedWalk: walked });
   if (preloaded) {
-    sessionPut({ key: key2, scan: preloaded.scan, cacheMap: preloaded.cacheMap, arts: preloaded.arts });
+    sessionPut({
+      key: key2,
+      scan: preloaded.scan,
+      cacheMap: preloaded.cacheMap,
+      arts: preloaded.arts
+    });
     return preloaded.scan;
   }
   const scan2 = scanRepo(repo, { ...opts, precomputedWalk: walked });
   sessionPut({ key: key2, scan: scan2, cacheMap: toCacheMap(scan2) });
   return scan2;
 }
-function getScanSummary(repo, opts = {}, walked) {
-  if (sessionCaches.some((e) => e.key === sessionKey(repo, opts))) {
-    const scan2 = getScan(repo, opts, walked);
-    return {
-      root: scan2.root,
-      commit: scan2.commit,
-      fileCount: scan2.files.length,
-      languages: scan2.languages,
-      capped: scan2.capped,
-      excluded: scan2.excluded
+async function getScanParallel(repo, opts = {}, walked, warm = async () => {
+}) {
+  const key2 = sessionKey(repo, opts);
+  const existing = sessionCaches.find((entry) => entry.key === key2);
+  if (existing) {
+    const originalCache = existing.cacheMap;
+    const reuseUnchanged = (fresh) => {
+      if (fresh.cacheDirty) existing.cacheMap = toCacheMap(fresh);
+      if (existing.scan.commit !== fresh.commit) {
+        existing.scan.commit = fresh.commit;
+        existing.arts = void 0;
+        existing.loadArtifacts = void 0;
+      }
+      sessionGet(key2);
+      return existing.scan;
     };
+    if (walked && needsGrammarWarm(walked, originalCache, opts.fullHash)) {
+      await warm();
+      const fresh = await scanRepoParallel(repo, { ...opts, cache: originalCache, precomputedWalk: walked });
+      if (fresh.contentUnchanged) return reuseUnchanged(fresh);
+      sessionPut({ key: key2, scan: fresh, cacheMap: toCacheMap(fresh) });
+      return fresh;
+    }
+    const provisional = scanRepo(repo, { ...opts, cache: originalCache, precomputedWalk: walked });
+    if (provisional.contentUnchanged) {
+      return reuseUnchanged(provisional);
+    }
+    if (walked) {
+      sessionPut({ key: key2, scan: provisional, cacheMap: toCacheMap(provisional) });
+      return provisional;
+    }
+    await warm();
+    const scan3 = await scanRepoParallel(repo, { ...opts, cache: originalCache, precomputedWalk: walked });
+    sessionPut({ key: key2, scan: scan3, cacheMap: toCacheMap(scan3) });
+    return scan3;
   }
+  const preloaded = await preloadSessionLazy(repo, { ...opts, precomputedWalk: walked }, warm);
+  if (preloaded) {
+    sessionPut({
+      key: key2,
+      scan: preloaded.scan,
+      cacheMap: preloaded.cacheMap,
+      arts: preloaded.arts,
+      loadArtifacts: preloaded.loadArtifacts
+    });
+    return preloaded.scan;
+  }
+  await warm();
+  const scan2 = await scanRepoParallel(repo, { ...opts, precomputedWalk: walked });
+  sessionPut({ key: key2, scan: scan2, cacheMap: toCacheMap(scan2) });
+  return scan2;
+}
+function getScanSummary(repo, opts = {}, walked) {
   return scanSummary(repo, { ...opts, precomputedWalk: walked });
 }
-function getArtifacts(repo, opts = {}, walked) {
-  const scan2 = getScan(repo, opts, walked);
+function getArtifacts(repo, opts = {}, walked, prepared) {
+  const scan2 = prepared ?? getScan(repo, opts, walked);
   const entry = sessionCaches.find((e) => e.scan === scan2);
-  if (entry) return entry.arts ??= buildArtifactsFromScan(scan2, opts);
+  if (entry) return entry.arts ??= entry.loadArtifacts?.() ?? buildArtifactsFromScan(scan2, opts);
   return buildArtifactsFromScan(scan2, opts);
 }
 async function warmGrammarsForRepo(repo) {
@@ -34223,6 +34747,7 @@ var init_session = __esm({
     "use strict";
     init_pipeline();
     init_scan();
+    init_pool();
     init_preload();
     init_walk();
     init_loader();
@@ -34245,6 +34770,7 @@ __export(mcp_exports, {
   capResponse: () => capResponse,
   getArtifacts: () => getArtifacts,
   getScan: () => getScan,
+  getScanParallel: () => getScanParallel,
   getScanSummary: () => getScanSummary,
   memoizedEmbedModel: () => memoizedEmbedModel,
   memoizedEmbeddingIndex: () => memoizedEmbeddingIndex,
@@ -34261,6 +34787,17 @@ __export(mcp_exports, {
   warmGrammarsForRepo: () => warmGrammarsForRepo,
   warmGrammarsForWalk: () => warmGrammarsForWalk
 });
+function isRpcRequest(value) {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return false;
+  const req = value;
+  if (req.jsonrpc !== "2.0" || typeof req.method !== "string") return false;
+  return req.id === void 0 || req.id === null || typeof req.id === "number" || typeof req.id === "string";
+}
+function isRpcResponse(value) {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return false;
+  const response = value;
+  return response.jsonrpc === "2.0" && typeof response.method !== "string" && ("result" in response || "error" in response);
+}
 function str(v) {
   return typeof v === "string" && v ? v : void 0;
 }
@@ -34269,7 +34806,11 @@ function strArray(v) {
 }
 function num(v) {
   const n = typeof v === "number" ? v : typeof v === "string" && v.trim() !== "" ? Number(v) : NaN;
-  return Number.isFinite(n) && n > 0 ? n : void 0;
+  return Number.isFinite(n) && n >= 0 ? n : void 0;
+}
+function positiveNum(v) {
+  const n = num(v);
+  return n !== void 0 && n > 0 ? n : void 0;
 }
 function errMessage(e) {
   return e instanceof Error ? e.message : String(e);
@@ -34277,14 +34818,27 @@ function errMessage(e) {
 async function callTool(name2, args2, defaultRepo) {
   const repo = str(args2.repo) ?? defaultRepo;
   if (!repo) throw new Error("`repo` is required (absolute path to the repository root)");
+  try {
+    if (!statSync8(repo).isDirectory()) throw new Error("not a directory");
+  } catch {
+    throw new Error(`repository root is not a readable directory: ${repo}`);
+  }
   const scanOpts = { scope: str(args2.scope), include: strArray(args2.include), exclude: strArray(args2.exclude) };
   const rankArg = str(args2.rank);
   const rankOpt = rankArg === "graph" || rankArg === "lexical" ? { rank: rankArg } : {};
   let walked;
+  let preparedScan;
   if (!SCANLESS_TOOLS.has(name2)) {
     walked = walk(repo, {});
-    await warmGrammarsForWalk(walked);
+    preparedScan = await getScanParallel(
+      repo,
+      scanOpts,
+      walked,
+      () => walked ? warmGrammarsForWalk(walked) : Promise.resolve()
+    );
   }
+  const readScan = () => preparedScan ?? getScan(repo, scanOpts, walked);
+  const readArtifacts = () => getArtifacts(repo, scanOpts, walked, preparedScan);
   if (name2 === "scan_summary") {
     const s = getScanSummary(repo, scanOpts, walked);
     return JSON.stringify(
@@ -34294,10 +34848,10 @@ async function callTool(name2, args2, defaultRepo) {
     );
   }
   if (name2 === "graph") {
-    return renderGraphJson(getArtifacts(repo, scanOpts, walked).graph);
+    return renderGraphJson(readArtifacts().graph);
   }
   if (name2 === "symbols") {
-    const { symbols } = getArtifacts(repo, scanOpts, walked);
+    const { symbols } = readArtifacts();
     const lookup2 = str(args2.name);
     if (lookup2) {
       return JSON.stringify({ name: lookup2, defs: symbols.defs[lookup2] ?? [], refs: symbols.refs[lookup2] ?? [] }, null, 2);
@@ -34305,7 +34859,7 @@ async function callTool(name2, args2, defaultRepo) {
     return JSON.stringify(symbols, null, 2);
   }
   if (name2 === "callers") {
-    const scan2 = getScan(repo, scanOpts, walked);
+    const scan2 = readScan();
     const index = args2.recall === true ? buildCallerIndex(scan2, void 0, { recall: true }) : callerIndexFor(scan2);
     const lookup2 = str(args2.name);
     if (lookup2) {
@@ -34329,35 +34883,35 @@ async function callTool(name2, args2, defaultRepo) {
   if (name2 === "symbols_overview") {
     const file = str(args2.file);
     if (!file) throw new Error("`file` is required");
-    return JSON.stringify(symbolsOverview(getScan(repo, scanOpts, walked), file), null, 2);
+    return JSON.stringify(symbolsOverview(readScan(), file), null, 2);
   }
   if (name2 === "find_symbol") {
     const namePath = str(args2.namePath);
     if (!namePath) throw new Error("`namePath` is required");
-    const matches = findSymbol(getScan(repo, scanOpts, walked), namePath, {
+    const matches = findSymbol(readScan(), namePath, {
       substring: args2.substring === true,
       includeBody: args2.includeBody === true,
       concise: args2.concise === true,
-      maxResults: num(args2.maxResults)
+      maxResults: positiveNum(args2.maxResults)
     });
     return JSON.stringify(matches, null, 2);
   }
   if (name2 === "find_references") {
     const symName = str(args2.name);
     if (!symName) throw new Error("`name` is required");
-    const scan2 = getScan(repo, scanOpts, walked);
+    const scan2 = readScan();
     const statik = findReferences(scan2, symName);
     if (args2.lsp === true) return JSON.stringify(await referencesWithLsp(scan2, repo, symName, statik), null, 2);
     return JSON.stringify(statik, null, 2);
   }
   if (name2 === "lsp_status") {
-    return JSON.stringify(await lspStatus(getScan(repo, scanOpts, walked), repo, args2.probe === true), null, 2);
+    return JSON.stringify(await lspStatus(readScan(), repo, args2.probe === true), null, 2);
   }
   if (name2 === "replace_symbol_body" || name2 === "insert_after_symbol" || name2 === "insert_before_symbol") {
     const namePath = str(args2.namePath);
     const body22 = typeof args2.body === "string" ? args2.body : void 0;
     if (!namePath || body22 === void 0) throw new Error("`namePath` and `body` are required");
-    const scan2 = getScan(repo, scanOpts, walked);
+    const scan2 = readScan();
     const fn = name2 === "replace_symbol_body" ? replaceSymbolBody : name2 === "insert_after_symbol" ? insertAfterSymbol : insertBeforeSymbol;
     const result = fn(scan2, namePath, body22, str(args2.file));
     sessionClear();
@@ -34385,15 +34939,15 @@ async function callTool(name2, args2, defaultRepo) {
     return JSON.stringify({ deleted: deleteMemory(repo, memName) }, null, 2);
   }
   if (name2 === "dead_code") {
-    const all = findDeadCode(getScan(repo, scanOpts, walked));
+    const all = findDeadCode(readScan());
     const limit = num(args2.limit);
     if (limit === void 0 || all.length <= limit) return JSON.stringify(all, null, 2);
     return JSON.stringify({ total: all.length, shown: limit, truncated: true, candidates: all.slice(0, limit) }, null, 2);
   }
   if (name2 === "duplicated_literals") {
-    const report = findLiteralDuplications(getScan(repo, scanOpts, walked), {
-      minFiles: num(args2.minFiles),
-      minCount: num(args2.minCount),
+    const report = findLiteralDuplications(readScan(), {
+      minFiles: positiveNum(args2.minFiles),
+      minCount: positiveNum(args2.minCount),
       includeTests: args2.includeTests === true
     });
     const limit = num(args2.limit);
@@ -34411,23 +34965,23 @@ async function callTool(name2, args2, defaultRepo) {
     );
   }
   if (name2 === "complexity") {
-    const scan2 = getScan(repo, scanOpts, walked);
+    const scan2 = readScan();
     if (args2.risk === true) {
       const { churn, ok } = gitChurn(repo, { since: str(args2.since) });
-      return JSON.stringify({ churnOk: ok, risks: riskHotspots(scan2, churn, num(args2.top)) }, null, 2);
+      return JSON.stringify({ churnOk: ok, risks: riskHotspots(scan2, churn, positiveNum(args2.top)) }, null, 2);
     }
-    return JSON.stringify(symbolComplexity(scan2, str(args2.file), num(args2.top)), null, 2);
+    return JSON.stringify(symbolComplexity(scan2, str(args2.file), positiveNum(args2.top)), null, 2);
   }
   if (name2 === "mermaid") {
-    const { graph } = getArtifacts(repo, scanOpts, walked);
-    return renderMermaid(graph, { module: str(args2.module), maxEdges: num(args2.maxEdges) });
+    const { graph } = readArtifacts();
+    return renderMermaid(graph, { module: str(args2.module), maxEdges: positiveNum(args2.maxEdges) });
   }
   if (name2 === "onboard") {
-    const scan2 = getScan(repo, scanOpts, walked);
-    const { graph } = getArtifacts(repo, scanOpts, walked);
+    const scan2 = readScan();
+    const { graph } = readArtifacts();
     return JSON.stringify(
       onboardBrief(scan2, graph, {
-        ...typeof args2.budgetTokens === "number" ? { budgetTokens: args2.budgetTokens } : {},
+        ...positiveNum(args2.budgetTokens) !== void 0 ? { budgetTokens: positiveNum(args2.budgetTokens) } : {},
         ...args2.remember === false ? { remember: false } : {}
       }),
       null,
@@ -34435,11 +34989,11 @@ async function callTool(name2, args2, defaultRepo) {
     );
   }
   if (name2 === "repo_map") {
-    const { scan: scan2, graph } = getArtifacts(repo, scanOpts, walked);
-    return renderRepoMap(scan2, graph, { budgetTokens: typeof args2.budgetTokens === "number" ? args2.budgetTokens : void 0 });
+    const { scan: scan2, graph } = readArtifacts();
+    return renderRepoMap(scan2, graph, { budgetTokens: positiveNum(args2.budgetTokens) });
   }
   if (name2 === "hotspots") {
-    const scan2 = getScan(repo, scanOpts, walked);
+    const scan2 = readScan();
     const { churn, ok } = gitChurn(repo, { since: str(args2.since) });
     return JSON.stringify({ churnOk: ok, hotspots: rankHotspots(scan2, churn) }, null, 2);
   }
@@ -34455,15 +35009,15 @@ async function callTool(name2, args2, defaultRepo) {
     const hits = grepRepo(repo, pattern, {
       globs: scope ? [...globs ?? [], `${scope.replace(/\/+$/, "")}/**`] : globs,
       ignoreCase: args2.ignoreCase === true,
-      maxHits: typeof args2.maxHits === "number" ? args2.maxHits : void 0
+      maxHits: positiveNum(args2.maxHits)
     });
     return JSON.stringify(hits, null, 2);
   }
   if (name2 === "search") {
     const query = str(args2.query);
     if (!query) throw new Error("`query` is required");
-    const scan2 = getScan(repo, scanOpts, walked);
-    const limit = typeof args2.limit === "number" ? args2.limit : void 0;
+    const scan2 = readScan();
+    const limit = num(args2.limit);
     const fuzzy = typeof args2.fuzzy === "boolean" ? args2.fuzzy : void 0;
     const exactOpt = args2.exact === true ? { exact: true } : {};
     if (args2.semantic === true) {
@@ -34506,8 +35060,8 @@ async function callTool(name2, args2, defaultRepo) {
   if (name2 === "explain_search") {
     const query = str(args2.query);
     if (!query) throw new Error("`query` is required");
-    const scan2 = getScan(repo, scanOpts, walked);
-    const limit = typeof args2.limit === "number" ? args2.limit : void 0;
+    const scan2 = readScan();
+    const limit = num(args2.limit);
     const fuzzy = typeof args2.fuzzy === "boolean" ? args2.fuzzy : void 0;
     const { results, explain } = explainQuery(scan2, query, {
       limit,
@@ -34532,7 +35086,7 @@ async function callTool(name2, args2, defaultRepo) {
     return JSON.stringify(status, null, 2);
   }
   if (name2 === "type_hierarchy") {
-    const hierarchy = hierarchyFor(getScan(repo, scanOpts, walked));
+    const hierarchy = hierarchyFor(readScan());
     const wanted = str(args2.name);
     if (!wanted) {
       const obj = {};
@@ -34546,7 +35100,7 @@ async function callTool(name2, args2, defaultRepo) {
   if (name2 === "implementations") {
     const wanted = str(args2.name);
     if (!wanted) throw new Error("`name` is required");
-    const hierarchy = hierarchyFor(getScan(repo, scanOpts, walked));
+    const hierarchy = hierarchyFor(readScan());
     if (!hierarchy.has(wanted)) return JSON.stringify({ error: `no type named ${wanted}` }, null, 2);
     return JSON.stringify({ name: wanted, implementations: implementationsOf(hierarchy, wanted) }, null, 2);
   }
@@ -34555,8 +35109,8 @@ async function callTool(name2, args2, defaultRepo) {
     if (!symbol) throw new Error("`symbol` is required");
     const direction = str(args2.direction);
     const dir = direction === "out" || direction === "in" ? direction : "both";
-    const result = neighborhood(symbolGraphFor(getScan(repo, scanOpts, walked)), symbol, {
-      ...typeof args2.depth === "number" ? { depth: args2.depth } : {},
+    const result = neighborhood(symbolGraphFor(readScan()), symbol, {
+      ...positiveNum(args2.depth) !== void 0 ? { depth: positiveNum(args2.depth) } : {},
       direction: dir
     });
     if (!result.root.length) return JSON.stringify({ error: `no symbol named ${symbol}` }, null, 2);
@@ -34566,7 +35120,7 @@ async function callTool(name2, args2, defaultRepo) {
     const configPath = str(args2.configPath);
     let payload = args2.rules;
     if (payload === void 0 && configPath) {
-      const abs = isAbsolute(configPath) ? configPath : join22(repo, configPath);
+      const abs = isAbsolute(configPath) ? configPath : join21(repo, configPath);
       try {
         payload = JSON.parse(readFileSync12(abs, "utf8"));
       } catch (e) {
@@ -34575,7 +35129,7 @@ async function callTool(name2, args2, defaultRepo) {
     }
     if (payload === void 0) throw new Error("`rules` (or `configPath`) is required");
     const rules = parseRules(payload);
-    const { graph } = getArtifacts(repo, scanOpts, walked);
+    const { graph } = readArtifacts();
     return JSON.stringify(checkRules(graph, rules), null, 2);
   }
   throw new Error(`unknown tool: ${name2}`);
@@ -34587,31 +35141,81 @@ async function runMcpServer(opts = {}) {
   };
   let protocolVersion = PROTOCOL_VERSIONS[0];
   let tools = toolsFor(opts.defaultRepo, protocolVersion, opts.profile);
+  let watcher;
+  if (opts.watch && opts.defaultRepo) {
+    try {
+      watcher = watchFs(opts.defaultRepo, { recursive: true }, (_event, filename) => {
+        const rel2 = filename?.toString().replaceAll("\\", "/") ?? "";
+        const ignored = rel2.split("/").some(
+          (segment) => IGNORE_DIRS.has(segment) || segment.startsWith(".codeindex-edit-")
+        );
+        if (ignored) return;
+        sessionInvalidate(opts.defaultRepo, rel2 || void 0);
+      });
+      watcher.on("error", (error) => {
+        process.stderr.write(`codeindex: MCP watcher disabled (${error.message}); using freshness scans
+`);
+        watcher?.close();
+        watcher = void 0;
+        sessionInvalidate(opts.defaultRepo);
+      });
+    } catch (error) {
+      process.stderr.write(
+        `codeindex: MCP watcher unavailable (${error instanceof Error ? error.message : String(error)}); using freshness scans
+`
+      );
+    }
+  }
   const send = (msg) => {
-    process.stdout.write(JSON.stringify({ jsonrpc: "2.0", ...msg }) + "\n");
+    const wire = Array.isArray(msg) ? msg.map((entry) => ({ jsonrpc: "2.0", ...entry })) : { jsonrpc: "2.0", ...msg };
+    process.stdout.write(JSON.stringify(wire) + "\n");
   };
   const rl = createInterface({ input: process.stdin, terminal: false });
-  for await (const line of rl) {
-    const trimmed = line.trim();
-    if (!trimmed) continue;
-    let parsed;
-    try {
-      parsed = JSON.parse(trimmed);
-    } catch {
-      send({ id: null, error: { code: -32700, message: "parse error" } });
-      continue;
+  try {
+    for await (const line of rl) {
+      const trimmed = line.trim();
+      if (!trimmed) continue;
+      let parsed;
+      try {
+        parsed = JSON.parse(trimmed);
+      } catch {
+        send({ id: null, error: { code: -32700, message: "parse error" } });
+        continue;
+      }
+      if (Array.isArray(parsed) && parsed.length === 0) {
+        send({ id: null, error: { code: -32600, message: "invalid request" } });
+        continue;
+      }
+      const dispatch2 = async (req) => {
+        if (isRpcResponse(req)) return void 0;
+        if (!isRpcRequest(req)) {
+          return { id: null, error: { code: -32600, message: "invalid request" } };
+        }
+        return handle2(req);
+      };
+      if (Array.isArray(parsed)) {
+        const replies = [];
+        for (const req of parsed) {
+          const reply = await dispatch2(req);
+          if (reply) replies.push(reply);
+        }
+        if (replies.length > 0) send(replies);
+      } else {
+        const reply = await dispatch2(parsed);
+        if (reply) send(reply);
+      }
     }
-    const requests = Array.isArray(parsed) ? parsed : [parsed];
-    for (const req of requests) await handle2(req);
+  } finally {
+    watcher?.close();
   }
   async function handle2(req) {
-    if (req.id === void 0 || req.id === null) return;
+    const notification = !("id" in req);
+    const respond = (body22) => notification ? void 0 : { id: req.id ?? null, ...body22 };
     try {
       if (req.method === "initialize") {
         protocolVersion = negotiateProtocol(req.params?.protocolVersion);
         tools = toolsFor(opts.defaultRepo, protocolVersion, opts.profile);
-        send({
-          id: req.id,
+        return respond({
           result: {
             protocolVersion,
             capabilities: { tools: {} },
@@ -34619,9 +35223,9 @@ async function runMcpServer(opts = {}) {
           }
         });
       } else if (req.method === "ping") {
-        send({ id: req.id, result: {} });
+        return respond({ result: {} });
       } else if (req.method === "tools/list") {
-        send({ id: req.id, result: { tools } });
+        return respond({ result: { tools } });
       } else if (req.method === "tools/call") {
         const params = req.params ?? {};
         const name2 = str(params.name) ?? "";
@@ -34638,24 +35242,22 @@ async function runMcpServer(opts = {}) {
           const capped = text !== raw;
           const link = capped && protocolVersion >= RICH_TOOLS_SINCE ? resourceLinkFor(text, name2) : void 0;
           const structured = protocolVersion >= RICH_TOOLS_SINCE ? structuredContentFor(text, capped, OUTPUT_SCHEMAS[name2] !== void 0) : void 0;
-          send({
-            id: req.id,
+          return respond({
             result: {
               content: link ? [{ type: "text", text }, link] : [{ type: "text", text }],
               ...structured ? { structuredContent: structured } : {}
             }
           });
         } catch (e) {
-          send({
-            id: req.id,
+          return respond({
             result: { content: [{ type: "text", text: e instanceof Error ? e.message : String(e) }], isError: true }
           });
         }
       } else {
-        send({ id: req.id, error: { code: -32601, message: `method not found: ${req.method}` } });
+        return respond({ error: { code: -32601, message: `method not found: ${req.method}` } });
       }
     } catch (e) {
-      send({ id: req.id, error: { code: -32603, message: e instanceof Error ? e.message : String(e) } });
+      return respond({ error: { code: -32603, message: e instanceof Error ? e.message : String(e) } });
     }
   }
 }
@@ -34707,8 +35309,7 @@ var init_mcp = __esm({
       "delete_memory",
       "embed_status",
       // scan_summary counts and classifies by path only — it never parses, so the
-      // grammar warm (a whole extra walk) would be pure overhead. When a scan is
-      // already cached getScanSummary reuses it, warm grammars included.
+      // grammar warm (a whole extra walk) would be pure overhead.
       "scan_summary"
     ]);
   }
@@ -34832,129 +35433,7 @@ init_walk();
 init_scan();
 init_scan();
 init_preload();
-init_hash();
-init_walk();
-init_registry();
-init_loader();
-init_scan();
-function resolveEngineUrl() {
-  try {
-    const here = fileURLToPath2(import.meta.url);
-    if (here.endsWith("engine.mjs")) return pathToFileURL(here).href;
-    const adjacent = join4(dirname2(here), "engine.mjs");
-    if (existsSync2(adjacent)) return pathToFileURL(adjacent).href;
-    return void 0;
-  } catch {
-    return void 0;
-  }
-}
-var WORKER_TIMEOUT_MS = 10 * 60 * 1e3;
-function workerCount(requested) {
-  const env = process.env["CODEINDEX_WORKERS"];
-  const raw = requested ?? (env !== void 0 && env !== "" ? Number(env) : void 0);
-  if (raw !== void 0) return Number.isFinite(raw) && raw > 0 ? Math.floor(raw) : 0;
-  let cores = 1;
-  try {
-    cores = availableParallelism();
-  } catch {
-    cores = 1;
-  }
-  return Math.max(0, Math.min(cores - 1, 8));
-}
-async function runExtractWorker(input, post) {
-  await ensureGrammars(input.grammarKeys);
-  const ready = input.grammarKeys.filter((k) => grammarReady(k));
-  const records = [];
-  for (const job of input.jobs) {
-    let size;
-    let mtimeMs;
-    try {
-      const st = statSync2(job.abs);
-      size = st.size;
-      mtimeMs = st.mtimeMs;
-    } catch {
-      continue;
-    }
-    const content = readText2(job.abs);
-    const record = buildCodeRecord(job.rel, job.ext, size, content, sha1(content), extToLang(job.ext), {
-      maxCallsPerFile: input.maxCallsPerFile
-    });
-    records.push({ rel: job.rel, size, mtimeMs, record });
-  }
-  post({ ready, records });
-}
-async function extractInParallel(jobs, grammarKeys, count, opts = {}) {
-  if (count < 2 || jobs.length === 0) return void 0;
-  const engineUrl = resolveEngineUrl();
-  if (!engineUrl) return void 0;
-  const wanted = grammarKeys.filter((k) => grammarReady(k)).sort();
-  const shards = Array.from({ length: Math.min(count, jobs.length) }, () => []);
-  jobs.forEach((j, i2) => shards[i2 % shards.length].push(j));
-  const bootstrap = `import { runExtractWorker } from ${JSON.stringify(engineUrl)};
-import { parentPort, workerData } from "node:worker_threads";
-runExtractWorker(workerData.input, (o) => parentPort.postMessage(o)).catch((e) => parentPort.postMessage({ error: String(e) }));
-`;
-  try {
-    const outputs = await Promise.all(
-      shards.map(
-        (jobsForShard) => new Promise((resolve52, reject) => {
-          const w = new Worker(bootstrap, {
-            eval: true,
-            workerData: { input: { jobs: jobsForShard, grammarKeys: wanted, maxCallsPerFile: opts.maxCallsPerFile } }
-          });
-          const timer = setTimeout(() => {
-            reject(new Error("extraction worker timed out"));
-            void w.terminate();
-          }, WORKER_TIMEOUT_MS);
-          const settle = (fn) => {
-            clearTimeout(timer);
-            fn();
-          };
-          w.once("message", (m) => {
-            settle(() => resolve52(m));
-            void w.terminate();
-          });
-          w.once("error", (e) => settle(() => reject(e)));
-          w.once("exit", (code2) => {
-            if (code2 !== 0) settle(() => reject(new Error(`extraction worker exited with ${code2}`)));
-          });
-        })
-      )
-    );
-    const out2 = /* @__PURE__ */ new Map();
-    for (const o of outputs) {
-      if ("error" in o) return void 0;
-      if (o.ready.slice().sort().join(",") !== wanted.join(",")) return void 0;
-      for (const r of o.records) out2.set(r.rel, { size: r.size, mtimeMs: r.mtimeMs, record: r.record });
-    }
-    return out2;
-  } catch {
-    return void 0;
-  }
-}
-async function scanRepoParallel(root, opts = {}) {
-  const count = workerCount(opts.workers);
-  if (count < 2) return scanRepo(root, opts);
-  const walked = opts.precomputedWalk ?? walk(root, {
-    maxFileBytes: opts.maxBytes,
-    maxFiles: opts.maxFiles,
-    gitignore: opts.gitignore,
-    ignoreDirs: opts.ignoreDirs
-  });
-  const scanOpts = { ...opts, precomputedWalk: walked };
-  const jobs = [];
-  for (const { f } of keptCodeFiles(root, scanOpts)) {
-    const cached = opts.cache?.get(f.rel);
-    if (!opts.fullHash && cached && cached.size !== void 0 && cached.mtimeMs !== void 0 && cached.size === f.size && cached.mtimeMs === f.mtimeMs) {
-      continue;
-    }
-    jobs.push({ abs: f.abs, rel: f.rel, ext: f.ext });
-  }
-  if (jobs.length === 0) return scanRepo(root, scanOpts);
-  const grammarKeys = grammarKeysForExts(walked.files.map((f) => f.ext));
-  const extracted = await extractInParallel(jobs, grammarKeys, count, { maxCallsPerFile: opts.maxCallsPerFile });
-  return scanRepo(root, extracted ? { ...scanOpts, extracted } : scanOpts);
-}
+init_pool();
 init_glob();
 init_ignore();
 init_classify();
@@ -35101,7 +35580,7 @@ function queryFor(key2, language) {
   let compiled = null;
   for (const dir of resolveGrammarsTier().dirs) {
     const path = join5(dir, `${key2}.tags.scm`);
-    if (!existsSync3(path)) continue;
+    if (!existsSync4(path)) continue;
     try {
       compiled = new Query(language, readFileSync4(path, "utf8"));
     } catch {
@@ -35113,7 +35592,7 @@ function queryFor(key2, language) {
   return compiled;
 }
 function tagsQueryStatus(key2) {
-  const present = resolveGrammarsTier().dirs.some((d) => existsSync3(join5(d, `${key2}.tags.scm`)));
+  const present = resolveGrammarsTier().dirs.some((d) => existsSync4(join5(d, `${key2}.tags.scm`)));
   if (!present) return { present: false, compiled: false };
   const language = languageFor(key2);
   if (!language) return { present: true, compiled: false };
@@ -35230,13 +35709,13 @@ function safeRelPath(name2) {
   return out2.length ? out2.join("/") : null;
 }
 function extractTarInto(rawTar, destDir) {
-  const root = resolve(destDir);
+  const root = resolve2(destDir);
   const written = [];
   for (const entry of readTar(asBuffer(rawTar))) {
     if (entry.type !== "0" && entry.type !== "\0") continue;
     const rel2 = safeRelPath(entry.name);
     if (rel2 === null) throw new Error(`refusing unsafe tar entry: ${entry.name}`);
-    const dest = resolve(destDir, rel2);
+    const dest = resolve2(destDir, rel2);
     if (dest !== root && !dest.startsWith(root + sep2)) {
       throw new Error(`tar entry escapes destination: ${entry.name}`);
     }
@@ -35250,6 +35729,64 @@ function extractGrammarsTarball(bytes, destDir) {
   const b = asBuffer(bytes);
   const raw = b.length >= 2 && b[0] === 31 && b[1] === 139 ? gunzipSync(b) : b;
   return extractTarInto(raw, destDir);
+}
+function installGrammarCacheAtomically(tempDir, cacheDir, markerPath, expectedSha256, rename = renameSync, cleanup = rmSync) {
+  const parent = dirname3(cacheDir);
+  const swapDir = mkdtempSync(join6(parent, ".grammars-swap-"));
+  const previousCache = join6(swapDir, "previous-cache");
+  const previousMarker = join6(swapDir, "previous-marker");
+  const nextMarker = join6(swapDir, "next-marker");
+  let cacheBackedUp = false;
+  let markerBackedUp = false;
+  let cacheInstalled = false;
+  let markerInstalled = false;
+  try {
+    if (expectedSha256) writeFileSync(nextMarker, expectedSha256 + "\n");
+    if (existsSync5(cacheDir)) {
+      rename(cacheDir, previousCache);
+      cacheBackedUp = true;
+    }
+    if (existsSync5(markerPath)) {
+      rename(markerPath, previousMarker);
+      markerBackedUp = true;
+    }
+    rename(tempDir, cacheDir);
+    cacheInstalled = true;
+    if (expectedSha256) {
+      rename(nextMarker, markerPath);
+      markerInstalled = true;
+    }
+  } catch (error) {
+    const rollbackErrors = [];
+    const attempt = (operation) => {
+      try {
+        operation();
+      } catch (rollback) {
+        rollbackErrors.push(rollback);
+      }
+    };
+    if (markerInstalled && existsSync5(markerPath)) attempt(() => rmSync(markerPath, { force: true }));
+    if (cacheInstalled && existsSync5(cacheDir)) attempt(() => rmSync(cacheDir, { recursive: true, force: true }));
+    if (markerBackedUp && existsSync5(previousMarker)) attempt(() => rename(previousMarker, markerPath));
+    if (cacheBackedUp && existsSync5(previousCache)) attempt(() => rename(previousCache, cacheDir));
+    if (rollbackErrors.length === 0) {
+      try {
+        rmSync(swapDir, { recursive: true, force: true });
+      } catch {
+      }
+    }
+    if (rollbackErrors.length > 0) {
+      const rollbackError = rollbackErrors[0];
+      throw new Error(
+        `${error instanceof Error ? error.message : String(error)}; rollback failed: ${rollbackError instanceof Error ? rollbackError.message : String(rollbackError)} (backup preserved at ${swapDir})`
+      );
+    }
+    throw error;
+  }
+  try {
+    cleanup(swapDir, { recursive: true, force: true });
+  } catch {
+  }
 }
 async function pullGrammars(cacheDir, opts = {}) {
   const note = opts.onNote ?? (() => {
@@ -35266,7 +35803,7 @@ async function pullGrammars(cacheDir, opts = {}) {
   }
   const runtime = join6(cacheDir, "web-tree-sitter.wasm");
   const markerPath = join6(dirname3(cacheDir), `${ENGINE_VERSION}.sha256`);
-  if (existsSync4(runtime) && expected && existsSync4(markerPath)) {
+  if (existsSync5(runtime) && expected && existsSync5(markerPath)) {
     let marker = "";
     try {
       marker = readFileSync5(markerPath, "utf8").trim();
@@ -35296,13 +35833,11 @@ async function pullGrammars(cacheDir, opts = {}) {
     mkdirSync(dirname3(cacheDir), { recursive: true });
     tmp = mkdtempSync(join6(dirname3(cacheDir), ".grammars-tmp-"));
     extractGrammarsTarball(bytes, tmp);
-    if (!existsSync4(join6(tmp, "web-tree-sitter.wasm"))) {
+    if (!existsSync5(join6(tmp, "web-tree-sitter.wasm"))) {
       throw new Error("archive is missing web-tree-sitter.wasm");
     }
-    if (existsSync4(cacheDir)) rmSync(cacheDir, { recursive: true, force: true });
-    renameSync(tmp, cacheDir);
+    installGrammarCacheAtomically(tmp, cacheDir, markerPath, expected);
     tmp = void 0;
-    if (expected) writeFileSync(markerPath, expected + "\n");
   } catch (e) {
     if (tmp) {
       try {
@@ -35585,7 +36120,7 @@ function renderScip(scan2, opts = {}) {
   };
   const documents = [];
   for (const f of docs) {
-    const text = readText2(join15(scan2.root, f.rel));
+    const text = readText2(join14(scan2.root, f.rel));
     const lines = text.split("\n").map((l) => l.endsWith("\r") ? l.slice(0, -1) : l);
     const locate = (lineNo, name2) => {
       const line = lines[lineNo - 1];
@@ -35679,6 +36214,45 @@ init_complexity();
 init_viz();
 init_sort();
 var DEPENDS_KINDS = /* @__PURE__ */ new Set(["import", "use", "call"]);
+var dependentsMemo = /* @__PURE__ */ new WeakMap();
+function dependentsOf(edges) {
+  const hit = dependentsMemo.get(edges);
+  if (hit && hit.length === edges.length) return hit.map;
+  const map = /* @__PURE__ */ new Map();
+  for (const e of edges) {
+    if (e.dangling || !DEPENDS_KINDS.has(e.kind)) continue;
+    let arr = map.get(e.to);
+    if (!arr) map.set(e.to, arr = []);
+    arr.push(e);
+  }
+  for (const arr of map.values()) arr.sort((a, b) => byStr(a.from, b.from));
+  dependentsMemo.set(edges, { length: edges.length, map });
+  return map;
+}
+var adjacencyMemo = /* @__PURE__ */ new WeakMap();
+function adjacencyOf(edges, kinds) {
+  const viewKey = kinds ? [...kinds].sort(byStr).join(",") : "*";
+  let entry = adjacencyMemo.get(edges);
+  if (!entry || entry.length !== edges.length) adjacencyMemo.set(edges, entry = { length: edges.length, views: /* @__PURE__ */ new Map() });
+  const cached = entry.views.get(viewKey);
+  if (cached) return cached;
+  const out2 = /* @__PURE__ */ new Map();
+  const inn = /* @__PURE__ */ new Map();
+  const degree = /* @__PURE__ */ new Map();
+  for (const e of edges) {
+    if (e.dangling) continue;
+    if (kinds && !kinds.has(e.kind)) continue;
+    (out2.get(e.from) ?? out2.set(e.from, []).get(e.from)).push(e);
+    (inn.get(e.to) ?? inn.set(e.to, []).get(e.to)).push(e);
+    degree.set(e.from, (degree.get(e.from) ?? 0) + 1);
+    degree.set(e.to, (degree.get(e.to) ?? 0) + 1);
+  }
+  for (const arr of out2.values()) arr.sort((a, b) => byStr(a.to, b.to));
+  for (const arr of inn.values()) arr.sort((a, b) => byStr(a.from, b.from));
+  const adj = { out: out2, inn, degree, threshold: hubThreshold([...degree.values()]) };
+  entry.views.set(viewKey, adj);
+  return adj;
+}
 function hubThreshold(degrees) {
   const sorted = degrees.slice().sort((a, b) => a - b);
   const n = sorted.length;
@@ -35686,20 +36260,14 @@ function hubThreshold(degrees) {
   return Math.max(50, p99);
 }
 function reverseClosure(edges, seeds, depth = Infinity) {
-  const dependents = /* @__PURE__ */ new Map();
-  for (const e of edges) {
-    if (e.dangling || !DEPENDS_KINDS.has(e.kind)) continue;
-    let arr = dependents.get(e.to);
-    if (!arr) dependents.set(e.to, arr = []);
-    arr.push(e);
-  }
+  const dependents = dependentsOf(edges);
   const depthOf = /* @__PURE__ */ new Map();
   const seen = new Set(seeds);
   let frontier = [...seeds];
   for (let d = 1; d <= depth && frontier.length; d++) {
     const next = [];
     for (const node of frontier) {
-      for (const e of (dependents.get(node) ?? []).slice().sort((a, b) => byStr(a.from, b.from))) {
+      for (const e of dependents.get(node) ?? []) {
         if (seen.has(e.from)) continue;
         seen.add(e.from);
         depthOf.set(e.from, d);
@@ -35722,18 +36290,7 @@ function impactOf(graph, target, depth = Infinity) {
   return { target, scope: mod ? "module" : "file", seeds, files, modules };
 }
 function bfs(edges, start2, depth, kinds) {
-  const out2 = /* @__PURE__ */ new Map();
-  const inn = /* @__PURE__ */ new Map();
-  const degree = /* @__PURE__ */ new Map();
-  for (const e of edges) {
-    if (e.dangling) continue;
-    if (kinds && !kinds.has(e.kind)) continue;
-    (out2.get(e.from) ?? out2.set(e.from, []).get(e.from)).push(e);
-    (inn.get(e.to) ?? inn.set(e.to, []).get(e.to)).push(e);
-    degree.set(e.from, (degree.get(e.from) ?? 0) + 1);
-    degree.set(e.to, (degree.get(e.to) ?? 0) + 1);
-  }
-  const threshold = hubThreshold([...degree.values()]);
+  const { out: out2, inn, degree, threshold } = adjacencyOf(edges, kinds);
   const seen = /* @__PURE__ */ new Set([start2]);
   const links = [];
   let frontier = [start2];
@@ -35741,13 +36298,13 @@ function bfs(edges, start2, depth, kinds) {
     const next = [];
     for (const node of frontier) {
       if (node !== start2 && (degree.get(node) ?? 0) >= threshold) continue;
-      for (const e of (out2.get(node) ?? []).slice().sort((a, b) => byStr(a.to, b.to))) {
+      for (const e of out2.get(node) ?? []) {
         if (seen.has(e.to)) continue;
         links.push({ node: e.to, direction: "out", kind: e.kind, weight: e.weight, depth: d, confidence: e.confidence });
         seen.add(e.to);
         next.push(e.to);
       }
-      for (const e of (inn.get(node) ?? []).slice().sort((a, b) => byStr(a.from, b.from))) {
+      for (const e of inn.get(node) ?? []) {
         if (seen.has(e.from)) continue;
         links.push({ node: e.from, direction: "in", kind: e.kind, weight: e.weight, depth: d, confidence: e.confidence });
         seen.add(e.from);
@@ -36066,6 +36623,7 @@ init_hash();
 init_graph_json();
 init_symbols_json();
 init_scan();
+init_pool();
 init_preload();
 init_walk();
 init_relations();
@@ -36192,7 +36750,8 @@ Commands:
               advertises a named subset (all | orient | find | impact | edit |
               risk, default all) \u2014 every advertised tool's schema costs an agent
               context on EVERY turn, and a tool left out is still answerable
-              when called by name
+              when called by name; --watch enables proactive invalidation for a
+              pinned repo while retaining per-request freshness verification
   version     Print the engine version
 
 Flags (accepted before OR after the subcommand: '--repo X scan' and
@@ -36208,6 +36767,7 @@ Flags (accepted before OR after the subcommand: '--repo X scan' and
   --no-gitignore      Do not honor .gitignore files (default: honored)
   --ignore-dir <name> Directory names to skip (repeatable) \u2014 REPLACES the
                       default ignored-directory set, never merges with it
+                      (\`.git\` stays skipped regardless)
   --max-files <n>     Cap walked files (default: none \u2014 the whole tree is
                       indexed; a cap sets the \`capped\` flag)
   --max-bytes <n>     Skip files above this size (default 1 MiB)
@@ -36262,10 +36822,10 @@ function parseFlags(args2) {
       if (!Number.isFinite(n) || n <= 0) throw new Error(`${a} expects a positive number, got "${raw}"`);
       return n;
     };
-    if (a === "--repo") flags2.repo = resolve4(next());
+    if (a === "--repo") flags2.repo = resolve5(next());
     else if (a === "--out") {
       const v = next();
-      flags2.out = v === "-" ? "-" : resolve4(v);
+      flags2.out = v === "-" ? "-" : resolve5(v);
     } else if (a === "--project-root") flags2.projectRoot = next();
     else if (a === "--include") flags2.include.push(next());
     else if (a === "--exclude") flags2.exclude.push(next());
@@ -36290,7 +36850,7 @@ function parseFlags(args2) {
       if (!Number.isInteger(n) || n < 0) throw new Error(`--workers expects a non-negative integer, got "${raw}"`);
       flags2.workers = n;
     } else if (a === "--since") flags2.since = next();
-    else if (a === "--config") flags2.config = resolve4(next());
+    else if (a === "--config") flags2.config = resolve5(next());
     else if (a === "--limit") flags2.limit = num22();
     else if (a === "--no-fuzzy") flags2.fuzzy = false;
     else if (a === "--exact") flags2.exact = true;
@@ -36343,12 +36903,13 @@ function parseMcpFlags(argv) {
   let name2;
   let maxResponseBytes;
   let profile;
+  let watch = false;
   for (let i2 = 0; i2 < argv.length; i2++) {
     const a = argv[i2];
     if (a === "--repo") {
       const v = argv[++i2];
       if (!v) throw new Error("--repo requires a directory");
-      defaultRepo = resolve4(v);
+      defaultRepo = resolve5(v);
     } else if (a === "--server-name") {
       const v = argv[++i2];
       if (!v) throw new Error("--server-name requires a value");
@@ -36363,12 +36924,15 @@ function parseMcpFlags(argv) {
       if (!v) throw new Error(`--tools requires a profile: ${profileNames().join(", ")}`);
       toolsInProfiles(v);
       profile = v === "all" ? void 0 : v;
+    } else if (a === "--watch") {
+      watch = true;
     } else {
       throw new Error(`unknown flag for \`mcp\`: ${a}`);
     }
   }
-  if (defaultRepo && !existsSync10(defaultRepo)) throw new Error(`--repo path does not exist: ${defaultRepo}`);
-  return { defaultRepo, serverInfo: name2 ? { name: name2 } : void 0, maxResponseBytes, profile };
+  if (defaultRepo && !existsSync11(defaultRepo)) throw new Error(`--repo path does not exist: ${defaultRepo}`);
+  if (watch && !defaultRepo) throw new Error("--watch requires --repo <dir>");
+  return { defaultRepo, serverInfo: name2 ? { name: name2 } : void 0, maxResponseBytes, profile, watch };
 }
 var VALUE_FLAGS = /* @__PURE__ */ new Set([
   "--repo",
@@ -36392,7 +36956,12 @@ var VALUE_FLAGS = /* @__PURE__ */ new Set([
   "--tools",
   "--workers",
   "--index",
-  "--max-response-bytes"
+  "--max-response-bytes",
+  "--base",
+  "--depth",
+  "--kind",
+  "--rank",
+  "--direction"
 ]);
 function hoistLeadingFlags(argv) {
   const lead = [];
@@ -36437,7 +37006,8 @@ async function runCli(rawArgv) {
     return;
   }
   const flags2 = parseFlags(rest);
-  if (!existsSync10(flags2.repo)) throw new Error(`--repo path does not exist: ${flags2.repo}`);
+  if (!existsSync11(flags2.repo)) throw new Error(`--repo path does not exist: ${flags2.repo}`);
+  if (!statSync9(flags2.repo).isDirectory()) throw new Error(`--repo path is not a directory: ${flags2.repo}`);
   const scans = !SCANLESS_COMMANDS.has(cmd) && !(cmd === "embed" && flags2.positional !== "build");
   let precomputedWalk;
   if (scans && !flags2.noAst) {
@@ -36447,31 +37017,56 @@ async function runCli(rawArgv) {
       gitignore: flags2.gitignore,
       ignoreDirs: flags2.ignoreDirs.length ? flags2.ignoreDirs : void 0
     });
-    await ensureGrammars(grammarKeysForExts(precomputedWalk.files.map((f) => f.ext)));
   }
+  let grammarsWarmed = false;
+  const warmPresentGrammars = async () => {
+    if (grammarsWarmed || flags2.noAst || !precomputedWalk) return;
+    await ensureGrammars(grammarKeysForExts(precomputedWalk.files.map((f) => f.ext)));
+    grammarsWarmed = true;
+  };
   const indexDir = flags2.indexDir ?? INDEX_DIR;
   let preloadTried = false;
+  let preloadPromise;
   let preloaded;
-  const tryPreload = () => {
+  const tryPreload = async () => {
+    if (preloadPromise) return preloadPromise;
     if (preloadTried) return preloaded;
     preloadTried = true;
     if (flags2.noIndexCache) return void 0;
-    const p = preloadSession(flags2.repo, scanOptions(flags2, precomputedWalk), indexDir);
-    if (p) preloaded = { scan: p.scan, arts: p.arts };
-    return preloaded;
+    preloadPromise = preloadSessionLazy(
+      flags2.repo,
+      { ...scanOptions(flags2, precomputedWalk), workers: flags2.workers },
+      warmPresentGrammars,
+      indexDir
+    ).then((p) => {
+      if (p) preloaded = { scan: p.scan, arts: p.arts, loadArtifacts: p.loadArtifacts };
+      return preloaded;
+    });
+    return preloadPromise;
   };
-  const readScan = () => tryPreload()?.scan ?? scanRepo(flags2.repo, scanOptions(flags2, precomputedWalk));
-  const readArtifacts = () => {
-    const p = tryPreload();
+  let readScanPromise;
+  const readScan = async () => {
+    const preloadedScan = (await tryPreload())?.scan;
+    if (preloadedScan) return preloadedScan;
+    return readScanPromise ??= warmPresentGrammars().then(
+      () => scanRepoParallel(flags2.repo, {
+        ...scanOptions(flags2, precomputedWalk),
+        workers: flags2.workers
+      })
+    );
+  };
+  let readArtifactsPromise;
+  const readArtifacts = async () => {
+    const p = await tryPreload();
     if (p?.arts) return p.arts;
-    if (p) return buildArtifactsFromScan(p.scan, scanOptions(flags2, precomputedWalk));
-    return buildIndexArtifacts(flags2.repo, scanOptions(flags2, precomputedWalk));
+    if (p) return p.arts ??= p.loadArtifacts?.() ?? buildArtifactsFromScan(p.scan, scanOptions(flags2, precomputedWalk));
+    return readArtifactsPromise ??= readScan().then((scan2) => buildArtifactsFromScan(scan2, scanOptions(flags2, precomputedWalk)));
   };
   if (cmd === "index") {
     if (!flags2.out) throw new Error("index needs --out <dir>");
     const outDir = flags2.out;
     mkdirSync3(outDir, { recursive: true });
-    const cachePath = join23(outDir, "cache.json");
+    const cachePath = join22(outDir, "cache.json");
     let cache;
     let meta2 = {};
     try {
@@ -36488,6 +37083,7 @@ async function runCli(rawArgv) {
       }
     } catch {
     }
+    await warmPresentGrammars();
     const scan2 = await scanRepoParallel(flags2.repo, {
       ...scanOptions(flags2, precomputedWalk),
       cache,
@@ -36496,9 +37092,9 @@ async function runCli(rawArgv) {
     });
     const modelDir = resolveEmbedModelDir(flags2.repo);
     const model = modelDir ? loadEmbedModel(modelDir) : void 0;
-    const graphPath = join23(outDir, "graph.json");
-    const symbolsPath = join23(outDir, "symbols.json");
-    const embedPath = join23(outDir, "embeddings.bin");
+    const graphPath = join22(outDir, "graph.json");
+    const symbolsPath = join22(outDir, "symbols.json");
+    const embedPath = join22(outDir, "embeddings.bin");
     const artifactSha = (path) => {
       try {
         return sha1(readFileSync13(path));
@@ -36566,15 +37162,15 @@ async function runCli(rawArgv) {
     };
     emit(JSON.stringify(summary, null, 2) + "\n", flags2.out);
   } else if (cmd === "graph") {
-    const { graph } = readArtifacts();
+    const { graph } = await readArtifacts();
     emit(renderGraphJson(graph), flags2.out);
   } else if (cmd === "symbols") {
-    const { symbols } = readArtifacts();
+    const { symbols } = await readArtifacts();
     emit(renderSymbolsJson(symbols), flags2.out);
   } else if (cmd === "scip") {
-    const scan2 = readScan();
+    const scan2 = await readScan();
     const bytes = renderScip(scan2, { projectRoot: flags2.projectRoot });
-    const out2 = flags2.out ?? resolve4("index.scip");
+    const out2 = flags2.out ?? resolve5("index.scip");
     if (out2 === "-") process.stdout.write(Buffer.from(bytes));
     else {
       writeFileSync4(out2, bytes);
@@ -36582,13 +37178,13 @@ async function runCli(rawArgv) {
 `);
     }
   } else if (cmd === "callers") {
-    const scan2 = readScan();
+    const scan2 = await readScan();
     const index = buildCallerIndex(scan2, void 0, { recall: flags2.recall });
     const obj = {};
     for (const [name2, entry] of index) obj[name2] = entry;
     emit(JSON.stringify(obj, null, 2) + "\n", flags2.out);
   } else if (cmd === "hierarchy") {
-    const scan2 = readScan();
+    const scan2 = await readScan();
     const hierarchy = buildTypeHierarchy(scan2, computeImportPairs(scan2));
     if (flags2.positional) {
       const entry = hierarchy.get(flags2.positional);
@@ -36601,7 +37197,7 @@ async function runCli(rawArgv) {
     }
   } else if (cmd === "implementations") {
     if (!flags2.positional) throw new Error("implementations needs a type name: cli.mjs implementations <Name> --repo <dir>");
-    const scan2 = readScan();
+    const scan2 = await readScan();
     const hierarchy = buildTypeHierarchy(scan2, computeImportPairs(scan2));
     if (!hierarchy.has(flags2.positional)) throw new Error(`no type named ${flags2.positional}`);
     emit(
@@ -36610,7 +37206,7 @@ async function runCli(rawArgv) {
     );
   } else if (cmd === "callgraph") {
     if (!flags2.positional) throw new Error("callgraph needs a symbol: cli.mjs callgraph <Symbol> --repo <dir>");
-    const scan2 = readScan();
+    const scan2 = await readScan();
     const graph = buildSymbolGraph(scan2, computeImportPairs(scan2));
     const result = neighborhood(graph, flags2.positional, {
       ...flags2.depth !== void 0 ? { depth: flags2.depth } : {},
@@ -36620,7 +37216,7 @@ async function runCli(rawArgv) {
     emit(JSON.stringify(result, null, 2) + "\n", flags2.out);
   } else if (cmd === "search") {
     if (!flags2.positional) throw new Error('search needs a query: cli.mjs search "<query>" --repo <dir>');
-    const scan2 = readScan();
+    const scan2 = await readScan();
     const searchOpts = {
       limit: flags2.limit,
       fuzzy: flags2.fuzzy,
@@ -36725,16 +37321,16 @@ async function runCli(rawArgv) {
       }
       const model = loadEmbedModel(modelDir);
       mkdirSync3(flags2.out, { recursive: true });
-      const scan2 = readScan();
+      const scan2 = await readScan();
       const index = buildEmbeddingIndex(scan2, model);
-      writeFileSync4(join23(flags2.out, "embeddings.bin"), serializeEmbeddings(index));
+      writeFileSync4(join22(flags2.out, "embeddings.bin"), serializeEmbeddings(index));
       process.stderr.write(`codeindex: ${index.records.length} embedding records \u2192 ${flags2.out}/embeddings.bin (model ${model.modelId})
 `);
     } else if (sub === "pull") {
       const { url, sha256 } = resolveEmbedPullUrl();
-      const destDir = process.env.CODEINDEX_EMBED_DIR ?? join23(flags2.repo, ".codeindex", "models");
+      const destDir = process.env.CODEINDEX_EMBED_DIR ?? join22(flags2.repo, ".codeindex", "models");
       mkdirSync3(destDir, { recursive: true });
-      process.stderr.write(`codeindex: fetching model from ${url} \u2192 ${join23(destDir, "model.json")}
+      process.stderr.write(`codeindex: fetching model from ${url} \u2192 ${join22(destDir, "model.json")}
 `);
       let body22;
       try {
@@ -36755,8 +37351,8 @@ async function runCli(rawArgv) {
         process.exitCode = 1;
         return;
       }
-      writeFileSync4(join23(destDir, "model.json"), body22);
-      process.stderr.write(`codeindex: model written to ${join23(destDir, "model.json")}
+      writeFileSync4(join22(destDir, "model.json"), body22);
+      process.stderr.write(`codeindex: model written to ${join22(destDir, "model.json")}
 `);
     } else {
       throw new Error("embed needs a subcommand: status | build | pull | serve");
@@ -36764,13 +37360,13 @@ async function runCli(rawArgv) {
   } else if (cmd === "lsp") {
     const sub = flags2.positional;
     if (sub !== "status") throw new Error("lsp needs a subcommand: status");
-    emit(JSON.stringify(await lspStatus(readScan(), flags2.repo, flags2.probe === true), null, 2) + "\n", flags2.out);
+    emit(JSON.stringify(await lspStatus(await readScan(), flags2.repo, flags2.probe === true), null, 2) + "\n", flags2.out);
   } else if (cmd === "grammars") {
     const sub = flags2.positional;
     const cacheDir = sharedGrammarsCacheDir();
     if (sub === "status") {
       const info2 = resolveGrammarsTier();
-      const present = (name2) => info2.dirs.some((d) => existsSync10(join23(d, name2)));
+      const present = (name2) => info2.dirs.some((d) => existsSync11(join22(d, name2)));
       const runtimePresent = present("web-tree-sitter.wasm");
       const target = resolveGrammarsPullTarget();
       const resolvedIn = (keys) => [...keys].filter((k) => present(`${k}.wasm`)).sort();
@@ -36803,7 +37399,7 @@ async function runCli(rawArgv) {
   } else if (cmd === "rules") {
     if (!flags2.config) throw new Error("rules needs --config <codeindex.rules.json>");
     const rules = parseRules(JSON.parse(readFileSync13(flags2.config, "utf8")));
-    const { graph } = readArtifacts();
+    const { graph } = await readArtifacts();
     const violations = checkRules(graph, rules);
     const errors = violations.filter((v) => v.severity === "error").length;
     emit(JSON.stringify({ errors, warnings: violations.length - errors, violations }, null, 2) + "\n", flags2.out);
@@ -36824,33 +37420,33 @@ async function runCli(rawArgv) {
     for (const k of [...churn.keys()].sort()) sorted[k] = churn.get(k);
     emit(JSON.stringify({ ok, churn: sorted }, null, 2) + "\n", flags2.out);
   } else if (cmd === "repomap") {
-    const { scan: scan2, graph } = readArtifacts();
+    const { scan: scan2, graph } = await readArtifacts();
     emit(renderRepoMap(scan2, graph, { budgetTokens: flags2.budgetTokens }), flags2.out);
   } else if (cmd === "hotspots") {
-    const scan2 = readScan();
+    const scan2 = await readScan();
     const { churn, ok } = gitChurn(flags2.repo, { since: flags2.since });
     emit(JSON.stringify({ churnOk: ok, hotspots: rankHotspots(scan2, churn) }, null, 2) + "\n", flags2.out);
   } else if (cmd === "coupling") {
     const { ok, couplings } = changeCoupling(flags2.repo, { since: flags2.since });
     emit(JSON.stringify({ ok, couplings }, null, 2) + "\n", flags2.out);
   } else if (cmd === "deadcode") {
-    emit(JSON.stringify(findDeadCode(readScan()), null, 2) + "\n", flags2.out);
+    emit(JSON.stringify(findDeadCode(await readScan()), null, 2) + "\n", flags2.out);
   } else if (cmd === "literals") {
-    const report = findLiteralDuplications(readScan(), {
+    const report = findLiteralDuplications(await readScan(), {
       minFiles: flags2.minFiles,
       minCount: flags2.minCount,
       includeTests: flags2.includeTests
     });
     emit(JSON.stringify(report, null, 2) + "\n", flags2.out);
   } else if (cmd === "complexity") {
-    const scan2 = readScan();
+    const scan2 = await readScan();
     emit(JSON.stringify(symbolComplexity(scan2, flags2.positional), null, 2) + "\n", flags2.out);
   } else if (cmd === "risk") {
-    const scan2 = readScan();
+    const scan2 = await readScan();
     const { churn, ok } = gitChurn(flags2.repo, { since: flags2.since });
     emit(JSON.stringify({ churnOk: ok, risks: riskHotspots(scan2, churn) }, null, 2) + "\n", flags2.out);
   } else if (cmd === "delta") {
-    const { graph, symbols } = readArtifacts();
+    const { graph, symbols } = await readArtifacts();
     const res = deltaFor(flags2.repo, graph, symbols, {
       base: flags2.base,
       staged: flags2.staged,
@@ -36860,19 +37456,19 @@ async function runCli(rawArgv) {
     emit(flags2.json ? JSON.stringify(res, null, 2) + "\n" : formatDeltaPanel(res), flags2.out);
   } else if (cmd === "impact") {
     if (!flags2.positional) throw new Error("impact needs a target: cli.mjs impact <file|module> --repo <dir>");
-    const { graph } = readArtifacts();
+    const { graph } = await readArtifacts();
     const res = impactOf(graph, flags2.positional, flags2.depth ?? Infinity);
     if (!res) throw new Error(`no such file or module in the index: ${flags2.positional}`);
     emit(JSON.stringify(res, null, 2) + "\n", flags2.out);
   } else if (cmd === "neighbors") {
     if (!flags2.positional) throw new Error("neighbors needs a target: cli.mjs neighbors <file|module> --repo <dir>");
-    const { graph } = readArtifacts();
+    const { graph } = await readArtifacts();
     const kinds = flags2.kind ? new Set(flags2.kind.split(",").map((k) => k.trim()).filter(Boolean)) : void 0;
     const res = neighborsOf(graph, flags2.positional, flags2.depth ?? 1, kinds);
     if (!res) throw new Error(`no such file or module in the index: ${flags2.positional}`);
     emit(JSON.stringify(res, null, 2) + "\n", flags2.out);
   } else if (cmd === "mermaid") {
-    const { graph } = readArtifacts();
+    const { graph } = await readArtifacts();
     emit(renderMermaid(graph, { module: flags2.positional }), flags2.out);
   } else if (cmd === "grep") {
     if (!flags2.positional) throw new Error("grep needs a pattern: cli.mjs grep <pattern> --repo <dir>");
@@ -36946,7 +37542,7 @@ function inScopeMatcher(inputs) {
 function walk2(dir, acc) {
   for (const f of walk(dir, { maxFiles: Number.MAX_SAFE_INTEGER }).files) {
     if (f.rel.split("/").some((seg) => SKIP_DIR.has(seg))) continue;
-    acc.push(join24(dir, f.rel));
+    acc.push(join23(dir, f.rel));
   }
 }
 function staticBase(glob) {
@@ -36975,8 +37571,8 @@ function expandInputs(inputs, opts = {}) {
       const match = compileGlobs([input]);
       const acc = walkCached(staticBase(input), opts);
       for (const f of acc) if (match(toPosix(f)) && exts.has(ext(f))) files.add(f);
-    } else if (existsSync11(input)) {
-      if (statSync6(input).isDirectory()) {
+    } else if (existsSync12(input)) {
+      if (statSync10(input).isDirectory()) {
         const acc = walkCached(input, opts);
         for (const f of acc) if (exts.has(ext(f))) files.add(f);
       } else if (exts.has(ext(input))) {
@@ -37150,8 +37746,607 @@ function parseSourceWithAst(source, file, opts = {}) {
 }
 
 // src/snapshot.ts
-import { existsSync as existsSync12, mkdirSync as mkdirSync4, readFileSync as readFileSync14, readdirSync as readdirSync4, writeFileSync as writeFileSync5 } from "fs";
-import { dirname as dirname5, join as join25 } from "path";
+import { existsSync as existsSync13, mkdirSync as mkdirSync4, readFileSync as readFileSync14, readdirSync as readdirSync4, writeFileSync as writeFileSync5 } from "fs";
+import { dirname as dirname6, join as join24 } from "path";
+
+// src/probes.ts
+var PROBES_VERSION = 2;
+var WALK_DEPENDENT_SCS = ["1.4.13", "2.1.2", "2.4.7", "2.4.11", "4.1.3"];
+var PRELUDE = `
+const __sel = (e) => {
+  if (!e || !e.tagName) return '\u2014';
+  const esc = (v) => (typeof CSS !== 'undefined' && CSS.escape) ? CSS.escape(v) : String(v).replace(/[^a-zA-Z0-9_-]/g, '\\\\$&');
+  const unique = (s) => { try { return document.querySelectorAll(s).length === 1; } catch { return false; } };
+  const short = (n) => {
+    const t = n.tagName.toLowerCase();
+    if (n.id) return t + '#' + esc(n.id);
+    const c = typeof n.className === 'string' ? n.className.trim().split(/\\s+/)[0] : '';
+    return c ? t + '.' + esc(c) : t;
+  };
+  const first = short(e);
+  if (unique(first)) return first;
+  const parts = [];
+  for (let n = e; n && n.tagName; n = n.parentElement) {
+    let part = short(n);
+    if (n.id && unique(part)) { parts.unshift(part); return parts.join(' > '); }
+    const parent = n.parentElement;
+    if (parent) {
+      const same = Array.from(parent.children).filter((x) => x.tagName === n.tagName);
+      if (same.length > 1) part += ':nth-of-type(' + (same.indexOf(n) + 1) + ')';
+    }
+    parts.unshift(part);
+    const path = parts.join(' > ');
+    if (unique(path)) return path;
+  }
+  return parts.join(' > ') || first;
+};
+const __vis = (e) => {
+  const r = e.getBoundingClientRect();
+  if (r.width <= 4 || r.height <= 4) return false; // tiny / 1px sr-only boxes
+  const s = getComputedStyle(e);
+  if (s.display === 'none' || s.visibility === 'hidden' || parseFloat(s.opacity) === 0) return false;
+  // visually-hidden "screen-reader-only" pattern (clip rect / clip-path inset) \u2014 present in
+  // the a11y tree but not painted; must not be measured for clipping/target-size.
+  if (s.clip && s.clip !== 'auto' && s.clip !== 'rect(auto, auto, auto, auto)') return false;
+  if (s.clipPath && (s.clipPath.indexOf('inset(100%') >= 0 || s.clipPath.indexOf('inset(50%') >= 0)) return false;
+  return true;
+};
+const __html = (e) => (e.outerHTML || '').slice(0, 160);
+`;
+var PROBE_DEFAULTS = {
+  reflowWidth: 320,
+  maxFocusables: 120,
+  maxHits: 20,
+  maxTriggers: 60,
+  actionTimeoutMs: 1e3,
+  budgetMs: 2e4
+};
+function actionTimeout(limits, deadline) {
+  const left = deadline ? deadline.left() : limits.actionTimeoutMs;
+  return Math.max(1, Math.min(limits.actionTimeoutMs, left || limits.actionTimeoutMs));
+}
+var REFLOW_PROBE = `(() => {
+  const el = document.scrollingElement || document.documentElement;
+  return { horizontalScroll: el.scrollWidth > el.clientWidth + 2 };
+})()`;
+var REFLOW_ZOOM_PROBE = `(() => { ${PRELUDE}
+  const root = document.documentElement;
+  const prev = root.style.fontSize;
+  root.style.fontSize = '200%';
+  const hits = [];
+  for (const e of Array.from(document.querySelectorAll('p,li,h1,h2,h3,h4,h5,h6,td,th,button,a,label,span'))) {
+    if (!__vis(e)) continue;
+    if ((e.textContent || '').trim().length < 8) continue;
+    const s = getComputedStyle(e);
+    const clip = s.overflow === 'hidden' || s.overflowY === 'hidden' || s.overflowX === 'hidden';
+    const noWrap = s.whiteSpace === 'nowrap' || s.textOverflow === 'ellipsis';
+    if ((clip || noWrap) && (e.scrollHeight > e.clientHeight + 6 || e.scrollWidth > e.clientWidth + 6)) {
+      hits.push({ selector: __sel(e), html: __html(e), detail: 'Texte tronqu\xE9/masqu\xE9 \xE0 200% (conteneur overflow:hidden / nowrap) \u2014 perte de contenu au zoom (1.4.4).' });
+    }
+    if (hits.length >= 12) break;
+  }
+  root.style.fontSize = prev;
+  return hits;
+})()`;
+var TEXT_SPACING_CSS = "* { line-height: 1.5 !important; letter-spacing: 0.12em !important; word-spacing: 0.16em !important; } p { margin-bottom: 2em !important; }";
+var TEXT_SPACING_PROBE = `(() => { ${PRELUDE}
+  const hits = [];
+  for (const e of Array.from(document.querySelectorAll('p,li,span,a,button,h1,h2,h3,h4,h5,h6,td,th,label,div'))) {
+    if (!__vis(e)) continue;
+    if ((e.textContent || '').trim().length < 8) continue;
+    const s = getComputedStyle(e);
+    const clipped = (s.overflowX === 'hidden' || s.overflowY === 'hidden' || s.overflow === 'hidden') && (e.scrollHeight > e.clientHeight + 2 || e.scrollWidth > e.clientWidth + 2);
+    const ellipsis = s.textOverflow === 'ellipsis' && e.scrollWidth > e.clientWidth + 2;
+    if (clipped || ellipsis) {
+      // No criterion id in the text: every rendering already names the criterion this finding
+      // belongs to, and a hard-coded \xAB 1.4.12 \xBB is a WCAG number appearing inside a deliverable
+      // that may be keyed on another standard entirely.
+      hits.push({ selector: __sel(e), html: __html(e), detail: 'Texte tronqu\xE9/masqu\xE9 sous l\\'espacement de texte impos\xE9 \u2014 perte de contenu.' });
+    }
+    if (hits.length >= 20) break;
+  }
+  return hits;
+})()`;
+function focusSetupExpr(scope = "", maxFocusables = PROBE_DEFAULTS.maxFocusables) {
+  const rootExpr = scope ? `document.querySelectorAll(${JSON.stringify(scope)})` : `[document.documentElement]`;
+  return `(() => { ${PRELUDE}
+  // FOCUSABLE MEANS FOCUSABLE, NOT "the six tags we thought of". This list decides which
+  // elements get tagged, and since the walk may now license a conformity, an element missing
+  // from it is not merely unmeasured -- it is silently cleared. A page whose only control is a
+  // <summary> tagged nothing at all, so the count was zero, so the ring was "vacuously whole",
+  // so 2.4.7 and 2.4.11 closed without a single Tab press.
+  //
+  // AND NOT iframe / audio[controls] / video[controls], which were here for one release and
+  // had to come back out. They are genuinely focusable, but their focus lives in another
+  // document: everything below reads the PARENT'S activeElement, which stays the host element
+  // press after press while the user tabs through the controls inside. The trap walk reads
+  // exactly that as a cage, so an ordinary page with a video player, a payment frame, a map or
+  // a support widget was reported as a bloquant 2.1.2 -- a blocker manufactured out of our own
+  // blindness, able to fail somebody else's gate. The measurement we cannot make is not a
+  // finding; Tab still crosses them, the walk still records that it crossed something it never
+  // measured, and the page is not cleared either.
+  // (No backticks in this comment: it lives inside a template literal.)
+  const sel = 'a[href],area[href],button:not([disabled]),input:not([type=hidden]):not([disabled]),select:not([disabled]),textarea:not([disabled]),summary,[contenteditable]:not([contenteditable="false"]),[tabindex]:not([tabindex="-1"]),[role=button]:not([disabled])';
+  // A BOX THAT IS ANIMATING CANNOT BE COMPARED ACROSS TIME, so it contributes a constant.
+  //
+  // The snapshot is taken before Tab and re-read after it, and the properties compared include
+  // background-color and colour \u2014 so a pseudo-element pulsing on a keyframe animation differs
+  // between the two reads for a reason that has nothing to do with focus. That reads as \xAB the
+  // focus is visible \xBB on a control that has no indicator at all: a MISSED non-conformity,
+  // strictly worse than the false positive the pseudo-element read was added to remove.
+  //
+  // A transition is not affected and must not be excluded: it only moves on a state change,
+  // so its at-rest value is stable and a focus transition is exactly what we want to see.
+  //
+  // When every part of an element is animated, both sides collapse to the same constant and
+  // the probe reports \xAB no visible change \xBB \u2014 a finding rather than a silent pass. That is the
+  // safe direction: this tool would rather name something a human can dismiss than clear
+  // something nobody will look at again.
+  const __style = (e, pseudo) => { const s = getComputedStyle(e, pseudo); if (s.animationName && s.animationName !== 'none') return 'animated'; return [s.outlineStyle, s.outlineWidth, s.outlineColor, s.boxShadow, s.borderColor, s.borderTopWidth, s.borderBottomWidth, s.backgroundColor, s.color, s.textDecorationLine].join('|'); };
+  const snap = (e) => [__style(e, null), __style(e, '::before'), __style(e, '::after')].join('#');
+  // Visually-hidden radio/checkbox \u2192 measure its visible label/proxy, not the input.
+  const proxyFor = (e) => {
+    const type = (e.getAttribute('type') || '').toLowerCase();
+    const custom = e.tagName === 'INPUT' && (type === 'radio' || type === 'checkbox') && !__vis(e);
+    if (!custom) return __vis(e) ? e : null;
+    let p = null;
+    if (e.id) { try { p = document.querySelector('label[for="' + (window.CSS && CSS.escape ? CSS.escape(e.id) : e.id) + '"]'); } catch (_) {} }
+    if (!p) p = e.closest('label');
+    if (!p) { const lb = (e.getAttribute('aria-labelledby') || '').split(/\\s+/)[0]; if (lb) p = document.getElementById(lb); }
+    return (p && __vis(p)) ? p : null;
+  };
+  // Fresh authoritative pass: drop any tags a previous (whole-document or dialog) pass left.
+  for (const el of Array.from(document.querySelectorAll('[data-u11y-f],[data-u11y-fp]'))) { el.removeAttribute('data-u11y-f'); el.removeAttribute('data-u11y-fp'); }
+  const roots = ${rootExpr};
+  const focusables = [];
+  let total = 0;
+  for (const root of Array.from(roots)) {
+    if (root.matches && root.matches(sel)) focusables.push(root);
+    for (const e of Array.from(root.querySelectorAll(sel))) focusables.push(e);
+  }
+  window.__u11yF = {};
+  let n = 0;
+  for (const e of focusables) {
+    const proxy = proxyFor(e);
+    if (!proxy) continue;
+    const key = 'k' + n;
+    total++;
+    if (n >= ${maxFocusables}) continue; // tagged the cap; keep COUNTING so the caller knows it was cut
+    e.setAttribute('data-u11y-f', key);
+    proxy.setAttribute('data-u11y-fp', key);
+    window.__u11yF[key] = { rest: snap(proxy), sel: __sel(proxy), html: __html(proxy) };
+    n++;
+  }
+  return { n: n, total: total };
+})()`;
+}
+var FOCUS_CHECK_PROBE = `(() => {
+  const e = document.activeElement;
+  // FOCUS LEFT THE DOCUMENT \u2014 the normal end of a tab ring, and nothing to measure.
+  if (!e || e === document.body || e === document.documentElement) return null;
+  const key = e.getAttribute && e.getAttribute('data-u11y-f');
+  // FOCUS IS ON SOMETHING THE SETUP NEVER TAGGED, which is a different fact entirely and used
+  // to be reported as the same one. A skip link revealed only on focus, a widget that moves
+  // focus into a node the selector does not match -- Tab crossed it, nothing measured it, and
+  // the walk went on to call itself whole. The caller needs to know the ring contained an
+  // element it cannot speak for. (No backticks here: this lives inside a template literal.)
+  if (!key || !window.__u11yF || !window.__u11yF[key]) return { untagged: true, key: '', changed: true, selector: '', html: '' };
+  const rec = window.__u11yF[key];
+  const proxy = document.querySelector('[data-u11y-fp="' + key + '"]') || e;
+  // THE SAME THREE BOXES pass 1 snapshotted, in the same order. A design system that paints
+  // its control in label::before -- DSFR, GOV.UK, USWDS, Bootstrap -- puts the focus ring
+  // there too, and reading only the element would report every one of them as unfocusable.
+  // (No backticks in this comment: it lives inside a template literal.)
+  // Same three boxes, same animation exclusion as pass 1 -- an animating box contributes a
+  // constant on both sides, so it can never fabricate a difference (nor hide a real one).
+  const st = (pseudo) => { const s = getComputedStyle(proxy, pseudo); if (s.animationName && s.animationName !== 'none') return 'animated'; return [s.outlineStyle, s.outlineWidth, s.outlineColor, s.boxShadow, s.borderColor, s.borderTopWidth, s.borderBottomWidth, s.backgroundColor, s.color, s.textDecorationLine].join('|'); };
+  const now = [st(null), st('::before'), st('::after')].join('#');
+  return { key: key, changed: now !== rec.rest, selector: rec.sel, html: rec.html };
+})()`;
+var FOCUS_OBSCURED_PROBE = `(() => { ${PRELUDE}
+  const e = document.activeElement;
+  if (!e || e === document.body || e === document.documentElement) return null;
+  const key = e.getAttribute && e.getAttribute('data-u11y-f');
+  if (!key) return null;
+  const r = e.getBoundingClientRect();
+  if (r.width < 1 || r.height < 1) return null;         // nothing to obscure
+  const vw = window.innerWidth, vh = window.innerHeight;
+  // Sample a 5\xD75 grid inset by a pixel, keeping only points inside the viewport. A component
+  // scrolled off-screen leaves no sampleable point and is NOT reported: out of view is not
+  // obscured, and the criterion is about content laid over it.
+  const xs = [0.02, 0.25, 0.5, 0.75, 0.98], pts = [];
+  for (const fx of xs) for (const fy of xs) {
+    const x = r.left + r.width * fx, y = r.top + r.height * fy;
+    if (x >= 0 && y >= 0 && x < vw && y < vh) pts.push([x, y]);
+  }
+  if (!pts.length) return null;
+  // The topmost element over a point, for each sampled point. The focused element counts as
+  // visible when it \u2014 or anything inside it \u2014 is on top: an icon inside a button is the button
+  // being visible, and reading that as occlusion would fail every well-built page.
+  let occluder = null;
+  for (const [x, y] of pts) {
+    const top = document.elementsFromPoint(x, y)[0];
+    if (!top) continue;
+    if (top === e || e.contains(top)) return null;      // some part of it is on top \u2192 pass
+    if (!occluder) occluder = top;
+  }
+  if (!occluder) return null;
+  // AUTHOR-CREATED OVERLAY, or nothing. Walk up from the occluder looking for the fixed/sticky
+  // ancestor that puts it over the page; without one this is ordinary layout, not obscuring.
+  let overlay = null;
+  for (let n = occluder; n && n !== document.documentElement; n = n.parentElement) {
+    const pos = getComputedStyle(n).position;
+    if (pos === 'fixed' || pos === 'sticky') { overlay = n; break; }
+  }
+  if (!overlay) return null;
+  if (overlay.contains(e)) return null;                 // it is the component's own container
+  return { key: key, selector: __sel(e), html: __html(e), overlay: __sel(overlay) };
+})()`;
+var HOVER_SETUP_PROBE = `(() => { ${PRELUDE}
+  const out = [];
+  let n = 0;
+  let total = 0;
+  for (const e of Array.from(document.querySelectorAll('[aria-describedby]'))) {
+    const id = (e.getAttribute('aria-describedby') || '').split(/\\s+/)[0];
+    if (!id) continue;
+    const t = document.getElementById(id);
+    if (!t) continue;
+    // THE TRIGGER ITSELF HAS TO BE THERE. 1.4.13 is about content revealed on hover or focus,
+    // and an element that is not rendered reveals nothing to anybody -- hovering it was always
+    // futile, and once an unreachable trigger started withholding the criterion, that futility
+    // would have turned into a page nobody could ever clear.
+    if (!__vis(e)) continue;
+    const s = getComputedStyle(t);
+    const hidden = s.display === 'none' || s.visibility === 'hidden' || t.getBoundingClientRect().height === 0;
+    if (!hidden) continue;
+    total++;
+    if (n >= 10) continue; // tagged ten; keep COUNTING so the caller knows what it did not see
+    const key = 'h' + n;
+    e.setAttribute('data-u11y-h', key);
+    out.push({ key: key, target: id, selector: __sel(e) });
+    n++;
+  }
+  for (const o of out) o.total = total;
+  return out;
+})()`;
+function hoverVisibleExpr(id, wantHidden = false) {
+  const j = JSON.stringify(id);
+  return `(() => { const t = document.getElementById(${j}); if (!t) return ${wantHidden ? "true" : "false"}; const s = getComputedStyle(t); const shown = s.display !== 'none' && s.visibility !== 'hidden' && t.getBoundingClientRect().height > 0; return ${wantHidden ? "!shown" : "shown"}; })()`;
+}
+function readSetup(raw, limits) {
+  if (typeof raw === "number") return { count: raw, capped: raw >= limits.maxFocusables };
+  const o = raw ?? {};
+  const count = o.n ?? 0;
+  return { count, capped: (o.total ?? count) > count };
+}
+function cappedRing(capped, limits) {
+  return capped ? `the setup pass stopped tagging at ${limits.maxFocusables} focusable elements (probes.maxFocusables), so everything past that was never focused and never measured` : void 0;
+}
+async function probeFocusVisible(page, scope = "", limits = PROBE_DEFAULTS, deadline) {
+  return (await probeFocusRing(page, scope, limits, deadline)).visible;
+}
+async function probeFocusRing(page, scope = "", limits = PROBE_DEFAULTS, deadline) {
+  const { count, capped } = readSetup(await page.evaluate(focusSetupExpr(scope, limits.maxFocusables)), limits);
+  if (!count) return { visible: [], obscured: [], complete: true };
+  const hits = [];
+  const obscured = [];
+  const seen = /* @__PURE__ */ new Set();
+  const limit = tabPressBudget(count, limits);
+  let prevKey = null;
+  let cutShort = `the walk spent its ${limit} Tab presses without the ring ever closing, so the tail of it was never reached`;
+  let untagged = 0;
+  for (let i2 = 0; i2 < limit; i2++) {
+    if (deadline?.out()) {
+      cutShort = `the probe budget of ${limits.budgetMs}ms ran out after ${seen.size} of the ${count} focusable elements \u2014 the rest of the ring was never focused`;
+      break;
+    }
+    await page.keyboard.press("Tab");
+    const r = await page.evaluate(FOCUS_CHECK_PROBE);
+    if (!r) continue;
+    if (r.untagged) {
+      untagged++;
+      continue;
+    }
+    if (r.key === prevKey) continue;
+    if (seen.has(r.key)) {
+      cutShort = void 0;
+      break;
+    }
+    seen.add(r.key);
+    prevKey = r.key;
+    if (!r.changed) {
+      hits.push({
+        selector: r.selector,
+        html: r.html,
+        detail: "Le focus clavier ne produit aucun changement visible (outline/box-shadow/bordure/fond) \u2014 focus non visible."
+      });
+    }
+    if (obscured.length < 20 && !deadline?.out()) {
+      const o = await page.evaluate(FOCUS_OBSCURED_PROBE);
+      if (o) {
+        obscured.push({
+          selector: o.selector,
+          html: o.html,
+          detail: `Le composant qui re\xE7oit le focus clavier est enti\xE8rement masqu\xE9 par un contenu ajout\xE9 par l'auteur (${o.overlay}) \u2014 il est impossible de voir o\xF9 l'on se trouve au clavier.`
+        });
+      }
+    }
+    if (hits.length >= 20 && obscured.length >= 20) {
+      cutShort = `both recording caps filled at ${seen.size} of the ${count} focusable elements \u2014 enough was found to fail the page, not enough to clear the rest of it`;
+      break;
+    }
+  }
+  if (cutShort && seen.size >= count) cutShort = void 0;
+  const why = cappedRing(capped, limits) ?? cutShort ?? (untagged > 0 ? `Tab crossed ${untagged} element(s) the tagging pass never matched \u2014 a control focusable in the browser but not by this selector (a skip link revealed on focus, a widget moving focus into an untagged node). They were never compared, so this page is not cleared` : void 0);
+  return { visible: hits, obscured, complete: !why, ...why ? { why } : {} };
+}
+var NATIVE_SEGMENT_STOPS = {
+  date: 5,
+  time: 5,
+  "datetime-local": 8,
+  month: 4,
+  week: 4
+};
+function tabPressBudget(count, limits) {
+  return Math.min(count * 2 + 20, limits.maxFocusables * 2 + 20);
+}
+var FOCUS_WHERE_PROBE = `(() => { ${PRELUDE}
+  const e = document.activeElement;
+  if (!e || e === document.body || e === document.documentElement) return null;
+  const key = e.getAttribute && e.getAttribute('data-u11y-f');
+  const stops = ${JSON.stringify(NATIVE_SEGMENT_STOPS)};
+  const type = e.tagName === 'INPUT' ? (e.getAttribute('type') || 'text').toLowerCase() : '';
+  return { key: key || __sel(e), tagged: !!key, selector: __sel(e), html: __html(e), segments: stops[type] || 1 };
+})()`;
+async function probeKeyboardTrapRing(page, limits = PROBE_DEFAULTS, deadline) {
+  const { count, capped } = readSetup(await page.evaluate(focusSetupExpr("", limits.maxFocusables)), limits);
+  if (!count || count < 2) return { hits: [], complete: true };
+  const hits = [];
+  const seen = /* @__PURE__ */ new Set();
+  const confirmPresses = 2;
+  const limit = tabPressBudget(count, limits);
+  let prev = null;
+  let cutShort = `the walk spent its ${limit} Tab presses without the ring ever closing, so the tail of it was never reached`;
+  for (let i2 = 0; i2 < limit; i2++) {
+    if (deadline?.out()) {
+      cutShort = `the probe budget of ${limits.budgetMs}ms ran out after ${seen.size} of the ${count} focusable elements \u2014 the rest of the ring was never walked`;
+      break;
+    }
+    await page.keyboard.press("Tab");
+    const now = await page.evaluate(FOCUS_WHERE_PROBE);
+    if (!now) {
+      cutShort = void 0;
+      break;
+    }
+    if (prev?.tagged && now.tagged && now.key === prev.key) {
+      const budget = Math.max(confirmPresses, (now.segments ?? 1) - 1);
+      let stuck = true;
+      let confirmed = true;
+      for (let k = 0; k < budget && stuck; k++) {
+        if (deadline?.out()) {
+          confirmed = false;
+          break;
+        }
+        await page.keyboard.press("Tab");
+        const again = await page.evaluate(FOCUS_WHERE_PROBE);
+        stuck = again !== null && again.tagged === true && again.key === now.key;
+      }
+      if (!confirmed) {
+        cutShort = `the probe budget of ${limits.budgetMs}ms ran out while confirming whether focus could leave ${now.selector} \u2014 an unconfirmed suspicion is not a non-conformity`;
+        break;
+      }
+      if (stuck) {
+        hits.push({
+          selector: now.selector,
+          html: now.html,
+          detail: `Le focus reste sur cet \xE9l\xE9ment apr\xE8s ${1 + budget} appuis sur Tab, alors que la page compte ${count} \xE9l\xE9ments focalisables \u2014 pi\xE8ge au clavier (2.1.2).`
+        });
+        cutShort = void 0;
+        break;
+      }
+    }
+    if (now.key !== prev?.key) {
+      if (seen.has(now.key)) {
+        cutShort = void 0;
+        break;
+      }
+      seen.add(now.key);
+    }
+    prev = now;
+  }
+  if (cutShort && seen.size >= count) cutShort = void 0;
+  const why = cappedRing(capped, limits) ?? cutShort;
+  return { hits, complete: !why, ...why ? { why } : {} };
+}
+async function probeHoverWalk(page, limits = PROBE_DEFAULTS, deadline) {
+  const setup = await page.evaluate(HOVER_SETUP_PROBE);
+  const triggers = setup;
+  const hits = [];
+  let cutShort;
+  let unreachable = 0;
+  const tried = triggers.slice(0, Math.max(1, limits.maxTriggers));
+  if (tried.length < triggers.length) {
+    cutShort = `only ${tried.length} of the ${triggers.length} hover triggers on this page were opened (probes.maxTriggers) \u2014 the rest were never asked whether Escape dismisses them`;
+  }
+  for (const tr of tried) {
+    if (deadline?.out()) {
+      cutShort = `the probe budget of ${limits.budgetMs}ms ran out with triggers left unopened`;
+      break;
+    }
+    try {
+      await page.hover(`[data-u11y-h="${tr.key}"]`, { timeout: actionTimeout(limits, deadline) });
+    } catch {
+      unreachable++;
+      continue;
+    }
+    await page.waitForTimeout(150);
+    const shown = await page.evaluate(hoverVisibleExpr(tr.target));
+    if (!shown) continue;
+    await page.keyboard.press("Escape");
+    await page.waitForTimeout(100);
+    const dismissed = await page.evaluate(hoverVisibleExpr(tr.target, true));
+    await page.mouse.move(2, 2).catch(() => {
+    });
+    if (!dismissed) {
+      hits.push({
+        selector: tr.selector,
+        html: "",
+        detail: `Le contenu r\xE9v\xE9l\xE9 au survol (aria-describedby #${tr.target}) ne se masque pas avec \xC9chap \u2014 Contenu au survol ou au focus (1.4.13).`
+      });
+    }
+    if (hits.length >= Math.min(limits.maxHits, 8)) {
+      cutShort = "the recording cap filled with triggers left unopened \u2014 enough was found to fail the page, not enough to clear the rest of it";
+      break;
+    }
+  }
+  const capped = setup[0]?.total;
+  const why = cutShort ?? (typeof capped === "number" && capped > triggers.length ? `only ${triggers.length} of the ${capped} hover triggers on this page were tagged \u2014 the rest were never opened` : void 0) ?? (unreachable > 0 ? `${unreachable} hover trigger(s) never became actionable, so their content was never opened or dismissed` : void 0);
+  return { hits, complete: !why, ...why ? { why } : {} };
+}
+var DESTRUCTIVE_NAME_RE = "\\b(supprim|retir|effac|envoy|valid|confirm|pay|achet|command|delete|remove|eras|clear|send|submit|buy|order)";
+function liveRegionExpr(detail, allowClicks) {
+  const d = JSON.stringify(detail);
+  const clickLoop = allowClicks ? `
+  // click button[type=button] only (never a submit/link), skipping destructive names
+  const dangerous = new RegExp(${JSON.stringify(DESTRUCTIVE_NAME_RE)}, 'i');
+  const nameOf = (b) => {
+    let n = (b.getAttribute('aria-label') || '') + ' ' + (b.textContent || '') + ' ' + (b.getAttribute('title') || '');
+    // ALL aria-labelledby ids (attribute trimmed): a destructive verb may sit in ANY
+    // referenced id, and the value may carry stray leading/trailing whitespace.
+    for (const id of (b.getAttribute('aria-labelledby') || '').trim().split(/\\s+/)) {
+      if (!id) continue;
+      const t = document.getElementById(id);
+      if (t) n += ' ' + (t.textContent || '');
+    }
+    // Icon-only buttons: the name lives in img[alt] (an attribute \u2014 invisible to
+    // textContent) or an svg <title> (belt-and-braces; textContent usually includes it).
+    for (const im of Array.from(b.querySelectorAll('img[alt]'))) n += ' ' + (im.getAttribute('alt') || '');
+    for (const ti of Array.from(b.querySelectorAll('svg title'))) n += ' ' + (ti.textContent || '');
+    return n;
+  };
+  for (const b of Array.from(document.querySelectorAll('button[type="button"]'))) {
+    if (count >= 20 || hits.length >= 10) { untried += 1; continue; }
+    if (b.disabled || !__vis(b)) continue;
+    if (dangerous.test(nameOf(b))) { untried += 1; continue; } // defense-in-depth: never click a destructive-named button
+    const before = location.href;
+    try { b.click(); } catch (_) {}
+    await settle();
+    if (location.href !== before) { obs.disconnect(); return { hits: hits, untried: untried, navigated: true }; }
+    drain();
+    count++;
+  }` : `
+  // CLICKS DISABLED, and the buttons are counted rather than ignored. A status message very
+  // often appears after a button press and nothing else, so a pass that never pressed one has
+  // not measured 4.1.3 on this page -- it has measured the fields. Reporting how many it
+  // declined is what lets the caller withhold the credit instead of publishing silence.
+  for (const b of Array.from(document.querySelectorAll('button[type="button"]'))) {
+    if (!b.disabled && __vis(b)) untried += 1;
+  }`;
+  return `(async () => { ${PRELUDE}
+  const isLive = (node) => {
+    let el = node && node.nodeType === 1 ? node : (node ? node.parentElement : null);
+    while (el && el !== document.documentElement) {
+      const live = (el.getAttribute && el.getAttribute('aria-live')) || '';
+      const role = (el.getAttribute && el.getAttribute('role')) || '';
+      if (live === 'polite' || live === 'assertive') return true;
+      if (role === 'status' || role === 'alert' || role === 'log') return true;
+      el = el.parentElement;
+    }
+    return false;
+  };
+  const hits = [];
+  const seen = new Set();
+  const records = [];
+  const obs = new MutationObserver((muts) => { for (const m of muts) records.push(m); });
+  obs.observe(document.body, { subtree: true, childList: true, characterData: true });
+  const settle = () => new Promise((r) => setTimeout(r, 40));
+  const drain = () => {
+    for (const m of records.splice(0)) {
+      const targets = m.type === 'characterData' ? [m.target] : Array.from(m.addedNodes);
+      for (const t of targets) {
+        if (!t || (t.textContent || '').trim().length === 0) continue;
+        if (isLive(t)) continue;
+        const host = t.nodeType === 1 ? t : t.parentElement;
+        if (!host || !__vis(host)) continue;
+        const key = __sel(host);
+        if (seen.has(key)) continue;
+        seen.add(key);
+        hits.push({ selector: key, html: __html(host), detail: ${d} });
+      }
+    }
+  };
+  let count = 0;
+  // How many candidate interactions this pass did NOT perform -- caps, a destructive-sounding
+  // name, clicks turned off. A probe that skipped half a page has not measured it, and the
+  // caller may not read its silence as conformity.
+  let untried = 0;${clickLoop}
+  // toggle checkbox/radio, then restore
+  for (const t of Array.from(document.querySelectorAll('input[type="checkbox"], input[type="radio"]'))) {
+    if (count >= 40 || hits.length >= 10) { untried += 1; continue; }
+    if (t.disabled || !__vis(t)) continue;
+    const before = location.href;
+    const prev = t.checked;
+    // A RADIO IS NOT A CHECKBOX: clicking one UNCHECKS its pair, and restoring only the one we
+    // clicked left the group with nothing selected -- a form the caller's next assertion, or
+    // the user, finds broken. Remember which member of the group was checked and put THAT back.
+    let group = null;
+    if (t.type === 'radio' && t.name) {
+      try {
+        const form = t.form || document;
+        for (const r of Array.from(form.querySelectorAll('input[type="radio"]'))) { if (r.name === t.name && r.checked) { group = r; break; } }
+      } catch (_) {}
+    }
+    try { t.click(); } catch (_) {}
+    await settle();
+    if (location.href !== before) { obs.disconnect(); return { hits: hits, untried: untried, navigated: true }; }
+    drain();
+    try {
+      if (group) { if (!group.checked) { group.checked = true; group.dispatchEvent(new Event('change', { bubbles: true })); } }
+      else if (t.checked !== prev) { t.checked = prev; t.dispatchEvent(new Event('change', { bubbles: true })); }
+    } catch (_) {}
+    count++;
+  }
+  // fill text inputs, then restore
+  for (const inp of Array.from(document.querySelectorAll('input[type="text"], input[type="email"], input[type="search"], textarea'))) {
+    if (count >= 60 || hits.length >= 10) { untried += 1; continue; }
+    if (inp.disabled || inp.readOnly || !__vis(inp)) continue;
+    const before = location.href;
+    const prev = inp.value == null ? '' : String(inp.value);
+    try { inp.value = 'test 123'; inp.dispatchEvent(new Event('input', { bubbles: true })); inp.dispatchEvent(new Event('change', { bubbles: true })); } catch (_) {}
+    await settle();
+    if (location.href !== before) { obs.disconnect(); return { hits: hits, untried: untried, navigated: true }; }
+    drain();
+    try { inp.value = prev; inp.dispatchEvent(new Event('input', { bubbles: true })); } catch (_) {}
+    count++;
+  }
+  obs.disconnect();
+  return { hits: hits.slice(0, 10), untried: untried, navigated: false };
+})()`;
+}
+var LIVE_REGION_DETAIL = {
+  fr: "Mise \xE0 jour de contenu d\xE9clench\xE9e par une interaction hors d'une r\xE9gion live (aria-live / role=status|alert|log) \u2014 probablement non restitu\xE9e aux technologies d'assistance.",
+  en: "Content update triggered by an interaction outside any live region (aria-live / role=status|alert|log) \u2014 likely not announced to assistive technology."
+};
+async function probeLiveRegion(page, lang, allowClicks) {
+  const detail = LIVE_REGION_DETAIL[lang] ?? LIVE_REGION_DETAIL.en;
+  const r = await page.evaluate(liveRegionExpr(detail, allowClicks));
+  const hits = r?.hits ?? [];
+  if (r?.navigated) {
+    return {
+      hits,
+      complete: false,
+      why: "an interaction navigated away mid-pass \u2014 everything after it happened on another page, and this one was not finished"
+    };
+  }
+  if (r?.untried > 0) {
+    return {
+      hits,
+      complete: false,
+      why: `${r.untried} interactive element(s) were never exercised (clicks disabled, a destructive-sounding name, or a cap) \u2014 a status message that only appears after one of them would not have been seen`
+    };
+  }
+  return { hits, complete: true };
+}
 
 // src/collector.ts
 var COLLECTED_CSS = [
@@ -37351,12 +38546,12 @@ function validateSnapshotMeta(raw) {
   };
 }
 function snapshotDir(root, id) {
-  return join25(root, PAGES_DIR, id);
+  return join24(root, PAGES_DIR, id);
 }
 function writeSnapshot(root, snap) {
   const dir = snapshotDir(root, snap.meta.id);
   mkdirSync4(dir, { recursive: true });
-  writeFileSync5(join25(dir, "meta.json"), `${JSON.stringify(snap.meta, null, 2)}
+  writeFileSync5(join24(dir, "meta.json"), `${JSON.stringify(snap.meta, null, 2)}
 `);
   const comment = formatCaptureComment({
     v: 1,
@@ -37365,24 +38560,24 @@ function writeSnapshot(root, snap) {
     ...snap.meta.sources?.[0] ? { sourceFile: snap.meta.sources[0] } : {},
     name: snap.meta.name
   });
-  writeFileSync5(join25(dir, "dom.html"), `${comment}
+  writeFileSync5(join24(dir, "dom.html"), `${comment}
 ${snap.dom}
 `);
-  if (snap.styles) writeFileSync5(join25(dir, "styles.json"), `${JSON.stringify(snap.styles)}
+  if (snap.styles) writeFileSync5(join24(dir, "styles.json"), `${JSON.stringify(snap.styles)}
 `);
-  if (snap.boxes) writeFileSync5(join25(dir, "boxes.json"), `${JSON.stringify(snap.boxes)}
+  if (snap.boxes) writeFileSync5(join24(dir, "boxes.json"), `${JSON.stringify(snap.boxes)}
 `);
-  if (snap.axtree) writeFileSync5(join25(dir, "axtree.json"), `${JSON.stringify(snap.axtree)}
+  if (snap.axtree) writeFileSync5(join24(dir, "axtree.json"), `${JSON.stringify(snap.axtree)}
 `);
-  if (snap.css) writeFileSync5(join25(dir, "css.json"), `${JSON.stringify(snap.css)}
+  if (snap.css) writeFileSync5(join24(dir, "css.json"), `${JSON.stringify(snap.css)}
 `);
-  if (snap.probes) writeFileSync5(join25(dir, "probes.json"), `${JSON.stringify(snap.probes)}
+  if (snap.probes) writeFileSync5(join24(dir, "probes.json"), `${JSON.stringify(snap.probes)}
 `);
-  if (snap.axe) writeFileSync5(join25(dir, "axe.json"), `${JSON.stringify(snap.axe)}
+  if (snap.axe) writeFileSync5(join24(dir, "axe.json"), `${JSON.stringify(snap.axe)}
 `);
   if (snap.screenshotBase64) {
     try {
-      writeFileSync5(join25(dir, "screen.png"), Buffer.from(snap.screenshotBase64, "base64"));
+      writeFileSync5(join24(dir, "screen.png"), Buffer.from(snap.screenshotBase64, "base64"));
     } catch {
     }
   }
@@ -37396,23 +38591,23 @@ function readJson2(file) {
   }
 }
 function readSnapshot(dir) {
-  const rawMeta = readJson2(join25(dir, "meta.json"));
+  const rawMeta = readJson2(join24(dir, "meta.json"));
   if (rawMeta === void 0) return null;
   const v = validateSnapshotMeta(rawMeta);
   if (!v.ok || !v.meta) return null;
   let dom;
   try {
-    dom = readFileSync14(join25(dir, "dom.html"), "utf8");
+    dom = readFileSync14(join24(dir, "dom.html"), "utf8");
   } catch {
     return null;
   }
-  const styles = readJson2(join25(dir, "styles.json"));
-  const boxes = readJson2(join25(dir, "boxes.json"));
-  const axtree = readJson2(join25(dir, "axtree.json"));
-  const css = readJson2(join25(dir, "css.json"));
-  const probes = readJson2(join25(dir, "probes.json"));
-  const axe = readJson2(join25(dir, "axe.json"));
-  const shot = join25(dir, "screen.png");
+  const styles = readJson2(join24(dir, "styles.json"));
+  const boxes = readJson2(join24(dir, "boxes.json"));
+  const axtree = readJson2(join24(dir, "axtree.json"));
+  const css = readJson2(join24(dir, "css.json"));
+  const probes = readJson2(join24(dir, "probes.json"));
+  const axe = readJson2(join24(dir, "axe.json"));
+  const shot = join24(dir, "screen.png");
   return {
     meta: v.meta,
     dom,
@@ -37422,11 +38617,11 @@ function readSnapshot(dir) {
     ...css ? { css } : {},
     ...probes ? { probes } : {},
     ...axe ? { axe } : {},
-    ...existsSync12(shot) ? { screenshot: "screen.png" } : {}
+    ...existsSync13(shot) ? { screenshot: "screen.png" } : {}
   };
 }
 function readSnapshots(root) {
-  const base = join25(root, PAGES_DIR);
+  const base = join24(root, PAGES_DIR);
   let dirs;
   try {
     dirs = readdirSync4(base, { withFileTypes: true }).filter((d) => d.isDirectory()).map((d) => d.name);
@@ -37435,7 +38630,7 @@ function readSnapshots(root) {
   }
   const out2 = [];
   for (const d of dirs.sort()) {
-    const s = readSnapshot(join25(base, d));
+    const s = readSnapshot(join24(base, d));
     if (s) out2.push(s);
   }
   return out2;
@@ -37476,15 +38671,15 @@ function align(doc, entries) {
 }
 function attachSignals(doc) {
   if (!isSnapshotDom(doc.file)) return;
-  const dir = dirname5(doc.file);
-  const styles = readJson2(join25(dir, "styles.json"));
-  const boxes = readJson2(join25(dir, "boxes.json"));
-  const axtree = readJson2(join25(dir, "axtree.json"));
-  const css = readJson2(join25(dir, "css.json"));
-  const meta2 = readJson2(join25(dir, "meta.json"));
-  const probes = readJson2(join25(dir, "probes.json"));
-  const axe = readJson2(join25(dir, "axe.json"));
-  const shot = join25(dir, "screen.png");
+  const dir = dirname6(doc.file);
+  const styles = readJson2(join24(dir, "styles.json"));
+  const boxes = readJson2(join24(dir, "boxes.json"));
+  const axtree = readJson2(join24(dir, "axtree.json"));
+  const css = readJson2(join24(dir, "css.json"));
+  const meta2 = readJson2(join24(dir, "meta.json"));
+  const probes = readJson2(join24(dir, "probes.json"));
+  const axe = readJson2(join24(dir, "axe.json"));
+  const shot = join24(dir, "screen.png");
   const alignedStyleMap = styles ? align(doc, styles.entries) : null;
   const alignedBoxMap = boxes ? align(doc, boxes.entries) : null;
   const truncated = Boolean(styles?.truncated || boxes?.truncated);
@@ -37494,7 +38689,7 @@ function attachSignals(doc) {
     ...axtree ? { axtree } : {},
     // Not element-indexed, so it needs no alignment — it is a property of the stylesheet.
     ...css ? { css } : {},
-    ...existsSync12(shot) ? { screenshot: shot } : {},
+    ...existsSync13(shot) ? { screenshot: shot } : {},
     ...meta2?.doctype !== void 0 ? { doctype: meta2.doctype } : {},
     ...probes ? { probes } : {},
     ...axe ? { axe } : {},
@@ -43138,8 +44333,7 @@ var rgaa_default = {
             effect: "decisive-nc",
             rationale: "The observed failure exhausts the cited RGAA test."
           }
-        ],
-        completeBySilence: true
+        ]
       }
     },
     {
@@ -50827,7 +52021,7 @@ function crossToFinding(doc, ruleId, def, cf) {
 import { resolve as absPath } from "path";
 
 // src/graph/resolve.ts
-import { dirname as dirname6, join as join26 } from "path";
+import { dirname as dirname7, join as join25 } from "path";
 var EXT_ORDER = [".tsx", ".jsx", ".ts", ".js"];
 function candidates(base) {
   const out2 = [base];
@@ -50837,7 +52031,7 @@ function candidates(base) {
     for (const e of EXT_ORDER) out2.push(stripped + e);
   }
   for (const e of EXT_ORDER) out2.push(base + e);
-  for (const e of EXT_ORDER) out2.push(join26(base, `index${e}`));
+  for (const e of EXT_ORDER) out2.push(join25(base, `index${e}`));
   return out2;
 }
 function matchKnown(base, known) {
@@ -50849,7 +52043,7 @@ function matchKnown(base, known) {
 }
 function resolveSpecifier(fromFile, spec, known, aliases) {
   if (spec.startsWith(".")) {
-    return matchKnown(join26(dirname6(toPosix(fromFile)), spec), known);
+    return matchKnown(join25(dirname7(toPosix(fromFile)), spec), known);
   }
   if (aliases?.length) {
     for (const rule of aliases) {
@@ -50857,7 +52051,7 @@ function resolveSpecifier(fromFile, spec, known, aliases) {
         if (!spec.startsWith(rule.prefix)) continue;
         const rest = spec.slice(rule.prefix.length);
         for (const base of rule.bases) {
-          const hit = matchKnown(join26(base, rest), known);
+          const hit = matchKnown(join25(base, rest), known);
           if (hit) return hit;
         }
       } else if (spec === rule.prefix) {
@@ -50872,8 +52066,8 @@ function resolveSpecifier(fromFile, spec, known, aliases) {
 }
 
 // src/graph/tsconfig.ts
-import { existsSync as existsSync13, readFileSync as readFileSync16 } from "fs";
-import { dirname as dirname7, join as join27, resolve as resolve5, relative } from "path";
+import { existsSync as existsSync14, readFileSync as readFileSync16 } from "fs";
+import { dirname as dirname8, join as join26, resolve as resolve6, relative } from "path";
 function readJsonish(path) {
   try {
     const raw = readFileSync16(path, "utf8").replace(/\/\*[\s\S]*?\*\//g, "").replace(/(^|[^:])\/\/[^\n]*/g, "$1").replace(/,(\s*[}\]])/g, "$1");
@@ -50883,11 +52077,11 @@ function readJsonish(path) {
   }
 }
 function findTsconfig(startDir) {
-  let dir = resolve5(startDir);
+  let dir = resolve6(startDir);
   for (let i2 = 0; i2 < 30; i2++) {
-    const p = join27(dir, "tsconfig.json");
-    if (existsSync13(p)) return p;
-    const parent = dirname7(dir);
+    const p = join26(dir, "tsconfig.json");
+    if (existsSync14(p)) return p;
+    const parent = dirname8(dir);
     if (parent === dir) break;
     dir = parent;
   }
@@ -50898,20 +52092,20 @@ function tsconfigChain(startDir) {
   if (!first) return [];
   const out2 = [];
   const seen = /* @__PURE__ */ new Set();
-  const queue = [resolve5(first)];
+  const queue = [resolve6(first)];
   while (queue.length) {
     const p = queue.shift();
     if (seen.has(p)) continue;
     seen.add(p);
-    if (!existsSync13(p)) continue;
+    if (!existsSync14(p)) continue;
     out2.push(p);
     const cfg = readJsonish(p);
     const exts = Array.isArray(cfg?.extends) ? cfg.extends : typeof cfg?.extends === "string" ? [cfg.extends] : [];
-    const dir = dirname7(p);
+    const dir = dirname8(p);
     for (const e of exts) {
       if (typeof e !== "string") continue;
-      const cands = e.endsWith(".json") ? [resolve5(dir, e)] : [resolve5(dir, `${e}.json`), resolve5(dir, e, "tsconfig.json")];
-      const hit = cands.find((c2) => existsSync13(c2));
+      const cands = e.endsWith(".json") ? [resolve6(dir, e)] : [resolve6(dir, `${e}.json`), resolve6(dir, e, "tsconfig.json")];
+      const hit = cands.find((c2) => existsSync14(c2));
       if (hit) queue.push(hit);
     }
   }
@@ -50920,7 +52114,7 @@ function tsconfigChain(startDir) {
 function readTsAliases(startDir, cwd = process.cwd()) {
   const tsconfigPath = findTsconfig(startDir);
   if (!tsconfigPath) return [];
-  const root = dirname7(tsconfigPath);
+  const root = dirname8(tsconfigPath);
   const cfg = readJsonish(tsconfigPath);
   if (!cfg) return [];
   let co = cfg.compilerOptions ?? {};
@@ -50928,11 +52122,11 @@ function readTsAliases(startDir, cwd = process.cwd()) {
   for (const e of exts) {
     if (typeof e !== "string") continue;
     const ext2 = e.endsWith(".json") ? e : `${e}.json`;
-    const base = readJsonish(resolve5(root, ext2));
+    const base = readJsonish(resolve6(root, ext2));
     if (base?.compilerOptions) co = { ...base.compilerOptions, ...co };
   }
   const baseUrl = typeof co.baseUrl === "string" ? co.baseUrl : ".";
-  const baseAbs = resolve5(root, baseUrl);
+  const baseAbs = resolve6(root, baseUrl);
   const paths = co.paths ?? {};
   const out2 = [];
   for (const [pattern, targetsRaw] of Object.entries(paths)) {
@@ -50944,7 +52138,7 @@ function readTsAliases(startDir, cwd = process.cwd()) {
     const bases = targets.map((t3) => {
       const star = t3.indexOf("*");
       const tp = wildcard && star >= 0 ? t3.slice(0, star) : t3;
-      return toPosix(relative(cwd, join27(baseAbs, tp))) || ".";
+      return toPosix(relative(cwd, join26(baseAbs, tp))) || ".";
     });
     out2.push({ prefix: prefix2, wildcard, bases });
   }
@@ -51378,7 +52572,7 @@ function runPackRules(doc, pack) {
 }
 
 // src/graph/build.ts
-import { dirname as dirname8 } from "path";
+import { dirname as dirname9 } from "path";
 
 // src/graph/imports.ts
 var NAME_PROPS2 = /* @__PURE__ */ new Set(["aria-label", "aria-labelledby", "title", "label", "alt"]);
@@ -51676,14 +52870,14 @@ function buildGraphAndDocs(files, opts = {}) {
     }
     nodes.push(extractGraphNode(ast, doc, file, { sfc }));
   }
-  const startDir = files[0] ? dirname8(files[0]) : process.cwd();
+  const startDir = files[0] ? dirname9(files[0]) : process.cwd();
   return { graph: buildGraph2(nodes, readTsAliases(startDir), startDir), docs };
 }
 
 // src/discover.ts
-import { existsSync as existsSync14 } from "fs";
+import { existsSync as existsSync15 } from "fs";
 import { execFileSync } from "child_process";
-import { join as join28, relative as relative2 } from "path";
+import { join as join27, relative as relative2 } from "path";
 function git(args2, maxBuffer) {
   try {
     return execFileSync("git", args2, { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"], ...maxBuffer ? { maxBuffer } : {} });
@@ -51708,7 +52902,7 @@ function gitChangedFiles(ref) {
   add2(git(["diff", "--name-only", "--diff-filter=d", "--cached", base]));
   add2(git(["ls-files", "--others", "--exclude-standard"]));
   const cwd = process.cwd();
-  return [...out2].map((p) => relative2(cwd, join28(repoRoot2, p)));
+  return [...out2].map((p) => relative2(cwd, join27(repoRoot2, p)));
 }
 function gitStagedFiles() {
   const top = git(["rev-parse", "--show-toplevel"]);
@@ -51717,7 +52911,7 @@ function gitStagedFiles() {
   if (out2 === null) return null;
   const repoRoot2 = top.trim();
   const cwd = process.cwd();
-  return out2.split("\n").map((s) => s.trim()).filter(Boolean).map((p) => relative2(cwd, join28(repoRoot2, p)));
+  return out2.split("\n").map((s) => s.trim()).filter(Boolean).map((p) => relative2(cwd, join27(repoRoot2, p)));
 }
 function stagedContent(file) {
   return git(["show", `:./${toPosix(file)}`], 32 * 1024 * 1024);
@@ -51802,7 +52996,7 @@ function discover(inputs, opts = {}) {
     } else {
       const filter = makeFilter(opts);
       const inScope = inScopeMatcher(inputs);
-      files = changed.filter((f) => existsSync14(f) && filter(f) && (!inScope || inScope(f)));
+      files = changed.filter((f) => existsSync15(f) && filter(f) && (!inScope || inScope(f)));
     }
   } else {
     files = expandInputs(inputs, opts);
@@ -52082,7 +53276,9 @@ function foldDoc(acc, doc, graph) {
     }
     const probes = doc.signals?.probes;
     if (probes) {
+      const trusted = (probes.v ?? 1) >= PROBES_VERSION;
       for (const sc of probes.probed ?? []) {
+        if (!trusted && WALK_DEPENDENT_SCS.includes(sc)) continue;
         const seen = acc.probedScs.get(sc) ?? /* @__PURE__ */ new Set();
         seen.add(pageId);
         acc.probedScs.set(sc, seen);
@@ -52190,9 +53386,24 @@ function probeFindings(probes, file, page) {
   };
   const buckets = [
     ["focusVisible", "focus-visible"],
+    // The two the fold used to skip while `probed` credited their criteria anyway — so a
+    // browser that had FOUND the failure published conformity on it. Both are produced by the
+    // same walk of the tab ring as `focusVisible`, by every producer, and were sitting in
+    // `probes.json` unread.
+    ["focusObscured", "focus-obscured"],
+    ["keyboardTrap", "keyboard-trap"],
     ["hover", "hover"],
     ["reflowZoom", "reflow-zoom"],
-    ["textSpacing", "text-spacing"]
+    ["textSpacing", "text-spacing"],
+    // The STATEFUL families — measured after the page was typed into, and `probed` credits
+    // their criteria all the same. Which document a post-interaction observation is attached
+    // to is an attribution question; dropping it is a correctness one, and only one of the two
+    // can publish « conforme » over a failure a browser reproduced. Anchored at the page like
+    // every other probe finding, which is where the attribution that matters already lives.
+    ["liveRegion", "live-region"],
+    ["inputOverflowReflow", "input-overflow-reflow"],
+    ["inputOverflowZoom", "input-overflow-zoom"],
+    ["inputOverflowSpacing", "input-overflow-spacing"]
   ];
   for (const [key2, engine] of buckets) {
     const hits = probes[key2];
@@ -52452,9 +53663,9 @@ function runAudit(opts) {
 // src/hook.ts
 import { execFileSync as execFileSync2 } from "child_process";
 import { createHash as createHash5 } from "crypto";
-import { existsSync as existsSync17, mkdirSync as mkdirSync5, writeFileSync as writeFileSync6 } from "fs";
+import { existsSync as existsSync18, mkdirSync as mkdirSync5, writeFileSync as writeFileSync6 } from "fs";
 import { tmpdir } from "os";
-import { join as join30 } from "path";
+import { join as join29 } from "path";
 
 // src/baseline.ts
 var RANK = { bloquant: 0, majeur: 1, mineur: 2 };
@@ -52498,11 +53709,11 @@ function baselineSummary(diff, lang = "fr") {
 }
 
 // src/config.ts
-import { existsSync as existsSync16, statSync as statSync7 } from "fs";
-import { join as join29, isAbsolute as isAbsolute2 } from "path";
+import { existsSync as existsSync17, statSync as statSync11 } from "fs";
+import { join as join28, isAbsolute as isAbsolute2 } from "path";
 
 // src/pack.ts
-import { existsSync as existsSync15 } from "fs";
+import { existsSync as existsSync16 } from "fs";
 
 // src/standards/pack.ts
 function localize(pack, s, lang) {
@@ -52684,7 +53895,7 @@ function checkGuidance(ds, pack) {
 function runPackCheck(packPath, guidancePath) {
   const errors = [];
   const warnings = [];
-  if (!existsSync15(packPath)) return { ok: false, errors: [`pack file not found: ${packPath}`], warnings };
+  if (!existsSync16(packPath)) return { ok: false, errors: [`pack file not found: ${packPath}`], warnings };
   let raw;
   try {
     raw = JSON.parse(readText(packPath));
@@ -52708,7 +53919,7 @@ function runPackCheck(packPath, guidancePath) {
     }
   }
   if (v.ok && v.pack && guidancePath) {
-    if (!existsSync15(guidancePath)) {
+    if (!existsSync16(guidancePath)) {
       errors.push(`guidance file not found: ${guidancePath}`);
     } else {
       let gRaw;
@@ -56411,7 +57622,7 @@ var wcag_default2 = {
         fr: "Identification coh\xE9rente"
       },
       summary: {
-        en: "Identify repeating functions consistently. Actions are more predictable across pages. Consistently identified actions are especially important to people with disabilities."
+        en: "Consistently identify components that have the same functionality throughout a set of web pages. Users can recognize the same functionality when it appears on different web pages. Consistent identification helps users recognize familiar functionality when it appears on different web pages, making websites easier to learn, navigate, and use."
       },
       examples: [],
       reference: "https://www.w3.org/WAI/WCAG22/Understanding/consistent-identification.html"
@@ -56630,8 +57841,8 @@ function getDataset(packKey) {
 // src/config.ts
 var CONFIG_FILE = ".ultra11yrc.json";
 function loadConfig(cwd) {
-  const p = join29(cwd, CONFIG_FILE);
-  if (!existsSync16(p)) return null;
+  const p = join28(cwd, CONFIG_FILE);
+  if (!existsSync17(p)) return null;
   let parsed;
   try {
     parsed = JSON.parse(readText(p));
@@ -56644,16 +57855,16 @@ function loadConfig(cwd) {
   return parsed;
 }
 function packPaths(path) {
-  if (!existsSync16(path)) return null;
-  if (statSync7(path).isDirectory()) {
-    const pack = join29(path, "pack.json");
-    if (!existsSync16(pack)) return null;
-    const glossary = join29(path, "glossary.json");
-    const guidance = join29(path, "guidance.json");
+  if (!existsSync17(path)) return null;
+  if (statSync11(path).isDirectory()) {
+    const pack = join28(path, "pack.json");
+    if (!existsSync17(pack)) return null;
+    const glossary = join28(path, "glossary.json");
+    const guidance = join28(path, "guidance.json");
     return {
       pack,
-      glossary: existsSync16(glossary) ? glossary : void 0,
-      guidance: existsSync16(guidance) ? guidance : void 0
+      glossary: existsSync17(glossary) ? glossary : void 0,
+      guidance: existsSync17(guidance) ? guidance : void 0
     };
   }
   return { pack: path };
@@ -56673,7 +57884,7 @@ function loadStandardsInto(cwd, packFlags, onWarn, override, opts) {
   }
   result.defaultStandard = config?.standard;
   for (const raw of [...config?.packs ?? [], ...packFlags]) {
-    const paths = packPaths(isAbsolute2(raw) ? raw : join29(cwd, raw));
+    const paths = packPaths(isAbsolute2(raw) ? raw : join28(cwd, raw));
     if (!paths) {
       result.errors.push(`--pack ${raw}: not found (expected a pack JSON file or a directory with pack.json)`);
       continue;
@@ -56703,7 +57914,7 @@ ${formatIssues(v.issues).join("\n")}`);
     result.loadedPacks.push(v.pack.key);
     if (paths.guidance) loadGuidanceFile(paths.guidance, result, onWarn);
   }
-  for (const g of config?.guidance ?? []) loadGuidanceFile(isAbsolute2(g) ? g : join29(cwd, g), result, onWarn);
+  for (const g of config?.guidance ?? []) loadGuidanceFile(isAbsolute2(g) ? g : join28(cwd, g), result, onWarn);
   for (const sm of config?.secondaryMappings ?? []) {
     if (!sm || typeof sm.standard !== "string" || typeof sm.ruleId !== "string" || typeof sm.criterion !== "string") {
       result.errors.push("secondaryMappings: each entry must be { standard, ruleId, criterion, note? }");
@@ -56718,7 +57929,7 @@ ${formatIssues(v.issues).join("\n")}`);
   return result;
 }
 function loadGuidanceFile(path, result, onWarn) {
-  if (!existsSync16(path)) {
+  if (!existsSync17(path)) {
     onWarn(`ultra11y: guidance ${path} not found \u2014 skipping.`);
     return;
   }
@@ -56828,10 +58039,10 @@ function loopKey(sessionId, intent, findings) {
 }
 function firstSighting(key2) {
   try {
-    const dir = join30(tmpdir(), "ultra11y-hook");
+    const dir = join29(tmpdir(), "ultra11y-hook");
     mkdirSync5(dir, { recursive: true });
-    const marker = join30(dir, key2);
-    if (existsSync17(marker)) return false;
+    const marker = join29(dir, key2);
+    if (existsSync18(marker)) return false;
     writeFileSync6(marker, "");
     return true;
   } catch {
@@ -56914,12 +58125,12 @@ function decide(payload, deps = {}) {
 }
 
 // src/report.ts
-import { copyFileSync, existsSync as existsSync18, mkdirSync as mkdirSync7, writeFileSync as writeFileSync8 } from "fs";
-import { join as join32, relative as relative3 } from "path";
+import { copyFileSync, existsSync as existsSync19, mkdirSync as mkdirSync7, writeFileSync as writeFileSync8 } from "fs";
+import { join as join31, relative as relative3 } from "path";
 
 // src/prd.ts
 import { mkdirSync as mkdirSync6, writeFileSync as writeFileSync7 } from "fs";
-import { join as join31 } from "path";
+import { join as join30 } from "path";
 
 // src/standards/derive.ts
 function isProvisionalJudgmentInapplicable(result, criterion) {
@@ -56992,7 +58203,7 @@ function judgmentGuard(r, pc) {
   return { ...r, status: "manual", judgment: true };
 }
 function measuredRescue(r, pc, cov, ran, pageId) {
-  if (r.status !== "manual" || pc.judgment || r.outOfScope || pc.automation?.completeBySilence !== true) return r;
+  if (r.status !== "manual" || pc.judgment || r.outOfScope || pc.automation && pc.automation.completeBySilence !== true) return r;
   if (!criterionMeasuredOn(pc.appliesTo?.ruleIds, pc.wcag, cov, ran)) return r;
   const { scopedOut: _scopedOut, judgment: _judgment, ...rest } = r;
   return { ...rest, status: "C", decidedBy: "scan", justification: measuredReason(pc, pageId) };
@@ -57999,7 +59210,7 @@ function renderPrdDoc(r, lang = "en", standard = "wcag") {
 function writePrd(r, opts) {
   mkdirSync6(opts.out, { recursive: true });
   if (opts.format === "doc") {
-    const p2 = join31(opts.out, `prd-doc-${r.date}.md`);
+    const p2 = join30(opts.out, `prd-doc-${r.date}.md`);
     writeFileSync7(p2, renderPrdDoc(r, opts.lang, opts.standard));
     return [p2];
   }
@@ -58009,13 +59220,13 @@ function writePrd(r, opts) {
     const files = remediation ? renderPerCriterion(r, opts.lang, opts.standard) : renderAuditorPerCriterion(r, opts.lang, opts.standard, { technical });
     const paths = [];
     for (const f of files) {
-      const p2 = join31(opts.out, f.name);
+      const p2 = join30(opts.out, f.name);
       writeFileSync7(p2, f.content);
       paths.push(p2);
     }
     return paths;
   }
-  const p = join31(opts.out, `prd-${r.date}.md`);
+  const p = join30(opts.out, `prd-${r.date}.md`);
   writeFileSync7(p, remediation ? renderBacklog(r, opts.lang, opts.standard) : renderAuditorBacklog(r, opts.lang, opts.standard, { technical }));
   return [p];
 }
@@ -58605,11 +59816,29 @@ var L5 = {
     wcagStd: "WCAG 2.2 niveau AA",
     date: "Date",
     tool: "Outil",
+    // TWO NOTES, BECAUSE THERE ARE TWO KINDS OF RUN — and the header used to publish the
+    // first one over both. A sweep that captured thirty-seven real pages, measured them in a
+    // browser and had an adjudicator rule on the result introduced itself as a preliminary
+    // static pass, which is the one thing it was not.
     toolNote: "moteur statique \u2014 audit pr\xE9liminaire, crit\xE8res de jugement \xE0 adjuger par l'agent IA (statique, gat\xE9), rendu via `scan`",
+    toolNoteRendered: (pages, adjudicated) => `moteur statique + tier rendu \u2014 ${pages} page(s) captur\xE9e(s) audit\xE9e(s) sur leur DOM r\xE9el${adjudicated > 0 ? `, ${adjudicated} crit\xE8re(s) de jugement adjug\xE9(s) par l'agent IA (gat\xE9)` : ", aucun crit\xE8re de jugement adjug\xE9"}`,
     scope: "P\xE9rim\xE8tre",
     files: "fichier(s)",
     rate: "Taux de r\xE9ussite automatique (v\xE9rifications statiques)",
     rateNote: "sous-ensemble d\xE9cidable par la machine : C \xF7 (C + NC)",
+    // THE HEADLINE OF A COUNTRY-STANDARD DELIVERABLE. Worded as the standard words it, with
+    // both operands in the open — a reader who cannot recompute the number cannot defend it.
+    conformanceRate: (std) => `Taux de conformit\xE9 ${std}`,
+    conformanceProvisional: "provisoire",
+    conformanceNone: (na) => `non calculable \u2014 aucun crit\xE8re applicable dans ce p\xE9rim\xE8tre (${na} crit\xE8re(s) conforme(s) faute de sujet, aucun autre d\xE9cid\xE9 ni ouvert). Un d\xE9nominateur vide n'est pas un taux de 100 %.`,
+    conformanceFormula: (v, a) => `crit\xE8res valid\xE9s \xF7 crit\xE8res applicables (${v} \xF7 ${a})`,
+    conformanceNa: (na) => `${na} crit\xE8re(s) non applicable(s) exclu(s) du d\xE9nominateur`,
+    conformanceOpen: (open) => `${open} crit\xE8re(s) encore \xE0 \xE9valuer, compt\xE9s au d\xE9nominateur et pas au num\xE9rateur \u2014 le taux publi\xE9 est donc un plancher`,
+    decidedLine: "D\xE9cid\xE9s",
+    decidedNote: (c2, nc, na, open) => `${c2} conforme(s), ${nc} non conforme(s), ${na} conforme(s) faute de sujet, ${open} \xE0 \xE9valuer`,
+    provenance: "Provenance des d\xE9cisions",
+    provenanceNote: (engine, scan2, agent) => `${engine} moteur \xB7 ${scan2} navigateur \xB7 ${agent} adjudication`,
+    autoRateNote: (c2, d) => `crit\xE8res valid\xE9s par le moteur seul \xF7 crit\xE8res d\xE9cid\xE9s sans l'agent (${c2} \xF7 ${d})`,
     warn: "Ce rapport couvre le sous-ensemble de crit\xE8res v\xE9rifiables automatiquement. Les crit\xE8res \xAB \xE0 \xE9valuer \xBB (rendu / jugement) sont adjug\xE9s par l'agent IA (`verify --manual`, de fa\xE7on gat\xE9e) ; le rendu passe par `scan` (voir la derni\xE8re section).",
     derived: (std) => `Rapport ${std}. Chaque crit\xE8re est jug\xE9 sur ses propres tests ; la v\xE9rification d'int\xE9grit\xE9 (\`check\`/\`verify\`) op\xE8re sur le m\xEAme p\xE9rim\xE8tre.`,
     synthTitle: (by) => `1. Synth\xE8se par ${by}`,
@@ -58652,7 +59881,12 @@ var L5 = {
     duplicate: "doublon(s) identique(s) ignor\xE9(s)",
     truncated: (l, t3, s) => `P\xE9rim\xE8tre tronqu\xE9 : ${l}/${t3} fichiers audit\xE9s (priorit\xE9 d'abord), ${s} ignor\xE9(s). \xC9largir avec --max-files.`,
     rendered: (n, libs) => `Verdict source pr\xE9liminaire : ${n} fichier(s) rendent des composants de biblioth\xE8que (${libs}) dont le HTML produit n'est pas visible en analyse statique. Auditez la sortie de build (\`render\` / \`audit <dist>\`) ou \`scan\` avant de conclure.`,
+    // THE FACT SURVIVES, THE INSTRUCTION DOES NOT. Those source files really do render opaque
+    // components — but « auditez la sortie de build avant de conclure » is spent advice in a
+    // document whose scope line says the produced HTML of N pages was read.
+    renderedAudited: (n, libs, pages) => `${n} fichier(s) rendent des composants de biblioth\xE8que (${libs}) invisibles en analyse statique. ${pages} page(s) ont \xE9t\xE9 captur\xE9es et audit\xE9es sur leur DOM r\xE9el ; ce que ces composants produisent AILLEURS, sur une page non captur\xE9e, reste un angle mort.`,
     sourceTemplate: (n, exts) => `Verdict source pr\xE9liminaire : ${n} composant(s) ${exts} audit\xE9(s) en SOURCE (template). Les slots, snippets et liaisons dynamiques (:attr, {@render}) sont invisibles en analyse statique \u2014 auditez le rendu (\`render\` / \`scan\`) avant de conclure.`,
+    sourceTemplateAudited: (n, exts, pages) => `${n} composant(s) ${exts} audit\xE9(s) en SOURCE (template) \u2014 slots et liaisons dynamiques invisibles en analyse statique. ${pages} page(s) ont \xE9t\xE9 captur\xE9es et audit\xE9es sur leur DOM r\xE9el ; ce qu'ils rendent sur une page non captur\xE9e reste un angle mort.`,
     captures: (n) => `${n} fichier(s) de capture rendus audit\xE9s \xE0 pleine fid\xE9lit\xE9 (DOM r\xE9el) \u2014 le vrai HTML produit, pas l'appel de composant.`,
     blindSpots: (n) => `${n} composant(s) sans capture rendue (angles morts) \u2014 audit\xE9s sur source opaque uniquement ; auditez leur DOM rendu (\`render --setup\`).`,
     // Task 5 — partial-audit advisory (owner decision: scan stays opt-in but strongly advised).
@@ -58688,10 +59922,22 @@ var L5 = {
     date: "Date",
     tool: "Tool",
     toolNote: "static engine \u2014 preliminary audit; judgment criteria adjudicated by the AI agent (statically, gated), rendering via `scan`",
+    toolNoteRendered: (pages, adjudicated) => `static engine + rendered tier \u2014 ${pages} captured page(s) audited on their real DOM${adjudicated > 0 ? `; ${adjudicated} judgment criterion/criteria adjudicated by the AI agent (gated)` : "; no judgment criterion adjudicated"}`,
     scope: "Scope",
     files: "file(s)",
     rate: "Automatic static-check pass rate",
     rateNote: "machine-decidable subset: C \xF7 (C + NC)",
+    conformanceRate: (std) => `${std} conformity rate`,
+    conformanceProvisional: "provisional",
+    conformanceNone: (na) => `not computable \u2014 no applicable criterion in this scope (${na} conforming for want of a subject, none other decided or open). An empty denominator is not a rate of 100%.`,
+    conformanceFormula: (v, a) => `validated criteria \xF7 applicable criteria (${v} \xF7 ${a})`,
+    conformanceNa: (na) => `${na} criterion/criteria not applicable, excluded from the denominator`,
+    conformanceOpen: (open) => `${open} criterion/criteria still to assess, counted in the denominator and not in the numerator \u2014 the published rate is a floor`,
+    decidedLine: "Decided",
+    decidedNote: (c2, nc, na, open) => `${c2} conforming, ${nc} non-conforming, ${na} conforming for want of a subject, ${open} to assess`,
+    provenance: "Where the decisions came from",
+    provenanceNote: (engine, scan2, agent) => `${engine} engine \xB7 ${scan2} browser \xB7 ${agent} adjudication`,
+    autoRateNote: (c2, d) => `criteria validated by the engine alone \xF7 criteria decided without the agent (${c2} \xF7 ${d})`,
     warn: "This report covers the subset of criteria checkable automatically. The \u201Cto assess\u201D criteria (rendering / judgment) are adjudicated by the AI agent (`verify --manual`, gated); rendering goes through `scan` (see the last section).",
     derived: (std) => `${std} report. Every criterion is judged on its own tests; the integrity gates (\`check\`/\`verify\`) operate on the same scope.`,
     synthTitle: (by) => `1. Synthesis by ${by}`,
@@ -58730,7 +59976,9 @@ var L5 = {
     duplicate: "identical duplicate(s) skipped",
     truncated: (l, t3, s) => `Scope truncated: ${l}/${t3} files audited (highest-priority first), ${s} skipped. Widen with --max-files.`,
     rendered: (n, libs) => `Preliminary source verdict: ${n} file(s) render component-library components (${libs}) whose produced HTML is invisible to static analysis. Audit the build output (\`render\` / \`audit <dist>\`) or \`scan\` before concluding.`,
+    renderedAudited: (n, libs, pages) => `${n} file(s) render component-library components (${libs}) invisible to static analysis. ${pages} page(s) were captured and audited on their real DOM; what those components produce ELSEWHERE, on a page nobody captured, remains a blind spot.`,
     sourceTemplate: (n, exts) => `Preliminary source verdict: ${n} ${exts} component(s) audited as SOURCE (template). Slots, snippets and dynamic bindings (:attr, {@render}) are invisible to static analysis \u2014 audit the rendered output (\`render\` / \`scan\`) before concluding.`,
+    sourceTemplateAudited: (n, exts, pages) => `${n} ${exts} component(s) audited as SOURCE (template) \u2014 slots and dynamic bindings invisible to static analysis. ${pages} page(s) were captured and audited on their real DOM; what they render on a page nobody captured remains a blind spot.`,
     captures: (n) => `${n} rendered capture file(s) audited at full fidelity (real DOM) \u2014 the true produced HTML, not the component call.`,
     blindSpots: (n) => `${n} component(s) without a rendered capture (blind spots) \u2014 audited from opaque source only; audit their rendered DOM (\`render --setup\`).`,
     // Task 5 — partial-audit advisory (owner decision: scan stays opt-in but strongly advised).
@@ -58775,10 +60023,20 @@ var NEEDS_RENDERING = [
   { sc: "2.4.11", label: { fr: "focus masqu\xE9", en: "focus obscured" } },
   { sc: "4.1.3", label: { fr: "r\xE9gions live", en: "live regions" } }
 ];
-function untestedNeedsRendering(r) {
+function untestedNeedsRendering(r, established = /* @__PURE__ */ new Set()) {
   const tested = new Set(r.scope.scan?.testedScs ?? []);
   for (const f of r.findings) if (f.ruleId.startsWith("dyn-")) tested.add(f.criteriaId);
-  return NEEDS_RENDERING.filter((c2) => !tested.has(c2.sc)).map((c2) => c2.sc);
+  return NEEDS_RENDERING.filter((c2) => !tested.has(c2.sc) && !established.has(c2.sc)).map((c2) => c2.sc);
+}
+function establishedScs(derived) {
+  const out2 = /* @__PURE__ */ new Set();
+  for (const d of derived) {
+    if (d.status !== "NC" && d.decidedBy !== "agent") continue;
+    const carried = new Set(d.findings.map((f) => f.criteriaId).filter((id) => d.scs.includes(id)));
+    if (carried.size === 0 && d.scs.length === 1) carried.add(d.scs[0]);
+    for (const sc of carried) out2.add(sc);
+  }
+  return out2;
 }
 function partialAuditBanner(lang, untested = NEEDS_RENDERING.map((c2) => c2.sc)) {
   const set = new Set(untested);
@@ -58807,6 +60065,31 @@ function reportTotals(groups) {
 function reportCoverage(groups) {
   const t3 = reportTotals(groups);
   return { decided: t3.c + t3.nc, total: t3.c + t3.nc + t3.manual };
+}
+function conformanceRate(t3) {
+  const validated = Math.max(0, t3.c - t3.na);
+  const applicable = validated + t3.nc + t3.manual;
+  return {
+    // No applicable criterion is not a failure — it is a scope with nothing of any kind in it,
+    // and the repository's convention for an empty denominator is 100 (src/audit.ts
+    // conformancePct). Divergent conventions on the same question is how two numbers describing
+    // one grid start disagreeing.
+    pct: applicable === 0 ? 100 : Math.round(validated / applicable * 100),
+    validated,
+    applicable,
+    na: t3.na,
+    open: t3.manual,
+    decided: t3.c + t3.nc,
+    total: t3.c + t3.nc + t3.manual
+  };
+}
+function decisionProvenance(rows) {
+  const decided = rows.filter((r) => r.status !== "manual");
+  return {
+    engine: decided.filter((r) => !r.decidedBy || r.decidedBy === "engine").length,
+    scan: decided.filter((r) => r.decidedBy === "scan").length,
+    agent: decided.filter((r) => r.decidedBy === "agent").length
+  };
 }
 function automationOverview(standard) {
   if (isCore(standard)) return void 0;
@@ -58867,11 +60150,25 @@ function render(r, lang, opts) {
   const out2 = [];
   out2.push(`# ${s.title(opts.std)}`, "");
   out2.push(`- **${s.date}** : ${r.date}`);
-  out2.push(`- **${s.tool}** : ultra11y v${r.version} (${s.toolNote})`);
+  const pagesRead = r.scope.pagesAudited?.length ?? 0;
+  const adjudicated = opts.conformance ? opts.conformance.provenance.agent : r.criteria.filter((c2) => c2.decidedBy === "agent").length;
+  out2.push(`- **${s.tool}** : ultra11y v${r.version} (${pagesRead > 0 ? s.toolNoteRendered(pagesRead, adjudicated) : s.toolNote})`);
   out2.push(`- **${s.scope}** : ${r.scope.files} ${s.files} \u2014 ${r.scope.inputs.join(", ")}`);
-  out2.push(`- **${s.rate}** : ${opts.headerRatePct ?? r.conformancePct}% (${s.rateNote})`);
-  const renderedPages = r.scope.pagesAudited?.length ?? 0;
-  out2.push(`- **${s.renderedPages(renderedPages)}**${renderedPages === 0 ? ` \u2014 ${s.noRenderedPages}` : ""}`);
+  if (opts.conformance) {
+    const { rate, provenance, autoDecided, autoValidated } = opts.conformance;
+    const title2 = `${s.conformanceRate(opts.std)}${rate.open > 0 ? ` (${s.conformanceProvisional})` : ""}`;
+    const notes = [s.conformanceFormula(rate.validated, rate.applicable), s.conformanceNa(rate.na)];
+    if (rate.open > 0) notes.push(s.conformanceOpen(rate.open));
+    out2.push(rate.applicable === 0 ? `- **${title2}** : ${s.conformanceNone(rate.na)}` : `- **${title2}** : ${rate.pct}% \u2014 ${notes.join(" ; ")}`);
+    out2.push(
+      `- **${s.decidedLine}** : ${rate.decided}/${rate.total} \u2014 ${s.decidedNote(rate.validated, rate.total - rate.validated - rate.na - rate.open, rate.na, rate.open)}`
+    );
+    out2.push(`- **${s.provenance}** : ${s.provenanceNote(provenance.engine, provenance.scan, provenance.agent)}`);
+    out2.push(`- **${s.rate}** : ${opts.headerRatePct ?? r.conformancePct}% \u2014 ${s.autoRateNote(autoValidated, autoDecided)}`);
+  } else {
+    out2.push(`- **${s.rate}** : ${opts.headerRatePct ?? r.conformancePct}% (${s.rateNote})`);
+  }
+  out2.push(`- **${s.renderedPages(pagesRead)}**${pagesRead === 0 ? ` \u2014 ${s.noRenderedPages}` : ""}`);
   const automation = automationOverview(opts.standard);
   if (automation) {
     out2.push(
@@ -58892,8 +60189,14 @@ function render(r, lang, opts) {
   if (opts.partialAudit?.length) out2.push(`> \u{1F6A8} ${partialAuditBanner(lang, opts.partialAudit)}`, "");
   if (opts.derivedOf) out2.push(`> \u21AA\uFE0F ${s.derived(opts.derivedOf)}`, "");
   if (r.scope.truncated) out2.push(`> \u2702\uFE0F ${s.truncated(r.scope.truncated.limit, r.scope.truncated.total, r.scope.truncated.skipped)}`, "");
-  if (r.scope.rendered) out2.push(`> \u{1F9E9} ${s.rendered(r.scope.rendered.files, r.scope.rendered.opaqueLibraries.join(", "))}`, "");
-  if (r.scope.sourceTemplate) out2.push(`> \u{1F9E9} ${s.sourceTemplate(r.scope.sourceTemplate.files, r.scope.sourceTemplate.extensions.join(", "))}`, "");
+  if (r.scope.rendered) {
+    const { files, opaqueLibraries } = r.scope.rendered;
+    out2.push(`> \u{1F9E9} ${pagesRead > 0 ? s.renderedAudited(files, opaqueLibraries.join(", "), pagesRead) : s.rendered(files, opaqueLibraries.join(", "))}`, "");
+  }
+  if (r.scope.sourceTemplate) {
+    const { files, extensions } = r.scope.sourceTemplate;
+    out2.push(`> \u{1F9E9} ${pagesRead > 0 ? s.sourceTemplateAudited(files, extensions.join(", "), pagesRead) : s.sourceTemplate(files, extensions.join(", "))}`, "");
+  }
   if (r.scope.captures) out2.push(`> \u2705 ${s.captures(r.scope.captures.files)}`, "");
   if (r.scope.captureCoverage?.blindSpots.length) out2.push(`> \u26A0\uFE0F ${s.blindSpots(r.scope.captureCoverage.blindSpots.length)}`, "");
   const rows = opts.groups.flatMap((g) => g.rows);
@@ -58944,13 +60247,13 @@ function render(r, lang, opts) {
       out2.push(`- ${nc.length} ${s.ncCount}${adv.length ? ` \xB7 ${adv.length} ${s.advCount}` : ""}`);
       const notes = pageScope.find((x) => x.id === pg.id)?.notes;
       if (notes) out2.push(`- _${notes}_`);
-      const shot = join32(PAGES_DIR, pg.id, "screen.png");
-      if (existsSync18(shot)) {
+      const shot = join31(PAGES_DIR, pg.id, "screen.png");
+      if (existsSync19(shot)) {
         let href = relative3(opts.outDir ?? ".", shot).split("\\").join("/");
         if (opts.outDir) {
           try {
-            mkdirSync7(join32(opts.outDir, "assets"), { recursive: true });
-            copyFileSync(shot, join32(opts.outDir, "assets", `${pg.id}.png`));
+            mkdirSync7(join31(opts.outDir, "assets"), { recursive: true });
+            copyFileSync(shot, join31(opts.outDir, "assets", `${pg.id}.png`));
             href = `./assets/${pg.id}.png`;
           } catch {
           }
@@ -59051,14 +60354,20 @@ function packReportGroups(r, pack, lang = "en") {
 function renderPackReport(r, pack, lang = "en", outDir, cropFor) {
   const derived = derivePackResults(r, pack.key);
   const std = `${pack.name} ${pack.baseVersion}`;
+  const groups = packReportGroups(r, pack, lang);
+  const rows = groups.flatMap((g) => g.rows);
+  const tally = reportTotals(groups);
+  const autoValidated = derived.filter((d) => d.status === "C" && d.decidedBy !== "agent" && !isProvisionalJudgmentInapplicable(d)).length;
+  const autoDecided = autoValidated + derived.filter((d) => d.status === "NC").length;
   return render(r, lang, {
     std,
     groupHead: L5[lang].byTheme,
-    groups: packReportGroups(r, pack, lang),
+    groups,
     derivedOf: std,
     standard: pack.key,
-    partialAudit: untestedNeedsRendering(r),
+    partialAudit: untestedNeedsRendering(r, establishedScs(derived)),
     headerRatePct: packConformancePct(derived),
+    conformance: { rate: conformanceRate(tally), provenance: decisionProvenance(rows), autoDecided, autoValidated },
     // Forwarded, unlike before: without it the per-page screenshots resolved against the
     // CWD instead of the report's own directory, so a pack report written to `audits/`
     // carried links that only worked when read from the repo root.
@@ -59070,7 +60379,7 @@ function writeReport(r, opts) {
   const core = isCore(opts.standard);
   const md = core ? renderReport(r, opts.lang, opts.out, opts.cropFor) : renderPackReport(r, loadPack(opts.standard), opts.lang, opts.out, opts.cropFor);
   mkdirSync7(opts.out, { recursive: true });
-  const path = join32(opts.out, `${core ? "wcag" : opts.standard}-${r.date}.md`);
+  const path = join31(opts.out, `${core ? "wcag" : opts.standard}-${r.date}.md`);
   writeFileSync8(path, md);
   return path;
 }
@@ -59557,7 +60866,7 @@ function providerFromRemote() {
 
 // src/tickets/providers/github.ts
 var CAPABILITIES = { bodyLimit: 65536, labels: true };
-function resolve6(opts) {
+function resolve7(opts) {
   const env = opts.env ?? process.env;
   const mode = opts.transport ?? "auto";
   const api = (env.GITHUB_API_URL || "https://api.github.com").replace(/\/+$/, "");
@@ -59586,7 +60895,7 @@ function resolve6(opts) {
   };
 }
 function createGithubProvider(opts = {}) {
-  const r = resolve6(opts);
+  const r = resolve7(opts);
   const auth = { Authorization: `Bearer ${r.token ?? ""}`, Accept: "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28" };
   const http = {
     ...opts.fetchImpl ? { fetchImpl: opts.fetchImpl } : {},
@@ -59689,7 +60998,7 @@ function execReason(err2) {
   if (line) return line;
   return typeof e.message === "string" ? e.message.split("\n")[0]?.trim() ?? void 0 : void 0;
 }
-function resolve7(opts) {
+function resolve8(opts) {
   const env = opts.env ?? process.env;
   const mode = opts.transport ?? "auto";
   const api = (env.CI_API_V4_URL || "https://gitlab.com/api/v4").replace(/\/+$/, "");
@@ -59709,7 +61018,7 @@ function resolve7(opts) {
   return { transport: "cli", api, jobToken };
 }
 function createGitlabProvider(opts = {}) {
-  const r = resolve7(opts);
+  const r = resolve8(opts);
   const id = encodeURIComponent(r.project ?? "");
   const auth = { "PRIVATE-TOKEN": r.token ?? "" };
   const http = {
@@ -59778,7 +61087,7 @@ function createGitlabProvider(opts = {}) {
 var CAPABILITIES3 = { bodyLimit: 32767, labels: true };
 var JIRA_SCOPE_LABEL = "ultra11y";
 var PRIORITY = { bloquant: "Highest", majeur: "High", mineur: "Low" };
-function resolve8(opts) {
+function resolve9(opts) {
   const env = opts.env ?? process.env;
   const issueType = env.ULTRA11Y_JIRA_ISSUE_TYPE || "Task";
   const apiVersion = env.ULTRA11Y_JIRA_API === "2" ? "2" : "3";
@@ -59797,7 +61106,7 @@ function toAdf(markdown) {
   return { type: "doc", version: 1, content: content.length ? content : [{ type: "paragraph", content: [] }] };
 }
 function createJiraProvider(opts = {}) {
-  const r = resolve8(opts);
+  const r = resolve9(opts);
   const headers = { Authorization: r.auth ?? "" };
   const http = {
     ...opts.fetchImpl ? { fetchImpl: opts.fetchImpl } : {},
@@ -60309,12 +61618,12 @@ function renderCriteriaReference() {
 }
 
 // src/check.ts
-import { existsSync as existsSync21, readFileSync as readFileSync19, readdirSync as readdirSync5 } from "fs";
-import { dirname as dirname9, join as join34 } from "path";
+import { existsSync as existsSync22, readFileSync as readFileSync19, readdirSync as readdirSync5 } from "fs";
+import { dirname as dirname10, join as join33 } from "path";
 
 // src/verify.ts
-import { existsSync as existsSync19, mkdirSync as mkdirSync8, readFileSync as readFileSync17, writeFileSync as writeFileSync9 } from "fs";
-import { join as join33 } from "path";
+import { existsSync as existsSync20, mkdirSync as mkdirSync8, readFileSync as readFileSync17, writeFileSync as writeFileSync9 } from "fs";
+import { join as join32 } from "path";
 var VERIFY_MAX = 40;
 var plain = (s) => s.replace(/\[([^\]]+)\]\(#[^)]*\)/g, "$1");
 function auditorCriterionLine(standard) {
@@ -60637,10 +61946,10 @@ function applyVerdicts(items, expected) {
 }
 function writeWorklist(items, outDir, semantic, standard = "wcag", lang = "en") {
   mkdirSync8(outDir, { recursive: true });
-  const todoPath = join33(outDir, "VERIFY.todo.json");
-  const mdPath = join33(outDir, "VERIFY.md");
+  const todoPath = join32(outDir, "VERIFY.todo.json");
+  const mdPath = join32(outDir, "VERIFY.md");
   let carried = items;
-  if (existsSync19(todoPath)) {
+  if (existsSync20(todoPath)) {
     try {
       const previous = JSON.parse(readFileSync17(todoPath, "utf8"));
       const byClaim = new Map(previous.map((it) => [resumableItemKey(it), it]));
@@ -60672,8 +61981,8 @@ function writeWorklist(items, outDir, semantic, standard = "wcag", lang = "en") 
 }
 
 // src/grounding.ts
-import { existsSync as existsSync20, readFileSync as readFileSync18 } from "fs";
-import { resolve as resolve9 } from "path";
+import { existsSync as existsSync21, readFileSync as readFileSync18 } from "fs";
+import { resolve as resolve10 } from "path";
 var WINDOW = 10;
 var norm2 = (s) => s.normalize("NFKC").replace(/[‘’]/g, "'").replace(/[“”]/g, '"').replace(/\s+/g, " ").replace(/>\s+/g, ">").replace(/\s+</g, "<").trim();
 var isUnresolvable = (file) => !file || file === "-" || file === "<stdin>" || file === "stdin";
@@ -60692,8 +62001,8 @@ function selectorProbes(selector) {
 }
 function groundFinding(g, opts = {}) {
   if (isUnresolvable(g.file)) return { ok: true, moved: false };
-  const path = resolve9(opts.cwd ?? process.cwd(), g.file);
-  if (!existsSync20(path)) return { ok: false, moved: false, issue: `cited file not found: ${g.file}` };
+  const path = resolve10(opts.cwd ?? process.cwd(), g.file);
+  if (!existsSync21(path)) return { ok: false, moved: false, issue: `cited file not found: ${g.file}` };
   let text;
   try {
     text = readFileSync18(path, "utf8");
@@ -60747,6 +62056,10 @@ var M = {
     rateMissing: "Taux de r\xE9ussite absent de l'en-t\xEAte du rapport.",
     rateRange: (v) => `Taux de r\xE9ussite hors bornes (0\u2013100) : ${v}%.`,
     rateInconsistent: (v, expected, c2, nc) => `Taux de r\xE9ussite incoh\xE9rent avec la synth\xE8se : l'en-t\xEAte indique ${v}% alors que C automatique \xF7 (C automatique+NC) = ${c2} \xF7 ${c2 + nc} = ${expected}%.`,
+    rateArithmetic: (v, a, b, expected) => `Taux incoh\xE9rent avec les op\xE9randes qu'il publie : ${v}% annonc\xE9 pour ${a} \xF7 ${b} = ${expected}%.`,
+    rateUngrounded: (a, b) => `Taux avec op\xE9randes (${a} \xF7 ${b}) mais aucune table de synth\xE8se pour les v\xE9rifier : la ligne Total est absente ou non reconnue.`,
+    synthesisImpossible: (c2, na) => `Synth\xE8se impossible : NA (${na}) d\xE9passe C (${c2}), alors que NA est un sous-ensemble de C. La table est corrompue ou \xE9dit\xE9e \xE0 la main.`,
+    rateOperands: (a, b, admissible) => `Op\xE9randes de taux introuvables dans la synth\xE8se : ${a} \xF7 ${b}. Les seuls couples que la grille autorise sont ${admissible}.`,
     overProject: (id) => `Crit\xE8re sur-projet\xE9 : ${id} est marqu\xE9 non conforme dans le rapport mais l'audit ne le d\xE9rive pas comme NC (\xE9l\xE9ment hors p\xE9rim\xE8tre du crit\xE8re).`,
     underProject: (id) => `Crit\xE8re absent : l'audit d\xE9rive ${id} comme non conforme mais le rapport ne le pr\xE9sente pas.`,
     semanticMissing: (p) => `Gate s\xE9mantique : aucun artefact de verdicts trouv\xE9 (${p}). G\xE9n\xE9rez la worklist (\`verify --report <md>\`), statuez, puis relancez \u2014 ou passez \`--verdicts <fichier>\`.`,
@@ -60762,6 +62075,10 @@ var M = {
     rateMissing: "Pass rate missing from the report header.",
     rateRange: (v) => `Pass rate out of range (0\u2013100): ${v}%.`,
     rateInconsistent: (v, expected, c2, nc) => `Pass rate inconsistent with the synthesis table: header says ${v}% but automatic C \xF7 (automatic C+NC) = ${c2} \xF7 ${c2 + nc} = ${expected}%.`,
+    rateArithmetic: (v, a, b, expected) => `Rate inconsistent with the operands it publishes: ${v}% announced for ${a} \xF7 ${b} = ${expected}%.`,
+    rateUngrounded: (a, b) => `Rate publishes operands (${a} \xF7 ${b}) but there is no synthesis table to check them against: the Total row is missing or unrecognised.`,
+    synthesisImpossible: (c2, na) => `Impossible synthesis: NA (${na}) exceeds C (${c2}), while NA is a subset of C. The table is corrupt or hand-edited.`,
+    rateOperands: (a, b, admissible) => `Rate operands not found in the synthesis table: ${a} \xF7 ${b}. The only pairs the grid allows are ${admissible}.`,
     overProject: (id) => `Over-projected criterion: ${id} is marked non-conformant in the report but the audit does not derive it as NC (element outside the criterion's scope).`,
     underProject: (id) => `Missing criterion: the audit derives ${id} as non-conformant but the report does not present it.`,
     semanticMissing: (p) => `Semantic gate: no verdicts artifact found (${p}). Generate the worklist (\`verify --report <md>\`), adjudicate it, then re-run \u2014 or pass \`--verdicts <file>\`.`,
@@ -60810,20 +62127,52 @@ function checkReport(md, standard = "wcag", lang = "en", opts = {}) {
     const item = naItem.exec(line);
     if (item && !line.includes("_")) issues.push(s.na(item[1]));
   }
-  const rateM = /^-\s+\*\*[^*\n]*\*\*\s*:\s*(\d+(?:[.,]\d+)?)\s*%/m.exec(md);
-  if (!rateM) {
+  const header4 = md.slice(0, /^##\s/m.exec(md)?.index ?? md.length);
+  const rateLines = [...header4.matchAll(/^-\s+\*\*[^*\n]*\*\*\s*:\s*\**\s*(\d+(?:[.,]\d+)?)\s*%([^\n]*)$/gm)];
+  if (perPage) {
+    for (const m of md.matchAll(/^-\s+\*\*[^*\n]*\*\*\s*:\s*\**\s*(\d+(?:[.,]\d+)?)\s*%/gm)) {
+      const raw = m[1];
+      const pct2 = parseFloat(raw.replace(",", "."));
+      if (pct2 < 0 || pct2 > 100) issues.push(s.rateRange(raw));
+    }
+  }
+  if (rateLines.length === 0) {
     if (!perPage) issues.push(s.rateMissing);
   } else {
-    const pct2 = parseFloat(rateM[1].replace(",", "."));
-    if (pct2 < 0 || pct2 > 100) issues.push(s.rateRange(rateM[1]));
-    else if (!perPage) {
-      const totals = synthesisTotals(md);
-      if (totals) {
-        const { nc } = totals;
-        const c2 = Math.max(0, totals.c - agentConformities(md));
-        const expected = c2 + nc === 0 ? 100 : Math.round(c2 / (c2 + nc) * 100);
-        if (Math.abs(pct2 - expected) > 1) issues.push(s.rateInconsistent(rateM[1], expected, c2, nc));
+    const totals = perPage ? null : synthesisTotals(md);
+    if (totals && totals.na > totals.c) issues.push(s.synthesisImpossible(totals.c, totals.na));
+    const validated = totals ? Math.max(0, totals.c - totals.na) : 0;
+    const autoC = totals ? Math.max(0, totals.c - agentConformities(md)) : 0;
+    const admissible = totals ? [
+      [validated, validated + totals.nc + totals.manual],
+      [autoC, autoC + totals.nc]
+    ] : [];
+    let checkedOne = false;
+    for (const m of rateLines) {
+      const raw = m[1];
+      const pct2 = parseFloat(raw.replace(",", "."));
+      if (pct2 < 0 || pct2 > 100) {
+        issues.push(s.rateRange(raw));
+        continue;
       }
+      const ops = /\((\d+)\s*÷\s*(\d+)\)/.exec(m[2] ?? "");
+      if (!ops) continue;
+      const a = Number.parseInt(ops[1], 10);
+      const b = Number.parseInt(ops[2], 10);
+      const expected = b === 0 ? 100 : Math.round(a / b * 100);
+      if (pct2 !== expected) issues.push(s.rateArithmetic(raw, a, b, expected));
+      if (totals && !admissible.some(([x, y]) => x === a && y === b)) {
+        issues.push(s.rateOperands(a, b, admissible.map(([x, y]) => `${x} \xF7 ${y}`).join(", ")));
+      }
+      if (!totals && !perPage) issues.push(s.rateUngrounded(a, b));
+      checkedOne = true;
+    }
+    if (!checkedOne && !perPage && totals) {
+      const { nc } = totals;
+      const c2 = autoC;
+      const expected = c2 + nc === 0 ? 100 : Math.round(c2 / (c2 + nc) * 100);
+      const first = rateLines[0][1];
+      if (Math.abs(parseFloat(first.replace(",", ".")) - expected) > 1) issues.push(s.rateInconsistent(first, expected, c2, nc));
     }
   }
   if (!core && pack && opts.audit && !perPage) {
@@ -60874,8 +62223,8 @@ function checkSemantic(md, opts) {
   const standard = opts.standard ?? "wcag";
   const s = M[lang];
   const empty = { total: 0, grounded: 0, moved: 0, failed: 0 };
-  const artifact = opts.verdictsPath ?? join34(dirname9(opts.reportPath), "VERIFY.todo.json");
-  if (!existsSync21(artifact)) return { ok: false, issues: [s.semanticMissing(artifact)], ...empty };
+  const artifact = opts.verdictsPath ?? join33(dirname10(opts.reportPath), "VERIFY.todo.json");
+  if (!existsSync22(artifact)) return { ok: false, issues: [s.semanticMissing(artifact)], ...empty };
   let items;
   try {
     const parsed = JSON.parse(readFileSync19(artifact, "utf8"));
@@ -60896,7 +62245,7 @@ function checkSemantic(md, opts) {
 function synthesisTotals(md) {
   const m = /^\|\s*\*\*[^|*]+\*\*\s*\|\s*\*\*(\d+)\*\*\s*\|\s*\*\*(\d+)\*\*\s*\|\s*\*\*(\d+)\*\*\s*\|\s*\*\*(\d+)\*\*\s*\|/m.exec(md);
   if (!m) return null;
-  return { c: Number.parseInt(m[1], 10), nc: Number.parseInt(m[2], 10) };
+  return { c: Number.parseInt(m[1], 10), nc: Number.parseInt(m[2], 10), na: Number.parseInt(m[3], 10), manual: Number.parseInt(m[4], 10) };
 }
 function agentConformities(md) {
   let count = 0;
@@ -60917,7 +62266,7 @@ function sectionBody(md, n) {
 function checkSampleCaptured(root = ".", lang = "en") {
   const fr = lang === "fr";
   let declared = [];
-  const rc = join34(root, ".ultra11yrc.json");
+  const rc = join33(root, ".ultra11yrc.json");
   let raw;
   try {
     raw = readFileSync19(rc, "utf8");
@@ -60942,7 +62291,7 @@ function checkSampleCaptured(root = ".", lang = "en") {
   let captured = /* @__PURE__ */ new Set();
   try {
     captured = new Set(
-      readdirSync5(join34(root, PAGES_DIR), { withFileTypes: true }).filter((d) => d.isDirectory()).map((d) => d.name).filter((id) => existsSync21(join34(root, PAGES_DIR, id, "dom.html")))
+      readdirSync5(join33(root, PAGES_DIR), { withFileTypes: true }).filter((d) => d.isDirectory()).map((d) => d.name).filter((id) => existsSync22(join33(root, PAGES_DIR, id, "dom.html")))
     );
   } catch {
   }
@@ -61087,8 +62436,8 @@ function openPerPage(audit2, standard, lang) {
 }
 
 // src/adjudicate.ts
-import { mkdirSync as mkdirSync9, statSync as statSync8, writeFileSync as writeFileSync10 } from "fs";
-import { isAbsolute as isAbsolute3, join as join35, relative as relative4, resolve as resolve10 } from "path";
+import { mkdirSync as mkdirSync9, statSync as statSync12, writeFileSync as writeFileSync10 } from "fs";
+import { isAbsolute as isAbsolute3, join as join34, relative as relative4, resolve as resolve11 } from "path";
 
 // src/data/adjudication.json
 var adjudication_default = {
@@ -61905,7 +63254,7 @@ function docsForAudit(audit2, cwd) {
   const docs = [];
   for (const f of files) {
     try {
-      const doc = parseSource(readText(cwd ? resolve10(cwd, f) : f), f);
+      const doc = parseSource(readText(cwd ? resolve11(cwd, f) : f), f);
       attachSignals(doc);
       docs.push(doc);
     } catch {
@@ -62119,12 +63468,12 @@ function canonicalEvidenceFile(file) {
   return at >= 0 ? posix3.slice(at) : posix3;
 }
 function withinAuditInput(file, audit2, cwd) {
-  const target = resolve10(cwd ?? process.cwd(), file);
+  const target = resolve11(cwd ?? process.cwd(), file);
   for (const input of audit2.scope.inputs) {
     if (input === "-" || input === "<stdin>") continue;
-    const root = resolve10(cwd ?? process.cwd(), input);
+    const root = resolve11(cwd ?? process.cwd(), input);
     try {
-      if (statSync8(root).isDirectory()) {
+      if (statSync12(root).isDirectory()) {
         const rel2 = relative4(root, target);
         if (rel2 === "" || rel2 !== ".." && !rel2.startsWith("../") && !isAbsolute3(rel2)) return true;
       } else if (root === target) return true;
@@ -62919,8 +64268,8 @@ function formatAdjudication(items, lang = "en", standard = CORE2, opts = {}) {
 }
 function writeAdjudication(items, outDir, opts) {
   mkdirSync9(outDir, { recursive: true });
-  const todoPath = join35(outDir, "ADJUDICATE.todo.json");
-  const mdPath = join35(outDir, "ADJUDICATE.md");
+  const todoPath = join34(outDir, "ADJUDICATE.todo.json");
+  const mdPath = join34(outDir, "ADJUDICATE.md");
   const file = {
     tool: "ultra11y",
     kind: "adjudication",
@@ -62938,15 +64287,15 @@ function writeAdjudication(items, outDir, opts) {
       ...opts.web ? { web: true } : {}
     })
   );
-  const verdictsPath = join35(outDir, "ADJUDICATE.verdicts.json");
+  const verdictsPath = join34(outDir, "ADJUDICATE.verdicts.json");
   writeFileSync10(verdictsPath, JSON.stringify({ ...file, items: slimAdjudicationItems(items) }, null, 2) + "\n");
-  const itemsDir = join35(outDir, "adjudicate");
+  const itemsDir = join34(outDir, "adjudicate");
   mkdirSync9(itemsDir, { recursive: true });
   const unrendered = new Set(opts.unrendered ?? []);
   for (const it of items) {
     const mine = unrendered.has(it.criteriaId) ? [it.criteriaId] : [];
     writeFileSync10(
-      join35(itemsDir, `${it.criteriaId}.md`),
+      join34(itemsDir, `${it.criteriaId}.md`),
       formatAdjudication([it], opts.lang ?? "en", opts.standard, {
         preamble: false,
         ...mine.length ? { unrendered: mine } : {},
@@ -63081,11 +64430,11 @@ function pruneRefuted(audit2, standard, items, lang = "en") {
 
 // src/ledger.ts
 import { createHash as createHash6 } from "crypto";
-import { existsSync as existsSync22, mkdirSync as mkdirSync10, readFileSync as readFileSync20, writeFileSync as writeFileSync11 } from "fs";
-import { dirname as dirname10, join as join36 } from "path";
+import { existsSync as existsSync23, mkdirSync as mkdirSync10, readFileSync as readFileSync20, writeFileSync as writeFileSync11 } from "fs";
+import { dirname as dirname11, join as join35 } from "path";
 var LEDGER_DIR = ".ultra11y/verdicts";
 function ledgerPath(standard, root = ".") {
-  return join36(root, LEDGER_DIR, `${standard}.json`);
+  return join35(root, LEDGER_DIR, `${standard}.json`);
 }
 var norm3 = (s) => s.replace(/\s+/g, " ").trim();
 var canonicalFile2 = (file) => {
@@ -63104,6 +64453,53 @@ function evidenceFingerprint(evidence) {
   const keys = evidence.map(anchorKey2).sort();
   return `sha256:${createHash6("sha256").update(`${keys.length}
 ${keys.join("\n")}`).digest("hex").slice(0, 32)}`;
+}
+function evidenceFilesOf(evidence) {
+  return [...new Set(evidence.map((e) => canonicalFile2(e.file)))].sort();
+}
+function evidenceAnchorsOf(evidence) {
+  const out2 = /* @__PURE__ */ new Set();
+  for (const e of evidence) out2.add(anchorHash(e));
+  return [...out2].sort().join(",");
+}
+var anchorHash = (e) => createHash6("sha256").update(anchorKey2(e)).digest("hex").slice(0, 16);
+function verdictStillHolds(entry, today2, opts) {
+  const stale = (why) => ({ holds: false, why });
+  const was = entry.evidenceCount;
+  if (!opts.harvestComplete) {
+    return stale(
+      `Ledger verdict is STALE \u2014 this run's harvest is INCOMPLETE (page captures the audit says it read are missing from disk), so neither what it found nor what it did not says anything about the code. Re-run with the captures present.`
+    );
+  }
+  if (evidenceFingerprint(today2) === entry.evidenceFingerprint) return { holds: true };
+  if (typeof entry.evidenceAnchors !== "string" || !entry.evidenceAnchors) {
+    return stale(
+      `Ledger verdict is STALE \u2014 the evidence changed since it was recorded on ${entry.date} (${was} item(s) then, ${today2.length} now), and the entry records no anchor set, so what changed cannot be established. Re-adjudicate this criterion.`
+    );
+  }
+  if (entry.verdict === "NC") return { holds: true };
+  if (today2.length === 0) {
+    return stale(
+      `Ledger verdict is STALE \u2014 the harvest for this criterion is now EMPTY where it held ${was} item(s) on ${entry.date}. Nothing was examined, which is not the same claim as nothing being wrong.`
+    );
+  }
+  const recorded = new Set(entry.evidenceAnchors.split(","));
+  const added = evidenceAnchorsOf(today2).split(",").filter((h2) => h2 && !recorded.has(h2));
+  if (added.length > 0) {
+    return stale(
+      `Ledger verdict is STALE \u2014 ${added.length} piece(s) of evidence are NEW since the verdict was recorded on ${entry.date} (${was} item(s) then, ${today2.length} now). A conformity covers what was read, and this was not. Re-adjudicate this criterion.`
+    );
+  }
+  const exists = opts.fileExists ?? ((f) => existsSync23(f));
+  const contributing = new Set(evidenceFilesOf(today2));
+  const silent = (entry.evidenceFiles ?? []).filter((f) => !contributing.has(f) && exists(f));
+  if (silent.length > 0) {
+    const shown = silent.slice(0, 4);
+    return stale(
+      `Ledger verdict is STALE \u2014 ${silent.length} file(s) the verdict was ruled against are still on disk but produced no evidence in this run (${shown.join(", ")}${silent.length > shown.length ? ", and more" : ""}). Evidence that shrank because nobody read it is not evidence that shrank because the code did.`
+    );
+  }
+  return { holds: true };
 }
 function reanchor(stored, today2, currentFiles) {
   if (!stored?.length) return stored;
@@ -63132,7 +64528,7 @@ function isLedger(v) {
   return !!o && typeof o === "object" && o.tool === "ultra11y" && o.kind === "verdict-ledger" && Array.isArray(o.entries);
 }
 function readLedger(path) {
-  if (!existsSync22(path)) return void 0;
+  if (!existsSync23(path)) return void 0;
   try {
     const parsed = JSON.parse(readFileSync20(path, "utf8"));
     return isLedger(parsed) ? parsed : void 0;
@@ -63141,10 +64537,10 @@ function readLedger(path) {
   }
 }
 function unreadableCaptures(audit2, cwd = ".") {
-  return (audit2.scope.pagesAudited ?? []).filter((id) => !existsSync22(join36(cwd, PAGES_DIR, id, "dom.html")));
+  return (audit2.scope.pagesAudited ?? []).filter((id) => !existsSync23(join35(cwd, PAGES_DIR, id, "dom.html")));
 }
 function writeLedger(path, ledger) {
-  mkdirSync10(dirname10(path), { recursive: true });
+  mkdirSync10(dirname11(path), { recursive: true });
   const sorted = { ...ledger, entries: [...ledger.entries].sort((a, b) => a.criteriaId.localeCompare(b.criteriaId, "en", { numeric: true })) };
   writeFileSync11(path, `${JSON.stringify(sorted, null, 2)}
 `);
@@ -63164,6 +64560,8 @@ function entriesFrom(adj, accepted, date) {
       ...it.findings?.length ? { findings: it.findings } : {},
       ...it.recommendations?.length ? { recommendations: it.recommendations } : {},
       evidenceFingerprint: evidenceFingerprint(it.evidence),
+      evidenceAnchors: evidenceAnchorsOf(it.evidence),
+      evidenceFiles: evidenceFilesOf(it.evidence),
       evidenceCount: it.evidence.length,
       date,
       decidedBy: "agent"
@@ -63230,6 +64628,13 @@ function replayLedger(audit2, ledger, opts = {}) {
     const canonical = canonicalFile2(input);
     if (canonical.startsWith(`${PAGES_DIR}/`)) currentFiles.set(canonical, input);
   }
+  const root = opts.cwd ?? ".";
+  const unreadable = (audit2.scope.pagesAudited ?? []).filter((id) => {
+    const canonical = `${PAGES_DIR}/${id}/dom.html`;
+    const fromInputs = currentFiles.get(canonical);
+    return !(fromInputs && existsSync23(fromInputs)) && !existsSync23(join35(root, canonical));
+  });
+  const harvestComplete = unreadable.length === 0;
   for (const e of ledger.entries) if (!open.has(e.criteriaId)) obsolete.push(e.criteriaId);
   for (const it of worklist) {
     const e = byId2.get(it.criteriaId);
@@ -63238,10 +64643,13 @@ function replayLedger(audit2, ledger, opts = {}) {
       residualReasons[it.criteriaId] = "No verdict in the ledger \u2014 this criterion has never been adjudicated. Run an adjudication pass to record one.";
       continue;
     }
-    const now = evidenceFingerprint(it.evidence);
-    if (now !== e.evidenceFingerprint) {
+    const held = verdictStillHolds(e, it.evidence, {
+      harvestComplete,
+      fileExists: (f) => existsSync23(join35(opts.cwd ?? ".", f))
+    });
+    if (!held.holds) {
       stale.push(it.criteriaId);
-      residualReasons[it.criteriaId] = `Ledger verdict is STALE \u2014 the evidence changed since it was recorded on ${e.date} (${e.evidenceCount} item(s) then, ${it.evidence.length} now). Re-adjudicate this criterion.`;
+      residualReasons[it.criteriaId] = held.why;
       continue;
     }
     fresh.push(it.criteriaId);
@@ -63268,8 +64676,8 @@ function replayLedger(audit2, ledger, opts = {}) {
 
 // src/agent-cli.ts
 import { spawn as spawn2 } from "child_process";
-import { existsSync as existsSync23 } from "fs";
-import { delimiter, join as join37 } from "path";
+import { existsSync as existsSync24 } from "fs";
+import { delimiter, join as join36 } from "path";
 
 // src/verdict-rules.ts
 var VERDICT_KINDS = `Rule it (the apply gate is FAIL-CLOSED \u2014 a verdict missing its required field does not fold, and its criterion goes back to \xAB to assess \xBB carrying the refusal):
@@ -63277,6 +64685,7 @@ var VERDICT_KINDS = `Rule it (the apply gate is FAIL-CLOSED \u2014 a verdict mis
    - \`NC\` (non-conforming) \u2014 REQUIRES \`findings\`: at least one groundable \`{ file, line, selector?, message, snippet?, severity?, normativeRef }\` pointing at REAL source. The fold re-grounds every finding; an invented file:line is rejected, and so is a finding with no \`file\` at all. \`normativeRef\` MUST cite the precise failed test \u2014 under a country standard, one of the criterion's OWN numbered tests, listed in its brief under \xAB tests to rule on \xBB. A WCAG id looks alike, denotes an unrelated test, and is rejected.
    - \`NA\` (not applicable) \u2014 REQUIRES \`justification\`, AND \`citations[]\` whenever evidence WAS presented, to say which of those items fall outside the criterion's scope.
    - \`manual\` (still undecidable) \u2014 REQUIRES \`reason\`: \`needs-rendered-dom\` (only a rendered DOM can decide it, and no capture in this run carries its subject) or \`undecidable\` (the evidence cannot settle it either way).`;
+var WORKLIST_RULE = `THE WORKLIST IS THE RESIDUAL. Return exactly one verdict for EVERY criterion presented \u2014 never omit an item because the engine already reported a run-wide \`NC\`. The strict page gate deliberately puts such a criterion back on the worklist when page-level cells remain open. It is not surplus and it is not already resolved for this task: inspect the complete evidence and rule it. If the evidence cannot settle it, return \`manual\` with a reason; never leave its verdict blank.`;
 var ABSENCE_RULE = `AN NC SHAPED LIKE AN ABSENCE IS STILL ANCHORED. \xAB No second navigation system \xBB, \xAB no search engine \xBB, \xAB no error message suggests the expected format \xBB \u2014 an absence is OBSERVED somewhere: cite the element and the page you observed it on. And when the criterion's subject exists nowhere in the audited scope, the verdict is \`NA\` with its justification, never \`NC\`.
 
 AND CITE FROM THIS CRITERION'S OWN ANCHORS, NOT THE THING YOU ARE RULING OUT. An absence pulls you toward the element you are arguing ABOUT \u2014 the search form that is not a site search engine, the menu that is not a second navigation system \u2014 and that element is, precisely because it is off-topic, absent from what this criterion was harvested. A citation on one of the criterion's own anchors is vouched for by the harvest; one outside it has its snippet verified LITERALLY, character for character, and a retyping then fails. Cite the region you inspected \u2014 the \`header\`, the \`nav\`, the \`footer\` the brief listed \u2014 and say in the justification what you did not find in it.`;
@@ -63284,7 +64693,7 @@ var CAPTURE_RULE = `THE RENDERED PAGE MAY BE ON DISK. When a criterion's evidenc
 var NEVER_GUESS_RULE = `Never guess. A criterion you cannot decide from real evidence stays \`manual\` with its reason \u2014 that is a valid, honest verdict, and it is worth more than a verdict the gate throws away.`;
 var SCOPE_RULE = `Rule ONLY on the criteria presented. Never introduce another \u2014 a verdict for a criterion nobody asked about is dropped, and under the fold it would otherwise overwrite what the deterministic engine already decided.`;
 var CONFORMITY_RULE = `A \`C\` WILL BE ATTACKED, exactly as an \`NC\` is. Every conformity you record goes into an adversarial worklist where a second reader opens your citations and asks whether they ESTABLISH the criterion or merely show that its subject exists \u2014 a present \`alt\` is not a relevant \`alt\`, a present \`<title>\` is not a title that describes the page. Cite the evidence that answers the criterion's own question, and when the evidence only proves presence, the honest verdict is \`manual\`.`;
-var TAIL = [ABSENCE_RULE, CAPTURE_RULE, NEVER_GUESS_RULE, SCOPE_RULE, CONFORMITY_RULE];
+var TAIL = [WORKLIST_RULE, ABSENCE_RULE, CAPTURE_RULE, NEVER_GUESS_RULE, SCOPE_RULE, CONFORMITY_RULE];
 function verdictRulesMd(startAt) {
   const lines = [`${startAt}. ${VERDICT_KINDS}`];
   TAIL.forEach((rule, i2) => lines.push(`${startAt + 1 + i2}. ${rule}`));
@@ -63328,6 +64737,12 @@ function apiKeyFromEnv() {
 function modelFromEnv() {
   return process.env.ULTRA11Y_LLM_MODEL?.trim() || DEFAULT_MODEL;
 }
+var BudgetExceededError = class extends Error {
+  constructor(message) {
+    super(message);
+    this.name = "BudgetExceededError";
+  }
+};
 function isProviderUnavailableError(error) {
   const message = error instanceof Error ? error.message : String(error);
   return /(?:api status|http)\s*(?:429|5\d\d)|\b429\b.*rate.?limit|rate.?limit|overload|service unavailable/i.test(message);
@@ -63480,6 +64895,7 @@ async function judgeAll(batches, opts) {
   const verdicts = [];
   const failures = [];
   let done = 0;
+  let total = batches.length;
   const queue = [...batches];
   const backend = opts.backend ?? judgeBatch;
   const lanes = Math.max(1, opts.concurrency ?? CONCURRENCY);
@@ -63497,10 +64913,18 @@ async function judgeAll(batches, opts) {
           verdicts.push(...checked.accepted);
           if (checked.accepted.length) opts.onVerdicts?.(checked.accepted);
         } catch (e) {
+          if (e instanceof BudgetExceededError && b.items.length > 1 && opts.render) {
+            const half = Math.ceil(b.items.length / 2);
+            const parts2 = [b.items.slice(0, half), b.items.slice(half)];
+            queue.unshift(...parts2.map((items) => ({ items, prompt: opts.render(items) })));
+            total += parts2.length - 1;
+            opts.onProgress?.(done, total);
+            continue;
+          }
           failures.push(e instanceof Error ? e.message : String(e));
           if (opts.abortOnError?.(e)) aborted = true;
         }
-        opts.onProgress?.(++done, batches.length);
+        opts.onProgress?.(++done, total);
       }
     })
   );
@@ -63534,7 +64958,7 @@ var DEFAULT_CLI_MODEL = "claude-haiku-4-5-20251001";
 var EFFORT_LEVELS = ["low", "medium", "high", "xhigh", "max"];
 var DEFAULT_TIMEOUT_MS2 = 10 * 6e4;
 function realSpawn(argv, input, timeoutMs) {
-  return new Promise((resolve17, reject) => {
+  return new Promise((resolve18, reject) => {
     const child = spawn2(argv[0], argv.slice(1), { stdio: ["pipe", "pipe", "pipe"] });
     let stdout = "";
     let stderr = "";
@@ -63555,7 +64979,7 @@ function realSpawn(argv, input, timeoutMs) {
     });
     child.on("close", (code2) => {
       clearTimeout(timer);
-      resolve17({ code: code2, stdout, stderr, timedOut });
+      resolve18({ code: code2, stdout, stderr, timedOut });
     });
     child.stdin.end(input);
   });
@@ -63565,14 +64989,16 @@ function claudeBin() {
   if (pinned) return [pinned];
   for (const dir of (process.env.PATH ?? "").split(delimiter)) {
     if (!dir) continue;
-    const candidate = join37(dir, "claude");
-    if (existsSync23(candidate)) return [candidate];
+    const candidate = join36(dir, "claude");
+    if (existsSync24(candidate)) return [candidate];
   }
   return ["npx", "--yes", "@anthropic-ai/claude-code"];
 }
 function batchSchema(items) {
   const schema = structuredClone(VERDICT_TOOL.input_schema);
-  const id = schema.properties.verdicts.items.properties.criteriaId;
+  const verdicts = schema.properties.verdicts;
+  verdicts.description = `Exactly one verdict for each of these ${items.length} worklist criteria. Do not omit criteria already reported non-conforming run-wide: page-level cells may still be open.`;
+  const id = verdicts.items.properties.criteriaId;
   id.enum = items.map((i2) => i2.criteriaId);
   id.description = `The criterion id EXACTLY as given \u2014 the bare id (e.g. "1.2.1"), never the heading or the title beside it.`;
   return schema;
@@ -63704,6 +65130,14 @@ async function runCli2(argv, prompt, opts, extract) {
     }
     if (env.is_error || env.subtype !== "success") {
       lastError = `the CLI reported an error (${env.subtype ?? "unknown"}${env.api_error_status ? `, api status ${env.api_error_status}` : ""}).`;
+      if (env.subtype === "error_max_budget_usd") {
+        try {
+          const salvaged = extract(env);
+          if (Array.isArray(salvaged) ? salvaged.length > 0 : salvaged !== void 0) return salvaged;
+        } catch {
+        }
+        throw new BudgetExceededError(`ultra11y judge: ${lastError}`);
+      }
       if (env.api_error_status && (env.api_error_status === 429 || env.api_error_status >= 500)) continue;
       break;
     }
@@ -63714,14 +65148,14 @@ async function runCli2(argv, prompt, opts, extract) {
 
 // src/agent-codex.ts
 import { spawn as spawn3 } from "child_process";
-import { existsSync as existsSync24, mkdtempSync as mkdtempSync2, rmSync as rmSync3, writeFileSync as writeFileSync12 } from "fs";
+import { existsSync as existsSync25, mkdtempSync as mkdtempSync3, rmSync as rmSync4, writeFileSync as writeFileSync12 } from "fs";
 import { tmpdir as tmpdir2 } from "os";
-import { delimiter as delimiter2, dirname as dirname11, join as join38 } from "path";
+import { delimiter as delimiter2, dirname as dirname12, join as join37 } from "path";
 var MAX_ATTEMPTS3 = 4;
 var CODEX_EFFORT_LEVELS = ["minimal", "low", "medium", "high", "xhigh"];
 var DEFAULT_CODEX_TIMEOUT_MS = 10 * 6e4;
 function realSpawn2(argv, input, timeoutMs) {
-  return new Promise((resolve17, reject) => {
+  return new Promise((resolve18, reject) => {
     const child = spawn3(argv[0], argv.slice(1), { stdio: ["pipe", "pipe", "pipe"] });
     let stdout = "";
     let stderr = "";
@@ -63742,7 +65176,7 @@ function realSpawn2(argv, input, timeoutMs) {
     });
     child.on("close", (code2) => {
       clearTimeout(timer);
-      resolve17({ code: code2, stdout, stderr, timedOut });
+      resolve18({ code: code2, stdout, stderr, timedOut });
     });
     child.stdin.end(input);
   });
@@ -63752,8 +65186,8 @@ function codexBin() {
   if (pinned) return [pinned];
   for (const dir of (process.env.PATH ?? "").split(delimiter2)) {
     if (!dir) continue;
-    const candidate = join38(dir, "codex");
-    if (existsSync24(candidate)) return [candidate];
+    const candidate = join37(dir, "codex");
+    if (existsSync25(candidate)) return [candidate];
   }
   return ["npx", "--yes", "@openai/codex"];
 }
@@ -63780,7 +65214,7 @@ function codexArgv(opts, schemaPath) {
     "multi_agent",
     "--strict-config",
     "--cd",
-    dirname11(schemaPath),
+    dirname12(schemaPath),
     "--skip-git-repo-check",
     "--sandbox",
     "read-only",
@@ -63861,14 +65295,14 @@ WORKLIST
 
 ${worklist}`;
 }
-var sleep3 = (ms) => ms <= 0 ? Promise.resolve() : new Promise((resolve17) => setTimeout(resolve17, ms));
+var sleep3 = (ms) => ms <= 0 ? Promise.resolve() : new Promise((resolve18) => setTimeout(resolve18, ms));
 function transient(message) {
   return /429|rate.?limit|overload|temporar|try again|service unavailable|\b5\d\d\b/i.test(message);
 }
 async function runCodex(schema, prompt, opts, extract) {
   const run2 = opts.spawnImpl ?? realSpawn2;
-  const dir = mkdtempSync2(join38(tmpdir2(), "ultra11y-codex-"));
-  const schemaPath = join38(dir, "schema.json");
+  const dir = mkdtempSync3(join37(tmpdir2(), "ultra11y-codex-"));
+  const schemaPath = join37(dir, "schema.json");
   writeFileSync12(schemaPath, `${JSON.stringify(schema)}
 `, { mode: 384 });
   let lastError = "";
@@ -63901,7 +65335,7 @@ async function runCodex(schema, prompt, opts, extract) {
       return extract(env.result);
     }
   } finally {
-    rmSync3(dir, { recursive: true, force: true });
+    rmSync4(dir, { recursive: true, force: true });
   }
   throw new Error(`ultra11y judge: ${lastError || "Codex failed after every attempt."}`);
 }
@@ -63922,9 +65356,9 @@ async function refuteBatchCodex(items, prompt, opts, lang = "en") {
 
 // src/scan.ts
 import { execFileSync as execFileSync6 } from "child_process";
-import { mkdtempSync as mkdtempSync3, writeFileSync as writeFileSync13, existsSync as existsSync26, statSync as statSync9, readdirSync as readdirSync6, rmSync as rmSync4, readFileSync as readFileSync21 } from "fs";
+import { mkdtempSync as mkdtempSync4, writeFileSync as writeFileSync13, existsSync as existsSync27, statSync as statSync13, readdirSync as readdirSync6, rmSync as rmSync5, readFileSync as readFileSync21 } from "fs";
 import { tmpdir as tmpdir3 } from "os";
-import { join as join39, resolve as resolve11 } from "path";
+import { join as join38, resolve as resolve12 } from "path";
 import { fileURLToPath as fileURLToPath3 } from "url";
 
 // src/crawl.ts
@@ -64030,7 +65464,7 @@ async function crawlUrls(start2, opts) {
 }
 
 // src/sample.ts
-import { existsSync as existsSync25 } from "fs";
+import { existsSync as existsSync26 } from "fs";
 function looksLikeTarget(u) {
   return /^https?:\/\//i.test(u) || /^(\.\.?[/\\]|[/\\])/.test(u) || /\.x?html?$/i.test(u);
 }
@@ -64066,7 +65500,7 @@ function validateSample(raw) {
     if (p.auth !== void 0 && typeof p.auth !== "boolean") err2(`sample.pages[${i2}].auth`, "auth must be a boolean");
     if (p.storageState !== void 0 && (typeof p.storageState !== "string" || p.storageState.trim() === "")) {
       err2(`sample.pages[${i2}].storageState`, "storageState must be a non-empty file path string");
-    } else if (typeof p.storageState === "string" && p.storageState.trim() !== "" && !existsSync25(p.storageState)) {
+    } else if (typeof p.storageState === "string" && p.storageState.trim() !== "" && !existsSync26(p.storageState)) {
       warn(
         `sample.pages[${i2}].storageState`,
         `storageState path not found: "${p.storageState}" (resolved from the current directory) \u2014 the scan will not be able to load this session`
@@ -64265,14 +65699,14 @@ function imageExists(tag) {
 }
 var CTX_PREFIX = "ultra11y-dyn-";
 function buildImage(tag = IMAGE_TAG) {
-  const ctx = mkdtempSync3(join39(tmpdir3(), CTX_PREFIX));
+  const ctx = mkdtempSync4(join38(tmpdir3(), CTX_PREFIX));
   try {
-    writeFileSync13(join39(ctx, "runner.mjs"), RUNNER);
-    writeFileSync13(join39(ctx, "package.json"), PKG);
-    writeFileSync13(join39(ctx, "Dockerfile"), DOCKERFILE);
+    writeFileSync13(join38(ctx, "runner.mjs"), RUNNER);
+    writeFileSync13(join38(ctx, "package.json"), PKG);
+    writeFileSync13(join38(ctx, "Dockerfile"), DOCKERFILE);
     execFileSync6("docker", ["build", "-t", tag, ctx], { stdio: "inherit", timeout: 9e5 });
   } finally {
-    rmSync4(ctx, { recursive: true, force: true });
+    rmSync5(ctx, { recursive: true, force: true });
   }
 }
 function cleanTempContexts() {
@@ -64280,7 +65714,7 @@ function cleanTempContexts() {
   const dir = tmpdir3();
   for (const name2 of readdirSync6(dir)) {
     if (!name2.startsWith(CTX_PREFIX)) continue;
-    rmSync4(join39(dir, name2), { recursive: true, force: true });
+    rmSync5(join38(dir, name2), { recursive: true, force: true });
     removed++;
   }
   return removed;
@@ -64305,11 +65739,27 @@ function pageIdFor(url) {
 function probesOf(out2) {
   return {
     ...out2.focusVisible ? { focusVisible: out2.focusVisible } : {},
+    // The two families this projection used to drop. They are not stateful — both come out of
+    // the ONE walk of the pristine tab ring, before any fill or click — so they describe the
+    // very document persisted beside them. Dropping them while still writing `probed` is what
+    // turned a measured keyboard trap into a silent `C`.
+    ...out2.focusObscured ? { focusObscured: out2.focusObscured } : {},
+    ...out2.keyboardTrap ? { keyboardTrap: out2.keyboardTrap } : {},
     ...out2.hover ? { hover: out2.hover } : {},
     ...out2.reflowZoom ? { reflowZoom: out2.reflowZoom } : {},
     ...out2.textSpacing ? { textSpacing: out2.textSpacing } : {},
+    ...out2.liveRegion ? { liveRegion: out2.liveRegion } : {},
+    ...out2.inputOverflowReflow ? { inputOverflowReflow: out2.inputOverflowReflow } : {},
+    ...out2.inputOverflowZoom ? { inputOverflowZoom: out2.inputOverflowZoom } : {},
+    ...out2.inputOverflowSpacing ? { inputOverflowSpacing: out2.inputOverflowSpacing } : {},
     reflow: out2.reflow,
-    probed: out2.probed ?? []
+    // The contract this file is written under, so a future reader knows what `probed` means
+    // here (src/probes.ts PROBES_VERSION).
+    v: PROBES_VERSION,
+    probed: out2.probed ?? [],
+    // The complement of `probed`, persisted for the same reason: a report reading this
+    // snapshot later must be able to say WHY a criterion was not measured here.
+    ...out2.skipped?.length ? { skipped: out2.skipped } : {}
   };
 }
 function writeRunnerSnapshot(root, out2, target, page) {
@@ -64388,7 +65838,7 @@ function runRunner(target, isFile, tag, snapshot = true) {
   const hostTarget = target;
   const args2 = ["run", "--rm"];
   if (!snapshot) args2.push("-e", "ULTRA11Y_SNAPSHOT=0");
-  if (isFile) args2.push("-v", `${resolve11(target)}:${MOUNT}:ro`);
+  if (isFile) args2.push("-v", `${resolve12(target)}:${MOUNT}:ro`);
   else {
     const gw = loopbackToHostGateway(target);
     if (gw.addHost && process.platform === "linux") {
@@ -64484,7 +65934,7 @@ function toDynamicResult(out2, target, lang = "en", engine = "axe-core@playwrigh
 var DOCKER_TESTED_SCS = ["1.4.10"];
 function runScan(opts) {
   const isUrl3 = /^https?:\/\//i.test(opts.target);
-  if (!isUrl3 && !existsSync26(opts.target)) {
+  if (!isUrl3 && !existsSync27(opts.target)) {
     throw new Error(`File not found: ${opts.target}. Pass an http(s):// URL or an existing HTML file.`);
   }
   if (!dockerAvailable()) {
@@ -64492,7 +65942,7 @@ function runScan(opts) {
   }
   const tag = opts.tag ?? IMAGE_TAG;
   if (!imageExists(tag)) buildImage(tag);
-  const isFile = !isUrl3 && existsSync26(opts.target) && statSync9(opts.target).isFile();
+  const isFile = !isUrl3 && existsSync27(opts.target) && statSync13(opts.target).isFile();
   const out2 = runRunner(opts.target, isFile, tag, Boolean(opts.snapshotRoot));
   const id = opts.snapshotRoot ? writeRunnerSnapshot(opts.snapshotRoot, out2, opts.target) : void 0;
   return { ...toDynamicResult(out2, opts.target), testedScs: [...DOCKER_TESTED_SCS], ...id ? { snapshots: [id] } : {} };
@@ -64582,7 +66032,7 @@ async function runCrawlScan(opts) {
 var sevRank = { bloquant: 3, majeur: 2, mineur: 1 };
 function resolveHostAnchor(file, snippet2) {
   const s = snippet2?.trim();
-  if (!s || !existsSync26(file)) return null;
+  if (!s || !existsSync27(file)) return null;
   let source;
   try {
     source = readFileSync21(file, "utf8");
@@ -64771,356 +66221,24 @@ function mergeSnapshotAudit(base, snap) {
 }
 
 // src/scan-local.ts
-import { existsSync as existsSync27, statSync as statSync10 } from "fs";
+import { existsSync as existsSync28, statSync as statSync14 } from "fs";
 import { createRequire } from "module";
-import { resolve as resolve12 } from "path";
-
-// src/probes.ts
-var PRELUDE = `
-const __sel = (e) => {
-  if (!e || !e.tagName) return '\u2014';
-  const esc = (v) => (typeof CSS !== 'undefined' && CSS.escape) ? CSS.escape(v) : String(v).replace(/[^a-zA-Z0-9_-]/g, '\\\\$&');
-  const unique = (s) => { try { return document.querySelectorAll(s).length === 1; } catch { return false; } };
-  const short = (n) => {
-    const t = n.tagName.toLowerCase();
-    if (n.id) return t + '#' + esc(n.id);
-    const c = typeof n.className === 'string' ? n.className.trim().split(/\\s+/)[0] : '';
-    return c ? t + '.' + esc(c) : t;
-  };
-  const first = short(e);
-  if (unique(first)) return first;
-  const parts = [];
-  for (let n = e; n && n.tagName; n = n.parentElement) {
-    let part = short(n);
-    if (n.id && unique(part)) { parts.unshift(part); return parts.join(' > '); }
-    const parent = n.parentElement;
-    if (parent) {
-      const same = Array.from(parent.children).filter((x) => x.tagName === n.tagName);
-      if (same.length > 1) part += ':nth-of-type(' + (same.indexOf(n) + 1) + ')';
-    }
-    parts.unshift(part);
-    const path = parts.join(' > ');
-    if (unique(path)) return path;
-  }
-  return parts.join(' > ') || first;
-};
-const __vis = (e) => {
-  const r = e.getBoundingClientRect();
-  if (r.width <= 4 || r.height <= 4) return false; // tiny / 1px sr-only boxes
-  const s = getComputedStyle(e);
-  if (s.display === 'none' || s.visibility === 'hidden' || parseFloat(s.opacity) === 0) return false;
-  // visually-hidden "screen-reader-only" pattern (clip rect / clip-path inset) \u2014 present in
-  // the a11y tree but not painted; must not be measured for clipping/target-size.
-  if (s.clip && s.clip !== 'auto' && s.clip !== 'rect(auto, auto, auto, auto)') return false;
-  if (s.clipPath && (s.clipPath.indexOf('inset(100%') >= 0 || s.clipPath.indexOf('inset(50%') >= 0)) return false;
-  return true;
-};
-const __html = (e) => (e.outerHTML || '').slice(0, 160);
-`;
-var PROBE_DEFAULTS = {
-  reflowWidth: 320,
-  maxFocusables: 120,
-  maxHits: 20,
-  maxTriggers: 60,
-  actionTimeoutMs: 1e3,
-  budgetMs: 2e4
-};
-function actionTimeout(limits, deadline) {
-  const left = deadline ? deadline.left() : limits.actionTimeoutMs;
-  return Math.max(1, Math.min(limits.actionTimeoutMs, left || limits.actionTimeoutMs));
-}
-var REFLOW_PROBE = `(() => {
-  const el = document.scrollingElement || document.documentElement;
-  return { horizontalScroll: el.scrollWidth > el.clientWidth + 2 };
-})()`;
-var REFLOW_ZOOM_PROBE = `(() => { ${PRELUDE}
-  const root = document.documentElement;
-  const prev = root.style.fontSize;
-  root.style.fontSize = '200%';
-  const hits = [];
-  for (const e of Array.from(document.querySelectorAll('p,li,h1,h2,h3,h4,h5,h6,td,th,button,a,label,span'))) {
-    if (!__vis(e)) continue;
-    if ((e.textContent || '').trim().length < 8) continue;
-    const s = getComputedStyle(e);
-    const clip = s.overflow === 'hidden' || s.overflowY === 'hidden' || s.overflowX === 'hidden';
-    const noWrap = s.whiteSpace === 'nowrap' || s.textOverflow === 'ellipsis';
-    if ((clip || noWrap) && (e.scrollHeight > e.clientHeight + 6 || e.scrollWidth > e.clientWidth + 6)) {
-      hits.push({ selector: __sel(e), html: __html(e), detail: 'Texte tronqu\xE9/masqu\xE9 \xE0 200% (conteneur overflow:hidden / nowrap) \u2014 perte de contenu au zoom (1.4.4).' });
-    }
-    if (hits.length >= 12) break;
-  }
-  root.style.fontSize = prev;
-  return hits;
-})()`;
-var TEXT_SPACING_CSS = "* { line-height: 1.5 !important; letter-spacing: 0.12em !important; word-spacing: 0.16em !important; } p { margin-bottom: 2em !important; }";
-var TEXT_SPACING_PROBE = `(() => { ${PRELUDE}
-  const hits = [];
-  for (const e of Array.from(document.querySelectorAll('p,li,span,a,button,h1,h2,h3,h4,h5,h6,td,th,label,div'))) {
-    if (!__vis(e)) continue;
-    if ((e.textContent || '').trim().length < 8) continue;
-    const s = getComputedStyle(e);
-    const clipped = (s.overflowX === 'hidden' || s.overflowY === 'hidden' || s.overflow === 'hidden') && (e.scrollHeight > e.clientHeight + 2 || e.scrollWidth > e.clientWidth + 2);
-    const ellipsis = s.textOverflow === 'ellipsis' && e.scrollWidth > e.clientWidth + 2;
-    if (clipped || ellipsis) {
-      // No criterion id in the text: every rendering already names the criterion this finding
-      // belongs to, and a hard-coded \xAB 1.4.12 \xBB is a WCAG number appearing inside a deliverable
-      // that may be keyed on another standard entirely.
-      hits.push({ selector: __sel(e), html: __html(e), detail: 'Texte tronqu\xE9/masqu\xE9 sous l\\'espacement de texte impos\xE9 \u2014 perte de contenu.' });
-    }
-    if (hits.length >= 20) break;
-  }
-  return hits;
-})()`;
-function focusSetupExpr(scope = "", maxFocusables = PROBE_DEFAULTS.maxFocusables) {
-  const rootExpr = scope ? `document.querySelectorAll(${JSON.stringify(scope)})` : `[document.documentElement]`;
-  return `(() => { ${PRELUDE}
-  const sel = 'a[href],button:not([disabled]),input:not([type=hidden]):not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"]),[role=button]:not([disabled])';
-  const snap = (e) => { const s = getComputedStyle(e); return [s.outlineStyle, s.outlineWidth, s.outlineColor, s.boxShadow, s.borderColor, s.borderTopWidth, s.borderBottomWidth, s.backgroundColor, s.color, s.textDecorationLine].join('|'); };
-  // Visually-hidden radio/checkbox \u2192 measure its visible label/proxy, not the input.
-  const proxyFor = (e) => {
-    const type = (e.getAttribute('type') || '').toLowerCase();
-    const custom = e.tagName === 'INPUT' && (type === 'radio' || type === 'checkbox') && !__vis(e);
-    if (!custom) return __vis(e) ? e : null;
-    let p = null;
-    if (e.id) { try { p = document.querySelector('label[for="' + (window.CSS && CSS.escape ? CSS.escape(e.id) : e.id) + '"]'); } catch (_) {} }
-    if (!p) p = e.closest('label');
-    if (!p) { const lb = (e.getAttribute('aria-labelledby') || '').split(/\\s+/)[0]; if (lb) p = document.getElementById(lb); }
-    return (p && __vis(p)) ? p : null;
-  };
-  // Fresh authoritative pass: drop any tags a previous (whole-document or dialog) pass left.
-  for (const el of Array.from(document.querySelectorAll('[data-u11y-f],[data-u11y-fp]'))) { el.removeAttribute('data-u11y-f'); el.removeAttribute('data-u11y-fp'); }
-  const roots = ${rootExpr};
-  const focusables = [];
-  for (const root of Array.from(roots)) {
-    if (root.matches && root.matches(sel)) focusables.push(root);
-    for (const e of Array.from(root.querySelectorAll(sel))) focusables.push(e);
-  }
-  window.__u11yF = {};
-  let n = 0;
-  for (const e of focusables) {
-    const proxy = proxyFor(e);
-    if (!proxy) continue;
-    const key = 'k' + n;
-    e.setAttribute('data-u11y-f', key);
-    proxy.setAttribute('data-u11y-fp', key);
-    window.__u11yF[key] = { rest: snap(proxy), sel: __sel(proxy), html: __html(proxy) };
-    n++;
-    if (n >= ${maxFocusables}) break;
-  }
-  return n;
-})()`;
-}
-var FOCUS_CHECK_PROBE = `(() => {
-  const e = document.activeElement;
-  if (!e || e === document.body || e === document.documentElement) return null;
-  const key = e.getAttribute && e.getAttribute('data-u11y-f');
-  if (!key || !window.__u11yF || !window.__u11yF[key]) return null;
-  const rec = window.__u11yF[key];
-  const proxy = document.querySelector('[data-u11y-fp="' + key + '"]') || e;
-  const s = getComputedStyle(proxy);
-  const now = [s.outlineStyle, s.outlineWidth, s.outlineColor, s.boxShadow, s.borderColor, s.borderTopWidth, s.borderBottomWidth, s.backgroundColor, s.color, s.textDecorationLine].join('|');
-  return { key: key, changed: now !== rec.rest, selector: rec.sel, html: rec.html };
-})()`;
-var FOCUS_OBSCURED_PROBE = `(() => { ${PRELUDE}
-  const e = document.activeElement;
-  if (!e || e === document.body || e === document.documentElement) return null;
-  const key = e.getAttribute && e.getAttribute('data-u11y-f');
-  if (!key) return null;
-  const r = e.getBoundingClientRect();
-  if (r.width < 1 || r.height < 1) return null;         // nothing to obscure
-  const vw = window.innerWidth, vh = window.innerHeight;
-  // Sample a 5\xD75 grid inset by a pixel, keeping only points inside the viewport. A component
-  // scrolled off-screen leaves no sampleable point and is NOT reported: out of view is not
-  // obscured, and the criterion is about content laid over it.
-  const xs = [0.02, 0.25, 0.5, 0.75, 0.98], pts = [];
-  for (const fx of xs) for (const fy of xs) {
-    const x = r.left + r.width * fx, y = r.top + r.height * fy;
-    if (x >= 0 && y >= 0 && x < vw && y < vh) pts.push([x, y]);
-  }
-  if (!pts.length) return null;
-  // The topmost element over a point, for each sampled point. The focused element counts as
-  // visible when it \u2014 or anything inside it \u2014 is on top: an icon inside a button is the button
-  // being visible, and reading that as occlusion would fail every well-built page.
-  let occluder = null;
-  for (const [x, y] of pts) {
-    const top = document.elementsFromPoint(x, y)[0];
-    if (!top) continue;
-    if (top === e || e.contains(top)) return null;      // some part of it is on top \u2192 pass
-    if (!occluder) occluder = top;
-  }
-  if (!occluder) return null;
-  // AUTHOR-CREATED OVERLAY, or nothing. Walk up from the occluder looking for the fixed/sticky
-  // ancestor that puts it over the page; without one this is ordinary layout, not obscuring.
-  let overlay = null;
-  for (let n = occluder; n && n !== document.documentElement; n = n.parentElement) {
-    const pos = getComputedStyle(n).position;
-    if (pos === 'fixed' || pos === 'sticky') { overlay = n; break; }
-  }
-  if (!overlay) return null;
-  if (overlay.contains(e)) return null;                 // it is the component's own container
-  return { key: key, selector: __sel(e), html: __html(e), overlay: __sel(overlay) };
-})()`;
-var HOVER_SETUP_PROBE = `(() => { ${PRELUDE}
-  const out = [];
-  let n = 0;
-  for (const e of Array.from(document.querySelectorAll('[aria-describedby]'))) {
-    const id = (e.getAttribute('aria-describedby') || '').split(/\\s+/)[0];
-    if (!id) continue;
-    const t = document.getElementById(id);
-    if (!t) continue;
-    const s = getComputedStyle(t);
-    const hidden = s.display === 'none' || s.visibility === 'hidden' || t.getBoundingClientRect().height === 0;
-    if (!hidden) continue;
-    const key = 'h' + n;
-    e.setAttribute('data-u11y-h', key);
-    out.push({ key: key, target: id, selector: __sel(e) });
-    n++;
-    if (n >= 10) break;
-  }
-  return out;
-})()`;
-function hoverVisibleExpr(id, wantHidden = false) {
-  const j = JSON.stringify(id);
-  return `(() => { const t = document.getElementById(${j}); if (!t) return ${wantHidden ? "true" : "false"}; const s = getComputedStyle(t); const shown = s.display !== 'none' && s.visibility !== 'hidden' && t.getBoundingClientRect().height > 0; return ${wantHidden ? "!shown" : "shown"}; })()`;
-}
-async function probeFocusVisible(page, scope = "", limits = PROBE_DEFAULTS, deadline) {
-  return (await probeFocusRing(page, scope, limits, deadline)).visible;
-}
-async function probeFocusRing(page, scope = "", limits = PROBE_DEFAULTS, deadline) {
-  const count = await page.evaluate(focusSetupExpr(scope, limits.maxFocusables));
-  if (!count) return { visible: [], obscured: [] };
-  const hits = [];
-  const obscured = [];
-  const seen = /* @__PURE__ */ new Set();
-  const limit = tabPressBudget(count, limits);
-  let prevKey = null;
-  for (let i2 = 0; i2 < limit; i2++) {
-    if (deadline?.out()) break;
-    await page.keyboard.press("Tab");
-    const r = await page.evaluate(FOCUS_CHECK_PROBE);
-    if (!r) continue;
-    if (r.key === prevKey) continue;
-    if (seen.has(r.key)) break;
-    seen.add(r.key);
-    prevKey = r.key;
-    if (!r.changed) {
-      hits.push({
-        selector: r.selector,
-        html: r.html,
-        detail: "Le focus clavier ne produit aucun changement visible (outline/box-shadow/bordure/fond) \u2014 focus non visible."
-      });
-    }
-    if (obscured.length < 20 && !deadline?.out()) {
-      const o = await page.evaluate(FOCUS_OBSCURED_PROBE);
-      if (o) {
-        obscured.push({
-          selector: o.selector,
-          html: o.html,
-          detail: `Le composant qui re\xE7oit le focus clavier est enti\xE8rement masqu\xE9 par un contenu ajout\xE9 par l'auteur (${o.overlay}) \u2014 il est impossible de voir o\xF9 l'on se trouve au clavier.`
-        });
-      }
-    }
-    if (hits.length >= 20 && obscured.length >= 20) break;
-  }
-  return { visible: hits, obscured };
-}
-var NATIVE_SEGMENT_STOPS = {
-  date: 5,
-  time: 5,
-  "datetime-local": 8,
-  month: 4,
-  week: 4
-};
-function tabPressBudget(count, limits) {
-  return Math.min(count * 2 + 20, limits.maxFocusables * 2 + 20);
-}
-var FOCUS_WHERE_PROBE = `(() => { ${PRELUDE}
-  const e = document.activeElement;
-  if (!e || e === document.body || e === document.documentElement) return null;
-  const key = e.getAttribute && e.getAttribute('data-u11y-f');
-  const stops = ${JSON.stringify(NATIVE_SEGMENT_STOPS)};
-  const type = e.tagName === 'INPUT' ? (e.getAttribute('type') || 'text').toLowerCase() : '';
-  return { key: key || __sel(e), tagged: !!key, selector: __sel(e), html: __html(e), segments: stops[type] || 1 };
-})()`;
-async function probeKeyboardTrap(page, limits = PROBE_DEFAULTS, deadline) {
-  const count = await page.evaluate(focusSetupExpr("", limits.maxFocusables));
-  if (!count || count < 2) return [];
-  const hits = [];
-  const seen = /* @__PURE__ */ new Set();
-  const confirmPresses = 2;
-  const limit = tabPressBudget(count, limits);
-  let prev = null;
-  for (let i2 = 0; i2 < limit; i2++) {
-    if (deadline?.out()) break;
-    await page.keyboard.press("Tab");
-    const now = await page.evaluate(FOCUS_WHERE_PROBE);
-    if (!now) break;
-    if (prev?.tagged && now.tagged && now.key === prev.key) {
-      const budget = Math.max(confirmPresses, (now.segments ?? 1) - 1);
-      let stuck = true;
-      for (let k = 0; k < budget && stuck; k++) {
-        if (deadline?.out()) break;
-        await page.keyboard.press("Tab");
-        const again = await page.evaluate(FOCUS_WHERE_PROBE);
-        stuck = again !== null && again.tagged === true && again.key === now.key;
-      }
-      if (stuck) {
-        hits.push({
-          selector: now.selector,
-          html: now.html,
-          detail: `Le focus reste sur cet \xE9l\xE9ment apr\xE8s ${1 + budget} appuis sur Tab, alors que la page compte ${count} \xE9l\xE9ments focalisables \u2014 pi\xE8ge au clavier (2.1.2).`
-        });
-        break;
-      }
-    }
-    if (now.key !== prev?.key) {
-      if (seen.has(now.key)) break;
-      seen.add(now.key);
-    }
-    prev = now;
-  }
-  return hits;
-}
-async function probeHover(page, limits = PROBE_DEFAULTS, deadline) {
-  const triggers = await page.evaluate(HOVER_SETUP_PROBE);
-  const hits = [];
-  for (const tr of triggers.slice(0, Math.max(1, limits.maxTriggers))) {
-    if (deadline?.out()) break;
-    try {
-      await page.hover(`[data-u11y-h="${tr.key}"]`, { timeout: actionTimeout(limits, deadline) });
-    } catch {
-      continue;
-    }
-    await page.waitForTimeout(150);
-    const shown = await page.evaluate(hoverVisibleExpr(tr.target));
-    if (!shown) continue;
-    await page.keyboard.press("Escape");
-    await page.waitForTimeout(100);
-    const dismissed = await page.evaluate(hoverVisibleExpr(tr.target, true));
-    await page.mouse.move(2, 2).catch(() => {
-    });
-    if (!dismissed) {
-      hits.push({
-        selector: tr.selector,
-        html: "",
-        detail: `Le contenu r\xE9v\xE9l\xE9 au survol (aria-describedby #${tr.target}) ne se masque pas avec \xC9chap \u2014 Contenu au survol ou au focus (1.4.13).`
-      });
-    }
-    if (hits.length >= Math.min(limits.maxHits, 8)) break;
-  }
-  return hits;
-}
-
-// src/scan-local.ts
+import { resolve as resolve13 } from "path";
 var LOCAL_ENGINE = "axe-core@playwright (local)";
 var LOCAL_TESTED_SCS = ["1.4.4", "1.4.10", "1.4.12", "2.4.7", "2.4.11", "1.4.13", "2.1.2"];
 function localTestedScs(interact) {
   return interact ? [...LOCAL_TESTED_SCS, "4.1.3"] : [...LOCAL_TESTED_SCS];
 }
+function measuredScs(outs, interact) {
+  const union = /* @__PURE__ */ new Set();
+  for (const o of outs) for (const sc of o.probed ?? []) union.add(sc);
+  if (!outs.some((o) => o.probed !== void 0)) return localTestedScs(interact);
+  return [...union].sort();
+}
 var PW_SPEC = "@playwright/test";
 var AXE_SPEC = "@axe-core/playwright";
 function resolveAnchors(cwd) {
-  return [resolve12(cwd, "package.json"), import.meta.url];
+  return [resolve13(cwd, "package.json"), import.meta.url];
 }
 function requireRuntime(cwd, spec) {
   let last;
@@ -65152,7 +66270,7 @@ function localTierStatus(cwd) {
   try {
     const pw = requireRuntime(cwd, PW_SPEC);
     const bin = pw.chromium?.executablePath?.();
-    if (typeof bin === "string" && bin.length > 0 && !existsSync27(bin)) {
+    if (typeof bin === "string" && bin.length > 0 && !existsSync28(bin)) {
       return { ok: false, reason: `no browser binary at ${bin} \u2014 run \`npx playwright install chromium\`` };
     }
     return { ok: true };
@@ -65349,107 +66467,6 @@ async function probeDialogs(page) {
   });
   return hits.slice(0, 12);
 }
-var DESTRUCTIVE_NAME_RE = "\\b(supprim|retir|effac|envoy|valid|confirm|pay|achet|command|delete|remove|eras|clear|send|submit|buy|order)";
-function liveRegionExpr(detail, allowClicks) {
-  const d = JSON.stringify(detail);
-  const clickLoop = allowClicks ? `
-  // click button[type=button] only (never a submit/link), skipping destructive names
-  const dangerous = new RegExp(${JSON.stringify(DESTRUCTIVE_NAME_RE)}, 'i');
-  const nameOf = (b) => {
-    let n = (b.getAttribute('aria-label') || '') + ' ' + (b.textContent || '') + ' ' + (b.getAttribute('title') || '');
-    // ALL aria-labelledby ids (attribute trimmed): a destructive verb may sit in ANY
-    // referenced id, and the value may carry stray leading/trailing whitespace.
-    for (const id of (b.getAttribute('aria-labelledby') || '').trim().split(/\\s+/)) {
-      if (!id) continue;
-      const t = document.getElementById(id);
-      if (t) n += ' ' + (t.textContent || '');
-    }
-    // Icon-only buttons: the name lives in img[alt] (an attribute \u2014 invisible to
-    // textContent) or an svg <title> (belt-and-braces; textContent usually includes it).
-    for (const im of Array.from(b.querySelectorAll('img[alt]'))) n += ' ' + (im.getAttribute('alt') || '');
-    for (const ti of Array.from(b.querySelectorAll('svg title'))) n += ' ' + (ti.textContent || '');
-    return n;
-  };
-  for (const b of Array.from(document.querySelectorAll('button[type="button"]'))) {
-    if (count >= 20 || hits.length >= 10) break;
-    if (b.disabled || !__vis(b)) continue;
-    if (dangerous.test(nameOf(b))) continue; // defense-in-depth: never click a destructive-named button
-    const before = location.href;
-    try { b.click(); } catch (_) {}
-    await settle();
-    if (location.href !== before) { obs.disconnect(); return hits; }
-    drain();
-    count++;
-  }` : `
-  // click interactions disabled (authenticated scan without --interact-clicks)`;
-  return `(async () => { ${PRELUDE}
-  const isLive = (node) => {
-    let el = node && node.nodeType === 1 ? node : (node ? node.parentElement : null);
-    while (el && el !== document.documentElement) {
-      const live = (el.getAttribute && el.getAttribute('aria-live')) || '';
-      const role = (el.getAttribute && el.getAttribute('role')) || '';
-      if (live === 'polite' || live === 'assertive') return true;
-      if (role === 'status' || role === 'alert' || role === 'log') return true;
-      el = el.parentElement;
-    }
-    return false;
-  };
-  const hits = [];
-  const seen = new Set();
-  const records = [];
-  const obs = new MutationObserver((muts) => { for (const m of muts) records.push(m); });
-  obs.observe(document.body, { subtree: true, childList: true, characterData: true });
-  const settle = () => new Promise((r) => setTimeout(r, 40));
-  const drain = () => {
-    for (const m of records.splice(0)) {
-      const targets = m.type === 'characterData' ? [m.target] : Array.from(m.addedNodes);
-      for (const t of targets) {
-        if (!t || (t.textContent || '').trim().length === 0) continue;
-        if (isLive(t)) continue;
-        const host = t.nodeType === 1 ? t : t.parentElement;
-        if (!host || !__vis(host)) continue;
-        const key = __sel(host);
-        if (seen.has(key)) continue;
-        seen.add(key);
-        hits.push({ selector: key, html: __html(host), detail: ${d} });
-      }
-    }
-  };
-  let count = 0;${clickLoop}
-  // toggle checkbox/radio, then restore
-  for (const t of Array.from(document.querySelectorAll('input[type="checkbox"], input[type="radio"]'))) {
-    if (count >= 40 || hits.length >= 10) break;
-    if (t.disabled || !__vis(t)) continue;
-    const before = location.href;
-    const prev = t.checked;
-    try { t.click(); } catch (_) {}
-    await settle();
-    if (location.href !== before) { obs.disconnect(); return hits; }
-    drain();
-    try { if (t.checked !== prev) { t.checked = prev; t.dispatchEvent(new Event('change', { bubbles: true })); } } catch (_) {}
-    count++;
-  }
-  // fill text inputs, then restore
-  for (const inp of Array.from(document.querySelectorAll('input[type="text"], input[type="email"], input[type="search"], textarea'))) {
-    if (count >= 60 || hits.length >= 10) break;
-    if (inp.disabled || inp.readOnly || !__vis(inp)) continue;
-    const before = location.href;
-    const prev = inp.value == null ? '' : String(inp.value);
-    try { inp.value = 'test 123'; inp.dispatchEvent(new Event('input', { bubbles: true })); inp.dispatchEvent(new Event('change', { bubbles: true })); } catch (_) {}
-    await settle();
-    if (location.href !== before) { obs.disconnect(); return hits; }
-    drain();
-    try { inp.value = prev; inp.dispatchEvent(new Event('input', { bubbles: true })); } catch (_) {}
-    count++;
-  }
-  obs.disconnect();
-  return hits.slice(0, 10);
-})()`;
-}
-var LIVE_REGION_DETAIL = {
-  fr: "Mise \xE0 jour de contenu d\xE9clench\xE9e par une interaction hors d'une r\xE9gion live (aria-live / role=status|alert|log) \u2014 probablement non restitu\xE9e aux technologies d'assistance.",
-  en: "Content update triggered by an interaction outside any live region (aria-live / role=status|alert|log) \u2014 likely not announced to assistive technology."
-};
 function clicksAllowed(storageState, interactClicks) {
   return interactClicks === true || !storageState;
 }
@@ -65473,17 +66490,13 @@ function landedOnRequestedPage(requested, landed) {
   if (a.search && a.search !== b.search) return false;
   return true;
 }
-async function probeLiveRegion(page, lang, allowClicks) {
-  const detail = LIVE_REGION_DETAIL[lang] ?? LIVE_REGION_DETAIL.en;
-  return await page.evaluate(liveRegionExpr(detail, allowClicks)).catch(() => []);
-}
 var AXE_TAGS = ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa", "best-practice"];
 async function runOnPage(browser, AxeBuilder, target, isFile, opts) {
   const context = await browser.newContext(opts.storageState ? { storageState: opts.storageState } : {});
   const page = await context.newPage();
   const empty = [];
   try {
-    const url = isFile ? "file://" + resolve12(target) : target;
+    const url = isFile ? "file://" + resolve13(target) : target;
     const response = await page.goto(url, { waitUntil: "load", timeout: 45e3 });
     await page.waitForLoadState("networkidle", { timeout: 8e3 }).catch(() => {
     });
@@ -65513,41 +66526,96 @@ async function runOnPage(browser, AxeBuilder, target, isFile, opts) {
       nodes: v.nodes.slice(0, 10).map((n) => ({ target: n.target.map(String), html: (n.html || "").slice(0, 200) }))
     }));
     const probed = [];
+    const skipped = [];
     const ran = async (sc, fallback, run2) => {
       try {
         const r = await run2();
         probed.push(sc);
         return r;
-      } catch {
+      } catch (e) {
+        skipped.push({ sc, why: String(e?.message ?? e).slice(0, 160) });
         return fallback;
       }
     };
-    const focusRing = await ran("2.4.7", { visible: empty, obscured: empty }, () => probeFocusRing(page));
+    const focusRing = await probeFocusRing(page).catch((e) => ({
+      visible: empty,
+      obscured: empty,
+      complete: false,
+      why: String(e?.message ?? e).slice(0, 160)
+    }));
     const focusVisible = focusRing.visible;
-    probed.push("2.4.11");
-    const keyboardTrap = await ran("2.1.2", empty, () => probeKeyboardTrap(page));
-    const hover = await ran("1.4.13", empty, () => probeHover(page));
+    for (const sc of ["2.4.7", "2.4.11"]) {
+      if (focusRing.complete) probed.push(sc);
+      else skipped.push({ sc, why: focusRing.why ?? "the walk of the tab ring did not cross the whole of it" });
+    }
+    const trapWalk = await probeKeyboardTrapRing(page).catch((e) => ({
+      hits: empty,
+      complete: false,
+      why: String(e?.message ?? e).slice(0, 160)
+    }));
+    const keyboardTrap = trapWalk.hits;
+    if (trapWalk.complete) probed.push("2.1.2");
+    else skipped.push({ sc: "2.1.2", why: trapWalk.why ?? "the walk of the tab ring did not cross the whole of it" });
+    const hoverWalk = await probeHoverWalk(page).catch((e) => ({
+      hits: empty,
+      complete: false,
+      why: String(e?.message ?? e).slice(0, 160)
+    }));
+    const hover = hoverWalk.hits;
+    if (hoverWalk.complete) probed.push("1.4.13");
+    else skipped.push({ sc: "1.4.13", why: hoverWalk.why ?? "the hover pass did not open every trigger on the page" });
     const l = opts.lang;
-    if (opts.interact) await page.evaluate(FILL_INPUTS_STEP).catch(() => {
-    });
+    const stressed = async (sc, run2) => {
+      if (!opts.interact) return empty;
+      try {
+        return await run2();
+      } catch (e) {
+        const at = probed.indexOf(sc);
+        if (at >= 0) probed.splice(at, 1);
+        skipped.push({ sc, why: `the filled-input stress for this criterion failed: ${String(e?.message ?? e).slice(0, 120)}` });
+        return empty;
+      }
+    };
+    let filled = opts.interact;
+    if (opts.interact) {
+      filled = await page.evaluate(FILL_INPUTS_STEP).then(() => true).catch(() => false);
+      if (!filled)
+        for (const sc of ["1.4.4", "1.4.10", "1.4.12"])
+          skipped.push({ sc, why: "the page's inputs could not be filled, so the filled-input stress never ran" });
+    }
+    const withdrawUnfilled = () => {
+      if (filled || !opts.interact) return;
+      for (const sc of ["1.4.4", "1.4.10", "1.4.12"]) {
+        const at = probed.indexOf(sc);
+        if (at >= 0) probed.splice(at, 1);
+      }
+    };
     const reflowZoom = await ran("1.4.4", [], async () => await page.evaluate(REFLOW_ZOOM_PROBE));
-    const inputOverflowZoom = opts.interact ? await page.evaluate(inputOverflowZoomExpr(INPUT_OVERFLOW_DETAIL.zoom[l], CELL_SUFFIX[l])).catch(() => []) : [];
+    const inputOverflowZoom = filled ? await stressed("1.4.4", async () => await page.evaluate(inputOverflowZoomExpr(INPUT_OVERFLOW_DETAIL.zoom[l], CELL_SUFFIX[l]))) : empty;
     const reflow = await ran("1.4.10", { horizontalScroll: false }, async () => {
       await page.setViewportSize({ width: 320, height: 800 });
       return await page.evaluate(REFLOW_PROBE);
     });
-    const inputOverflowReflow = opts.interact ? await page.evaluate(inputOverflowExpr(INPUT_OVERFLOW_DETAIL.reflow[l], CELL_SUFFIX[l])).catch(() => []) : [];
+    const inputOverflowReflow = filled ? await stressed("1.4.10", async () => await page.evaluate(inputOverflowExpr(INPUT_OVERFLOW_DETAIL.reflow[l], CELL_SUFFIX[l]))) : empty;
     await page.setViewportSize({ width: 1280, height: 900 }).catch(() => {
     });
     const textSpacing = await ran("1.4.12", [], async () => {
       await page.addStyleTag({ content: TEXT_SPACING_CSS });
       return await page.evaluate(TEXT_SPACING_PROBE);
     });
-    const inputOverflowSpacing = opts.interact ? await page.evaluate(inputOverflowExpr(INPUT_OVERFLOW_DETAIL.spacing[l], CELL_SUFFIX[l])).catch(() => []) : [];
+    const inputOverflowSpacing = filled ? await stressed("1.4.12", async () => await page.evaluate(inputOverflowExpr(INPUT_OVERFLOW_DETAIL.spacing[l], CELL_SUFFIX[l]))) : empty;
     if (opts.interact) await page.evaluate(RESTORE_INPUTS_STEP).catch(() => {
     });
+    withdrawUnfilled();
     const dialogFocus = opts.interact ? await probeDialogs(page).catch(() => empty) : [];
-    const liveRegion = opts.interact ? await probeLiveRegion(page, l, opts.allowClicks).catch(() => empty) : [];
+    const liveWalk = opts.interact ? await probeLiveRegion(page, l, opts.allowClicks).catch((e) => ({
+      hits: empty,
+      complete: false,
+      why: String(e?.message ?? e).slice(0, 160)
+    })) : { hits: empty, complete: false, why: "stateful probes are off (`scan --no-interact`)" };
+    const liveRegion = liveWalk.hits;
+    if (liveWalk.complete) probed.push("4.1.3");
+    else skipped.push({ sc: "4.1.3", why: liveWalk.why ?? "the live-region pass did not exercise the whole page" });
     return {
       url: page.url() || target,
       landedUrl,
@@ -65568,6 +66636,9 @@ async function runOnPage(browser, AxeBuilder, target, isFile, opts) {
       // order they finish, and a snapshot that differs only by list order would show up as a
       // change in every diff of a committed `.ultra11y/pages` tree.
       probed: [...probed].sort(),
+      // Sorted for the same reason as `probed`: a persisted artefact that differs only by list
+      // order shows up as a change in every diff of a committed `.ultra11y/pages` tree.
+      ...skipped.length ? { skipped: [...skipped].sort((a, b) => a.sc.localeCompare(b.sc)) } : {},
       ...snapshot ? { snapshot: { ...snapshot, ...screenshot ? { screenshot } : {} } } : {}
     };
   } finally {
@@ -65576,10 +66647,10 @@ async function runOnPage(browser, AxeBuilder, target, isFile, opts) {
 }
 async function runScanLocal(opts) {
   const isUrl3 = /^https?:\/\//i.test(opts.target);
-  if (!isUrl3 && !existsSync27(opts.target)) {
+  if (!isUrl3 && !existsSync28(opts.target)) {
     throw new Error(`File not found: ${opts.target}. Pass an http(s):// URL or an existing HTML file.`);
   }
-  const isFile = !isUrl3 && statSync10(opts.target).isFile();
+  const isFile = !isUrl3 && statSync14(opts.target).isFile();
   const lang = opts.lang ?? "en";
   const interact = opts.interact !== false;
   const { chromium, AxeBuilder } = resolveLocalDeps(opts.cwd);
@@ -65593,7 +66664,7 @@ async function runScanLocal(opts) {
       snapshot: Boolean(opts.snapshotRoot)
     });
     const id = opts.snapshotRoot ? writeRunnerSnapshot(opts.snapshotRoot, out2, opts.target) : void 0;
-    return { ...toDynamicResult(out2, opts.target, lang, LOCAL_ENGINE), testedScs: localTestedScs(interact), ...id ? { snapshots: [id] } : {} };
+    return { ...toDynamicResult(out2, opts.target, lang, LOCAL_ENGINE), testedScs: measuredScs([out2], interact), ...id ? { snapshots: [id] } : {} };
   } finally {
     await browser.close();
   }
@@ -65605,6 +66676,7 @@ async function runScanManyLocal(urls, opts) {
   const browser = await launchChromium(chromium);
   const findings = [];
   const snapshots = [];
+  const outs = [];
   const redirected = [];
   try {
     for (const url of urls) {
@@ -65640,6 +66712,7 @@ async function runScanManyLocal(urls, opts) {
         continue;
       }
       findings.push(...toDynamicResult(out2, url, lang, LOCAL_ENGINE).findings);
+      outs.push(out2);
       const id = opts.snapshotRoot ? writeRunnerSnapshot(opts.snapshotRoot, out2, url) : void 0;
       if (id) snapshots.push(id);
     }
@@ -65652,7 +66725,7 @@ async function runScanManyLocal(urls, opts) {
     target: `${urls.length} page(s)`,
     date: today(),
     findings,
-    testedScs: localTestedScs(interact),
+    testedScs: measuredScs(outs, interact),
     ...snapshots.length ? { snapshots } : {},
     ...redirected.length ? { redirected } : {}
   };
@@ -65664,6 +66737,7 @@ async function runSampleScanLocal(pages, opts) {
   const browser = await launchChromium(chromium);
   const findings = [];
   const snapshots = [];
+  const outs = [];
   const redirected = [];
   try {
     for (const page of pages) {
@@ -65689,7 +66763,7 @@ async function runSampleScanLocal(pages, opts) {
         });
         continue;
       }
-      const requestedUrl = isFile ? "file://" + resolve12(page.url) : page.url;
+      const requestedUrl = isFile ? "file://" + resolve13(page.url) : page.url;
       const landedUrl = out2.landedUrl ?? out2.url;
       if (!landedOnRequestedPage(requestedUrl, landedUrl)) {
         redirected.push({ id: page.id, name: page.name, requested: page.url, landed: landedUrl, reason: "redirect" });
@@ -65700,6 +66774,7 @@ async function runSampleScanLocal(pages, opts) {
         continue;
       }
       findings.push(...tagSampleFindings(toDynamicResult(out2, page.url, lang, LOCAL_ENGINE).findings, page));
+      outs.push(out2);
       const id = opts.snapshotRoot ? writeRunnerSnapshot(opts.snapshotRoot, out2, page.url, page) : void 0;
       if (id) snapshots.push(id);
     }
@@ -65715,7 +66790,7 @@ async function runSampleScanLocal(pages, opts) {
     date: today(),
     findings,
     sample: sampleScope({ pages: scanned }),
-    testedScs: localTestedScs(interact),
+    testedScs: measuredScs(outs, interact),
     ...snapshots.length ? { snapshots } : {},
     ...redirected.length ? { redirected } : {}
   };
@@ -66226,9 +67301,9 @@ function fixSummary(r, lang = "fr", write = false, standard = CORE2) {
 }
 
 // src/init.ts
-import { writeFileSync as writeFileSync15, mkdirSync as mkdirSync11, chmodSync, realpathSync as realpathSync2 } from "fs";
+import { writeFileSync as writeFileSync15, mkdirSync as mkdirSync11, chmodSync as chmodSync2, realpathSync as realpathSync3 } from "fs";
 import { execFileSync as execFileSync7 } from "child_process";
-import { join as join40, relative as relative5, sep as sep4 } from "path";
+import { join as join39, relative as relative5, sep as sep4 } from "path";
 var EN_SEV = { bloquant: "blocking", majeur: "major", mineur: "minor" };
 function repoRoot() {
   try {
@@ -66240,7 +67315,7 @@ function repoRoot() {
 function resolveEnginePath(root) {
   const argv1 = process.argv[1] ?? "scripts/ultra11y.mjs";
   try {
-    const abs = realpathSync2(argv1);
+    const abs = realpathSync3(argv1);
     return abs.startsWith(root + sep4) ? relative5(root, abs) : abs;
   } catch {
     return argv1;
@@ -66346,24 +67421,24 @@ jobs:
 `;
 }
 function writeHook(root, enginePath, failOn, mode = "staged") {
-  const dir = join40(root, ".git", "hooks");
+  const dir = join39(root, ".git", "hooks");
   mkdirSync11(dir, { recursive: true });
-  const path = join40(dir, "pre-commit");
+  const path = join39(dir, "pre-commit");
   writeFileSync15(path, mode === "baseline" ? hookScript(enginePath, failOn) : stagedHookScript(enginePath, failOn));
-  chmodSync(path, 493);
+  chmodSync2(path, 493);
   return path;
 }
 function writeCi(root, enginePath, failOn) {
-  const dir = join40(root, ".github", "workflows");
+  const dir = join39(root, ".github", "workflows");
   mkdirSync11(dir, { recursive: true });
-  const path = join40(dir, "a11y.yml");
+  const path = join39(dir, "a11y.yml");
   writeFileSync15(path, ciWorkflow(enginePath, failOn));
   return path;
 }
 
 // src/install/json-edit.ts
-import { copyFileSync as copyFileSync2, existsSync as existsSync28, mkdirSync as mkdirSync12, readFileSync as readFileSync23, renameSync as renameSync2, rmSync as rmSync5, writeFileSync as writeFileSync16 } from "fs";
-import { dirname as dirname12 } from "path";
+import { copyFileSync as copyFileSync2, existsSync as existsSync29, mkdirSync as mkdirSync12, readFileSync as readFileSync23, renameSync as renameSync3, rmSync as rmSync6, writeFileSync as writeFileSync16 } from "fs";
+import { dirname as dirname13 } from "path";
 var SettingsParseError = class extends Error {
   constructor(path, cause) {
     super(`${path} is not valid JSON (${cause}) \u2014 fix or move it, then run install again. It has NOT been modified.`);
@@ -66376,26 +67451,26 @@ function stamp() {
   return (/* @__PURE__ */ new Date()).toISOString().replaceAll(/[:.]/g, "-");
 }
 function writeTextWithBackup(path, content, marker = "ultra11y") {
-  if (existsSync28(path) && readFileSync23(path, "utf8") === content) return { path, changed: false };
-  mkdirSync12(dirname12(path), { recursive: true });
+  if (existsSync29(path) && readFileSync23(path, "utf8") === content) return { path, changed: false };
+  mkdirSync12(dirname13(path), { recursive: true });
   let backup;
-  if (existsSync28(path)) {
+  if (existsSync29(path)) {
     backup = `${path}.${marker}-backup-${stamp()}`;
     copyFileSync2(path, backup);
   }
   const tmp = `${path}.${process.pid}.tmp`;
   try {
     writeFileSync16(tmp, content, { mode: 420 });
-    renameSync2(tmp, path);
+    renameSync3(tmp, path);
   } catch (e) {
-    rmSync5(tmp, { force: true });
+    rmSync6(tmp, { force: true });
     throw e;
   }
   return { path, changed: true, backup };
 }
 function editJsonFile(path, mutate) {
   let root = {};
-  if (existsSync28(path)) {
+  if (existsSync29(path)) {
     const raw = readFileSync23(path, "utf8");
     if (raw.trim()) {
       let parsed;
@@ -66412,7 +67487,7 @@ function editJsonFile(path, mutate) {
   }
   const before = JSON.stringify(root);
   mutate(root);
-  if (JSON.stringify(root) === before && existsSync28(path)) return { path, changed: false };
+  if (JSON.stringify(root) === before && existsSync29(path)) return { path, changed: false };
   return writeTextWithBackup(path, `${JSON.stringify(root, null, 2)}
 `);
 }
@@ -66459,7 +67534,7 @@ function claudeCodeWired(settingsPath) {
 }
 
 // src/install/text-edit.ts
-import { existsSync as existsSync29, readFileSync as readFileSync24, rmSync as rmSync6 } from "fs";
+import { existsSync as existsSync30, readFileSync as readFileSync24, rmSync as rmSync7 } from "fs";
 var BLOCK_BEGIN = "<!-- BEGIN ultra11y (managed by `ultra11y install --agents-md`; edit outside this block) -->";
 var BLOCK_END = "<!-- END ultra11y -->";
 var blockRe = () => new RegExp(`${escapeRe2(BLOCK_BEGIN)}[\\s\\S]*?${escapeRe2(BLOCK_END)}\\n?`);
@@ -66471,31 +67546,31 @@ function upsertManagedBlock(path, body3) {
 ${body3.trim()}
 ${BLOCK_END}
 `;
-  if (!existsSync29(path)) return writeTextWithBackup(path, block);
+  if (!existsSync30(path)) return writeTextWithBackup(path, block);
   const current = readFileSync24(path, "utf8");
   if (blockRe().test(current)) return writeTextWithBackup(path, current.replace(blockRe(), block));
   const sep8 = current.endsWith("\n\n") ? "" : current.endsWith("\n") ? "\n" : "\n\n";
   return writeTextWithBackup(path, `${current}${sep8}${block}`);
 }
 function removeManagedBlock(path) {
-  if (!existsSync29(path)) return { path, changed: false };
+  if (!existsSync30(path)) return { path, changed: false };
   const current = readFileSync24(path, "utf8");
   if (!blockRe().test(current)) return { path, changed: false };
   const rest = current.replace(blockRe(), "");
   if (rest.trim() === "") {
-    rmSync6(path, { force: true });
+    rmSync7(path, { force: true });
     return { path, changed: true };
   }
   return writeTextWithBackup(path, rest.replace(/\n+$/, "\n"));
 }
 function hasManagedBlock(path) {
-  return existsSync29(path) && blockRe().test(readFileSync24(path, "utf8"));
+  return existsSync30(path) && blockRe().test(readFileSync24(path, "utf8"));
 }
 
 // src/install/agents-md.ts
-import { join as join41 } from "path";
+import { join as join40 } from "path";
 function agentsMdPath(root) {
-  return join41(root, "AGENTS.md");
+  return join40(root, "AGENTS.md");
 }
 function agentsMdBlock(root) {
   const e = engineInvocation(root);
@@ -66550,25 +67625,25 @@ function agentsMdWired(root) {
 }
 
 // src/install/codex.ts
-import { existsSync as existsSync31, readFileSync as readFileSync26 } from "fs";
-import { join as join43 } from "path";
+import { existsSync as existsSync32, readFileSync as readFileSync26 } from "fs";
+import { join as join42 } from "path";
 
 // src/install/paths.ts
-import { copyFileSync as copyFileSync3, cpSync, existsSync as existsSync30, mkdirSync as mkdirSync13, readFileSync as readFileSync25, realpathSync as realpathSync3, statSync as statSync11 } from "fs";
+import { copyFileSync as copyFileSync3, cpSync, existsSync as existsSync31, mkdirSync as mkdirSync13, readFileSync as readFileSync25, realpathSync as realpathSync4, statSync as statSync15 } from "fs";
 import { homedir as homedir2 } from "os";
-import { dirname as dirname13, join as join42 } from "path";
+import { dirname as dirname14, join as join41 } from "path";
 function codexHome() {
-  return process.env.CODEX_HOME || join42(homedir2(), ".codex");
+  return process.env.CODEX_HOME || join41(homedir2(), ".codex");
 }
 function opencodeConfigDir() {
   const xdg = process.env.XDG_CONFIG_HOME;
-  return join42(xdg && xdg !== "" ? xdg : join42(homedir2(), ".config"), "opencode");
+  return join41(xdg && xdg !== "" ? xdg : join41(homedir2(), ".config"), "opencode");
 }
 function claudeSettingsPath(project, cwd = process.cwd()) {
-  return project ? join42(cwd, ".claude", "settings.json") : join42(homedir2(), ".claude", "settings.json");
+  return project ? join41(cwd, ".claude", "settings.json") : join41(homedir2(), ".claude", "settings.json");
 }
 function pinnedEnginePath() {
-  return join42(homedir2(), ".ultra11y", "bin", "ultra11y.mjs");
+  return join41(homedir2(), ".ultra11y", "bin", "ultra11y.mjs");
 }
 function installedCliCommand() {
   const override = process.env.ULTRA11Y_BIN;
@@ -66576,14 +67651,14 @@ function installedCliCommand() {
   const argv1 = process.argv[1];
   let source = null;
   try {
-    if (argv1) source = realpathSync3(argv1);
+    if (argv1) source = realpathSync4(argv1);
   } catch {
   }
   const ephemeral = !source || /[/\\](?:_npx|\.npm[/\\]_npx|npm-cache|Temp|tmp)[/\\]/.test(source);
   if (source && !ephemeral) return `node ${JSON.stringify(source)}`;
   const pin = pinnedEnginePath();
   if (source) {
-    mkdirSync13(join42(pin, ".."), { recursive: true });
+    mkdirSync13(join41(pin, ".."), { recursive: true });
     copyFileSync3(source, pin);
   }
   return `node ${JSON.stringify(pin)}`;
@@ -66591,37 +67666,37 @@ function installedCliCommand() {
 function packageRoot() {
   let dir;
   try {
-    dir = dirname13(realpathSync3(process.argv[1] ?? ""));
+    dir = dirname14(realpathSync4(process.argv[1] ?? ""));
   } catch {
     return null;
   }
   for (let i2 = 0; i2 < 6 && dir && dir !== "/"; i2++) {
-    if (existsSync30(join42(dir, "skills", "review-a11y", "SKILL.md"))) return dir;
-    dir = dirname13(dir);
+    if (existsSync31(join41(dir, "skills", "review-a11y", "SKILL.md"))) return dir;
+    dir = dirname14(dir);
   }
   return null;
 }
 function bundledSkillsDir() {
   const root = packageRoot();
-  const p = root ? join42(root, "skills") : null;
-  return p && existsSync30(p) ? p : null;
+  const p = root ? join41(root, "skills") : null;
+  return p && existsSync31(p) ? p : null;
 }
 function bundledOpencodePlugin() {
   const root = packageRoot();
-  const p = root ? join42(root, ".opencode", "plugins", "ultra11y.js") : null;
-  return p && existsSync30(p) ? p : null;
+  const p = root ? join41(root, ".opencode", "plugins", "ultra11y.js") : null;
+  return p && existsSync31(p) ? p : null;
 }
 function copySkillsInto(source, dest) {
   const out2 = [];
   for (const name2 of ["ultra11y", "review-a11y"]) {
-    const from = join42(source, name2);
-    if (!existsSync30(from)) continue;
-    const to = join42(dest, name2);
-    const same = ["SKILL.md", join42("scripts", "ultra11y.mjs")].every((f) => {
-      const a = join42(from, f);
-      const b = join42(to, f);
+    const from = join41(source, name2);
+    if (!existsSync31(from)) continue;
+    const to = join41(dest, name2);
+    const same = ["SKILL.md", join41("scripts", "ultra11y.mjs")].every((f) => {
+      const a = join41(from, f);
+      const b = join41(to, f);
       try {
-        return existsSync30(b) && statSync11(a).size === statSync11(b).size && readFileSync25(a).equals(readFileSync25(b));
+        return existsSync31(b) && statSync15(a).size === statSync15(b).size && readFileSync25(a).equals(readFileSync25(b));
       } catch {
         return false;
       }
@@ -66671,7 +67746,7 @@ function featuresBody(content) {
 function installCodex({ codexDir, command, skillsSource }) {
   const reports = [];
   reports.push(
-    editJsonFile(join43(codexDir, "hooks.json"), (root) => {
+    editJsonFile(join42(codexDir, "hooks.json"), (root) => {
       const hooks = root.hooks ??= {};
       hooks.PreToolUse = [
         ...withoutOurs2(hooks.PreToolUse),
@@ -66679,11 +67754,11 @@ function installCodex({ codexDir, command, skillsSource }) {
       ];
     })
   );
-  const configPath = join43(codexDir, "config.toml");
-  const current = existsSync31(configPath) ? readFileSync26(configPath, "utf8") : "";
+  const configPath = join42(codexDir, "config.toml");
+  const current = existsSync32(configPath) ? readFileSync26(configPath, "utf8") : "";
   const edit = enableHooksFeature(current);
   if (edit.changed) reports.push(writeTextWithBackup(configPath, edit.content));
-  if (skillsSource) reports.push(...copySkillsInto(skillsSource, join43(codexDir, "skills")));
+  if (skillsSource) reports.push(...copySkillsInto(skillsSource, join42(codexDir, "skills")));
   return {
     reports,
     guidance: [
@@ -66698,8 +67773,8 @@ function installCodex({ codexDir, command, skillsSource }) {
 }
 function uninstallCodex({ codexDir }) {
   const reports = [];
-  const hooksPath = join43(codexDir, "hooks.json");
-  if (existsSync31(hooksPath)) {
+  const hooksPath = join42(codexDir, "hooks.json");
+  if (existsSync32(hooksPath)) {
     reports.push(
       editJsonFile(hooksPath, (root) => {
         const hooks = root.hooks;
@@ -66714,33 +67789,33 @@ function uninstallCodex({ codexDir }) {
   return { reports, guidance: ["codex: `[features] hooks = true` was left enabled \u2014 other hooks may depend on it."] };
 }
 function codexWired(codexDir) {
-  const root = readJsonSafe(join43(codexDir, "hooks.json"));
+  const root = readJsonSafe(join42(codexDir, "hooks.json"));
   const groups = root?.hooks?.PreToolUse;
   if (!Array.isArray(groups)) return 0;
   return groups.reduce((n, g) => n + (g.hooks ?? []).filter((h2) => String(h2.command ?? "").includes(CODEX_MARKER)).length, 0);
 }
 function codexHooksEnabled(codexDir) {
-  const p = join43(codexDir, "config.toml");
-  return existsSync31(p) && HOOKS_ON.test(featuresBody(readFileSync26(p, "utf8")));
+  const p = join42(codexDir, "config.toml");
+  return existsSync32(p) && HOOKS_ON.test(featuresBody(readFileSync26(p, "utf8")));
 }
 
 // src/install/opencode.ts
-import { existsSync as existsSync32, readFileSync as readFileSync27, rmSync as rmSync7 } from "fs";
-import { join as join44 } from "path";
+import { existsSync as existsSync33, readFileSync as readFileSync27, rmSync as rmSync8 } from "fs";
+import { join as join43 } from "path";
 var OPENCODE_MARKER = "ULTRA11Y_OPENCODE_PLUGIN";
 function pluginTarget(configDir) {
-  return join44(configDir, "plugin", "ultra11y.js");
+  return join43(configDir, "plugin", "ultra11y.js");
 }
 function installOpencode({ configDir, pluginSource, skillsSource, enginePath }) {
   const target = pluginTarget(configDir);
-  if (existsSync32(target) && !readFileSync27(target, "utf8").includes(OPENCODE_MARKER)) {
+  if (existsSync33(target) && !readFileSync27(target, "utf8").includes(OPENCODE_MARKER)) {
     throw new Error(`refusing to overwrite ${target}: it is not a file ultra11y wrote. Remove it manually if you want the plugin here.`);
   }
   const reports = [writeTextWithBackup(target, readFileSync27(pluginSource, "utf8"))];
-  if (enginePath && existsSync32(enginePath)) {
-    reports.push(writeTextWithBackup(join44(configDir, "plugin", "ultra11y.mjs"), readFileSync27(enginePath, "utf8")));
+  if (enginePath && existsSync33(enginePath)) {
+    reports.push(writeTextWithBackup(join43(configDir, "plugin", "ultra11y.mjs"), readFileSync27(enginePath, "utf8")));
   }
-  if (skillsSource) reports.push(...copySkillsInto(skillsSource, join44(configDir, "skills")));
+  if (skillsSource) reports.push(...copySkillsInto(skillsSource, join43(configDir, "skills")));
   return {
     reports,
     guidance: [
@@ -66753,13 +67828,13 @@ function installOpencode({ configDir, pluginSource, skillsSource, enginePath }) 
 function uninstallOpencode({ configDir }) {
   const reports = [];
   const target = pluginTarget(configDir);
-  if (existsSync32(target) && readFileSync27(target, "utf8").includes(OPENCODE_MARKER)) {
-    rmSync7(target, { force: true });
-    rmSync7(join44(configDir, "plugin", "ultra11y.mjs"), { force: true });
+  if (existsSync33(target) && readFileSync27(target, "utf8").includes(OPENCODE_MARKER)) {
+    rmSync8(target, { force: true });
+    rmSync8(join43(configDir, "plugin", "ultra11y.mjs"), { force: true });
     reports.push({ path: target, changed: true });
   }
-  const configPath = join44(configDir, "opencode.json");
-  if (existsSync32(configPath)) {
+  const configPath = join43(configDir, "opencode.json");
+  if (existsSync33(configPath)) {
     reports.push(
       editJsonFile(configPath, (root) => {
         if (!Array.isArray(root.plugin)) return;
@@ -66773,9 +67848,9 @@ function uninstallOpencode({ configDir }) {
 }
 function opencodeWired(configDir) {
   const target = pluginTarget(configDir);
-  if (existsSync32(target) && readFileSync27(target, "utf8").includes(OPENCODE_MARKER)) return true;
+  if (existsSync33(target) && readFileSync27(target, "utf8").includes(OPENCODE_MARKER)) return true;
   try {
-    const cfg = JSON.parse(readFileSync27(join44(configDir, "opencode.json"), "utf8"));
+    const cfg = JSON.parse(readFileSync27(join43(configDir, "opencode.json"), "utf8"));
     return Array.isArray(cfg.plugin) && cfg.plugin.some((p) => /^ultra11y(@|$)/.test(String(p)));
   } catch {
     return false;
@@ -66783,8 +67858,8 @@ function opencodeWired(configDir) {
 }
 
 // src/install/index.ts
-import { existsSync as existsSync33 } from "fs";
-import { join as join45 } from "path";
+import { existsSync as existsSync34 } from "fs";
+import { join as join44 } from "path";
 var ALL_TARGETS = ["claude-code", "codex", "opencode"];
 function parseTargets(flags2) {
   const picked = /* @__PURE__ */ new Set();
@@ -66823,7 +67898,7 @@ function installForTargets(opts) {
             const out3 = installCodex({ codexDir: codexHome(), command: cmd(), skillsSource: opts.skills === false ? null : bundledSkillsDir() });
             r.reports.push(...out3.reports);
             r.guidance.push(...out3.guidance);
-          } else r.reports.push({ path: join45(codexHome(), "hooks.json"), changed: false });
+          } else r.reports.push({ path: join44(codexHome(), "hooks.json"), changed: false });
           break;
         }
         case "opencode": {
@@ -66832,18 +67907,18 @@ function installForTargets(opts) {
             r.error = "opencode: this engine was not run from a package carrying .opencode/plugins/ultra11y.js \u2014 install ultra11y from npm and retry.";
             break;
           }
-          const configDir = opts.project === true ? join45(cwd, ".opencode") : opencodeConfigDir();
+          const configDir = opts.project === true ? join44(cwd, ".opencode") : opencodeConfigDir();
           if (!opts.dryRun) {
-            const engine = existsSync33(pinnedEnginePath()) ? pinnedEnginePath() : join45(packageRoot() ?? "", "scripts", "ultra11y.mjs");
+            const engine = existsSync34(pinnedEnginePath()) ? pinnedEnginePath() : join44(packageRoot() ?? "", "scripts", "ultra11y.mjs");
             const out3 = installOpencode({
               configDir,
               pluginSource: source,
               skillsSource: opts.skills === false ? null : bundledSkillsDir(),
-              enginePath: existsSync33(engine) ? engine : null
+              enginePath: existsSync34(engine) ? engine : null
             });
             r.reports.push(...out3.reports);
             r.guidance.push(...out3.guidance);
-          } else r.reports.push({ path: join45(configDir, "plugin", "ultra11y.js"), changed: false });
+          } else r.reports.push({ path: join44(configDir, "plugin", "ultra11y.js"), changed: false });
           break;
         }
         case "agents-md": {
@@ -66881,7 +67956,7 @@ function uninstallForTargets(opts) {
           break;
         }
         case "opencode": {
-          const out3 = uninstallOpencode({ configDir: opts.project === true ? join45(cwd, ".opencode") : opencodeConfigDir() });
+          const out3 = uninstallOpencode({ configDir: opts.project === true ? join44(cwd, ".opencode") : opencodeConfigDir() });
           r.reports.push(...out3.reports);
           r.guidance.push(...out3.guidance);
           break;
@@ -66902,18 +67977,18 @@ function statusReport(opts = {}) {
   const claudePath = claudeSettingsPath(opts.project === true, cwd);
   const root = projectRoot(cwd);
   const codexDir = codexHome();
-  const ocDir = opts.project === true ? join45(cwd, ".opencode") : opencodeConfigDir();
+  const ocDir = opts.project === true ? join44(cwd, ".opencode") : opencodeConfigDir();
   const codexOn = codexWired(codexDir) > 0;
   return [
     { target: "claude-code", wired: claudeCodeWired(claudePath) > 0, path: claudePath, note: "the plugin route wires this separately and does not show here" },
     {
       target: "codex",
       wired: codexOn,
-      path: join45(codexDir, "hooks.json"),
+      path: join44(codexDir, "hooks.json"),
       // A wired hook behind a disabled feature flag never fires and looks fine. Say so.
       note: codexOn && !codexHooksEnabled(codexDir) ? "WIRED BUT INERT: `[features] hooks = true` is not set in config.toml" : void 0
     },
-    { target: "opencode", wired: opencodeWired(ocDir), path: join45(ocDir, "plugin", "ultra11y.js") },
+    { target: "opencode", wired: opencodeWired(ocDir), path: join44(ocDir, "plugin", "ultra11y.js") },
     { target: "agents-md", wired: agentsMdWired(root), path: agentsMdPath(root) }
   ];
 }
@@ -67808,8 +68883,8 @@ function pagesComment(result, opts = {}) {
 
 // src/evidence.ts
 import { createHash as createHash7 } from "crypto";
-import { existsSync as existsSync34, mkdirSync as mkdirSync14, readFileSync as readFileSync28, writeFileSync as writeFileSync17 } from "fs";
-import { join as join46 } from "path";
+import { existsSync as existsSync35, mkdirSync as mkdirSync14, readFileSync as readFileSync28, writeFileSync as writeFileSync17 } from "fs";
+import { join as join45 } from "path";
 var DEFAULT_GEOMETRY = { pad: 24, minWidth: 320, minHeight: 120, maxWidth: 960, maxHeight: 540 };
 var DEFAULT_CAPS = { perRule: 6, perPage: 12, total: 200 };
 var HALO = { r: 255, g: 255, b: 255, a: 0.92 };
@@ -67842,10 +68917,10 @@ function resolveScale(img, viewport, boxes) {
 }
 function loadPageEvidence(root, pageId) {
   const dir = snapshotDir(root, pageId);
-  const domFile = join46(dir, "dom.html");
-  const shotFile = join46(dir, "screen.png");
-  if (!existsSync34(domFile)) return { skip: "no-snapshot" };
-  if (!existsSync34(shotFile)) return { skip: "no-screenshot" };
+  const domFile = join45(dir, "dom.html");
+  const shotFile = join45(dir, "screen.png");
+  if (!existsSync35(domFile)) return { skip: "no-snapshot" };
+  if (!existsSync35(shotFile)) return { skip: "no-screenshot" };
   let dom;
   let shot;
   try {
@@ -67856,7 +68931,7 @@ function loadPageEvidence(root, pageId) {
   }
   const img = decodePng(shot);
   if (!img) return { skip: "unreadable-image" };
-  const digest = readJson3(join46(dir, "boxes.json"));
+  const digest = readJson3(join45(dir, "boxes.json"));
   if (!digest) return { skip: "no-boxes" };
   const doc = parseHtml(dom, domFile);
   const boxes = alignedBoxes(dom, digest, doc);
@@ -67872,7 +68947,7 @@ function loadPageEvidence(root, pageId) {
   return { pageId, img, scale, viewport, ordinalOf, boxes, truncated: Boolean(digest.truncated) };
 }
 function metaOf(dir) {
-  const raw = readJson3(join46(dir, "meta.json"));
+  const raw = readJson3(join45(dir, "meta.json"));
   if (raw === void 0) return void 0;
   const v = validateSnapshotMeta(raw);
   return v.ok && v.meta ? v.meta : void 0;
@@ -68037,7 +69112,7 @@ function writeEvidence(result, opts) {
       }
       continue;
     }
-    const dir = join46(opts.outDir, "assets", pageId);
+    const dir = join45(opts.outDir, "assets", pageId);
     let wrote = false;
     const perRule = /* @__PURE__ */ new Map();
     const seen = /* @__PURE__ */ new Set();
@@ -68062,7 +69137,7 @@ function writeEvidence(result, opts) {
         continue;
       }
       const name2 = cropName(f);
-      const path = join46(dir, name2);
+      const path = join45(dir, name2);
       try {
         if (!wrote) {
           mkdirSync14(dir, { recursive: true });
@@ -68100,8 +69175,8 @@ function writeEvidence(result, opts) {
 }
 
 // src/html-emit.ts
-import { mkdirSync as mkdirSync15, readFileSync as readFileSync29, statSync as statSync12, writeFileSync as writeFileSync18 } from "fs";
-import { join as join47 } from "path";
+import { mkdirSync as mkdirSync15, readFileSync as readFileSync29, statSync as statSync16, writeFileSync as writeFileSync18 } from "fs";
+import { join as join46 } from "path";
 
 // src/html.ts
 var MARK4 = { C: "C", NC: "NC", NA: "\u2014", manual: "?" };
@@ -68273,6 +69348,7 @@ var T4 = {
     date: "Date",
     files: "fichiers",
     rate: "r\xE9ussite automatique",
+    conformityRate: "de conformit\xE9 (crit\xE8res valid\xE9s \xF7 applicables)",
     synthesis: "Synth\xE8se",
     synthCaption: (h2) => `Nombre de crit\xE8res par statut, regroup\xE9s par ${h2}.`,
     byGuideline: "r\xE8gle WCAG",
@@ -68286,7 +69362,10 @@ var T4 = {
     coverage: (d, t3) => `Couverture : ${d}/${t3} crit\xE8re(s) d\xE9cid\xE9(s). Le taux ne porte que sur eux et ne dit rien des ${t3 - d} autres.`,
     ncTitle: "Non-conformit\xE9s",
     ncCaption: "Une entr\xE9e par crit\xE8re non conforme.",
-    noNc: "Aucune non-conformit\xE9 relev\xE9e par le moteur statique. Les crit\xE8res \xAB \xE0 \xE9valuer \xBB restent \xE0 trancher.",
+    // NOT « par le moteur statique ». This document is also rendered for a run that captured
+    // real pages, measured them in a browser and had an adjudicator rule on the result;
+    // naming one tier there tells the reader the other two did not happen.
+    noNc: "Aucune non-conformit\xE9 relev\xE9e sur ce p\xE9rim\xE8tre. Les crit\xE8res \xAB \xE0 \xE9valuer \xBB restent \xE0 trancher.",
     recTitle: "Recommandations (non normatives)",
     recNote: "Bonnes pratiques sans test normatif en \xE9chec : elles ne rendent aucun crit\xE8re non conforme et n'entrent pas dans le taux.",
     occurrences: "Occurrences",
@@ -68332,6 +69411,7 @@ var T4 = {
     date: "Date",
     files: "files",
     rate: "automatic pass rate",
+    conformityRate: "conformity (validated \xF7 applicable criteria)",
     synthesis: "Synthesis",
     synthCaption: (h2) => `Criteria count per status, grouped by ${h2}.`,
     byGuideline: "WCAG guideline",
@@ -68345,7 +69425,7 @@ var T4 = {
     coverage: (d, t3) => `Coverage: ${d}/${t3} criteria decided. The rate covers only those and says nothing about the other ${t3 - d}.`,
     ncTitle: "Non-conformities",
     ncCaption: "One entry per non-conforming criterion.",
-    noNc: "No non-conformity found by the static engine. The criteria left to assess are still open.",
+    noNc: "No non-conformity found in this scope. The criteria left to assess are still open.",
     recTitle: "Recommendations (non-normative)",
     recNote: "Good practices with no failing normative test: they never make a criterion non-conforming and do not enter the rate.",
     occurrences: "Occurrences",
@@ -68391,15 +69471,20 @@ function ticks(text) {
 var stdName = (standard) => isCore(standard) ? "WCAG 2.2 AA" : loadPack(standard).name;
 function headline(result, standard, lang) {
   const t3 = T4[lang];
-  const groups = isCore(standard) ? reportGroups(result, lang) : packReportGroups(result, loadPack(standard), lang);
+  const core = isCore(standard);
+  const groups = core ? reportGroups(result, lang) : packReportGroups(result, loadPack(standard), lang);
   const { decided, total } = reportCoverage(groups);
   const agentRuled = groups.some((g) => g.rows.some((r) => r.decidedBy === "agent" && r.status === "C"));
+  const rate = core ? null : conformanceRate(reportTotals(groups));
+  const pct2 = rate ? rate.pct : result.conformancePct;
+  const num3 = rate ? rate.validated : decided;
+  const den = rate ? rate.applicable : total;
   return {
     runs: [
       { text: result.date, mono: true },
       { text: ` \xB7 ${result.scope.files} ${t3.files} \xB7 ` },
-      { text: `${formatRate(decided === 0 ? null : result.conformancePct, decided, total)}${agentRuled ? "*" : ""}`, strong: true },
-      { text: ` ${t3.rate}` }
+      { text: `${formatRate(den === 0 ? null : pct2, num3, den)}${agentRuled ? "*" : ""}`, strong: true },
+      { text: ` ${core ? t3.rate : t3.conformityRate}` }
     ],
     agentRuled,
     decided,
@@ -68699,7 +69784,7 @@ function pageDoc(result, page, opts = {}) {
   );
   blocks.push(...refusalBlocks(opts.refusals?.(page.id)));
   blocks.push(...pageGridBlocks(result, page, standard, lang));
-  const view = { ...result, criteria: page.criteria, findings: page.findings };
+  const view = pageView(result, page);
   const { nc, advisory } = partitionUnits(prdUnits(view, standard, lang));
   blocks.push({ kind: "heading", level: 2, text: t3.ncTitle });
   if (!nc.length) blocks.push({ kind: "para", runs: [{ text: t3.noNc }] });
@@ -68741,7 +69826,7 @@ var T5 = {
 var mb = (n) => (n / (1024 * 1024)).toFixed(1);
 function inlineSize(path) {
   try {
-    return Math.ceil(statSync12(path).size / 3) * 4;
+    return Math.ceil(statSync16(path).size / 3) * 4;
   } catch {
     return 0;
   }
@@ -68819,7 +69904,7 @@ function writeHtml(result, opts) {
     return drawn;
   };
   const flat = opts.layout === "pages";
-  const sheetDir = flat ? opts.outDir : join47(opts.outDir, "pages");
+  const sheetDir = flat ? opts.outDir : join46(opts.outDir, "pages");
   const up = flat ? "./" : "../";
   const compositeName = `ultra11y-${stdKey}-${result.date}.html`;
   const nav = flat ? [{ href: "./index.html", text: t3.pagesTitle }] : [
@@ -68838,13 +69923,13 @@ function writeHtml(result, opts) {
       nav: nav.map((n) => ({ ...n, current: n.href === `./${compositeName}` }))
     });
     if (notices.length) composite.blocks.unshift({ kind: "note", tone: "warn", runs: noticeRuns(notices) });
-    compositePath = join47(opts.outDir, compositeName);
+    compositePath = join46(opts.outDir, compositeName);
     writeFileSync18(compositePath, renderHtmlDocument(composite));
   }
   const fileCrops = cropLookup(opts.evidence, lang, (_p, href) => href.replace(/^\.\//, up));
   const indexNav = nav.map((n) => ({ ...n, current: n.href === "./index.html" }));
   const index = flat ? pagesIndexDoc(result, { standard, lang, nav: indexNav, sheetHref: (id) => `./page-${id}.html` }) : indexDoc(result, { standard, lang, nav: indexNav, links: nav.filter((n) => n.href !== "./index.html") });
-  const indexPath = join47(opts.outDir, "index.html");
+  const indexPath = join46(opts.outDir, "index.html");
   writeFileSync18(indexPath, renderHtmlDocument(index));
   const sheets = [];
   if (opts.pages) {
@@ -68857,7 +69942,7 @@ function writeHtml(result, opts) {
     ];
     if (!flat) {
       writeFileSync18(
-        join47(sheetDir, "index.html"),
+        join46(sheetDir, "index.html"),
         renderHtmlDocument(
           pagesIndexDoc(result, {
             standard,
@@ -68867,7 +69952,7 @@ function writeHtml(result, opts) {
           })
         )
       );
-      sheets.push(join47(sheetDir, "index.html"));
+      sheets.push(join46(sheetDir, "index.html"));
     }
     for (const p of derived) {
       const doc = pageDoc(result, p, {
@@ -68880,7 +69965,7 @@ function writeHtml(result, opts) {
         // beside the entry point, seen from wherever this sheet sits.
         ...opts.screenshots?.has(p.id) ? { screenshot: `${up}assets/${p.id}.png` } : {}
       });
-      const path = join47(sheetDir, `page-${p.id}.html`);
+      const path = join46(sheetDir, `page-${p.id}.html`);
       writeFileSync18(path, renderHtmlDocument(doc));
       sheets.push(path);
     }
@@ -68902,7 +69987,7 @@ function noticeRuns(notices) {
 // src/dev.ts
 import { createServer } from "http";
 import { mkdirSync as mkdirSync16, readFileSync as readFileSync30, writeFileSync as writeFileSync19 } from "fs";
-import { dirname as dirname14, join as join48 } from "path";
+import { dirname as dirname15, join as join47 } from "path";
 var DEV_DEFAULT_PORT = 4111;
 function criterionLabel3(f, standard) {
   if (isCore(standard)) return `WCAG ${f.criteriaId}`;
@@ -69124,13 +70209,13 @@ function auditCollected(root, payload) {
     ...payload.css ? { css: payload.css } : {},
     ...shot ? { screenshotBase64: shot } : {}
   });
-  return { ok: true, result: runAudit({ inputs: [join48(dir, "dom.html")] }) };
+  return { ok: true, result: runAudit({ inputs: [join47(dir, "dom.html")] }) };
 }
 function projectPages(root) {
   const snaps = readSnapshots(root);
   if (!snaps.length) return { result: null, pages: [] };
   const scope = pageScopesFrom(snaps);
-  const result = runAudit({ inputs: [join48(root, ".ultra11y/pages")] });
+  const result = runAudit({ inputs: [join47(root, ".ultra11y/pages")] });
   result.scope.pages = scope;
   attributePages(result, scope);
   foldRecordedAdjudication(root, result);
@@ -69144,7 +70229,7 @@ function judgePages(result) {
 function foldRecordedAdjudication(root, fresh) {
   let prior;
   try {
-    prior = JSON.parse(readFileSync30(join48(root, "audits", "audit-latest.json"), "utf8"));
+    prior = JSON.parse(readFileSync30(join47(root, "audits", "audit-latest.json"), "utf8"));
   } catch {
     return;
   }
@@ -69259,8 +70344,8 @@ function startDevServer(opts) {
           });
           let auditPath;
           if (applied.ok) {
-            auditPath = join48(opts.root, "audits", "audit-latest.json");
-            mkdirSync16(dirname14(auditPath), { recursive: true });
+            auditPath = join47(opts.root, "audits", "audit-latest.json");
+            mkdirSync16(dirname15(auditPath), { recursive: true });
             writeFileSync19(auditPath, `${JSON.stringify(applied.audit, null, 2)}
 `);
           }
@@ -69288,10 +70373,10 @@ function startDevServer(opts) {
     }
     res.writeHead(404, { "content-type": "text/plain" }).end("not found");
   });
-  return new Promise((resolve17, reject) => {
+  return new Promise((resolve18, reject) => {
     server.once("error", reject);
     server.listen(opts.port, "127.0.0.1", () => {
-      resolve17({
+      resolve18({
         port: server.address().port,
         close: () => new Promise((r) => server.close(() => r()))
       });
@@ -69579,11 +70664,11 @@ function e2eSetupPlan(runners, paths, lang = "en") {
 }
 
 // src/orchestrate.ts
-import { existsSync as existsSync35, mkdirSync as mkdirSync17, readFileSync as readFileSync31, rmSync as rmSync8, writeFileSync as writeFileSync20 } from "fs";
-import { join as join50, resolve as resolve13 } from "path";
+import { existsSync as existsSync36, mkdirSync as mkdirSync17, readFileSync as readFileSync31, rmSync as rmSync9, writeFileSync as writeFileSync20 } from "fs";
+import { join as join49, resolve as resolve14 } from "path";
 
 // src/orchestrate-templates.ts
-import { join as join49 } from "path";
+import { join as join48 } from "path";
 var ONE_WRITER_FOOTER = `
 ## Return, don't write
 
@@ -69669,7 +70754,7 @@ var PHASE_SPECS = {
     title: "Adjudicate",
     schema: ADJUDICATE_SCHEMA,
     description: (n) => `Adjudicate the ${n} residual judgment criterion(ia) of an ultra11y audit (fan-out, fail-closed fold)`,
-    applyHint: (engine, worklist, run2) => `node ${engine} verify --apply ${worklist} --in ${join49(run2, "audit-latest.json")} --out ${run2}`
+    applyHint: (engine, worklist, run2) => `node ${engine} verify --apply ${worklist} --in ${join48(run2, "audit-latest.json")} --out ${run2}`
   },
   "verify-report": {
     role: "refuter",
@@ -69691,7 +70776,7 @@ function toBatches(ids, batchSize) {
 }
 function phaseWorkflowScript(ph, runAbs, engineAbs, batchSize) {
   const spec = phaseSpec(ph.name);
-  const scriptPath = join49(runAbs, "orchestration", `${ph.name}.workflow.mjs`);
+  const scriptPath = join48(runAbs, "orchestration", `${ph.name}.workflow.mjs`);
   const meta2 = { name: `ultra11y-${ph.name}`, description: spec.description(ph.items), phases: [{ title: spec.title }] };
   return [
     `export const meta = ${JSON.stringify(meta2)}`,
@@ -69737,8 +70822,8 @@ There is no fan-out here and no ITEMS selection: you handle EVERY criterion, one
 
 ## Which files \u2014 your prompt decides, and it wins over this document
 
-- **With a shell.** Read \`${join49(runAbs, "ADJUDICATE.todo.json")}\`, fill each item's verdict in place, then fold: \`ultra11y verify --apply ${join49(runAbs, "ADJUDICATE.todo.json")} --in ${join49(runAbs, "audit-latest.json")} --out ${runAbs}\`. Each criterion's brief cites the standard's official page for it; if a wording stays ambiguous and you have a web tool, you MAY read that page to settle it \u2014 never to contradict the vendored text, and a web page is never a \`normativeRef\`.
-- **Without a shell** (CI: Read, Grep, Glob, Edit, Write only). Do NOT open \`ADJUDICATE.todo.json\` or \`ADJUDICATE.md\` \u2014 they run to hundreds of kilobytes and will swamp your context. Read \`${join49(runAbs, "adjudicate")}/<criteriaId>.md\`, one small brief per criterion carrying its evidence, its decision protocol, its numbered tests and this contract in short form. Write your verdicts into \`${join49(runAbs, "ADJUDICATE.verdicts.json")}\` \u2014 the ONLY file you write. Someone else folds; you never run the engine.
+- **With a shell.** Read \`${join48(runAbs, "ADJUDICATE.todo.json")}\`, fill each item's verdict in place, then fold: \`ultra11y verify --apply ${join48(runAbs, "ADJUDICATE.todo.json")} --in ${join48(runAbs, "audit-latest.json")} --out ${runAbs}\`. Each criterion's brief cites the standard's official page for it; if a wording stays ambiguous and you have a web tool, you MAY read that page to settle it \u2014 never to contradict the vendored text, and a web page is never a \`normativeRef\`.
+- **Without a shell** (CI: Read, Grep, Glob, Edit, Write only). Do NOT open \`ADJUDICATE.todo.json\` or \`ADJUDICATE.md\` \u2014 they run to hundreds of kilobytes and will swamp your context. Read \`${join48(runAbs, "adjudicate")}/<criteriaId>.md\`, one small brief per criterion carrying its evidence, its decision protocol, its numbered tests and this contract in short form. Write your verdicts into \`${join48(runAbs, "ADJUDICATE.verdicts.json")}\` \u2014 the ONLY file you write. Someone else folds; you never run the engine.
 
 ## For EACH criterion
 
@@ -69755,7 +70840,7 @@ function ecoRefuterContract(runAbs) {
 
 You are an adversarial skeptic verifying the non-conformities of an ultra11y report. Your job is to try to REFUTE each claim: assume it is wrong until the source proves it.
 
-There is no fan-out here and no ITEMS selection: you handle EVERY entry of \`${join49(runAbs, "VERIFY.todo.json")}\` (a JSON array; each entry has \`n\`, \`criteriaId\`, \`file\`, \`line\`, \`selector\`, \`claim\`), one at a time, writing your verdict into that same file.
+There is no fan-out here and no ITEMS selection: you handle EVERY entry of \`${join48(runAbs, "VERIFY.todo.json")}\` (a JSON array; each entry has \`n\`, \`criteriaId\`, \`file\`, \`line\`, \`selector\`, \`claim\`), one at a time, writing your verdict into that same file.
 
 For EACH entry:
 
@@ -69768,7 +70853,7 @@ For EACH entry:
    When unsure, choose the HARSHER verdict \u2014 a false pass is worse than a false fail.
 3. \`note\` is REQUIRED \u2014 one line grounded in what you read (quote or paraphrase the decisive code).
 
-Then fold: \`ultra11y verify --apply ${join49(runAbs, "VERIFY.todo.json")} --report <the report .md>\`. Without a shell, leave the fold to whoever gave you the file.
+Then fold: \`ultra11y verify --apply ${join48(runAbs, "VERIFY.todo.json")} --report <the report .md>\`. Without a shell, leave the fold to whoever gave you the file.
 `;
 }
 function agentContracts(runAbs, opts = {}) {
@@ -69779,12 +70864,12 @@ function agentContracts(runAbs, opts = {}) {
 
 You adjudicate the residual judgment criteria of an ultra11y audit \u2014 the ones the deterministic engine could not decide (alt-text relevance, link purpose in context, reading order\u2026). The ACTIVE STANDARD is recorded in the worklist's \`standard\` field: under a country standard (e.g. \`rgaa\`) the items are that standard's OWN criteria, each carrying its numbered tests \u2014 not WCAG success criteria.
 
-Worklist: \`${join49(runAbs, "ADJUDICATE.todo.json")}\` (an object with \`kind: "adjudication"\` and \`items[]\`). Handle ONLY the criteria whose \`criteriaId\` is named in your prompt (\`ITEMS=<id,\u2026>\`).
+Worklist: \`${join48(runAbs, "ADJUDICATE.todo.json")}\` (an object with \`kind: "adjudication"\` and \`items[]\`). Handle ONLY the criteria whose \`criteriaId\` is named in your prompt (\`ITEMS=<id,\u2026>\`).
 
 For EACH of your criteria:
 
 1. Read its worklist entry for the EVIDENCE: \`evidence[]\` holds source-anchored excerpts (\`file\`, \`line\`, \`selector\`, \`snippet\`) harvested from the audited code \u2014 open the cited files at the cited lines whenever the snippet alone cannot decide.
-1b. Read \`${join49(runAbs, "adjudicate")}/<criteriaId>.md\` for the CRITERION ITSELF \u2014 its official wording, its numbered tests with the standard's own test methodology, the technical note, the particular cases and the glossary terms the tests are defined in terms of. The worklist JSON carries none of that: it holds the evidence and the slots your verdict goes into, and ruling on a country standard from the criterion's title alone is how a verdict ends up citing a test it never read. That brief also cites the standard's official page for the criterion: if a wording stays ambiguous and you have a web tool, you MAY read that page to settle it \u2014 never to contradict the vendored text, and a web page is never a \`normativeRef\`.
+1b. Read \`${join48(runAbs, "adjudicate")}/<criteriaId>.md\` for the CRITERION ITSELF \u2014 its official wording, its numbered tests with the standard's own test methodology, the technical note, the particular cases and the glossary terms the tests are defined in terms of. The worklist JSON carries none of that: it holds the evidence and the slots your verdict goes into, and ruling on a country standard from the criterion's title alone is how a verdict ends up citing a test it never read. That brief also cites the standard's official page for the criterion: if a wording stays ambiguous and you have a web tool, you MAY read that page to settle it \u2014 never to contradict the vendored text, and a web page is never a \`normativeRef\`.
 2. Rule it (the apply gate is FAIL-CLOSED \u2014 a verdict missing its required field does not fold):
    - \`C\` (conforming) \u2014 REQUIRES \`justification\` explaining why the evidence satisfies the criterion, AND \`citations[]\` naming the evidence you cleared (\`file\`/\`line\` copied VERBATIM from this item's own \`evidence[]\`; an anchor that is not in that list is treated as fabricated). A criterion whose \`evidence[]\` is empty cannot be \`C\` at all \u2014 it is \`manual\` (\`undecidable\`), or \`NA\` if nothing in scope is concerned.
    - \`NC\` (non-conforming) \u2014 REQUIRES \`findings\`: at least one groundable \`{ file, line, selector?, message, snippet?, severity?, normativeRef }\` pointing at REAL source. The fold re-grounds every finding; an invented file:line is rejected. \`normativeRef\` MUST cite the precise failed test \u2014 under a country standard, one of the item's OWN tests, which its brief lists for you under \xAB tests to rule on \xBB. A WCAG id looks alike, denotes an unrelated test, and is rejected.
@@ -69798,7 +70883,7 @@ ${footer}`,
 
 You are an adversarial skeptic verifying the non-conformities of an ultra11y report. Your job is to try to REFUTE each claim: assume it is wrong until the source proves it.
 
-Worklist: \`${join49(runAbs, "VERIFY.todo.json")}\` (a JSON array; each entry has \`n\`, \`criteriaId\`, \`file\`, \`line\`, \`selector\`, \`claim\`). Handle ONLY the entries whose \`n\` is named in your prompt (\`ITEMS=<n,\u2026>\`).
+Worklist: \`${join48(runAbs, "VERIFY.todo.json")}\` (a JSON array; each entry has \`n\`, \`criteriaId\`, \`file\`, \`line\`, \`selector\`, \`claim\`). Handle ONLY the entries whose \`n\` is named in your prompt (\`ITEMS=<n,\u2026>\`).
 
 For EACH of your entries:
 
@@ -69825,8 +70910,8 @@ function runbookMd(phases, runAbs, engineAbs, unrendered = []) {
 > no model in the loop \u2014 then re-emit this runbook:
 >
 > \`\`\`
-> ${engine} scan <url> --runtime local --merge ${join49(runAbs, "audit-latest.json")} --out ${runAbs}
-> ${engine} verify --manual --in ${join49(runAbs, "audit-latest.json")} --out ${runAbs}
+> ${engine} scan <url> --runtime local --merge ${join48(runAbs, "audit-latest.json")} --out ${runAbs}
+> ${engine} verify --manual --in ${join48(runAbs, "audit-latest.json")} --out ${runAbs}
 > ${engine} orchestrate --run ${runAbs}
 > \`\`\`
 >
@@ -69848,14 +70933,14 @@ ${status}
 
 ## The loop (play every role yourself, one item at a time)
 
-1. **Audit** (if not done): \`${engine} audit "<globs>" --graph --out ${runAbs}\` \u2192 \`${join49(runAbs, "audit-latest.json")}\`.
-2. **Adjudicate the residual criteria** \u2014 \`${engine} verify --manual --in ${join49(runAbs, "audit-latest.json")} --out ${runAbs}\` writes \`${join49(runAbs, "ADJUDICATE.todo.json")}\`. For EVERY item, apply \`${join49(runAbs, "orchestration", "agents", "adjudicator.md")}\` yourself (read the evidence, rule C/NC/NA/manual, fill the required justification/findings/reason IN the todo file). Then fold \u2014 gated per verdict, so a refusal costs its own criterion and no other: \`${engine} verify --apply ${join49(runAbs, "ADJUDICATE.todo.json")} --in ${join49(runAbs, "audit-latest.json")} --out ${runAbs}\`. Add \`--ledger .ultra11y/verdicts/<standard>.json\` to RECORD the verdicts that landed, so CI can replay them without a model; \`--strict\` restores the old all-or-nothing fold.
-3. **Report**: \`${engine} report --in ${join49(runAbs, "audit-latest.json")} --out ${runAbs}\`.
-4. **Verify the report's claims** \u2014 \`${engine} verify --report <the report .md> --out ${runAbs}\` writes \`${join49(runAbs, "VERIFY.todo.json")}\`. For EVERY entry, apply \`${join49(runAbs, "orchestration", "agents", "refuter.md")}\` yourself (open file:line, verdict supported/partial/refuted/unsupported + note IN the todo file). Then: \`${engine} verify --apply ${join49(runAbs, "VERIFY.todo.json")} --report <the report .md>\`.
+1. **Audit** (if not done): \`${engine} audit "<globs>" --graph --out ${runAbs}\` \u2192 \`${join48(runAbs, "audit-latest.json")}\`.
+2. **Adjudicate the residual criteria** \u2014 \`${engine} verify --manual --in ${join48(runAbs, "audit-latest.json")} --out ${runAbs}\` writes \`${join48(runAbs, "ADJUDICATE.todo.json")}\`. For EVERY item, apply \`${join48(runAbs, "orchestration", "agents", "adjudicator.md")}\` yourself (read the evidence, rule C/NC/NA/manual, fill the required justification/findings/reason IN the todo file). Then fold \u2014 gated per verdict, so a refusal costs its own criterion and no other: \`${engine} verify --apply ${join48(runAbs, "ADJUDICATE.todo.json")} --in ${join48(runAbs, "audit-latest.json")} --out ${runAbs}\`. Add \`--ledger .ultra11y/verdicts/<standard>.json\` to RECORD the verdicts that landed, so CI can replay them without a model; \`--strict\` restores the old all-or-nothing fold.
+3. **Report**: \`${engine} report --in ${join48(runAbs, "audit-latest.json")} --out ${runAbs}\`.
+4. **Verify the report's claims** \u2014 \`${engine} verify --report <the report .md> --out ${runAbs}\` writes \`${join48(runAbs, "VERIFY.todo.json")}\`. For EVERY entry, apply \`${join48(runAbs, "orchestration", "agents", "refuter.md")}\` yourself (open file:line, verdict supported/partial/refuted/unsupported + note IN the todo file). Then: \`${engine} verify --apply ${join48(runAbs, "VERIFY.todo.json")} --report <the report .md>\`.
 5. **Gate**: \`${engine} check --report <the report .md> --semantic\` must exit 0 before presenting anything.
 6. **Fix & re-audit**: \`${engine} fix <globs> --write --iterate\`, hand-apply the judgment fixes, then loop from step 1 until the gate stays green.
 
-With subagents available, prefer the emitted workflows instead: \`orchestrate --run ${runAbs} --phase <p>\` then \`Workflow({ scriptPath: "${join49(runAbs, "orchestration", "<p>.workflow.mjs")}" })\` \u2014 you stay the sole writer either way.
+With subagents available, prefer the emitted workflows instead: \`orchestrate --run ${runAbs} --phase <p>\` then \`Workflow({ scriptPath: "${join48(runAbs, "orchestration", "<p>.workflow.mjs")}" })\` \u2014 you stay the sole writer either way.
 `;
 }
 
@@ -69864,11 +70949,11 @@ var PHASES = ["adjudicate", "verify-report"];
 var SMALL_WORKLIST = 3;
 var BATCH_SIZE2 = 8;
 function listPhases(runDir, engineAbs) {
-  const run2 = resolve13(runDir);
-  const adjPath = join50(run2, "ADJUDICATE.todo.json");
+  const run2 = resolve14(runDir);
+  const adjPath = join49(run2, "ADJUDICATE.todo.json");
   let adjIds = [];
   let adjReady = false;
-  if (existsSync35(adjPath)) {
+  if (existsSync36(adjPath)) {
     try {
       const f = JSON.parse(readFileSync31(adjPath, "utf8"));
       if (f && f.kind === "adjudication" && Array.isArray(f.items)) {
@@ -69878,10 +70963,10 @@ function listPhases(runDir, engineAbs) {
     } catch {
     }
   }
-  const verPath = join50(run2, "VERIFY.todo.json");
+  const verPath = join49(run2, "VERIFY.todo.json");
   let verIds = [];
   let verReady = false;
-  if (existsSync35(verPath)) {
+  if (existsSync36(verPath)) {
     try {
       const items = JSON.parse(readFileSync31(verPath, "utf8"));
       if (Array.isArray(items)) {
@@ -69898,7 +70983,7 @@ function listPhases(runDir, engineAbs) {
       worklist: adjPath,
       items: adjIds.length,
       ids: adjIds,
-      prerequisite: `node ${engineAbs} verify --manual --in ${join50(run2, "audit-latest.json")} --out ${run2}`
+      prerequisite: `node ${engineAbs} verify --manual --in ${join49(run2, "audit-latest.json")} --out ${run2}`
     },
     {
       name: "verify-report",
@@ -69912,16 +70997,16 @@ function listPhases(runDir, engineAbs) {
 }
 function unrenderedInRun(run2) {
   try {
-    const audit2 = JSON.parse(readFileSync31(join50(run2, "audit-latest.json"), "utf8"));
-    const todo = JSON.parse(readFileSync31(join50(run2, "ADJUDICATE.todo.json"), "utf8"));
+    const audit2 = JSON.parse(readFileSync31(join49(run2, "audit-latest.json"), "utf8"));
+    const todo = JSON.parse(readFileSync31(join49(run2, "ADJUDICATE.todo.json"), "utf8"));
     return unrenderedResidual(audit2, todo.items ?? []);
   } catch {
     return [];
   }
 }
 function orchestrateRun(runDir, engineAbs, opts = {}) {
-  const run2 = resolve13(runDir);
-  if (!existsSync35(run2)) {
+  const run2 = resolve14(runDir);
+  if (!existsSync36(run2)) {
     return { exitCode: 2, written: [], notices: [], errors: [`run dir not found: ${run2}`], phases: [] };
   }
   const phases = listPhases(run2, engineAbs);
@@ -69948,23 +71033,23 @@ function orchestrateRun(runDir, engineAbs, opts = {}) {
     }
     selected = [ph];
   }
-  const orchDir = join50(run2, "orchestration");
-  const agentsDir = join50(orchDir, "agents");
-  mkdirSync17(join50(orchDir, "out"), { recursive: true });
+  const orchDir = join49(run2, "orchestration");
+  const agentsDir = join49(orchDir, "agents");
+  mkdirSync17(join49(orchDir, "out"), { recursive: true });
   mkdirSync17(agentsDir, { recursive: true });
   const written = [];
   const notices = [];
   for (const [name2, content] of Object.entries(agentContracts(run2, { eco: opts.eco === true }))) {
-    const p = join50(agentsDir, `${name2}.md`);
+    const p = join49(agentsDir, `${name2}.md`);
     writeFileSync20(p, content);
     written.push(p);
   }
   const emitted = new Set(opts.eco ? [] : selected.filter((p) => p.items > 0).map((p) => p.name));
   for (const ph of phases) {
     if (emitted.has(ph.name)) continue;
-    const stale = join50(orchDir, `${ph.name}.workflow.mjs`);
-    if (existsSync35(stale)) {
-      rmSync8(stale, { force: true });
+    const stale = join49(orchDir, `${ph.name}.workflow.mjs`);
+    if (existsSync36(stale)) {
+      rmSync9(stale, { force: true });
       notices.push(`phase "${ph.name}": stale workflow removed \u2014 its worklist ${ph.ready ? "is now empty" : "no longer exists"}.`);
     }
   }
@@ -69977,12 +71062,12 @@ function orchestrateRun(runDir, engineAbs, opts = {}) {
       if (ph.items <= SMALL_WORKLIST) {
         notices.push(`phase "${ph.name}": only ${ph.items} item(s) \u2014 the sequential --eco path is equivalent and cheaper.`);
       }
-      const p = join50(orchDir, `${ph.name}.workflow.mjs`);
+      const p = join49(orchDir, `${ph.name}.workflow.mjs`);
       writeFileSync20(p, phaseWorkflowScript(ph, run2, engineAbs, BATCH_SIZE2));
       written.push(p);
     }
   }
-  const rb = join50(orchDir, "RUNBOOK.md");
+  const rb = join49(orchDir, "RUNBOOK.md");
   writeFileSync20(rb, runbookMd(phases, run2, engineAbs, unrenderedInRun(run2)));
   written.push(rb);
   return { exitCode: 0, written, notices, errors: [], phases };
@@ -69992,8 +71077,8 @@ function orchestrateRun(runDir, engineAbs, opts = {}) {
 import { createInterface as createInterface2 } from "readline";
 
 // src/mcp/handlers.ts
-import { existsSync as existsSync36, readFileSync as readFileSync32, realpathSync as realpathSync4, statSync as statSync13 } from "fs";
-import { isAbsolute as isAbsolute4, join as join51, resolve as resolve14, sep as sep5 } from "path";
+import { existsSync as existsSync37, readFileSync as readFileSync32, realpathSync as realpathSync5, statSync as statSync17 } from "fs";
+import { isAbsolute as isAbsolute4, join as join50, resolve as resolve15, sep as sep5 } from "path";
 
 // src/criteria-view.ts
 var CriteriaLookupError = class extends Error {
@@ -70476,9 +71561,9 @@ function positive(v, key2) {
 function requiredCwd(args2, defaults) {
   const cwd = str2(args2.cwd) ?? defaults.defaultCwd;
   if (!cwd) throw new ToolError("`cwd` is required: an absolute path to the project root.");
-  const abs = resolve14(cwd);
-  if (!existsSync36(abs)) throw new ToolError(`project root not found: ${abs}`);
-  if (!statSync13(abs).isDirectory()) throw new ToolError(`\`cwd\` is not a directory: ${abs}`);
+  const abs = resolve15(cwd);
+  if (!existsSync37(abs)) throw new ToolError(`project root not found: ${abs}`);
+  if (!statSync17(abs).isDirectory()) throw new ToolError(`\`cwd\` is not a directory: ${abs}`);
   return abs;
 }
 function optionalCwd(args2, defaults) {
@@ -70588,7 +71673,7 @@ function audit(args2, cwd) {
     process.chdir(cwd);
     const inputs = strArray2(args2.globs) ?? DEFAULT_GLOBS;
     const scopedToDiff = bool(args2.changed) || bool(args2.staged) || str2(args2.since) !== void 0;
-    const extra = [CAPTURES_DIR, PAGES_DIR].filter((d) => !scopedToDiff && existsSync36(d) && !inputs.includes(d));
+    const extra = [CAPTURES_DIR, PAGES_DIR].filter((d) => !scopedToDiff && existsSync37(d) && !inputs.includes(d));
     const result = runAudit({
       inputs: [...inputs, ...extra],
       include: strArray2(args2.include),
@@ -70707,8 +71792,8 @@ function handlePackCheck(args2, cwd) {
   return { cwd, ...res };
 }
 function handleSampleCheck(cwd, standard) {
-  const file = join51(cwd, ".ultra11yrc.json");
-  if (!existsSync36(file)) {
+  const file = join50(cwd, ".ultra11yrc.json");
+  if (!existsSync37(file)) {
     throw new ToolError(`no .ultra11yrc.json at ${cwd} \u2014 a page sample must be declared before it can be linted.`);
   }
   let raw;
@@ -70804,10 +71889,10 @@ function handleInit(args2, cwd) {
     throw new ToolError(`\`fail_on\` must be one of: error, warning, notice (got "${failOnRaw}")`);
   }
   const failOn = failOnRaw;
-  const enginePath = resolve14("scripts/ultra11y.mjs");
+  const enginePath = resolve15("scripts/ultra11y.mjs");
   const written = [];
   if (bool(args2.hook)) written.push(writeHook(cwd, enginePath, failOn));
-  if (bool(args2.ci)) written.push(join51(cwd, ".github/workflows/a11y.yml"));
+  if (bool(args2.ci)) written.push(join50(cwd, ".github/workflows/a11y.yml"));
   if (!written.length) {
     throw new ToolError("nothing to install \u2014 pass hook:true and/or ci:true.");
   }
@@ -70827,7 +71912,7 @@ function reportText(args2, tool) {
   if (inline) return inline;
   if (!file) throw new ToolError(`\`report_text\` is required \u2014 the report markdown for ultra11y_${tool} to work on.`);
   if (!isAbsolute4(file)) throw new ToolError("`report_file` must be an absolute path.");
-  if (!existsSync36(file)) throw new ToolError(`report file not found: ${file}`);
+  if (!existsSync37(file)) throw new ToolError(`report file not found: ${file}`);
   return readFileSync32(file, "utf8");
 }
 function handleCriteria(args2) {
@@ -70895,18 +71980,18 @@ function handleMethod(args2) {
 function handleRead(args2, cwd) {
   const raw = str2(args2.path);
   if (!raw) throw new ToolError("`path` is required \u2014 relative to the project root, or an absolute path inside it.");
-  const target = isAbsolute4(raw) ? raw : join51(cwd, raw);
+  const target = isAbsolute4(raw) ? raw : join50(cwd, raw);
   let real;
   try {
-    real = realpathSync4(target);
+    real = realpathSync5(target);
   } catch {
     throw new ToolError(`no such file: ${raw}`);
   }
-  const root = realpathSync4(cwd);
+  const root = realpathSync5(cwd);
   if (real !== root && !real.startsWith(root + sep5)) {
     throw new ToolError(`path is outside the project: ${raw}. Use your own file tool for anything else.`);
   }
-  const st = statSync13(real);
+  const st = statSync17(real);
   if (!st.isFile()) throw new ToolError(`not a file: ${raw}`);
   if (st.size > MAX_READ_BYTES) throw new ToolError(`file is too large to read (${st.size} bytes): ${raw}`);
   const lines = readFileSync32(real, "utf8").split("\n");
@@ -71564,25 +72649,25 @@ function str3(v) {
 var DECLARED = new Set([...TOOLS2, ...WRITE_TOOLS].map((t3) => t3.name));
 
 // src/mcp/resources.ts
-import { existsSync as existsSync37, readdirSync as readdirSync7, readFileSync as readFileSync33, realpathSync as realpathSync5, statSync as statSync14 } from "fs";
-import { basename as basename3, dirname as dirname15, join as join52, resolve as resolve15, sep as sep6 } from "path";
+import { existsSync as existsSync38, readdirSync as readdirSync7, readFileSync as readFileSync33, realpathSync as realpathSync6, statSync as statSync18 } from "fs";
+import { basename as basename4, dirname as dirname16, join as join51, resolve as resolve16, sep as sep6 } from "path";
 import { fileURLToPath as fileURLToPath4 } from "url";
 var SKILL_NAME = "ultra11y";
 var URI_SCHEME = "skill://";
 function resolveSkillRoot(moduleDir) {
-  const here = moduleDir ?? dirname15(fileURLToPath4(import.meta.url));
-  const candidates2 = [resolve15(here, ".."), resolve15(here, "..", "skills", SKILL_NAME), resolve15(here, "..", "..", "skills", SKILL_NAME)];
-  return candidates2.find((dir) => existsSync37(join52(dir, "SKILL.md")));
+  const here = moduleDir ?? dirname16(fileURLToPath4(import.meta.url));
+  const candidates2 = [resolve16(here, ".."), resolve16(here, "..", "skills", SKILL_NAME), resolve16(here, "..", "..", "skills", SKILL_NAME)];
+  return candidates2.find((dir) => existsSync38(join51(dir, "SKILL.md")));
 }
 function listResources(moduleDir) {
   const root = resolveSkillRoot(moduleDir);
   if (!root) return [];
   const out2 = [describe(root, "SKILL.md", `${SKILL_NAME}: the skill`)];
-  const refDir = join52(root, "references");
-  if (!existsSync37(refDir)) return out2;
+  const refDir = join51(root, "references");
+  if (!existsSync38(refDir)) return out2;
   for (const file of readdirSync7(refDir).sort()) {
     if (!file.endsWith(".md")) continue;
-    out2.push(describe(root, join52("references", file), `${SKILL_NAME} reference: ${basename3(file, ".md")}`));
+    out2.push(describe(root, join51("references", file), `${SKILL_NAME} reference: ${basename4(file, ".md")}`));
   }
   return out2;
 }
@@ -71594,18 +72679,18 @@ function readResource(uri, moduleDir) {
   if (!root) throw new ResourceError("no skill payload found next to this build \u2014 nothing to read");
   const rel2 = uri.slice(URI_SCHEME.length);
   if (!rel2) throw new ResourceError("empty resource path");
-  const target = resolve15(root, rel2);
-  const rootReal = realpathSync5(root);
+  const target = resolve16(root, rel2);
+  const rootReal = realpathSync6(root);
   let targetReal;
   try {
-    targetReal = realpathSync5(target);
+    targetReal = realpathSync6(target);
   } catch {
     throw new ResourceError(`no such resource: ${uri}`);
   }
   if (targetReal !== rootReal && !targetReal.startsWith(rootReal + sep6)) {
     throw new ResourceError(`resource path escapes the skill root: ${uri}`);
   }
-  if (!statSync14(targetReal).isFile()) throw new ResourceError(`not a file: ${uri}`);
+  if (!statSync18(targetReal).isFile()) throw new ResourceError(`not a file: ${uri}`);
   return { uri, mimeType: "text/markdown", text: readFileSync33(targetReal, "utf8") };
 }
 var ResourceError = class extends Error {
@@ -71617,7 +72702,7 @@ function describe(root, rel2, fallbackTitle) {
     title: fallbackTitle,
     mimeType: "text/markdown"
   };
-  const summary = firstProse(join52(root, rel2));
+  const summary = firstProse(join51(root, rel2));
   if (summary) decl.description = summary;
   return decl;
 }
@@ -72006,14 +73091,14 @@ function startHttpServer(opts = {}) {
   server.requestTimeout = 0;
   server.headersTimeout = 6e4;
   server.keepAliveTimeout = 12e4;
-  return new Promise((resolve17, reject) => {
+  return new Promise((resolve18, reject) => {
     server.once("error", reject);
     server.listen(opts.port ?? 0, bind, () => {
       server.removeListener("error", reject);
       const addr2 = server.address();
       const port = typeof addr2 === "object" && addr2 ? addr2.port : opts.port ?? 0;
       const host = bind.includes(":") ? `[${bind}]` : bind;
-      resolve17({
+      resolve18({
         server,
         port,
         url: `http://${host}:${port}${MCP_PATH}`,
@@ -72122,7 +73207,7 @@ function sendJson(res, status, body3, origin, extra = {}) {
 }
 var DRAIN_LIMIT = MAX_BODY_BYTES * 8;
 function readBody2(req) {
-  return new Promise((resolve17, reject) => {
+  return new Promise((resolve18, reject) => {
     const chunks = [];
     let size = 0;
     let over = false;
@@ -72146,7 +73231,7 @@ function readBody2(req) {
     });
     req.on("end", () => {
       if (over) reject(new Error("too large"));
-      else resolve17(Buffer.concat(chunks).toString("utf8"));
+      else resolve18(Buffer.concat(chunks).toString("utf8"));
     });
     req.on("error", reject);
     req.on("aborted", () => reject(new Error("client aborted the request")));
@@ -73004,9 +74089,9 @@ async function cmdAudit(p) {
   const capturesFlag = typeof p.flags.captures === "string" && p.flags.captures ? p.flags.captures : void 0;
   const capturesDir = capturesFlag ?? CAPTURES_DIR;
   const scopedToDiff = p.flags.changed === true || p.flags.staged === true || since !== void 0;
-  const capturesWanted = p.flags["no-captures"] !== true && !inputs.includes("-") && (capturesFlag !== void 0 || existsSync38(capturesDir));
+  const capturesWanted = p.flags["no-captures"] !== true && !inputs.includes("-") && (capturesFlag !== void 0 || existsSync39(capturesDir));
   const useCaptures = capturesWanted && !scopedToDiff && !inputs.includes(capturesDir);
-  const pagesWanted = p.flags["no-captures"] !== true && !inputs.includes("-") && existsSync38(PAGES_DIR);
+  const pagesWanted = p.flags["no-captures"] !== true && !inputs.includes("-") && existsSync39(PAGES_DIR);
   const usePages = pagesWanted && !scopedToDiff && !inputs.includes(PAGES_DIR);
   const pagesInScope = pagesWanted && !scopedToDiff;
   const auditInputs = [...inputs, ...useCaptures ? [capturesDir] : [], ...usePages ? [PAGES_DIR] : []];
@@ -73049,9 +74134,9 @@ async function cmdAudit(p) {
   if (typeof p.flags.out === "string") {
     const out2 = p.flags.out;
     const asFile = out2.toLowerCase().endsWith(".json");
-    const target = asFile ? out2 : join53(out2, "audit-latest.json");
+    const target = asFile ? out2 : join52(out2, "audit-latest.json");
     try {
-      mkdirSync18(asFile ? dirname16(out2) : out2, { recursive: true });
+      mkdirSync18(asFile ? dirname17(out2) : out2, { recursive: true });
       writeFileSync21(target, JSON.stringify(document, null, 2) + "\n");
       console.error(lang === "fr" ? `\u2192 audit \xE9crit dans ${target}` : `\u2192 audit written to ${target}`);
     } catch {
@@ -73071,7 +74156,7 @@ async function cmdAudit(p) {
   const baselineFlag = p.flags.baseline;
   if (typeof baselineFlag === "string" && baselineFlag) {
     let baseline = null;
-    if (existsSync38(baselineFlag)) {
+    if (existsSync39(baselineFlag)) {
       try {
         const parsed = unwrapAudit(JSON.parse(readText(baselineFlag)));
         if (isCurrentAudit(parsed)) baseline = parsed;
@@ -73125,11 +74210,11 @@ async function cmdDev(p) {
     return 2;
   }
   if (p.flags.next === true) {
-    const dir = join53(root, ".ultra11y", "next");
+    const dir = join52(root, ".ultra11y", "next");
     const rel2 = ".ultra11y/next/overlay.jsx";
     try {
       mkdirSync18(dir, { recursive: true });
-      writeFileSync21(join53(dir, "overlay.jsx"), nextOverlayComponent(port));
+      writeFileSync21(join52(dir, "overlay.jsx"), nextOverlayComponent(port));
     } catch (e) {
       console.error(`ultra11y dev: could not write ${rel2}: ${e instanceof Error ? e.message : String(e)}`);
       return 1;
@@ -73160,9 +74245,9 @@ async function cmdDev(p) {
   }
   console.error(fr ? `ultra11y dev : tableau de bord sur http://127.0.0.1:${server.port}` : `ultra11y dev: dashboard on http://127.0.0.1:${server.port}`);
   console.error(fr ? "Boucle locale uniquement (l'outil \xE9crit des fichiers). Ctrl-C pour arr\xEAter." : "Loopback only (the tool writes files). Ctrl-C to stop.");
-  await new Promise((resolve17) => {
+  await new Promise((resolve18) => {
     const stop2 = () => {
-      void server.close().then(resolve17);
+      void server.close().then(resolve18);
     };
     process.once("SIGINT", stop2);
     process.once("SIGTERM", stop2);
@@ -73178,7 +74263,7 @@ async function cmdPagesDiscover(p) {
     const snaps = sampleFromSnapshots(readSnapshots(root));
     if (!snaps.length) {
       console.error(
-        lang === "fr" ? `ultra11y pages discover : aucun instantan\xE9 sous ${join53(root, PAGES_DIR)} \u2014 lancez d'abord vos tests E2E avec checkA11y, ou \`scan --sample\`.` : `ultra11y pages discover: no snapshot under ${join53(root, PAGES_DIR)} \u2014 run your E2E tests with checkA11y first, or \`scan --sample\`.`
+        lang === "fr" ? `ultra11y pages discover : aucun instantan\xE9 sous ${join52(root, PAGES_DIR)} \u2014 lancez d'abord vos tests E2E avec checkA11y, ou \`scan --sample\`.` : `ultra11y pages discover: no snapshot under ${join52(root, PAGES_DIR)} \u2014 run your E2E tests with checkA11y first, or \`scan --sample\`.`
       );
       return 1;
     }
@@ -73259,9 +74344,9 @@ ${found} page(s) discovered, ${merged.added.length} new. Nothing was written \u2
     }
     return 0;
   }
-  const file = join53(process.cwd(), ".ultra11yrc.json");
+  const file = join52(process.cwd(), ".ultra11yrc.json");
   let doc = {};
-  if (existsSync38(file)) {
+  if (existsSync39(file)) {
     try {
       doc = JSON.parse(readText(file));
     } catch {
@@ -73321,7 +74406,7 @@ async function cmdPages(p) {
     const outDir2 = typeof p.flags.out === "string" && p.flags.out ? p.flags.out : "";
     if (outDir2) {
       mkdirSync18(outDir2, { recursive: true });
-      writeFileSync21(join53(outDir2, "pages.json"), `${json}
+      writeFileSync21(join52(outDir2, "pages.json"), `${json}
 `);
     }
     return 0;
@@ -73338,27 +74423,27 @@ async function cmdPages(p) {
   const derived = derivePages(result, scope);
   const split = p.flags.split === "page";
   const outDir = typeof p.flags.out === "string" && p.flags.out ? p.flags.out : void 0;
-  const shotOf = (id) => join53(PAGES_DIR, id, "screen.png");
+  const shotOf = (id) => join52(PAGES_DIR, id, "screen.png");
   const shotsRelative = (fileDir) => {
     const m = /* @__PURE__ */ new Map();
     for (const pg of derived) {
-      if (existsSync38(shotOf(pg.id))) m.set(pg.id, relative6(fileDir, shotOf(pg.id)).split("\\").join("/"));
+      if (existsSync39(shotOf(pg.id))) m.set(pg.id, relative6(fileDir, shotOf(pg.id)).split("\\").join("/"));
     }
     return m;
   };
   const shotPaths = (pages) => {
     const m = /* @__PURE__ */ new Map();
-    for (const pg of pages) if (existsSync38(shotOf(pg.id))) m.set(pg.id, shotOf(pg.id));
+    for (const pg of pages) if (existsSync39(shotOf(pg.id))) m.set(pg.id, shotOf(pg.id));
     return m;
   };
   const shotsCopiedInto = (dir) => {
     const m = /* @__PURE__ */ new Map();
-    const assets = join53(dir, "assets");
+    const assets = join52(dir, "assets");
     for (const pg of derived) {
       const src = shotOf(pg.id);
-      if (!existsSync38(src)) continue;
+      if (!existsSync39(src)) continue;
       mkdirSync18(assets, { recursive: true });
-      copyFileSync4(src, join53(assets, `${pg.id}.png`));
+      copyFileSync4(src, join52(assets, `${pg.id}.png`));
       m.set(pg.id, `./assets/${pg.id}.png`);
     }
     return m;
@@ -73384,7 +74469,7 @@ async function cmdPages(p) {
   if (manifest) {
     const total = evidenceNotice(manifest, null, lang);
     console.error(
-      lang === "fr" ? `ultra11y : ${manifest.totals.imaged} vignette(s) \xE9crite(s) dans ${join53(outDir, "assets")}.` : `ultra11y: ${manifest.totals.imaged} crop(s) written to ${join53(outDir, "assets")}.`
+      lang === "fr" ? `ultra11y : ${manifest.totals.imaged} vignette(s) \xE9crite(s) dans ${join52(outDir, "assets")}.` : `ultra11y: ${manifest.totals.imaged} crop(s) written to ${join52(outDir, "assets")}.`
     );
     for (const line of total) console.error(line);
   }
@@ -73393,7 +74478,7 @@ async function cmdPages(p) {
     ...manifest ? { evidenceNotice: (id) => evidenceNotice(manifest, id, lang) } : {}
   };
   if (!split) {
-    const file = join53(outDir, `pages-${result.date}.md`);
+    const file = join52(outDir, `pages-${result.date}.md`);
     writeFileSync21(file, `${renderPagesDocument(result, derived, { standard, lang, screenshots: shotsCopiedInto(outDir), ...evidenceOpts })}
 `);
     const html2 = wantHtml ? emitHtml(result, {
@@ -73413,10 +74498,10 @@ async function cmdPages(p) {
   const sheet = (id) => `page-${id}.md`;
   const hrefs = new Map(derived.map((pg) => [pg.id, `./${sheet(pg.id)}`]));
   for (const pg of derived) {
-    writeFileSync21(join53(outDir, sheet(pg.id)), `${renderPageDocument(result, pg, { standard, lang, screenshots: shots, ...evidenceOpts })}
+    writeFileSync21(join52(outDir, sheet(pg.id)), `${renderPageDocument(result, pg, { standard, lang, screenshots: shots, ...evidenceOpts })}
 `);
   }
-  const index = join53(outDir, "index.md");
+  const index = join52(outDir, "index.md");
   writeFileSync21(index, `${renderPagesIndex(result, derived, { standard, lang, hrefs })}
 `);
   const html = wantHtml ? emitHtml(result, {
@@ -73468,7 +74553,7 @@ async function cmdSnapshot(p) {
           2
         )
       );
-    else if (!snaps.length) console.log(lang === "fr" ? `Aucun instantan\xE9 dans ${join53(root, PAGES_DIR)}.` : `No snapshot in ${join53(root, PAGES_DIR)}.`);
+    else if (!snaps.length) console.log(lang === "fr" ? `Aucun instantan\xE9 dans ${join52(root, PAGES_DIR)}.` : `No snapshot in ${join52(root, PAGES_DIR)}.`);
     else for (const s of snaps) console.log(`${s.meta.id}	${s.meta.name}	${s.meta.url}${s.meta.auth ? "	[auth]" : ""}`);
     return 0;
   }
@@ -73522,7 +74607,7 @@ async function cmdSnapshot(p) {
     console.error(`ultra11y snapshot write: could not write the snapshot: ${e instanceof Error ? e.message : String(e)}`);
     return 1;
   }
-  const result = runAudit({ inputs: [join53(dir, "dom.html")], onWarn: (m) => console.error(m) });
+  const result = runAudit({ inputs: [join52(dir, "dom.html")], onWarn: (m) => console.error(m) });
   const failOnRaw = p.flags["fail-on"];
   const failOnParsed = parseFailOn(failOnRaw);
   if (failOnRaw !== void 0 && failOnParsed === null) {
@@ -73554,8 +74639,8 @@ function cmdInit(p) {
   if (want.baseline) {
     const inputs = p.positionals.length ? p.positionals : ["."];
     const result = runAudit({ inputs, onWarn: (m) => console.error(m) });
-    mkdirSync18(join53(root, "audits"), { recursive: true });
-    const bp = join53(root, "audits", "baseline.json");
+    mkdirSync18(join52(root, "audits"), { recursive: true });
+    const bp = join52(root, "audits", "baseline.json");
     writeFileSync21(bp, JSON.stringify(result, null, 2) + "\n");
     wrote.push(bp);
   }
@@ -73862,7 +74947,7 @@ async function cmdTickets(p) {
   let setPath;
   if (ticketsOut) {
     mkdirSync18(ticketsOut, { recursive: true });
-    setPath = join53(ticketsOut, `issues-${result.date}.json`);
+    setPath = join52(ticketsOut, `issues-${result.date}.json`);
     const payload = {
       tool: "ultra11y",
       kind: "issues",
@@ -73963,8 +75048,8 @@ async function cmdTickets(p) {
   return pushed.failed > 0 ? 1 : 0;
 }
 function depsAt(root) {
-  const pkgPath = join53(root, "package.json");
-  if (!existsSync38(pkgPath)) return {};
+  const pkgPath = join52(root, "package.json");
+  if (!existsSync39(pkgPath)) return {};
   try {
     const pkg = JSON.parse(readText(pkgPath));
     return { ...pkg.dependencies ?? {}, ...pkg.devDependencies ?? {} };
@@ -73975,7 +75060,7 @@ function depsAt(root) {
 function engineRefFor(root) {
   let ref = process.argv[1] ?? "scripts/ultra11y.mjs";
   try {
-    const abs = realpathSync6(ref);
+    const abs = realpathSync7(ref);
     ref = abs.startsWith(root + sep7) ? relative6(root, abs) : abs;
   } catch {
   }
@@ -73990,24 +75075,24 @@ function cmdRender(p) {
       console.error(`ultra11y render: --runner must be playwright|cypress|auto (got "${forced}").`);
       return 2;
     }
-    const detected = detectE2eRunner(depsAt(root), (f) => existsSync38(join53(root, f)));
+    const detected = detectE2eRunner(depsAt(root), (f) => existsSync39(join52(root, f)));
     const runners = forced && forced !== "auto" ? [forced] : detected;
     if (!runners.length) {
       console.error(e2eSetupPlan([], {}, lang));
       return 1;
     }
     const engineRef = engineRefFor(root);
-    const dir = join53(root, ".ultra11y", "e2e");
+    const dir = join52(root, ".ultra11y", "e2e");
     const paths = {};
     try {
       mkdirSync18(dir, { recursive: true });
       if (runners.includes("playwright")) {
-        writeFileSync21(join53(dir, "playwright.mjs"), playwrightFixture(engineRef));
+        writeFileSync21(join52(dir, "playwright.mjs"), playwrightFixture(engineRef));
         paths.playwright = ".ultra11y/e2e/playwright.mjs";
       }
       if (runners.includes("cypress")) {
-        writeFileSync21(join53(dir, "cypress-plugin.mjs"), cypressPlugin(engineRef));
-        writeFileSync21(join53(dir, "cypress-commands.mjs"), cypressCommands());
+        writeFileSync21(join52(dir, "cypress-plugin.mjs"), cypressPlugin(engineRef));
+        writeFileSync21(join52(dir, "cypress-commands.mjs"), cypressCommands());
         paths.cypressPlugin = ".ultra11y/e2e/cypress-plugin.mjs";
         paths.cypressCommands = ".ultra11y/e2e/cypress-commands.mjs";
       }
@@ -74036,29 +75121,29 @@ Fill in COMPONENTS, run it (e.g. npx tsx ${out2}), then: node scripts/ultra11y.m
   }
   if (p.flags.setup === true) {
     const rel2 = ".ultra11y/capture-setup.mjs";
-    const out2 = join53(root, rel2);
+    const out2 = join52(root, rel2);
     try {
-      mkdirSync18(dirname16(out2), { recursive: true });
+      mkdirSync18(dirname17(out2), { recursive: true });
       writeFileSync21(out2, captureSetup());
     } catch (e) {
       console.error(`ultra11y render: could not write ${out2}: ${e instanceof Error ? e.message : String(e)}`);
       return 1;
     }
     let setupDeps = {};
-    const setupPkg = join53(root, "package.json");
-    if (existsSync38(setupPkg)) {
+    const setupPkg = join52(root, "package.json");
+    if (existsSync39(setupPkg)) {
       try {
         const pkg = JSON.parse(readText(setupPkg));
         setupDeps = { ...pkg.dependencies ?? {}, ...pkg.devDependencies ?? {} };
       } catch {
       }
     }
-    const tr = detectTestRunner(setupDeps, (f) => existsSync38(join53(root, f)));
+    const tr = detectTestRunner(setupDeps, (f) => existsSync39(join52(root, f)));
     console.log(captureSetupPlan(tr, rel2, lang));
     const gaLine = ".ultra11y/captures/*.html text eol=lf linguist-generated=true";
-    const gaPath = join53(root, ".gitattributes");
+    const gaPath = join52(root, ".gitattributes");
     try {
-      const existing = existsSync38(gaPath) ? readFileSync34(gaPath, "utf8") : "";
+      const existing = existsSync39(gaPath) ? readFileSync34(gaPath, "utf8") : "";
       if (!existing.includes(".ultra11y/captures/")) {
         appendFileSync(gaPath, (existing && !existing.endsWith("\n") ? "\n" : "") + gaLine + "\n");
         console.log(lang === "fr" ? `.gitattributes : ajout\xE9 \xAB ${gaLine} \xBB` : `.gitattributes: added "${gaLine}"`);
@@ -74066,8 +75151,8 @@ Fill in COMPONENTS, run it (e.g. npx tsx ${out2}), then: node scripts/ultra11y.m
     } catch {
     }
     try {
-      const giPath = join53(root, ".gitignore");
-      if (existsSync38(giPath) && /^\s*\/?\.ultra11y(\/\**)?\/?\s*$/m.test(readFileSync34(giPath, "utf8")))
+      const giPath = join52(root, ".gitignore");
+      if (existsSync39(giPath) && /^\s*\/?\.ultra11y(\/\**)?\/?\s*$/m.test(readFileSync34(giPath, "utf8")))
         console.error(
           lang === "fr" ? "\u26A0\uFE0F .ultra11y semble ignor\xE9 par .gitignore \u2014 les captures doivent \xEAtre committ\xE9es pour le gate (ajoutez \xAB !.ultra11y/captures/ \xBB)." : '\u26A0\uFE0F .ultra11y appears gitignored \u2014 captures must be committed for the gate (add "!.ultra11y/captures/").'
         );
@@ -74077,8 +75162,8 @@ Fill in COMPONENTS, run it (e.g. npx tsx ${out2}), then: node scripts/ultra11y.m
   }
   if (p.flags.storybook === true || typeof p.flags.storybook === "string") {
     const sbDir = p.positionals[0] ?? "storybook-static";
-    const indexPath = existsSync38(join53(sbDir, "index.json")) ? join53(sbDir, "index.json") : join53(sbDir, "stories.json");
-    if (!existsSync38(indexPath)) {
+    const indexPath = existsSync39(join52(sbDir, "index.json")) ? join52(sbDir, "index.json") : join52(sbDir, "stories.json");
+    if (!existsSync39(indexPath)) {
       console.error(
         lang === "fr" ? `ultra11y render : aucun index Storybook (index.json/stories.json) dans ${sbDir}.` : `ultra11y render: no Storybook index (index.json/stories.json) in ${sbDir}.`
       );
@@ -74088,7 +75173,7 @@ Fill in COMPONENTS, run it (e.g. npx tsx ${out2}), then: node scripts/ultra11y.m
     const provById = new Map(stories.map((s) => [s.id, storyProvenance(s)]));
     const capturesFlag = typeof p.flags.captures === "string" && p.flags.captures ? p.flags.captures : void 0;
     const htmlDir = capturesFlag ?? sbDir;
-    const htmlFiles = existsSync38(htmlDir) ? discover([htmlDir]).files.filter((f) => /\.html?$/i.test(f)) : [];
+    const htmlFiles = existsSync39(htmlDir) ? discover([htmlDir]).files.filter((f) => /\.html?$/i.test(f)) : [];
     const outDir = ".ultra11y/captures";
     let attributed = 0;
     let skipped = 0;
@@ -74111,7 +75196,7 @@ Fill in COMPONENTS, run it (e.g. npx tsx ${out2}), then: node scripts/ultra11y.m
       }
       try {
         mkdirSync18(outDir, { recursive: true });
-        writeFileSync21(join53(outDir, `${hitId}.html`), `${formatCaptureComment(prov)}
+        writeFileSync21(join52(outDir, `${hitId}.html`), `${formatCaptureComment(prov)}
 ${raw}${raw.endsWith("\n") ? "" : "\n"}`);
         attributed++;
       } catch {
@@ -74133,11 +75218,11 @@ ${raw}${raw.endsWith("\n") ? "" : "\n"}`);
   }
   if (p.flags.coverage === true) {
     const capturesFlag = typeof p.flags.captures === "string" && p.flags.captures ? p.flags.captures : void 0;
-    const capturesDir = capturesFlag ?? join53(root, ".ultra11y/captures");
+    const capturesDir = capturesFlag ?? join52(root, ".ultra11y/captures");
     const graphExt = [...GRAPH_ONLY_EXT, ...asList(p.flags.ext) ?? []];
     const sourceFiles = discover([root], { include: asList(p.flags.include), exclude: asList(p.flags.exclude), ext: graphExt }).files;
     const graph = buildGraphStreaming(sourceFiles);
-    const capFiles = existsSync38(capturesDir) ? discover([capturesDir]).files : [];
+    const capFiles = existsSync39(capturesDir) ? discover([capturesDir]).files : [];
     const entries = capFiles.map((f) => ({ file: toPosix(f), provenance: parseCaptureProvenance(readText(f)) }));
     const cov = computeCaptureCoverage(graph, entries);
     if (p.flags.json) console.log(JSON.stringify(cov, null, 2));
@@ -74145,15 +75230,15 @@ ${raw}${raw.endsWith("\n") ? "" : "\n"}`);
     return 0;
   }
   let deps = {};
-  const pkgPath = join53(root, "package.json");
-  if (existsSync38(pkgPath)) {
+  const pkgPath = join52(root, "package.json");
+  if (existsSync39(pkgPath)) {
     try {
       const pkg = JSON.parse(readText(pkgPath));
       deps = { ...pkg.dependencies ?? {}, ...pkg.devDependencies ?? {} };
     } catch {
     }
   }
-  const detection = detectFrameworks(deps, (f) => existsSync38(join53(root, f)));
+  const detection = detectFrameworks(deps, (f) => existsSync39(join52(root, f)));
   if (p.flags.json) console.log(JSON.stringify(detection, null, 2));
   else console.log(renderPlan(detection, lang));
   return 0;
@@ -74382,7 +75467,7 @@ function applyPrune(p, standard, items, lang) {
   }
   const out2 = typeof p.flags.out === "string" ? p.flags.out : ".";
   mkdirSync18(out2, { recursive: true });
-  writeFileSync21(join53(out2, "audit-latest.json"), JSON.stringify(auditDocumentFor(pruned.audit, standard, lang), null, 2) + "\n");
+  writeFileSync21(join52(out2, "audit-latest.json"), JSON.stringify(auditDocumentFor(pruned.audit, standard, lang), null, 2) + "\n");
   if (ledgerFile && ledgerRepair) {
     writeLedger(ledgerFile, ledgerRepair.ledger);
     if (!p.flags.json)
@@ -74499,7 +75584,7 @@ function conformityClaimsFor(p, standard, lang) {
     }
   }
   const path = named3 ?? ledgerPath(standard);
-  if (!existsSync38(path)) {
+  if (!existsSync39(path)) {
     if (named3) {
       console.error(
         lang === "fr" ? `ultra11y verify : fichier --conformities introuvable : ${named3}.` : `ultra11y verify: --conformities file not found: ${named3}.`
@@ -74556,7 +75641,7 @@ function replayLedgerFile(p, ledger, lang) {
   }
   const out2 = typeof p.flags.out === "string" ? p.flags.out : ".";
   mkdirSync18(out2, { recursive: true });
-  const auditPath = join53(out2, "audit-latest.json");
+  const auditPath = join52(out2, "audit-latest.json");
   writeFileSync21(auditPath, `${JSON.stringify(auditDocumentFor(r.audit, standard, lang), null, 2)}
 `);
   if (p.flags.json)
@@ -74635,7 +75720,7 @@ function applyAdjudicationFile(p, adj, lang) {
   }
   const out2 = typeof p.flags.out === "string" ? p.flags.out : ".";
   mkdirSync18(out2, { recursive: true });
-  const auditPath = join53(out2, "audit-latest.json");
+  const auditPath = join52(out2, "audit-latest.json");
   writeFileSync21(auditPath, JSON.stringify(auditDocumentFor(r.audit, adj.standard, lang), null, 2) + "\n");
   const ledgerOut = ledgerTarget(p, adj.standard);
   if (ledgerOut) {
@@ -74888,7 +75973,7 @@ async function cmdJudge(p) {
         { cwd }
       );
       if (partial.applied > 0)
-        writeFileSync21(join53(outDir, "audit-latest.json"), `${JSON.stringify(auditDocumentFor(partial.audit, standard, lang), null, 2)}
+        writeFileSync21(join52(outDir, "audit-latest.json"), `${JSON.stringify(auditDocumentFor(partial.audit, standard, lang), null, 2)}
 `);
     } catch {
     }
@@ -74907,6 +75992,9 @@ async function cmdJudge(p) {
     // runner with room.
     concurrency: runner === "claude" || runner === "codex" ? cliConcurrency : void 0,
     abortOnError: isProviderUnavailableError,
+    // The seam that lets a budget abort be halved rather than lost: the same renderer
+    // `batchWorklist` used, so a re-queued half is prompted exactly like a first-class batch.
+    render: render2,
     maxBudgetUsd: Number.isFinite(maxBudgetUsd) ? maxBudgetUsd : void 0,
     effort,
     timeoutMs: Number.isFinite(timeoutMs) ? timeoutMs : void 0,
@@ -74955,7 +76043,7 @@ async function cmdJudge(p) {
     if (r.issues.length > 40) console.error(`  \u2026 +${r.issues.length - 40}`);
   }
   mkdirSync18(out2, { recursive: true });
-  const auditPath = join53(out2, "audit-latest.json");
+  const auditPath = join52(out2, "audit-latest.json");
   writeFileSync21(auditPath, `${JSON.stringify(auditDocumentFor(r.audit, adj.standard, lang), null, 2)}
 `);
   const ledgerOut = ledgerTarget(p, adj.standard);
@@ -75045,7 +76133,7 @@ async function cmdScan(p) {
     return 0;
   }
   for (const target of p.positionals.filter((a) => a !== "-")) {
-    if (/^https?:\/\//i.test(target) || existsSync38(target)) continue;
+    if (/^https?:\/\//i.test(target) || existsSync39(target)) continue;
     console.error(
       lang === "fr" ? `ultra11y scan : fichier introuvable (file not found) : ${target}. Passez une URL http(s):// ou un fichier HTML existant.` : `ultra11y scan: File not found: ${target}. Pass an http(s):// URL or an existing HTML file.`
     );
@@ -75198,7 +76286,7 @@ async function cmdScan(p) {
     }
     let merged = mergeDynamic(audit2, dynamic, lang);
     if (dynamic.snapshots?.length) {
-      const doms = dynamic.snapshots.map((id) => join53(snapshotRoot ?? ".", PAGES_DIR, id, "dom.html")).filter((f) => existsSync38(f));
+      const doms = dynamic.snapshots.map((id) => join52(snapshotRoot ?? ".", PAGES_DIR, id, "dom.html")).filter((f) => existsSync39(f));
       if (doms.length) {
         const snapAudit = runAudit({ inputs: doms, onWarn: (m) => console.error(m) });
         merged = mergeSnapshotAudit(merged, snapAudit);
@@ -75211,11 +76299,11 @@ async function cmdScan(p) {
     }
     mkdirSync18(out2, { recursive: true });
     const mergedDocument = auditDocumentFor(merged, standard, lang);
-    writeFileSync21(join53(out2, "audit-latest.json"), JSON.stringify(mergedDocument, null, 2) + "\n");
+    writeFileSync21(join52(out2, "audit-latest.json"), JSON.stringify(mergedDocument, null, 2) + "\n");
     if (p.flags.json) console.log(JSON.stringify(mergedDocument, null, 2));
     else {
       console.log(
-        lang === "fr" ? `Audit statique + dynamique fusionn\xE9 \u2192 ${join53(out2, "audit-latest.json")} (${merged.conformancePct}% r\xE9ussite, ${merged.findings.length} findings).` : `Static + dynamic audit merged \u2192 ${join53(out2, "audit-latest.json")} (${merged.conformancePct}% pass rate, ${merged.findings.length} findings).`
+        lang === "fr" ? `Audit statique + dynamique fusionn\xE9 \u2192 ${join52(out2, "audit-latest.json")} (${merged.conformancePct}% r\xE9ussite, ${merged.findings.length} findings).` : `Static + dynamic audit merged \u2192 ${join52(out2, "audit-latest.json")} (${merged.conformancePct}% pass rate, ${merged.findings.length} findings).`
       );
       if (dynamic.snapshots?.length)
         console.log(
@@ -75458,7 +76546,7 @@ async function cmdImport(p) {
     }
     if (outDir) {
       mkdirSync18(outDir, { recursive: true });
-      const rawFile = join53(outDir, `external-${adapterId}-${arg}.raw.json`);
+      const rawFile = join52(outDir, `external-${adapterId}-${arg}.raw.json`);
       writeFileSync21(rawFile, rawText.endsWith("\n") ? rawText : `${rawText}
 `);
       if (!p.flags.json) console.log(rawFile);
@@ -75494,7 +76582,7 @@ async function cmdImport(p) {
   }
   if (outDir) {
     mkdirSync18(outDir, { recursive: true });
-    const file = join53(outDir, "external-latest.json");
+    const file = join52(outDir, "external-latest.json");
     writeFileSync21(file, `${JSON.stringify(audit2, null, 2)}
 `);
     console.log(file);
@@ -75598,9 +76686,9 @@ function cmdOrchestrate(p) {
     );
     return 2;
   }
-  const engineAbs = realpathSync6(fileURLToPath5(import.meta.url));
+  const engineAbs = realpathSync7(fileURLToPath5(import.meta.url));
   if (p.flags.list === true) {
-    if (!existsSync38(runFlag)) {
+    if (!existsSync39(runFlag)) {
       console.error(`ultra11y orchestrate: run dir not found: ${runFlag}.`);
       return 2;
     }
@@ -75627,7 +76715,7 @@ function cmdOrchestrate(p) {
     );
   } else {
     console.log(
-      lang === "fr" ? `Suivez ${join53(runFlag, "orchestration", "RUNBOOK.md")} s\xE9quentiellement (chemin \xE9co).` : `Follow ${join53(runFlag, "orchestration", "RUNBOOK.md")} sequentially (the eco path).`
+      lang === "fr" ? `Suivez ${join52(runFlag, "orchestration", "RUNBOOK.md")} s\xE9quentiellement (chemin \xE9co).` : `Follow ${join52(runFlag, "orchestration", "RUNBOOK.md")} sequentially (the eco path).`
     );
   }
   if (p.flags.phase === void 0 && workflows.length === 0 && p.flags.eco !== true) {
@@ -75683,7 +76771,7 @@ async function main(argv) {
     if (typeof v === "string" && v && !allowed.includes(v)) console.error(`ultra11y: --${flag} "${v}" is not one of ${allowed.join("|")} \u2014 using the default.`);
   }
   const packList = typeof p.flags.pack === "string" ? p.flags.pack.split(",").map((s) => s.trim()).filter(Boolean) : [];
-  const configRoot = p.command === "mcp" && typeof p.flags.cwd === "string" && p.flags.cwd ? resolve16(p.flags.cwd) : process.cwd();
+  const configRoot = p.command === "mcp" && typeof p.flags.cwd === "string" && p.flags.cwd ? resolve17(p.flags.cwd) : process.cwd();
   const loaded2 = loadRuntimeStandards(configRoot, packList, (m) => console.error(m), p.flags.override === true);
   if (loaded2.errors.length) {
     for (const e of loaded2.errors) console.error(`ultra11y: ${e}`);
@@ -75749,7 +76837,7 @@ function isInvokedDirectly() {
   if (argv1 === void 0) return false;
   const modulePath = fileURLToPath5(import.meta.url);
   try {
-    if (realpathSync6(argv1) === realpathSync6(modulePath)) return true;
+    if (realpathSync7(argv1) === realpathSync7(modulePath)) return true;
   } catch {
   }
   return import.meta.url === pathToFileURL3(argv1).href;
