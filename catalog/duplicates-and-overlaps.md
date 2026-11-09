@@ -208,6 +208,29 @@ categories.
   gamut boundaries, Tailwind v4 theming) rather than a re-release, so it is
   inspected on its own merits against `better-colors` and
   `design-tokens`.
+- **Faux product UI: `stageshow` is its own niche.** `stageshow`
+  (benjitaylor, MIT) builds believable product interfaces as marketing
+  stills, feature cards, bento grids and cursor walkthroughs. It sits near
+  `make-a-deck` (slide decks) and `interactive-prototype` (a clickable app
+  that behaves like the real thing), but the three outputs do not compete:
+  a slide, a working prototype and a product shot are wanted in different
+  places. All three are linked through `relatedSkills`; no `recommended`
+  default changes. Vendored whole, `kit/brands/` included: `BrandMark` is a
+  kit component backed by that SVG registry and `scripts/film-checks.mjs`
+  flags `invented mark` when a real company name appears without its real
+  artwork, so dropping the artwork would break enforced behaviour, and no
+  reason in the modifications vocabulary covers it. The bundled artwork is
+  not all MIT: `assets/app-icons.ts` is carved out of the skill's own
+  licence, and `kit/brands/` mixes SVGL (MIT), payment-icons (Apache-2.0),
+  Simple Icons and Cryptocurrency Icons (CC0 1.0) with official Linear,
+  American Express and Circle marks under each company's brand-usage terms.
+  Upstream co-locates the evidence (four `LICENSE-*.txt`,
+  `kit/brands/SOURCES.md` with a SHA-256 per asset, `NOTICE.md`,
+  `examples/wikipedia/PHOTOS.md`), which is the `canvas-design` precedent,
+  so `source.license` stays `MIT` and no schema change was made. Status
+  stays `draft`: `scripts/film-checks.mjs` (137 KB) and
+  `scripts/motion-watch.mjs` (31 KB) were sample-reviewed, not read line by
+  line, the same posture as `review-a11y` and `ultra11y`.
 
 Pending triage from round 3, to be recorded here once inspected:
 

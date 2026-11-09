@@ -537,7 +537,7 @@
           {
             "date": "2026-08-29",
             "reason": "broken-reference",
-            "description": "Upstream SKILL.md links CONNECTORS.md as ../../CONNECTORS.md, resolving two directories above the plugin's per-skill folder (design/CONNECTORS.md, shared across all six design/ skills) — a path that falls outside any single vendored skill directory. Rewrote the link to a same-directory relative path (CONNECTORS.md) and bundled a copy of design/CONNECTORS.md into this skill's own directory so it resolves after vendoring.",
+            "description": "Upstream SKILL.md links CONNECTORS.md as ../../CONNECTORS.md, resolving two directories above the plugin's per-skill folder (design/CONNECTORS.md, shared across all six design/ skills) \u2014 a path that falls outside any single vendored skill directory. Rewrote the link to a same-directory relative path (CONNECTORS.md) and bundled a copy of design/CONNECTORS.md into this skill's own directory so it resolves after vendoring.",
             "files": [
               "SKILL.md",
               "CONNECTORS.md"
@@ -1997,7 +1997,7 @@
       ],
       "outputs": [
         "a throwaway route rendering every reachable state",
-        "a switcher grouped in the product’s own words",
+        "a switcher grouped in the product\u2019s own words",
         "a list of states the design shows but the code cannot reach"
       ],
       "path": "skills/interaction-design/state-machine",
@@ -2598,7 +2598,7 @@
       ],
       "outputs": [
         "icon-spec.md measured from the existing set",
-        "new SVG glyphs in the set’s style, built to morph",
+        "new SVG glyphs in the set\u2019s style, built to morph",
         "a single sheet showing the whole set"
       ],
       "path": "skills/visual-design/icons",
@@ -2774,6 +2774,82 @@
       "recommended": false,
       "maturity": "stable",
       "status": "verified"
+    },
+    {
+      "id": "stageshow",
+      "name": "stageshow",
+      "description": "Shifts the agent into product-illustration mode: faux product UI that reads as a real app, built in React and plain CSS as a still or a short cursor-driven animation. Covers browser and app windows, phones, dashboards, terminals, notifications and bento grids, with rules for framing and cropping (one full gutter, only filler bleeds, no dead corners), content density (a three-to-seven real-string budget, placeholder bars elsewhere), mapping the look onto a product's own design tokens, and motion that always has a cause. Ships a React kit, 71 worked \"gold\" examples to start from rather than imitate, a Vite playground, and Node scripts that film the result in headless Chrome so the agent can check its own frames. Bundles 44 brand SVGs and two CC0 photographs under their own licences, with per-asset sources and SHA-256 hashes recorded in kit/brands/SOURCES.md and NOTICE.md.",
+      "category": "visual-design",
+      "tags": [
+        "illustration",
+        "motion",
+        "animation",
+        "layout",
+        "visual-polish",
+        "high-fidelity"
+      ],
+      "triggers": [
+        "make a fake UI for a landing page",
+        "make a faux UI mockup of a product",
+        "build a product demo animation with a cursor",
+        "design a hero illustration of an app",
+        "create a bento grid of product shots",
+        "mock up a product screenshot for a marketing page"
+      ],
+      "inputs": [
+        "a brief naming the product, the surface it sits on, and the story to show",
+        "optionally the product's own code, site or design tokens to match its look"
+      ],
+      "outputs": [
+        "a React + CSS stage rendering one still or a short looping animation",
+        "filmed PNG frames for the agent to check its own work against the gold examples"
+      ],
+      "path": "skills/visual-design/stageshow",
+      "source": {
+        "type": "third-party",
+        "repository": "benjitaylor/skills",
+        "url": "https://github.com/benjitaylor/skills/tree/299140fafd08df55a9c234e610c3f64af3f45531/stageshow",
+        "author": "Benji Taylor",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "stageshow",
+        "upstreamCommit": "299140fafd08df55a9c234e610c3f64af3f45531",
+        "retrievedAt": "2026-11-09",
+        "modified": true,
+        "modifications": [
+          {
+            "date": "2026-11-09",
+            "reason": "portability",
+            "description": "Upstream's skill-root LICENSE copied to LICENSE.txt to match this registry's licenseFile convention. The original LICENSE is retained byte-identical so NOTICE.md's reference to it stays accurate; both files hold the same MIT text.",
+            "files": [
+              "LICENSE.txt"
+            ]
+          }
+        ]
+      },
+      "compatibility": [
+        "claude-code",
+        "claude-ai",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code"
+      ],
+      "dependencies": [
+        "node",
+        "playwright",
+        "browser"
+      ],
+      "relatedSkills": [
+        "make-a-deck",
+        "interactive-prototype"
+      ],
+      "recommended": false,
+      "maturity": "stable",
+      "status": "draft"
     },
     {
       "id": "theme-factory",
@@ -3171,7 +3247,7 @@
           {
             "date": "2026-08-29",
             "reason": "broken-reference",
-            "description": "Upstream SKILL.md links CONNECTORS.md as ../../CONNECTORS.md, resolving two directories above the plugin's per-skill folder (design/CONNECTORS.md, shared across all six design/ skills) — a path that falls outside any single vendored skill directory. Rewrote the link to a same-directory relative path (CONNECTORS.md) and bundled a copy of design/CONNECTORS.md into this skill's own directory so it resolves after vendoring.",
+            "description": "Upstream SKILL.md links CONNECTORS.md as ../../CONNECTORS.md, resolving two directories above the plugin's per-skill folder (design/CONNECTORS.md, shared across all six design/ skills) \u2014 a path that falls outside any single vendored skill directory. Rewrote the link to a same-directory relative path (CONNECTORS.md) and bundled a copy of design/CONNECTORS.md into this skill's own directory so it resolves after vendoring.",
             "files": [
               "SKILL.md",
               "CONNECTORS.md"
@@ -4252,7 +4328,7 @@
     {
       "id": "a11y-critic",
       "name": "a11y-critic",
-      "description": "Reviews accessibility design decisions in an existing component, flow, or interface after automated compliance checks already pass — catching what axe-core/Pa11y miss: incomplete ARIA patterns, incoherent focus management, and state-communication gaps. Runs a 10-phase protocol (pre-commitment predictions, semantic HTML audit, ARIA pattern compliance, focus management analysis, state communication audit, multi-perspective review across screen-reader/keyboard-only/low-vision/cognitive users) and produces findings with severity (CRITICAL/MAJOR/MINOR/ENHANCEMENT), file:line evidence, affected user group, and a WCAG 2.2 or WAI-ARIA APG citation, ending in a verdict of ACCEPT, ACCEPT-WITH-RESERVATIONS, REVISE, or REJECT.",
+      "description": "Reviews accessibility design decisions in an existing component, flow, or interface after automated compliance checks already pass \u2014 catching what axe-core/Pa11y miss: incomplete ARIA patterns, incoherent focus management, and state-communication gaps. Runs a 10-phase protocol (pre-commitment predictions, semantic HTML audit, ARIA pattern compliance, focus management analysis, state communication audit, multi-perspective review across screen-reader/keyboard-only/low-vision/cognitive users) and produces findings with severity (CRITICAL/MAJOR/MINOR/ENHANCEMENT), file:line evidence, affected user group, and a WCAG 2.2 or WAI-ARIA APG citation, ending in a verdict of ACCEPT, ACCEPT-WITH-RESERVATIONS, REVISE, or REJECT.",
       "category": "accessibility",
       "tags": [
         "a11y",
@@ -4385,7 +4461,7 @@
     {
       "id": "a11y-role-audit",
       "name": "a11y-role-audit",
-      "description": "Runs an ARRM-based (W3C WAI Accessibility Requirements-to-Roles Mapping) accessibility review through six responsibility-based lenses — visual design, UX design, front-end development, content authoring, business analysis, and testing — to produce findings attributed to the team role best positioned to catch and fix each barrier, rather than a single generic pass/fail. Supports three modes: design review (mockups/specs before implementation), implementation review (code through each role's lens), and finding attribution (assigning ownership of existing accessibility gaps). Findings are rated CRITICAL, MAJOR, MINOR, or ENHANCEMENT (AAA-level).",
+      "description": "Runs an ARRM-based (W3C WAI Accessibility Requirements-to-Roles Mapping) accessibility review through six responsibility-based lenses \u2014 visual design, UX design, front-end development, content authoring, business analysis, and testing \u2014 to produce findings attributed to the team role best positioned to catch and fix each barrier, rather than a single generic pass/fail. Supports three modes: design review (mockups/specs before implementation), implementation review (code through each role's lens), and finding attribution (assigning ownership of existing accessibility gaps). Findings are rated CRITICAL, MAJOR, MINOR, or ENHANCEMENT (AAA-level).",
       "category": "accessibility",
       "tags": [
         "a11y",
@@ -4585,7 +4661,7 @@
     {
       "id": "perspective-audit",
       "name": "perspective-audit",
-      "description": "Runs a deep, single-dimension accessibility review from one of seven access perspectives — magnification & reflow, environmental contrast, vestibular & motion sensitivity, auditory access, keyboard & motor access, screen reader & semantic structure, and cognitive & neurodivergent accessibility. Activates only on escalation from a11y-planner or a11y-critic when a perspective is flagged MEDIUM or HIGH alarm level, skipping LOW-rated perspectives entirely ('evidence over assertion'). Loads only the relevant checklist section, reviews source/markup against it, and routes each finding to an ARRM team role with severity (CRITICAL/MAJOR/MINOR/ENHANCEMENT), before issuing a PASS, REVISE, or BLOCK recommendation. Read-only: cannot write or edit files.",
+      "description": "Runs a deep, single-dimension accessibility review from one of seven access perspectives \u2014 magnification & reflow, environmental contrast, vestibular & motion sensitivity, auditory access, keyboard & motor access, screen reader & semantic structure, and cognitive & neurodivergent accessibility. Activates only on escalation from a11y-planner or a11y-critic when a perspective is flagged MEDIUM or HIGH alarm level, skipping LOW-rated perspectives entirely ('evidence over assertion'). Loads only the relevant checklist section, reviews source/markup against it, and routes each finding to an ARRM team role with severity (CRITICAL/MAJOR/MINOR/ENHANCEMENT), before issuing a PASS, REVISE, or BLOCK recommendation. Read-only: cannot write or edit files.",
       "category": "accessibility",
       "tags": [
         "a11y",
@@ -4696,7 +4772,7 @@
           {
             "date": "2026-09-14",
             "reason": "translation",
-            "description": "Added English glosses in brackets after French terms in SKILL.md (e.g. « région live » (live region)) so the rule against translating technical tokens reads clearly in English. The French wording, the rule and scripts/ultra11y.mjs are unchanged.",
+            "description": "Added English glosses in brackets after French terms in SKILL.md (e.g. \u00ab r\u00e9gion live \u00bb (live region)) so the rule against translating technical tokens reads clearly in English. The French wording, the rule and scripts/ultra11y.mjs are unchanged.",
             "files": [
               "SKILL.md"
             ]
@@ -4729,7 +4805,7 @@
     {
       "id": "ultra11y",
       "name": "ultra11y",
-      "description": "Audits a repository, site, or page against WCAG 2.2 AA or a pluggable country standard (e.g. RGAA) using a bundled, install-free engine that runs 93 static checks tied to specific success criteria with cross-file JSX/TSX AST analysis, routes rendering-dependent criteria (computed contrast, zoom/reflow, focus visibility) to an optional browser scan tier, and has the agent adjudicate judgment criteria (alt-text relevance, link purpose, reading order) from harvested evidence — never silently marking a criterion conforming without recorded proof. Produces dated Markdown/HTML conformance reports, per-page criterion grids, PRD-style backlogs, and filed tickets (GitHub/GitLab/Jira), and can also author accessible markup and apply safe automated fixes. Self-benchmarked against the W3C ACT-Rules corpus (125/176 failing examples caught across 40 rules, zero false positives).",
+      "description": "Audits a repository, site, or page against WCAG 2.2 AA or a pluggable country standard (e.g. RGAA) using a bundled, install-free engine that runs 93 static checks tied to specific success criteria with cross-file JSX/TSX AST analysis, routes rendering-dependent criteria (computed contrast, zoom/reflow, focus visibility) to an optional browser scan tier, and has the agent adjudicate judgment criteria (alt-text relevance, link purpose, reading order) from harvested evidence \u2014 never silently marking a criterion conforming without recorded proof. Produces dated Markdown/HTML conformance reports, per-page criterion grids, PRD-style backlogs, and filed tickets (GitHub/GitLab/Jira), and can also author accessible markup and apply safe automated fixes. Self-benchmarked against the W3C ACT-Rules corpus (125/176 failing examples caught across 40 rules, zero false positives).",
       "category": "accessibility",
       "tags": [
         "a11y",
@@ -4777,7 +4853,7 @@
           {
             "date": "2026-09-14",
             "reason": "translation",
-            "description": "Added short English glosses in brackets after the first use of each French RGAA term or quoted French tool string in the Markdown prose (e.g. « à évaluer » (to be evaluated)), plus a short English explanation after the verbatim French examples in audit.md, ci.md, dynamic.md and pages.md. The French wording itself, code blocks, JSON examples, sample output, references/standards.md (its table already gives English equivalents) and scripts/ultra11y.mjs are unchanged, because they are normative or match real tool output.",
+            "description": "Added short English glosses in brackets after the first use of each French RGAA term or quoted French tool string in the Markdown prose (e.g. \u00ab \u00e0 \u00e9valuer \u00bb (to be evaluated)), plus a short English explanation after the verbatim French examples in audit.md, ci.md, dynamic.md and pages.md. The French wording itself, code blocks, JSON examples, sample output, references/standards.md (its table already gives English equivalents) and scripts/ultra11y.mjs are unchanged, because they are normative or match real tool output.",
             "files": [
               "SKILL.md",
               "references/audit.md",
@@ -5453,7 +5529,7 @@
           {
             "date": "2026-08-29",
             "reason": "collision-rename",
-            "description": "Upstream frontmatter name is 'wireframe', which collides with an already-vendored 'wireframe' skill from manalkaff/opendesign selected earlier in this same research pass (research/manifests/wireframe.json). Renamed this skill's id/frontmatter name to 'wireframe-json' to disambiguate — the two skills do genuinely different things (opendesign's wireframe produces multiple rough divergent low-fi sketches; this one produces one precise, schema-validated, machine-readable wireframe with an editable preview) so both are worth keeping rather than dropping one.",
+            "description": "Upstream frontmatter name is 'wireframe', which collides with an already-vendored 'wireframe' skill from manalkaff/opendesign selected earlier in this same research pass (research/manifests/wireframe.json). Renamed this skill's id/frontmatter name to 'wireframe-json' to disambiguate \u2014 the two skills do genuinely different things (opendesign's wireframe produces multiple rough divergent low-fi sketches; this one produces one precise, schema-validated, machine-readable wireframe with an editable preview) so both are worth keeping rather than dropping one.",
             "files": [
               "SKILL.md"
             ]
@@ -5461,7 +5537,7 @@
           {
             "date": "2026-08-29",
             "reason": "broken-reference",
-            "description": "Upstream SKILL.md hard-codes the install path '.claude/skills/wireframe/' when referencing its own sibling files (wireframe-designer.md in Step 2, and wireframe-template.html in the Step 4 python splice command) — a Claude-Code-specific absolute convention that breaks for any other harness, and would in any case now be wrong after the collision-rename since the installed directory name changes. Rewrote the wireframe-designer.md reference to a same-directory relative path, and replaced the hard-coded template path in the Step 4 script with a '{skill_dir}' placeholder the invoking agent fills in with this skill's own installed directory, with an explanatory sentence added after the code block.",
+            "description": "Upstream SKILL.md hard-codes the install path '.claude/skills/wireframe/' when referencing its own sibling files (wireframe-designer.md in Step 2, and wireframe-template.html in the Step 4 python splice command) \u2014 a Claude-Code-specific absolute convention that breaks for any other harness, and would in any case now be wrong after the collision-rename since the installed directory name changes. Rewrote the wireframe-designer.md reference to a same-directory relative path, and replaced the hard-coded template path in the Step 4 script with a '{skill_dir}' placeholder the invoking agent fills in with this skill's own installed directory, with an explanatory sentence added after the code block.",
             "files": [
               "SKILL.md"
             ]
@@ -6996,7 +7072,7 @@
           {
             "date": "2026-08-29",
             "reason": "broken-reference",
-            "description": "Upstream SKILL.md links CONNECTORS.md as ../../CONNECTORS.md, resolving two directories above the plugin's per-skill folder (design/CONNECTORS.md, shared across all six design/ skills) — a path that falls outside any single vendored skill directory. Rewrote the link to a same-directory relative path (CONNECTORS.md) and bundled a copy of design/CONNECTORS.md into this skill's own directory so it resolves after vendoring.",
+            "description": "Upstream SKILL.md links CONNECTORS.md as ../../CONNECTORS.md, resolving two directories above the plugin's per-skill folder (design/CONNECTORS.md, shared across all six design/ skills) \u2014 a path that falls outside any single vendored skill directory. Rewrote the link to a same-directory relative path (CONNECTORS.md) and bundled a copy of design/CONNECTORS.md into this skill's own directory so it resolves after vendoring.",
             "files": [
               "SKILL.md",
               "CONNECTORS.md"

@@ -797,6 +797,16 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 - License: MIT (license file: `skills/research/silver-synthesize/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
+## stageshow
+
+- Upstream: [benjitaylor/skills](https://github.com/benjitaylor/skills/tree/299140fafd08df55a9c234e610c3f64af3f45531/stageshow)
+- Author: Benji Taylor
+- Upstream path: `stageshow` at commit `299140fafd08df55a9c234e610c3f64af3f45531`
+- Retrieved: 2026-11-09
+- License: MIT (license file: `skills/visual-design/stageshow/LICENSE.txt`)
+- Local modifications:
+  - 2026-11-09 (portability): Upstream's skill-root LICENSE copied to LICENSE.txt to match this registry's licenseFile convention. The original LICENSE is retained byte-identical so NOTICE.md's reference to it stays accurate; both files hold the same MIT text. [LICENSE.txt]
+
 ## state-machine
 
 - Upstream: [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/659cc4e5b6df90cfe1f306f5ae1c83fa549e075c/skills/state-machine)

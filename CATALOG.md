@@ -2,7 +2,7 @@
 
 <!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
 
-112 skills (104 vendored third-party, 8 original).
+113 skills (105 vendored third-party, 8 original).
 
 Search locally instead of reading this whole file: `npm run search -- "your query"`. The machine-readable index is [catalog/index.json](catalog/index.json).
 
@@ -15,7 +15,7 @@ Search locally instead of reading this whole file: `npm run search -- "your quer
 - [Product strategy](#product-strategy) (2)
 - [Information architecture](#information-architecture) (2)
 - [Interaction design](#interaction-design) (12)
-- [Visual design](#visual-design) (14)
+- [Visual design](#visual-design) (15)
 - [Design systems](#design-systems) (14)
 - [Accessibility](#accessibility) (11)
 - [Content design](#content-design) (4)
@@ -647,6 +647,21 @@ Upgrades an existing website or app to premium visual quality without breaking f
 - **Status**: verified, stable
 - **Tags**: visual-polish, typography, color, layout, audit, ui-design
 - **Related**: `design-debt-audit`, `frontend-design`
+
+### `stageshow`
+
+Shifts the agent into product-illustration mode: faux product UI that reads as a real app, built in React and plain CSS as a still or a short cursor-driven animation. Covers browser and app windows, phones, dashboards, terminals, notifications and bento grids, with rules for framing and cropping (one full gutter, only filler bleeds, no dead corners), content density (a three-to-seven real-string budget, placeholder bars elsewhere), mapping the look onto a product's own design tokens, and motion that always has a cause. Ships a React kit, 71 worked "gold" examples to start from rather than imitate, a Vite playground, and Node scripts that film the result in headless Chrome so the agent can check its own frames. Bundles 44 brand SVGs and two CC0 photographs under their own licences, with per-asset sources and SHA-256 hashes recorded in kit/brands/SOURCES.md and NOTICE.md.
+
+- **Path**: [skills/visual-design/stageshow/SKILL.md](skills/visual-design/stageshow/SKILL.md)
+- **Use when**: make a fake UI for a landing page; make a faux UI mockup of a product; build a product demo animation with a cursor; design a hero illustration of an app; create a bento grid of product shots; mock up a product screenshot for a marketing page
+- **Inputs**: a brief naming the product, the surface it sits on, and the story to show, optionally the product's own code, site or design tokens to match its look
+- **Outputs**: a React + CSS stage rendering one still or a short looping animation, filmed PNG frames for the agent to check its own work against the gold examples
+- **Dependencies**: node, playwright, browser
+- **Verified compatible with**: claude-code, claude-ai, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code
+- **Source**: third-party — [benjitaylor/skills](https://github.com/benjitaylor/skills/tree/299140fafd08df55a9c234e610c3f64af3f45531/stageshow) @ `299140f` by Benji Taylor, MIT (modified — see THIRD_PARTY_NOTICES.md)
+- **Status**: draft, stable
+- **Tags**: illustration, motion, animation, layout, visual-polish, high-fidelity
+- **Related**: `make-a-deck`, `interactive-prototype`
 
 ### `theme-factory` ⭐
 
@@ -1841,6 +1856,7 @@ Orchestrates a research effort from the decision it must inform to a recommendat
 | [`silver-research`](skills/research/silver-research/SKILL.md) | research | third-party | verified |
 | [`silver-structure`](skills/information-architecture/silver-structure/SKILL.md) | information-architecture | third-party | verified |
 | [`silver-synthesize`](skills/research/silver-synthesize/SKILL.md) | research | third-party | verified |
+| [`stageshow`](skills/visual-design/stageshow/SKILL.md) | visual-design | third-party | draft |
 | [`state-machine`](skills/interaction-design/state-machine/SKILL.md) | interaction-design | third-party | draft |
 | [`survey-design`](skills/research/survey-design/SKILL.md) | research | third-party | verified |
 | [`synthetic-user-testing`](skills/testing/synthetic-user-testing/SKILL.md) | testing | third-party | verified |
