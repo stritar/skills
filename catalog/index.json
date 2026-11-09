@@ -35,13 +35,13 @@
       "source": {
         "type": "third-party",
         "repository": "alirezarezvani/claude-skills",
-        "url": "https://github.com/alirezarezvani/claude-skills/tree/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/product-discovery",
+        "url": "https://github.com/alirezarezvani/claude-skills/tree/8f082544116fc0d014188e521ca40304cdfc86b0/product-team/skills/product-discovery",
         "author": "Alireza Rezvani",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "product-team/skills/product-discovery",
-        "upstreamCommit": "19392f7a08264ed00486a251f5b2098321771f94",
-        "retrievedAt": "2026-08-29",
+        "upstreamCommit": "8f082544116fc0d014188e521ca40304cdfc86b0",
+        "retrievedAt": "2026-11-09",
         "modified": false,
         "modifications": []
       },
@@ -98,13 +98,13 @@
       "source": {
         "type": "third-party",
         "repository": "thejparsenault/silver-design-framework",
-        "url": "https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/ideate",
+        "url": "https://github.com/thejparsenault/silver-design-framework/tree/47001dc71fb544552b438838159d4c7f7527c404/framework/skills/ideate",
         "author": "JP Arsenault",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "framework/skills/ideate",
-        "upstreamCommit": "317ede0f594cda80f0d84b11098afac0c29e21b1",
-        "retrievedAt": "2026-08-26",
+        "upstreamCommit": "47001dc71fb544552b438838159d4c7f7527c404",
+        "retrievedAt": "2026-11-09",
         "modified": false,
         "modifications": []
       },
@@ -297,13 +297,13 @@
       "source": {
         "type": "third-party",
         "repository": "joeyvansommeren/journey-mapper",
-        "url": "https://github.com/joeyvansommeren/journey-mapper/tree/bbb316a4c0a13d2f843c328f3a5fa94f64b82ff4/skills/journey-mapper",
+        "url": "https://github.com/joeyvansommeren/journey-mapper/tree/91ccd841e63609c04ba2dc19211ee1e706ba6fc5/skills/journey-mapper",
         "author": "Joey van Sommeren",
         "license": "Apache-2.0",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "skills/journey-mapper",
-        "upstreamCommit": "bbb316a4c0a13d2f843c328f3a5fa94f64b82ff4",
-        "retrievedAt": "2026-08-29",
+        "upstreamCommit": "91ccd841e63609c04ba2dc19211ee1e706ba6fc5",
+        "retrievedAt": "2026-11-09",
         "modified": true,
         "modifications": [
           {
@@ -655,13 +655,13 @@
       "source": {
         "type": "third-party",
         "repository": "thejparsenault/silver-design-framework",
-        "url": "https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/research",
+        "url": "https://github.com/thejparsenault/silver-design-framework/tree/47001dc71fb544552b438838159d4c7f7527c404/framework/skills/research",
         "author": "JP Arsenault",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "framework/skills/research",
-        "upstreamCommit": "317ede0f594cda80f0d84b11098afac0c29e21b1",
-        "retrievedAt": "2026-08-26",
+        "upstreamCommit": "47001dc71fb544552b438838159d4c7f7527c404",
+        "retrievedAt": "2026-11-09",
         "modified": false,
         "modifications": []
       },
@@ -717,13 +717,13 @@
       "source": {
         "type": "third-party",
         "repository": "thejparsenault/silver-design-framework",
-        "url": "https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/synthesize",
+        "url": "https://github.com/thejparsenault/silver-design-framework/tree/47001dc71fb544552b438838159d4c7f7527c404/framework/skills/synthesize",
         "author": "JP Arsenault",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "framework/skills/synthesize",
-        "upstreamCommit": "317ede0f594cda80f0d84b11098afac0c29e21b1",
-        "retrievedAt": "2026-08-26",
+        "upstreamCommit": "47001dc71fb544552b438838159d4c7f7527c404",
+        "retrievedAt": "2026-11-09",
         "modified": false,
         "modifications": []
       },
@@ -934,13 +934,13 @@
       "source": {
         "type": "third-party",
         "repository": "alirezarezvani/claude-skills",
-        "url": "https://github.com/alirezarezvani/claude-skills/tree/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/ux-researcher-designer",
+        "url": "https://github.com/alirezarezvani/claude-skills/tree/8f082544116fc0d014188e521ca40304cdfc86b0/product-team/skills/ux-researcher-designer",
         "author": "Alireza Rezvani",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "product-team/skills/ux-researcher-designer",
-        "upstreamCommit": "19392f7a08264ed00486a251f5b2098321771f94",
-        "retrievedAt": "2026-08-29",
+        "upstreamCommit": "8f082544116fc0d014188e521ca40304cdfc86b0",
+        "retrievedAt": "2026-11-09",
         "modified": false,
         "modifications": []
       },
@@ -1196,13 +1196,13 @@
       "source": {
         "type": "third-party",
         "repository": "thejparsenault/silver-design-framework",
-        "url": "https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/structure",
+        "url": "https://github.com/thejparsenault/silver-design-framework/tree/47001dc71fb544552b438838159d4c7f7527c404/framework/skills/structure",
         "author": "JP Arsenault",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "framework/skills/structure",
-        "upstreamCommit": "317ede0f594cda80f0d84b11098afac0c29e21b1",
-        "retrievedAt": "2026-08-26",
+        "upstreamCommit": "47001dc71fb544552b438838159d4c7f7527c404",
+        "retrievedAt": "2026-11-09",
         "modified": false,
         "modifications": []
       },
@@ -1259,13 +1259,13 @@
       "source": {
         "type": "third-party",
         "repository": "emilkowalski/skills",
-        "url": "https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/animate",
+        "url": "https://github.com/emilkowalski/skills/tree/5206a950b715e0cabe7043ea0b2304332b91494e/skills/animate",
         "author": "Emil Kowalski",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "skills/animate",
-        "upstreamCommit": "d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7",
-        "retrievedAt": "2026-08-26",
+        "upstreamCommit": "5206a950b715e0cabe7043ea0b2304332b91494e",
+        "retrievedAt": "2026-11-09",
         "modified": false,
         "modifications": []
       },
@@ -1324,13 +1324,13 @@
       "source": {
         "type": "third-party",
         "repository": "emilkowalski/skills",
-        "url": "https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/animate-expo",
+        "url": "https://github.com/emilkowalski/skills/tree/5206a950b715e0cabe7043ea0b2304332b91494e/skills/animate-expo",
         "author": "Emil Kowalski",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "skills/animate-expo",
-        "upstreamCommit": "d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7",
-        "retrievedAt": "2026-08-26",
+        "upstreamCommit": "5206a950b715e0cabe7043ea0b2304332b91494e",
+        "retrievedAt": "2026-11-09",
         "modified": false,
         "modifications": []
       },
@@ -1381,13 +1381,13 @@
       "source": {
         "type": "third-party",
         "repository": "emilkowalski/skills",
-        "url": "https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/animation-vocabulary",
+        "url": "https://github.com/emilkowalski/skills/tree/5206a950b715e0cabe7043ea0b2304332b91494e/skills/animation-vocabulary",
         "author": "Emil Kowalski",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "skills/animation-vocabulary",
-        "upstreamCommit": "d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7",
-        "retrievedAt": "2026-08-26",
+        "upstreamCommit": "5206a950b715e0cabe7043ea0b2304332b91494e",
+        "retrievedAt": "2026-11-09",
         "modified": false,
         "modifications": []
       },
@@ -1438,13 +1438,13 @@
       "source": {
         "type": "third-party",
         "repository": "emilkowalski/skills",
-        "url": "https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/apple-design",
+        "url": "https://github.com/emilkowalski/skills/tree/5206a950b715e0cabe7043ea0b2304332b91494e/skills/apple-design",
         "author": "Emil Kowalski",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "skills/apple-design",
-        "upstreamCommit": "d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7",
-        "retrievedAt": "2026-08-26",
+        "upstreamCommit": "5206a950b715e0cabe7043ea0b2304332b91494e",
+        "retrievedAt": "2026-11-09",
         "modified": false,
         "modifications": []
       },
@@ -1505,13 +1505,13 @@
       "source": {
         "type": "third-party",
         "repository": "alirezarezvani/claude-skills",
-        "url": "https://github.com/alirezarezvani/claude-skills/tree/19392f7a08264ed00486a251f5b2098321771f94/product-team/apple-hig-expert/skills/apple-hig-expert",
+        "url": "https://github.com/alirezarezvani/claude-skills/tree/8f082544116fc0d014188e521ca40304cdfc86b0/product-team/apple-hig-expert/skills/apple-hig-expert",
         "author": "Alireza Rezvani",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "product-team/apple-hig-expert/skills/apple-hig-expert",
-        "upstreamCommit": "19392f7a08264ed00486a251f5b2098321771f94",
-        "retrievedAt": "2026-08-29",
+        "upstreamCommit": "8f082544116fc0d014188e521ca40304cdfc86b0",
+        "retrievedAt": "2026-11-09",
         "modified": false,
         "modifications": []
       },
@@ -1536,6 +1536,96 @@
       "recommended": false,
       "maturity": "stable",
       "status": "verified"
+    },
+    {
+      "id": "create-sound",
+      "name": "create-sound",
+      "description": "Designs interface sound from a prompt, an audio file, or both, emitting a declarative SoundDefinition for @web-kits/audio. Runs a five-step pipeline (detect input mode, pick a base layer from the event class, apply mood adjectives, choose single- vs multi-layer, emit and optionally render a WAV and round-trip-validate); to reverse-engineer a sample it runs an FFT chain extracting fundamental and pitch sweep, ADSR envelope, oscillator waveform, filter cutoff and resonance, post-source effects, LFO modulation and stereo layering. Carries twelve UI event recipes (click, tap, tick, toggle, success, error, complete, notification, swoosh, whoosh, modal open/close) with exact frequencies, envelopes and gains, a nine-adjective mood vocabulary, four layering patterns, and five validation rules covering duration caps, envelope sanity, frequency bounds, a gain budget and schema conformance. Triggers on interface sound, sound design, sound effect, audio feedback, UI sounds, SoundDefinition, WAV, sound sprite.",
+      "category": "interaction-design",
+      "tags": [
+        "sound",
+        "micro-interactions",
+        "interaction-design"
+      ],
+      "triggers": [
+        "design a sound for this interaction",
+        "create a UI sound effect",
+        "add audio feedback to this button",
+        "reverse-engineer this WAV into a sound definition",
+        "what should a success sound be"
+      ],
+      "inputs": [
+        "natural-language description of the desired sound",
+        "a WAV/MP3 sample or sound sprite to reverse-engineer",
+        "the UI event the sound belongs to"
+      ],
+      "outputs": [
+        "a SoundDefinition JSON object (Layer or MultiLayerSound) for @web-kits/audio",
+        "optional rendered WAV preview",
+        "validation report against the gain budget, duration cap and patch schema"
+      ],
+      "path": "skills/interaction-design/create-sound",
+      "source": {
+        "type": "third-party",
+        "repository": "raphaelsalaja/audio",
+        "url": "https://github.com/raphaelsalaja/audio/tree/d8c04c77eff93e4ff8355b96dfa806f9a8c79b69/skills/create-sound",
+        "author": "Raphael Salaja",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/create-sound",
+        "upstreamCommit": "d8c04c77eff93e4ff8355b96dfa806f9a8c79b69",
+        "retrievedAt": "2026-11-09",
+        "modified": true,
+        "modifications": [
+          {
+            "date": "2026-11-09",
+            "reason": "broken-reference",
+            "description": "SKILL.md is generated from rules/*.md one directory deeper, and the generator does not re-base relative links, so every monorepo link in it is off by one level and none of the targets exist outside the upstream monorepo. Rewrote the 17 repository-relative links to absolute URLs at the pinned commit (14x .web-kits/core.ts, 1x packages/audio/schemas/patch.schema.json, 1x packages/audio/src/offline.ts -> https://github.com/raphaelsalaja/audio/blob/d8c04c77eff93e4ff8355b96dfa806f9a8c79b69/...), and corrected ../src/analyze.py to src/analyze.py, which is vendored alongside. No prose changed.",
+            "files": [
+              "SKILL.md"
+            ]
+          },
+          {
+            "date": "2026-11-09",
+            "reason": "portability",
+            "description": "Omitted the upstream build tooling and its inputs, which only serve the author monorepo and duplicate content already inlined in the generated SKILL.md: rules/ (55 rule fragments concatenated into SKILL.md), src/build.mjs, src/extract-tests.mjs, src/validate.mjs, package.json and test-cases.json. Also omitted README.md, which documents the upstream monorepo layout and whose six relative links all point at omitted or out-of-tree files (rules/_sections.md and five ../../packages/... and ../../.web-kits/... paths). SKILL.md links to none of these. src/analyze.py is kept because SKILL.md cites it for the interpret-* steps.",
+            "files": [
+              "rules/**",
+              "src/build.mjs",
+              "src/extract-tests.mjs",
+              "src/validate.mjs",
+              "package.json",
+              "test-cases.json",
+              "README.md"
+            ]
+          }
+        ]
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [
+        "npm:@web-kits/audio",
+        "python3",
+        "numpy",
+        "scipy",
+        "ffmpeg"
+      ],
+      "relatedSkills": [
+        "animation-vocabulary",
+        "better-ui"
+      ],
+      "recommended": true,
+      "maturity": "experimental",
+      "status": "draft"
     },
     {
       "id": "design-motion-principles",
@@ -1708,13 +1798,13 @@
       "source": {
         "type": "third-party",
         "repository": "coreyhaines31/marketingskills",
-        "url": "https://github.com/coreyhaines31/marketingskills/tree/e55de886fe7580ec75cdb7ded5092b33f7d4ed58/skills/onboarding",
+        "url": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/onboarding",
         "author": "Corey Haines",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "skills/onboarding",
-        "upstreamCommit": "e55de886fe7580ec75cdb7ded5092b33f7d4ed58",
-        "retrievedAt": "2026-08-29",
+        "upstreamCommit": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "retrievedAt": "2026-11-09",
         "modified": true,
         "modifications": [
           {
@@ -1845,13 +1935,13 @@
       "source": {
         "type": "third-party",
         "repository": "coreyhaines31/marketingskills",
-        "url": "https://github.com/coreyhaines31/marketingskills/tree/e55de886fe7580ec75cdb7ded5092b33f7d4ed58/skills/signup",
+        "url": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/signup",
         "author": "Corey Haines",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "skills/signup",
-        "upstreamCommit": "e55de886fe7580ec75cdb7ded5092b33f7d4ed58",
-        "retrievedAt": "2026-08-29",
+        "upstreamCommit": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "retrievedAt": "2026-11-09",
         "modified": true,
         "modifications": [
           {
@@ -1882,6 +1972,66 @@
       "recommended": false,
       "maturity": "experimental",
       "status": "verified"
+    },
+    {
+      "id": "state-machine",
+      "name": "state-machine",
+      "description": "Renders every state one component can actually reach on a throwaway page, with mock data and a keyboard switcher, so each state can be worked on directly. It is a workbench rather than a review: the page stays up while the visuals are worked on, one state on screen and the rest a keypress away. Enumerates states from the branches the code already has across data (loading, empty, error, one item, a typical set, partially resolved requests, stale refetching), account (plan tier, role, owner versus member) and feature (flags, trials, limits, locked). A state the code cannot reach is not a state; one the design shows but the code lacks is listed as missing, not invented. Imports the real component untouched into a scratch route so it inherits the app shell. Triggers on show every state, empty state, loading state, error state, state switcher, mock data harness.",
+      "category": "interaction-design",
+      "tags": [
+        "state-design",
+        "empty-states",
+        "loading",
+        "error-states",
+        "prototyping"
+      ],
+      "triggers": [
+        "show me every state of this component",
+        "build a page with all the loading and empty states",
+        "I need a harness to work on the error state",
+        "render this component with mock data for each state"
+      ],
+      "inputs": [
+        "one component and its data hooks",
+        "the project app shell and providers"
+      ],
+      "outputs": [
+        "a throwaway route rendering every reachable state",
+        "a switcher grouped in the product’s own words",
+        "a list of states the design shows but the code cannot reach"
+      ],
+      "path": "skills/interaction-design/state-machine",
+      "source": {
+        "type": "third-party",
+        "repository": "jakubkrehel/skills",
+        "url": "https://github.com/jakubkrehel/skills/tree/659cc4e5b6df90cfe1f306f5ae1c83fa549e075c/skills/state-machine",
+        "author": "Jakub Krehel",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/state-machine",
+        "upstreamCommit": "659cc4e5b6df90cfe1f306f5ae1c83fa549e075c",
+        "retrievedAt": "2026-11-09",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code"
+      ],
+      "dependencies": [],
+      "relatedSkills": [
+        "break",
+        "variant"
+      ],
+      "recommended": false,
+      "maturity": "experimental",
+      "status": "draft"
     },
     {
       "id": "algorithmic-art",
@@ -1978,13 +2128,13 @@
       "source": {
         "type": "third-party",
         "repository": "jakubkrehel/skills",
-        "url": "https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-colors",
+        "url": "https://github.com/jakubkrehel/skills/tree/659cc4e5b6df90cfe1f306f5ae1c83fa549e075c/skills/better-colors",
         "author": "Jakub Krehel",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "skills/better-colors",
-        "upstreamCommit": "ca483852de23d48ab4f4ea71da37dad12bd70a95",
-        "retrievedAt": "2026-08-26",
+        "upstreamCommit": "659cc4e5b6df90cfe1f306f5ae1c83fa549e075c",
+        "retrievedAt": "2026-11-09",
         "modified": false,
         "modifications": []
       },
@@ -2041,13 +2191,13 @@
       "source": {
         "type": "third-party",
         "repository": "jakubkrehel/skills",
-        "url": "https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-layout",
+        "url": "https://github.com/jakubkrehel/skills/tree/659cc4e5b6df90cfe1f306f5ae1c83fa549e075c/skills/better-layout",
         "author": "Jakub Krehel",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "skills/better-layout",
-        "upstreamCommit": "ca483852de23d48ab4f4ea71da37dad12bd70a95",
-        "retrievedAt": "2026-08-26",
+        "upstreamCommit": "659cc4e5b6df90cfe1f306f5ae1c83fa549e075c",
+        "retrievedAt": "2026-11-09",
         "modified": false,
         "modifications": []
       },
@@ -2103,13 +2253,13 @@
       "source": {
         "type": "third-party",
         "repository": "jakubkrehel/skills",
-        "url": "https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-typography",
+        "url": "https://github.com/jakubkrehel/skills/tree/659cc4e5b6df90cfe1f306f5ae1c83fa549e075c/skills/better-typography",
         "author": "Jakub Krehel",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "skills/better-typography",
-        "upstreamCommit": "ca483852de23d48ab4f4ea71da37dad12bd70a95",
-        "retrievedAt": "2026-08-26",
+        "upstreamCommit": "659cc4e5b6df90cfe1f306f5ae1c83fa549e075c",
+        "retrievedAt": "2026-11-09",
         "modified": false,
         "modifications": []
       },
@@ -2166,13 +2316,13 @@
       "source": {
         "type": "third-party",
         "repository": "jakubkrehel/skills",
-        "url": "https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-ui",
+        "url": "https://github.com/jakubkrehel/skills/tree/659cc4e5b6df90cfe1f306f5ae1c83fa549e075c/skills/better-ui",
         "author": "Jakub Krehel",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "skills/better-ui",
-        "upstreamCommit": "ca483852de23d48ab4f4ea71da37dad12bd70a95",
-        "retrievedAt": "2026-08-26",
+        "upstreamCommit": "659cc4e5b6df90cfe1f306f5ae1c83fa549e075c",
+        "retrievedAt": "2026-11-09",
         "modified": false,
         "modifications": []
       },
@@ -2296,13 +2446,13 @@
       "source": {
         "type": "third-party",
         "repository": "cathrynlavery/diagram-design",
-        "url": "https://github.com/cathrynlavery/diagram-design/tree/57148ac6f7cf8f2d0080f23437ab2929bca15f3e/skills/diagram-design",
+        "url": "https://github.com/cathrynlavery/diagram-design/tree/6a7f19fcc132b39b126bea90167679b46b14bcc4/skills/diagram-design",
         "author": "Cathryn Lavery",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "skills/diagram-design",
-        "upstreamCommit": "57148ac6f7cf8f2d0080f23437ab2929bca15f3e",
-        "retrievedAt": "2026-09-29",
+        "upstreamCommit": "6a7f19fcc132b39b126bea90167679b46b14bcc4",
+        "retrievedAt": "2026-11-09",
         "modified": true,
         "modifications": [
           {
@@ -2423,6 +2573,69 @@
       "recommended": true,
       "maturity": "stable",
       "status": "verified"
+    },
+    {
+      "id": "icons",
+      "name": "icons",
+      "description": "Draws the glyphs a project icon set is missing, in that set's own measured style rather than from taste or memory. Requires a spec derived mechanically first: a bundled sheet.html, copied into an ignored folder, reads every existing icon on the most common viewBox and records stroke width, caps, joins, radii, grid step, padding, round overshoot and ink coverage per kind, emitting an icon-spec.md. Drawing from a hand-measured spec, a sample or memory is a finding, and fewer than three icons on one viewBox stops the run. Searches the set first so no duplicate glyph is added, places new glyphs beside their siblings in the icon package, never measures or restyles logos and brand marks, and writes each glyph to animate and morph. Triggers on draw an icon, custom icons, missing icon, match our icon style, filled version, icon morph, icon sheet, icon stroke weight.",
+      "category": "visual-design",
+      "tags": [
+        "iconography",
+        "visual-polish",
+        "illustration",
+        "design-system"
+      ],
+      "triggers": [
+        "draw an icon for this feature",
+        "we need a custom icon that matches our set",
+        "make a filled version of this icon",
+        "this icon looks off next to the others",
+        "build an icon sheet"
+      ],
+      "inputs": [
+        "the project icon package, folder or inline icon map",
+        "the glyphs to draw"
+      ],
+      "outputs": [
+        "icon-spec.md measured from the existing set",
+        "new SVG glyphs in the set’s style, built to morph",
+        "a single sheet showing the whole set"
+      ],
+      "path": "skills/visual-design/icons",
+      "source": {
+        "type": "third-party",
+        "repository": "raphaelsalaja/skills",
+        "url": "https://github.com/raphaelsalaja/skills/tree/31031e9246a56cadb18e017521ff7e0c16c68050/skills/icons",
+        "author": "Raphael Salaja",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/icons",
+        "upstreamCommit": "31031e9246a56cadb18e017521ff7e0c16c68050",
+        "retrievedAt": "2026-11-09",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [
+        "browser"
+      ],
+      "relatedSkills": [
+        "better-ui",
+        "diagram-design"
+      ],
+      "recommended": false,
+      "maturity": "experimental",
+      "status": "draft"
     },
     {
       "id": "make-a-deck",
@@ -2786,6 +2999,69 @@
       "status": "verified"
     },
     {
+      "id": "build-design",
+      "name": "build-design",
+      "description": "Builds UI from a Figma file or a design image so the result matches the design, using the project's existing tokens and components rather than new ones. Reads the design at its source (the Figma MCP for a link, with explicit handling for a server connected but signed out; an image yields estimates at a stated scale). Maps every design value onto what exists: a bound variable to its token, a raw value to the token it equals or the nearest one reported as rounded, a component instance to the project component of that name. Never adds a token, variant or arbitrary value to hit a number, and stops to ask when rounding would visibly change the design (over 2px, or a colour on a different step). Any change the design does not show is a deviation and the user's call. Triggers on build this Figma design, implement this mockup, design to code, match the design, Figma MCP.",
+      "category": "design-systems",
+      "tags": [
+        "figma-to-code",
+        "figma",
+        "design-system",
+        "handoff",
+        "design-tokens"
+      ],
+      "triggers": [
+        "build this Figma frame",
+        "implement this mockup in code",
+        "turn this design image into UI",
+        "match the design using our tokens",
+        "design-to-code from Figma"
+      ],
+      "inputs": [
+        "a Figma file link (via the Figma MCP) or a design image",
+        "the project token set and component library"
+      ],
+      "outputs": [
+        "UI code built from existing tokens and components",
+        "a report listing rounded values, deviations and unwired parts"
+      ],
+      "path": "skills/design-systems/build-design",
+      "source": {
+        "type": "third-party",
+        "repository": "jakubkrehel/skills",
+        "url": "https://github.com/jakubkrehel/skills/tree/659cc4e5b6df90cfe1f306f5ae1c83fa549e075c/skills/build-design",
+        "author": "Jakub Krehel",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/build-design",
+        "upstreamCommit": "659cc4e5b6df90cfe1f306f5ae1c83fa549e075c",
+        "retrievedAt": "2026-11-09",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [
+        "figma-mcp"
+      ],
+      "relatedSkills": [
+        "image-to-code",
+        "design-handoff"
+      ],
+      "recommended": false,
+      "maturity": "experimental",
+      "status": "draft"
+    },
+    {
       "id": "design-debt-audit",
       "name": "design-debt-audit",
       "description": "Makes the agent run a structured design debt audit: five debt categories (visual, structural, accessibility, documentation, implementation), a five-step process from screenshot inventory through classification (severity/category/frequency/effort) to a prioritized remediation plan scored as severity x frequency / effort, split into quick wins, structural projects, accessibility fixes, and documented write-offs, plus a living debt register with owners and quarterly review.",
@@ -3027,13 +3303,13 @@
       "source": {
         "type": "third-party",
         "repository": "plugin87/ux-ui-agent-skills",
-        "url": "https://github.com/plugin87/ux-ui-agent-skills/tree/f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e/.claude/skills/design-tokens",
+        "url": "https://github.com/plugin87/ux-ui-agent-skills/tree/def84a70fadc3490d80901295a4f1951fdb2cc69/.claude/skills/design-tokens",
         "author": "Thientan Soparat",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": ".claude/skills/design-tokens",
-        "upstreamCommit": "f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e",
-        "retrievedAt": "2026-09-29",
+        "upstreamCommit": "def84a70fadc3490d80901295a4f1951fdb2cc69",
+        "retrievedAt": "2026-11-09",
         "modified": true,
         "modifications": [
           {
@@ -3186,13 +3462,13 @@
       "source": {
         "type": "third-party",
         "repository": "plugin87/ux-ui-agent-skills",
-        "url": "https://github.com/plugin87/ux-ui-agent-skills/tree/f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e/.claude/skills/figma-integration",
+        "url": "https://github.com/plugin87/ux-ui-agent-skills/tree/def84a70fadc3490d80901295a4f1951fdb2cc69/.claude/skills/figma-integration",
         "author": "Thientan Soparat",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": ".claude/skills/figma-integration",
-        "upstreamCommit": "f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e",
-        "retrievedAt": "2026-09-29",
+        "upstreamCommit": "def84a70fadc3490d80901295a4f1951fdb2cc69",
+        "retrievedAt": "2026-11-09",
         "modified": true,
         "modifications": [
           {
@@ -3389,13 +3665,13 @@
       "source": {
         "type": "third-party",
         "repository": "emilkowalski/skills",
-        "url": "https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/pick-ui-library",
+        "url": "https://github.com/emilkowalski/skills/tree/5206a950b715e0cabe7043ea0b2304332b91494e/skills/pick-ui-library",
         "author": "Emil Kowalski",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "skills/pick-ui-library",
-        "upstreamCommit": "d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7",
-        "retrievedAt": "2026-08-26",
+        "upstreamCommit": "5206a950b715e0cabe7043ea0b2304332b91494e",
+        "retrievedAt": "2026-11-09",
         "modified": false,
         "modifications": []
       },
@@ -3448,13 +3724,13 @@
       "source": {
         "type": "third-party",
         "repository": "plugin87/ux-ui-agent-skills",
-        "url": "https://github.com/plugin87/ux-ui-agent-skills/tree/f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e/.claude/skills/token-build",
+        "url": "https://github.com/plugin87/ux-ui-agent-skills/tree/def84a70fadc3490d80901295a4f1951fdb2cc69/.claude/skills/token-build",
         "author": "Thientan Soparat",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": ".claude/skills/token-build",
-        "upstreamCommit": "f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e",
-        "retrievedAt": "2026-09-29",
+        "upstreamCommit": "def84a70fadc3490d80901295a4f1951fdb2cc69",
+        "retrievedAt": "2026-11-09",
         "modified": true,
         "modifications": [
           {
@@ -3609,13 +3885,13 @@
       "source": {
         "type": "third-party",
         "repository": "alirezarezvani/claude-skills",
-        "url": "https://github.com/alirezarezvani/claude-skills/tree/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/ui-design-system",
+        "url": "https://github.com/alirezarezvani/claude-skills/tree/8f082544116fc0d014188e521ca40304cdfc86b0/product-team/skills/ui-design-system",
         "author": "Alireza Rezvani",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "product-team/skills/ui-design-system",
-        "upstreamCommit": "19392f7a08264ed00486a251f5b2098321771f94",
-        "retrievedAt": "2026-08-29",
+        "upstreamCommit": "8f082544116fc0d014188e521ca40304cdfc86b0",
+        "retrievedAt": "2026-11-09",
         "modified": false,
         "modifications": []
       },
@@ -3741,13 +4017,13 @@
       "source": {
         "type": "third-party",
         "repository": "plugin87/ux-ui-agent-skills",
-        "url": "https://github.com/plugin87/ux-ui-agent-skills/tree/f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e/.claude/skills/a11y-audit",
+        "url": "https://github.com/plugin87/ux-ui-agent-skills/tree/def84a70fadc3490d80901295a4f1951fdb2cc69/.claude/skills/a11y-audit",
         "author": "Thientan Soparat",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": ".claude/skills/a11y-audit",
-        "upstreamCommit": "f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e",
-        "retrievedAt": "2026-09-29",
+        "upstreamCommit": "def84a70fadc3490d80901295a4f1951fdb2cc69",
+        "retrievedAt": "2026-11-09",
         "modified": true,
         "modifications": [
           {
@@ -4209,13 +4485,13 @@
       "source": {
         "type": "third-party",
         "repository": "jakubkrehel/skills",
-        "url": "https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-accessibility",
+        "url": "https://github.com/jakubkrehel/skills/tree/659cc4e5b6df90cfe1f306f5ae1c83fa549e075c/skills/better-accessibility",
         "author": "Jakub Krehel",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "skills/better-accessibility",
-        "upstreamCommit": "ca483852de23d48ab4f4ea71da37dad12bd70a95",
-        "retrievedAt": "2026-08-26",
+        "upstreamCommit": "659cc4e5b6df90cfe1f306f5ae1c83fa549e075c",
+        "retrievedAt": "2026-11-09",
         "modified": false,
         "modifications": []
       },
@@ -4408,13 +4684,13 @@
       "source": {
         "type": "third-party",
         "repository": "maxgfr/ultra11y",
-        "url": "https://github.com/maxgfr/ultra11y/tree/5ccb015c07c651d8a0e0400275fea39d3e767eac/skills/review-a11y",
+        "url": "https://github.com/maxgfr/ultra11y/tree/b245094b7528f8624cfbf84d00ee05422aeac24e/skills/review-a11y",
         "author": "maxgfr",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "skills/review-a11y",
-        "upstreamCommit": "5ccb015c07c651d8a0e0400275fea39d3e767eac",
-        "retrievedAt": "2026-09-29",
+        "upstreamCommit": "b245094b7528f8624cfbf84d00ee05422aeac24e",
+        "retrievedAt": "2026-11-09",
         "modified": true,
         "modifications": [
           {
@@ -4489,13 +4765,13 @@
       "source": {
         "type": "third-party",
         "repository": "maxgfr/ultra11y",
-        "url": "https://github.com/maxgfr/ultra11y/tree/5ccb015c07c651d8a0e0400275fea39d3e767eac/skills/ultra11y",
+        "url": "https://github.com/maxgfr/ultra11y/tree/b245094b7528f8624cfbf84d00ee05422aeac24e/skills/ultra11y",
         "author": "maxgfr",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "skills/ultra11y",
-        "upstreamCommit": "5ccb015c07c651d8a0e0400275fea39d3e767eac",
-        "retrievedAt": "2026-09-29",
+        "upstreamCommit": "b245094b7528f8624cfbf84d00ee05422aeac24e",
+        "retrievedAt": "2026-11-09",
         "modified": true,
         "modifications": [
           {
@@ -4638,13 +4914,13 @@
       "source": {
         "type": "third-party",
         "repository": "jakubkrehel/skills",
-        "url": "https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-writing",
+        "url": "https://github.com/jakubkrehel/skills/tree/659cc4e5b6df90cfe1f306f5ae1c83fa549e075c/skills/better-writing",
         "author": "Jakub Krehel",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "skills/better-writing",
-        "upstreamCommit": "ca483852de23d48ab4f4ea71da37dad12bd70a95",
-        "retrievedAt": "2026-08-26",
+        "upstreamCommit": "659cc4e5b6df90cfe1f306f5ae1c83fa549e075c",
+        "retrievedAt": "2026-11-09",
         "modified": false,
         "modifications": []
       },
@@ -4975,13 +5251,13 @@
       "source": {
         "type": "third-party",
         "repository": "emilkowalski/skills",
-        "url": "https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/prototype",
+        "url": "https://github.com/emilkowalski/skills/tree/5206a950b715e0cabe7043ea0b2304332b91494e/skills/prototype",
         "author": "Emil Kowalski",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "skills/prototype",
-        "upstreamCommit": "d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7",
-        "retrievedAt": "2026-08-26",
+        "upstreamCommit": "5206a950b715e0cabe7043ea0b2304332b91494e",
+        "retrievedAt": "2026-11-09",
         "modified": false,
         "modifications": []
       },
@@ -5034,13 +5310,13 @@
       "source": {
         "type": "third-party",
         "repository": "jakubkrehel/skills",
-        "url": "https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/variant",
+        "url": "https://github.com/jakubkrehel/skills/tree/659cc4e5b6df90cfe1f306f5ae1c83fa549e075c/skills/variant",
         "author": "Jakub Krehel",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "skills/variant",
-        "upstreamCommit": "ca483852de23d48ab4f4ea71da37dad12bd70a95",
-        "retrievedAt": "2026-08-26",
+        "upstreamCommit": "659cc4e5b6df90cfe1f306f5ae1c83fa549e075c",
+        "retrievedAt": "2026-11-09",
         "modified": false,
         "modifications": []
       },
@@ -5170,8 +5446,8 @@
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": ".",
-        "upstreamCommit": "948d4331343b18d913d5bc502da72ed0c5f19101",
-        "retrievedAt": "2026-08-29",
+        "upstreamCommit": "ced7284d5708f7faac7f2a097be4b613d8298192",
+        "retrievedAt": "2026-11-09",
         "modified": true,
         "modifications": [
           {
@@ -5253,13 +5529,13 @@
       "source": {
         "type": "third-party",
         "repository": "jakubkrehel/skills",
-        "url": "https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/break",
+        "url": "https://github.com/jakubkrehel/skills/tree/659cc4e5b6df90cfe1f306f5ae1c83fa549e075c/skills/break",
         "author": "Jakub Krehel",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "skills/break",
-        "upstreamCommit": "ca483852de23d48ab4f4ea71da37dad12bd70a95",
-        "retrievedAt": "2026-08-26",
+        "upstreamCommit": "659cc4e5b6df90cfe1f306f5ae1c83fa549e075c",
+        "retrievedAt": "2026-11-09",
         "modified": false,
         "modifications": []
       },
@@ -5377,13 +5653,13 @@
       "source": {
         "type": "third-party",
         "repository": "kirodotdev/kirocrew",
-        "url": "https://github.com/kirodotdev/kirocrew/tree/320d29014b5ab6b09a992d59271cd843178564a8/src/kiro_crew/apps/builtins/design_critique/skills/design-critique",
+        "url": "https://github.com/kirodotdev/kirocrew/tree/94dfacdb2d584277ddd032fb82636915c2850345/src/kiro_crew/apps/builtins/design_critique/skills/design-critique",
         "author": "kirocrew",
         "license": "Apache-2.0",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "src/kiro_crew/apps/builtins/design_critique/skills/design-critique",
-        "upstreamCommit": "320d29014b5ab6b09a992d59271cd843178564a8",
-        "retrievedAt": "2026-09-29",
+        "upstreamCommit": "94dfacdb2d584277ddd032fb82636915c2850345",
+        "retrievedAt": "2026-11-09",
         "modified": true,
         "modifications": [
           {
@@ -5455,13 +5731,13 @@
       "source": {
         "type": "third-party",
         "repository": "plugin87/ux-ui-agent-skills",
-        "url": "https://github.com/plugin87/ux-ui-agent-skills/tree/f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e/.claude/skills/design-review",
+        "url": "https://github.com/plugin87/ux-ui-agent-skills/tree/def84a70fadc3490d80901295a4f1951fdb2cc69/.claude/skills/design-review",
         "author": "Thientan Soparat",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": ".claude/skills/design-review",
-        "upstreamCommit": "f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e",
-        "retrievedAt": "2026-09-29",
+        "upstreamCommit": "def84a70fadc3490d80901295a4f1951fdb2cc69",
+        "retrievedAt": "2026-11-09",
         "modified": true,
         "modifications": [
           {
@@ -5532,13 +5808,13 @@
       "source": {
         "type": "third-party",
         "repository": "emilkowalski/skills",
-        "url": "https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/find-animation-opportunities",
+        "url": "https://github.com/emilkowalski/skills/tree/5206a950b715e0cabe7043ea0b2304332b91494e/skills/find-animation-opportunities",
         "author": "Emil Kowalski",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "skills/find-animation-opportunities",
-        "upstreamCommit": "d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7",
-        "retrievedAt": "2026-08-26",
+        "upstreamCommit": "5206a950b715e0cabe7043ea0b2304332b91494e",
+        "retrievedAt": "2026-11-09",
         "modified": false,
         "modifications": []
       },
@@ -5595,13 +5871,13 @@
       "source": {
         "type": "third-party",
         "repository": "emilkowalski/skills",
-        "url": "https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/improve-animations",
+        "url": "https://github.com/emilkowalski/skills/tree/5206a950b715e0cabe7043ea0b2304332b91494e/skills/improve-animations",
         "author": "Emil Kowalski",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "skills/improve-animations",
-        "upstreamCommit": "d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7",
-        "retrievedAt": "2026-08-26",
+        "upstreamCommit": "5206a950b715e0cabe7043ea0b2304332b91494e",
+        "retrievedAt": "2026-11-09",
         "modified": false,
         "modifications": []
       },
@@ -5656,13 +5932,13 @@
       "source": {
         "type": "third-party",
         "repository": "thejparsenault/silver-design-framework",
-        "url": "https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/evaluate",
+        "url": "https://github.com/thejparsenault/silver-design-framework/tree/47001dc71fb544552b438838159d4c7f7527c404/framework/skills/evaluate",
         "author": "JP Arsenault",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "framework/skills/evaluate",
-        "upstreamCommit": "317ede0f594cda80f0d84b11098afac0c29e21b1",
-        "retrievedAt": "2026-08-26",
+        "upstreamCommit": "47001dc71fb544552b438838159d4c7f7527c404",
+        "retrievedAt": "2026-11-09",
         "modified": false,
         "modifications": []
       },
@@ -5980,13 +6256,13 @@
       "source": {
         "type": "third-party",
         "repository": "jakubkrehel/skills",
-        "url": "https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/interface-review",
+        "url": "https://github.com/jakubkrehel/skills/tree/659cc4e5b6df90cfe1f306f5ae1c83fa549e075c/skills/interface-review",
         "author": "Jakub Krehel",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "skills/interface-review",
-        "upstreamCommit": "ca483852de23d48ab4f4ea71da37dad12bd70a95",
-        "retrievedAt": "2026-08-26",
+        "upstreamCommit": "659cc4e5b6df90cfe1f306f5ae1c83fa549e075c",
+        "retrievedAt": "2026-11-09",
         "modified": false,
         "modifications": []
       },
@@ -6043,13 +6319,13 @@
       "source": {
         "type": "third-party",
         "repository": "emilkowalski/skills",
-        "url": "https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/review-animations",
+        "url": "https://github.com/emilkowalski/skills/tree/5206a950b715e0cabe7043ea0b2304332b91494e/skills/review-animations",
         "author": "Emil Kowalski",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "skills/review-animations",
-        "upstreamCommit": "d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7",
-        "retrievedAt": "2026-08-26",
+        "upstreamCommit": "5206a950b715e0cabe7043ea0b2304332b91494e",
+        "retrievedAt": "2026-11-09",
         "modified": false,
         "modifications": []
       },
@@ -6072,6 +6348,70 @@
       "recommended": true,
       "maturity": "stable",
       "status": "verified"
+    },
+    {
+      "id": "viewports",
+      "name": "viewports",
+      "description": "Renders one page at a fixed set of widths and heights and measures each render rather than reasoning about the CSS. Sweeps 320, 375, 768, 1024 and 1440 plus 1px either side of every project breakpoint read from the CSS, Tailwind config or tokens, emulates touch below 1024, then runs an overflow.js probe through the browser evaluate call and treats every result as a candidate until a crop confirms it. Checks sideways page scroll, text clipped without an ellipsis or clamp, controls that only hover reveals, a 812x375 landscape phone where dialog actions must stay reachable, and a 200% root font size at 1024 where boxes must grow without overlap. Returns one screenshot per width with overlay numbers and findings in the same order, each naming its width, with a rule-count-severity summary and a Block/Approve verdict. Triggers on responsive check, breakpoint edges, mobile layout, horizontal scroll, text zoom 200%, hover-only controls, landscape phone, viewport sweep.",
+      "category": "design-qa",
+      "tags": [
+        "design-qa",
+        "responsive",
+        "cross-browser",
+        "visual-regression",
+        "mobile"
+      ],
+      "triggers": [
+        "check this page at every breakpoint",
+        "does the layout break on mobile",
+        "find horizontal scroll",
+        "test at 200% text zoom",
+        "responsive review of this screen"
+      ],
+      "inputs": [
+        "a running page URL or route",
+        "the project breakpoints (CSS, Tailwind config or tokens)"
+      ],
+      "outputs": [
+        "one full-page screenshot per width",
+        "findings naming the width and measured values",
+        "rule/count/severity summary with a Block or Approve verdict"
+      ],
+      "path": "skills/design-qa/viewports",
+      "source": {
+        "type": "third-party",
+        "repository": "raphaelsalaja/skills",
+        "url": "https://github.com/raphaelsalaja/skills/tree/31031e9246a56cadb18e017521ff7e0c16c68050/skills/viewports",
+        "author": "Raphael Salaja",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/viewports",
+        "upstreamCommit": "31031e9246a56cadb18e017521ff7e0c16c68050",
+        "retrievedAt": "2026-11-09",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code",
+        "claude-ai"
+      ],
+      "dependencies": [
+        "browser"
+      ],
+      "relatedSkills": [
+        "break",
+        "better-layout"
+      ],
+      "recommended": false,
+      "maturity": "experimental",
+      "status": "draft"
     },
     {
       "id": "web-design-reviewer",
@@ -6170,13 +6510,13 @@
       "source": {
         "type": "third-party",
         "repository": "alirezarezvani/claude-skills",
-        "url": "https://github.com/alirezarezvani/claude-skills/tree/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/experiment-designer",
+        "url": "https://github.com/alirezarezvani/claude-skills/tree/8f082544116fc0d014188e521ca40304cdfc86b0/product-team/skills/experiment-designer",
         "author": "Alireza Rezvani",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "product-team/skills/experiment-designer",
-        "upstreamCommit": "19392f7a08264ed00486a251f5b2098321771f94",
-        "retrievedAt": "2026-08-29",
+        "upstreamCommit": "8f082544116fc0d014188e521ca40304cdfc86b0",
+        "retrievedAt": "2026-11-09",
         "modified": false,
         "modifications": []
       },
@@ -6314,13 +6654,13 @@
       "source": {
         "type": "third-party",
         "repository": "alirezarezvani/claude-skills",
-        "url": "https://github.com/alirezarezvani/claude-skills/tree/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/product-analytics",
+        "url": "https://github.com/alirezarezvani/claude-skills/tree/8f082544116fc0d014188e521ca40304cdfc86b0/product-team/skills/product-analytics",
         "author": "Alireza Rezvani",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "product-team/skills/product-analytics",
-        "upstreamCommit": "19392f7a08264ed00486a251f5b2098321771f94",
-        "retrievedAt": "2026-08-29",
+        "upstreamCommit": "8f082544116fc0d014188e521ca40304cdfc86b0",
+        "retrievedAt": "2026-11-09",
         "modified": false,
         "modifications": []
       },
@@ -6377,13 +6717,13 @@
       "source": {
         "type": "third-party",
         "repository": "thejparsenault/silver-design-framework",
-        "url": "https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/measure",
+        "url": "https://github.com/thejparsenault/silver-design-framework/tree/47001dc71fb544552b438838159d4c7f7527c404/framework/skills/measure",
         "author": "JP Arsenault",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "framework/skills/measure",
-        "upstreamCommit": "317ede0f594cda80f0d84b11098afac0c29e21b1",
-        "retrievedAt": "2026-08-26",
+        "upstreamCommit": "47001dc71fb544552b438838159d4c7f7527c404",
+        "retrievedAt": "2026-11-09",
         "modified": false,
         "modifications": []
       },
@@ -6713,13 +7053,13 @@
       "source": {
         "type": "third-party",
         "repository": "jakubkrehel/skills",
-        "url": "https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/explain-interface",
+        "url": "https://github.com/jakubkrehel/skills/tree/659cc4e5b6df90cfe1f306f5ae1c83fa549e075c/skills/explain-interface",
         "author": "Jakub Krehel",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "skills/explain-interface",
-        "upstreamCommit": "ca483852de23d48ab4f4ea71da37dad12bd70a95",
-        "retrievedAt": "2026-08-26",
+        "upstreamCommit": "659cc4e5b6df90cfe1f306f5ae1c83fa549e075c",
+        "retrievedAt": "2026-11-09",
         "modified": false,
         "modifications": []
       },
@@ -6823,6 +7163,68 @@
       "recommended": false,
       "maturity": "experimental",
       "status": "verified"
+    },
+    {
+      "id": "frames",
+      "name": "frames",
+      "description": "Measures whether one interaction stays smooth by recording a performance trace at 4x CPU throttle, tracing each slow frame to its cause, and proving the fix with a second trace under identical steps. Holds exact budgets: every frame within one 16.7ms refresh interval, no animation frame past 50ms while something moves, every interaction painted within 200ms; \"feels smooth\" with no numbers is itself a finding. Runs an observe.js probe through the browser evaluate call, then attributes each long frame to one of four named root causes, each with a broken/replacement pair: a layout property animated across a large subtree, layout read after a style write, a state update every frame, and a large repainted surface. Reports one finding per root cause with measured numbers and a Block/Approve verdict. Triggers on dropped frames, janky animation, interaction latency, performance trace, CPU throttle, forced layout, compositor properties, INP.",
+      "category": "design-engineering",
+      "tags": [
+        "design-engineering",
+        "performance",
+        "frontend",
+        "implementation-quality"
+      ],
+      "triggers": [
+        "this animation feels janky",
+        "trace why the drawer drops frames",
+        "measure interaction latency",
+        "is this interaction within budget",
+        "prove the performance fix"
+      ],
+      "inputs": [
+        "a running page and a named interaction",
+        "browser devtools evaluate and CPU emulation access"
+      ],
+      "outputs": [
+        "before/after traces at the same throttle",
+        "findings with dropped-frame counts, worst gap and duration",
+        "rule/count/severity summary with a Block or Approve verdict"
+      ],
+      "path": "skills/design-engineering/frames",
+      "source": {
+        "type": "third-party",
+        "repository": "raphaelsalaja/skills",
+        "url": "https://github.com/raphaelsalaja/skills/tree/31031e9246a56cadb18e017521ff7e0c16c68050/skills/frames",
+        "author": "Raphael Salaja",
+        "license": "MIT",
+        "licenseFile": "LICENSE.txt",
+        "upstreamPath": "skills/frames",
+        "upstreamCommit": "31031e9246a56cadb18e017521ff7e0c16c68050",
+        "retrievedAt": "2026-11-09",
+        "modified": false,
+        "modifications": []
+      },
+      "compatibility": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "amp",
+        "gemini-cli",
+        "copilot",
+        "vs-code"
+      ],
+      "dependencies": [
+        "browser"
+      ],
+      "relatedSkills": [
+        "animation-vocabulary",
+        "improve-animations"
+      ],
+      "recommended": false,
+      "maturity": "experimental",
+      "status": "draft"
     },
     {
       "id": "handoff-to-claude-code",
@@ -7052,13 +7454,13 @@
       "source": {
         "type": "third-party",
         "repository": "jakubkrehel/skills",
-        "url": "https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-interface",
+        "url": "https://github.com/jakubkrehel/skills/tree/659cc4e5b6df90cfe1f306f5ae1c83fa549e075c/skills/better-interface",
         "author": "Jakub Krehel",
         "license": "MIT",
         "licenseFile": "LICENSE.txt",
         "upstreamPath": "skills/better-interface",
-        "upstreamCommit": "ca483852de23d48ab4f4ea71da37dad12bd70a95",
-        "retrievedAt": "2026-08-26",
+        "upstreamCommit": "659cc4e5b6df90cfe1f306f5ae1c83fa549e075c",
+        "retrievedAt": "2026-11-09",
         "modified": false,
         "modifications": []
       },

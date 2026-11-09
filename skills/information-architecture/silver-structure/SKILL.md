@@ -31,7 +31,7 @@ the CLI refuses a request that still contains one.
 - Satisfy: entities-named, relationships-explicit, ambiguity-recorded.
 - Evaluate quality: What exists, how it is organized, and how things relate are
   reviewable without conflating structure with sequence.
-- Emit a valid `silver/skill-result/v2` record separating execution, acceptance, and downstream readiness.
+- Emit a valid `silver/skill-result/v2` record separating execution and evidence-based downstream readiness; acceptance is historical context.
 - Recommend follow-up skills; never start them automatically.
 
 ## Boundaries
@@ -41,3 +41,18 @@ the CLI refuses a request that still contains one.
   that is `map`.
 - Do not define detailed reusable interface components; that is `component`.
 - Do not define design-system primitives, tokens, or registries; that is `system`.
+
+## Decisions and durable work
+
+Artifacts do not require approval. An explicit request authorizes its expected
+consequential actions; ask again only for material surprises. Wait for unresolved
+user choices unless explicitly delegated. Readiness and production requirements
+are advice, not a veto on explicit requests; never report missing evidence as a
+pass. Applied changes to active brand or design-system content become authoritative;
+proposals and experiments do not replace active content.
+
+Follow repository Git rules and user instructions. Checkpoint completed research
+imports, substantial artifact revisions, and applied authoritative or production
+changes as coherent milestones, including related files and excluding unrelated
+edits. Set invocation `milestone: false` for intermediate work or when commits
+are not authorized. Preserve work on commit failure and retry the commit only.

@@ -15,16 +15,21 @@ Pin the version. `npx` resolves `latest` otherwise, so what runs can change with
 anywhere.
 
 ```sh
-npm_config_update_notifier=false npx -y ultra11y@2.31.2 --version   # → 2.31.2, exit 0
+npm_config_update_notifier=false npx -y ultra11y@5.43.0 --version   # → 5.43.0, exit 0
 ```
 
 - **`npm_config_update_notifier=false` is not optional.** Without it npm prints its
   "New major version available" notice into the output a step is about to parse.
 - **`ULTRA11Y_BIN`** points at an engine you already have (a vendored `ultra11y.mjs`, a
-  container layer). The engine is one self-contained file with no runtime dependencies, so
-  vendoring is a supported path — that is exactly what the skills and the Action do.
+  container layer). For every command but `scan` the engine is one self-contained file with
+  no runtime dependencies, so vendoring is a supported path — that is exactly what the skills
+  and the Action do. `scan` resolves `@playwright/test` and `@axe-core/playwright` from
+  `--cwd` first, then from the engine's own install, so a vendored file alone cannot scan.
 - **Node ≥ 22.18.** No other system dependency, no API key. (`judge` takes a key; nothing
   else does. `scan` needs a browser tier — see `references/dynamic.md`.)
+- **Pin the file, not only the version.** An orchestrator that resolves the engine itself
+  should check the entry file's sha256 before running it: `--version` is a banner any file
+  can print.
 - **Verify what you resolved, and fail if it is not what you asked for.** A step that lets a
   missing engine fall through reports zero findings, which reads exactly like a clean audit.
   This is the one failure mode worth being loud about.
@@ -34,7 +39,7 @@ npm_config_update_notifier=false npx -y ultra11y@2.31.2 --version   # → 2.31.2
 Six steps. Four are deterministic; only step 3 involves a model.
 
 ```sh
-ENGINE="npx -y ultra11y@2.31.2"        # or "node $ULTRA11Y_BIN"
+ENGINE="npx -y ultra11y@5.43.0"        # or "node $ULTRA11Y_BIN"
 RUN=/tmp/a11y-run                          # out-of-tree: see "Where output lands"
 
 # 1. FIND — the static engine. No model. This is the finding set.
@@ -42,15 +47,26 @@ $ENGINE audit "<globs>" --graph --out "$RUN" --json --lang en > /dev/null
 #    …or, on a pull request, exactly what the branch introduced:
 $ENGINE audit --since "$BASE_REF" --graph --out "$RUN" --json --lang en > /dev/null
 
-# 2. WORKLIST — a draft report, then the criteria a static pass cannot decide.
-$ENGINE report --in "$RUN/audit-latest.json" --out "$RUN" --lang en > /dev/null
-$ENGINE verify --report "$RUN"/wcag-*.md --in "$RUN/audit-latest.json" --manual --out "$RUN" --json
+# 2. WORKLIST — the criteria a static pass cannot decide, one brief per criterion.
+$ENGINE verify --manual --in "$RUN/audit-latest.json" --out "$RUN" --json
+#    → { count, todoPath, verdictsPath, itemsDir, mdPath, items }. ADJUDICATE.todo.json carries
+#    the evidence (it can reach hundreds of KB); ADJUDICATE.verdicts.json is the same worklist
+#    without it — hand the agent that slim file plus the briefs in <itemsDir>/<criterion>.md.
 
-# 3. ADJUDICATE — hand $RUN/ADJUDICATE.todo.json to the agent; it fills every `verdict`.
-#    The file carries its own `contract` (see below) — the agent needs nothing else.
+# 3. ADJUDICATE — the agent fills every `verdict` (C/NC/NA/manual) in the verdicts file.
+#    The file carries its own `contract` (see below) — the agent needs nothing else. The fold
+#    re-hydrates the evidence from the audit, so a verdicts-only file is accepted. An agent
+#    WITH a shell (a Claude Code session) fills ADJUDICATE.todo.json in place instead — one
+#    file or the other, never both. Each `citations[]` entry is { file, line, selector,
+#    snippet } copied from the criterion's own evidence (references/judgment.md).
 
-# 4. FOLD — fail-closed. Exit 1 with per-criterion reasons if a verdict is unsupported.
-$ENGINE verify --apply "$RUN/adjudication.json" --in "$RUN/audit-latest.json" --out "$RUN" --json
+# 4. FOLD — partial by default: every verdict the gate accepts lands, every refusal is named
+#    in `rejectedCriteria[]` / `issues[]`, and a criterion absent from the file — a coverage
+#    gap, not a refusal — is named apart in `notInWorklist[]` and stays to assess. A verdict for a criterion a previous fold already decided is refused too
+#    (« not open for adjudication »), so re-applying a file on the written-back audit is safe.
+#    Exit 1 only when nothing landed. `--strict` makes it all-or-nothing (exit 1
+#    on any refusal, audit left untouched).
+$ENGINE verify --apply "$RUN/ADJUDICATE.verdicts.json" --in "$RUN/audit-latest.json" --out "$RUN" --json
 
 # 5. REPORT — deterministic rendering of the adjudicated audit.
 $ENGINE report --in "$RUN/audit-latest.json" --out audits --standard rgaa --lang fr
@@ -70,6 +86,34 @@ steps 2–4 — `verify --manual`, then `orchestrate --run audits --phase adjudi
 the raw pipeline above when your orchestrator is *not* GitHub Actions, or when you want to fan
 step 3 out across subagents rather than walk the eco path. Either way steps 1, 2, 4, 5 and 6
 stay deterministic, and only step 3 involves a model.
+
+## The loop as data — `orchestrate --manifest`
+
+Rather than re-deriving the step graph above from this page, read it from the engine:
+
+```sh
+$ENGINE orchestrate --run "$RUN" --manifest --json
+```
+
+It prints (and writes nothing) `{ kind: "ultra11y-orchestration-manifest", schemaVersion: 1, run,
+engine, standard?, placeholders[], phases[], steps[] }`. Each step carries:
+
+- `id`, `kind` (`engine` | `judgment`), `title`, and `next` (the id of the following step, `null`
+  at the end); the `gate` step adds `onFailure: "fix"`, and `fix` loops back to `audit`;
+- `inputs[]` / `outputs[]` — the absolute files it reads and writes, so what a step writes is
+  literally what the next one reads;
+- engine steps: `command` (one shell line) and `argv` (`["node", <engine>, …]`), plus `exit` —
+  what `0`, `1` and `2` mean for that step (the table below, per step);
+- judgment steps: `role` (`adjudicator` | `refuter`), `contract` (the dispatch contract
+  `orchestrate` writes under `orchestration/agents/`), `worklist`, `items`, `batches` (the item ids
+  one subagent handles each) and `schema` (the structured fragment a batch returns when fanned
+  out; the sequential path fills the worklist in place);
+- `ready` — every real input exists now (placeholders are yours to substitute).
+
+`placeholders[]` names the tokens a caller substitutes: `<globs>` (what to audit) and, until a trial
+worklist has been generated, `<report.md>` (the report the `report` step writes). Every command
+carries the run's context: `--in`, `--standard` and the conformity source the trial list was built
+with. The Claude Code `RUNBOOK.md` is rendered from this same manifest, so the two cannot drift.
 
 ## The adjudication contract
 
@@ -153,15 +197,17 @@ repo it does not own — write the run's intermediates out-of-tree and let only 
 dated report land in the project, if at all.
 
 `.ultra11y/pages/` is written only by the page-snapshot commands (`scan`, `snapshot`,
-`dev`); `--root` relocates it. `audit`, `report`, `prd`, `tickets`, `verify` and `check`
-never touch it.
+`dev`). All of them take `--root` to relocate it — for `scan`, where the snapshots it
+collects are written (`--cwd` stays where Playwright resolves from), so an orchestrator can
+run from the audited checkout without dirtying it. `audit`, `report`, `prd`, `tickets`,
+`verify` and `check` never touch it.
 
 ## Exit codes
 
 | | 0 | 1 | 2 |
 |---|---|---|---|
 | `audit` | reported (no `--fail-on`), or clean | findings ≥ `--fail-on` | usage / bad input |
-| `verify --apply` | folded | the adjudication was refused (see `issues[]`) | usage / bad input |
+| `verify --apply` | at least one verdict landed (refusals, if any, in `rejectedCriteria[]` / `issues[]`) | nothing landed, or `--strict` and a refusal | usage / bad input |
 | `check` | report is sound | integrity failure | report not found / bad input |
 | `prd` | written | — (it writes markdown and files nothing) | usage / bad input |
 | `tickets` | filed, skipped, or nothing to file | a creation failed, the provider is unusable, or no page in scope | usage / bad input / past `--max-tickets` |
@@ -174,9 +220,35 @@ Read exit codes from the process, **not** from a pipeline — `cmd --json | head
 - `audit --json` → the `AuditResult` (also at `<out>/audit-latest.json`): `findings[]` with
   stable `findingId`, `criteriaId`, `severity`, `file`, `line`; `residualRisks[]`;
   `conformancePct` — the **automatic static pass rate**, not a conformance rate.
-- `verify --apply --json` → `{ ok, auditPath, applied, stillManual, conformancePct, findings, grounding }`
-  on success; `{ ok: false, issues[], audit }` when refused.
+- `verify --apply --json` → `{ ok, auditPath, applied, stillManual, rejected, rejectedCriteria[], notInWorklist[],
+  issues[], conformancePct, findings, grounding }`; `ok: false` when nothing landed. `rejected` counts only
+  the verdicts the gate refused; the open criteria the file never mentioned (a lot, a truncated
+  sweep) are `notInWorklist[]`. Count on `applied + stillManual + rejected + notInWorklist.length`,
+  never on the exit code alone.
+- With `--prune`, **`ok: false` does not mean "nothing was applied"**. The CLI computes the
+  coverage and grounding verdicts first, but `applyPrune` writes the pruned
+  `audit-latest.json` and repairs the `--ledger` file BEFORE `ok` is derived — so a trial that
+  fails on grounding still applied every refutation it decided. Read `pruned` in the JSON
+  (or the audit document itself) to know what the audit now says; never report `ok: false` as
+  "trial not applied".
+- `grounding` re-opens every cited file of a retained verdict. A `file` that is a served URL
+  (`^[a-z][a-z0-9+.-]*://` — a rendered finding whose page has no `.ultra11y/pages` capture
+  mapped back to source) has no on-disk source to re-open and is skipped like `stdin`, not
+  counted as `failed`.
+- Under a pack standard (`--standard rgaa`), `audit-latest.json` is a `pack-audit` document:
+  its root `conformancePct` is the automatic pass rate for that standard, `core` is the WCAG
+  audit, and `verify --apply --json` echoes the **core** rate. `report --json` says what the
+  report says: `conformancePct` is the standard's own conformance rate (validated ÷ validated
+  + NC + à évaluer, NA excluded; `null` when nothing is applicable), `conformance` its operands
+  (`validated`, `applicable`, `na`, `open`, `decided`, `total`), `automaticPct` / `automatic`
+  the annex's automatic rate, and `standard` the resolved key (`--standard RGAA` → `rgaa`).
 - `check --json` → `{ ok, issues[] }`.
+- `scan --merge --json` → the merged audit document, opened by a top-level `pages` summary:
+  `{ sample, recorded[], refused: [{id, reason}] }` — the declared sample's size (`--sample`),
+  the snapshot ids written under `.ultra11y/pages/`, and the pages the scan refused with
+  their reason (the refusal warnings also go to stderr). Report the rendered layer from it —
+  captured vs refused — instead of re-deriving it from directory mtimes. The document written
+  to `--out` keeps the plain audit schema; the summary travels in stdout only.
 
 ## Honesty rules an orchestrator has to carry
 
@@ -185,7 +257,9 @@ produces exactly the false clean bill of health this design exists to prevent.
 
 1. **A missing engine is a failure, never an empty finding set.**
 2. **Report the residual criteria.** The rendering criteria (contrast, focus, zoom, reflow)
-   are undecided until `scan` runs. Say so; do not let a step summary imply full coverage.
+   are undecided until `scan` runs — and under RGAA they stay undecided after a clean scan,
+   which only supplies signals, until someone adjudicates them. Say so; do not let a step
+   summary imply full coverage.
 3. **`conformancePct` is the static pass rate.** Label it as such.
 4. **Never let a model write the counts.** Take them from the JSON — the numbers exist
    precisely so nothing has to be re-derived by a model that may drop a field.

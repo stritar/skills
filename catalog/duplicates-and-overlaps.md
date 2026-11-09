@@ -190,6 +190,45 @@ categories.
   alternative to `animate`/`review-animations`; `apple-hig-expert` an
   alternative to `apple-design`.
 
+## Round 3 additions (2026-11-09)
+
+- **`make-interfaces-feel-better` is `better-ui`.** Jakub Krehel
+  publishes the same skill twice: once inside `jakubkrehel/skills` as
+  `better-ui` (vendored) and once as the standalone repository
+  `jakubkrehel/make-interfaces-feel-better` (3.9k stars, MIT). The two
+  carry near-identical descriptions and opening text and the same section
+  split (typography, surfaces, animations, icons, performance). The
+  standalone edition is **not** vendored; `better-ui` stays the single
+  copy. This matters because the standalone repo is far more visible than
+  the monorepo and is cited directly by craft.gustavofior.com, so it will
+  keep resurfacing in discovery.
+- **Same-author duplication is now a known pattern.** Jakub Krehel also
+  ships `jakubkrehel/oklch-skill` separately from `better-colors`. Unlike
+  the case above, that one is genuinely narrower (hex/rgb/hsl conversion,
+  gamut boundaries, Tailwind v4 theming) rather than a re-release, so it is
+  inspected on its own merits against `better-colors` and
+  `design-tokens`.
+
+Pending triage from round 3, to be recorded here once inspected:
+
+- `raphaelsalaja/skills` (25 skills) against `better-colors`,
+  `better-writing`, `animate`, `variant`, `prototype` and
+  `better-ui`. `color`, `copy`, `motion`, `prototype` and
+  `defaults` are the likely overlaps; `icons`, `frames`, `viewports`,
+  `alignment`, `lab` and `match` are the likely additions.
+- `paragonhq/stealth-skills` (15) and `mattjmdesign/design-engineering`
+  (14) against the same set — both cover type, space, surface and review.
+- `smukh/a11y-agent-skills` (12) against the ten-skill accessibility group
+  already recorded above.
+- `miguelclavel/ux-research-skills` (18) against the user-research group.
+- `equinor/design-engineering-skills` typography and spacing skills against
+  `better-typography`, `token-naming` and `design-tokens`.
+- `jakubkrehel/skills` `state-machine` against `raphaelsalaja/skills`
+  `lab` — both render every component state on a throwaway page.
+- `emilkowalski/skills` `remove-animations` against the vendored
+  `improve-animations`. Note `emil-design-eng` was already declined in
+  round 2 and should not be re-proposed.
+
 ## Not vendored because a better skill exists
 
 Recorded in the inspection manifests:

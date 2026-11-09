@@ -28,10 +28,25 @@ the CLI refuses a request that still contains one.
 
 - Satisfy: sources-pinned, assumptions-labeled, contradictions-retained.
 - Evaluate quality: Findings separate observation, interpretation, confidence, contradiction, and open question.
-- Emit a valid `silver/skill-result/v2` record separating execution, acceptance, and downstream readiness.
+- Emit a valid `silver/skill-result/v2` record separating execution and evidence-based downstream readiness; acceptance is historical context.
 - Recommend follow-up skills; never start them automatically.
 
 ## Boundaries
 
 - Do not fabricate evidence or silently upgrade assumptions into findings.
 - Do not rewrite upstream evidence while synthesizing it.
+
+## Decisions and durable work
+
+Artifacts do not require approval. An explicit request authorizes its expected
+consequential actions; ask again only for material surprises. Wait for unresolved
+user choices unless explicitly delegated. Readiness and production requirements
+are advice, not a veto on explicit requests; never report missing evidence as a
+pass. Applied changes to active brand or design-system content become authoritative;
+proposals and experiments do not replace active content.
+
+Follow repository Git rules and user instructions. Checkpoint completed research
+imports, substantial artifact revisions, and applied authoritative or production
+changes as coherent milestones, including related files and excluding unrelated
+edits. Set invocation `milestone: false` for intermediate work or when commits
+are not authorized. Preserve work on commit failure and retry the commit only.

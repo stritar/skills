@@ -2,7 +2,7 @@
 
 <!-- GENERATED FILE — do not edit. Source of truth: catalog/index.json. Regenerate with `npm run catalog:build`. -->
 
-106 skills (98 vendored third-party, 8 original).
+112 skills (104 vendored third-party, 8 original).
 
 Search locally instead of reading this whole file: `npm run search -- "your query"`. The machine-readable index is [catalog/index.json](catalog/index.json).
 
@@ -14,18 +14,18 @@ Search locally instead of reading this whole file: `npm run search -- "your quer
 - [User research](#user-research) (12)
 - [Product strategy](#product-strategy) (2)
 - [Information architecture](#information-architecture) (2)
-- [Interaction design](#interaction-design) (10)
-- [Visual design](#visual-design) (13)
-- [Design systems](#design-systems) (13)
+- [Interaction design](#interaction-design) (12)
+- [Visual design](#visual-design) (14)
+- [Design systems](#design-systems) (14)
 - [Accessibility](#accessibility) (11)
 - [Content design](#content-design) (4)
 - [Prototyping](#prototyping) (6)
 - [Testing and evaluation](#testing-and-evaluation) (9)
-- [Design QA](#design-qa) (5)
+- [Design QA](#design-qa) (6)
 - [Product analytics](#product-analytics) (4)
 - [Agentic and AI-native UI](#agentic-and-ai-native-ui) (2)
 - [Ethics and safety](#ethics-and-safety) (1)
-- [Design engineering](#design-engineering) (6)
+- [Design engineering](#design-engineering) (7)
 - [Orchestration](#orchestration) (4)
 - [Recommended defaults](#recommended-defaults)
 - [Alphabetical index](#alphabetical-index)
@@ -62,7 +62,7 @@ Runs structured product discovery to de-risk bets before delivery: facilitates a
 - **Outputs**: an Opportunity Solution Tree with opportunities, solutions and experiments, a risk-prioritized assumption test plan, a discovery-sprint schedule with a proceed/pivot/stop decision
 - **Dependencies**: python3
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
-- **Source**: third-party — [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills/tree/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/product-discovery) @ `19392f7` by Alireza Rezvani, MIT
+- **Source**: third-party — [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills/tree/8f082544116fc0d014188e521ca40304cdfc86b0/product-team/skills/product-discovery) @ `8f08254` by Alireza Rezvani, MIT
 - **Status**: verified, stable, recommended default
 - **Tags**: product-discovery, problem-framing, opportunity-mapping, assumption-mapping, requirements, prioritization
 - **Related**: `silver-ideate`, `ux-research-workflow`, `design-negotiation`, `market-command-matrix`
@@ -77,7 +77,7 @@ Generates meaningfully distinct product-design concepts and testable hypotheses 
 - **Outputs**: multiple concepts with distinct mechanisms, assumptions, and tradeoffs, each paired with a falsifiable hypothesis and its cheapest useful test, awaiting explicit human selection with rejected tradeoffs recorded
 - **Dependencies**: node
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
-- **Source**: third-party — [thejparsenault/silver-design-framework](https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/ideate) @ `317ede0` by JP Arsenault, MIT
+- **Source**: third-party — [thejparsenault/silver-design-framework](https://github.com/thejparsenault/silver-design-framework/tree/47001dc71fb544552b438838159d4c7f7527c404/framework/skills/ideate) @ `47001dc` by JP Arsenault, MIT
 - **Status**: verified, experimental
 - **Tags**: opportunity-mapping, assumption-mapping, product-discovery, hypothesis
 - **Related**: `silver-synthesize`, `silver-evaluate`, `design-negotiation`, `ux-research-workflow`, `product-discovery`
@@ -121,7 +121,7 @@ Scans a codebase (routes, components, auth roles, API calls, email templates, er
 - **Inputs**: a codebase to scan (path or subdirectory), optional product name and extra context (design docs, research, README)
 - **Outputs**: a single self-contained journey-map.html file, actor, category, and journey counts with coverage-gap notes, 2-3 standout pain points inferred from error states and friction-heavy flows
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code
-- **Source**: third-party — [joeyvansommeren/journey-mapper](https://github.com/joeyvansommeren/journey-mapper/tree/bbb316a4c0a13d2f843c328f3a5fa94f64b82ff4/skills/journey-mapper) @ `bbb316a` by Joey van Sommeren, Apache-2.0 (modified — see THIRD_PARTY_NOTICES.md)
+- **Source**: third-party — [joeyvansommeren/journey-mapper](https://github.com/joeyvansommeren/journey-mapper/tree/91ccd841e63609c04ba2dc19211ee1e706ba6fc5/skills/journey-mapper) @ `91ccd84` by Joey van Sommeren, Apache-2.0 (modified — see THIRD_PARTY_NOTICES.md)
 - **Status**: verified, stable, recommended default
 - **Tags**: journey-mapping, service-blueprint, user-research, assumption-mapping
 - **Related**: `customer-journey-mapper`, `service-blueprint`, `ux-research-workflow`
@@ -193,7 +193,7 @@ Plans ethical product research: defines the decision the research must inform an
 - **Outputs**: a research plan covering method, participant criteria, script, and consent/minimization/sanitation/retention handling, explicitly marked as planned rather than conducted
 - **Dependencies**: node
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
-- **Source**: third-party — [thejparsenault/silver-design-framework](https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/research) @ `317ede0` by JP Arsenault, MIT
+- **Source**: third-party — [thejparsenault/silver-design-framework](https://github.com/thejparsenault/silver-design-framework/tree/47001dc71fb544552b438838159d4c7f7527c404/framework/skills/research) @ `47001dc` by JP Arsenault, MIT
 - **Status**: verified, experimental
 - **Tags**: user-research, interviews, qualitative, quantitative
 - **Related**: `user-research-cookiy`, `survey-design`, `silver-synthesize`
@@ -208,7 +208,7 @@ Converts sanitized evidence -- observations, analytics, supplied facts, and labe
 - **Outputs**: findings and a problem frame that keep observation, interpretation, confidence, contradiction, and open questions distinguishable and traceable to their sources
 - **Dependencies**: node
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
-- **Source**: third-party — [thejparsenault/silver-design-framework](https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/synthesize) @ `317ede0` by JP Arsenault, MIT
+- **Source**: third-party — [thejparsenault/silver-design-framework](https://github.com/thejparsenault/silver-design-framework/tree/47001dc71fb544552b438838159d4c7f7527c404/framework/skills/synthesize) @ `47001dc` by JP Arsenault, MIT
 - **Status**: verified, experimental
 - **Tags**: synthesis, thematic-analysis, affinity-mapping, insights
 - **Related**: `silver-research`, `user-research-cookiy`, `silver-ideate`
@@ -252,7 +252,7 @@ Generates data-driven user personas from structured user-data JSON (usage freque
 - **Outputs**: a data-driven persona (archetype, demographics, goals, frustrations, design implications, confidence level), a journey map with per-stage actions, emotions, pain points and prioritized opportunities, a usability-test plan (method, tasks, success metrics, moderator guide), a research synthesis brief with coded findings, cluster sizes and prioritized recommendations
 - **Dependencies**: python3
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
-- **Source**: third-party — [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills/tree/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/ux-researcher-designer) @ `19392f7` by Alireza Rezvani, MIT
+- **Source**: third-party — [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills/tree/8f082544116fc0d014188e521ca40304cdfc86b0/product-team/skills/ux-researcher-designer) @ `8f08254` by Alireza Rezvani, MIT
 - **Status**: verified, stable
 - **Tags**: user-research, personas, journey-mapping, usability-testing, synthesis, interviews, qualitative, quantitative
 - **Related**: `user-research-cookiy`, `research-planning`, `survey-design`
@@ -313,7 +313,7 @@ Defines and refines information architecture: navigation structure, taxonomy, co
 - **Outputs**: named entities, attributes, and parent/child relationships; explicit relationships with cardinality where known; and structural rules, with genuine ambiguity recorded rather than assumed
 - **Dependencies**: node
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
-- **Source**: third-party — [thejparsenault/silver-design-framework](https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/structure) @ `317ede0` by JP Arsenault, MIT
+- **Source**: third-party — [thejparsenault/silver-design-framework](https://github.com/thejparsenault/silver-design-framework/tree/47001dc71fb544552b438838159d4c7f7527c404/framework/skills/structure) @ `47001dc` by JP Arsenault, MIT
 - **Status**: verified, experimental
 - **Tags**: information-architecture, taxonomy, content-hierarchy, mental-models
 - **Related**: `service-blueprint`, `ia-evaluation`
@@ -329,7 +329,7 @@ Builds a web animation from scratch in the order that determines whether it feel
 - **Inputs**: a request to animate a specific UI element or interaction, the project's existing motion tokens and libraries, if any
 - **Outputs**: implementation code (CSS, WAAPI, or a motion library call), a short rationale: gate result, ingredients (tool/properties/curve/duration), and what to feel-check
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
-- **Source**: third-party — [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/animate) @ `d23d7f8` by Emil Kowalski, MIT
+- **Source**: third-party — [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/5206a950b715e0cabe7043ea0b2304332b91494e/skills/animate) @ `5206a95` by Emil Kowalski, MIT
 - **Status**: verified, stable, recommended default
 - **Tags**: motion, animation, micro-interactions, interaction-design, performance
 - **Related**: `better-ui`, `review-animations`, `animation-vocabulary`, `animate-expo`, `find-animation-opportunities`, `improve-animations`
@@ -343,7 +343,7 @@ Builds animations in React Native and Expo apps, applying the same should-it-ani
 - **Inputs**: a request to animate an Expo/React Native component, gesture, sheet, or screen transition
 - **Outputs**: implementation code using Reanimated, Gesture Handler, Expo Router, and expo-haptics, a short rationale: gate result, ingredients (tool/properties/spring or curve/thread), and what to feel-check on a real device
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
-- **Source**: third-party — [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/animate-expo) @ `d23d7f8` by Emil Kowalski, MIT
+- **Source**: third-party — [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/5206a950b715e0cabe7043ea0b2304332b91494e/skills/animate-expo) @ `5206a95` by Emil Kowalski, MIT
 - **Status**: verified, stable
 - **Tags**: motion, animation, micro-interactions, mobile, interaction-design, performance
 - **Related**: `animate`, `apple-design`
@@ -357,7 +357,7 @@ Reverse-lookup glossary that turns a vague, feel-based description of a web anim
 - **Inputs**: a loose, sensation-based description of an animation or motion effect
 - **Outputs**: the matching glossary term with its definition, plus close alternates and how they differ when ambiguous
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
-- **Source**: third-party — [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/animation-vocabulary) @ `d23d7f8` by Emil Kowalski, MIT
+- **Source**: third-party — [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/5206a950b715e0cabe7043ea0b2304332b91494e/skills/animation-vocabulary) @ `5206a95` by Emil Kowalski, MIT
 - **Status**: verified, stable
 - **Tags**: motion, animation, terminology, interaction-design
 - **Related**: `animate`
@@ -371,7 +371,7 @@ Apple's approach to fluid, physical interface motion and design foundations, dis
 - **Inputs**: a gesture-driven, spring-animated, or materials-heavy UI component to build or review
 - **Outputs**: implementation guidance and code (spring configs, velocity/momentum formulas, backdrop-filter recipes) plus a quick-reference table of technique to concrete value
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
-- **Source**: third-party — [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/apple-design) @ `d23d7f8` by Emil Kowalski, MIT
+- **Source**: third-party — [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/5206a950b715e0cabe7043ea0b2304332b91494e/skills/apple-design) @ `5206a95` by Emil Kowalski, MIT
 - **Status**: verified, stable, recommended default
 - **Tags**: motion, animation, interaction-design, typography
 - **Related**: `animate`, `platform-conventions`, `animate-expo`, `apple-hig-expert`
@@ -386,10 +386,25 @@ Audits and designs iOS/macOS/watchOS/visionOS interfaces against the Apple Human
 - **Outputs**: a scored HIG-compliance report (0-100) with named violations and fixes, confidence-tagged, design guidance keyed to the target platform's navigation and layout conventions
 - **Dependencies**: python3
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
-- **Source**: third-party — [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills/tree/19392f7a08264ed00486a251f5b2098321771f94/product-team/apple-hig-expert/skills/apple-hig-expert) @ `19392f7` by Alireza Rezvani, MIT
+- **Source**: third-party — [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills/tree/8f082544116fc0d014188e521ca40304cdfc86b0/product-team/apple-hig-expert/skills/apple-hig-expert) @ `8f08254` by Alireza Rezvani, MIT
 - **Status**: verified, stable
 - **Tags**: a11y, wcag, contrast, mobile, desktop, ui-design, interaction-design, audit, design-review
 - **Related**: `apple-design`, `platform-conventions`
+
+### `create-sound` ⭐
+
+Designs interface sound from a prompt, an audio file, or both, emitting a declarative SoundDefinition for @web-kits/audio. Runs a five-step pipeline (detect input mode, pick a base layer from the event class, apply mood adjectives, choose single- vs multi-layer, emit and optionally render a WAV and round-trip-validate); to reverse-engineer a sample it runs an FFT chain extracting fundamental and pitch sweep, ADSR envelope, oscillator waveform, filter cutoff and resonance, post-source effects, LFO modulation and stereo layering. Carries twelve UI event recipes (click, tap, tick, toggle, success, error, complete, notification, swoosh, whoosh, modal open/close) with exact frequencies, envelopes and gains, a nine-adjective mood vocabulary, four layering patterns, and five validation rules covering duration caps, envelope sanity, frequency bounds, a gain budget and schema conformance. Triggers on interface sound, sound design, sound effect, audio feedback, UI sounds, SoundDefinition, WAV, sound sprite.
+
+- **Path**: [skills/interaction-design/create-sound/SKILL.md](skills/interaction-design/create-sound/SKILL.md)
+- **Use when**: design a sound for this interaction; create a UI sound effect; add audio feedback to this button; reverse-engineer this WAV into a sound definition; what should a success sound be
+- **Inputs**: natural-language description of the desired sound, a WAV/MP3 sample or sound sprite to reverse-engineer, the UI event the sound belongs to
+- **Outputs**: a SoundDefinition JSON object (Layer or MultiLayerSound) for @web-kits/audio, optional rendered WAV preview, validation report against the gain budget, duration cap and patch schema
+- **Dependencies**: npm:@web-kits/audio, python3, numpy, scipy, ffmpeg
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
+- **Source**: third-party — [raphaelsalaja/audio](https://github.com/raphaelsalaja/audio/tree/d8c04c77eff93e4ff8355b96dfa806f9a8c79b69/skills/create-sound) @ `d8c04c7` by Raphael Salaja, MIT (modified — see THIRD_PARTY_NOTICES.md)
+- **Status**: draft, experimental, recommended default
+- **Tags**: sound, micro-interactions, interaction-design
+- **Related**: `animation-vocabulary`, `better-ui`
 
 ### `design-motion-principles`
 
@@ -428,7 +443,7 @@ Designs and audits post-signup onboarding and activation: picks an activation mo
 - **Inputs**: product type and core value proposition (B2B/B2C), current post-signup flow and where users drop off, an activation definition or retention data to infer one
 - **Outputs**: a chosen activation model with rationale, a defined activation event and Minimum Path to Value, an onboarding flow design or Finding/Impact/Recommendation/Priority audit, a measurement plan (activation rate, time to activation, funnel drop-off)
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code
-- **Source**: third-party — [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills/tree/e55de886fe7580ec75cdb7ded5092b33f7d4ed58/skills/onboarding) @ `e55de88` by Corey Haines, MIT (modified — see THIRD_PARTY_NOTICES.md)
+- **Source**: third-party — [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/onboarding) @ `96798cf` by Corey Haines, MIT (modified — see THIRD_PARTY_NOTICES.md)
 - **Status**: verified, stable, recommended default
 - **Tags**: onboarding, empty-states, activation, retention, state-design
 - **Related**: `signup`, `laws-of-ux`, `better-writing`
@@ -456,10 +471,24 @@ Audits and redesigns signup/registration/account-creation flows for friction: a 
 - **Inputs**: the current signup/registration flow (steps, fields, screenshots), current completion rate and field-level drop-off data if available, business constraints on what data must be collected at signup
 - **Outputs**: a Finding/Impact/Fix/Priority audit of the signup flow, a recommended field set with rationale and field order, copy for labels, placeholders, buttons, and error messages, a bank of signup-flow experiment ideas by category
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code
-- **Source**: third-party — [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills/tree/e55de886fe7580ec75cdb7ded5092b33f7d4ed58/skills/signup) @ `e55de88` by Corey Haines, MIT (modified — see THIRD_PARTY_NOTICES.md)
+- **Source**: third-party — [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/signup) @ `96798cf` by Corey Haines, MIT (modified — see THIRD_PARTY_NOTICES.md)
 - **Status**: verified, experimental
 - **Tags**: forms, onboarding, state-design, error-messages, mobile
 - **Related**: `onboarding`, `laws-of-ux`
+
+### `state-machine`
+
+Renders every state one component can actually reach on a throwaway page, with mock data and a keyboard switcher, so each state can be worked on directly. It is a workbench rather than a review: the page stays up while the visuals are worked on, one state on screen and the rest a keypress away. Enumerates states from the branches the code already has across data (loading, empty, error, one item, a typical set, partially resolved requests, stale refetching), account (plan tier, role, owner versus member) and feature (flags, trials, limits, locked). A state the code cannot reach is not a state; one the design shows but the code lacks is listed as missing, not invented. Imports the real component untouched into a scratch route so it inherits the app shell. Triggers on show every state, empty state, loading state, error state, state switcher, mock data harness.
+
+- **Path**: [skills/interaction-design/state-machine/SKILL.md](skills/interaction-design/state-machine/SKILL.md)
+- **Use when**: show me every state of this component; build a page with all the loading and empty states; I need a harness to work on the error state; render this component with mock data for each state
+- **Inputs**: one component and its data hooks, the project app shell and providers
+- **Outputs**: a throwaway route rendering every reachable state, a switcher grouped in the product’s own words, a list of states the design shows but the code cannot reach
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code
+- **Source**: third-party — [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/659cc4e5b6df90cfe1f306f5ae1c83fa549e075c/skills/state-machine) @ `659cc4e` by Jakub Krehel, MIT
+- **Status**: draft, experimental
+- **Tags**: state-design, empty-states, loading, error-states, prototyping
+- **Related**: `break`, `variant`
 
 ## Visual design
 
@@ -487,7 +516,7 @@ Color-system design and audit guidance: ramps named by role rather than picked b
 - **Inputs**: a brand color or existing palette, UI source code or rendered screens to audit
 - **Outputs**: ramp values in the project's notation, token naming scheme (primitive + semantic tiers), severity-ranked findings table ending in Block/Approve
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
-- **Source**: third-party — [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-colors) @ `ca48385` by Jakub Krehel, MIT
+- **Source**: third-party — [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/659cc4e5b6df90cfe1f306f5ae1c83fa549e075c/skills/better-colors) @ `659cc4e` by Jakub Krehel, MIT
 - **Status**: verified, stable, recommended default
 - **Tags**: color, design-tokens, token-naming, semantic-tokens, dark-mode, themes, contrast
 - **Related**: `better-accessibility`, `design-tokens`, `theme-factory`, `token-naming`
@@ -501,7 +530,7 @@ Layout-structure guidance for web interfaces: grouping by negative space with a 
 - **Inputs**: UI component or page source code, supported viewport list
 - **Outputs**: severity-ranked findings table (Severity | Location | Before | After | Why), Block/Approve verdict
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
-- **Source**: third-party — [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-layout) @ `ca48385` by Jakub Krehel, MIT
+- **Source**: third-party — [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/659cc4e5b6df90cfe1f306f5ae1c83fa549e075c/skills/better-layout) @ `659cc4e` by Jakub Krehel, MIT
 - **Status**: verified, stable, recommended default
 - **Tags**: layout, spacing, responsive, adaptive, visual-hierarchy
 - **Related**: `better-typography`, `platform-conventions`, `better-ui`, `critique-information-density`
@@ -515,7 +544,7 @@ Web typography guidance: font-format and weight-loading rules, CSS properties ov
 - **Inputs**: UI component or page source code, rendered page for wrapping/widow checks
 - **Outputs**: severity-ranked findings table (Severity | Location | Before | After | Why), Block/Approve verdict, CSS-to-Tailwind property lookup
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
-- **Source**: third-party — [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-typography) @ `ca48385` by Jakub Krehel, MIT
+- **Source**: third-party — [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/659cc4e5b6df90cfe1f306f5ae1c83fa549e075c/skills/better-typography) @ `659cc4e` by Jakub Krehel, MIT
 - **Status**: verified, stable, recommended default
 - **Tags**: typography, spacing, visual-hierarchy
 - **Related**: `better-layout`, `better-writing`
@@ -529,7 +558,7 @@ Design-engineering polish guidance for making interfaces feel finished: concentr
 - **Inputs**: UI component source code, rendered interface for slow-motion animation review
 - **Outputs**: severity-ranked findings table (Severity | Location | Before | After | Why), Block/Approve verdict
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
-- **Source**: third-party — [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-ui) @ `ca48385` by Jakub Krehel, MIT
+- **Source**: third-party — [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/659cc4e5b6df90cfe1f306f5ae1c83fa549e075c/skills/better-ui) @ `659cc4e` by Jakub Krehel, MIT
 - **Status**: verified, stable, recommended default
 - **Tags**: micro-interactions, motion, animation, visual-polish, iconography, performance
 - **Related**: `animate`, `motion-system`, `review-animations`, `better-layout`
@@ -558,7 +587,7 @@ Produces branded editorial diagrams in 41 visual types (architecture, flowchart,
 - **Outputs**: a self-contained .html file with inline SVG and CSS (the diagram), optional .svg and/or .png exports, for imports, a fidelity ledger reporting what was merged, collapsed, or dropped
 - **Dependencies**: python
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
-- **Source**: third-party — [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design/tree/57148ac6f7cf8f2d0080f23437ab2929bca15f3e/skills/diagram-design) @ `57148ac` by Cathryn Lavery, MIT (modified — see THIRD_PARTY_NOTICES.md)
+- **Source**: third-party — [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design/tree/6a7f19fcc132b39b126bea90167679b46b14bcc4/skills/diagram-design) @ `6a7f19f` by Cathryn Lavery, MIT (modified — see THIRD_PARTY_NOTICES.md)
 - **Status**: verified, stable, recommended default
 - **Tags**: data-visualization, charts, visual-hierarchy, layout, typography, color, brand
 
@@ -575,6 +604,21 @@ Guidance for distinctive, intentional visual design when building new UI or resh
 - **Status**: verified, stable, recommended default
 - **Tags**: typography, color, layout, visual-hierarchy, ui-design, interaction-design, responsive, motion, ux-writing, voice-and-tone
 - **Related**: `frontend-design-review`, `theme-factory`, `better-ui`, `pick-ui-library`
+
+### `icons`
+
+Draws the glyphs a project icon set is missing, in that set's own measured style rather than from taste or memory. Requires a spec derived mechanically first: a bundled sheet.html, copied into an ignored folder, reads every existing icon on the most common viewBox and records stroke width, caps, joins, radii, grid step, padding, round overshoot and ink coverage per kind, emitting an icon-spec.md. Drawing from a hand-measured spec, a sample or memory is a finding, and fewer than three icons on one viewBox stops the run. Searches the set first so no duplicate glyph is added, places new glyphs beside their siblings in the icon package, never measures or restyles logos and brand marks, and writes each glyph to animate and morph. Triggers on draw an icon, custom icons, missing icon, match our icon style, filled version, icon morph, icon sheet, icon stroke weight.
+
+- **Path**: [skills/visual-design/icons/SKILL.md](skills/visual-design/icons/SKILL.md)
+- **Use when**: draw an icon for this feature; we need a custom icon that matches our set; make a filled version of this icon; this icon looks off next to the others; build an icon sheet
+- **Inputs**: the project icon package, folder or inline icon map, the glyphs to draw
+- **Outputs**: icon-spec.md measured from the existing set, new SVG glyphs in the set’s style, built to morph, a single sheet showing the whole set
+- **Dependencies**: browser
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
+- **Source**: third-party — [raphaelsalaja/skills](https://github.com/raphaelsalaja/skills/tree/31031e9246a56cadb18e017521ff7e0c16c68050/skills/icons) @ `31031e9` by Raphael Salaja, MIT
+- **Status**: draft, experimental
+- **Tags**: iconography, visual-polish, illustration, design-system
+- **Related**: `better-ui`, `diagram-design`
 
 ### `make-a-deck`
 
@@ -650,6 +694,21 @@ Guides an agent through designing and building WordPress block patterns (starter
 
 ## Design systems
 
+### `build-design`
+
+Builds UI from a Figma file or a design image so the result matches the design, using the project's existing tokens and components rather than new ones. Reads the design at its source (the Figma MCP for a link, with explicit handling for a server connected but signed out; an image yields estimates at a stated scale). Maps every design value onto what exists: a bound variable to its token, a raw value to the token it equals or the nearest one reported as rounded, a component instance to the project component of that name. Never adds a token, variant or arbitrary value to hit a number, and stops to ask when rounding would visibly change the design (over 2px, or a colour on a different step). Any change the design does not show is a deviation and the user's call. Triggers on build this Figma design, implement this mockup, design to code, match the design, Figma MCP.
+
+- **Path**: [skills/design-systems/build-design/SKILL.md](skills/design-systems/build-design/SKILL.md)
+- **Use when**: build this Figma frame; implement this mockup in code; turn this design image into UI; match the design using our tokens; design-to-code from Figma
+- **Inputs**: a Figma file link (via the Figma MCP) or a design image, the project token set and component library
+- **Outputs**: UI code built from existing tokens and components, a report listing rounded values, deviations and unwired parts
+- **Dependencies**: figma-mcp
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
+- **Source**: third-party — [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/659cc4e5b6df90cfe1f306f5ae1c83fa549e075c/skills/build-design) @ `659cc4e` by Jakub Krehel, MIT
+- **Status**: draft, experimental
+- **Tags**: figma-to-code, figma, design-system, handoff, design-tokens
+- **Related**: `image-to-code`, `design-handoff`
+
 ### `design-debt-audit` ⭐
 
 Makes the agent run a structured design debt audit: five debt categories (visual, structural, accessibility, documentation, implementation), a five-step process from screenshot inventory through classification (severity/category/frequency/effort) to a prioritized remediation plan scored as severity x frequency / effort, split into quick wins, structural projects, accessibility fixes, and documented write-offs, plus a living debt register with owners and quarterly review.
@@ -702,7 +761,7 @@ Generates, extends, or audits design tokens in DTCG format ($type/$value) using 
 - **Outputs**: DTCG-format token JSON (primitive/semantic/component tiers) with $description preserved, A validation pass confirming JSON validity and alias resolution
 - **Dependencies**: python
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code
-- **Source**: third-party — [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e/.claude/skills/design-tokens) @ `f2e2f7f` by Thientan Soparat, MIT (modified — see THIRD_PARTY_NOTICES.md)
+- **Source**: third-party — [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/def84a70fadc3490d80901295a4f1951fdb2cc69/.claude/skills/design-tokens) @ `def84a7` by Thientan Soparat, MIT (modified — see THIRD_PARTY_NOTICES.md)
 - **Status**: verified, experimental
 - **Tags**: design-tokens, token-naming, semantic-tokens, design-system, color, typography, spacing, dark-mode, multi-brand
 - **Related**: `token-build`, `extract-design-md`, `design-system-governance`, `better-colors`, `token-naming`
@@ -731,7 +790,7 @@ Keeps Figma and code in sync by mapping the project's 3-tier DTCG tokens to Figm
 - **Outputs**: A token-to-Figma-Variable collection/mode mapping, A stated authoritative sync direction, A component parity report (variant/state coverage gaps)
 - **Dependencies**: python, figma-mcp
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code
-- **Source**: third-party — [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e/.claude/skills/figma-integration) @ `f2e2f7f` by Thientan Soparat, MIT (modified — see THIRD_PARTY_NOTICES.md)
+- **Source**: third-party — [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/def84a70fadc3490d80901295a4f1951fdb2cc69/.claude/skills/figma-integration) @ `def84a7` by Thientan Soparat, MIT (modified — see THIRD_PARTY_NOTICES.md)
 - **Status**: verified, experimental
 - **Tags**: figma, figma-to-code, design-tokens, design-system, component-api, multi-brand
 - **Related**: `design-tokens`
@@ -774,7 +833,7 @@ Curated, opinionated lookup table matching a frontend UI task (toasts, command m
 - **Inputs**: a frontend UI task description, the project's package.json for already-installed libraries
 - **Outputs**: one recommended library with a one-sentence rationale, or an explicit note that the task falls outside the curated list
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code
-- **Source**: third-party — [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/pick-ui-library) @ `d23d7f8` by Emil Kowalski, MIT
+- **Source**: third-party — [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/5206a950b715e0cabe7043ea0b2304332b91494e/skills/pick-ui-library) @ `5206a95` by Emil Kowalski, MIT
 - **Status**: verified, stable
 - **Tags**: pattern-library, component-api, design-system
 - **Related**: `frontend-design`
@@ -789,7 +848,7 @@ Sets up or runs the build pipeline that turns the project's DTCG tokens/*.json s
 - **Outputs**: Platform-specific generated theme files (CSS, Tailwind, JS/TS, iOS, Android), A CI step that validates tokens and fails on stale generated artifacts
 - **Dependencies**: node, python
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code
-- **Source**: third-party — [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e/.claude/skills/token-build) @ `f2e2f7f` by Thientan Soparat, MIT (modified — see THIRD_PARTY_NOTICES.md)
+- **Source**: third-party — [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/def84a70fadc3490d80901295a4f1951fdb2cc69/.claude/skills/token-build) @ `def84a7` by Thientan Soparat, MIT (modified — see THIRD_PARTY_NOTICES.md)
 - **Status**: verified, experimental
 - **Tags**: design-tokens, design-system, versioning, multi-brand, governance
 - **Related**: `design-tokens`, `token-naming`
@@ -819,7 +878,7 @@ Generates a complete design-token system (colors, typography, spacing, borders, 
 - **Outputs**: a design-token file in JSON, CSS custom properties, or SCSS, component architecture and variant documentation, responsive breakpoint and fluid-typography values, a developer-handoff checklist with framework integration snippets
 - **Dependencies**: python3
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
-- **Source**: third-party — [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills/tree/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/ui-design-system) @ `19392f7` by Alireza Rezvani, MIT
+- **Source**: third-party — [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills/tree/8f082544116fc0d014188e521ca40304cdfc86b0/product-team/skills/ui-design-system) @ `8f08254` by Alireza Rezvani, MIT
 - **Status**: verified, stable
 - **Tags**: design-tokens, design-system, component-api, component-docs, responsive, typography, color, layout, spacing, handoff, figma
 - **Related**: `design-system`, `design-tokens`, `theme-factory`
@@ -851,7 +910,7 @@ Audits a UI or design against WCAG 2.2 AA/AAA and documented ARIA patterns, prod
 - **Outputs**: A findings table: WCAG criterion, severity (P0/P1/P2), what fails, specific fix, Explicit confirmation of passing checks, Measured contrast ratios (not estimated)
 - **Dependencies**: python, node
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code
-- **Source**: third-party — [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e/.claude/skills/a11y-audit) @ `f2e2f7f` by Thientan Soparat, MIT (modified — see THIRD_PARTY_NOTICES.md)
+- **Source**: third-party — [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/def84a70fadc3490d80901295a4f1951fdb2cc69/.claude/skills/a11y-audit) @ `def84a7` by Thientan Soparat, MIT (modified — see THIRD_PARTY_NOTICES.md)
 - **Status**: verified, experimental
 - **Tags**: a11y, wcag, aria, screen-reader, keyboard, focus-management, contrast, audit, remediation
 - **Related**: `better-accessibility`, `a11y-check-code`
@@ -937,7 +996,7 @@ Accessibility engineering guidance for building or reviewing UI components and c
 - **Inputs**: UI component or screen source code, rendered interface for keyboard/screen-reader walkthrough
 - **Outputs**: severity-ranked findings table (Severity | Location | Before | After | Why), Block/Approve verdict, verification checklist with Not verified items flagged
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
-- **Source**: third-party — [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-accessibility) @ `ca48385` by Jakub Krehel, MIT
+- **Source**: third-party — [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/659cc4e5b6df90cfe1f306f5ae1c83fa549e075c/skills/better-accessibility) @ `659cc4e` by Jakub Krehel, MIT
 - **Status**: verified, stable, recommended default
 - **Tags**: a11y, wcag, aria, screen-reader, keyboard, focus-management, contrast, forms, semantic-html, inclusive-design, remediation
 - **Related**: `a11y-check-code`, `a11y-check-page`, `a11y-audit`, `a11y-planner`, `a11y-critic`, `review-a11y`, `better-colors`, `cognitive-accessibility`
@@ -980,7 +1039,7 @@ Reviews changed frontend code (staged files, a working diff, a branch, or a PR) 
 - **Outputs**: severity-ranked WCAG 2.2 AA review scoped to the change, with file:line fixes, list of residual rendering risks requiring a browser scan, pass/fail verdict for the change
 - **Dependencies**: node
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
-- **Source**: third-party — [maxgfr/ultra11y](https://github.com/maxgfr/ultra11y/tree/5ccb015c07c651d8a0e0400275fea39d3e767eac/skills/review-a11y) @ `5ccb015` by maxgfr, MIT (modified — see THIRD_PARTY_NOTICES.md)
+- **Source**: third-party — [maxgfr/ultra11y](https://github.com/maxgfr/ultra11y/tree/b245094b7528f8624cfbf84d00ee05422aeac24e/skills/review-a11y) @ `b245094` by maxgfr, MIT (modified — see THIRD_PARTY_NOTICES.md)
 - **Status**: draft, experimental
 - **Tags**: a11y, wcag, aria, keyboard, focus-management, contrast, semantic-html, severity, remediation, pr-review
 - **Related**: `ultra11y`, `a11y-check-code`, `better-accessibility`
@@ -995,7 +1054,7 @@ Audits a repository, site, or page against WCAG 2.2 AA or a pluggable country st
 - **Outputs**: dated Markdown/HTML conformance report with per-criterion status, per-page compliance grid from rendered-page scans, PRD-style backlog and/or filed tickets grouped by WCAG criterion
 - **Dependencies**: node, browser, playwright
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
-- **Source**: third-party — [maxgfr/ultra11y](https://github.com/maxgfr/ultra11y/tree/5ccb015c07c651d8a0e0400275fea39d3e767eac/skills/ultra11y) @ `5ccb015` by maxgfr, MIT (modified — see THIRD_PARTY_NOTICES.md)
+- **Source**: third-party — [maxgfr/ultra11y](https://github.com/maxgfr/ultra11y/tree/b245094b7528f8624cfbf84d00ee05422aeac24e/skills/ultra11y) @ `b245094` by maxgfr, MIT (modified — see THIRD_PARTY_NOTICES.md)
 - **Status**: draft, experimental
 - **Tags**: a11y, wcag, aria, keyboard, focus-management, contrast, semantic-html, forms, severity, audit, remediation, documentation
 - **Related**: `review-a11y`, `a11y-check-page`
@@ -1025,7 +1084,7 @@ UX writing and interface-copy guidance: recon the existing voice before editing,
 - **Inputs**: user-facing copy in source code, existing product copy for voice recon
 - **Outputs**: severity-ranked findings table (Severity | Location | Before | After | Why), Block/Approve verdict
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
-- **Source**: third-party — [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-writing) @ `ca48385` by Jakub Krehel, MIT
+- **Source**: third-party — [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/659cc4e5b6df90cfe1f306f5ae1c83fa549e075c/skills/better-writing) @ `659cc4e` by Jakub Krehel, MIT
 - **Status**: verified, stable, recommended default
 - **Tags**: ux-writing, microcopy, voice-and-tone, labels, error-messages, help-content, plain-language, terminology
 - **Related**: `ux-writing`, `localization-design`, `better-interface`, `dark-pattern-review`
@@ -1097,7 +1156,7 @@ Builds several (default three, up to five) genuinely different versions of one d
 - **Inputs**: a one-sentence description of one UI piece to explore
 - **Outputs**: a live picker harness (isolated route or standalone HTML) hosting each variant full-size in realistic context, a tradeoffs table (Variant | Axis | When it's the right choice | Its cost)
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code
-- **Source**: third-party — [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/prototype) @ `d23d7f8` by Emil Kowalski, MIT
+- **Source**: third-party — [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/5206a950b715e0cabe7043ea0b2304332b91494e/skills/prototype) @ `5206a95` by Emil Kowalski, MIT
 - **Status**: verified, stable
 - **Tags**: prototyping, interactive-prototype, high-fidelity, variants
 - **Related**: `variant`, `wireframe`, `interactive-prototype`
@@ -1111,7 +1170,7 @@ Builds three (up to five) genuinely different versions of one described UI piece
 - **Inputs**: a one-sentence brief for one piece of UI, the project's styling system, tokens and component library
 - **Outputs**: a real page hosting each variant behind a URL search-param picker, a tradeoffs table (Variant | Axis position | Right when | Costs)
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code
-- **Source**: third-party — [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/variant) @ `ca48385` by Jakub Krehel, MIT
+- **Source**: third-party — [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/659cc4e5b6df90cfe1f306f5ae1c83fa549e075c/skills/variant) @ `659cc4e` by Jakub Krehel, MIT
 - **Status**: verified, stable, recommended default
 - **Tags**: prototyping, variants, high-fidelity, interactive-prototype
 - **Related**: `prototype`, `better-interface`
@@ -1140,7 +1199,7 @@ Generates a machine-readable JSON wireframe definition from a natural-language s
 - **Outputs**: a `.wireframe.json` machine-readable layout definition following the documented schema, a self-contained `.wireframe.html` editable preview (drag-and-drop, undo/redo, JSON export)
 - **Dependencies**: python3
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code
-- **Source**: third-party — [yhassy/wireframe-skill](https://github.com/yhassy/wireframe-skill/tree/948d4331343b18d913d5bc502da72ed0c5f19101) @ `948d433` by yhassy, MIT (modified — see THIRD_PARTY_NOTICES.md)
+- **Source**: third-party — [yhassy/wireframe-skill](https://github.com/yhassy/wireframe-skill/tree/948d4331343b18d913d5bc502da72ed0c5f19101) @ `ced7284` by yhassy, MIT (modified — see THIRD_PARTY_NOTICES.md)
 - **Status**: verified, stable
 - **Tags**: wireframing, ui-design, interaction-design, layout, grids, spacing, visual-hierarchy, figma
 - **Related**: `wireframe`, `prototype`
@@ -1156,7 +1215,7 @@ Renders one real component on a throwaway harness page under every content/state
 - **Inputs**: one component's props, slots, and states, a project route or scratch page to render it in
 - **Outputs**: a harness page rendering every kept scenario side by side, a findings table (Scenario | Observed | Owner)
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code
-- **Source**: third-party — [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/break) @ `ca48385` by Jakub Krehel, MIT
+- **Source**: third-party — [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/659cc4e5b6df90cfe1f306f5ae1c83fa549e075c/skills/break) @ `659cc4e` by Jakub Krehel, MIT
 - **Status**: verified, stable, recommended default
 - **Tags**: stress-testing, error-states, empty-states, loading, responsive
 - **Related**: `better-interface`, `interface-review`
@@ -1185,7 +1244,7 @@ Runs an evidence-bounded heuristic evaluation of a supplied UI artifact (image, 
 - **Outputs**: designer-voiced critique: overall read, what's working, top 3-5 findings each with element/problem/fix, health tally by NN/g severity name (no composite score), list of screens that could not be seen, with the reason, on request: full atom matrix, numeric severities, confidence, and framework badges per finding
 - **Dependencies**: node, playwright
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
-- **Source**: third-party — [kirodotdev/kirocrew](https://github.com/kirodotdev/kirocrew/tree/320d29014b5ab6b09a992d59271cd843178564a8/src/kiro_crew/apps/builtins/design_critique/skills/design-critique) @ `320d290` by kirocrew, Apache-2.0 (modified — see THIRD_PARTY_NOTICES.md)
+- **Source**: third-party — [kirodotdev/kirocrew](https://github.com/kirodotdev/kirocrew/tree/94dfacdb2d584277ddd032fb82636915c2850345/src/kiro_crew/apps/builtins/design_critique/skills/design-critique) @ `94dfacd` by kirocrew, Apache-2.0 (modified — see THIRD_PARTY_NOTICES.md)
 - **Status**: verified, stable, recommended default
 - **Tags**: heuristic-evaluation, design-critique, severity, expert-review, a11y, wcag
 - **Related**: `design-review`, `interface-review`, `laws-of-ux`, `usability-testing`
@@ -1200,7 +1259,7 @@ Runs a structured, scored review of a screen, page, or product. Scores six weigh
 - **Outputs**: Six-dimension scored table plus weighted overall score, Prioritized findings table with severity and concrete fixes, Nielsen heuristic violations flagged by number
 - **Dependencies**: python
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code
-- **Source**: third-party — [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e/.claude/skills/design-review) @ `f2e2f7f` by Thientan Soparat, MIT (modified — see THIRD_PARTY_NOTICES.md)
+- **Source**: third-party — [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/def84a70fadc3490d80901295a4f1951fdb2cc69/.claude/skills/design-review) @ `def84a7` by Thientan Soparat, MIT (modified — see THIRD_PARTY_NOTICES.md)
 - **Status**: verified, experimental
 - **Tags**: design-review, design-critique, heuristic-evaluation, severity, ui-design, visual-hierarchy, a11y
 - **Related**: `interface-review`, `frontend-design-review`, `design-details`, `laws-of-ux`, `critique-information-density`, `design-critique`
@@ -1214,7 +1273,7 @@ Read-only sweep of a codebase or UI for moments that would genuinely benefit fro
 - **Inputs**: a codebase or a specific UI/view to sweep for motion opportunities
 - **Outputs**: an opportunities table (Location | Today | Purpose | Frequency | Suggested motion) with exact values, a required rejected-candidates list with the gate question that killed each, a one-paragraph verdict naming the highest-leverage suggestion
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
-- **Source**: third-party — [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/find-animation-opportunities) @ `d23d7f8` by Emil Kowalski, MIT
+- **Source**: third-party — [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/5206a950b715e0cabe7043ea0b2304332b91494e/skills/find-animation-opportunities) @ `5206a95` by Emil Kowalski, MIT
 - **Status**: verified, stable
 - **Tags**: heuristic-evaluation, expert-review, motion, animation, severity
 - **Related**: `animate`, `improve-animations`
@@ -1228,7 +1287,7 @@ Surveys a codebase's animation and motion code as a senior motion advisor and pr
 - **Inputs**: a codebase to audit for animation/motion quality, optionally an effort level (quick/standard/deep) or a category focus
 - **Outputs**: a vetted, severity-ranked findings table with leverage ordering, self-contained implementation plans written to plans/NNN-slug.md, a plans/README.md with recommended execution order and dependencies
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
-- **Source**: third-party — [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/improve-animations) @ `d23d7f8` by Emil Kowalski, MIT
+- **Source**: third-party — [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/5206a950b715e0cabe7043ea0b2304332b91494e/skills/improve-animations) @ `5206a95` by Emil Kowalski, MIT
 - **Status**: verified, stable
 - **Tags**: audit, heuristic-evaluation, expert-review, motion, animation, severity, documentation
 - **Related**: `find-animation-opportunities`, `animate`, `design-debt-audit`
@@ -1243,7 +1302,7 @@ Runs a usability test, expert review, or feedback evaluation distinct from deter
 - **Outputs**: evidence-linked findings and recommendations that keep observed behavior, interpretation, confidence, and deterministic-conformance results distinguishable
 - **Dependencies**: node
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
-- **Source**: third-party — [thejparsenault/silver-design-framework](https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/evaluate) @ `317ede0` by JP Arsenault, MIT
+- **Source**: third-party — [thejparsenault/silver-design-framework](https://github.com/thejparsenault/silver-design-framework/tree/47001dc71fb544552b438838159d4c7f7527c404/framework/skills/evaluate) @ `47001dc` by JP Arsenault, MIT
 - **Status**: verified, experimental
 - **Tags**: usability-testing, heuristic-evaluation, design-critique, expert-review, severity
 - **Related**: `silver-ideate`, `silver-measure`, `interface-review`
@@ -1315,7 +1374,7 @@ Change-scoped interface review for uncommitted work, a branch, or a pull request
 - **Inputs**: a git target: working tree, staged, branch, pr <n>, ref, or range, availability of better-interface for severity and verdict
 - **Outputs**: a scope block (target, base/head ref, commits, files in scope, expanded surfaces), a findings table with a Status column (Introduced/Regression/Pre-existing), Block/Approve verdict via better-interface
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code
-- **Source**: third-party — [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/interface-review) @ `ca48385` by Jakub Krehel, MIT
+- **Source**: third-party — [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/659cc4e5b6df90cfe1f306f5ae1c83fa549e075c/skills/interface-review) @ `659cc4e` by Jakub Krehel, MIT
 - **Status**: verified, stable, recommended default
 - **Tags**: design-qa, design-review, pr-review, review, handoff
 - **Related**: `better-interface`, `frontend-design-review`, `design-details`, `design-review`, `break`
@@ -1329,10 +1388,25 @@ Reviews animation and motion code (a diff or a component) against ten non-negoti
 - **Inputs**: animation/motion source code, typically a diff or a single component
 - **Outputs**: a Before/After/Why findings table, a tiered verdict (feel-breaking regressions, missed simplifications, performance, interruptibility/timing, origin/physicality/cohesion, accessibility), a final Block or Approve decision
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code
-- **Source**: third-party — [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/review-animations) @ `d23d7f8` by Emil Kowalski, MIT
+- **Source**: third-party — [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/5206a950b715e0cabe7043ea0b2304332b91494e/skills/review-animations) @ `5206a95` by Emil Kowalski, MIT
 - **Status**: verified, stable, recommended default
 - **Tags**: design-review, pr-review, motion, animation, severity, design-qa
 - **Related**: `animate`, `better-ui`, `better-interface`
+
+### `viewports`
+
+Renders one page at a fixed set of widths and heights and measures each render rather than reasoning about the CSS. Sweeps 320, 375, 768, 1024 and 1440 plus 1px either side of every project breakpoint read from the CSS, Tailwind config or tokens, emulates touch below 1024, then runs an overflow.js probe through the browser evaluate call and treats every result as a candidate until a crop confirms it. Checks sideways page scroll, text clipped without an ellipsis or clamp, controls that only hover reveals, a 812x375 landscape phone where dialog actions must stay reachable, and a 200% root font size at 1024 where boxes must grow without overlap. Returns one screenshot per width with overlay numbers and findings in the same order, each naming its width, with a rule-count-severity summary and a Block/Approve verdict. Triggers on responsive check, breakpoint edges, mobile layout, horizontal scroll, text zoom 200%, hover-only controls, landscape phone, viewport sweep.
+
+- **Path**: [skills/design-qa/viewports/SKILL.md](skills/design-qa/viewports/SKILL.md)
+- **Use when**: check this page at every breakpoint; does the layout break on mobile; find horizontal scroll; test at 200% text zoom; responsive review of this screen
+- **Inputs**: a running page URL or route, the project breakpoints (CSS, Tailwind config or tokens)
+- **Outputs**: one full-page screenshot per width, findings naming the width and measured values, rule/count/severity summary with a Block or Approve verdict
+- **Dependencies**: browser
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
+- **Source**: third-party — [raphaelsalaja/skills](https://github.com/raphaelsalaja/skills/tree/31031e9246a56cadb18e017521ff7e0c16c68050/skills/viewports) @ `31031e9` by Raphael Salaja, MIT
+- **Status**: draft, experimental
+- **Tags**: design-qa, responsive, cross-browser, visual-regression, mobile
+- **Related**: `break`, `better-layout`
 
 ### `web-design-reviewer`
 
@@ -1360,7 +1434,7 @@ Designs, prioritizes and evaluates product experiments: writes hypotheses in If/
 - **Outputs**: an If/Then/Because hypothesis with primary and guardrail metrics, a required sample size per variant and total, an ICE-ranked experiment priority list, a statistically-grounded read of experiment results
 - **Dependencies**: python3
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
-- **Source**: third-party — [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills/tree/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/experiment-designer) @ `19392f7` by Alireza Rezvani, MIT
+- **Source**: third-party — [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills/tree/8f082544116fc0d014188e521ca40304cdfc86b0/product-team/skills/experiment-designer) @ `8f08254` by Alireza Rezvani, MIT
 - **Status**: verified, stable, recommended default
 - **Tags**: experimentation, ab-testing, hypothesis, metrics, analytics
 - **Related**: `instrumentation-plan`, `product-analytics`, `silver-measure`
@@ -1389,7 +1463,7 @@ Defines product metric frameworks (AARRR, North Star, HEART) and stage-appropria
 - **Outputs**: a stage-appropriate KPI set and metric framework choice, a layered dashboard structure (executive/product-health/feature), a retention or cohort matrix, or funnel conversion table, in text or JSON, an anti-pattern check against the current metrics setup
 - **Dependencies**: python3
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
-- **Source**: third-party — [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills/tree/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/product-analytics) @ `19392f7` by Alireza Rezvani, MIT
+- **Source**: third-party — [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills/tree/8f082544116fc0d014188e521ca40304cdfc86b0/product-team/skills/product-analytics) @ `8f08254` by Alireza Rezvani, MIT
 - **Status**: verified, stable, recommended default
 - **Tags**: analytics, metrics, kpis, dashboards, funnel, retention, activation
 - **Related**: `instrumentation-plan`, `experiment-designer`, `silver-measure`
@@ -1404,7 +1478,7 @@ Closes the loop after implementation: restates the hypothesis and success criter
 - **Outputs**: a measurement record comparing before/after or experiment results, with instrumentation sufficiency, confidence, and data limitations stated explicitly, ready to feed back into synthesis
 - **Dependencies**: node
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
-- **Source**: third-party — [thejparsenault/silver-design-framework](https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/measure) @ `317ede0` by JP Arsenault, MIT
+- **Source**: third-party — [thejparsenault/silver-design-framework](https://github.com/thejparsenault/silver-design-framework/tree/47001dc71fb544552b438838159d4c7f7527c404/framework/skills/measure) @ `47001dc` by JP Arsenault, MIT
 - **Status**: verified, experimental
 - **Tags**: analytics, instrumentation, metrics, experimentation, hypothesis
 - **Related**: `silver-evaluate`, `instrumentation-plan`, `product-analytics`, `experiment-designer`
@@ -1480,7 +1554,7 @@ Reverse-engineers how a UI effect or a whole frontend was built from a URL (brow
 - **Inputs**: a URL and the named effect (or none, for a whole-system read), optionally a screenshot when no live page is available
 - **Outputs**: a layer-stack explanation in paint order with measured/derived/inferred tags per claim, a transferable recipe in words plus what would not survive copying
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code
-- **Source**: third-party — [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/explain-interface) @ `ca48385` by Jakub Krehel, MIT
+- **Source**: third-party — [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/659cc4e5b6df90cfe1f306f5ae1c83fa549e075c/skills/explain-interface) @ `659cc4e` by Jakub Krehel, MIT
 - **Status**: verified, stable, recommended default
 - **Tags**: design-engineering, frontend, implementation-quality, explanation, documentation
 - **Related**: `better-interface`
@@ -1499,6 +1573,21 @@ Produces a single self-contained static HTML file from a rendered web page or ap
 - **Status**: verified, experimental
 - **Tags**: frontend, handoff, documentation, implementation-quality
 - **Related**: `extract-design-md`
+
+### `frames`
+
+Measures whether one interaction stays smooth by recording a performance trace at 4x CPU throttle, tracing each slow frame to its cause, and proving the fix with a second trace under identical steps. Holds exact budgets: every frame within one 16.7ms refresh interval, no animation frame past 50ms while something moves, every interaction painted within 200ms; "feels smooth" with no numbers is itself a finding. Runs an observe.js probe through the browser evaluate call, then attributes each long frame to one of four named root causes, each with a broken/replacement pair: a layout property animated across a large subtree, layout read after a style write, a state update every frame, and a large repainted surface. Reports one finding per root cause with measured numbers and a Block/Approve verdict. Triggers on dropped frames, janky animation, interaction latency, performance trace, CPU throttle, forced layout, compositor properties, INP.
+
+- **Path**: [skills/design-engineering/frames/SKILL.md](skills/design-engineering/frames/SKILL.md)
+- **Use when**: this animation feels janky; trace why the drawer drops frames; measure interaction latency; is this interaction within budget; prove the performance fix
+- **Inputs**: a running page and a named interaction, browser devtools evaluate and CPU emulation access
+- **Outputs**: before/after traces at the same throttle, findings with dropped-frame counts, worst gap and duration, rule/count/severity summary with a Block or Approve verdict
+- **Dependencies**: browser
+- **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code
+- **Source**: third-party — [raphaelsalaja/skills](https://github.com/raphaelsalaja/skills/tree/31031e9246a56cadb18e017521ff7e0c16c68050/skills/frames) @ `31031e9` by Raphael Salaja, MIT
+- **Status**: draft, experimental
+- **Tags**: design-engineering, performance, frontend, implementation-quality
+- **Related**: `animation-vocabulary`, `improve-animations`
 
 ### `handoff-to-claude-code`
 
@@ -1554,7 +1643,7 @@ Cross-discipline interface-review orchestrator: resolves review scope, routes a 
 - **Inputs**: a screen, flow, or feature scope, availability of the better-accessibility/better-layout/better-writing/better-typography/better-colors/better-ui sibling skills
 - **Outputs**: scope and per-domain coverage table, one consolidated findings table ranked by severity, Block/Approve verdict
 - **Verified compatible with**: claude-code, codex, cursor, opencode, amp, gemini-cli, copilot, vs-code, claude-ai
-- **Source**: third-party — [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-interface) @ `ca48385` by Jakub Krehel, MIT
+- **Source**: third-party — [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/659cc4e5b6df90cfe1f306f5ae1c83fa549e075c/skills/better-interface) @ `659cc4e` by Jakub Krehel, MIT
 - **Status**: verified, stable, recommended default
 - **Tags**: orchestration, workflow, review, design-review, design-critique
 - **Related**: `better-accessibility`, `better-layout`, `better-writing`, `better-typography`, `better-colors`, `better-ui`, `interface-review`, `variant`, `break`, `explain-interface`, `product-design-review`
@@ -1614,6 +1703,7 @@ Orchestrates a research effort from the decision it must inform to a recommendat
 - [`ia-evaluation`](skills/information-architecture/ia-evaluation/SKILL.md) (information-architecture) — Plans, runs and analyses information-architecture studies: matches the question to open, closed or hybrid card sorts, tree tests or first-click tests; designs cards, trees, goal-language tasks and participant targets; analyses similarity matrices, clusters and standardised labels for sorts, and success, directness, time and wrong-path distributions for tree tests, using field thresholds; and turns results into a sitemap or navigation recommendation with the contested items resolved and the follow-up study named.
 - [`animate`](skills/interaction-design/animate/SKILL.md) (interaction-design) — Builds a web animation from scratch in the order that determines whether it feels right: a frequency-based should-it-animate-at-all gate (100+/day actions never animate), a required one-word purpose (feedback, spatial consistency, state indication, preventing a jarring change, explanation, or delight), a cheapest-tool-first ladder (CSS transition to @starting-style to CSS animation to WAAPI to a motion library), exact easing curves and duration budgets by element type, transform/opacity-only property rules, interruption and exit rules, and mandatory reduced-motion and hover gating -- plus ready-to-build recipes for buttons, dropdowns, modals, drawers, toasts, accordions, stagger, hold-to-confirm, tab indicators, scroll reveal and drag-to-dismiss.
 - [`apple-design`](skills/interaction-design/apple-design/SKILL.md) (interaction-design) — Apple's approach to fluid, physical interface motion and design foundations, distilled from WWDC design talks (Designing Fluid Interfaces, Designing Audio-Haptic Experiences, The Details of UI Typography, Principles of Great Design) and translated to web APIs (Pointer Events, requestAnimationFrame, spring libraries). Covers response/latency elimination, 1:1 direct manipulation, interruptibility as the core principle, Apple's damping-ratio/response spring parameters with concrete values, velocity handoff and momentum projection formulas, spatial consistency, rubber-banding, translucent materials and depth layering, multimodal (motion+sound+haptic) feedback rules, reduced-motion/transparency/contrast handling, and size-specific typography tracking and leading -- closing with Apple's eight design principles (purpose, agency, responsibility, familiarity, flexibility, simplicity, craft, delight).
+- [`create-sound`](skills/interaction-design/create-sound/SKILL.md) (interaction-design) — Designs interface sound from a prompt, an audio file, or both, emitting a declarative SoundDefinition for @web-kits/audio. Runs a five-step pipeline (detect input mode, pick a base layer from the event class, apply mood adjectives, choose single- vs multi-layer, emit and optionally render a WAV and round-trip-validate); to reverse-engineer a sample it runs an FFT chain extracting fundamental and pitch sweep, ADSR envelope, oscillator waveform, filter cutoff and resonance, post-source effects, LFO modulation and stereo layering. Carries twelve UI event recipes (click, tap, tick, toggle, success, error, complete, notification, swoosh, whoosh, modal open/close) with exact frequencies, envelopes and gains, a nine-adjective mood vocabulary, four layering patterns, and five validation rules covering duration caps, envelope sanity, frequency bounds, a gain budget and schema conformance. Triggers on interface sound, sound design, sound effect, audio feedback, UI sounds, SoundDefinition, WAV, sound sprite.
 - [`laws-of-ux`](skills/interaction-design/laws-of-ux/SKILL.md) (interaction-design) — Improves or critiques any user interface using 30 evidence-based UX principles drawn from cognitive psychology and perception research (Gestalt grouping, Hick's Law, Fitts's Law, Jakob's Law, Miller's Law, aesthetic-usability effect, cognitive load, and more). Provides a 5-step procedure for running a UX pass on a screen: name the symptom, pull the relevant principles, propose a concrete change citing the principle by name, check for conflicts between principles, and flag when testing with real users is still required. reference/laws.md gives each principle's mechanism, concrete application, pitfalls, and a real-world example.
 - [`onboarding`](skills/interaction-design/onboarding/SKILL.md) (interaction-design) — Designs and audits post-signup onboarding and activation: picks an activation model (freemium, free trial, paid trial, money-back, consultation) using Model-Market Fit before shaping the flow, defines the product's activation event (the action most correlated with retention), and strips the path to it down to a Minimum Path to Value using an inventory-remove-reconstruct process grounded in Hick's Law and real abandonment benchmarks (40-60% single-session drop-off, 75-80% within day one). Applies five behavior-design mechanisms (Endowed Progress Effect, Peak-End Rule, Goldilocks Rule, BJ Fogg Behavior Model, boosters/blockers) to a 10-component onboarding toolkit (checklists, empty states, tooltips, welcome forms, drip emails), and outputs either a Finding/Impact/Recommendation/Priority audit or a full flow design with checklist items, empty-state copy, and a measurement plan.
 - [`platform-conventions`](skills/interaction-design/platform-conventions/SKILL.md) (interaction-design) — Makes the agent design native mobile UI against the actual conventions of iOS (Human Interface Guidelines) and Android (Material Design 3): side-by-side comparison tables for navigation models, controls, typography, gestures, and iconography; a decision framework for when to follow each platform strictly, when to unify cross-platform, and the hybrid middle path; and explicit anti-patterns (suppressing iOS swipe-back, transplanting the FAB to iOS, ignoring Dynamic Type/sp scaling).
@@ -1683,9 +1773,11 @@ Orchestrates a research effort from the decision it must inform to a recommendat
 | [`better-ui`](skills/visual-design/better-ui/SKILL.md) | visual-design | third-party | verified |
 | [`better-writing`](skills/content-design/better-writing/SKILL.md) | content-design | third-party | verified |
 | [`break`](skills/testing/break/SKILL.md) | testing | third-party | verified |
+| [`build-design`](skills/design-systems/build-design/SKILL.md) | design-systems | third-party | draft |
 | [`canvas-design`](skills/visual-design/canvas-design/SKILL.md) | visual-design | third-party | verified |
 | [`cognitive-accessibility`](skills/accessibility/cognitive-accessibility/SKILL.md) | accessibility | third-party | verified |
 | [`conversational-ux`](skills/agentic-ui/conversational-ux/SKILL.md) | agentic-ui | third-party | verified |
+| [`create-sound`](skills/interaction-design/create-sound/SKILL.md) | interaction-design | third-party | draft |
 | [`critique-information-density`](skills/testing/critique-information-density/SKILL.md) | testing | third-party | verified |
 | [`customer-journey-mapper`](skills/research/customer-journey-mapper/SKILL.md) | research | third-party | verified |
 | [`dark-pattern-review`](skills/ethics-and-safety/dark-pattern-review/SKILL.md) | ethics-and-safety | original | verified |
@@ -1707,11 +1799,13 @@ Orchestrates a research effort from the decision it must inform to a recommendat
 | [`extract-static-html`](skills/design-engineering/extract-static-html/SKILL.md) | design-engineering | third-party | verified |
 | [`figma-integration`](skills/design-systems/figma-integration/SKILL.md) | design-systems | third-party | verified |
 | [`find-animation-opportunities`](skills/testing/find-animation-opportunities/SKILL.md) | testing | third-party | verified |
+| [`frames`](skills/design-engineering/frames/SKILL.md) | design-engineering | third-party | draft |
 | [`frontend-design`](skills/visual-design/frontend-design/SKILL.md) | visual-design | third-party | verified |
 | [`frontend-design-review`](skills/design-qa/frontend-design-review/SKILL.md) | design-qa | third-party | verified |
 | [`frontend-ui-dark-ts`](skills/design-systems/frontend-ui-dark-ts/SKILL.md) | design-systems | third-party | verified |
 | [`handoff-to-claude-code`](skills/design-engineering/handoff-to-claude-code/SKILL.md) | design-engineering | third-party | verified |
 | [`ia-evaluation`](skills/information-architecture/ia-evaluation/SKILL.md) | information-architecture | original | verified |
+| [`icons`](skills/visual-design/icons/SKILL.md) | visual-design | third-party | draft |
 | [`image-to-code`](skills/design-engineering/image-to-code/SKILL.md) | design-engineering | third-party | verified |
 | [`improve-animations`](skills/testing/improve-animations/SKILL.md) | testing | third-party | verified |
 | [`inclusive-personas`](skills/research/inclusive-personas/SKILL.md) | research | third-party | verified |
@@ -1747,6 +1841,7 @@ Orchestrates a research effort from the decision it must inform to a recommendat
 | [`silver-research`](skills/research/silver-research/SKILL.md) | research | third-party | verified |
 | [`silver-structure`](skills/information-architecture/silver-structure/SKILL.md) | information-architecture | third-party | verified |
 | [`silver-synthesize`](skills/research/silver-synthesize/SKILL.md) | research | third-party | verified |
+| [`state-machine`](skills/interaction-design/state-machine/SKILL.md) | interaction-design | third-party | draft |
 | [`survey-design`](skills/research/survey-design/SKILL.md) | research | third-party | verified |
 | [`synthetic-user-testing`](skills/testing/synthetic-user-testing/SKILL.md) | testing | third-party | verified |
 | [`theme-factory`](skills/visual-design/theme-factory/SKILL.md) | visual-design | third-party | verified |
@@ -1760,6 +1855,7 @@ Orchestrates a research effort from the decision it must inform to a recommendat
 | [`ux-researcher-designer`](skills/research/ux-researcher-designer/SKILL.md) | research | third-party | verified |
 | [`ux-writing`](skills/content-design/ux-writing/SKILL.md) | content-design | third-party | verified |
 | [`variant`](skills/prototyping/variant/SKILL.md) | prototyping | third-party | verified |
+| [`viewports`](skills/design-qa/viewports/SKILL.md) | design-qa | third-party | draft |
 | [`web-artifacts-builder`](skills/design-engineering/web-artifacts-builder/SKILL.md) | design-engineering | third-party | verified |
 | [`web-design-reviewer`](skills/design-qa/web-design-reviewer/SKILL.md) | design-qa | third-party | verified |
 | [`wireframe`](skills/prototyping/wireframe/SKILL.md) | prototyping | third-party | verified |

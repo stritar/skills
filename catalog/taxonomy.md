@@ -58,6 +58,7 @@ settings
 micro-interactions
 motion
 animation
+sound
 responsive
 adaptive
 mobile

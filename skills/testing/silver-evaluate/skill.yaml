@@ -1,6 +1,6 @@
 schema: silver/skill/v2
 id: evaluate
-version: 0.9.1
+version: 0.10.1
 summary: Evaluate a design and produce sanitized product findings.
 context_budget: medium
 inputs:
@@ -110,9 +110,9 @@ completion:
       evaluation: human
   unresolved_questions: block-handoff
   review:
-    required: true
+    required: false
     reviewer: human
-    checkpoint: Review and accept the result before a readiness-gated handoff.
+    checkpoint: Resolve user choices; readiness findings advise and do not block explicit requests.
 checks:
   - id: contract-integrity
     required: true

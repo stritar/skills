@@ -10,10 +10,10 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 
 ## a11y-audit
 
-- Upstream: [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e/.claude/skills/a11y-audit)
+- Upstream: [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/def84a70fadc3490d80901295a4f1951fdb2cc69/.claude/skills/a11y-audit)
 - Author: Thientan Soparat
-- Upstream path: `.claude/skills/a11y-audit` at commit `f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e`
-- Retrieved: 2026-09-29
+- Upstream path: `.claude/skills/a11y-audit` at commit `def84a70fadc3490d80901295a4f1951fdb2cc69`
+- Retrieved: 2026-11-09
 - License: MIT (license file: `skills/accessibility/a11y-audit/LICENSE.txt`)
 - Local modifications:
   - 2026-08-26 (portability): Upstream SKILL.md references repo-root shared files (accessibility/, scripts/, taste/) that live outside the skill's own directory in the source repo, so the skill is not self-contained on its own. Bundled the specific referenced files into the vendored skill directory at the same relative paths the prose already uses, so no wording had to change and the file references now resolve inside the skill directory. [accessibility/wcag-checklist.md, accessibility/aria-patterns.md, scripts/measure_render.mjs, scripts/verify_states.mjs, scripts/contrast.py, taste/motion-choreography.md]
@@ -85,119 +85,128 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 
 ## animate
 
-- Upstream: [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/animate)
+- Upstream: [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/5206a950b715e0cabe7043ea0b2304332b91494e/skills/animate)
 - Author: Emil Kowalski
-- Upstream path: `skills/animate` at commit `d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7`
-- Retrieved: 2026-08-26
+- Upstream path: `skills/animate` at commit `5206a950b715e0cabe7043ea0b2304332b91494e`
+- Retrieved: 2026-11-09
 - License: MIT (license file: `skills/interaction-design/animate/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
 ## animate-expo
 
-- Upstream: [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/animate-expo)
+- Upstream: [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/5206a950b715e0cabe7043ea0b2304332b91494e/skills/animate-expo)
 - Author: Emil Kowalski
-- Upstream path: `skills/animate-expo` at commit `d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7`
-- Retrieved: 2026-08-26
+- Upstream path: `skills/animate-expo` at commit `5206a950b715e0cabe7043ea0b2304332b91494e`
+- Retrieved: 2026-11-09
 - License: MIT (license file: `skills/interaction-design/animate-expo/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
 ## animation-vocabulary
 
-- Upstream: [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/animation-vocabulary)
+- Upstream: [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/5206a950b715e0cabe7043ea0b2304332b91494e/skills/animation-vocabulary)
 - Author: Emil Kowalski
-- Upstream path: `skills/animation-vocabulary` at commit `d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7`
-- Retrieved: 2026-08-26
+- Upstream path: `skills/animation-vocabulary` at commit `5206a950b715e0cabe7043ea0b2304332b91494e`
+- Retrieved: 2026-11-09
 - License: MIT (license file: `skills/interaction-design/animation-vocabulary/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
 ## apple-design
 
-- Upstream: [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/apple-design)
+- Upstream: [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/5206a950b715e0cabe7043ea0b2304332b91494e/skills/apple-design)
 - Author: Emil Kowalski
-- Upstream path: `skills/apple-design` at commit `d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7`
-- Retrieved: 2026-08-26
+- Upstream path: `skills/apple-design` at commit `5206a950b715e0cabe7043ea0b2304332b91494e`
+- Retrieved: 2026-11-09
 - License: MIT (license file: `skills/interaction-design/apple-design/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
 ## apple-hig-expert
 
-- Upstream: [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills/tree/19392f7a08264ed00486a251f5b2098321771f94/product-team/apple-hig-expert/skills/apple-hig-expert)
+- Upstream: [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills/tree/8f082544116fc0d014188e521ca40304cdfc86b0/product-team/apple-hig-expert/skills/apple-hig-expert)
 - Author: Alireza Rezvani
-- Upstream path: `product-team/apple-hig-expert/skills/apple-hig-expert` at commit `19392f7a08264ed00486a251f5b2098321771f94`
-- Retrieved: 2026-08-29
+- Upstream path: `product-team/apple-hig-expert/skills/apple-hig-expert` at commit `8f082544116fc0d014188e521ca40304cdfc86b0`
+- Retrieved: 2026-11-09
 - License: MIT (license file: `skills/interaction-design/apple-hig-expert/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
 ## better-accessibility
 
-- Upstream: [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-accessibility)
+- Upstream: [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/659cc4e5b6df90cfe1f306f5ae1c83fa549e075c/skills/better-accessibility)
 - Author: Jakub Krehel
-- Upstream path: `skills/better-accessibility` at commit `ca483852de23d48ab4f4ea71da37dad12bd70a95`
-- Retrieved: 2026-08-26
+- Upstream path: `skills/better-accessibility` at commit `659cc4e5b6df90cfe1f306f5ae1c83fa549e075c`
+- Retrieved: 2026-11-09
 - License: MIT (license file: `skills/accessibility/better-accessibility/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
 ## better-colors
 
-- Upstream: [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-colors)
+- Upstream: [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/659cc4e5b6df90cfe1f306f5ae1c83fa549e075c/skills/better-colors)
 - Author: Jakub Krehel
-- Upstream path: `skills/better-colors` at commit `ca483852de23d48ab4f4ea71da37dad12bd70a95`
-- Retrieved: 2026-08-26
+- Upstream path: `skills/better-colors` at commit `659cc4e5b6df90cfe1f306f5ae1c83fa549e075c`
+- Retrieved: 2026-11-09
 - License: MIT (license file: `skills/visual-design/better-colors/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
 ## better-interface
 
-- Upstream: [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-interface)
+- Upstream: [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/659cc4e5b6df90cfe1f306f5ae1c83fa549e075c/skills/better-interface)
 - Author: Jakub Krehel
-- Upstream path: `skills/better-interface` at commit `ca483852de23d48ab4f4ea71da37dad12bd70a95`
-- Retrieved: 2026-08-26
+- Upstream path: `skills/better-interface` at commit `659cc4e5b6df90cfe1f306f5ae1c83fa549e075c`
+- Retrieved: 2026-11-09
 - License: MIT (license file: `skills/orchestration/better-interface/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
 ## better-layout
 
-- Upstream: [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-layout)
+- Upstream: [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/659cc4e5b6df90cfe1f306f5ae1c83fa549e075c/skills/better-layout)
 - Author: Jakub Krehel
-- Upstream path: `skills/better-layout` at commit `ca483852de23d48ab4f4ea71da37dad12bd70a95`
-- Retrieved: 2026-08-26
+- Upstream path: `skills/better-layout` at commit `659cc4e5b6df90cfe1f306f5ae1c83fa549e075c`
+- Retrieved: 2026-11-09
 - License: MIT (license file: `skills/visual-design/better-layout/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
 ## better-typography
 
-- Upstream: [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-typography)
+- Upstream: [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/659cc4e5b6df90cfe1f306f5ae1c83fa549e075c/skills/better-typography)
 - Author: Jakub Krehel
-- Upstream path: `skills/better-typography` at commit `ca483852de23d48ab4f4ea71da37dad12bd70a95`
-- Retrieved: 2026-08-26
+- Upstream path: `skills/better-typography` at commit `659cc4e5b6df90cfe1f306f5ae1c83fa549e075c`
+- Retrieved: 2026-11-09
 - License: MIT (license file: `skills/visual-design/better-typography/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
 ## better-ui
 
-- Upstream: [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-ui)
+- Upstream: [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/659cc4e5b6df90cfe1f306f5ae1c83fa549e075c/skills/better-ui)
 - Author: Jakub Krehel
-- Upstream path: `skills/better-ui` at commit `ca483852de23d48ab4f4ea71da37dad12bd70a95`
-- Retrieved: 2026-08-26
+- Upstream path: `skills/better-ui` at commit `659cc4e5b6df90cfe1f306f5ae1c83fa549e075c`
+- Retrieved: 2026-11-09
 - License: MIT (license file: `skills/visual-design/better-ui/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
 ## better-writing
 
-- Upstream: [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/better-writing)
+- Upstream: [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/659cc4e5b6df90cfe1f306f5ae1c83fa549e075c/skills/better-writing)
 - Author: Jakub Krehel
-- Upstream path: `skills/better-writing` at commit `ca483852de23d48ab4f4ea71da37dad12bd70a95`
-- Retrieved: 2026-08-26
+- Upstream path: `skills/better-writing` at commit `659cc4e5b6df90cfe1f306f5ae1c83fa549e075c`
+- Retrieved: 2026-11-09
 - License: MIT (license file: `skills/content-design/better-writing/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
 ## break
 
-- Upstream: [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/break)
+- Upstream: [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/659cc4e5b6df90cfe1f306f5ae1c83fa549e075c/skills/break)
 - Author: Jakub Krehel
-- Upstream path: `skills/break` at commit `ca483852de23d48ab4f4ea71da37dad12bd70a95`
-- Retrieved: 2026-08-26
+- Upstream path: `skills/break` at commit `659cc4e5b6df90cfe1f306f5ae1c83fa549e075c`
+- Retrieved: 2026-11-09
 - License: MIT (license file: `skills/testing/break/LICENSE.txt`)
+- Local modifications: none (byte-identical to upstream)
+
+## build-design
+
+- Upstream: [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/659cc4e5b6df90cfe1f306f5ae1c83fa549e075c/skills/build-design)
+- Author: Jakub Krehel
+- Upstream path: `skills/build-design` at commit `659cc4e5b6df90cfe1f306f5ae1c83fa549e075c`
+- Retrieved: 2026-11-09
+- License: MIT (license file: `skills/design-systems/build-design/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
 ## canvas-design
@@ -226,6 +235,17 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 - Retrieved: 2026-08-26
 - License: MIT (license file: `skills/agentic-ui/conversational-ux/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
+
+## create-sound
+
+- Upstream: [raphaelsalaja/audio](https://github.com/raphaelsalaja/audio/tree/d8c04c77eff93e4ff8355b96dfa806f9a8c79b69/skills/create-sound)
+- Author: Raphael Salaja
+- Upstream path: `skills/create-sound` at commit `d8c04c77eff93e4ff8355b96dfa806f9a8c79b69`
+- Retrieved: 2026-11-09
+- License: MIT (license file: `skills/interaction-design/create-sound/LICENSE.txt`)
+- Local modifications:
+  - 2026-11-09 (broken-reference): SKILL.md is generated from rules/*.md one directory deeper, and the generator does not re-base relative links, so every monorepo link in it is off by one level and none of the targets exist outside the upstream monorepo. Rewrote the 17 repository-relative links to absolute URLs at the pinned commit (14x .web-kits/core.ts, 1x packages/audio/schemas/patch.schema.json, 1x packages/audio/src/offline.ts -> https://github.com/raphaelsalaja/audio/blob/d8c04c77eff93e4ff8355b96dfa806f9a8c79b69/...), and corrected ../src/analyze.py to src/analyze.py, which is vendored alongside. No prose changed. [SKILL.md]
+  - 2026-11-09 (portability): Omitted the upstream build tooling and its inputs, which only serve the author monorepo and duplicate content already inlined in the generated SKILL.md: rules/ (55 rule fragments concatenated into SKILL.md), src/build.mjs, src/extract-tests.mjs, src/validate.mjs, package.json and test-cases.json. Also omitted README.md, which documents the upstream monorepo layout and whose six relative links all point at omitted or out-of-tree files (rules/_sections.md and five ../../packages/... and ../../.web-kits/... paths). SKILL.md links to none of these. src/analyze.py is kept because SKILL.md cites it for the interpret-* steps. [rules/**, src/build.mjs, src/extract-tests.mjs, src/validate.mjs, package.json, test-cases.json, README.md]
 
 ## critique-information-density
 
@@ -258,10 +278,10 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 
 ## design-critique
 
-- Upstream: [kirodotdev/kirocrew](https://github.com/kirodotdev/kirocrew/tree/320d29014b5ab6b09a992d59271cd843178564a8/src/kiro_crew/apps/builtins/design_critique/skills/design-critique)
+- Upstream: [kirodotdev/kirocrew](https://github.com/kirodotdev/kirocrew/tree/94dfacdb2d584277ddd032fb82636915c2850345/src/kiro_crew/apps/builtins/design_critique/skills/design-critique)
 - Author: kirocrew
-- Upstream path: `src/kiro_crew/apps/builtins/design_critique/skills/design-critique` at commit `320d29014b5ab6b09a992d59271cd843178564a8`
-- Retrieved: 2026-09-29
+- Upstream path: `src/kiro_crew/apps/builtins/design_critique/skills/design-critique` at commit `94dfacdb2d584277ddd032fb82636915c2850345`
+- Retrieved: 2026-11-09
 - License: Apache-2.0 (license file: `skills/testing/design-critique/LICENSE.txt`)
 - Local modifications:
   - 2026-08-29 (broken-reference): SKILL.md's evidence-pipeline section resolved `<skill-dir>` via a KiroCrew-runtime-specific shell-out (`python3 -c "import kiro_crew, pathlib; print(pathlib.Path(kiro_crew.__file__).parent / 'apps/builtins/design_critique/skills/design-critique')"`), which depends on the kiro_crew Python package and cannot resolve outside the KiroCrew app. Rewrote the paragraph to state that `<skill-dir>` is simply this skill's own directory (the folder containing SKILL.md) -- functionally identical instruction, no host dependency. [SKILL.md]
@@ -315,10 +335,10 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 
 ## design-review
 
-- Upstream: [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e/.claude/skills/design-review)
+- Upstream: [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/def84a70fadc3490d80901295a4f1951fdb2cc69/.claude/skills/design-review)
 - Author: Thientan Soparat
-- Upstream path: `.claude/skills/design-review` at commit `f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e`
-- Retrieved: 2026-09-29
+- Upstream path: `.claude/skills/design-review` at commit `def84a70fadc3490d80901295a4f1951fdb2cc69`
+- Retrieved: 2026-11-09
 - License: MIT (license file: `skills/testing/design-review/LICENSE.txt`)
 - Local modifications:
   - 2026-08-26 (portability): Upstream SKILL.md references repo-root shared files (workflows/design-review.md, accessibility/wcag-checklist.md, scripts/contrast.py, taste/design-taste.md) outside the skill's own directory. Bundled the specific referenced files into the vendored skill directory at the same relative paths already used in the prose, so no wording had to change. [workflows/design-review.md, accessibility/wcag-checklist.md, scripts/contrast.py, taste/design-taste.md]
@@ -344,20 +364,20 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 
 ## design-tokens
 
-- Upstream: [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e/.claude/skills/design-tokens)
+- Upstream: [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/def84a70fadc3490d80901295a4f1951fdb2cc69/.claude/skills/design-tokens)
 - Author: Thientan Soparat
-- Upstream path: `.claude/skills/design-tokens` at commit `f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e`
-- Retrieved: 2026-09-29
+- Upstream path: `.claude/skills/design-tokens` at commit `def84a70fadc3490d80901295a4f1951fdb2cc69`
+- Retrieved: 2026-11-09
 - License: MIT (license file: `skills/design-systems/design-tokens/LICENSE.txt`)
 - Local modifications:
   - 2026-08-26 (portability): Upstream SKILL.md references repo-root shared files (.claude/rules/tokens-and-color.md, .claude/rules/typography-and-spacing.md, scripts/validate_tokens.py, scripts/contrast.py) outside the skill's own directory. Bundled the specific referenced files into the vendored skill directory at the same relative paths already used in the prose, so no wording had to change. [.claude/rules/tokens-and-color.md, .claude/rules/typography-and-spacing.md, scripts/validate_tokens.py, scripts/contrast.py]
 
 ## diagram-design
 
-- Upstream: [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design/tree/57148ac6f7cf8f2d0080f23437ab2929bca15f3e/skills/diagram-design)
+- Upstream: [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design/tree/6a7f19fcc132b39b126bea90167679b46b14bcc4/skills/diagram-design)
 - Author: Cathryn Lavery
-- Upstream path: `skills/diagram-design` at commit `57148ac6f7cf8f2d0080f23437ab2929bca15f3e`
-- Retrieved: 2026-09-29
+- Upstream path: `skills/diagram-design` at commit `6a7f19fcc132b39b126bea90167679b46b14bcc4`
+- Retrieved: 2026-11-09
 - License: MIT (license file: `skills/visual-design/diagram-design/LICENSE.txt`)
 - Local modifications:
   - 2026-08-26 (portability): references/type-treemap.md, type-line.md (slopegraph and ridgeline variants), and type-scatter.md (bubble variant) each cite a repo-root scripts/verify-*.py geometry/contrast verifier as a functional gate the agent should run against its generated output, but these scripts live at the repository root (scripts/) rather than inside skills/diagram-design/ and are not among the three extractor scripts the skill directory itself ships. Bundled the five specific referenced verifiers (verify-treemap.py, verify-slopegraph.py, verify-ridgeline.py, verify-dumbbell.py, verify-bubble.py -- all confirmed standalone, stdlib-only Python with no shared-module imports) into the vendored skill's scripts/ directory at the paths the prose already uses, so the citations resolve without any wording change. Did not bundle their test-verify-*.py counterparts (maintainer/CI-only, never invoked from a SKILL.md/reference workflow step) or the many other repo-root scripts/verify-*.py and scripts/test-*.py files that SKILL.md, animation.md, and doctor.md already explicitly gate as 'from a repository checkout' / 'maintainer-checkout mode only', which the installed skill correctly treats as optional. [scripts/verify-treemap.py, scripts/verify-slopegraph.py, scripts/verify-ridgeline.py, scripts/verify-dumbbell.py, scripts/verify-bubble.py]
@@ -365,19 +385,19 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 
 ## experiment-designer
 
-- Upstream: [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills/tree/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/experiment-designer)
+- Upstream: [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills/tree/8f082544116fc0d014188e521ca40304cdfc86b0/product-team/skills/experiment-designer)
 - Author: Alireza Rezvani
-- Upstream path: `product-team/skills/experiment-designer` at commit `19392f7a08264ed00486a251f5b2098321771f94`
-- Retrieved: 2026-08-29
+- Upstream path: `product-team/skills/experiment-designer` at commit `8f082544116fc0d014188e521ca40304cdfc86b0`
+- Retrieved: 2026-11-09
 - License: MIT (license file: `skills/analytics/experiment-designer/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
 ## explain-interface
 
-- Upstream: [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/explain-interface)
+- Upstream: [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/659cc4e5b6df90cfe1f306f5ae1c83fa549e075c/skills/explain-interface)
 - Author: Jakub Krehel
-- Upstream path: `skills/explain-interface` at commit `ca483852de23d48ab4f4ea71da37dad12bd70a95`
-- Retrieved: 2026-08-26
+- Upstream path: `skills/explain-interface` at commit `659cc4e5b6df90cfe1f306f5ae1c83fa549e075c`
+- Retrieved: 2026-11-09
 - License: MIT (license file: `skills/design-engineering/explain-interface/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
@@ -405,21 +425,30 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 
 ## figma-integration
 
-- Upstream: [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e/.claude/skills/figma-integration)
+- Upstream: [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/def84a70fadc3490d80901295a4f1951fdb2cc69/.claude/skills/figma-integration)
 - Author: Thientan Soparat
-- Upstream path: `.claude/skills/figma-integration` at commit `f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e`
-- Retrieved: 2026-09-29
+- Upstream path: `.claude/skills/figma-integration` at commit `def84a70fadc3490d80901295a4f1951fdb2cc69`
+- Retrieved: 2026-11-09
 - License: MIT (license file: `skills/design-systems/figma-integration/LICENSE.txt`)
 - Local modifications:
   - 2026-08-26 (portability): Upstream SKILL.md references repo-root shared files (workflows/figma-integration.md, scripts/validate_tokens.py) outside the skill's own directory. Bundled the specific referenced files into the vendored skill directory at the same relative paths already used in the prose, so no wording had to change. [workflows/figma-integration.md, scripts/validate_tokens.py]
 
 ## find-animation-opportunities
 
-- Upstream: [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/find-animation-opportunities)
+- Upstream: [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/5206a950b715e0cabe7043ea0b2304332b91494e/skills/find-animation-opportunities)
 - Author: Emil Kowalski
-- Upstream path: `skills/find-animation-opportunities` at commit `d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7`
-- Retrieved: 2026-08-26
+- Upstream path: `skills/find-animation-opportunities` at commit `5206a950b715e0cabe7043ea0b2304332b91494e`
+- Retrieved: 2026-11-09
 - License: MIT (license file: `skills/testing/find-animation-opportunities/LICENSE.txt`)
+- Local modifications: none (byte-identical to upstream)
+
+## frames
+
+- Upstream: [raphaelsalaja/skills](https://github.com/raphaelsalaja/skills/tree/31031e9246a56cadb18e017521ff7e0c16c68050/skills/frames)
+- Author: Raphael Salaja
+- Upstream path: `skills/frames` at commit `31031e9246a56cadb18e017521ff7e0c16c68050`
+- Retrieved: 2026-11-09
+- License: MIT (license file: `skills/design-engineering/frames/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
 ## frontend-design
@@ -460,6 +489,15 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 - Local modifications:
   - 2026-08-29 (portability): Bundled the repo-root MIT LICENSE into the skill directory as LICENSE.txt; the skill directory itself ships no license file. [LICENSE.txt]
 
+## icons
+
+- Upstream: [raphaelsalaja/skills](https://github.com/raphaelsalaja/skills/tree/31031e9246a56cadb18e017521ff7e0c16c68050/skills/icons)
+- Author: Raphael Salaja
+- Upstream path: `skills/icons` at commit `31031e9246a56cadb18e017521ff7e0c16c68050`
+- Retrieved: 2026-11-09
+- License: MIT (license file: `skills/visual-design/icons/LICENSE.txt`)
+- Local modifications: none (byte-identical to upstream)
+
 ## image-to-code
 
 - Upstream: [its-thepoe/skills](https://github.com/its-thepoe/skills/tree/3172de431451bbad2958b1fd87a79d1ccd39b0e3/design/image-to-code)
@@ -472,10 +510,10 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 
 ## improve-animations
 
-- Upstream: [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/improve-animations)
+- Upstream: [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/5206a950b715e0cabe7043ea0b2304332b91494e/skills/improve-animations)
 - Author: Emil Kowalski
-- Upstream path: `skills/improve-animations` at commit `d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7`
-- Retrieved: 2026-08-26
+- Upstream path: `skills/improve-animations` at commit `5206a950b715e0cabe7043ea0b2304332b91494e`
+- Retrieved: 2026-11-09
 - License: MIT (license file: `skills/testing/improve-animations/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
@@ -500,19 +538,19 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 
 ## interface-review
 
-- Upstream: [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/interface-review)
+- Upstream: [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/659cc4e5b6df90cfe1f306f5ae1c83fa549e075c/skills/interface-review)
 - Author: Jakub Krehel
-- Upstream path: `skills/interface-review` at commit `ca483852de23d48ab4f4ea71da37dad12bd70a95`
-- Retrieved: 2026-08-26
+- Upstream path: `skills/interface-review` at commit `659cc4e5b6df90cfe1f306f5ae1c83fa549e075c`
+- Retrieved: 2026-11-09
 - License: MIT (license file: `skills/design-qa/interface-review/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
 ## journey-mapper
 
-- Upstream: [joeyvansommeren/journey-mapper](https://github.com/joeyvansommeren/journey-mapper/tree/bbb316a4c0a13d2f843c328f3a5fa94f64b82ff4/skills/journey-mapper)
+- Upstream: [joeyvansommeren/journey-mapper](https://github.com/joeyvansommeren/journey-mapper/tree/91ccd841e63609c04ba2dc19211ee1e706ba6fc5/skills/journey-mapper)
 - Author: Joey van Sommeren
-- Upstream path: `skills/journey-mapper` at commit `bbb316a4c0a13d2f843c328f3a5fa94f64b82ff4`
-- Retrieved: 2026-08-29
+- Upstream path: `skills/journey-mapper` at commit `91ccd841e63609c04ba2dc19211ee1e706ba6fc5`
+- Retrieved: 2026-11-09
 - License: Apache-2.0 (license file: `skills/research/journey-mapper/LICENSE.txt`)
 - Local modifications:
   - 2026-08-29 (portability): Repository license lives only at repo root (LICENSE), not inside the skill directory. Bundled a copy as LICENSE.txt inside the skill directory so the vendored directory is self-contained. [LICENSE.txt]
@@ -566,10 +604,10 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 
 ## onboarding
 
-- Upstream: [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills/tree/e55de886fe7580ec75cdb7ded5092b33f7d4ed58/skills/onboarding)
+- Upstream: [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/onboarding)
 - Author: Corey Haines
-- Upstream path: `skills/onboarding` at commit `e55de886fe7580ec75cdb7ded5092b33f7d4ed58`
-- Retrieved: 2026-08-29
+- Upstream path: `skills/onboarding` at commit `96798cf38736ecdba015a1d2b0521b0c8f8f41dd`
+- Retrieved: 2026-11-09
 - License: MIT (license file: `skills/interaction-design/onboarding/LICENSE.txt`)
 - Local modifications:
   - 2026-08-29 (portability): Repository license lives only at repo root (LICENSE), not inside the skill directory. Bundled a copy as LICENSE.txt inside the skill directory so the vendored directory is self-contained. [LICENSE.txt]
@@ -595,10 +633,10 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 
 ## pick-ui-library
 
-- Upstream: [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/pick-ui-library)
+- Upstream: [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/5206a950b715e0cabe7043ea0b2304332b91494e/skills/pick-ui-library)
 - Author: Emil Kowalski
-- Upstream path: `skills/pick-ui-library` at commit `d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7`
-- Retrieved: 2026-08-26
+- Upstream path: `skills/pick-ui-library` at commit `5206a950b715e0cabe7043ea0b2304332b91494e`
+- Retrieved: 2026-11-09
 - License: MIT (license file: `skills/design-systems/pick-ui-library/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
@@ -613,28 +651,28 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 
 ## product-analytics
 
-- Upstream: [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills/tree/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/product-analytics)
+- Upstream: [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills/tree/8f082544116fc0d014188e521ca40304cdfc86b0/product-team/skills/product-analytics)
 - Author: Alireza Rezvani
-- Upstream path: `product-team/skills/product-analytics` at commit `19392f7a08264ed00486a251f5b2098321771f94`
-- Retrieved: 2026-08-29
+- Upstream path: `product-team/skills/product-analytics` at commit `8f082544116fc0d014188e521ca40304cdfc86b0`
+- Retrieved: 2026-11-09
 - License: MIT (license file: `skills/analytics/product-analytics/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
 ## product-discovery
 
-- Upstream: [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills/tree/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/product-discovery)
+- Upstream: [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills/tree/8f082544116fc0d014188e521ca40304cdfc86b0/product-team/skills/product-discovery)
 - Author: Alireza Rezvani
-- Upstream path: `product-team/skills/product-discovery` at commit `19392f7a08264ed00486a251f5b2098321771f94`
-- Retrieved: 2026-08-29
+- Upstream path: `product-team/skills/product-discovery` at commit `8f082544116fc0d014188e521ca40304cdfc86b0`
+- Retrieved: 2026-11-09
 - License: MIT (license file: `skills/discovery/product-discovery/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
 ## prototype
 
-- Upstream: [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/prototype)
+- Upstream: [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/5206a950b715e0cabe7043ea0b2304332b91494e/skills/prototype)
 - Author: Emil Kowalski
-- Upstream path: `skills/prototype` at commit `d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7`
-- Retrieved: 2026-08-26
+- Upstream path: `skills/prototype` at commit `5206a950b715e0cabe7043ea0b2304332b91494e`
+- Retrieved: 2026-11-09
 - License: MIT (license file: `skills/prototyping/prototype/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
@@ -669,20 +707,20 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 
 ## review-a11y
 
-- Upstream: [maxgfr/ultra11y](https://github.com/maxgfr/ultra11y/tree/5ccb015c07c651d8a0e0400275fea39d3e767eac/skills/review-a11y)
+- Upstream: [maxgfr/ultra11y](https://github.com/maxgfr/ultra11y/tree/b245094b7528f8624cfbf84d00ee05422aeac24e/skills/review-a11y)
 - Author: maxgfr
-- Upstream path: `skills/review-a11y` at commit `5ccb015c07c651d8a0e0400275fea39d3e767eac`
-- Retrieved: 2026-09-29
+- Upstream path: `skills/review-a11y` at commit `b245094b7528f8624cfbf84d00ee05422aeac24e`
+- Retrieved: 2026-11-09
 - License: MIT (license file: `skills/accessibility/review-a11y/LICENSE.txt`)
 - Local modifications:
   - 2026-09-14 (translation): Added English glosses in brackets after French terms in SKILL.md (e.g. « région live » (live region)) so the rule against translating technical tokens reads clearly in English. The French wording, the rule and scripts/ultra11y.mjs are unchanged. [SKILL.md]
 
 ## review-animations
 
-- Upstream: [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7/skills/review-animations)
+- Upstream: [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/5206a950b715e0cabe7043ea0b2304332b91494e/skills/review-animations)
 - Author: Emil Kowalski
-- Upstream path: `skills/review-animations` at commit `d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7`
-- Retrieved: 2026-08-26
+- Upstream path: `skills/review-animations` at commit `5206a950b715e0cabe7043ea0b2304332b91494e`
+- Retrieved: 2026-11-09
 - License: MIT (license file: `skills/design-qa/review-animations/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
@@ -697,66 +735,75 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 
 ## signup
 
-- Upstream: [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills/tree/e55de886fe7580ec75cdb7ded5092b33f7d4ed58/skills/signup)
+- Upstream: [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/signup)
 - Author: Corey Haines
-- Upstream path: `skills/signup` at commit `e55de886fe7580ec75cdb7ded5092b33f7d4ed58`
-- Retrieved: 2026-08-29
+- Upstream path: `skills/signup` at commit `96798cf38736ecdba015a1d2b0521b0c8f8f41dd`
+- Retrieved: 2026-11-09
 - License: MIT (license file: `skills/interaction-design/signup/LICENSE.txt`)
 - Local modifications:
   - 2026-08-29 (portability): Repository license lives only at repo root (LICENSE), not inside the skill directory. Bundled a copy as LICENSE.txt inside the skill directory so the vendored directory is self-contained. [LICENSE.txt]
 
 ## silver-evaluate
 
-- Upstream: [thejparsenault/silver-design-framework](https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/evaluate)
+- Upstream: [thejparsenault/silver-design-framework](https://github.com/thejparsenault/silver-design-framework/tree/47001dc71fb544552b438838159d4c7f7527c404/framework/skills/evaluate)
 - Author: JP Arsenault
-- Upstream path: `framework/skills/evaluate` at commit `317ede0f594cda80f0d84b11098afac0c29e21b1`
-- Retrieved: 2026-08-26
+- Upstream path: `framework/skills/evaluate` at commit `47001dc71fb544552b438838159d4c7f7527c404`
+- Retrieved: 2026-11-09
 - License: MIT (license file: `skills/testing/silver-evaluate/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
 ## silver-ideate
 
-- Upstream: [thejparsenault/silver-design-framework](https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/ideate)
+- Upstream: [thejparsenault/silver-design-framework](https://github.com/thejparsenault/silver-design-framework/tree/47001dc71fb544552b438838159d4c7f7527c404/framework/skills/ideate)
 - Author: JP Arsenault
-- Upstream path: `framework/skills/ideate` at commit `317ede0f594cda80f0d84b11098afac0c29e21b1`
-- Retrieved: 2026-08-26
+- Upstream path: `framework/skills/ideate` at commit `47001dc71fb544552b438838159d4c7f7527c404`
+- Retrieved: 2026-11-09
 - License: MIT (license file: `skills/discovery/silver-ideate/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
 ## silver-measure
 
-- Upstream: [thejparsenault/silver-design-framework](https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/measure)
+- Upstream: [thejparsenault/silver-design-framework](https://github.com/thejparsenault/silver-design-framework/tree/47001dc71fb544552b438838159d4c7f7527c404/framework/skills/measure)
 - Author: JP Arsenault
-- Upstream path: `framework/skills/measure` at commit `317ede0f594cda80f0d84b11098afac0c29e21b1`
-- Retrieved: 2026-08-26
+- Upstream path: `framework/skills/measure` at commit `47001dc71fb544552b438838159d4c7f7527c404`
+- Retrieved: 2026-11-09
 - License: MIT (license file: `skills/analytics/silver-measure/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
 ## silver-research
 
-- Upstream: [thejparsenault/silver-design-framework](https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/research)
+- Upstream: [thejparsenault/silver-design-framework](https://github.com/thejparsenault/silver-design-framework/tree/47001dc71fb544552b438838159d4c7f7527c404/framework/skills/research)
 - Author: JP Arsenault
-- Upstream path: `framework/skills/research` at commit `317ede0f594cda80f0d84b11098afac0c29e21b1`
-- Retrieved: 2026-08-26
+- Upstream path: `framework/skills/research` at commit `47001dc71fb544552b438838159d4c7f7527c404`
+- Retrieved: 2026-11-09
 - License: MIT (license file: `skills/research/silver-research/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
 ## silver-structure
 
-- Upstream: [thejparsenault/silver-design-framework](https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/structure)
+- Upstream: [thejparsenault/silver-design-framework](https://github.com/thejparsenault/silver-design-framework/tree/47001dc71fb544552b438838159d4c7f7527c404/framework/skills/structure)
 - Author: JP Arsenault
-- Upstream path: `framework/skills/structure` at commit `317ede0f594cda80f0d84b11098afac0c29e21b1`
-- Retrieved: 2026-08-26
+- Upstream path: `framework/skills/structure` at commit `47001dc71fb544552b438838159d4c7f7527c404`
+- Retrieved: 2026-11-09
 - License: MIT (license file: `skills/information-architecture/silver-structure/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
 ## silver-synthesize
 
-- Upstream: [thejparsenault/silver-design-framework](https://github.com/thejparsenault/silver-design-framework/tree/317ede0f594cda80f0d84b11098afac0c29e21b1/framework/skills/synthesize)
+- Upstream: [thejparsenault/silver-design-framework](https://github.com/thejparsenault/silver-design-framework/tree/47001dc71fb544552b438838159d4c7f7527c404/framework/skills/synthesize)
 - Author: JP Arsenault
-- Upstream path: `framework/skills/synthesize` at commit `317ede0f594cda80f0d84b11098afac0c29e21b1`
-- Retrieved: 2026-08-26
+- Upstream path: `framework/skills/synthesize` at commit `47001dc71fb544552b438838159d4c7f7527c404`
+- Retrieved: 2026-11-09
 - License: MIT (license file: `skills/research/silver-synthesize/LICENSE.txt`)
+- Local modifications: none (byte-identical to upstream)
+
+## state-machine
+
+- Upstream: [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/659cc4e5b6df90cfe1f306f5ae1c83fa549e075c/skills/state-machine)
+- Author: Jakub Krehel
+- Upstream path: `skills/state-machine` at commit `659cc4e5b6df90cfe1f306f5ae1c83fa549e075c`
+- Retrieved: 2026-11-09
+- License: MIT (license file: `skills/interaction-design/state-machine/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
 ## survey-design
@@ -788,29 +835,29 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 
 ## token-build
 
-- Upstream: [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e/.claude/skills/token-build)
+- Upstream: [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills/tree/def84a70fadc3490d80901295a4f1951fdb2cc69/.claude/skills/token-build)
 - Author: Thientan Soparat
-- Upstream path: `.claude/skills/token-build` at commit `f2e2f7fcc5cb9d99bbd8ec5e0d75cebb98e21e7e`
-- Retrieved: 2026-09-29
+- Upstream path: `.claude/skills/token-build` at commit `def84a70fadc3490d80901295a4f1951fdb2cc69`
+- Retrieved: 2026-11-09
 - License: MIT (license file: `skills/design-systems/token-build/LICENSE.txt`)
 - Local modifications:
   - 2026-08-26 (portability): Upstream SKILL.md references repo-root shared files (workflows/token-build.md, scripts/validate_tokens.py, scripts/contrast.py) outside the skill's own directory. Bundled the specific referenced files into the vendored skill directory at the same relative paths already used in the prose, so no wording had to change. [workflows/token-build.md, scripts/validate_tokens.py, scripts/contrast.py]
 
 ## ui-design-system
 
-- Upstream: [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills/tree/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/ui-design-system)
+- Upstream: [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills/tree/8f082544116fc0d014188e521ca40304cdfc86b0/product-team/skills/ui-design-system)
 - Author: Alireza Rezvani
-- Upstream path: `product-team/skills/ui-design-system` at commit `19392f7a08264ed00486a251f5b2098321771f94`
-- Retrieved: 2026-08-29
+- Upstream path: `product-team/skills/ui-design-system` at commit `8f082544116fc0d014188e521ca40304cdfc86b0`
+- Retrieved: 2026-11-09
 - License: MIT (license file: `skills/design-systems/ui-design-system/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
 ## ultra11y
 
-- Upstream: [maxgfr/ultra11y](https://github.com/maxgfr/ultra11y/tree/5ccb015c07c651d8a0e0400275fea39d3e767eac/skills/ultra11y)
+- Upstream: [maxgfr/ultra11y](https://github.com/maxgfr/ultra11y/tree/b245094b7528f8624cfbf84d00ee05422aeac24e/skills/ultra11y)
 - Author: maxgfr
-- Upstream path: `skills/ultra11y` at commit `5ccb015c07c651d8a0e0400275fea39d3e767eac`
-- Retrieved: 2026-09-29
+- Upstream path: `skills/ultra11y` at commit `b245094b7528f8624cfbf84d00ee05422aeac24e`
+- Retrieved: 2026-11-09
 - License: MIT (license file: `skills/accessibility/ultra11y/LICENSE.txt`)
 - Local modifications:
   - 2026-09-14 (translation): Added short English glosses in brackets after the first use of each French RGAA term or quoted French tool string in the Markdown prose (e.g. « à évaluer » (to be evaluated)), plus a short English explanation after the verbatim French examples in audit.md, ci.md, dynamic.md and pages.md. The French wording itself, code blocks, JSON examples, sample output, references/standards.md (its table already gives English equivalents) and scripts/ultra11y.mjs are unchanged, because they are normative or match real tool output. [SKILL.md, references/audit.md, references/ci.md, references/devtools.md, references/dynamic.md, references/e2e.md, references/guidance.md, references/judgment.md, references/packs.md, references/pages.md, references/prd.md, references/runbook.md]
@@ -836,10 +883,10 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 
 ## ux-researcher-designer
 
-- Upstream: [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills/tree/19392f7a08264ed00486a251f5b2098321771f94/product-team/skills/ux-researcher-designer)
+- Upstream: [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills/tree/8f082544116fc0d014188e521ca40304cdfc86b0/product-team/skills/ux-researcher-designer)
 - Author: Alireza Rezvani
-- Upstream path: `product-team/skills/ux-researcher-designer` at commit `19392f7a08264ed00486a251f5b2098321771f94`
-- Retrieved: 2026-08-29
+- Upstream path: `product-team/skills/ux-researcher-designer` at commit `8f082544116fc0d014188e521ca40304cdfc86b0`
+- Retrieved: 2026-11-09
 - License: MIT (license file: `skills/research/ux-researcher-designer/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
@@ -855,11 +902,20 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 
 ## variant
 
-- Upstream: [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/ca483852de23d48ab4f4ea71da37dad12bd70a95/skills/variant)
+- Upstream: [jakubkrehel/skills](https://github.com/jakubkrehel/skills/tree/659cc4e5b6df90cfe1f306f5ae1c83fa549e075c/skills/variant)
 - Author: Jakub Krehel
-- Upstream path: `skills/variant` at commit `ca483852de23d48ab4f4ea71da37dad12bd70a95`
-- Retrieved: 2026-08-26
+- Upstream path: `skills/variant` at commit `659cc4e5b6df90cfe1f306f5ae1c83fa549e075c`
+- Retrieved: 2026-11-09
 - License: MIT (license file: `skills/prototyping/variant/LICENSE.txt`)
+- Local modifications: none (byte-identical to upstream)
+
+## viewports
+
+- Upstream: [raphaelsalaja/skills](https://github.com/raphaelsalaja/skills/tree/31031e9246a56cadb18e017521ff7e0c16c68050/skills/viewports)
+- Author: Raphael Salaja
+- Upstream path: `skills/viewports` at commit `31031e9246a56cadb18e017521ff7e0c16c68050`
+- Retrieved: 2026-11-09
+- License: MIT (license file: `skills/design-qa/viewports/LICENSE.txt`)
 - Local modifications: none (byte-identical to upstream)
 
 ## web-artifacts-builder
@@ -894,8 +950,8 @@ provenance. The canonical machine-readable record is `catalog/index.json`.
 
 - Upstream: [yhassy/wireframe-skill](https://github.com/yhassy/wireframe-skill/tree/948d4331343b18d913d5bc502da72ed0c5f19101)
 - Author: yhassy
-- Upstream path: `.` at commit `948d4331343b18d913d5bc502da72ed0c5f19101`
-- Retrieved: 2026-08-29
+- Upstream path: `.` at commit `ced7284d5708f7faac7f2a097be4b613d8298192`
+- Retrieved: 2026-11-09
 - License: MIT (license file: `skills/prototyping/wireframe-json/LICENSE.txt`)
 - Local modifications:
   - 2026-08-29 (collision-rename): Upstream frontmatter name is 'wireframe', which collides with an already-vendored 'wireframe' skill from manalkaff/opendesign selected earlier in this same research pass (research/manifests/wireframe.json). Renamed this skill's id/frontmatter name to 'wireframe-json' to disambiguate — the two skills do genuinely different things (opendesign's wireframe produces multiple rough divergent low-fi sketches; this one produces one precise, schema-validated, machine-readable wireframe with an editable preview) so both are worth keeping rather than dropping one. [SKILL.md]

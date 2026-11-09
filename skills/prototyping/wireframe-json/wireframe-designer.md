@@ -16,7 +16,7 @@ Wireframing is blueprint work, not painting. The designer intentionally displace
 
 ---
 
-## Context: What the Wireframer Perceives First
+## Context: What the Wireframe Designer Perceives First
 
 Before layout work begins, establish two things: what the screen is for, and what must exist on it.
 
@@ -144,7 +144,7 @@ Spacing encodes relationships. This is the Gestalt proximity principle applied s
 - Medium spacing → sibling components within a section (card to card in a grid)
 - Widest spacing → between major sections (one content group to the next)
 
-**The container rule.** A container's internal padding must be greater than or equal to the gap between its children. If children have 16px gap, the container needs at least 16px padding. Violating this makes the container boundary invisible — children appear to float outside their group.
+**The container rule.** A container that has padding must use padding greater than or equal to the gap between its children. If children have 16px gap, the container needs at least 16px padding. Violating this makes the container boundary invisible — children appear to float outside their group. A container without padding (a transparent grouping) has no boundary to protect; it keeps its group together by using a gap smaller than its parent's gap.
 
 **Consistency within a level.** All gaps at the same relationship level should use the same value. Don't use 12px between some cards and 16px between others in the same grid. If two elements have the same relationship to their parent, they should have the same spacing.
 
@@ -166,7 +166,7 @@ Step back and evaluate the whole wireframe as a composition.
 
 ---
 
-## The Wireframer's Toolkit
+## The Wireframe Designer's Toolkit
 
 These are the vocabulary of wireframe design — the values available for expressing hierarchy, spacing, and proportion. They are materials to deploy through the cognitive phases above, not rules to follow mechanically.
 
@@ -245,7 +245,7 @@ These are failure modes that wireframe designers recognize by their symptoms. Wh
 
 **Root cause:** Making spacing decisions per-element instead of per-relationship-level. Each decision is locally reasonable but globally inconsistent.
 
-**Fix:** Return to Phase 6. Determine how many relationship levels exist (usually 3-4). Assign one 8pt grid value to each level. Enforce that all gaps at the same level use the same value. Check that container padding ≥ child gap.
+**Fix:** Return to Phase 6. Determine how many relationship levels exist (usually 3-4). Assign one 8pt grid value to each level. Enforce that all gaps at the same level use the same value. Check the container rule.
 
 ### Grid Amnesia
 
@@ -269,7 +269,7 @@ These are failure modes that wireframe designers recognize by their symptoms. Wh
 
 **Root cause:** Local fixes to systemic problems. The grid or spacing logic has a structural flaw that propagates through the layout.
 
-**Fix:** Stop adjusting individual elements. Return to Phase 4 (Grid) or Phase 6 (Spacing Logic) and identify the structural issue. All spacing in a section should derive from the same relationship-level assignment. If it doesn't, the section needs restructuring, not tweaking. A single structural fix resolves multiple symptoms.
+**Fix:** Stop adjusting individual elements. Return to Phase 4 (Grid Establishment) or Phase 6 (Spacing Logic) and identify the structural issue. All spacing in a section should derive from the same relationship-level assignment. If it doesn't, the section needs restructuring, not tweaking. A single structural fix resolves multiple symptoms.
 
 ### Action Hierarchy Collapse
 
@@ -287,13 +287,13 @@ After generating the wireframe, verify against these questions. Each maps to a c
 
 | Question | Phase |
 |----------|-------|
-| Is the page purpose clear from layout alone (no color, no images, no icons needed)? | Phase 1 (Displacement) |
+| Is the page purpose clear from layout alone (no color, no images, no icons needed)? | Phase 1 (Displacement Check) |
 | Does every content element from the inventory appear in the wireframe? | Phase 2 (Content Inventory) |
-| Does the layout follow the identified scanning pattern for this user intent? | Phase 3 (Task & Scanning) |
-| Are major zones clearly defined with intentional proportions? | Phase 4 (Grid) |
-| Can you identify 2+ hierarchy levels by size alone? | Phase 5 (Hierarchy) |
-| Does spacing consistently encode relationship closeness? | Phase 6 (Spacing) |
-| Is container padding ≥ child gap for every container? | Phase 6 (Container rule) |
-| Can you distinguish primary actions (buttons) from secondary actions (links)? | Phase 5 (Hierarchy) |
-| Is there density contrast between sections (not uniformly dense or sparse)? | Phase 7 (Rhythm) |
+| Does the layout follow the identified scanning pattern for this user intent? | Phase 3 (Task & Scanning Pattern) |
+| Are major zones clearly defined with intentional proportions? | Phase 4 (Grid Establishment) |
+| Can you identify 2+ hierarchy levels by size alone? | Phase 5 (Hierarchy Assignment) |
+| Does spacing consistently encode relationship closeness? | Phase 6 (Spacing Logic) |
+| Does every padded container have padding ≥ child gap, and does every unpadded group use a gap smaller than its parent's gap? | Phase 6 (Spacing Logic) |
+| Can you distinguish primary actions (buttons) from secondary actions (links)? | Phase 5 (Hierarchy Assignment) |
+| Is there density contrast between sections (not uniformly dense or sparse)? | Phase 7 (Rhythm Verification) |
 | Are all spacing values from the 8pt grid (4, 8, 12, 16, 24, 32)? | Toolkit |

@@ -1,6 +1,6 @@
 schema: silver/skill/v2
 id: research
-version: 0.9.1
+version: 0.10.1
 summary: Plan ethical research and sanitized evidence handling.
 context_budget: small
 inputs:
@@ -72,9 +72,9 @@ completion:
       evaluation: human
   unresolved_questions: warn
   review:
-    required: true
+    required: false
     reviewer: human
-    checkpoint: Review and accept the result before a readiness-gated handoff.
+    checkpoint: Resolve user choices; readiness findings advise and do not block explicit requests.
 checks:
   - id: contract-integrity
     required: true
